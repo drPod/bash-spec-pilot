@@ -55,7 +55,7 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - Tests invoke utility via `$UTIL` env var. NEVER literal command name. Always quoted `"$UTIL"`.
 - Tests carry per-test `expected_to_fail: bool` field for documented error cases. Test body still exits 0 iff utility errored exactly as documented. Capture exit via `set +e; "$UTIL" ...; status=$?; set -e`.
 - Test filenames: `NNN_short_description.sh`, 3-digit zero-padded sequence.
-- macOS BSD `cp` != GNU `cp`. Always use `--target real-gnu` (Docker trixie) for canonical oracle. `--target real` is host-side smoke test only.
+- macOS BSD `cp` != GNU `cp`. `--target real-gnu` (Docker trixie) is the only behavioral oracle. `--target real` was removed 2026-05-07 (see `decisions.md` § 4.4) — host BSD cp on macOS is not the experiment's truth source.
 - Manpage source = Debian trixie pre-rendered groff. Pinned package versions in `freeze_manpage.sh` per util.
 - Logging = plain JSONL + git-versioned prompts + per-run dirs. NO MLflow / W&B / Langfuse / LangSmith.
 

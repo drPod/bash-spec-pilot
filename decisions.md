@@ -182,11 +182,12 @@ The brief said "Pin everything." Strict version pins on `bash`, `mandoc`, `curl`
 
 ### 4.4 `run_tests.py` target matrix
 
-- `--target real`: macOS host binary (BSD `cp` on the dev box). Quick "does this work at all" path. Kept for fast macOS iteration; not the canonical oracle.
 - `--target real-gnu`: GNU userland inside the trixie container. **The canonical oracle.**
 - `--target rust`: LLM-generated impl. `--in-docker` builds and runs it inside the container; without it, host-side cargo for fast loops.
 
 When `cargo build` fails the stderr is captured to `runs/<util>/<session>/round_<N>/impl/_logs/build_error.txt` so the next round's iteration prompt can include the verbatim error.
+
+**Decision: removed `--target real` (host BSD on macOS) since the GNU oracle in the trixie container is the only behavioral truth source. Documented 2026-05-07.** The earlier matrix kept `--target real` (host system util on the dev box, BSD `cp` in practice) as a "quick does-this-work-at-all" smoke path. Keeping it had a real cost: every time someone runs the wrong target, the result is a confidently-wrong oracle answer, which is exactly the bug that contaminated the legacy round-1 baseline (see `runs/cp/legacy_pre_session/_README.md`). Linux/GNU is the experiment's stated target; on macOS dev boxes, host BSD cp answers a different question. The legacy run's `results_real.jsonl` is preserved on disk as the BSD-vs-GNU oracle-bug demonstration.
 
 ### 4.5 `expected_to_fail` per-test field
 
@@ -237,7 +238,7 @@ No `runs/`, `scripts/`, `prompts/`, or `docs/` files were touched in that pass.
 ## 6. Other notes from earlier audits
 <a id="6-other-notes-from-earlier-audits"></a>
 
-- **`scripts/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/tests.md` produces. It now also accepts `--target real-gnu` (Docker), `--target real` (host), `--target rust`, plus `--in-docker`. *(Supersedes the earlier audit's "scripts/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild.)*
+- **`scripts/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/tests.md` produces. It accepts `--target real-gnu` (Docker, the canonical oracle) and `--target rust` (with optional `--in-docker`). *(Supersedes the earlier audit's "scripts/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild. Also supersedes the original `--target real` host-BSD path; see § 4.4.)*
 - **`pyproject.toml`** declares only `openai` and `python-dotenv` as runtime deps; the new driver still fits within those. No `jsonschema` package added — the schema check we do is shape-level (required keys), and OpenAI's server-side enforcement covers structural correctness.
 - **`README.md` repository layout** originally listed only `manpage.txt`. The 2026-05-07 README rewrite expanded it to cover `manpage.1` (raw groff), `_source.json` (provenance), the `runs/<util>/<session>/round_NN/` layout, `legacy_pre_session/`, `docker/`, and `docs/openai/`. *Supersedes the "did not edit on this pass; flagging" note from the first audit.*
 - **`.env.example`** was updated 2026-05-07 to drop `OPENAI_TEMPERATURE` and `OPENAI_SEED`, document the `seed` / `temperature` / `top_p` / `system_fingerprint` situation in comments, and add `OPENAI_REASONING_EFFORT`. *Supersedes the "deliberately left for the team to acknowledge rather than silently flipping a documentation file" note from the first audit — the team has now acknowledged.*

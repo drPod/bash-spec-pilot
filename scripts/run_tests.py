@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-"""Run a round's bash test suite against either the real system utility,
-the GNU oracle in the trixie container, or the LLM-generated Rust impl.
-Logs per-test results as JSONL.
+"""Run a round's bash test suite against either the GNU oracle in the
+trixie container or the LLM-generated Rust impl. Logs per-test results
+as JSONL.
+
+The pre-2026-05-07 driver also exposed `--target real`, which routed to
+whatever `<util>` the macOS host had on PATH (BSD `cp` in practice). That
+was removed once the GNU oracle in trixie was wired up: the host BSD
+binary is not the experiment's behavioral truth source, and keeping it
+as an option invited oracle-confusion bugs of the kind documented in
+`runs/cp/legacy_pre_session/_README.md`. See `decisions.md` § 4.4 for
+the removal note.
 
 Usage:
-    # Host-side macOS BSD oracle (quick "does it work at all" path):
-    python scripts/run_tests.py --util cp --session <sid> --round 1 --target real
-
     # Linux/GNU oracle inside the trixie container (the canonical oracle):
     python scripts/run_tests.py --util cp --session <sid> --round 1 --target real-gnu
 
@@ -38,7 +43,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import shutil
 import subprocess
 import sys
 import time
@@ -53,9 +57,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument(
         "--target",
         required=True,
-        choices=["real", "real-gnu", "rust"],
+        choices=["real-gnu", "rust"],
         help=(
-            "real    = host system util (macOS BSD on dev box). "
             "real-gnu = GNU userland inside the trixie container (the canonical oracle). "
             "rust    = LLM-generated Rust impl (host or container, see --in-docker)."
         ),
@@ -90,13 +93,6 @@ def load_manifest(round_dir: Path) -> dict[str, dict]:
 
 
 def resolve_target_host(util: str, round_dir: Path, target: str) -> str:
-    if target == "real":
-        bin_path = shutil.which(util)
-        if not bin_path:
-            print(f"no '{util}' on PATH", file=sys.stderr)
-            sys.exit(2)
-        return bin_path
-
     if target == "rust":
         impl_dir = round_dir / "impl"
         if not (impl_dir / "Cargo.toml").exists():
@@ -326,13 +322,7 @@ def main() -> None:
                 repo, args.util, args.session, args.round
             )
         else:
-            # `real` does not make sense in-docker (docker IS the gnu env);
-            # we route real-gnu instead.
-            print(
-                "--target real with --in-docker is not meaningful; use --target real-gnu",
-                file=sys.stderr,
-            )
-            sys.exit(2)
+            raise ValueError(f"unknown in-docker target {args.target}")
         print(f"target binary (in docker): {util_bin_inside}", file=sys.stderr)
         test_names = [t.name for t in tests]
         rows = run_batch_in_docker(

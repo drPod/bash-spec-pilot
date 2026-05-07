@@ -60,6 +60,8 @@ import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -448,17 +450,151 @@ def parse_json_loudly(text: str, schema: dict) -> dict:
     return obj
 
 
-def extract_impl(payload: dict, round_dir: Path) -> int:
+# ---------- pre-flight gates --------------------------------------------------
+#
+# Two cheap, local quality gates run inline at extraction time:
+#
+#   Gate A — `cargo check` on the freshly-written Rust impl. Catches
+#            syntax / type / borrow-check errors before run_tests.py is
+#            invoked. Host-side; no Linux toolchain needed at this gate.
+#   Gate B — `shellcheck -s bash` on each freshly-written test script.
+#            Catches the dumb bash mistakes (unquoted vars, bashisms in
+#            sh shebangs, etc.) that would otherwise surface only at
+#            test-execution time.
+#
+# Both gates are WARNING-not-failure: a broken artifact is research data
+# (we are cataloguing failure modes), so we always preserve the file on
+# disk and just record the gate result. If shellcheck is not installed,
+# Gate B logs a one-line warning and is skipped.
+
+
+def run_cargo_check(impl_dir: Path) -> dict:
+    """Run `cargo check --quiet` against the freshly-extracted impl.
+
+    Writes the combined stdout+stderr to `impl/_logs/cargo_check.txt` and
+    returns a dict suitable for merging into the JSONL log entry:
+        {"cargo_check_failed": bool, "cargo_check_skipped": bool}
+
+    Never raises. A broken impl stays on disk for failure-taxonomy
+    analysis; we only record the gate verdict.
+    """
+    log_dir = impl_dir / "_logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / "cargo_check.txt"
+
+    if shutil.which("cargo") is None:
+        msg = "cargo not on PATH; skipping cargo check pre-flight gate."
+        print(f"WARNING: {msg}", file=sys.stderr)
+        log_path.write_text(msg + "\n")
+        return {"cargo_check_failed": False, "cargo_check_skipped": True}
+
+    proc = subprocess.run(
+        ["cargo", "check", "--quiet"],
+        cwd=impl_dir,
+        capture_output=True,
+        text=True,
+    )
+    log_path.write_text(
+        f"$ cargo check --quiet  (rc={proc.returncode})\n"
+        f"--- stdout ---\n{proc.stdout}\n"
+        f"--- stderr ---\n{proc.stderr}\n"
+    )
+    failed = proc.returncode != 0
+    if failed:
+        print(
+            f"WARNING: cargo check failed (rc={proc.returncode}); broken impl "
+            f"preserved at {impl_dir} for failure-taxonomy analysis.",
+            file=sys.stderr,
+        )
+    return {"cargo_check_failed": failed, "cargo_check_skipped": False}
+
+
+def run_shellcheck(tests_dir: Path, test_filenames: list[str]) -> dict:
+    """Run `shellcheck -s bash` on each test file.
+
+    Writes aggregate output to `tests/_logs/shellcheck.txt` and returns:
+        {
+          "shellcheck_skipped": bool,
+          "shellcheck_total_issues": int,
+          "shellcheck_per_file": {filename: int_issues, ...},
+        }
+
+    Per-file issue counts are also stitched into the manifest entries by
+    the caller (extract_tests) — this function only reports them.
+    """
+    log_dir = tests_dir / "_logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / "shellcheck.txt"
+
+    if shutil.which("shellcheck") is None:
+        msg = "shellcheck not on PATH; skipping shellcheck pre-flight gate."
+        print(f"WARNING: {msg}", file=sys.stderr)
+        log_path.write_text(msg + "\n")
+        return {
+            "shellcheck_skipped": True,
+            "shellcheck_total_issues": 0,
+            "shellcheck_per_file": {},
+        }
+
+    chunks: list[str] = []
+    per_file: dict[str, int] = {}
+    total = 0
+    for fn in test_filenames:
+        path = tests_dir / fn
+        # `-f gcc` -> one diagnostic per line, parseable via line count.
+        proc = subprocess.run(
+            ["shellcheck", "-s", "bash", "-f", "gcc", str(path)],
+            capture_output=True,
+            text=True,
+        )
+        # gcc format emits one issue per stdout line; rc=0 means clean.
+        issues = sum(1 for ln in proc.stdout.splitlines() if ln.strip())
+        per_file[fn] = issues
+        total += issues
+        chunks.append(
+            f"$ shellcheck -s bash -f gcc {fn}  (rc={proc.returncode}, issues={issues})\n"
+            f"{proc.stdout}"
+        )
+        if proc.stderr:
+            chunks.append(f"--- stderr ---\n{proc.stderr}")
+    log_path.write_text("\n".join(chunks) + "\n")
+    if total:
+        print(
+            f"WARNING: shellcheck reported {total} issue(s) across "
+            f"{sum(1 for v in per_file.values() if v)} of {len(test_filenames)} test files; "
+            f"see {log_path} (artifacts preserved for analysis).",
+            file=sys.stderr,
+        )
+    return {
+        "shellcheck_skipped": False,
+        "shellcheck_total_issues": total,
+        "shellcheck_per_file": per_file,
+    }
+
+
+def extract_impl(payload: dict, round_dir: Path) -> tuple[int, dict]:
+    """Write Rust impl artifacts; run the cargo-check pre-flight gate.
+
+    Returns (1, gate_info) where gate_info is suitable for merging into the
+    JSONL log entry (keys: cargo_check_failed, cargo_check_skipped).
+    """
     impl_dir = round_dir / "impl"
     (impl_dir / "src").mkdir(parents=True, exist_ok=True)
     (impl_dir / "src" / "main.rs").write_text(payload["main_rs"])
     cargo_toml = payload.get("cargo_toml") or CARGO_TOML_FALLBACK
     (impl_dir / "Cargo.toml").write_text(cargo_toml)
     (impl_dir / "_deps_rationale.txt").write_text(payload.get("deps_rationale", ""))
-    return 1
+    gate_info = run_cargo_check(impl_dir)
+    return 1, gate_info
 
 
-def extract_tests(payload: dict, round_dir: Path) -> int:
+def extract_tests(payload: dict, round_dir: Path) -> tuple[int, dict]:
+    """Write bash tests + manifest; run the shellcheck pre-flight gate.
+
+    Returns (n_tests, gate_info) where gate_info is suitable for merging
+    into the JSONL log entry. Per-file issue counts are also written into
+    each manifest entry under `shellcheck_issues`.
+    """
     tests_dir = round_dir / "tests"
     tests_dir.mkdir(parents=True, exist_ok=True)
     n = 0
@@ -477,8 +613,17 @@ def extract_tests(payload: dict, round_dir: Path) -> int:
             {k: t[k] for k in ("filename", "exercises", "expected", "expected_to_fail")}
         )
         n += 1
+
+    gate_info = run_shellcheck(tests_dir, [m["filename"] for m in manifest])
+    # Stitch per-file issue counts into the manifest entries so downstream
+    # tooling (run_tests.py / observations) can correlate test failures
+    # with bash-level lint signals.
+    per_file = gate_info.get("shellcheck_per_file", {})
+    for m in manifest:
+        m["shellcheck_issues"] = per_file.get(m["filename"], 0)
+
     (tests_dir / "_manifest.json").write_text(json.dumps(manifest, indent=2))
-    return n
+    return n, gate_info
 
 
 def main() -> None:
@@ -504,6 +649,18 @@ def main() -> None:
     output_details = usage.get("output_tokens_details") or {}
     reasoning_tokens = output_details.get("reasoning_tokens")
 
+    payload = parse_json_loudly(text, schema_for(args.prompt))
+
+    # Run the appropriate pre-flight gate before writing the JSONL log
+    # entry so the gate verdict can be recorded inline. Both gates are
+    # WARNING-not-failure (see run_cargo_check / run_shellcheck).
+    if args.prompt == "impl":
+        _, gate_info = extract_impl(payload, round_dir)
+        print(f"impl written: {round_dir / 'impl'}")
+    else:
+        n, gate_info = extract_tests(payload, round_dir)
+        print(f"{n} tests written: {round_dir / 'tests'}")
+
     log_entry = {
         "ts": time.time(),
         "util": args.util,
@@ -520,18 +677,10 @@ def main() -> None:
         "manpage_sha256": manpage_sha,
         "feedback_sha256": feedback_sha or None,
         "reasoning_effort": os.environ.get("OPENAI_REASONING_EFFORT"),
+        **gate_info,
     }
     with (logs_dir / "log.jsonl").open("a") as f:
         f.write(json.dumps(log_entry) + "\n")
-
-    payload = parse_json_loudly(text, schema_for(args.prompt))
-
-    if args.prompt == "impl":
-        extract_impl(payload, round_dir)
-        print(f"impl written: {round_dir / 'impl'}")
-    else:
-        n = extract_tests(payload, round_dir)
-        print(f"{n} tests written: {round_dir / 'tests'}")
 
     print(f"session: {session}")
     print(f"duration: {dt:.1f}s, usage: {raw.get('usage')}")
