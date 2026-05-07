@@ -1,0 +1,1 @@
+I used only filetime and libc in addition to the standard library: filetime provides portable Unix timestamp preservation and libc is used for chown/lchown and umask. The implementation covers the common GNU cp modes and flags from the page, while intentionally ignoring SELinux contexts, xattrs/ACLs, sparse/reflink optimizations, and special-file device recreation.

@@ -1,0 +1,13 @@
+$ cargo check --quiet  (rc=0)
+--- stdout ---
+
+--- stderr ---
+warning: unused import: `PermissionsExt`
+ --> src/main.rs:9:51
+  |
+9 | use std::os::unix::fs::{FileTypeExt, MetadataExt, PermissionsExt};
+  |                                                   ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+

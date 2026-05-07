@@ -1,5 +1,7 @@
 # Bash Utility Specifications via LLMs — Exploratory Experiment
 
+> **Start here if you're Aaron:** [`for_aaron.md`](for_aaron.md) is the one-page status report tailored for our meeting (4-utility result table, the LLM-vs-LLM drift finding, the sudo split-manpage failure class, and the open questions). The rest of this README is project framing for anyone landing on the repo cold.
+
 This repository contains an exploratory research experiment investigating whether large language models (LLMs) can extract behaviorally-faithful information from Unix `man` pages. The work is part of a broader effort, led by Prof. Vikram Adve's group at UIUC, to formally verify LLM-generated Bash programs.
 
 ## Why this project exists
@@ -173,6 +175,8 @@ Read in this order:
 4. **`2511.19422v1.pdf` — SLMFix (Fu, Gupta et al., 2025).** RL fine-tuning to fix syntax/type errors in LLM-generated code for low-resource DSLs. Less directly relevant to your immediate task but useful context for how the lab thinks about LLM-output reliability.
 
 The `literature/` directory contains downloaded prior work most directly relevant to the man-page-to-implementation question, with a synthesis (`literature/_synthesis.md`) describing what's been tried, what's known about LLM failure modes from prior empirical studies, and where this experiment fits. Recommended order within `literature/`: Caruca → Endres → Tambon → Westenfelder. The remaining seven are background, not blocking.
+
+Papers in `literature/` and the Astrogator/SLMFix/Prelim PDFs at the repo root were ingested into [Delphi](https://github.com/synthetic-sciences/delphi) — a local RAG / indexing MCP server — to enable semantic search over the corpus during analysis. `delphi research` (deep mode) was used during the Caruca-positioning write-up to ground claims in indexed paper chunks rather than paraphrasing from memory.
 
 ## What this work is *not*
 

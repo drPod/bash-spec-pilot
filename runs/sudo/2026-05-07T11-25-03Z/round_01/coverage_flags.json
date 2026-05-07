@@ -1,0 +1,50 @@
+{
+  "util": "sudo",
+  "session": "2026-05-07T11-25-03Z",
+  "round": 1,
+  "documented_count": 29,
+  "exercised_count": 19,
+  "coverage_pct": 65.52,
+  "matched": [
+    "--preserve-env",
+    "-C",
+    "-D",
+    "-E",
+    "-H",
+    "-K",
+    "-P",
+    "-V",
+    "-b",
+    "-e",
+    "-g",
+    "-h",
+    "-i",
+    "-k",
+    "-l",
+    "-n",
+    "-s",
+    "-u",
+    "-v"
+  ],
+  "unmatched": [
+    "-A",
+    "-B",
+    "-N",
+    "-R",
+    "-S",
+    "-T",
+    "-U",
+    "-p",
+    "-r",
+    "-t"
+  ],
+  "extra_used_not_documented": [
+    "--help",
+    "-F",
+    "-G",
+    "-c",
+    "-d",
+    "-f",
+    "-q"
+  ]
+}

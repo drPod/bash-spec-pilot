@@ -1,0 +1,37 @@
+{
+  "util": "mv",
+  "session": "2026-05-07T11-11-40Z",
+  "round": 1,
+  "documented_count": 18,
+  "exercised_count": 16,
+  "coverage_pct": 88.89,
+  "matched": [
+    "--backup",
+    "--debug",
+    "--exchange",
+    "--help",
+    "--no-copy",
+    "--strip-trailing-slashes",
+    "--update",
+    "--version",
+    "-T",
+    "-b",
+    "-f",
+    "-i",
+    "-n",
+    "-t",
+    "-u",
+    "-v"
+  ],
+  "unmatched": [
+    "-S",
+    "-Z"
+  ],
+  "extra_used_not_documented": [
+    "--suffix",
+    "-L",
+    "-d",
+    "-e",
+    "-s"
+  ]
+}

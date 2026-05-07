@@ -1,0 +1,1 @@
+This implementation uses only libc for POSIX metadata/access/fnmatch/user-group lookups and regex for GNU-style -regex/-iregex approximations. It covers common traversal, tests, operators, printing, deletion and exec behavior, while intentionally simplifying locale/SELinux/xattrs/sparse handling and some exact GNU formatting details.

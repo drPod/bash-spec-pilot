@@ -1,0 +1,42 @@
+$ cargo check --quiet  (rc=101)
+--- stdout ---
+
+--- stderr ---
+error[E0425]: cannot find value `SYS_renameat2` in crate `libc`
+   --> src/main.rs:592:19
+    |
+592 |             libc::SYS_renameat2,
+    |                   ^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `RENAME_EXCHANGE` in crate `libc`
+    --> src/main.rs:597:19
+     |
+ 597 |             libc::RENAME_EXCHANGE,
+     |                   ^^^^^^^^^^^^^^^ help: a constant with a similar name exists: `RENAME_EXCL`
+     |
+    ::: /Users/darshpoddar/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.186/src/unix/bsd/apple/mod.rs:3287:1
+     |
+3287 | pub const RENAME_EXCL: c_uint = 0x00000004;
+     | ----------------------------- similarly named constant `RENAME_EXCL` defined here
+
+warning: variable does not need to be mutable
+   --> src/main.rs:157:9
+    |
+157 |     let mut args: Vec<OsString> = env::args_os().skip(1).collect();
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `src`
+   --> src/main.rs:409:19
+    |
+409 | fn should_replace(src: &Path, dst: &Path, src_meta: &Metadata, dst_meta: &Metadata, opts: &Options) -> Result<bool, ()> {
+    |                   ^^^ help: if this is intentional, prefix it with an underscore: `_src`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `mv_impl` (bin "util") due to 2 previous errors; 2 warnings emitted
+

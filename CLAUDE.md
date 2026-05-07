@@ -6,7 +6,7 @@
   from agent context injection but readable by humans via Read tool.
 
   Maintainer notes (human-only, agent never sees these):
-    - Repo URL: local only; no remote yet.
+    - Repo URL: https://github.com/drPod/bash-spec-pilot (public, first push 2026-05-07).
     - Astrogator paper: arxiv 2507.13290 (mirrored at repo root as 2507.13290v2.pdf).
     - SLMFix paper: arxiv 2511.19422 (mirrored at repo root as 2511.19422v1.pdf).
     - Caruca paper: arxiv 2510.14279 (mirrored at literature/caruca_2025_spec_mining.pdf).

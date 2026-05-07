@@ -1,0 +1,52 @@
+{
+  "util": "cp",
+  "session": "legacy_pre_session",
+  "round": 1,
+  "documented_count": 36,
+  "exercised_count": 28,
+  "coverage_pct": 77.78,
+  "matched": [
+    "--attributes-only",
+    "--backup",
+    "--debug",
+    "--keep-directory-symlink",
+    "--no-preserve",
+    "--parents",
+    "--preserve",
+    "--remove-destination",
+    "--strip-trailing-slashes",
+    "--update",
+    "-H",
+    "-L",
+    "-P",
+    "-R",
+    "-S",
+    "-T",
+    "-a",
+    "-b",
+    "-d",
+    "-f",
+    "-i",
+    "-l",
+    "-n",
+    "-p",
+    "-s",
+    "-t",
+    "-u",
+    "-x"
+  ],
+  "unmatched": [
+    "--context",
+    "--copy-contents",
+    "--help",
+    "--reflink",
+    "--sparse",
+    "--version",
+    "-Z",
+    "-v"
+  ],
+  "extra_used_not_documented": [
+    "-c",
+    "-e"
+  ]
+}

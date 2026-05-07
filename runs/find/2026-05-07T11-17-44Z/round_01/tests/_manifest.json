@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "001_default_print.sh",
+    "exercises": "No expression defaults to printing matched paths",
+    "expected": "Starting point and depth-1 children are printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_maxdepth_zero.sh",
+    "exercises": "-maxdepth 0",
+    "expected": "Only the starting point is processed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_mindepth_one.sh",
+    "exercises": "-mindepth 1",
+    "expected": "Children but not the starting point are processed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_depth_order.sh",
+    "exercises": "-depth traversal order",
+    "expected": "Child is printed before its containing directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_name_matches_dotfile.sh",
+    "exercises": "-name shell pattern matching",
+    "expected": "Pattern *foo* matches .foobar",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_iname_case_insensitive.sh",
+    "exercises": "-iname case-insensitive name matching",
+    "expected": "Pattern f?? matches Foo",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_path_absolute_pattern.sh",
+    "exercises": "-path whole-path shell pattern matching",
+    "expected": "Absolute pattern matches src/misc/file",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_regextype_posix_regex.sh",
+    "exercises": "-regextype posix-extended with -regex",
+    "expected": "Extended regex matches foo123 only",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_type_comma_list.sh",
+    "exercises": "GNU -type f,d,l comma-separated types",
+    "expected": "Regular file, directory, and symlink are matched",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_p_symlink_not_followed.sh",
+    "exercises": "-P symbolic link handling",
+    "expected": "Symlink itself matches -type l",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_l_follows_symlink_dir.sh",
+    "exercises": "-L follows symbolic links to directories",
+    "expected": "File inside the linked directory is visited",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_h_follows_cmdline_symlink_dir.sh",
+    "exercises": "-H follows command-line symlink to directory",
+    "expected": "File inside command-line symlinked directory is visited",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_lname_symlink_target.sh",
+    "exercises": "-lname shell pattern on symlink contents",
+    "expected": "Symlink whose target ends in target is matched",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_xtype_symlink_target_type.sh",
+    "exercises": "-xtype target type for symlinks",
+    "expected": "Symlink to a regular file matches -xtype f",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_empty_files_and_dirs.sh",
+    "exercises": "-empty test",
+    "expected": "Empty regular file and empty directory are matched",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_size_bytes_exact.sh",
+    "exercises": "-size n c byte units",
+    "expected": "Only the 3-byte file matches -size 3c",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_perm_exact_octal.sh",
+    "exercises": "-perm mode exact octal match",
+    "expected": "Only the file with mode 0640 matches",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_newer_reference.sh",
+    "exercises": "-newer reference modification time test",
+    "expected": "Only the file newer than ref is matched",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_printf_format.sh",
+    "exercises": "-printf %f and %s directives",
+    "expected": "Output is [abc:3] with no implicit newline",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_print0_nul_terminator.sh",
+    "exercises": "-print0 NUL-terminated exact filename output",
+    "expected": "Output bytes are pathname followed by NUL",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_delete_file.sh",
+    "exercises": "-delete action on regular file",
+    "expected": "Matched file no longer exists",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_prune_skips_subtree.sh",
+    "exercises": "-prune with -o to omit a subtree",
+    "expected": "Only the file outside the pruned subtree is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_quit_stops_immediately.sh",
+    "exercises": "-quit action",
+    "expected": "Only the first starting point is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "024_exec_action.sh",
+    "exercises": "-exec command ; action",
+    "expected": "Command creates marker content done",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "025_files0_from_startpoints.sh",
+    "exercises": "-files0-from file with NUL-separated starting points",
+    "expected": "The listed file and directory are processed as start points",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "026_d_help_lists_debug_options.sh",
+    "exercises": "-D help debug option listing",
+    "expected": "Help text mentions exec debug option",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "027_olevel_preserves_results.sh",
+    "exercises": "-O3 query optimisation preserving effect",
+    "expected": "Optimized search still prints b",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "028_missing_startpoint_errors.sh",
+    "exercises": "Documented error: nonexistent starting point",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "029_files0_from_with_path_errors.sh",
+    "exercises": "Documented error: -files0-from plus command-line starting point",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "030_files0_from_empty_name_errors.sh",
+    "exercises": "Documented error: zero-length start point in -files0-from file",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]

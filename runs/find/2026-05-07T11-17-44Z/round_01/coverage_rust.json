@@ -1,0 +1,21 @@
+{
+  "compile_failed": false,
+  "line_coverage_pct": 75.84269662921348,
+  "files": [
+    {
+      "path": [
+        "/",
+        "work",
+        "runs",
+        "find",
+        "2026-05-07T11-17-44Z",
+        "round_01",
+        "impl",
+        "src",
+        "main.rs"
+      ],
+      "covered": 135,
+      "coverable": 178
+    }
+  ]
+}

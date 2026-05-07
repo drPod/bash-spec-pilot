@@ -1,0 +1,32 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded filetime v0.2.27
+   Compiling cp_impl v0.1.0 (/work/runs/cp/legacy_pre_session/round_01/impl)
+warning: unused import: `Read`
+ --> src/main.rs:6:21
+  |
+6 | use std::io::{self, Read, Write};
+  |                     ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0515]: cannot return value referencing temporary value
+   --> src/main.rs:159:43
+    |
+159 |         .or_else(|| if backup_requested { std::env::var("VERSION_CONTROL").ok().as_deref() } else { None });
+    |                                           -------------------------------------^^^^^^^^^^^
+    |                                           |
+    |                                           returns a value referencing data owned by the current function
+    |                                           temporary value created here
+
+warning: unused variable: `src`
+   --> src/main.rs:456:39
+    |
+456 |     fn prepare_destination(&mut self, src: &Path, dst: &Path, src_meta: Option<&fs::Metadata>) -> Result<(), String> {
+    |                                       ^^^ help: if this is intentional, prefix it with an underscore: `_src`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+For more information about this error, try `rustc --explain E0515`.
+warning: `cp_impl` (bin "util") generated 2 warnings
+error: could not compile `cp_impl` (bin "util") due to 1 previous error; 2 warnings emitted

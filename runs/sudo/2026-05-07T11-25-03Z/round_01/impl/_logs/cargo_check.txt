@@ -1,0 +1,37 @@
+$ cargo check --quiet  (rc=0)
+--- stdout ---
+
+--- stderr ---
+warning: unused imports: `Gid` and `getegid`
+ --> src/main.rs:1:27
+  |
+1 | use nix::unistd::{chroot, getegid, geteuid, getgid, getuid, Gid, Group, Uid, User};
+  |                           ^^^^^^^                           ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Read`
+ --> src/main.rs:5:21
+  |
+5 | use std::io::{self, Read, Write};
+  |                     ^^^^
+
+warning: variable does not need to be mutable
+  --> src/main.rs:95:9
+   |
+95 |     let mut args: Vec<String> = env::args().skip(1).collect();
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> src/main.rs:159:17
+    |
+159 |             let mut need_val = |i: &mut usize| -> Result<String, String> {
+    |                 ----^^^^^^^^
+    |                 |
+    |                 help: remove this `mut`
+
+

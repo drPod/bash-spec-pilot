@@ -21,8 +21,9 @@ target/
 Cargo.lock
 **/*.rs.bk
 
-# Experiment outputs (per-run dirs, large + reproducible from prompts/inputs)
-runs/
+# Experiment outputs — track everything per run for Aaron review (narrative,
+# logs, impl crates, test scripts, observations). Rust build artifacts and lockfiles
+# inside runs/ caught by the global target/ + Cargo.lock rules above.
 
 # Editor / OS
 .DS_Store

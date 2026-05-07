@@ -1,0 +1,49 @@
+$ cargo check --quiet  (rc=101)
+--- stdout ---
+
+--- stderr ---
+warning: unused import: `Read`
+ --> src/main.rs:6:21
+  |
+6 | use std::io::{self, Read, Write};
+  |                     ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0308]: mismatched types
+    --> src/main.rs:346:116
+     |
+ 346 |         if let (Ok(sc), Ok(dc)) = (fs::canonicalize(src), dst.parent().map(fs::canonicalize).transpose().unwrap_or(Ok(PathBuf::new()))) {
+     |                                                                                                          --------- ^^^^^^^^^^^^^^^^^^ expected `Option<PathBuf>`, found `Result<PathBuf, _>`
+     |                                                                                                          |
+     |                                                                                                          arguments to this method are incorrect
+     |
+     = note: expected enum `Option<PathBuf>`
+                found enum `Result<PathBuf, _>`
+help: the return type of this call is `Result<PathBuf, _>` due to the type of the argument passed
+    --> src/main.rs:346:59
+     |
+ 346 |         if let (Ok(sc), Ok(dc)) = (fs::canonicalize(src), dst.parent().map(fs::canonicalize).transpose().unwrap_or(Ok(PathBuf::new()))) {
+     |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^------------------^
+     |                                                                                                                    |
+     |                                                                                                                    this argument influences the return type of `unwrap_or`
+note: method defined here
+    --> /Users/darshpoddar/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/result.rs:1590:18
+     |
+1590 |     pub const fn unwrap_or(self, default: T) -> T
+     |                  ^^^^^^^^^
+
+error[E0308]: mismatched types
+   --> src/main.rs:346:25
+    |
+346 |         if let (Ok(sc), Ok(dc)) = (fs::canonicalize(src), dst.parent().map(fs::canonicalize).transpose().unwrap_or(Ok(PathBuf::new()))) {
+    |                         ^^^^^^    ----------------------------------------------------------------------------------------------------- this expression has type `(Result<PathBuf, std::io::Error>, Option<PathBuf>)`
+    |                         |
+    |                         expected `Option<PathBuf>`, found `Result<_, _>`
+    |
+    = note: expected enum `Option<PathBuf>`
+               found enum `Result<_, _>`
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `cp_impl` (bin "util") due to 2 previous errors; 1 warning emitted
+

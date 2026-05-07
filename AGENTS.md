@@ -19,7 +19,7 @@ Research experiment investigating whether large language models can extract beha
 ## Where to find code
 
 - **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory) — `scripts/driver.py`.
-- **Test runner** (executes a round's `tests/*.sh` against the real BSD utility, the GNU utility inside Docker, or the LLM-generated Rust impl, and writes `results_<target>.jsonl`) — `scripts/run_tests.py`.
+- **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `decisions.md` § 4.4.
 - **Manpage freezer** (fetches Debian trixie groff, renders with `mandoc -Tutf8 | col -bx`, writes `utils/<util>/manpage.txt` plus a provenance JSON) — `scripts/freeze_manpage.sh`.
 - **Evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval_round.sh`.
 - **Flag coverage metric** — `scripts/coverage_flags.py`.

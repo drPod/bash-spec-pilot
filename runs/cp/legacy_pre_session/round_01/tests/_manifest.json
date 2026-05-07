@@ -1,0 +1,182 @@
+[
+  {
+    "filename": "001_basic_file_copy.sh",
+    "exercises": "default SOURCE DEST file copy",
+    "expected": "destination file has the source content",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "002_multiple_sources_to_directory.sh",
+    "exercises": "SOURCE... DIRECTORY form",
+    "expected": "a source file is copied under the target directory",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "003_target_directory_option.sh",
+    "exercises": "-t, --target-directory=DIRECTORY",
+    "expected": "source is copied into the specified target directory",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "004_no_target_directory_error.sh",
+    "exercises": "-T, --no-target-directory error with directory DEST",
+    "expected": "copy fails when DEST is an existing directory",
+    "expected_to_fail": true
+  },
+  {
+    "filename": "005_recursive_one_file_system_copy.sh",
+    "exercises": "-R recursive copy with -x, --one-file-system on same filesystem",
+    "expected": "nested regular file is present in copied directory tree",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "006_archive_preserves_symlink.sh",
+    "exercises": "-a, --archive as recursive no-dereference preservation",
+    "expected": "symlink inside copied tree remains a symlink",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "007_attributes_only_empty_data.sh",
+    "exercises": "--attributes-only",
+    "expected": "destination exists with zero bytes of data",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "008_link_hardlink_instead_of_copy.sh",
+    "exercises": "-l, --link",
+    "expected": "destination and source have the same inode",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "009_symbolic_link_instead_of_copy.sh",
+    "exercises": "-s, --symbolic-link",
+    "expected": "destination is a symlink pointing at the source path",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "010_no_dereference_copies_symlink.sh",
+    "exercises": "-P, --no-dereference",
+    "expected": "destination is a symlink with the same referent",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "011_dereference_copies_referent.sh",
+    "exercises": "-L, --dereference",
+    "expected": "destination is regular file containing referent data",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "012_follow_command_line_symlink.sh",
+    "exercises": "-H follows command-line symbolic links in SOURCE",
+    "expected": "destination is a regular copy of the command-line symlink referent",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "013_d_preserves_hardlink_relationship.sh",
+    "exercises": "-d as --no-dereference --preserve=links",
+    "expected": "copied hard-linked sources remain hard-linked to each other",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "014_p_preserves_timestamps.sh",
+    "exercises": "-p preserves timestamps",
+    "expected": "destination mtime equals source mtime",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "015_preserve_mode_attribute.sh",
+    "exercises": "--preserve=mode",
+    "expected": "destination mode matches the source mode despite restrictive umask",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "016_no_preserve_mode_attribute.sh",
+    "exercises": "--no-preserve=mode overriding -p",
+    "expected": "destination mode is created under umask rather than preserved",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "017_parents_full_source_name.sh",
+    "exercises": "--parents",
+    "expected": "destination contains the source path hierarchy under the target directory",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "018_strip_trailing_slashes.sh",
+    "exercises": "--strip-trailing-slashes with -P",
+    "expected": "source symlink with trailing slash is copied as a symlink",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "019_b_creates_simple_backup.sh",
+    "exercises": "-b simple backup of existing destination",
+    "expected": "backup file with default suffix contains old destination content",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "020_backup_suffix_option.sh",
+    "exercises": "--backup=CONTROL and -S, --suffix=SUFFIX",
+    "expected": "backup uses the requested suffix and stores the old destination",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "021_no_clobber_skips_existing.sh",
+    "exercises": "-n, --no-clobber",
+    "expected": "existing destination content is left unchanged",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "022_interactive_decline_overwrite.sh",
+    "exercises": "-i, --interactive prompt before overwrite",
+    "expected": "answering no leaves existing destination unchanged",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "023_update_none_skips_existing.sh",
+    "exercises": "--update=none",
+    "expected": "existing destination is not replaced and command succeeds",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "024_update_none_fail_errors_on_skip.sh",
+    "exercises": "--update=none-fail error behavior",
+    "expected": "skipping an existing destination causes a nonzero exit",
+    "expected_to_fail": true
+  },
+  {
+    "filename": "025_update_older_replaces_old_dest.sh",
+    "exercises": "--update=older replaces older destinations",
+    "expected": "older destination content is replaced by source content",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "026_u_skips_newer_dest.sh",
+    "exercises": "-u equivalent to --update=older",
+    "expected": "newer destination content is not replaced",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "027_force_replaces_unwritable_dest.sh",
+    "exercises": "-f, --force",
+    "expected": "destination content is replaced even when the old file is not writable",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "028_remove_destination_breaks_hardlink.sh",
+    "exercises": "--remove-destination",
+    "expected": "hard-linked peer of old destination keeps old content",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "029_keep_directory_symlink.sh",
+    "exercises": "--keep-directory-symlink",
+    "expected": "recursive copy follows existing symlink to directory",
+    "expected_to_fail": false
+  },
+  {
+    "filename": "030_debug_implies_verbose_output.sh",
+    "exercises": "--debug explaining copy and implying -v",
+    "expected": "debug copy produces explanatory output",
+    "expected_to_fail": false
+  }
+]

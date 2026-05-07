@@ -1,0 +1,127 @@
+{
+  "id": "resp_064a98c25abb87320069fc7409ffd08195ad6127e533fee38d",
+  "created_at": 1778152458.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_064a98c25abb87320069fc740a9f648195b350c8b40c55a160",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_064a98c25abb87320069fc744b8f7c8195a3cfdcb66e102a04",
+      "content": [
+        {
+          "annotations": [],
+          "text": "{\"tests\":[{\"filename\":\"001_basic_rename.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'alpha\\\\n' > \\\"$tmpdir/src\\\"\\n\\\"$UTIL\\\" \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"alpha\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"destination content was not moved source content\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"SOURCE DEST rename\",\"expected\":\"DEST has SOURCE content\",\"expected_to_fail\":false},{\"filename\":\"002_sources_to_directory.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nmkdir \\\"$tmpdir/dir\\\"\\nprintf 'a\\\\n' > \\\"$tmpdir/a\\\"\\nprintf 'b\\\\n' > \\\"$tmpdir/b\\\"\\n\\\"$UTIL\\\" \\\"$tmpdir/a\\\" \\\"$tmpdir/b\\\" \\\"$tmpdir/dir\\\"\\nactual=$(find \\\"$tmpdir/dir\\\" -maxdepth 1 -type f -printf '%f\\\\n' | sort | paste -sd, -)\\nif [[ \\\"$actual\\\" == \\\"a,b\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"sources were not moved into destination directory\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"SOURCE... DIRECTORY form\",\"expected\":\"Directory contains both moved source basenames\",\"expected_to_fail\":false},{\"filename\":\"003_target_directory_option.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nmkdir \\\"$tmpdir/target\\\"\\nprintf 'payload\\\\n' > \\\"$tmpdir/src\\\"\\n\\\"$UTIL\\\" -t \\\"$tmpdir/target\\\" \\\"$tmpdir/src\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/target/src\\\")\\\" == \\\"payload\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-t did not move source into target directory\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-t/--target-directory\",\"expected\":\"Target directory contains moved source file\",\"expected_to_fail\":false},{\"filename\":\"004_no_target_directory_positive.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'data\\\\n' > \\\"$tmpdir/src\\\"\\n\\\"$UTIL\\\" -T \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"data\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-T rename did not create destination file\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-T/--no-target-directory with file DEST\",\"expected\":\"DEST file has SOURCE content\",\"expected_to_fail\":false},{\"filename\":\"005_no_target_directory_existing_dir_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'data\\\\n' > \\\"$tmpdir/src\\\"\\nmkdir \\\"$tmpdir/destdir\\\"\\nset +e\\n\\\"$UTIL\\\" -T \\\"$tmpdir/src\\\" \\\"$tmpdir/destdir\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  exit 0\\nelse\\n  echo \\\"-T unexpectedly allowed file to replace existing directory\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-T treats existing directory DEST as normal file\",\"expected\":\"Utility exits nonzero\",\"expected_to_fail\":true},{\"filename\":\"006_no_clobber_keeps_destination.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" -n \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-n overwrote an existing destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-n/--no-clobber\",\"expected\":\"Existing DEST content is unchanged\",\"expected_to_fail\":false},{\"filename\":\"007_force_overwrites_destination.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" -f \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" </dev/null\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"new\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-f did not overwrite existing destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-f/--force\",\"expected\":\"Existing DEST content is replaced\",\"expected_to_fail\":false},{\"filename\":\"008_interactive_decline_keeps_destination.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" -i \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" <<< \\\"n\\\" >/dev/null 2>&1\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-i did not honor a negative overwrite response\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-i/--interactive prompt before overwrite\",\"expected\":\"Declining prompt leaves existing DEST unchanged\",\"expected_to_fail\":false},{\"filename\":\"009_final_clobber_option_wins.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" -n -f \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" </dev/null\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"new\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"final -f did not override earlier -n\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"Only final one of -i/-f/-n takes effect\",\"expected\":\"Final -f causes DEST to be overwritten\",\"expected_to_fail\":false},{\"filename\":\"010_backup_simple.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nSIMPLE_BACKUP_SUFFIX='~' \\\"$UTIL\\\" --backup=simple \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst~\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--backup=simple did not preserve old destination backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup=simple\",\"expected\":\"Simple backup contains old DEST content\",\"expected_to_fail\":false},{\"filename\":\"011_b_option_makes_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=simple SIMPLE_BACKUP_SUFFIX='~' \\\"$UTIL\\\" -b \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst~\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-b did not create a simple backup of destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-b backup option\",\"expected\":\"Backup file contains old DEST content\",\"expected_to_fail\":false},{\"filename\":\"012_suffix_overrides_backup_suffix.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" --backup=simple --suffix=.bak \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst.bak\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--suffix did not set backup suffix\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-S/--suffix with backup\",\"expected\":\"Backup using custom suffix contains old DEST content\",\"expected_to_fail\":false},{\"filename\":\"013_backup_numbered.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" --backup=numbered \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst.~1~\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--backup=numbered did not create numbered backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup=numbered control method\",\"expected\":\"Numbered backup contains old DEST content\",\"expected_to_fail\":false},{\"filename\":\"014_update_none_skips_existing.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" --update=none \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--update=none replaced an existing destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=none\",\"expected\":\"Existing DEST content is unchanged\",\"expected_to_fail\":false},{\"filename\":\"015_update_none_fail_errors_on_skip.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --update=none-fail \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  exit 0\\nelse\\n  echo \\\"--update=none-fail did not fail for skipped destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=none-fail on existing DEST\",\"expected\":\"Utility exits nonzero\",\"expected_to_fail\":true},{\"filename\":\"016_update_older_replaces_older_dest.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\ntouch -d '2001-01-01 00:00:00' \\\"$tmpdir/src\\\"\\ntouch -d '2000-01-01 00:00:00' \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" --update=older \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"new\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--update=older did not replace older destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=older replaces older destination\",\"expected\":\"Older DEST content is replaced\",\"expected_to_fail\":false},{\"filename\":\"017_update_older_skips_newer_dest.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\ntouch -d '2000-01-01 00:00:00' \\\"$tmpdir/src\\\"\\ntouch -d '2001-01-01 00:00:00' \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" --update=older \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"old\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--update=older replaced a newer destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=older skips newer destination\",\"expected\":\"Newer DEST content is unchanged\",\"expected_to_fail\":false},{\"filename\":\"018_u_equivalent_to_update_older.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\ntouch -d '2001-01-01 00:00:00' \\\"$tmpdir/src\\\"\\ntouch -d '2000-01-01 00:00:00' \\\"$tmpdir/dst\\\"\\n\\\"$UTIL\\\" -u \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"new\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-u did not behave like --update=older\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-u equivalent to --update=older\",\"expected\":\"Older DEST content is replaced\",\"expected_to_fail\":false},{\"filename\":\"019_exchange_files.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'A\\\\n' > \\\"$tmpdir/a\\\"\\nprintf 'B\\\\n' > \\\"$tmpdir/b\\\"\\n\\\"$UTIL\\\" --exchange \\\"$tmpdir/a\\\" \\\"$tmpdir/b\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/a\\\")\\\" == \\\"B\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--exchange did not put destination content at source path\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--exchange source and destination\",\"expected\":\"SOURCE path has former DEST content\",\"expected_to_fail\":false},{\"filename\":\"020_strip_trailing_slashes.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nmkdir \\\"$tmpdir/real\\\"\\nln -s \\\"$tmpdir/real\\\" \\\"$tmpdir/link\\\"\\n\\\"$UTIL\\\" --strip-trailing-slashes \\\"$tmpdir/link/\\\" \\\"$tmpdir/movedlink\\\"\\nif [[ -L \\\"$tmpdir/movedlink\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--strip-trailing-slashes did not move the symlink source\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--strip-trailing-slashes on SOURCE\",\"expected\":\"Destination is the moved symlink\",\"expected_to_fail\":false},{\"filename\":\"021_verbose_outputs_action.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'data\\\\n' > \\\"$tmpdir/src\\\"\\nout=$(\\\"$UTIL\\\" -v \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\")\\nif [[ -n \\\"$out\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"-v produced no explanation\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-v/--verbose\",\"expected\":\"Verbose invocation emits an explanation\",\"expected_to_fail\":false},{\"filename\":\"022_debug_implies_verbose_output.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'data\\\\n' > \\\"$tmpdir/src\\\"\\nout=$(\\\"$UTIL\\\" --debug \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" 2>&1)\\nif [[ -n \\\"$out\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--debug produced no explanation\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--debug implies -v\",\"expected\":\"Debug invocation emits an explanation\",\"expected_to_fail\":false},{\"filename\":\"023_no_copy_accepts_successful_rename.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'data\\\\n' > \\\"$tmpdir/src\\\"\\n\\\"$UTIL\\\" --no-copy \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" == \\\"data\\\" ]]; then\\n  exit 0\\nelse\\n  echo \\\"--no-copy did not allow a successful rename\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--no-copy with a rename that does not require copying\",\"expected\":\"DEST has SOURCE content\",\"expected_to_fail\":false},{\"filename\":\"024_missing_source_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nset +e\\n\\\"$UTIL\\\" \\\"$tmpdir/missing\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  exit 0\\nelse\\n  echo \\\"missing source unexpectedly succeeded\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"Nonexistent SOURCE\",\"expected\":\"Utility exits nonzero\",\"expected_to_fail\":true},{\"filename\":\"025_help_displays_usage.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nout=$(\\\"$UTIL\\\" --help)\\nif [[ \\\"$out\\\" == *\\\"Usage:\\\"* ]]; then\\n  exit 0\\nelse\\n  echo \\\"--help did not display usage\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--help\",\"expected\":\"Help output contains Usage\",\"expected_to_fail\":false},{\"filename\":\"026_version_outputs_information.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nout=$(\\\"$UTIL\\\" --version)\\nif [[ \\\"$out\\\" == *\\\"mv\\\"* ]]; then\\n  exit 0\\nelse\\n  echo \\\"--version did not output version information\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--version\",\"expected\":\"Version output mentions mv\",\"expected_to_fail\":false}]}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1778152564.0,
+  "conversation": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "name": "tests_artifact",
+      "schema_": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tests"
+        ],
+        "properties": {
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "filename",
+                "body",
+                "exercises",
+                "expected",
+                "expected_to_fail"
+              ],
+              "properties": {
+                "filename": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "exercises": {
+                  "type": "string"
+                },
+                "expected": {
+                  "type": "string"
+                },
+                "expected_to_fail": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "type": "json_schema",
+      "description": null,
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2531,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 7490,
+    "output_tokens_details": {
+      "reasoning_tokens": 3106
+    },
+    "total_tokens": 10021
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "moderation": null,
+  "presence_penalty": 0.0,
+  "store": true
+}
