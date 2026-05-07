@@ -1,0 +1,12 @@
+{
+  "util": "mv",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/mv.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-05-07T11:11:30Z",
+  "renderer": "mandoc",
+  "groff_sha256": "71eae42ca5f064f4bbe2c06a1057dff358d1925091df2b045f68d8e93e0fd13e",
+  "manpage_txt_sha256": "a89825ba3a6ca4bf631f96511973d7719b8f8f301c209a1b12e5cdbb657302fd"
+}

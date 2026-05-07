@@ -1,0 +1,12 @@
+{
+  "util": "sudo",
+  "source_url": "https://manpages.debian.org/trixie/sudo/sudo.8.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "sudo",
+  "debian_package_version": "1.9.16p2-3+deb13u1",
+  "man_section": 8,
+  "fetched_at": "2026-05-07T11:24:59Z",
+  "renderer": "mandoc",
+  "groff_sha256": "c481a42ff0f6dfac15001ed4981818a251b16cf433af4ec4b38bd97236aa13de",
+  "manpage_txt_sha256": "b479685184bd84208d6d4be5295facce2b53a81ef365bf9b4504d16f00784558"
+}
