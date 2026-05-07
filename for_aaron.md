@@ -6,28 +6,19 @@ One-page status report on the man-page → Rust experiment that's upstream of yo
 
 ## 1. Where the experiment is
 
-`cp` baseline ran. Pipeline is infrastructured for iteration + multi-utility rollout.
+**N=1 per cell currently. Reproducibility test (same prompt, two calls, `gpt-5.5-2026-04-23`) showed 291 vs 393 line outputs and a compile-success flip — single-call output is not stable. Every number below is provisional pending N≥3 resampling. Variance unmeasured.** Full A/B report at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`; summarized in `decisions.md` § 8.
 
-| metric | value |
-|---|---|
-| utility | `cp` |
-| oracle | GNU `cp` 9.7-3 (Debian trixie, in Docker) |
-| tests generated | 30 |
-| tests correct vs GNU oracle | **28 / 30 (93%)** |
-| tests correct vs Rust impl | n/a — impl failed to compile (single E0515 lifetime error) |
-| flag coverage | 77.78% |
-| branch / line coverage | n/a (compile failed) |
-| LLM | `gpt-5.5-2026-04-23`, single model, reasoning effort `medium` |
-| API spend | $0.67 (impl + tests, two calls, ~27K tokens) |
+Wave 2 ran fresh round-1 sessions for all four utilities against the GNU oracle in the trixie container, plus a round-2 iteration on `cp`.
 
-Provenance lives at `runs/cp/legacy_pre_session/round_01/`. The numbers above are from re-running that round's tests against the **GNU oracle in the Docker container** after fixing a BSD-vs-GNU oracle bug. The original macOS BSD oracle showed 13/30 — most of those failures were `cp` flags that GNU documents and BSD doesn't implement, not LLM mistakes. See `decisions.md` §1 for why the canonical man-page source is now Debian trixie's pre-rendered groff.
+| util | session | round | tests gen | test_real-gnu | test_rust | flag_cov | line_cov | notes |
+|------|---------|-------|-----------|---------------|-----------|----------|----------|-------|
+| `cp` | 2026-05-07T11-10-34Z | 1 | 28 | 26/28 (93%) | 26/28 (93%) | 66.67% | 60.0% | Fresh session against GNU oracle. Rust impl compiled cleanly (no E0515 recurrence). Two failures: `024_interactive_i_decline.sh` (`-i` non-TTY semantics) and `026_strip_trailing_slashes.sh` (bash dereferences `link.txt/` before cp sees it). |
+| `cp` | 2026-05-07T11-10-34Z | 2 | 28 | 26/28 (93%) | **28/28 (100%)** | 66.67% | 87.45% | LLM engaged with feedback (filename suffixes, `IsTerminal` import) but rewrites still wrong. Rust 28/28 ≠ GNU correctness — see § 3. |
+| `mv` | 2026-05-07T11-11-40Z | 1 | 26 | 24/26 (92%) | 25/26 (96%) | 88.89% | 65.04% | Stream-convention bug on `-v` (Rust writes to stderr, GNU to stdout); same `-i` non-TTY shape as `cp`. |
+| `find` | 2026-05-07T11-17-44Z | 1 | 30 | 30/30 (100%) | 29/30 (97%) | 60.0%* | 75.84% | *Methodology debt: `coverage_flags.py` only counts `-X`/`--xxx`, misses `find` primaries (`-name`, `-type`, `-exec`, …). Real surface coverage substantially higher; reported number is misleading-low. Self-cut scope — impl explicitly skips locale/SELinux/xattrs/sparse; tests stayed inside the implemented subset. |
+| `sudo` | 2026-05-07T11-25-03Z | 1 | 29 | 28/29 (97%) | 28/29 (97%) | 65.52% | 69.63% | Container runs as root → many tests pass trivially. The 28/29 number is itself a finding about a class of utilities the man-page-only approach cannot fully cover — see § 4. |
 
-The two surviving real-oracle failures are interesting:
-
-- `018_strip_trailing_slashes.sh` — Bash itself dereferences `symlink/` before `cp -P --strip-trailing-slashes` ever sees the argument. Failure at the shell/`cp` semantic seam, not in `cp`.
-- `022_interactive_decline_overwrite.sh` — GNU `cp -i` silently skips the prompt and exits nonzero when stdin is not a TTY. The man page is silent on this behavior.
-
-Both are misread-edge-case failures (Tambon §4.1.1 category 5: "Missing Corner Case"). Hardest and most informative category in the schema.
+Provenance for each row lives at `runs/<util>/<session>/round_<N>/`. Per-round qualitative analyst notes in `_observations.md` siblings; cross-session per-util roll-ups in `runs/<util>/SUMMARY.md`.
 
 ## 2. Caruca was published October 2025 — flag if not on your radar
 
@@ -45,25 +36,34 @@ How our work is distinct: Caruca's validation evidence is "Caruca-mined spec mat
 
 We add (a) an executable Rust implementation, (b) differential testing against the real GNU utility, and (c) iteration on test feedback. Caruca's syntax-spec output is, separately, a clean candidate seed for the Module Description Language design when you reach that step.
 
-## 3. Plan from here
+## 3. LLM-vs-LLM drift: the central methodology finding
+
+The cleanest empirical result so far is **`cp` round 2**: the LLM-generated Rust impl scored 28/28 against the LLM-generated test suite, while staying at 26/28 against GNU. Both halves of the pipeline coevolved across the iteration step into a closed, self-consistent loop that had quietly drifted away from the real utility. The Rust impl preprocesses argv to strip trailing slashes (matching the LLM's misreading of `--strip-trailing-slashes`); the test asserts that exact behavior; nothing inside the LLM↔LLM perimeter detects the disagreement with GNU. **This is the false-positive failure mode Astrogator's eval was specifically designed to catch — incorrect-program / verifier-accepts — surfaced here as LLM-test-suite / LLM-impl mutual ratification.** Caruca's spec-equivalence validation is structurally vulnerable to the same drift, because "Caruca's spec matches the hand-written spec" never escapes the LLM-or-human-prose plane and into runtime execution against the binary. The `cp` round-2 result is, in the experiment to date, the strongest single piece of evidence that differential testing against the real binary is doing real work that LLM-vs-LLM checking cannot. ~28/28 is what bug-compatibility looks like before differential testing exposes it.
+
+## 4. Sudo as a "split-manpage utility" failure class
+
+The 28/29 sudo number is real signal, not a container artifact. The trixie container does run as root, which means several "deny-without-password" and "deny-RunAs" tests pass trivially — that's the surface-level observation. The deeper finding is that **`sudo` is a utility whose policy-relevant truth is split across two man pages** (`sudo(8)` and `sudoers(5)`), and the LLM only saw the first. The single test-side miss, `012_chdir_directory.sh`, is the canonical specimen: `sudo -D /work /bin/pwd` is rejected by GNU sudo because the default sudoers grants no per-command CWD directive — knowable only from `sudoers(5)`, invisible from `sudo(8)`. Other documented flags with the same shape (`-u` constrained by `RunAs=`, `-g` by `RunAs=:GROUP`, `-A` by `Defaults`, `-T` by `Defaults timestamp_timeout`) tested as passing here only because root is policy-omnipotent in default sudoers. **In a non-root harness, more of these would surface as policy-rejected — and they would surface as test-side bugs every time, because the man page the LLM was given does not contain the rejection rules.** This is a candidate failure class: utilities whose documented behavior is gated by cross-referenced configuration files. The same shape likely applies to `crontab(1)` ↔ `crontab(5)`, `ssh(1)` ↔ `ssh_config(5)`, `systemd` units ↔ unit-file man pages. Not infrastructure to fix; a finding to record.
+
+## 5. Plan from here
 
 Decisions already locked in by the team:
 
 1. **Single model for now: `gpt-5.5-2026-04-23`.** Multi-model replication (Astrogator-style six-model setup, SLMFix's eight) is deferred until the GPT-5.5 results are converged. Cost estimate for the multi-model pass is ~$1–2k in API credits.
-2. **GNU coreutils version pin: Debian trixie.** Same versions as `scripts/freeze_manpage.sh` pulls man pages from. We are intentionally not replicating Astrogator's three-OS VM matrix (Debian 12 / Ubuntu 24 / RHEL 9.6) at this stage — single oracle keeps the variance small while we develop the technique.
-3. **Utility roll-out: all four in parallel.** `cp`, `mv`, `find`, `sudo` get round 1 immediately. Iteration on each runs after the round-1 baseline is collected. This trades depth-first per-utility for breadth-first cross-utility patterns earlier.
-4. **Iteration loop:** round N+1 prompt = round N base prompt + structured feedback block (top-10 failed tests with stderrs + cargo `build_error.txt` if present + `_observations.md` analyst notes). Driver tracks `prompt_template_sha256`, `manpage_sha256`, and `feedback_sha256` independently. Convergence criterion to be established empirically — first goal is to see whether iteration moves the needle at all on the two surviving real-oracle failures above.
+2. **GNU coreutils version pin: Debian trixie.** Same versions as `scripts/freeze_manpage.sh` pulls man pages from. We are intentionally not replicating Astrogator's three-OS VM matrix at this stage — single oracle keeps the variance small while we develop the technique.
+3. **Utility roll-out: all four in parallel.** `cp`, `mv`, `find`, `sudo` all have round-1 baselines in wave 2. Iteration on `mv`/`find`/`sudo` runs after the meeting; only `cp` has a round 2 so far.
+4. **Iteration loop:** round N+1 prompt = round N base prompt + structured feedback block (top-10 failed tests with stderrs + cargo `build_error.txt` if present + `_observations.md` analyst notes). Driver tracks `prompt_template_sha256`, `manpage_sha256`, and `feedback_sha256` independently.
+5. **Reproducibility caveat (new, 2026-05-07).** All single-cell numbers above need N≥3 resampling before they can carry weight. Detail in `decisions.md` § 8 and the report at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`.
 
-## 4. Coverage methodology
+## 6. Coverage methodology
 
 Two orthogonal metrics, both wired into `scripts/`:
 
-- **Flag coverage** (`scripts/coverage_flags.py`): fraction of flags documented in the canonical man page that are exercised by ≥1 test in the round. Catches "tests cluster on the easy 20% of the surface."
+- **Flag coverage** (`scripts/coverage_flags.py`): fraction of flags documented in the canonical man page that are exercised by ≥1 test in the round. Catches "tests cluster on the easy 20% of the surface." **Caveat: regex matches `-X` / `--xxx` only.** This is `find`-blind — it misses `find` primaries (`-name`, `-type`, `-exec`, `-print`, `-files0-from`, …) which define the utility's actual surface. The 60% reported for `find` is misleading-low. Documented as deferred methodology debt; not patched before the meeting (see `decisions.md` § 9).
 - **Branch / line coverage** (`scripts/coverage_rust.sh`): `cargo tarpaulin` against the Rust crate when it compiles. Decoupled from test pass/fail.
 
-Astrogator's Sec. 6.3 reports per-program acceptance/rejection in a 21-row × 4-column table (Correct-Accepted / Correct-Rejected / Incorrect-Accepted / Incorrect-Rejected). I plan to mirror that shape per utility, with rows = test categories (basic copy, recursion, symlink handling, backup, etc.) and cells = the four test-vs-oracle outcomes from `taxonomy.md` §2. Same structural pattern, different rows.
+Astrogator's Sec. 6.3 reports per-program acceptance/rejection in a 21-row × 4-column table. I plan to mirror that shape per utility, with rows = test categories and cells = the four test-vs-oracle outcomes from `taxonomy.md` § 2.
 
-## 5. One open question
+## 7. One open question (labeling rigor)
 
 Tambon's taxonomy was coded by three reviewers in 108 person-hours on 333 samples, with inter-rater agreement reported. I'm one labeler doing this part-time. Two options:
 
@@ -72,20 +72,22 @@ Tambon's taxonomy was coded by three reviewers in 108 person-hours on 333 sample
 
 Default is option 1 unless you want the stronger claim. Flag at any point — it changes the workflow, not the experiment.
 
-## 6. What we are explicitly **not** doing
+## 8. What we are explicitly **not** doing
 
 - **Not** re-deriving formal specifications. Caruca already mined syntax specs for 120 utilities and behavioral specs for 60. Caruca's syntax output is a candidate seed for the MDL design when you get there.
 - **Not** designing or touching the Module Description Language for Bash. That's your work, downstream of this experiment.
 - **Not** building the State Calculus extension for Bash. Same.
 - **Not** producing production-grade reimplementations. The Rust impls are research artifacts — they exist to give an executable handle on whether the LLM understood the man page; they are not useful as `cp` replacements and we won't pretend otherwise.
+- **Not** patching the Dockerfile to add a non-root sudo user before the meeting. The structural manpage-incompleteness for policy-driven utilities is itself the finding (see § 4); a non-root user would paper over it.
+- **Not** fixing `coverage_flags.py` for `find` primaries before the meeting. Documented gap; reported `find` flag-cov number explicitly carries the methodology asterisk.
 
 ## Repo entry points
 
 - `README.md` — project framing + actual repo layout
-- `taxonomy.md` — failure schema (Tambon + Astrogator-style)
-- `decisions.md` — provenance + design choices (TOC at top)
+- `taxonomy.md` — failure schema (Tambon + Astrogator-style + the three new failure classes from wave 2)
+- `decisions.md` — provenance + design choices (TOC at top; § 8 reproducibility, § 9 methodology debts)
 - `CLAUDE.md` / `AGENTS.md` — onboarding for future agents working on this repo
-- `runs/cp/legacy_pre_session/round_01/` — first data point
-- `runs/cp/SUMMARY.md` — cross-session metric trajectory
+- `runs/<util>/SUMMARY.md` — cross-session metric trajectory per util
+- `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md` — A/B reproducibility report
 
-I will send a follow-up after the first GPT-5.5 multi-utility pass produces concrete observations across `cp` / `mv` / `find` / `sudo`.
+I will send a follow-up after wave-2 iteration runs (rounds 2 on `mv`/`find`/`sudo`) and the first N≥3 resampling pass.

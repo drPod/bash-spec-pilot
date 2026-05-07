@@ -118,3 +118,37 @@ synopsis check). Otherwise omit.
 
 Two label vocabularies, one bullet per observation, no free text where a
 code suffices. The taxonomy is the schema; `_observations.md` is the data.
+
+---
+
+## 4. Failure classes surfaced by this experiment (2026-05-07)
+
+Three failure classes emerged from wave 2 (round 1 of `mv` / `find` / `sudo`, round 2 of `cp`) that are not in Tambon's generic-bug taxonomy and are not in Astrogator's verifier-result decomposition. They are specific to **natural-language-ground-truth experiments** — situations where the LLM's only spec source is a prose document (a man page in our case, but the same shape applies to RFCs, API docs, or POSIX standards). Tag these alongside the Tambon labels in `_observations.md` when they fit.
+
+### 4.1 Stream-convention silence
+
+The man page documents *what* a flag emits but is silent on *which stream* (stdout vs stderr) carries it. The LLM picks a stream by default — usually stderr for anything that looks "informational" — and is wrong half the time. The bug surfaces only when a test script captures the stream the LLM didn't pick.
+
+**Concrete:** `mv` round 1, test `021_verbose_outputs_action.sh`. GNU `mv -v` writes `renamed 'src' -> 'dst'` to stdout (coreutils convention: action narration goes to stdout, errors to stderr). The LLM-generated Rust impl writes the same string to stderr. The test captures via `out=$("$UTIL" -v ...)` (command-substitution = stdout only); real-gnu populates `$out`, Rust leaves it empty. The `mv(1)` man page does not say "stdout" anywhere in the `-v` paragraph — coreutils convention is implicit, not documented.
+
+**Hypothesis (untested but cheap to check in N=3 resampling):** the same shape applies across `cp -v`, `ln -v`, `rm -v`, and any other coreutils utility with a `-v` flag whose man page documents only the *what*. A scaled-up version of this experiment should expect to see this class show up across the verbose-flag family of all coreutils.
+
+### 4.2 Split-manpage utilities
+
+The utility's documented behavior is gated by a configuration file whose semantics live in a separate man page. `sudo(8)` cross-references `sudoers(5)`; `crontab(1)` cross-references `crontab(5)`; `ssh(1)` cross-references `ssh_config(5)`; systemd unit invocations cross-reference unit-file man pages. A man-page-only LLM that reads only the first will produce an impl that *defers correctly* to whatever configuration exists at runtime, but a test suite that *asks the questions the second man page would answer* will fail on the real binary every time — not because the impl is wrong, but because the LLM-generated test mistook the binary's argument syntax for its policy.
+
+**Concrete:** `sudo` round 1, test `012_chdir_directory.sh`. The test invokes `sudo -n -D /work /bin/pwd` and expects exit 0 with stdout = `/work`. GNU `sudo` rejects with `sudo: you are not permitted to use the -D option with /bin/pwd`. The `sudo(8)` man page documents `-D directory` as "run the command in directory" without saying that the option is constrained by `runchroot=` and `runcwd=` settings in `sudoers(5)`. The default trixie sudoers grants no per-command CWD directive, so `-D` is policy-rejected — knowable from `sudoers(5)`, invisible from `sudo(8)`. The LLM read the flag description and over-trusted it. Same shape applies to `-u` (gated by `RunAs=`), `-g` (gated by `RunAs=:GROUP`), `-A` (gated by `Defaults` askpass), `-T` (gated by `Defaults timestamp_timeout`), and most other policy-bearing flags in `sudo(8)`.
+
+This class is the cleanest argument we have so far that **"man-page only" is not a uniform input contract across the GNU userland.** Some utilities are fully self-described in one page; some are halves of a documented pair.
+
+### 4.3 Self-cut scope (bilateral omission)
+
+The LLM, given a wide-surface utility, will often deliberately ship a smaller-than-complete impl with a written rationale for what was skipped. This is a legitimate engineering choice when the deferred features (locale handling, SELinux, xattrs, sparse files, signal handling, network) are explicitly out of scope per the prompt. **The unanticipated effect is that the LLM-generated test suite, written in a separate call from the same prompt, *also* stays inside the implemented subset.** The result is high pass rates that look like impl quality but are actually scope-of-test matching scope-of-impl. A 30/30 pass on a self-trimmed surface looks identical to 30/30 on a complete one.
+
+**Concrete:** `find` round 1. The Rust impl is **272 LOC** — small for a utility whose man page is 1931 lines. `_deps_rationale.txt` documents the cut explicitly: "intentionally simplifying locale/SELinux/xattrs/sparse handling and some exact GNU formatting details." The 30 generated tests stayed inside that subset: test 028 covers `-print0` (basic primary, in scope); no test covers `-iname` (locale-sensitive case-folding, deferred); no test covers `-printf %T@` (advanced format specifier, deferred); no test covers `-newerXY` reference comparisons (deferred). The 30/30 real-gnu pass rate is correctly reported and is real, but it is real *on a self-selected slice of `find`*, not on `find`.
+
+The methodology lesson is that **scope-of-test correlates with scope-of-impl when both come from the same model on the same prompt.** Cross-call independence between the impl prompt and the tests prompt does not break this correlation — the model has the same priors about what's worth implementing in both calls. A serious version of this experiment needs an *adversarial* test prompt that explicitly asks the LLM to test features it would have skipped if it were implementing.
+
+### Bridge: how these extend Tambon
+
+The three classes above are not in Tambon (§ 1) for a structural reason: **Tambon's bugs come from problem statements** (CoderEval prompts, Codex synthetic tasks). Problem statements specify the exact signature and behavior expected; failure means deviation from a precise spec. **Our bugs come from man pages** — natural-language documents that are silent on conventions, split across cross-referenced files, and incomplete by design. The taxonomy extends cleanly: a man-page-driven experiment should pre-allocate labels for stream-convention silence, split-manpage utilities, and self-cut scope, then file Tambon labels under each as the underlying bug-pattern code (e.g. a stream-convention-silence bug is also a Misinterpretation in Tambon's frame). They compose, they don't replace.

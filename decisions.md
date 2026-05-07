@@ -13,6 +13,8 @@ Originally written by three different subagents over 2026-05-06 / 2026-05-07. Re
 - [5. Taxonomy + Aaron-note artifacts](#5-taxonomy--aaron-note-artifacts)
 - [6. Other notes from earlier audits](#6-other-notes-from-earlier-audits)
 - [7. How to update this file](#7-how-to-update-this-file)
+- [8. Empirical reproducibility (2026-05-07)](#8-empirical-reproducibility-2026-05-07)
+- [9. Methodology debts surfaced by wave 2](#9-methodology-debts-surfaced-by-wave-2)
 
 ---
 
@@ -257,3 +259,48 @@ This is an append-then-restructure log, not a silent-overwrite log. Convention:
 3. **Periodically restructure.** When the file gets long enough that two sections clearly overlap, merge them in a single restructuring pass — keep the later/correct version as the body, fold the earlier version's reasoning into a sub-subsection inside the merged section ("First audit pass" / "Second audit pass" pattern in § 3 is the template), and bump the date stamp at the top of the file.
 4. **Never truncate.** Reorganize, don't delete. ~400 lines is acceptable for this file; if it grows past that, split the largest top-level section into its own file and link from here.
 5. **Cite the primary source.** Every claim about external behavior (SDK signature, model API rejection, doc-page guidance) gets a path or URL inline. Vendor doc pages can drift from the SDK; **SDK source is more authoritative when they disagree** — that lesson is the entire reason § 3 has two passes.
+
+---
+
+## 8. Empirical reproducibility (2026-05-07)
+<a id="8-empirical-reproducibility-2026-05-07"></a>
+
+The determinism story documented in § 3.3 — dated model snapshot + content-hashed prompt + content-hashed manpage + `response.id` — is a **mechanism statement**, not a measurement. We had not, until now, actually measured how close two calls with byte-identical inputs land. This section records the first such measurement.
+
+Two distinct sessions, both round 1 of `cp` impl, both invoking `gpt-5.5-2026-04-23` via `client.responses.create(...)`. Iteration-feedback path forcibly disabled by being round 1 in separate sessions; `feedback_sha256` is `null` for both. `prompt_template_sha256` and `manpage_sha256` match byte-for-byte across A and B. Different `response.id` confirms a real round-trip to OpenAI on each call (no client-side caching).
+
+Findings:
+
+- **Output length:** Session A produced a 291-line `src/main.rs`; Session B produced 393 lines. **B is 35% longer than A for the same prompt.**
+- **`diff -u A/main.rs B/main.rs`:** 613 lines of unified-diff output, 40,630 bytes of patch text. Surface skeleton shared (single-file binary, custom argv parser, manual tree walker), but the diff is a near-total rewrite at the statement level. `Opts` struct field ordering differs; enum names differ (`BackupMode` vs `BackupControl`); shared-state struct identity and contents differ (`Ctx { link_map, root_dev }` vs `Ctx { opts, seen_links, umask }`); error type and helper-function decomposition differ throughout. **Effectively independent rewrites that happen to read the same man page.**
+- **`Cargo.toml` dependency choice:** identical in both runs — `filetime = "0.2"` and `libc = "0.2"`. Neither hit the driver's `clap`-based `CARGO_TOML_FALLBACK`. Dependency *set* is the most reproducible thing in the experiment.
+- **Reasoning-token spend differs by 9.3%** (A: 4044 tokens, B: 3667 tokens). Output tokens differ by 5.2% (A: 10440, B: 9896). The model is doing materially different amounts of internal reasoning between calls.
+- **Compile correctness flipped.** A passed `cargo check` with rc=0; B failed with `error[E0308]: mismatched types` at `src/main.rs:346:116` — a `.transpose().unwrap_or(...)` pattern returning the wrong shape (`Result<PathBuf, _>` where `Option<PathBuf>` is expected). **Run as a single-call study, this would land "ready to test" on A and "needs feedback round" on B from the same prompt.**
+
+**Verdict: dated-snapshot + content-hash determinism is mechanism, not measurement. N≥3 sampling is required before any single-cell number in this experiment can carry weight.** Two options for the experimental shape going forward:
+
+1. **N-call averaging per round** (e.g. N=3 per util per round). Report median + min/max for test pass rate, flag coverage, and build success. Triples per-round API spend (~$0.30 → ~$0.90 for cp round 1 at observed rates). Still cheap.
+2. **Longest-stable-claim filtering.** Run N calls; only treat a finding as "real" when it appears in ≥ ⌈N/2⌉ runs. Defensible for the qualitative failure-taxonomy work since taxonomy items that only appear in one of three runs are not reliably "how the model fails on cp."
+
+Decision deferred to post-meeting. Full report (token costs, prose excerpts, exact line:column of the E0308) lives at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`. Each per-utility `_observations.md` should now be read with the N=1 caveat in mind.
+
+---
+
+## 9. Methodology debts surfaced by wave 2
+<a id="9-methodology-debts-surfaced-by-wave-2"></a>
+
+Two structural gaps surfaced during wave 2 (round 1 of `mv` / `find` / `sudo`, round 2 of `cp`). Both are recorded here and **explicitly deferred**, not patched, because in each case the gap is itself a finding worth surfacing at the advisor meeting before being plastered over.
+
+### 9.1 `coverage_flags.py` is `find`-blind
+
+`scripts/coverage_flags.py` parses the manpage for `^\s+-[A-Za-z]\b` and `^\s+--[A-Za-z][a-z0-9-]+` — short flags and long flags. It applies the same regex to test bodies for the exercised set. This works for `cp`, `mv`, and `sudo`, whose surfaces are dominated by `-X` / `--xxx` forms. **It does not work for `find`.** Find's actual semantic surface lives in *primaries*: `-name`, `-type`, `-exec`, `-print`, `-files0-from`, `-newer`, `-perm`, `-size`, etc. — tokens that match the `^\s+-[A-Za-z]` pattern syntactically but are not flags in the GNU getopt sense, and most are followed by an argument. The reported `find` flag coverage of **60%** is therefore misleading-low: the 30 generated tests do exercise a wide subset of primaries, but the metric doesn't see them. The `extra_used_not_documented` set further pollutes the read by picking up incidental tokens like `-c`, `-e`, `-p`, `-s`, `-v` from `cp -p`/`mkdir -p` calls in test setup.
+
+**Decision: document the gap, do not fix the script before the advisor meeting.** Two reasons. First, fixing requires per-utility config (which tokens are flags vs. primaries vs. operators), which is real work that belongs in a separate change. Second, the `find` row is more honestly read as "here is the kind of metric debt that emerges when one script tries to cover four utilities with different surface conventions" — that's a methodology observation worth carrying into the conversation rather than papering over. The `for_aaron.md` results table flags `find` coverage with an asterisk; the `_observations.md` calls it out explicitly.
+
+### 9.2 `sudo` Docker container runs as root
+
+`docker/Dockerfile` does not add a non-root test user. All 29 `sudo` tests therefore run as uid=0. Default `/etc/sudoers` grants `root ALL=(ALL:ALL) ALL`, so a substantial fraction of the test suite passes trivially: "refuses without password" tests under `-n` pass because root needs no auth; "refuses to run as user X" tests pass because root is allowed to switch to any user. The 28/29 real-gnu pass rate is therefore an **upper bound on the suite's true informativeness in a more realistic non-root harness.**
+
+**Decision: document, do not patch the Dockerfile before the advisor meeting.** The structural manpage-incompleteness for policy-driven utilities (`sudo(8)` documents argument syntax; `sudoers(5)` documents the policy gating that determines whether each invocation succeeds) is itself a finding. Adding a non-root user with a known-password sudoers.d entry would change the visible pass rate but would not change the underlying observation that **half of `sudo`'s "documented" behavior is gated by a man page the LLM never saw**. That's the candidate failure class — see `taxonomy.md` § 4 ("split-manpage utilities"). Surfacing it cleanly at the meeting matters more than improving the cell number now.
+
+The trade-offs of a non-root harness (sudoers.d/ provisioning, password-cache resets between tests, deciding whether to feed `sudoers(5)` into the LLM prompt) are real engineering work that belongs in a separate change after the meeting frames the question.
