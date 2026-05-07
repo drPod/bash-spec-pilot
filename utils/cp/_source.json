@@ -1,0 +1,12 @@
+{
+  "util": "cp",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/cp.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-05-07T09:31:11Z",
+  "renderer": "mandoc",
+  "groff_sha256": "a023eea8efdc705f97c4ed3eaa5376e807ef8a463fed9b826f813f6d21998f35",
+  "manpage_txt_sha256": "6c3d3c195b1630f8f011a6a49cd42bb13c23dedb6e78d8777c4cf48661da7cb7"
+}

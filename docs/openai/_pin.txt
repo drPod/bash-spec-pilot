@@ -1,0 +1,16 @@
+openai-python pin (ground truth source for docs/openai/)
+=========================================================
+
+Installed SDK version : 2.35.1
+GitHub repository     : https://github.com/openai/openai-python
+GitHub tag            : v2.35.1
+GitHub commit SHA     : 5e8f09c2c8f65d2e93722270963f4a19a760736f
+Local install path    : /Users/darshpoddar/Coding/formal-verification/.venv/lib/python3.12/site-packages/openai
+Fetched at (UTC)      : 2026-05-07T09:45:13Z
+
+How this pin was determined:
+    uv run python -c "import openai; print(openai.__version__)"
+    git ls-remote --tags https://github.com/openai/openai-python v2.35.1
+
+All other files in this directory were derived by reading the installed
+SDK Python source directly (no WebFetch, no paraphrase from memory).
