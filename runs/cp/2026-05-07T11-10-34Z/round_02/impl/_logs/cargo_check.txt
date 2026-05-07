@@ -1,0 +1,13 @@
+$ cargo check --quiet  (rc=0)
+--- stdout ---
+
+--- stderr ---
+warning: unused import: `Read`
+ --> src/main.rs:6:33
+  |
+6 | use std::io::{self, IsTerminal, Read, Write};
+  |                                 ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+

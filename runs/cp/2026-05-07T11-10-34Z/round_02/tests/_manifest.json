@@ -1,0 +1,198 @@
+[
+  {
+    "filename": "001_basic_file_copy.sh",
+    "exercises": "default SOURCE DEST file copy",
+    "expected": "destination contains copied source data",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_multiple_sources_directory.sh",
+    "exercises": "SOURCE... DIRECTORY form",
+    "expected": "both source basenames exist in destination directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_target_directory_t.sh",
+    "exercises": "-t/--target-directory=DIRECTORY",
+    "expected": "source is copied under target directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_no_target_directory_T_error.sh",
+    "exercises": "-T/--no-target-directory error on existing directory dest",
+    "expected": "utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_recursive_directory_copy.sh",
+    "exercises": "-R/-r/--recursive copies directories recursively",
+    "expected": "nested file content exists in copied directory tree",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_archive_preserves_symlink.sh",
+    "exercises": "-a/--archive equals -dR --preserve=all",
+    "expected": "symlink in copied tree remains a symlink",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_attributes_only_no_data.sh",
+    "exercises": "--attributes-only",
+    "expected": "destination exists but has zero file data",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_backup_simple_existing_dest.sh",
+    "exercises": "--backup creates backup of existing destination",
+    "expected": "simple backup file contains previous destination data",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_backup_suffix_S.sh",
+    "exercises": "-S/--suffix=SUFFIX overrides backup suffix",
+    "expected": "backup with custom suffix contains old destination data",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_force_backup_same_file.sh",
+    "exercises": "special case: -f with -b backs up SOURCE when SOURCE and DEST are same regular file",
+    "expected": "backup of same-named source is created",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_hard_link_l.sh",
+    "exercises": "-l/--link hard link files instead of copying",
+    "expected": "source and destination have identical device and inode",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_symbolic_link_s.sh",
+    "exercises": "-s/--symbolic-link makes symbolic links instead of copying",
+    "expected": "destination symlink points to source path",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_no_dereference_P.sh",
+    "exercises": "-P/--no-dereference never follow symlinks in SOURCE",
+    "expected": "destination is a symlink",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_dereference_L.sh",
+    "exercises": "-L/--dereference always follow symbolic links in SOURCE",
+    "expected": "destination is regular file with referent data",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_follow_command_line_symlink_H.sh",
+    "exercises": "-H follows command-line symbolic links in SOURCE",
+    "expected": "copied tree contains file from symlink referent directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_d_preserve_hard_links.sh",
+    "exercises": "-d equals --no-dereference --preserve=links",
+    "expected": "copied hard-linked sources remain hard-linked to each other",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_preserve_timestamps.sh",
+    "exercises": "--preserve=timestamps",
+    "expected": "destination mtime equals source mtime",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_preserve_mode_p.sh",
+    "exercises": "-p preserves mode,ownership,timestamps",
+    "expected": "destination mode equals source mode",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_parents_full_source_name.sh",
+    "exercises": "--parents uses full source file name under DIRECTORY",
+    "expected": "copied file exists at DIRECTORY plus full absolute source path",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_no_clobber_n.sh",
+    "exercises": "-n/--no-clobber silently skips existing files",
+    "expected": "existing destination content is unchanged",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_update_none_skips.sh",
+    "exercises": "--update=none skips existing destination without failure",
+    "expected": "existing destination content is unchanged",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_update_none_fail_error.sh",
+    "exercises": "--update=none-fail diagnoses and fails on skipped existing destination",
+    "expected": "utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_update_older_replaces_older_dest.sh",
+    "exercises": "--update=older replaces destination older than source",
+    "expected": "older destination content is replaced by source",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "024_update_older_skips_newer_dest.sh",
+    "exercises": "-u equivalent to --update=older",
+    "expected": "newer destination content is unchanged",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "025_remove_destination_symlink.sh",
+    "exercises": "--remove-destination removes existing destination before opening",
+    "expected": "destination path is a regular copied file, not the old symlink",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "026_interactive_i_decline_tty.sh",
+    "exercises": "-i/--interactive prompts before overwrite",
+    "expected": "negative response leaves existing destination unchanged",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "027_strip_trailing_slashes_dir_symlink.sh",
+    "exercises": "--strip-trailing-slashes removes trailing slashes from SOURCE arguments",
+    "expected": "directory symlink source with slash is copied as a symlink under -P",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "028_missing_source_error.sh",
+    "exercises": "documented failure for nonexistent SOURCE",
+    "expected": "utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]

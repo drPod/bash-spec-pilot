@@ -1,0 +1,447 @@
+<!--
+  Prompt: man-page -> Bash test suite.
+
+  Schulhoff (Prompt Report, arXiv 2406.06608) techniques applied:
+    - Role + Task framing (Sec. 2.2.1.3) anchored on "differential testing
+      between two implementations of the same documented utility".
+    - Structured JSON output with a defined schema (Sec. 2.2.5; Tam et al.
+      2024 rebuttal cited in the survey). The schema includes per-test
+      `exercises` and `expected` fields explicitly to aid downstream
+      failure-taxonomy analysis - this is the "answer engineering" angle
+      from Sec. 2.5.
+    - Decomposition (Plan-and-Solve, Sec. 2.2.2). Reasoning models are
+      asked to enumerate flags from the man page first, then pick which
+      to test, then write tests. The reasoning is internal when running
+      against gpt-5.5 (a reasoning model); the prompt asks for the result
+      only, not a visible reasoning trace.
+    - Negative constraints (test-quality requirements) up front.
+
+  Deliberately rejected:
+    - "Think step by step" / explicit CoT trigger in the prompt body.
+      gpt-5.5 is a reasoning model and decides its own reasoning depth;
+      adding a CoT trigger duplicates that and Schulhoff (Sec. 2.2.2)
+      offers no zero-temperature evidence that CoT triggers help on
+      structured-extraction tasks.
+    - "Pretend you are a QA engineer..." style persona prompts.
+      Schulhoff notes role prompting helps style; it does not help here.
+
+  Versioning: driver writes sha256(this file) to log.jsonl as
+  `prompt_template_sha256`.
+-->
+
+You are writing a differential test suite for a documented Unix utility.
+The same suite will be executed twice - once against the real system
+binary (the oracle), and once against an LLM-generated re-implementation.
+A test that passes against the oracle and fails against the
+re-implementation reveals a bug in the re-implementation. A test that
+fails against the oracle reveals a misreading of the man page.
+
+# Task
+
+Read the man page below carefully. Identify the documented flags and
+behaviors. Produce a Bash test suite that exercises that documented
+behavior on a Linux/GNU userland system.
+
+# Per-test requirements
+
+Every test:
+
+- Is a **self-contained Bash script**.
+- **Begins with** `#!/usr/bin/env bash` and `set -euo pipefail`.
+- Creates its own temporary working directory via `mktemp -d` and removes
+  it on exit via `trap '...' EXIT`.
+- Invokes the utility through the **`$UTIL` environment variable**, never
+  the literal command name. Always quoted: `"$UTIL"`.
+- **Asserts exactly one thing** about post-state - one assertion per
+  test. (Asserting an exit code AND a stderr substring against the same
+  invocation counts as one assertion if both express the same expected
+  behavior; do not bundle independent assertions.)
+- **Uses absolute paths** inside `$tmpdir`. Do not rely on `cd` leaking
+  out of the test or out of subshells.
+- **Exits 0 on pass, nonzero on fail.** On failure, print one short
+  diagnostic line to stderr first.
+- Tests **only documented behavior**. If the man page is silent on a
+  point, do not test it - silence is not a specification.
+
+# `expected_to_fail`: documented-error tests
+
+Each test carries a per-test boolean `expected_to_fail`.
+
+- Set `expected_to_fail: false` for normal positive tests. The test body
+  runs the utility, asserts the expected post-state, and exits 0 on success.
+- Set `expected_to_fail: true` when the test exercises a **documented
+  error condition** — i.e. the man page itself states the utility must
+  fail (nonzero exit) on this input. Examples:
+    * passing a nonexistent SOURCE,
+    * `cp -T <src> <existing-directory>` with `-T` / `--no-target-directory`,
+    * `--update=none-fail` against an existing destination,
+    * any "diagnose and induce a failure" the man page commits to.
+
+  In `expected_to_fail: true` tests the **test body itself still exits 0
+  iff the utility errored exactly as documented**. Capture the utility's
+  exit code (`set +e; "$UTIL" ...; status=$?; set -e`) and assert
+  `[[ $status -ne 0 ]]`. Do not let an unguarded utility call propagate a
+  nonzero exit out of the test through `set -e` — that conflates "real
+  utility errored as documented" with "the test itself crashed".
+
+  These tests are first-class evidence: a real utility that errors as
+  documented is the strongest possible behavioral signal we can extract
+  from the man page.
+
+# Suite-level requirements
+
+- **15 to 30 tests total.** Quality over quantity.
+- **At least one positive test per major flag** the man page documents.
+- Documented edge cases (e.g. trailing slashes, missing files,
+  type mismatches, permission errors that the man page mentions).
+- Documented **error cases** - covered via `expected_to_fail: true` tests
+  per the spec above. Aim for at least 3 of these in any suite.
+- Skip the same areas as the implementation prompt: SELinux, locale,
+  ACLs, xattrs, sparse files, `--reflink=`, signals, network. Tests
+  that depend on these are not portable across the experiment's
+  environments.
+
+# Output format - strict
+
+Respond with exactly one fenced JSON code block, no prose before or
+after. The JSON must validate against this schema:
+
+```json
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tests"],
+  "properties": {
+    "tests": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["filename", "body", "exercises", "expected", "expected_to_fail"],
+        "properties": {
+          "filename":  {
+            "type": "string",
+            "pattern": "^[0-9]{3}_[a-z0-9_]+\\.sh$",
+            "description": "NNN_short_description.sh; 3-digit zero-padded sequence"
+          },
+          "body":      {
+            "type": "string",
+            "description": "full Bash test script, starting with shebang"
+          },
+          "exercises": {
+            "type": "string",
+            "description": "<=120 chars naming the flag/behavior under test"
+          },
+          "expected":  {
+            "type": "string",
+            "description": "<=120 chars naming the post-state being asserted"
+          },
+          "expected_to_fail": {
+            "type": "boolean",
+            "description": "true iff this test exercises a documented error case (the real utility is expected to exit nonzero, and the test body asserts that). Aim for at least 3 of these per suite."
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The `body` field must contain the raw Bash script (newlines preserved,
+no JSON-escaping beyond what JSON encoding requires). Do not wrap
+`body` in additional Markdown fences.
+
+# Manual page
+
+CP(1)                            User Commands                           CP(1)
+
+NAME
+       cp - copy files and directories
+
+SYNOPSIS
+       cp [OPTION]... [-T] SOURCE DEST
+       cp [OPTION]... SOURCE... DIRECTORY
+       cp [OPTION]... -t DIRECTORY SOURCE...
+
+DESCRIPTION
+       Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+       Mandatory arguments to long options are mandatory for short options
+       too.
+
+       -a, --archive
+              same as -dR --preserve=all
+
+       --attributes-only
+              don't copy the file data, just the attributes
+
+       --backup[=CONTROL]
+              make a backup of each existing destination file
+
+       -b     like --backup but does not accept an argument
+
+       --copy-contents
+              copy contents of special files when recursive
+
+       -d     same as --no-dereference --preserve=links
+
+       --debug
+              explain how a file is copied.  Implies -v
+
+       -f, --force
+              if an existing destination file cannot be opened, remove it and
+              try again (this option is ignored when the -n option is also
+              used)
+
+       -i, --interactive
+              prompt before overwrite (overrides a previous -n option)
+
+       -H     follow command-line symbolic links in SOURCE
+
+       -l, --link
+              hard link files instead of copying
+
+       -L, --dereference
+              always follow symbolic links in SOURCE
+
+       -n, --no-clobber
+              (deprecated) silently skip existing files.  See also --update
+
+       -P, --no-dereference
+              never follow symbolic links in SOURCE
+
+       -p     same as --preserve=mode,ownership,timestamps
+
+       --preserve[=ATTR_LIST]
+              preserve the specified attributes
+
+       --no-preserve=ATTR_LIST
+              don't preserve the specified attributes
+
+       --parents
+              use full source file name under DIRECTORY
+
+       -R, -r, --recursive
+              copy directories recursively
+
+       --reflink[=WHEN]
+              control clone/CoW copies. See below
+
+       --remove-destination
+              remove each existing destination file before attempting to open
+              it (contrast with --force)
+
+       --sparse=WHEN
+              control creation of sparse files. See below
+
+       --strip-trailing-slashes
+              remove any trailing slashes from each SOURCE argument
+
+       -s, --symbolic-link
+              make symbolic links instead of copying
+
+       -S, --suffix=SUFFIX
+              override the usual backup suffix
+
+       -t, --target-directory=DIRECTORY
+              copy all SOURCE arguments into DIRECTORY
+
+       -T, --no-target-directory
+              treat DEST as a normal file
+
+       --update[=UPDATE]
+              control which existing files are updated;
+              UPDATE={all,none,none-fail,older(default)}
+
+       -u     equivalent to --update[=older].  See below
+
+       -v, --verbose
+              explain what is being done
+
+       --keep-directory-symlink
+              follow existing symlinks to directories
+
+       -x, --one-file-system
+              stay on this file system
+
+       -Z     set SELinux security context of destination file to default type
+
+       --context[=CTX]
+              like -Z, or if CTX is specified then set the SELinux or SMACK
+              security context to CTX
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       ATTR_LIST is a comma-separated list of attributes. Attributes are
+       'mode' for permissions (including any ACL and xattr permissions),
+       'ownership' for user and group, 'timestamps' for file timestamps,
+       'links' for hard links, 'context' for security context, 'xattr' for
+       extended attributes, and 'all' for all attributes.
+
+       By default, sparse SOURCE files are detected by a crude heuristic and
+       the corresponding DEST file is made sparse as well.  That is the
+       behavior selected by --sparse=auto.  Specify --sparse=always to create
+       a sparse DEST file whenever the SOURCE file contains a long enough
+       sequence of zero bytes.  Use --sparse=never to inhibit creation of
+       sparse files.
+
+       UPDATE controls which existing files in the destination are replaced.
+       'all' is the default operation when an --update option is not
+       specified, and results in all existing files in the destination being
+       replaced.  'none' is like the --no-clobber option, in that no files in
+       the destination are replaced, and skipped files do not induce a
+       failure.  'none-fail' also ensures no files are replaced in the
+       destination, but any skipped files are diagnosed and induce a failure.
+       'older' is the default operation when --update is specified, and
+       results in files being replaced if they're older than the corresponding
+       source file.
+
+       When --reflink[=always] is specified, perform a lightweight copy, where
+       the data blocks are copied only when modified.  If this is not possible
+       the copy fails, or if --reflink=auto is specified, fall back to a
+       standard copy.  Use --reflink=never to ensure a standard copy is
+       performed.
+
+       The backup suffix is '~', unless set with --suffix or
+       SIMPLE_BACKUP_SUFFIX.  The version control method may be selected via
+       the --backup option or through the VERSION_CONTROL environment
+       variable.  Here are the values:
+
+       none, off
+              never make backups (even if --backup is given)
+
+       numbered, t
+              make numbered backups
+
+       existing, nil
+              numbered if numbered backups exist, simple otherwise
+
+       simple, never
+              always make simple backups
+
+       As a special case, cp makes a backup of SOURCE when the force and
+       backup options are given and SOURCE and DEST are the same name for an
+       existing, regular file.
+
+AUTHOR
+       Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+SEE ALSO
+       install(1)
+
+       Full documentation <https://www.gnu.org/software/coreutils/cp>
+       or available locally via: info '(coreutils) cp invocation'
+
+       Packaged by Debian (9.7-3)
+       Copyright © 2025 Free Software Foundation, Inc.
+       License GPLv3+: GNU GPL version 3 or later
+       <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+GNU coreutils 9.7                  June 2025                             CP(1)
+
+
+
+# Previous attempt feedback (round 1)
+In the previous attempt, the following tests FAILED against the real utility:
+  - 024_interactive_i_decline.sh: -i/--interactive prompt before overwrite
+    expected: negative response leaves destination unchanged
+    actual stderr: cp -i failed
+    actual exit: 1
+  - 026_strip_trailing_slashes.sh: --strip-trailing-slashes
+    expected: symlink source with trailing slash is copied after slash removal
+    actual stderr: cp: cannot stat '/tmp/tmp.JmvNIQk85R/link.txt/': Not a directory cp --strip-trailing-slashes failed
+    actual exit: 1
+
+Manual analyst observations:
+# Observations: cp session=2026-05-07T11-10-34Z round=1
+
+## Numbers
+- Tests pass on real-gnu: 26/28 (= 93%)
+- Tests pass on rust impl: 26/28 (= 93%)
+- Flag coverage: 24/36 flags exercised (= 66.67%)
+- Branch/line coverage on Rust impl: 60.0%
+
+## Test-correctness failures (tests that failed on the real utility)
+
+Categorize each failure by Tambon-2025 schema
+(literature/tambon_2025_*.pdf):
+  - hallucinated flag / nonexistent feature
+  - wrong default
+  - wrong precedence
+  - misread edge case
+  - misread error case
+  - infrastructure (env / shell / quoting bug in test, not the LLM's reading)
+
+Per-failure (analyst fills `<category>`):
+
+- **024_interactive_i_decline.sh** [misread edge case] — -i/--interactive prompt
+  before overwrite. The test pipes `printf 'n\n' | "$UTIL" -i src dst`. GNU
+  `cp -i` only emits the prompt and reads a response when stdin is attached
+  to a TTY. With a piped stdin, GNU `cp` does not prompt; instead it falls
+  back to the underlying `unlink + open` semantics, which here proceed and
+  overwrite the destination. The man page is silent about this isatty(0)
+  guard, so the LLM-generated test reads `-i` as "always prompts," which is
+  wrong. Same surviving failure category as legacy round-1 test 022.
+  Equivalent stderr: `cp -i failed`, exit 1.
+
+- **026_strip_trailing_slashes.sh** [infrastructure] — --strip-trailing-slashes.
+  The test creates `link.txt` as a symlink to `target.txt` and then invokes
+  `"$UTIL" --strip-trailing-slashes "$link/" "$dst"`. Bash's argument
+  expansion / kernel pathname resolution dereferences `link.txt/` before cp
+  ever runs (a trailing slash on a symlink is a request to follow), and
+  since `target.txt` is a regular file (not a directory), `stat()` returns
+  `ENOTDIR`. cp's `--strip-trailing-slashes` flag was meant to be exercised,
+  but the trailing slash is consumed at the shell/syscall layer first. This
+  is a test-construction bug, not an LLM misreading of the man page. Same
+  failure as legacy round-1 test 018.
+  Equivalent stderr: `cp: cannot stat '.../link.txt/': Not a directory`.
+
+## Impl-correctness failures (tests that passed on real, failed on rust)
+
+_None._ Both failures above ALSO fail on the Rust impl, with identical
+stderr. That's a coincidence of test brokenness rather than the Rust impl
+matching real GNU behavior — the failures happen at the bash/syscall layer
+before the binary's argv reaches argv[1].
+
+## Compile / runtime failures of the Rust impl
+
+_The Rust impl compiled cleanly._ Cargo check pre-flight gate (item D in
+driver.py) returned rc=0. The legacy session E0515 lifetime error did not
+recur on this fresh run; lifetime semantics in the new impl are sound.
+
+## Open questions for next round
+
+_Analyst: list the specific feedback you want surfaced in round 2. The
+driver appends the verbatim contents of this file under "Manual analyst
+observations" in the next round's prompt._
+
+- The two failures above are NOT LLM man-page-reading errors. Test 026 is
+  a shell-level bug; test 024 is the LLM not knowing about an undocumented
+  isatty(0) precondition for `-i`. Round 2 should rewrite these tests:
+    - 024: `script -qc 'printf "n\n"; cp -i src dst' /dev/null` to fake a
+      TTY, OR drop the test to "verify cp -i exists and accepts the flag"
+      since the prompt-decline semantic isn't testable from a piped stdin.
+    - 026: pass a directory-symlink (`ln -s dir/ link`) instead of a
+      file-symlink so the trailing slash is meaningful at syscall time.
+  These rewrites are within scope: each tests `--strip-trailing-slashes`
+  and `-i` against the documented man-page surface, just with shell
+  plumbing that doesn't pre-empt the flag.
+- Do NOT regress the 26 passing tests. Keep flag coverage >= 24/36.
+- Coverage on src/main.rs is only 60% (12/20 lines). The 8 uncovered lines
+  are likely error-path branches not exercised by the current suite.
+  Round 2 could add tests targeting those, e.g. permission errors,
+  missing-source errors, conflicting flags. Caveat: harder to verify
+  without inspecting the impl source, which the LLM never sees.
+
+Produce a corrected `tests` JSON payload following the same schema as before. Address the issues above without regressing anything the previous round got right.

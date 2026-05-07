@@ -1,0 +1,389 @@
+<!--
+  Prompt: man-page -> Rust implementation.
+
+  Schulhoff (Prompt Report, arXiv 2406.06608) techniques applied:
+    - Plain "Role + Task" framing (Sec. 2.2.1.3 "Role Prompting"). Survey
+      reports role prompting may improve benchmark accuracy and shapes
+      open-ended outputs. Used here to anchor on "GNU userland".
+    - Output-format constraint via JSON Schema (Sec. 2.2.5 / Tam et al.
+      2024 rebuttal in survey). Schulhoff cites evidence that structuring
+      outputs can improve, not degrade, performance.
+    - Decomposition via "first analyze, then produce" framing (Sec. 2.2.2
+      "Plan-and-Solve" Wang et al. 2023f). The model is asked to think
+      about the man page (in its own internal reasoning when used with a
+      reasoning model) before emitting the schema.
+    - Negative constraints (out-of-scope features) up front - reduces
+      hallucination of irrelevant flags. Schulhoff Sec. 2.2.6.
+
+  Deliberately rejected:
+    - "Think step by step" / "let's take a deep breath" CoT triggers.
+      Schulhoff notes these are most effective at non-zero temperature
+      and on multi-step reasoning tasks. We are at temperature=0 (or
+      the GPT-5.5 reasoning-model equivalent) on a structured-extraction
+      task; the survey does not establish CoT triggers as a benefit
+      here, and they bloat the prompt.
+    - Few-shot exemplars. We have only four utilities; a worked example
+      for `cp` would bias the other three toward the example's style.
+      Schulhoff (Sec. 2.2.1.1, Exemplar Selection) emphasizes example
+      selection sensitivity - so we omit examples entirely rather than
+      pick a biased one.
+    - Persona ("you are a senior Rust engineer..."). No evidence in the
+      survey it improves code-gen at zero-shot. Folklore.
+
+  Versioning: the driver writes sha256(this file) into runs/<...>/log.jsonl
+  as `prompt_template_sha256` so each run records which prompt produced it.
+-->
+
+You are translating a Linux man page into a single-file Rust implementation
+of the documented utility. The audience for the implementation is a research
+test harness running on Linux/GNU userland.
+
+# Task
+
+Read the man page below carefully. Then produce:
+
+1. A `Cargo.toml` declaring the package and any third-party dependencies you
+   need (you decide; pick what you would actually use).
+2. A single `src/main.rs` that implements the documented behavior of the
+   utility well enough that a behaviorally-faithful test suite drawn from
+   the same man page would pass.
+3. A short rationale (one or two sentences) explaining your dependency
+   choice.
+
+# Implementation constraints
+
+- **Single-file Rust**, in `src/main.rs`. The crate has no other modules.
+- Target **POSIX/Linux** semantics as documented. Where the man page is
+  silent, follow POSIX defaults rather than inventing behavior.
+- Implement the **commonly-used flags** documented in the man page. Be
+  honest in your rationale about what you covered and what you skipped.
+- **Skip these areas** unless the man page makes them central to the
+  utility's identity (they introduce platform-specific complexity that
+  this experiment does not measure):
+  - SELinux / MAC contexts and `--context` flags
+  - locale / NLS / collation / multibyte
+  - extended attributes (`xattr`) and ACLs
+  - sparse-file handling, `--sparse=`, `--reflink=`
+  - signal handling beyond the default
+  - network filesystems, remote protocols, `rsync`-like behavior
+- Errors must go to **stderr** with a nonzero exit code consistent with the
+  man page (or POSIX defaults if the man page is silent).
+- Code must compile under `cargo build --release` without errors. Warnings
+  are acceptable.
+- The binary name should be `util`. Set `[[bin]] name = "util"` in
+  `Cargo.toml`.
+
+# Output format - strict
+
+Respond with exactly one fenced JSON code block, no prose before or after.
+The JSON must validate against this schema:
+
+```json
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cargo_toml", "main_rs", "deps_rationale"],
+  "properties": {
+    "cargo_toml":      { "type": "string", "description": "full text of Cargo.toml" },
+    "main_rs":         { "type": "string", "description": "full text of src/main.rs" },
+    "deps_rationale":  { "type": "string", "description": "1-2 sentences on dep choice and what was skipped" }
+  }
+}
+```
+
+The `cargo_toml` and `main_rs` strings must contain raw file contents
+(newlines preserved, no JSON-escaping beyond what the JSON encoding
+requires). Do not wrap them in additional Markdown fences.
+
+# Manual page
+
+CP(1)                            User Commands                           CP(1)
+
+NAME
+       cp - copy files and directories
+
+SYNOPSIS
+       cp [OPTION]... [-T] SOURCE DEST
+       cp [OPTION]... SOURCE... DIRECTORY
+       cp [OPTION]... -t DIRECTORY SOURCE...
+
+DESCRIPTION
+       Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+       Mandatory arguments to long options are mandatory for short options
+       too.
+
+       -a, --archive
+              same as -dR --preserve=all
+
+       --attributes-only
+              don't copy the file data, just the attributes
+
+       --backup[=CONTROL]
+              make a backup of each existing destination file
+
+       -b     like --backup but does not accept an argument
+
+       --copy-contents
+              copy contents of special files when recursive
+
+       -d     same as --no-dereference --preserve=links
+
+       --debug
+              explain how a file is copied.  Implies -v
+
+       -f, --force
+              if an existing destination file cannot be opened, remove it and
+              try again (this option is ignored when the -n option is also
+              used)
+
+       -i, --interactive
+              prompt before overwrite (overrides a previous -n option)
+
+       -H     follow command-line symbolic links in SOURCE
+
+       -l, --link
+              hard link files instead of copying
+
+       -L, --dereference
+              always follow symbolic links in SOURCE
+
+       -n, --no-clobber
+              (deprecated) silently skip existing files.  See also --update
+
+       -P, --no-dereference
+              never follow symbolic links in SOURCE
+
+       -p     same as --preserve=mode,ownership,timestamps
+
+       --preserve[=ATTR_LIST]
+              preserve the specified attributes
+
+       --no-preserve=ATTR_LIST
+              don't preserve the specified attributes
+
+       --parents
+              use full source file name under DIRECTORY
+
+       -R, -r, --recursive
+              copy directories recursively
+
+       --reflink[=WHEN]
+              control clone/CoW copies. See below
+
+       --remove-destination
+              remove each existing destination file before attempting to open
+              it (contrast with --force)
+
+       --sparse=WHEN
+              control creation of sparse files. See below
+
+       --strip-trailing-slashes
+              remove any trailing slashes from each SOURCE argument
+
+       -s, --symbolic-link
+              make symbolic links instead of copying
+
+       -S, --suffix=SUFFIX
+              override the usual backup suffix
+
+       -t, --target-directory=DIRECTORY
+              copy all SOURCE arguments into DIRECTORY
+
+       -T, --no-target-directory
+              treat DEST as a normal file
+
+       --update[=UPDATE]
+              control which existing files are updated;
+              UPDATE={all,none,none-fail,older(default)}
+
+       -u     equivalent to --update[=older].  See below
+
+       -v, --verbose
+              explain what is being done
+
+       --keep-directory-symlink
+              follow existing symlinks to directories
+
+       -x, --one-file-system
+              stay on this file system
+
+       -Z     set SELinux security context of destination file to default type
+
+       --context[=CTX]
+              like -Z, or if CTX is specified then set the SELinux or SMACK
+              security context to CTX
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       ATTR_LIST is a comma-separated list of attributes. Attributes are
+       'mode' for permissions (including any ACL and xattr permissions),
+       'ownership' for user and group, 'timestamps' for file timestamps,
+       'links' for hard links, 'context' for security context, 'xattr' for
+       extended attributes, and 'all' for all attributes.
+
+       By default, sparse SOURCE files are detected by a crude heuristic and
+       the corresponding DEST file is made sparse as well.  That is the
+       behavior selected by --sparse=auto.  Specify --sparse=always to create
+       a sparse DEST file whenever the SOURCE file contains a long enough
+       sequence of zero bytes.  Use --sparse=never to inhibit creation of
+       sparse files.
+
+       UPDATE controls which existing files in the destination are replaced.
+       'all' is the default operation when an --update option is not
+       specified, and results in all existing files in the destination being
+       replaced.  'none' is like the --no-clobber option, in that no files in
+       the destination are replaced, and skipped files do not induce a
+       failure.  'none-fail' also ensures no files are replaced in the
+       destination, but any skipped files are diagnosed and induce a failure.
+       'older' is the default operation when --update is specified, and
+       results in files being replaced if they're older than the corresponding
+       source file.
+
+       When --reflink[=always] is specified, perform a lightweight copy, where
+       the data blocks are copied only when modified.  If this is not possible
+       the copy fails, or if --reflink=auto is specified, fall back to a
+       standard copy.  Use --reflink=never to ensure a standard copy is
+       performed.
+
+       The backup suffix is '~', unless set with --suffix or
+       SIMPLE_BACKUP_SUFFIX.  The version control method may be selected via
+       the --backup option or through the VERSION_CONTROL environment
+       variable.  Here are the values:
+
+       none, off
+              never make backups (even if --backup is given)
+
+       numbered, t
+              make numbered backups
+
+       existing, nil
+              numbered if numbered backups exist, simple otherwise
+
+       simple, never
+              always make simple backups
+
+       As a special case, cp makes a backup of SOURCE when the force and
+       backup options are given and SOURCE and DEST are the same name for an
+       existing, regular file.
+
+AUTHOR
+       Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+SEE ALSO
+       install(1)
+
+       Full documentation <https://www.gnu.org/software/coreutils/cp>
+       or available locally via: info '(coreutils) cp invocation'
+
+       Packaged by Debian (9.7-3)
+       Copyright © 2025 Free Software Foundation, Inc.
+       License GPLv3+: GNU GPL version 3 or later
+       <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+GNU coreutils 9.7                  June 2025                             CP(1)
+
+
+
+# Previous attempt feedback (round 1)
+In the previous attempt, the following tests FAILED against the real utility:
+  - 024_interactive_i_decline.sh: -i/--interactive prompt before overwrite
+    expected: negative response leaves destination unchanged
+    actual stderr: cp -i failed
+    actual exit: 1
+  - 026_strip_trailing_slashes.sh: --strip-trailing-slashes
+    expected: symlink source with trailing slash is copied after slash removal
+    actual stderr: cp: cannot stat '/tmp/tmp.JmvNIQk85R/link.txt/': Not a directory cp --strip-trailing-slashes failed
+    actual exit: 1
+
+Manual analyst observations:
+# Observations: cp session=2026-05-07T11-10-34Z round=1
+
+## Numbers
+- Tests pass on real-gnu: 26/28 (= 93%)
+- Tests pass on rust impl: 26/28 (= 93%)
+- Flag coverage: 24/36 flags exercised (= 66.67%)
+- Branch/line coverage on Rust impl: 60.0%
+
+## Test-correctness failures (tests that failed on the real utility)
+
+Categorize each failure by Tambon-2025 schema
+(literature/tambon_2025_*.pdf):
+  - hallucinated flag / nonexistent feature
+  - wrong default
+  - wrong precedence
+  - misread edge case
+  - misread error case
+  - infrastructure (env / shell / quoting bug in test, not the LLM's reading)
+
+Per-failure (analyst fills `<category>`):
+
+- **024_interactive_i_decline.sh** [misread edge case] — -i/--interactive prompt
+  before overwrite. The test pipes `printf 'n\n' | "$UTIL" -i src dst`. GNU
+  `cp -i` only emits the prompt and reads a response when stdin is attached
+  to a TTY. With a piped stdin, GNU `cp` does not prompt; instead it falls
+  back to the underlying `unlink + open` semantics, which here proceed and
+  overwrite the destination. The man page is silent about this isatty(0)
+  guard, so the LLM-generated test reads `-i` as "always prompts," which is
+  wrong. Same surviving failure category as legacy round-1 test 022.
+  Equivalent stderr: `cp -i failed`, exit 1.
+
+- **026_strip_trailing_slashes.sh** [infrastructure] — --strip-trailing-slashes.
+  The test creates `link.txt` as a symlink to `target.txt` and then invokes
+  `"$UTIL" --strip-trailing-slashes "$link/" "$dst"`. Bash's argument
+  expansion / kernel pathname resolution dereferences `link.txt/` before cp
+  ever runs (a trailing slash on a symlink is a request to follow), and
+  since `target.txt` is a regular file (not a directory), `stat()` returns
+  `ENOTDIR`. cp's `--strip-trailing-slashes` flag was meant to be exercised,
+  but the trailing slash is consumed at the shell/syscall layer first. This
+  is a test-construction bug, not an LLM misreading of the man page. Same
+  failure as legacy round-1 test 018.
+  Equivalent stderr: `cp: cannot stat '.../link.txt/': Not a directory`.
+
+## Impl-correctness failures (tests that passed on real, failed on rust)
+
+_None._ Both failures above ALSO fail on the Rust impl, with identical
+stderr. That's a coincidence of test brokenness rather than the Rust impl
+matching real GNU behavior — the failures happen at the bash/syscall layer
+before the binary's argv reaches argv[1].
+
+## Compile / runtime failures of the Rust impl
+
+_The Rust impl compiled cleanly._ Cargo check pre-flight gate (item D in
+driver.py) returned rc=0. The legacy session E0515 lifetime error did not
+recur on this fresh run; lifetime semantics in the new impl are sound.
+
+## Open questions for next round
+
+_Analyst: list the specific feedback you want surfaced in round 2. The
+driver appends the verbatim contents of this file under "Manual analyst
+observations" in the next round's prompt._
+
+- The two failures above are NOT LLM man-page-reading errors. Test 026 is
+  a shell-level bug; test 024 is the LLM not knowing about an undocumented
+  isatty(0) precondition for `-i`. Round 2 should rewrite these tests:
+    - 024: `script -qc 'printf "n\n"; cp -i src dst' /dev/null` to fake a
+      TTY, OR drop the test to "verify cp -i exists and accepts the flag"
+      since the prompt-decline semantic isn't testable from a piped stdin.
+    - 026: pass a directory-symlink (`ln -s dir/ link`) instead of a
+      file-symlink so the trailing slash is meaningful at syscall time.
+  These rewrites are within scope: each tests `--strip-trailing-slashes`
+  and `-i` against the documented man-page surface, just with shell
+  plumbing that doesn't pre-empt the flag.
+- Do NOT regress the 26 passing tests. Keep flag coverage >= 24/36.
+- Coverage on src/main.rs is only 60% (12/20 lines). The 8 uncovered lines
+  are likely error-path branches not exercised by the current suite.
+  Round 2 could add tests targeting those, e.g. permission errors,
+  missing-source errors, conflicting flags. Caveat: harder to verify
+  without inspecting the impl source, which the LLM never sees.
+
+Produce a corrected `impl` JSON payload following the same schema as before. Address the issues above without regressing anything the previous round got right.

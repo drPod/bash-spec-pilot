@@ -1,0 +1,53 @@
+{
+  "util": "cp",
+  "session": "2026-05-07T11-10-34Z",
+  "round": 1,
+  "documented_count": 36,
+  "exercised_count": 24,
+  "coverage_pct": 66.67,
+  "matched": [
+    "--attributes-only",
+    "--backup",
+    "--no-preserve",
+    "--parents",
+    "--preserve",
+    "--remove-destination",
+    "--strip-trailing-slashes",
+    "--update",
+    "-H",
+    "-L",
+    "-P",
+    "-R",
+    "-T",
+    "-a",
+    "-b",
+    "-d",
+    "-f",
+    "-i",
+    "-l",
+    "-n",
+    "-p",
+    "-s",
+    "-t",
+    "-u"
+  ],
+  "unmatched": [
+    "--context",
+    "--copy-contents",
+    "--debug",
+    "--help",
+    "--keep-directory-symlink",
+    "--reflink",
+    "--sparse",
+    "--version",
+    "-S",
+    "-Z",
+    "-v",
+    "-x"
+  ],
+  "extra_used_not_documented": [
+    "--suffix",
+    "-c",
+    "-e"
+  ]
+}

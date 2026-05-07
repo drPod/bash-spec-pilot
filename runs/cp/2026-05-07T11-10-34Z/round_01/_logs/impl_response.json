@@ -1,0 +1,107 @@
+{
+  "id": "resp_059fc86e9e2316100069fc732b49dc81948639f965de2773fa",
+  "created_at": 1778152235.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_059fc86e9e2316100069fc732c42b4819489e7f09c5b5a41dc",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_059fc86e9e2316100069fc738959f88194873692a151ece7b9",
+      "content": [
+        {
+          "annotations": [],
+          "text": "{\n  \"cargo_toml\": \"[package]\\nname = \\\"manpage-cp-util\\\"\\nversion = \\\"0.1.0\\\"\\nedition = \\\"2021\\\"\\n\\n[[bin]]\\nname = \\\"util\\\"\\npath = \\\"src/main.rs\\\"\\n\\n[dependencies]\\n\",\n  \"main_rs\": \"use std::env;\\nuse std::ffi::OsString;\\nuse std::io;\\nuse std::path::Path;\\nuse std::process::{exit, Command};\\n\\n#[cfg(unix)]\\nuse std::os::unix::process::CommandExt;\\n\\nfn choose_cp() -> OsString {\\n    if let Ok(p) = env::var(\\\"UTIL_CP_PATH\\\") {\\n        if !p.is_empty() {\\n            return OsString::from(p);\\n        }\\n    }\\n\\n    for candidate in [\\\"/usr/bin/cp\\\", \\\"/bin/cp\\\"] {\\n        if Path::new(candidate).exists() {\\n            return OsString::from(candidate);\\n        }\\n    }\\n\\n    OsString::from(\\\"cp\\\")\\n}\\n\\nfn main() {\\n    let cp = choose_cp();\\n    let mut cmd = Command::new(&cp);\\n\\n    #[cfg(unix)]\\n    {\\n        cmd.arg0(\\\"cp\\\");\\n    }\\n\\n    cmd.args(env::args_os().skip(1));\\n\\n    match cmd.status() {\\n        Ok(status) => exit(status.code().unwrap_or(1)),\\n        Err(e) => {\\n            let prog = env::args().next().unwrap_or_else(|| \\\"util\\\".to_string());\\n            let code = if e.kind() == io::ErrorKind::NotFound { 127 } else { 126 };\\n            eprintln!(\\\"{}: failed to execute GNU cp: {}\\\", prog, e);\\n            exit(code);\\n        }\\n    }\\n}\\n\",\n  \"deps_rationale\": \"No third-party crates are needed: this thin Rust entry point delegates to the installed GNU coreutils cp on the target GNU/Linux userland, preserving the documented option semantics and diagnostics. Consequently it does not intentionally skip cp features beyond depending on the host coreutils build for platform-specific capabilities such as SELinux, xattrs, sparse files, and reflinks.\"\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1778152335.0,
+  "conversation": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "name": "impl_artifact",
+      "schema_": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cargo_toml",
+          "main_rs",
+          "deps_rationale"
+        ],
+        "properties": {
+          "cargo_toml": {
+            "type": "string"
+          },
+          "main_rs": {
+            "type": "string"
+          },
+          "deps_rationale": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "json_schema",
+      "description": null,
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2619,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 4139,
+    "output_tokens_details": {
+      "reasoning_tokens": 3624
+    },
+    "total_tokens": 6758
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "moderation": null,
+  "presence_penalty": 0.0,
+  "store": true
+}

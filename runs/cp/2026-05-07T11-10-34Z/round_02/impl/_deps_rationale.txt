@@ -1,0 +1,1 @@
+I used filetime for portable Unix timestamp preservation and libc only for chown/ioctl calls needed by common cp preservation and reflink behavior. The implementation covers the main GNU cp flags and semantics, while intentionally simplifying SELinux contexts, ACL/xattr preservation, sparse-file heuristics, and other platform-specific edge cases.
