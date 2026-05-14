@@ -1,7 +1,7 @@
 # Bash Utility Specifications via LLMs — Exploratory Experiment
 
 > **Read in this order:**
-> 1. **Live dashboard** — `streamlit run dashboard/streamlit_app.py` from the repo root. Always reflects the latest `runs/`.
+> 1. **Live dashboard** — <https://bash-spec-pilot.streamlit.app/>. Auto-rebuilt from `main`; always reflects the latest `runs/`. Run locally with `uv run streamlit run dashboard/streamlit_app.py` if preferred.
 > 2. **[`for_aaron.md`](for_aaron.md)** — weekly status report, written for Aaron. Headline findings, open questions, planned next steps.
 > 3. **[`taxonomy.md`](taxonomy.md)** — failure schema (Tambon-2025 lens + Astrogator-style verifier-result decomposition + the new failure classes we've discovered).
 > 4. **[`decisions.md`](decisions.md)** — provenance + design choices (TOC at top; reproducibility caveat in § 8, methodology debts in § 9).
@@ -195,7 +195,7 @@ Papers in `literature/` and the Astrogator/SLMFix/Prelim PDFs at the repo root w
 
 ## Dashboard
 
-`streamlit run dashboard/streamlit_app.py` from the repo root opens a local dashboard that reads the latest data in `runs/`:
+**Hosted:** <https://bash-spec-pilot.streamlit.app/>. **Local:** `uv run streamlit run dashboard/streamlit_app.py` from the repo root. Both serve the same six-page dashboard, reading the latest data in `runs/`:
 
 - **Overview** — KPIs across all utilities, latest round per util, headline findings.
 - **Trajectory (per utility)** — round-over-round pass rates against the GNU oracle and the Rust impl, plus flag/line coverage.

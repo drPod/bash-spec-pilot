@@ -2,7 +2,7 @@
 
 Darsh Poddar · last updated 2026-05-14
 
-One-page status report on the man-page → Rust experiment that's upstream of your Bash specification language and verifier work. Companion artifacts: live dashboard (`streamlit run dashboard/streamlit_app.py`), `taxonomy.md` (failure schema), `decisions.md` (provenance + design choices), `README.md` (project framing).
+One-page status report on the man-page → Rust experiment that's upstream of your Bash specification language and verifier work. Companion artifacts: live dashboard at <https://bash-spec-pilot.streamlit.app/> (auto-rebuilt from `main`), `taxonomy.md` (failure schema), `decisions.md` (provenance + design choices), `README.md` (project framing).
 
 ## 1. Where the experiment is
 
