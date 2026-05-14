@@ -18,24 +18,24 @@ The DM is intentionally short. Depth goes in the dashboard and `for_aaron.md`.
 
 ## Draft (paste into Slack)
 
-Quick update from this week. Ran round 2 of `mv`, `find`, `sudo` against the GNU oracle in trixie, deployed a Streamlit dashboard so the numbers don't have to live in markdown anymore, and added a positivity breakdown to answer your test-diversity question.
+Wave 3 done. Ran round 2 of `mv`/`find`/`sudo` vs GNU trixie. Deployed dashboard. Positivity breakdown attached.
 
-**Read in this order — under 10 min total:**
+**Read order (~10 min):**
 
-1. **Live dashboard:** https://bash-spec-pilot.streamlit.app/ — auto-rebuilds from `main`, no setup. Pages, in order: *Overview* → *Test diversity* → *Failure browser* → *Trajectory*.
-2. **`for_aaron.md`:** https://github.com/drPod/bash-spec-pilot/blob/7b83674/for_aaron.md — weekly status report. New § 5 covers wave 3.
-3. **`taxonomy.md` § 5:** https://github.com/drPod/bash-spec-pilot/blob/7b83674/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14 — three new failure classes from this round.
+1. Dashboard: https://bash-spec-pilot.streamlit.app/ — auto-rebuilds from `main`. Pages: *Overview → Test diversity → Failure browser → Trajectory*.
+2. `for_aaron.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/for_aaron.md
+3. `taxonomy.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14
 
-**The one finding to lead with:** the iteration loop is not behaving as a "fix" step. Four utilities, four different outcomes at round 1 → round 2:
+**Headline: iteration loop ≠ "fix" step.** Four utils, four r1→r2 outcomes:
 
-- `cp`: drift — impl and tests coevolve into mutual ratification (wave-2 finding, confirmed).
-- `mv`: real coverage gain (88.89% → 94.44% flag, 65.04% → 82.58% line) — **but** the `-v` stream bug was "fixed" by relaxing the test from `out=$(... -v ...)` to `out=$(... -v ... 2>&1)`, not by fixing the Rust impl's stderr-vs-stdout choice. Test got more permissive instead of impl getting more correct.
-- `find`: impl regressed to a hard compile error (`?` operator misuse inside `if` expecting `()`).
-- `sudo`: impl regressed to a hard compile error (macro use-before-definition).
+- `cp`: drift (impl+tests mutual-ratify, miss GNU). Wave-2 finding confirmed.
+- `mv`: flag cov 88.89→94.44%, line cov 65.04→82.58%. **But** `-v` stream bug "fixed" by relaxing test `out=$(... -v ...)` → `out=$(... -v ... 2>&1)`. Test got permissive, impl unchanged.
+- `find`: impl compile-fail. `?`-operator in `if` expecting `()`.
+- `sudo`: impl compile-fail. Macro use-before-def.
 
-Three distinct compile-fail mechanisms in three utilities, all triggered by the same feedback prompt. The shared shape is "model responds to test-failure feedback by writing *more* code, not *more correct* code." A one-line stream-convention fix would have closed `mv` cleanly; instead the LLM rewrote `--exchange` with a `renameat2` syscall.
+Three compile-fail mechanisms, one feedback prompt. Shape: **model responds to test failures by writing *more* code, not *more correct* code.** `mv -v` needed one-line stream fix; LLM rewrote `--exchange` with `renameat2` instead.
 
-**Test diversity (the breakdown you asked for):**
+**Pos/neg breakdown (your diversity ask):**
 
 | util | pos / neg | pos% | neg% | GNU neg pass | Rust neg pass |
 |------|-----------|------|------|--------------|---------------|
@@ -45,11 +45,11 @@ Three distinct compile-fail mechanisms in three utilities, all triggered by the 
 | `find` r1 | 27 / 3 | 90% | 10% | 100% | 67% |
 | `sudo` r1 | 23 / 6 | 79% | 21% | 100% | 83% |
 
-`sudo` is the only one with a meaningful negative slice — consistent with it being policy-heavy. The other three default hard to happy-path tests. Negative-test pass rates against GNU are ~100% across the board, which I read as "the few negative tests the LLM does write are clustered on the most obvious documented errors."
+`sudo` only util with meaningful negative slice (policy-heavy, makes sense). Rest = happy-path heavy. Negative-test GNU pass ~100% across board — LLM writes neg tests only for obvious documented errors.
 
-**Open question:** with three of four round-2 impls broken, where should round 3 go — (a) refine the feedback prompt to constrain the kind of edit (no new dependencies, smallest-possible-diff framing), (b) commit to N≥3 resampling on round 1 before iterating further, or (c) both? My lean is (c) but `for_aaron.md` § 6 is the right place to argue it.
+**Open Q:** three of four r2 impls broken. Round 3 priority: (a) tighter feedback prompt (smallest-possible-diff, no new deps), (b) N≥3 resampling first to get variance bars, (c) both. Lean (c). Arg in `for_aaron.md` § 6.
 
-Full per-test stderr in the dashboard's *Failure browser* page (`GNU fail, Rust pass` quadrant is the drift case; `GNU pass, Rust fail` is the impl-regression case).
+Per-test stderr in dashboard *Failure browser* (`GNU fail, Rust pass` = drift; `GNU pass, Rust fail` = impl regression).
 
 ---
 
