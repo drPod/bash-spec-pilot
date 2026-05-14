@@ -10,6 +10,7 @@ import streamlit as st
 from data import discover_rounds
 
 rounds = discover_rounds()
+rounds = rounds[rounds["tests_generated"] > 0].copy()
 if rounds.empty:
     st.warning("No rounds yet.")
     st.stop()

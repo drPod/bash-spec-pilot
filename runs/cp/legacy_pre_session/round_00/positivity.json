@@ -1,0 +1,26 @@
+{
+  "round_dir": "runs/cp/legacy_pre_session/round_00",
+  "manifest": {
+    "total": 30,
+    "pos": 28,
+    "neg": 2,
+    "pos_pct": 0.9333333333333333,
+    "neg_pct": 0.06666666666666667
+  },
+  "oracles": {
+    "real-gnu": {
+      "pos_total": 28,
+      "neg_total": 2,
+      "pos_pass": 26,
+      "pos_fail": 2,
+      "neg_pass": 2,
+      "neg_fail": 0,
+      "pos_pass_rate": 0.9285714285714286,
+      "neg_pass_rate": 1.0
+    },
+    "rust": null
+  },
+  "util": "cp",
+  "session": "legacy_pre_session",
+  "round": 0
+}

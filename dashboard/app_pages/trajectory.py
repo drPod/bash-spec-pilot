@@ -4,10 +4,23 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+import pandas as pd
 import plotly.express as px
 import streamlit as st
 
 from data import discover_rounds, load_manpage_meta
+
+
+def _fmt_pct(x, default="n/a"):
+    if x is None or (isinstance(x, float) and pd.isna(x)):
+        return default
+    return f"{x:.0%}"
+
+
+def _fmt_int(x, default="0"):
+    if x is None or (isinstance(x, float) and pd.isna(x)):
+        return default
+    return f"{int(x)}"
 
 rounds = discover_rounds()
 rounds = rounds[rounds["tests_generated"] > 0].copy()
@@ -27,39 +40,47 @@ manpage = load_manpage_meta(util)
 with st.container(border=True):
     if manpage:
         st.markdown(
-            f"**{util}** · source: `{manpage.get('package', '?')}` "
-            f"({manpage.get('package_version', '?')}) · "
-            f"section {manpage.get('section', '?')} · "
-            f"frozen {manpage.get('fetched_at', '?')[:10]}"
+            f"**{util}** · source: `{manpage.get('debian_package', '?')}` "
+            f"({manpage.get('debian_package_version', '?')}) · "
+            f"section {manpage.get('man_section', '?')} · "
+            f"frozen {(manpage.get('fetched_at') or '')[:10]}"
         )
     else:
         st.markdown(f"**{util}**")
 
 # KPI row for the most-recent round.
 latest = util_df.iloc[-1]
+rust_total = latest["rust_total"]
+rust_pass = latest["rust_pass"]
+rust_label = (
+    f"{_fmt_int(rust_pass)}/{_fmt_int(rust_total)}"
+    if rust_total and not pd.isna(rust_total) and int(rust_total) > 0
+    else "compile fail" if latest.get("compile_failed") else "n/a"
+)
+flag_cov = latest["flag_cov_pct"]
+line_cov = latest["line_cov_pct"]
 with st.container(horizontal=True):
     st.metric(
         "vs GNU",
-        f"{int(latest['real-gnu_pass'])}/{int(latest['real-gnu_total'])}",
-        f"{(latest['real-gnu_pass_rate'] or 0):.0%}",
+        f"{_fmt_int(latest['real-gnu_pass'])}/{_fmt_int(latest['real-gnu_total'])}",
+        _fmt_pct(latest["real-gnu_pass_rate"]),
         border=True,
     )
     st.metric(
         "vs Rust impl",
-        f"{int(latest['rust_pass'])}/{int(latest['rust_total'])}",
-        f"{(latest['rust_pass_rate'] or 0):.0%}",
+        rust_label,
+        _fmt_pct(latest["rust_pass_rate"]),
         border=True,
     )
     st.metric(
         "Flag coverage",
-        f"{(latest['flag_cov_pct'] or 0):.0f}%",
-        f"{int(latest['flags_exercised'] or 0)}/{int(latest['flags_documented'] or 0)} flags",
+        f"{flag_cov:.0f}%" if flag_cov is not None and not pd.isna(flag_cov) else "n/a",
+        f"{_fmt_int(latest['flags_exercised'])}/{_fmt_int(latest['flags_documented'])} flags",
         border=True,
     )
-    line_cov = latest["line_cov_pct"]
     st.metric(
         "Rust line coverage",
-        f"{line_cov:.1f}%" if line_cov is not None else "n/a",
+        f"{line_cov:.1f}%" if line_cov is not None and not pd.isna(line_cov) else "compile fail" if latest.get("compile_failed") else "n/a",
         "tarpaulin in trixie",
         border=True,
     )

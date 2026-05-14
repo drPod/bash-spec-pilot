@@ -160,7 +160,7 @@ The original layout was `runs/<util>/round_<NN>/` — flat. A re-run would clobb
 
 **New layout:** `runs/<util>/<session_id>/round_<NN>/`, where `session_id` is an ISO 8601 UTC timestamp with colons replaced for filesystem safety (`YYYY-MM-DDTHH-MM-SSZ`). One session = one trajectory. `scripts/driver.py` and `scripts/run_tests.py` both take `--session`. Round 1 with no `--session` mints a fresh timestamp; round ≥ 2 with no `--session` re-uses the latest session for the util.
 
-The pre-rework `runs/cp/round_01/` was moved verbatim to `runs/cp/legacy_pre_session/round_01/` to preserve the historical run without losing it under the new scheme. See `runs/cp/legacy_pre_session/_README.md` for the postmortem on that run.
+The pre-rework `runs/cp/round_01/` was moved verbatim to `runs/cp/legacy_pre_session/round_00/` to preserve the historical run without losing it under the new scheme. See `runs/cp/legacy_pre_session/_README.md` for the postmortem on that run.
 
 ### 4.2 Iteration feedback (round ≥ 2)
 
@@ -212,14 +212,14 @@ Tarpaulin instruments Rust unit / integration tests, not external binaries invok
 - `scripts/init_observations.sh` writes the `_observations.md` skeleton per round with metrics pre-filled (parsed from JSONL and JSON files), Tambon-2025 categorization scaffold, and an empty "Open questions for next round" section.
 - Per-util `runs/<util>/SUMMARY.md` is the cross-session roll-up. Initial entry populated for `legacy_pre_session`.
 
-### 4.8 Should `runs/cp/legacy_pre_session/round_01/` be replayed in the new structure?
+### 4.8 Should `runs/cp/legacy_pre_session/round_00/` be replayed in the new structure?
 
 **No, and the legacy data has already paid back its keep.** Two things fell out of running the new infra against the existing tests:
 
 1. The 13/30 BSD pass rate inflated to **28/30 against the GNU oracle** without changing a single test. This validates the oracle hypothesis: ~50% of the original "failures" were the wrong-utility-on-the-host bug, not LLM mistakes. The two genuine failures that survive are not "the LLM hallucinated a flag" — they're misread edge cases at the seam between bash and `cp` (symlink trailing-slash dereferencing in test 018; tty-detection in `-i` for test 022). That is the failure-taxonomy data the experiment exists to collect.
 2. The Rust impl's compile error (E0515 lifetime issue at `src/main.rs:159`) is a single, well-defined failure that the iteration-feedback path can surface verbatim to round 2. We don't need to replay round 1 to get there; we need round 2 to start from the round 1 artifacts, which it now does.
 
-The existing `runs/cp/legacy_pre_session/round_01/` should stay as a historical baseline — it's the only artifact we have that demonstrates the BSD-vs-GNU oracle delta, and that delta is itself a methodologically interesting datum. Future runs start a fresh session and iterate from there.
+The existing `runs/cp/legacy_pre_session/round_00/` should stay as a historical baseline — it's the only artifact we have that demonstrates the BSD-vs-GNU oracle delta, and that delta is itself a methodologically interesting datum. Future runs start a fresh session and iterate from there.
 
 ---
 

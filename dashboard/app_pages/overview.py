@@ -67,12 +67,14 @@ display = latest[
     }
 )
 
+display["GNU %"] = display["GNU %"] * 100
+display["Rust %"] = display["Rust %"] * 100
 st.dataframe(
     display,
     hide_index=True,
     column_config={
-        "GNU %": st.column_config.ProgressColumn(format="%.0f%%", min_value=0, max_value=1),
-        "Rust %": st.column_config.ProgressColumn(format="%.0f%%", min_value=0, max_value=1),
+        "GNU %": st.column_config.ProgressColumn(format="%.0f%%", min_value=0, max_value=100),
+        "Rust %": st.column_config.ProgressColumn(format="%.0f%%", min_value=0, max_value=100),
     },
 )
 
@@ -96,6 +98,7 @@ fig = px.line(
     range_y=[0, 1.05],
 )
 fig.update_layout(yaxis_tickformat=".0%", height=340)
+fig.update_xaxes(dtick=1)
 st.plotly_chart(fig, use_container_width=False, width="stretch")
 
 st.markdown("### Headline findings")

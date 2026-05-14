@@ -24,14 +24,15 @@ than coercing the round table.
 
 ---
 
-## legacy_pre_session   kind: iteration
+## legacy_pre_session   kind: pre-experiment baseline (round 0)
 
 Pre-session-id baseline. See `legacy_pre_session/_README.md` for context.
 Run on macOS against BSD `/bin/cp`; oracle was wrong, infra was incomplete.
+Treated as round **0** to flag "pre-methodology — not comparable to wave-2+ rows."
 
 | Round | test_real-gnu | test_rust | flag_cov | line_cov       | notes |
 |-------|---------------|-----------|----------|----------------|-------|
-| 01    | 28/30 (93%)   | n/a       | 77.8%    | compile_failed | Original macOS BSD run scored 13/30; re-running with the new GNU oracle moved that to 28/30. The 2 remaining failures are `018_strip_trailing_slashes.sh` (shell follows symlink-with-slash before cp sees it — misread edge case at the boundary between bash semantics and cp semantics) and `022_interactive_decline_overwrite.sh` (GNU `cp -i` skips the prompt when stdin is not a tty and exits nonzero — misread error case in the man page's silence on tty-detection). |
+| 00    | 28/30 (93%)   | n/a       | 77.8%    | compile_failed | Original macOS BSD run scored 13/30; re-running with the new GNU oracle moved that to 28/30. The 2 remaining failures are `018_strip_trailing_slashes.sh` (shell follows symlink-with-slash before cp sees it — misread edge case at the boundary between bash semantics and cp semantics) and `022_interactive_decline_overwrite.sh` (GNU `cp -i` skips the prompt when stdin is not a tty and exits nonzero — misread error case in the man page's silence on tty-detection). |
 
 What we learned: the run is already 28/30-correct against the real GNU
 oracle. The misread-edge-case failures are nontrivial — they live at the

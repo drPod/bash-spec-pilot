@@ -38,7 +38,7 @@ REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "runs"
 
 ORACLES = ("real-gnu", "rust")
-SESSION_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$")
+SESSION_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z|legacy_pre_session)$")
 ROUND_RE = re.compile(r"^round_(\d{2})$")
 
 

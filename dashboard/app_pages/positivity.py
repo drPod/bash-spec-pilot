@@ -75,7 +75,7 @@ for _, row in util_df.iterrows():
                     height=240,
                     margin=dict(t=40, b=20, l=20, r=20),
                 )
-                st.plotly_chart(fig, width="stretch")
+                st.plotly_chart(fig, width="stretch", key=f"hm-{row['session']}-{row['round']}-{oracle}")
 
                 pos_total = pp + pf
                 neg_total = np_ + nf

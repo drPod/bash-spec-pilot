@@ -208,7 +208,7 @@ Round 1 of `cp` (impl + tests, two calls) used:
 | tests | 2,748        | 10,139                          | 4,324             | 12,887 |
 | **sum** | **5,367**  | **21,397**                      | **8,270**         | **26,764** |
 
-Source: `runs/cp/legacy_pre_session/round_01/_logs/log.jsonl`.
+Source: `runs/cp/legacy_pre_session/round_00/_logs/log.jsonl`.
 
 At GPT-5.5 list pricing ($5/1M input, $30/1M output):
 

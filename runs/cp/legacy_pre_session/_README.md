@@ -1,9 +1,10 @@
-# Legacy round_01 (pre-session layout)
+# Round 0 — pre-experiment baseline (legacy `cp` run)
 
 This directory holds the very first `cp` run, conducted on macOS against BSD
 `/bin/cp` before the iteration / Docker / session-id infrastructure existed.
-It is preserved verbatim as a historical baseline. Do not edit the
-contents — treat this as a read-only artifact.
+It is treated as **round 0** of the experiment — the pre-methodology
+baseline — and is preserved verbatim as a historical artifact. Do not edit
+the contents.
 
 ## Why it lives here
 
@@ -13,7 +14,8 @@ would clobber it, and there was no notion of distinct iteration trajectories
 where `session_id` is an ISO 8601 UTC timestamp of the first round in that
 trajectory. To preserve the existing data without losing it under the new
 scheme, the old `runs/cp/round_01/` was moved wholesale to
-`runs/cp/legacy_pre_session/round_01/`.
+`runs/cp/legacy_pre_session/round_00/` — renumbered to 0 to signal "this
+is the pre-experiment run, not a comparable round-1 result."
 
 ## What's worth knowing about this run
 
@@ -29,7 +31,7 @@ scheme, the old `runs/cp/round_01/` was moved wholesale to
   faithfully; the host oracle was the wrong tool.
 - **The Rust impl failed to compile.** Single rustc error
   (E0515 lifetime issue at `src/main.rs:159`). See
-  `runs/cp/legacy_pre_session/round_01/impl/` for the full source.
+  `runs/cp/legacy_pre_session/round_00/impl/` for the full source.
 - **Tests `021_no_clobber_skips_existing.sh` and
   `022_interactive_decline_overwrite.sh`** "fail" only because BSD `cp`
   prints to stderr in an unexpected way for the `--no-clobber` / `-i`

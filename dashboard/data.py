@@ -16,7 +16,7 @@ REPO = Path(__file__).resolve().parent.parent
 RUNS = REPO / "runs"
 UTILS_DIR = REPO / "utils"
 
-SESSION_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$")
+SESSION_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z|legacy_pre_session)$")
 ROUND_RE = re.compile(r"^round_(\d{2})$")
 ORACLES = ("real-gnu", "rust")
 
@@ -77,11 +77,11 @@ def discover_rounds() -> pd.DataFrame:
                     row[f"{oracle}_correct"] = correct
                     row[f"{oracle}_pass_rate"] = passed / total if total else None
 
-                # Coverage.
+                # Coverage. JSON keys are documented_count / exercised_count.
                 cov_flags = _load_json(round_dir / "coverage_flags.json") or {}
                 row["flag_cov_pct"] = cov_flags.get("coverage_pct")
-                row["flags_documented"] = cov_flags.get("flags_documented")
-                row["flags_exercised"] = cov_flags.get("flags_exercised")
+                row["flags_documented"] = cov_flags.get("documented_count")
+                row["flags_exercised"] = cov_flags.get("exercised_count")
 
                 cov_rust = _load_json(round_dir / "coverage_rust.json") or {}
                 row["line_cov_pct"] = cov_rust.get("line_coverage_pct")

@@ -1,0 +1,7 @@
+# Minimal requirements for Streamlit Community Cloud deployment.
+# The dashboard at dashboard/streamlit_app.py reads runs/ directly — no API
+# keys needed. uv-based local dev uses pyproject.toml + uv.lock; Streamlit
+# Cloud installs from this file. Keep in sync when bumping dashboard deps.
+streamlit>=1.57
+pandas>=2.0
+plotly>=5.0

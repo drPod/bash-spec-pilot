@@ -77,4 +77,4 @@ Order-of-magnitude only. cp round-1 ~$0.36 for ~27K total tokens. Multi-util mul
 
 # Status / next
 
-See `for_aaron.md` for current planned next steps + Aaron-meeting deliverable. `runs/cp/legacy_pre_session/round_01/` exists from pre-session driver run; new sessions use ISO timestamp ids.
+See `for_aaron.md` for current planned next steps + Aaron-meeting deliverable. `runs/cp/legacy_pre_session/round_00/` exists as the pre-experiment baseline (round 0 — BSD-on-macOS oracle, contaminated); new sessions use ISO timestamp ids.
