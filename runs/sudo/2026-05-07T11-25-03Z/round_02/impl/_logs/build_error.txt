@@ -1,0 +1,46 @@
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded errno v0.3.14
+  Downloaded users v0.11.0
+  Downloaded fastrand v2.4.1
+  Downloaded getrandom v0.4.2
+  Downloaded tempfile v3.27.0
+  Downloaded rustix v1.1.4
+  Downloaded linux-raw-sys v0.12.1
+   Compiling util v0.1.0 (/work/runs/sudo/2026-05-07T11-25-03Z/round_02/impl)
+error: cannot find macro `Err` in this scope
+   --> src/main.rs:217:36
+    |
+217 |     if o.login && o.shell { return Err!("you may not specify both the -i and -s options".to_string()); }
+    |                                    ^^^ consider moving the definition of `Err` before this call
+    |
+note: a macro with the same name exists, but it appears later
+   --> src/main.rs:225:14
+    |
+225 | macro_rules! Err { ($e:expr) => { return Err($e) }; }
+    |              ^^^
+
+warning: unused import: `File`
+ --> src/main.rs:3:21
+  |
+3 | use std::fs::{self, File};
+  |                     ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `GroupExt`
+  --> src/main.rs:11:23
+   |
+11 | use users::os::unix::{GroupExt, UserExt};
+   |                       ^^^^^^^^
+
+warning: unused macro definition: `Err`
+   --> src/main.rs:225:14
+    |
+225 | macro_rules! Err { ($e:expr) => { return Err($e) }; }
+    |              ^^^
+    |
+    = note: `#[warn(unused_macros)]` (part of `#[warn(unused)]`) on by default
+
+warning: `util` (bin "util") generated 3 warnings
+error: could not compile `util` (bin "util") due to 1 previous error; 3 warnings emitted

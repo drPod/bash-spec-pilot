@@ -1,0 +1,35 @@
+{
+  "round_dir": "runs/sudo/2026-05-07T11-25-03Z/round_01",
+  "manifest": {
+    "total": 29,
+    "pos": 23,
+    "neg": 6,
+    "pos_pct": 0.7931034482758621,
+    "neg_pct": 0.20689655172413793
+  },
+  "oracles": {
+    "real-gnu": {
+      "pos_total": 23,
+      "neg_total": 6,
+      "pos_pass": 22,
+      "pos_fail": 1,
+      "neg_pass": 6,
+      "neg_fail": 0,
+      "pos_pass_rate": 0.9565217391304348,
+      "neg_pass_rate": 1.0
+    },
+    "rust": {
+      "pos_total": 23,
+      "neg_total": 6,
+      "pos_pass": 23,
+      "pos_fail": 0,
+      "neg_pass": 5,
+      "neg_fail": 1,
+      "pos_pass_rate": 1.0,
+      "neg_pass_rate": 0.8333333333333334
+    }
+  },
+  "util": "sudo",
+  "session": "2026-05-07T11-25-03Z",
+  "round": 1
+}

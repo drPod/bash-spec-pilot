@@ -1,0 +1,323 @@
+<!--
+  Prompt: man-page -> Bash test suite.
+
+  Schulhoff (Prompt Report, arXiv 2406.06608) techniques applied:
+    - Role + Task framing (Sec. 2.2.1.3) anchored on "differential testing
+      between two implementations of the same documented utility".
+    - Structured JSON output with a defined schema (Sec. 2.2.5; Tam et al.
+      2024 rebuttal cited in the survey). The schema includes per-test
+      `exercises` and `expected` fields explicitly to aid downstream
+      failure-taxonomy analysis - this is the "answer engineering" angle
+      from Sec. 2.5.
+    - Decomposition (Plan-and-Solve, Sec. 2.2.2). Reasoning models are
+      asked to enumerate flags from the man page first, then pick which
+      to test, then write tests. The reasoning is internal when running
+      against gpt-5.5 (a reasoning model); the prompt asks for the result
+      only, not a visible reasoning trace.
+    - Negative constraints (test-quality requirements) up front.
+
+  Deliberately rejected:
+    - "Think step by step" / explicit CoT trigger in the prompt body.
+      gpt-5.5 is a reasoning model and decides its own reasoning depth;
+      adding a CoT trigger duplicates that and Schulhoff (Sec. 2.2.2)
+      offers no zero-temperature evidence that CoT triggers help on
+      structured-extraction tasks.
+    - "Pretend you are a QA engineer..." style persona prompts.
+      Schulhoff notes role prompting helps style; it does not help here.
+
+  Versioning: driver writes sha256(this file) to log.jsonl as
+  `prompt_template_sha256`.
+-->
+
+You are writing a differential test suite for a documented Unix utility.
+The same suite will be executed twice - once against the real system
+binary (the oracle), and once against an LLM-generated re-implementation.
+A test that passes against the oracle and fails against the
+re-implementation reveals a bug in the re-implementation. A test that
+fails against the oracle reveals a misreading of the man page.
+
+# Task
+
+Read the man page below carefully. Identify the documented flags and
+behaviors. Produce a Bash test suite that exercises that documented
+behavior on a Linux/GNU userland system.
+
+# Per-test requirements
+
+Every test:
+
+- Is a **self-contained Bash script**.
+- **Begins with** `#!/usr/bin/env bash` and `set -euo pipefail`.
+- Creates its own temporary working directory via `mktemp -d` and removes
+  it on exit via `trap '...' EXIT`.
+- Invokes the utility through the **`$UTIL` environment variable**, never
+  the literal command name. Always quoted: `"$UTIL"`.
+- **Asserts exactly one thing** about post-state - one assertion per
+  test. (Asserting an exit code AND a stderr substring against the same
+  invocation counts as one assertion if both express the same expected
+  behavior; do not bundle independent assertions.)
+- **Uses absolute paths** inside `$tmpdir`. Do not rely on `cd` leaking
+  out of the test or out of subshells.
+- **Exits 0 on pass, nonzero on fail.** On failure, print one short
+  diagnostic line to stderr first.
+- Tests **only documented behavior**. If the man page is silent on a
+  point, do not test it - silence is not a specification.
+
+# `expected_to_fail`: documented-error tests
+
+Each test carries a per-test boolean `expected_to_fail`.
+
+- Set `expected_to_fail: false` for normal positive tests. The test body
+  runs the utility, asserts the expected post-state, and exits 0 on success.
+- Set `expected_to_fail: true` when the test exercises a **documented
+  error condition** — i.e. the man page itself states the utility must
+  fail (nonzero exit) on this input. Examples:
+    * passing a nonexistent SOURCE,
+    * `cp -T <src> <existing-directory>` with `-T` / `--no-target-directory`,
+    * `--update=none-fail` against an existing destination,
+    * any "diagnose and induce a failure" the man page commits to.
+
+  In `expected_to_fail: true` tests the **test body itself still exits 0
+  iff the utility errored exactly as documented**. Capture the utility's
+  exit code (`set +e; "$UTIL" ...; status=$?; set -e`) and assert
+  `[[ $status -ne 0 ]]`. Do not let an unguarded utility call propagate a
+  nonzero exit out of the test through `set -e` — that conflates "real
+  utility errored as documented" with "the test itself crashed".
+
+  These tests are first-class evidence: a real utility that errors as
+  documented is the strongest possible behavioral signal we can extract
+  from the man page.
+
+# Suite-level requirements
+
+- **15 to 30 tests total.** Quality over quantity.
+- **At least one positive test per major flag** the man page documents.
+- Documented edge cases (e.g. trailing slashes, missing files,
+  type mismatches, permission errors that the man page mentions).
+- Documented **error cases** - covered via `expected_to_fail: true` tests
+  per the spec above. Aim for at least 3 of these in any suite.
+- Skip the same areas as the implementation prompt: SELinux, locale,
+  ACLs, xattrs, sparse files, `--reflink=`, signals, network. Tests
+  that depend on these are not portable across the experiment's
+  environments.
+
+# Output format - strict
+
+Respond with exactly one fenced JSON code block, no prose before or
+after. The JSON must validate against this schema:
+
+```json
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tests"],
+  "properties": {
+    "tests": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["filename", "body", "exercises", "expected", "expected_to_fail"],
+        "properties": {
+          "filename":  {
+            "type": "string",
+            "pattern": "^[0-9]{3}_[a-z0-9_]+\\.sh$",
+            "description": "NNN_short_description.sh; 3-digit zero-padded sequence"
+          },
+          "body":      {
+            "type": "string",
+            "description": "full Bash test script, starting with shebang"
+          },
+          "exercises": {
+            "type": "string",
+            "description": "<=120 chars naming the flag/behavior under test"
+          },
+          "expected":  {
+            "type": "string",
+            "description": "<=120 chars naming the post-state being asserted"
+          },
+          "expected_to_fail": {
+            "type": "boolean",
+            "description": "true iff this test exercises a documented error case (the real utility is expected to exit nonzero, and the test body asserts that). Aim for at least 3 of these per suite."
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The `body` field must contain the raw Bash script (newlines preserved,
+no JSON-escaping beyond what JSON encoding requires). Do not wrap
+`body` in additional Markdown fences.
+
+# Manual page
+
+MV(1)                            User Commands                           MV(1)
+
+NAME
+       mv - move (rename) files
+
+SYNOPSIS
+       mv [OPTION]... [-T] SOURCE DEST
+       mv [OPTION]... SOURCE... DIRECTORY
+       mv [OPTION]... -t DIRECTORY SOURCE...
+
+DESCRIPTION
+       Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+       Mandatory arguments to long options are mandatory for short options
+       too.
+
+       --backup[=CONTROL]
+              make a backup of each existing destination file
+
+       -b     like --backup but does not accept an argument
+
+       --debug
+              explain how a file is copied.  Implies -v
+
+       --exchange
+              exchange source and destination
+
+       -f, --force
+              do not prompt before overwriting
+
+       -i, --interactive
+              prompt before overwrite
+
+       -n, --no-clobber
+              do not overwrite an existing file
+
+       If you specify more than one of -i, -f, -n, only the final one takes
+       effect.
+
+       --no-copy
+              do not copy if renaming fails
+
+       --strip-trailing-slashes
+              remove any trailing slashes from each SOURCE argument
+
+       -S, --suffix=SUFFIX
+              override the usual backup suffix
+
+       -t, --target-directory=DIRECTORY
+              move all SOURCE arguments into DIRECTORY
+
+       -T, --no-target-directory
+              treat DEST as a normal file
+
+       --update[=UPDATE]
+              control which existing files are updated;
+              UPDATE={all,none,none-fail,older(default)}
+
+       -u     equivalent to --update[=older].  See below
+
+       -v, --verbose
+              explain what is being done
+
+       -Z, --context
+              set SELinux security context of destination file to default type
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       UPDATE controls which existing files in the destination are replaced.
+       'all' is the default operation when an --update option is not
+       specified, and results in all existing files in the destination being
+       replaced.  'none' is like the --no-clobber option, in that no files in
+       the destination are replaced, and skipped files do not induce a
+       failure.  'none-fail' also ensures no files are replaced in the
+       destination, but any skipped files are diagnosed and induce a failure.
+       'older' is the default operation when --update is specified, and
+       results in files being replaced if they're older than the corresponding
+       source file.
+
+       The backup suffix is '~', unless set with --suffix or
+       SIMPLE_BACKUP_SUFFIX.  The version control method may be selected via
+       the --backup option or through the VERSION_CONTROL environment
+       variable.  Here are the values:
+
+       none, off
+              never make backups (even if --backup is given)
+
+       numbered, t
+              make numbered backups
+
+       existing, nil
+              numbered if numbered backups exist, simple otherwise
+
+       simple, never
+              always make simple backups
+
+AUTHOR
+       Written by Mike Parker, David MacKenzie, and Jim Meyering.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+SEE ALSO
+       rename(2)
+
+       Full documentation <https://www.gnu.org/software/coreutils/mv>
+       or available locally via: info '(coreutils) mv invocation'
+
+       Packaged by Debian (9.7-3)
+       Copyright © 2025 Free Software Foundation, Inc.
+       License GPLv3+: GNU GPL version 3 or later
+       <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+GNU coreutils 9.7                  June 2025                             MV(1)
+
+
+
+# Previous attempt feedback (round 1)
+In the previous attempt, the following tests FAILED against the real utility:
+  - 008_interactive_decline_keeps_destination.sh: -i/--interactive prompt before overwrite
+    expected: Declining prompt leaves existing DEST unchanged
+    actual stderr: <empty>
+    actual exit: 1
+  - 020_strip_trailing_slashes.sh: --strip-trailing-slashes on SOURCE
+    expected: Destination is the moved symlink
+    actual stderr: mv: cannot move '/tmp/tmp.vkn60nUEeD/link' to '/tmp/tmp.vkn60nUEeD/movedlink': Not a directory
+    actual exit: 1
+
+Manual analyst observations:
+# Observations: mv session=2026-05-07T11-11-40Z round=1
+
+## Numbers
+- Tests pass on real-gnu: 24/26 (= 92%)
+- Tests pass on rust impl: 25/26 (= 96%)
+- Flag coverage: 16/18 flags exercised (= 88.89%)
+- Branch/line coverage on Rust impl: 65.04% (240/369 lines)
+
+## Test-correctness failures (tests that failed on the real utility)
+
+Tambon labels (per `taxonomy.md` §1) + Astrogator-style cause code.
+
+- **008_interactive_decline_keeps_destination.sh** [Misinterpretation; TEST-MAN-PAGE-MISREAD] — `-i/--interactive`. Test pipes `n\n` into `mv -i` via heredoc and expects the destination to be preserved. GNU `mv -i` only prompts when stdin is a tty (the man page says "prompt before overwrite", silent on tty-detection). With heredoc-stdin, GNU `mv` sees no tty, skips the prompt, overwrites silently — `dst` becomes `new`. Real-side rc=1 from the test's own assertion. Identical shape to `cp` round-1 `022_interactive_decline_overwrite.sh`. The man-page silence on tty-detection is the consistent miss across both utilities.
+
+- **020_strip_trailing_slashes.sh** [Missing Corner Case; TEST-MAN-PAGE-MISREAD] — `--strip-trailing-slashes` on a symlink-to-dir. Test creates `link -> real/` and calls `mv --strip-trailing-slashes "$tmpdir/link/" movedlink`. Bash does not strip the slash before exec; `mv` receives literal `link/`. GNU `mv` treats `link/` as a directory-semantics request through the symlink (POSIX path-resolution rule: trailing slash forces directory semantics on the source) and fails with "Not a directory" because `movedlink` doesn't exist. The flag is intended to strip trailing slashes from non-symlink sources to make `mv foo/ bar/` shaped like `mv foo bar/`; it does not rescue `link/` semantics. The LLM read "remove any trailing slashes from each SOURCE argument" and over-generalized. Test-side bug.
+
+## Impl-correctness failures (tests that passed on real, failed on rust)
+
+- **021_verbose_outputs_action.sh** [Misinterpretation; IMPL-WRONG-SEMANTICS] — `-v/--verbose` output stream. GNU `mv -v` writes `renamed 'src' -> 'dst'` to **stdout**. The Rust impl writes the same string to **stderr**. Test captures via `out=$("$UTIL" -v ...)` (command substitution = stdout only). Real-gnu: stdout populated, test passes. Rust: stdout empty, stderr populated, test fails. The man page does not explicitly say "stdout" for `-v`, but coreutils convention (and the GNU behavior the LLM is supposed to mimic) is stdout for action narration, stderr for errors. Wrong-stream is a subtle but consistent class of LLM impl bug.
+
+## Compile / runtime failures of the Rust impl
+
+The host-side `cargo check` pre-flight gate failed (macOS toolchain missing `std::os::unix` features used by the impl), but `cargo build --release` succeeded inside the trixie container with two unused-variable warnings only. No runtime failures.
+
+## Open questions for next round
+
+- `mv -i` on non-tty stdin: should the spec record "prompt only when stdin is a tty"? This turns implicit GNU behavior into explicit spec. Test prompt may need a hint that `-i` semantics depend on runtime environment.
+- Trailing-slash behavior at the shell/utility seam: should the experiment take a position on what `mv link/` means? GNU treats it as a directory-semantics request through the symlink; that is one of three plausible interpretations.
+- `-v` output stream: should the prompt force the LLM to be explicit about which stream each flag writes to? Currently the man page leaves it unstated and the LLM defaulted to stderr.
+
+Produce a corrected `tests` JSON payload following the same schema as before. Address the issues above without regressing anything the previous round got right.

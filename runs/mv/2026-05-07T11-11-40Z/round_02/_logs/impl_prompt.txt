@@ -1,0 +1,265 @@
+<!--
+  Prompt: man-page -> Rust implementation.
+
+  Schulhoff (Prompt Report, arXiv 2406.06608) techniques applied:
+    - Plain "Role + Task" framing (Sec. 2.2.1.3 "Role Prompting"). Survey
+      reports role prompting may improve benchmark accuracy and shapes
+      open-ended outputs. Used here to anchor on "GNU userland".
+    - Output-format constraint via JSON Schema (Sec. 2.2.5 / Tam et al.
+      2024 rebuttal in survey). Schulhoff cites evidence that structuring
+      outputs can improve, not degrade, performance.
+    - Decomposition via "first analyze, then produce" framing (Sec. 2.2.2
+      "Plan-and-Solve" Wang et al. 2023f). The model is asked to think
+      about the man page (in its own internal reasoning when used with a
+      reasoning model) before emitting the schema.
+    - Negative constraints (out-of-scope features) up front - reduces
+      hallucination of irrelevant flags. Schulhoff Sec. 2.2.6.
+
+  Deliberately rejected:
+    - "Think step by step" / "let's take a deep breath" CoT triggers.
+      Schulhoff notes these are most effective at non-zero temperature
+      and on multi-step reasoning tasks. We are at temperature=0 (or
+      the GPT-5.5 reasoning-model equivalent) on a structured-extraction
+      task; the survey does not establish CoT triggers as a benefit
+      here, and they bloat the prompt.
+    - Few-shot exemplars. We have only four utilities; a worked example
+      for `cp` would bias the other three toward the example's style.
+      Schulhoff (Sec. 2.2.1.1, Exemplar Selection) emphasizes example
+      selection sensitivity - so we omit examples entirely rather than
+      pick a biased one.
+    - Persona ("you are a senior Rust engineer..."). No evidence in the
+      survey it improves code-gen at zero-shot. Folklore.
+
+  Versioning: the driver writes sha256(this file) into runs/<...>/log.jsonl
+  as `prompt_template_sha256` so each run records which prompt produced it.
+-->
+
+You are translating a Linux man page into a single-file Rust implementation
+of the documented utility. The audience for the implementation is a research
+test harness running on Linux/GNU userland.
+
+# Task
+
+Read the man page below carefully. Then produce:
+
+1. A `Cargo.toml` declaring the package and any third-party dependencies you
+   need (you decide; pick what you would actually use).
+2. A single `src/main.rs` that implements the documented behavior of the
+   utility well enough that a behaviorally-faithful test suite drawn from
+   the same man page would pass.
+3. A short rationale (one or two sentences) explaining your dependency
+   choice.
+
+# Implementation constraints
+
+- **Single-file Rust**, in `src/main.rs`. The crate has no other modules.
+- Target **POSIX/Linux** semantics as documented. Where the man page is
+  silent, follow POSIX defaults rather than inventing behavior.
+- Implement the **commonly-used flags** documented in the man page. Be
+  honest in your rationale about what you covered and what you skipped.
+- **Skip these areas** unless the man page makes them central to the
+  utility's identity (they introduce platform-specific complexity that
+  this experiment does not measure):
+  - SELinux / MAC contexts and `--context` flags
+  - locale / NLS / collation / multibyte
+  - extended attributes (`xattr`) and ACLs
+  - sparse-file handling, `--sparse=`, `--reflink=`
+  - signal handling beyond the default
+  - network filesystems, remote protocols, `rsync`-like behavior
+- Errors must go to **stderr** with a nonzero exit code consistent with the
+  man page (or POSIX defaults if the man page is silent).
+- Code must compile under `cargo build --release` without errors. Warnings
+  are acceptable.
+- The binary name should be `util`. Set `[[bin]] name = "util"` in
+  `Cargo.toml`.
+
+# Output format - strict
+
+Respond with exactly one fenced JSON code block, no prose before or after.
+The JSON must validate against this schema:
+
+```json
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cargo_toml", "main_rs", "deps_rationale"],
+  "properties": {
+    "cargo_toml":      { "type": "string", "description": "full text of Cargo.toml" },
+    "main_rs":         { "type": "string", "description": "full text of src/main.rs" },
+    "deps_rationale":  { "type": "string", "description": "1-2 sentences on dep choice and what was skipped" }
+  }
+}
+```
+
+The `cargo_toml` and `main_rs` strings must contain raw file contents
+(newlines preserved, no JSON-escaping beyond what the JSON encoding
+requires). Do not wrap them in additional Markdown fences.
+
+# Manual page
+
+MV(1)                            User Commands                           MV(1)
+
+NAME
+       mv - move (rename) files
+
+SYNOPSIS
+       mv [OPTION]... [-T] SOURCE DEST
+       mv [OPTION]... SOURCE... DIRECTORY
+       mv [OPTION]... -t DIRECTORY SOURCE...
+
+DESCRIPTION
+       Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+       Mandatory arguments to long options are mandatory for short options
+       too.
+
+       --backup[=CONTROL]
+              make a backup of each existing destination file
+
+       -b     like --backup but does not accept an argument
+
+       --debug
+              explain how a file is copied.  Implies -v
+
+       --exchange
+              exchange source and destination
+
+       -f, --force
+              do not prompt before overwriting
+
+       -i, --interactive
+              prompt before overwrite
+
+       -n, --no-clobber
+              do not overwrite an existing file
+
+       If you specify more than one of -i, -f, -n, only the final one takes
+       effect.
+
+       --no-copy
+              do not copy if renaming fails
+
+       --strip-trailing-slashes
+              remove any trailing slashes from each SOURCE argument
+
+       -S, --suffix=SUFFIX
+              override the usual backup suffix
+
+       -t, --target-directory=DIRECTORY
+              move all SOURCE arguments into DIRECTORY
+
+       -T, --no-target-directory
+              treat DEST as a normal file
+
+       --update[=UPDATE]
+              control which existing files are updated;
+              UPDATE={all,none,none-fail,older(default)}
+
+       -u     equivalent to --update[=older].  See below
+
+       -v, --verbose
+              explain what is being done
+
+       -Z, --context
+              set SELinux security context of destination file to default type
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       UPDATE controls which existing files in the destination are replaced.
+       'all' is the default operation when an --update option is not
+       specified, and results in all existing files in the destination being
+       replaced.  'none' is like the --no-clobber option, in that no files in
+       the destination are replaced, and skipped files do not induce a
+       failure.  'none-fail' also ensures no files are replaced in the
+       destination, but any skipped files are diagnosed and induce a failure.
+       'older' is the default operation when --update is specified, and
+       results in files being replaced if they're older than the corresponding
+       source file.
+
+       The backup suffix is '~', unless set with --suffix or
+       SIMPLE_BACKUP_SUFFIX.  The version control method may be selected via
+       the --backup option or through the VERSION_CONTROL environment
+       variable.  Here are the values:
+
+       none, off
+              never make backups (even if --backup is given)
+
+       numbered, t
+              make numbered backups
+
+       existing, nil
+              numbered if numbered backups exist, simple otherwise
+
+       simple, never
+              always make simple backups
+
+AUTHOR
+       Written by Mike Parker, David MacKenzie, and Jim Meyering.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+SEE ALSO
+       rename(2)
+
+       Full documentation <https://www.gnu.org/software/coreutils/mv>
+       or available locally via: info '(coreutils) mv invocation'
+
+       Packaged by Debian (9.7-3)
+       Copyright © 2025 Free Software Foundation, Inc.
+       License GPLv3+: GNU GPL version 3 or later
+       <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+GNU coreutils 9.7                  June 2025                             MV(1)
+
+
+
+# Previous attempt feedback (round 1)
+In the previous attempt, the following tests FAILED against the real utility:
+  - 008_interactive_decline_keeps_destination.sh: -i/--interactive prompt before overwrite
+    expected: Declining prompt leaves existing DEST unchanged
+    actual stderr: <empty>
+    actual exit: 1
+  - 020_strip_trailing_slashes.sh: --strip-trailing-slashes on SOURCE
+    expected: Destination is the moved symlink
+    actual stderr: mv: cannot move '/tmp/tmp.vkn60nUEeD/link' to '/tmp/tmp.vkn60nUEeD/movedlink': Not a directory
+    actual exit: 1
+
+Manual analyst observations:
+# Observations: mv session=2026-05-07T11-11-40Z round=1
+
+## Numbers
+- Tests pass on real-gnu: 24/26 (= 92%)
+- Tests pass on rust impl: 25/26 (= 96%)
+- Flag coverage: 16/18 flags exercised (= 88.89%)
+- Branch/line coverage on Rust impl: 65.04% (240/369 lines)
+
+## Test-correctness failures (tests that failed on the real utility)
+
+Tambon labels (per `taxonomy.md` §1) + Astrogator-style cause code.
+
+- **008_interactive_decline_keeps_destination.sh** [Misinterpretation; TEST-MAN-PAGE-MISREAD] — `-i/--interactive`. Test pipes `n\n` into `mv -i` via heredoc and expects the destination to be preserved. GNU `mv -i` only prompts when stdin is a tty (the man page says "prompt before overwrite", silent on tty-detection). With heredoc-stdin, GNU `mv` sees no tty, skips the prompt, overwrites silently — `dst` becomes `new`. Real-side rc=1 from the test's own assertion. Identical shape to `cp` round-1 `022_interactive_decline_overwrite.sh`. The man-page silence on tty-detection is the consistent miss across both utilities.
+
+- **020_strip_trailing_slashes.sh** [Missing Corner Case; TEST-MAN-PAGE-MISREAD] — `--strip-trailing-slashes` on a symlink-to-dir. Test creates `link -> real/` and calls `mv --strip-trailing-slashes "$tmpdir/link/" movedlink`. Bash does not strip the slash before exec; `mv` receives literal `link/`. GNU `mv` treats `link/` as a directory-semantics request through the symlink (POSIX path-resolution rule: trailing slash forces directory semantics on the source) and fails with "Not a directory" because `movedlink` doesn't exist. The flag is intended to strip trailing slashes from non-symlink sources to make `mv foo/ bar/` shaped like `mv foo bar/`; it does not rescue `link/` semantics. The LLM read "remove any trailing slashes from each SOURCE argument" and over-generalized. Test-side bug.
+
+## Impl-correctness failures (tests that passed on real, failed on rust)
+
+- **021_verbose_outputs_action.sh** [Misinterpretation; IMPL-WRONG-SEMANTICS] — `-v/--verbose` output stream. GNU `mv -v` writes `renamed 'src' -> 'dst'` to **stdout**. The Rust impl writes the same string to **stderr**. Test captures via `out=$("$UTIL" -v ...)` (command substitution = stdout only). Real-gnu: stdout populated, test passes. Rust: stdout empty, stderr populated, test fails. The man page does not explicitly say "stdout" for `-v`, but coreutils convention (and the GNU behavior the LLM is supposed to mimic) is stdout for action narration, stderr for errors. Wrong-stream is a subtle but consistent class of LLM impl bug.
+
+## Compile / runtime failures of the Rust impl
+
+The host-side `cargo check` pre-flight gate failed (macOS toolchain missing `std::os::unix` features used by the impl), but `cargo build --release` succeeded inside the trixie container with two unused-variable warnings only. No runtime failures.
+
+## Open questions for next round
+
+- `mv -i` on non-tty stdin: should the spec record "prompt only when stdin is a tty"? This turns implicit GNU behavior into explicit spec. Test prompt may need a hint that `-i` semantics depend on runtime environment.
+- Trailing-slash behavior at the shell/utility seam: should the experiment take a position on what `mv link/` means? GNU treats it as a directory-semantics request through the symlink; that is one of three plausible interpretations.
+- `-v` output stream: should the prompt force the LLM to be explicit about which stream each flag writes to? Currently the man page leaves it unstated and the LLM defaulted to stderr.
+
+Produce a corrected `impl` JSON payload following the same schema as before. Address the issues above without regressing anything the previous round got right.

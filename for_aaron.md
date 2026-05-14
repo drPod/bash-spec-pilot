@@ -1,24 +1,27 @@
 # For Aaron — status check on the Bash man-page experiment
 
-Darsh Poddar · 2026-05-07
+Darsh Poddar · last updated 2026-05-14
 
-One-page status report on the man-page → Rust experiment that's upstream of your Bash specification language and verifier work. Companion artifacts: `taxonomy.md` (failure schema), `decisions.md` (provenance + design choices), `README.md` (project framing).
+One-page status report on the man-page → Rust experiment that's upstream of your Bash specification language and verifier work. Companion artifacts: live dashboard (`streamlit run dashboard/streamlit_app.py`), `taxonomy.md` (failure schema), `decisions.md` (provenance + design choices), `README.md` (project framing).
 
 ## 1. Where the experiment is
 
 **N=1 per cell currently. Reproducibility test (same prompt, two calls, `gpt-5.5-2026-04-23`) showed 291 vs 393 line outputs and a compile-success flip — single-call output is not stable. Every number below is provisional pending N≥3 resampling. Variance unmeasured.** Full A/B report at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`; summarized in `decisions.md` § 8.
 
-Wave 2 ran fresh round-1 sessions for all four utilities against the GNU oracle in the trixie container, plus a round-2 iteration on `cp`.
+Wave 2 ran fresh round-1 sessions for all four utilities against the GNU oracle in the trixie container, plus a round-2 iteration on `cp`. Wave 3 added round-2 iterations on `mv`, `find`, `sudo`.
 
 | util | session | round | tests gen | test_real-gnu | test_rust | flag_cov | line_cov | notes |
 |------|---------|-------|-----------|---------------|-----------|----------|----------|-------|
-| `cp` | 2026-05-07T11-10-34Z | 1 | 28 | 26/28 (93%) | 26/28 (93%) | 66.67% | 60.0% | Fresh session against GNU oracle. Rust impl compiled cleanly (no E0515 recurrence). Two failures: `024_interactive_i_decline.sh` (`-i` non-TTY semantics) and `026_strip_trailing_slashes.sh` (bash dereferences `link.txt/` before cp sees it). |
+| `cp` | 2026-05-07T11-10-34Z | 1 | 28 | 26/28 (93%) | 26/28 (93%) | 66.67% | 60.0% | Fresh session against GNU oracle. Rust impl compiled cleanly. Two failures: `024_interactive_i_decline.sh` (`-i` non-TTY semantics) and `026_strip_trailing_slashes.sh` (bash dereferences `link.txt/` before cp sees it). |
 | `cp` | 2026-05-07T11-10-34Z | 2 | 28 | 26/28 (93%) | **28/28 (100%)** | 66.67% | 87.45% | LLM engaged with feedback (filename suffixes, `IsTerminal` import) but rewrites still wrong. Rust 28/28 ≠ GNU correctness — see § 3. |
 | `mv` | 2026-05-07T11-11-40Z | 1 | 26 | 24/26 (92%) | 25/26 (96%) | 88.89% | 65.04% | Stream-convention bug on `-v` (Rust writes to stderr, GNU to stdout); same `-i` non-TTY shape as `cp`. |
+| `mv` | 2026-05-07T11-11-40Z | **2** | 26 | **25/26 (96%)** | **26/26 (100%)** | **94.44%** | **82.58%** | Both halves improved on coverage. **But verbose stream bug was "fixed" by relaxing the test, not the impl** — see § 5. Host `cargo check` fails on Linux-only `RENAME_EXCHANGE` syscall; tarpaulin (in trixie) builds and runs fine. |
 | `find` | 2026-05-07T11-17-44Z | 1 | 30 | 30/30 (100%) | 29/30 (97%) | 60.0%* | 75.84% | *Methodology debt: `coverage_flags.py` only counts `-X`/`--xxx`, misses `find` primaries (`-name`, `-type`, `-exec`, …). Real surface coverage substantially higher; reported number is misleading-low. Self-cut scope — impl explicitly skips locale/SELinux/xattrs/sparse; tests stayed inside the implemented subset. |
+| `find` | 2026-05-07T11-17-44Z | **2** | 30 | **29/30 (97%)** | **n/a** | 50.0%* | **compile_failed** | Iteration **regressed** the impl: type-mismatch from `?`-operator in `if` block expecting `()`. Tests largely fine; impl unusable. |
 | `sudo` | 2026-05-07T11-25-03Z | 1 | 29 | 28/29 (97%) | 28/29 (97%) | 65.52% | 69.63% | Container runs as root → many tests pass trivially. The 28/29 number is itself a finding about a class of utilities the man-page-only approach cannot fully cover — see § 4. |
+| `sudo` | 2026-05-07T11-25-03Z | **2** | 27 | **27/27 (100%)** | **n/a** | 62.07% | **compile_failed** | Iteration **regressed** the impl: macro use-before-definition (`Err!(...)` invoked above its `macro_rules!` line). Tests slightly relaxed (negative cases dropped 2). |
 
-Provenance for each row lives at `runs/<util>/<session>/round_<N>/`. Per-round qualitative analyst notes in `_observations.md` siblings; cross-session per-util roll-ups in `runs/<util>/SUMMARY.md`.
+Provenance for each row lives at `runs/<util>/<session>/round_<N>/`. Per-round qualitative analyst notes in `_observations.md` siblings; cross-session per-util roll-ups in `runs/<util>/SUMMARY.md`. The live dashboard surfaces the same data plus a per-test failure browser and the positive-vs-negative diversity matrix you asked about.
 
 ## 2. Caruca was published October 2025 — flag if not on your radar
 
@@ -44,17 +47,32 @@ The cleanest empirical result so far is **`cp` round 2**: the LLM-generated Rust
 
 The 28/29 sudo number is real signal, not a container artifact. The trixie container does run as root, which means several "deny-without-password" and "deny-RunAs" tests pass trivially — that's the surface-level observation. The deeper finding is that **`sudo` is a utility whose policy-relevant truth is split across two man pages** (`sudo(8)` and `sudoers(5)`), and the LLM only saw the first. The single test-side miss, `012_chdir_directory.sh`, is the canonical specimen: `sudo -D /work /bin/pwd` is rejected by GNU sudo because the default sudoers grants no per-command CWD directive — knowable only from `sudoers(5)`, invisible from `sudo(8)`. Other documented flags with the same shape (`-u` constrained by `RunAs=`, `-g` by `RunAs=:GROUP`, `-A` by `Defaults`, `-T` by `Defaults timestamp_timeout`) tested as passing here only because root is policy-omnipotent in default sudoers. **In a non-root harness, more of these would surface as policy-rejected — and they would surface as test-side bugs every time, because the man page the LLM was given does not contain the rejection rules.** This is a candidate failure class: utilities whose documented behavior is gated by cross-referenced configuration files. The same shape likely applies to `crontab(1)` ↔ `crontab(5)`, `ssh(1)` ↔ `ssh_config(5)`, `systemd` units ↔ unit-file man pages. Not infrastructure to fix; a finding to record.
 
-## 5. Plan from here
+## 5. Wave-3 finding: iteration regresses three of four impls (and the fourth is the drift case)
+
+Running round 2 with the structured-feedback loop produced four different outcomes across four utilities:
+
+- **`cp` round 2 (wave 2):** test suite + impl coevolve into mutual ratification. Drift, not improvement. See § 3.
+- **`mv` round 2:** both halves measurably improved — flag coverage 88.89% → 94.44%, line coverage 65.04% → 82.58%, GNU pass 24/26 → 25/26. **BUT** the single fixed test (`-v / --verbose`) was "fixed" not by correcting the Rust impl's stream-convention bug, but by **relaxing the test** to `out=$("$UTIL" -v ... 2>&1)` instead of `out=$("$UTIL" -v ...)`. Round 1 captured stdout only and caught the stderr-vs-stdout bug; round 2 captures both, hiding it. The LLM responded to the failure feedback by making the test more permissive rather than the impl more correct.
+- **`find` round 2:** Rust impl regressed to a hard compile error — type mismatch from a one-liner `?`-operator misuse inside an `if` block that expected `()`. Tests largely held (29/30 against GNU), but the impl half is unusable.
+- **`sudo` round 2:** Rust impl regressed to a hard compile error — macro use-before-definition (`Err!(...)` invoked above its `macro_rules!` line in `main.rs`). Tests dropped from 29 to 27 with the two new misses concentrated on the negative cases that previously caught the `sudoers(5)` gap.
+
+Three distinct compile-fail mechanisms in three utilities (Linux-only syscall constants on macOS host, syntax-level type mismatch, macro forward-reference), all triggered by the round-1 → round-2 feedback prompt. **The structured-feedback loop, as currently designed, is incentivizing the LLM to "do more" — add `renameat2`/`RENAME_EXCHANGE` support, add a custom `Err!` macro, restructure the find pipeline — and the more aggressive code is what breaks.** Same loop on `cp` (and on `mv`'s test side) produced drift / test-relaxation instead. Net read: iteration is not behaving as an improvement step; it's behaving as an over-correction step that trades coverage for compile correctness or for fidelity.
+
+The taxonomy entries are in `taxonomy.md` (iteration-induced compile regression × 3, test relaxation by feedback × 1, drift × 1).
+
+## 6. Plan from here
 
 Decisions already locked in by the team:
 
 1. **Single model for now: `gpt-5.5-2026-04-23`.** Multi-model replication (Astrogator-style six-model setup, SLMFix's eight) is deferred until the GPT-5.5 results are converged. Cost estimate for the multi-model pass is ~$1–2k in API credits.
 2. **GNU coreutils version pin: Debian trixie.** Same versions as `scripts/freeze_manpage.sh` pulls man pages from. We are intentionally not replicating Astrogator's three-OS VM matrix at this stage — single oracle keeps the variance small while we develop the technique.
-3. **Utility roll-out: all four in parallel.** `cp`, `mv`, `find`, `sudo` all have round-1 baselines in wave 2. Iteration on `mv`/`find`/`sudo` runs after the meeting; only `cp` has a round 2 so far.
+3. **Utility roll-out: all four in parallel.** `cp`, `mv`, `find`, `sudo` all have round-1 + round-2 baselines as of wave 3.
 4. **Iteration loop:** round N+1 prompt = round N base prompt + structured feedback block (top-10 failed tests with stderrs + cargo `build_error.txt` if present + `_observations.md` analyst notes). Driver tracks `prompt_template_sha256`, `manpage_sha256`, and `feedback_sha256` independently.
-5. **Reproducibility caveat (new, 2026-05-07).** All single-cell numbers above need N≥3 resampling before they can carry weight. Detail in `decisions.md` § 8 and the report at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`.
+5. **Reproducibility caveat (2026-05-07).** All single-cell numbers still N=1 pending the planned N≥3 resampling pass. Detail in `decisions.md` § 8 and the report at `runs/cp/_reproducibility_2026-05-07T11-18-09Z.md`.
 
-## 6. Coverage methodology
+Open question for you (asked at the bottom of this week's Slack DM): given that three of four round-2 impls broke, where should round 3 prioritize — (a) refine the feedback prompt (re-include the full man page; constrain the LLM to "fix, don't re-architect"; add a "no new dependencies" instruction), (b) commit to N≥3 resampling on round 1 before iterating further, or (c) both?
+
+## 7. Coverage methodology
 
 Two orthogonal metrics, both wired into `scripts/`:
 
@@ -63,7 +81,7 @@ Two orthogonal metrics, both wired into `scripts/`:
 
 Astrogator's Sec. 6.3 reports per-program acceptance/rejection in a 21-row × 4-column table. I plan to mirror that shape per utility, with rows = test categories and cells = the four test-vs-oracle outcomes from `taxonomy.md` § 2.
 
-## 7. One open question (labeling rigor)
+## 8. One open question (labeling rigor)
 
 Tambon's taxonomy was coded by three reviewers in 108 person-hours on 333 samples, with inter-rater agreement reported. I'm one labeler doing this part-time. Two options:
 
@@ -72,7 +90,7 @@ Tambon's taxonomy was coded by three reviewers in 108 person-hours on 333 sample
 
 Default is option 1 unless you want the stronger claim. Flag at any point — it changes the workflow, not the experiment.
 
-## 8. What we are explicitly **not** doing
+## 9. What we are explicitly **not** doing
 
 - **Not** re-deriving formal specifications. Caruca already mined syntax specs for 120 utilities and behavioral specs for 60. Caruca's syntax output is a candidate seed for the MDL design when you get there.
 - **Not** designing or touching the Module Description Language for Bash. That's your work, downstream of this experiment.

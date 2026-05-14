@@ -1,0 +1,28 @@
+{
+  "util": "find",
+  "session": "2026-05-07T11-17-44Z",
+  "round": 2,
+  "documented_count": 10,
+  "exercised_count": 5,
+  "coverage_pct": 50.0,
+  "matched": [
+    "-D",
+    "-H",
+    "-L",
+    "-P",
+    "-d"
+  ],
+  "unmatched": [
+    "-O",
+    "-a",
+    "-g",
+    "-n",
+    "-o"
+  ],
+  "extra_used_not_documented": [
+    "-c",
+    "-e",
+    "-p",
+    "-s"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "round_dir": "runs/find/2026-05-07T11-17-44Z/round_02",
+  "manifest": {
+    "total": 30,
+    "pos": 26,
+    "neg": 4,
+    "pos_pct": 0.8666666666666667,
+    "neg_pct": 0.13333333333333333
+  },
+  "oracles": {
+    "real-gnu": {
+      "pos_total": 26,
+      "neg_total": 4,
+      "pos_pass": 25,
+      "pos_fail": 1,
+      "neg_pass": 4,
+      "neg_fail": 0,
+      "pos_pass_rate": 0.9615384615384616,
+      "neg_pass_rate": 1.0
+    },
+    "rust": null
+  },
+  "util": "find",
+  "session": "2026-05-07T11-17-44Z",
+  "round": 2
+}

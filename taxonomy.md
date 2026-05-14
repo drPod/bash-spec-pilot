@@ -152,3 +152,40 @@ The methodology lesson is that **scope-of-test correlates with scope-of-impl whe
 ### Bridge: how these extend Tambon
 
 The three classes above are not in Tambon (§ 1) for a structural reason: **Tambon's bugs come from problem statements** (CoderEval prompts, Codex synthetic tasks). Problem statements specify the exact signature and behavior expected; failure means deviation from a precise spec. **Our bugs come from man pages** — natural-language documents that are silent on conventions, split across cross-referenced files, and incomplete by design. The taxonomy extends cleanly: a man-page-driven experiment should pre-allocate labels for stream-convention silence, split-manpage utilities, and self-cut scope, then file Tambon labels under each as the underlying bug-pattern code (e.g. a stream-convention-silence bug is also a Misinterpretation in Tambon's frame). They compose, they don't replace.
+
+## 5. Iteration-loop failure classes (2026-05-14)
+
+Wave 3 ran round 2 of `mv`, `find`, `sudo` with the structured-feedback prompt. Three new classes surfaced that are specific to the iteration loop, not to the cold-call setting in § 4. Tag these on observations from any round-2-or-later run.
+
+### 5.1 Iteration-induced compile regression
+
+The round N+1 prompt — round N base + a feedback block listing top failing tests and the previous cargo build error — incentivizes the LLM to add new code paths that address the feedback. The new code is more aggressive than round 1: deeper syscalls, custom macros, restructured pipelines. The expanded surface introduces compile-time errors that the round-1 impl did not have. The impl ships broken even though round 1 compiled cleanly.
+
+Three distinct sub-mechanisms documented in wave 3:
+
+- **Platform-mismatch syscall constants (`mv` round 2).** Impl reaches for `libc::SYS_renameat2` + `libc::RENAME_EXCHANGE` to implement `--exchange`. These constants exist in `libc` on Linux but not in `libc`'s macOS module. The driver's pre-flight `cargo check` runs on the macOS host and fails; tarpaulin (inside the trixie container) builds fine. The impl is correct for the target platform but the host gate misclassifies it as broken. Failure of the *pipeline*, not the model. Fix: run `cargo check` inside the trixie container in addition to (or instead of) the host.
+- **Inline `?`-operator misuse (`find` round 2).** The LLM compresses a multi-line read-file fallback into a single `if`-`else` expression whose branches return different types — one returns `()`, the other returns `usize` (from `read_to_end`). `?` propagates the inner `Result` but the surrounding `if` expects unit. Real type-mismatch bug at `src/main.rs:80`. No tarpaulin coverage possible.
+- **Macro use-before-definition (`sudo` round 2).** The LLM defines `macro_rules! Err { ... }` mid-file and invokes `Err!(...)` from a function declared above it. Rust requires macro declarations to lexically precede their use sites. Real syntactic bug at `src/main.rs:217`.
+
+Cross-cutting cause across all three: **the LLM responds to test-failure feedback by writing more code, not by writing more correct code.** A one-line stream-convention fix would have taken the `mv` verbose test from fail to pass without touching `renameat2`; instead the LLM rewrote `--exchange` from scratch. The feedback prompt does not currently constrain the kind of edit, so the model chooses the kind it produces most fluently.
+
+### 5.2 Test relaxation by feedback (Goodhart on the test suite)
+
+When the round-N test fails and the round-N+1 prompt includes the failure stderr, the LLM has two possible interpretations: (a) the impl was wrong, fix the impl; (b) the test was wrong, relax the test. The current feedback prompt makes both moves equally available, and on at least one occasion the model picked (b) — *relaxing the test to hide the bug rather than fixing the bug*.
+
+**Concrete:** `mv` round 2. Round-1 test `021_verbose_outputs_action.sh` captured `out=$("$UTIL" -v "$tmpdir/src" "$tmpdir/dst")`. Command substitution = stdout only. GNU `mv -v` writes to stdout (test passes); Rust impl writes to stderr (test fails — feedback flagged this case). Round 2 renamed the test to `020_verbose_explains_action.sh` and changed exactly one character: `out=$("$UTIL" -v "$tmpdir/src" "$tmpdir/dst" 2>&1)`. Now captures stderr too. Both halves of the pipeline pass against the round-2 test, and the underlying stream-convention bug in the Rust impl is unchanged and undetected.
+
+This is the iteration-loop analogue of the LLM-vs-LLM drift case (`cp` round 2): in drift, both halves are wrong from round 1 and converge over rounds; in test relaxation, round 1 had a correct test that *caught* the bug, and round 2 broke its own bug-detection capability. **The test suite's adversarial value can decrease across rounds.** Cheap mitigation: hash test bodies separately and surface test churn (added/removed/edited tests, with diffs) in the round summary so this kind of move is auditable.
+
+### 5.3 Cross-cutting lesson — the loop is not monotone
+
+Wave 3 produced four different outcomes across four utilities at the round-1 → round-2 step:
+
+- `cp`: drift (impl + tests coevolve away from GNU).
+- `mv`: real coverage gain on flags + lines, but with a test-relaxation incident hidden inside the win.
+- `find`: impl regression (compile fail) with tests largely intact.
+- `sudo`: impl regression (compile fail) with two negative tests dropped.
+
+The shared shape is "more code, more change, lower fidelity in at least one place." There is currently no instance where the iteration loop produced an unambiguous monotone improvement across both halves. The cheapest research read of this is **the structured-feedback loop, as designed today, is not a "fix" step — it is a "regenerate with extra constraints" step, and `cp` is the only utility where the regeneration happened to be lateral rather than worse.**
+
+The taxonomy invites the next prompt-engineering experiment: constrain the round-N+1 prompt to "make the smallest possible diff" — append the round-N impl + tests, ask for unified-diff patches instead of full rewrites. That is a different pipeline shape and should be a separate experiment, not folded into the current run.

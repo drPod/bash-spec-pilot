@@ -1,0 +1,35 @@
+{
+  "round_dir": "runs/cp/2026-05-07T11-10-34Z/round_01",
+  "manifest": {
+    "total": 28,
+    "pos": 25,
+    "neg": 3,
+    "pos_pct": 0.8928571428571429,
+    "neg_pct": 0.10714285714285714
+  },
+  "oracles": {
+    "real-gnu": {
+      "pos_total": 25,
+      "neg_total": 3,
+      "pos_pass": 23,
+      "pos_fail": 2,
+      "neg_pass": 3,
+      "neg_fail": 0,
+      "pos_pass_rate": 0.92,
+      "neg_pass_rate": 1.0
+    },
+    "rust": {
+      "pos_total": 25,
+      "neg_total": 3,
+      "pos_pass": 23,
+      "pos_fail": 2,
+      "neg_pass": 3,
+      "neg_fail": 0,
+      "pos_pass_rate": 0.92,
+      "neg_pass_rate": 1.0
+    }
+  },
+  "util": "cp",
+  "session": "2026-05-07T11-10-34Z",
+  "round": 1
+}

@@ -1,6 +1,11 @@
 # Bash Utility Specifications via LLMs — Exploratory Experiment
 
-> **Start here if you're Aaron:** [`for_aaron.md`](for_aaron.md) is the one-page status report tailored for our meeting (4-utility result table, the LLM-vs-LLM drift finding, the sudo split-manpage failure class, and the open questions). The rest of this README is project framing for anyone landing on the repo cold.
+> **Read in this order:**
+> 1. **Live dashboard** — `streamlit run dashboard/streamlit_app.py` from the repo root. Always reflects the latest `runs/`.
+> 2. **[`for_aaron.md`](for_aaron.md)** — weekly status report, written for Aaron. Headline findings, open questions, planned next steps.
+> 3. **[`taxonomy.md`](taxonomy.md)** — failure schema (Tambon-2025 lens + Astrogator-style verifier-result decomposition + the new failure classes we've discovered).
+> 4. **[`decisions.md`](decisions.md)** — provenance + design choices (TOC at top; reproducibility caveat in § 8, methodology debts in § 9).
+> 5. This README — project framing for anyone landing on the repo cold.
 
 This repository contains an exploratory research experiment investigating whether large language models (LLMs) can extract behaviorally-faithful information from Unix `man` pages. The work is part of a broader effort, led by Prof. Vikram Adve's group at UIUC, to formally verify LLM-generated Bash programs.
 
@@ -102,11 +107,15 @@ Item 1 is more important than every other item combined. Numbers frame the story
 
 ```
 formal-verification/
-├── README.md                          ← this file
-├── SETUP.md                           ← stack choices + onboarding
-├── decisions.md                       ← decision log (append-only, periodically restructured)
+├── README.md                          ← this file (project framing)
+├── for_aaron.md                       ← weekly status report (READ FIRST)
 ├── taxonomy.md                        ← running failure catalogue
-├── for_aaron.md                       ← open questions for Aaron
+├── decisions.md                       ← decision log (TOC at top)
+├── SETUP.md                           ← stack choices + onboarding
+├── dashboard/                         ← Streamlit dashboard reading runs/
+│   ├── streamlit_app.py
+│   ├── data.py
+│   └── app_pages/
 ├── utils/
 │   └── <util>/                        ← frozen man-page input per util
 │       ├── manpage.txt                ← rendered (mandoc -Tutf8 | col -bx)
@@ -184,11 +193,19 @@ Papers in `literature/` and the Astrogator/SLMFix/Prelim PDFs at the repo root w
 - **Not** a benchmark. The deliverable is qualitative findings plus a small data table per utility, not a leaderboard.
 - **Not** a final answer. It's an early-stage signal that informs whether the lab should commit engineering effort to designing a Bash specification language and verifier.
 
+## Dashboard
+
+`streamlit run dashboard/streamlit_app.py` from the repo root opens a local dashboard that reads the latest data in `runs/`:
+
+- **Overview** — KPIs across all utilities, latest round per util, headline findings.
+- **Trajectory (per utility)** — round-over-round pass rates against the GNU oracle and the Rust impl, plus flag/line coverage.
+- **Test diversity** — positive (utility should succeed) vs. negative (utility should error) test breakdown per round, plus the 2x2 pass/fail × pos/neg matrix that Aaron asked for.
+- **Failure browser** — every test in a round with its GNU outcome and Rust outcome side by side; the "GNU fail, Rust pass" quadrant is the LLM-vs-LLM drift case.
+- **Reproducibility (A/B)** — the N=1 caveat made visible.
+- **Cost & tokens** — running API spend.
+
+No data flows out of the repo — the dashboard reads `runs/<util>/<session>/round_NN/` and `utils/<util>/_source.json` directly. To regenerate the underlying numbers, run `scripts/eval_round.sh <util> <session> <round>` for the round you care about, then refresh the page.
+
 ## Status
 
-- **Round 1 of `cp`** has been run end-to-end against an LLM and a real utility. Trajectory preserved at `runs/cp/legacy_pre_session/round_01/`. The oracle for that run was BSD `/bin/cp` on macOS, which is **the wrong tool** for an experiment targeting Linux/GNU userland; 13/30 tests passed and the postmortem in `runs/cp/legacy_pre_session/_README.md` attributes most failures to BSD-vs-GNU flag mismatches rather than LLM error. Replaying the same tests against the new GNU oracle (no test changes) brings the pass rate to **28/30** — see `decisions.md` § "Iteration, Docker oracle, coverage" for the analysis. That round is preserved as a historical baseline, not replayed in a fresh session.
-- **Caruca finding.** Discovered mid-project that Caruca (Lamprou et al., 2025) addresses an adjacent question — see `for_aaron.md` for whether/how to fold it into the framing.
-- **Docker oracle landed.** `docker/Dockerfile` builds a `debian:trixie` image with GNU coreutils + findutils + sudo at the same package versions pinned by the man-page freeze script, plus Rust + `cargo-tarpaulin`. `docker/build.sh` + `docker/run.sh` wrap it.
-- **Iteration support landed.** `scripts/driver.py` now resolves session ids, supports `--round N` for N≥2, and builds a "Previous attempt feedback" prompt block from the prior round's failing tests + Rust build error.
-- **Coverage wired.** `scripts/coverage_flags.py`, `scripts/coverage_rust.sh`, and `scripts/eval_round.sh` produce the per-round one-line summary that the failure-taxonomy write-up will cite.
-- **Pending.** Fresh `cp` session against the GNU oracle, plus full pipelines for `mv`, `find`, `sudo`. None have started.
+For the live status see the dashboard's *Overview* page and [`for_aaron.md`](for_aaron.md). Briefly: all four utilities (`cp`, `mv`, `find`, `sudo`) have round 1 baselines against the GNU oracle; `cp` has round 2; reproducibility is N=1 across the board pending a planned resampling pass.

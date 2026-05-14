@@ -1,0 +1,114 @@
+$ cargo check --quiet  (rc=101)
+--- stdout ---
+
+--- stderr ---
+warning: unused imports: `GroupExt` and `UserExt`
+  --> src/main.rs:10:23
+   |
+10 | use users::os::unix::{GroupExt, UserExt};
+   |                       ^^^^^^^^  ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0308]: mismatched types
+  --> src/main.rs:80:217
+   |
+80 | ...); if p=="-"{io::stdin().read_to_end(&mut data).map_err(|e|e.to_string())?}else{File::open(p).and_then(|mut f|f.read_to_end(&mut data)).map_err(|e|format!("{}: {}",p,e))?; } se...
+   |       ----------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^---------------------------------------------------------------------------------------------------
+   |       |         |
+   |       |         expected `()`, found `usize`
+   |       expected this to be `()`
+   |
+help: consider using a semicolon here
+   |
+80 | fn read_files0(&mut self,p:&str)->Result<(),String>{ if self.cfg.initial_paths{return Err("-files0-from is incompatible with command-line paths".into())} self.cfg.files0_seen=true; let mut data=Vec::new(); if p=="-"{io::stdin().read_to_end(&mut data).map_err(|e|e.to_string())?;}else{File::open(p).and_then(|mut f|f.read_to_end(&mut data)).map_err(|e|format!("{}: {}",p,e))?; } self.cfg.paths.clear(); if data.is_empty(){return Ok(())} let parts:Vec<&[u8]>=data.split(|b|*b==0).collect(); for (i,part) in parts.iter().enumerate(){ if part.is_empty(){ if i==parts.len()-1 {continue} return Err("invalid zero-length file name in input file".into()) } self.cfg.paths.push(PathBuf::from(OsStr::from_bytes(part))); } Ok(()) }
+   |                                                                                                                                                                                                                                                                                      +
+help: consider using a semicolon here
+   |
+80 | fn read_files0(&mut self,p:&str)->Result<(),String>{ if self.cfg.initial_paths{return Err("-files0-from is incompatible with command-line paths".into())} self.cfg.files0_seen=true; let mut data=Vec::new(); if p=="-"{io::stdin().read_to_end(&mut data).map_err(|e|e.to_string())?}else{File::open(p).and_then(|mut f|f.read_to_end(&mut data)).map_err(|e|format!("{}: {}",p,e))?; }; self.cfg.paths.clear(); if data.is_empty(){return Ok(())} let parts:Vec<&[u8]>=data.split(|b|*b==0).collect(); for (i,part) in parts.iter().enumerate(){ if part.is_empty(){ if i==parts.len()-1 {continue} return Err("invalid zero-length file name in input file".into()) } self.cfg.paths.push(PathBuf::from(OsStr::from_bytes(part))); } Ok(()) }
+   |                                                                                                                                                                                                                                                                                                                                                                                         +
+
+error[E0499]: cannot borrow `*self` as mutable more than once at a time
+  --> src/main.rs:78:2960
+   |
+78 | ...printf"=>{self.has_action=true; let id=self.add_output(&self.need("-fprintf file")?)?; Ok(Expr::Printf(self.need("-fprintf format")?,i...
+   |                                           ---- ----------  ^^^^ second mutable borrow occurs here
+   |                                           |    |
+   |                                           |    first borrow later used by call
+   |                                           first mutable borrow occurs here
+   |
+help: try adding a local storing this argument...
+  --> src/main.rs:78:2960
+   |
+78 | ...intf"=>{self.has_action=true; let id=self.add_output(&self.need("-fprintf file")?)?; Ok(Expr::Printf(self.need("-fprintf format")?,id)...
+   |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: ...and then using that local as the argument to this call
+  --> src/main.rs:78:2943
+   |
+78 | ..., "-fprintf"=>{self.has_action=true; let id=self.add_output(&self.need("-fprintf file")?)?; Ok(Expr::Printf(self.need("-fprintf format...
+   |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0499]: cannot borrow `*self` as mutable more than once at a time
+  --> src/main.rs:78:3102
+   |
+78 | ...fprint"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint")?)?; Ok(Expr::Printf("%p\\n".into(),id))}, "-fprint0"=>{se...
+   |                                           ---- ----------  ^^^^ second mutable borrow occurs here
+   |                                           |    |
+   |                                           |    first borrow later used by call
+   |                                           first mutable borrow occurs here
+   |
+help: try adding a local storing this argument...
+  --> src/main.rs:78:3102
+   |
+78 | ...-fprint"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint")?)?; Ok(Expr::Printf("%p\\n".into(),id))}, "-fprint0"=>{s...
+   |                                                             ^^^^^^^^^^^^^^^^^^^^
+help: ...and then using that local as the argument to this call
+  --> src/main.rs:78:3085
+   |
+78 | ...d))}, "-fprint"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint")?)?; Ok(Expr::Printf("%p\\n".into(),id))}, "-fprin...
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0499]: cannot borrow `*self` as mutable more than once at a time
+  --> src/main.rs:78:3224
+   |
+78 | ...print0"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint0")?)?; Ok(Expr::Printf("%p\\0".into(),id))}, "-ls"=>{self.h...
+   |                                           ---- ----------  ^^^^ second mutable borrow occurs here
+   |                                           |    |
+   |                                           |    first borrow later used by call
+   |                                           first mutable borrow occurs here
+   |
+help: try adding a local storing this argument...
+  --> src/main.rs:78:3224
+   |
+78 | ...print0"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint0")?)?; Ok(Expr::Printf("%p\\0".into(),id))}, "-ls"=>{self.h...
+   |                                                            ^^^^^^^^^^^^^^^^^^^^^
+help: ...and then using that local as the argument to this call
+  --> src/main.rs:78:3207
+   |
+78 | ...))}, "-fprint0"=>{self.has_action=true; let id=self.add_output(&self.need("-fprint0")?)?; Ok(Expr::Printf("%p\\0".into(),id))}, "-ls"=...
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0499]: cannot borrow `*self` as mutable more than once at a time
+  --> src/main.rs:78:3391
+   |
+78 | ... "-fls"=>{self.has_action=true; let id=self.add_output(&self.need("-fls")?)?; Ok(Expr::Ls(id))}, "-delete"=>{self.has_action=true; sel...
+   |                                           ---- ----------  ^^^^ second mutable borrow occurs here
+   |                                           |    |
+   |                                           |    first borrow later used by call
+   |                                           first mutable borrow occurs here
+   |
+help: try adding a local storing this argument...
+  --> src/main.rs:78:3391
+   |
+78 | ...}, "-fls"=>{self.has_action=true; let id=self.add_output(&self.need("-fls")?)?; Ok(Expr::Ls(id))}, "-delete"=>{self.has_action=true; s...
+   |                                                              ^^^^^^^^^^^^^^^^^
+help: ...and then using that local as the argument to this call
+  --> src/main.rs:78:3374
+   |
+78 | ...::Ls(0))}, "-fls"=>{self.has_action=true; let id=self.add_output(&self.need("-fls")?)?; Ok(Expr::Ls(id))}, "-delete"=>{self.has_action...
+   |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some errors have detailed explanations: E0308, E0499.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `find_impl` (bin "util") due to 5 previous errors; 1 warning emitted
+

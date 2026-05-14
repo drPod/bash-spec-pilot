@@ -30,3 +30,11 @@ Cargo.lock
 .idea/
 .vscode/
 *.swp
+
+# Claude Code workspace — keep skills vendored, ignore local settings/commands
+.claude/*
+!.claude/skills/
+!.claude/skills/**
+
+# Streamlit caches
+.streamlit/cache/

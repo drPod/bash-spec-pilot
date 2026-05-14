@@ -1,0 +1,13 @@
+[package]
+name = "util"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "util"
+path = "src/main.rs"
+
+[dependencies]
+libc = "0.2"
+users = "0.11"
+tempfile = "3"

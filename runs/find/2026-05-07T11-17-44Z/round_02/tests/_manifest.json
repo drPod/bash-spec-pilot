@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "001_h_command_line_symlink_dir.sh",
+    "exercises": "-H follows symlink starting points to directories",
+    "expected": "child file under command-line symlink directory is found",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_l_follows_symlink_dir.sh",
+    "exercises": "-L follows symbolic links during traversal",
+    "expected": "regular file reachable only through symlinked directory is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_p_reports_symlink_itself.sh",
+    "exercises": "-P never follows symbolic links",
+    "expected": "symlink matches -type l",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_d_help_lists_debug_options.sh",
+    "exercises": "-D help debug option",
+    "expected": "debug help output names valid debug arguments",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_o3_preserves_query_result.sh",
+    "exercises": "-O3 query optimisation preserves effect",
+    "expected": "only .txt regular files are printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_default_expression_prints_startpoint.sh",
+    "exercises": "default expression when no expression is given",
+    "expected": "starting file path is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_maxdepth_zero_only_startpoint.sh",
+    "exercises": "-maxdepth 0",
+    "expected": "only the starting point is processed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_mindepth_one_skips_startpoint.sh",
+    "exercises": "-mindepth 1",
+    "expected": "depth-1 child is printed but starting point is not",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_depth_processes_contents_first.sh",
+    "exercises": "-depth depth-first traversal",
+    "expected": "file is printed before containing directories",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_files0_from_reads_startpoints.sh",
+    "exercises": "-files0-from with NUL-separated start points",
+    "expected": "both listed starting files are processed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_files0_from_empty_name_errors.sh",
+    "exercises": "-files0-from rejects zero-length starting point",
+    "expected": "find exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_files0_from_with_path_errors.sh",
+    "exercises": "-files0-from is mutually exclusive with command-line paths",
+    "expected": "find exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_missing_startpoint_errors.sh",
+    "exercises": "nonexistent starting point error",
+    "expected": "find exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_follow_makes_lname_false.sh",
+    "exercises": "-follow positional option and -lname",
+    "expected": "resolved symlink is not matched by -lname",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_name_pattern_matches_leading_dot.sh",
+    "exercises": "-name shell pattern matching",
+    "expected": "*.c matches both plain.c and .hidden.c",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_iname_case_insensitive.sh",
+    "exercises": "-iname case-insensitive basename pattern",
+    "expected": "Foo and foo both match pattern foo",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_ipath_case_insensitive_whole_path.sh",
+    "exercises": "-ipath case-insensitive whole-path pattern",
+    "expected": "sub/File matches uppercase absolute path pattern",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_regextype_posix_extended.sh",
+    "exercises": "-regextype posix-extended with -regex",
+    "expected": "only foo123 matches the POSIX extended whole-path regex",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_type_combined_list.sh",
+    "exercises": "GNU -type f,d,l combined type list",
+    "expected": "regular file, directory, and symlink entries all match",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_empty_files_and_directories.sh",
+    "exercises": "-empty test",
+    "expected": "empty regular file and empty directory match",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_size_bytes_exact.sh",
+    "exercises": "-size n c byte units",
+    "expected": "only the three-byte file matches -size 3c",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_perm_all_bits.sh",
+    "exercises": "-perm -mode all permission bits set",
+    "expected": "files with all 664 bits, including extra bits, match",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_newer_reference_mtime.sh",
+    "exercises": "-newer reference modification time",
+    "expected": "only file newer than reference is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "024_newermt_direct_time.sh",
+    "exercises": "-newerXY with X=m Y=t via -newermt",
+    "expected": "only file modified after the direct time is printed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "025_samefile_hard_link.sh",
+    "exercises": "-samefile inode comparison",
+    "expected": "original and hard link both match",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "026_print0_outputs_nul_terminator.sh",
+    "exercises": "-print0 action",
+    "expected": "output bytes are path followed by ASCII NUL",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "027_printf_basename_and_size.sh",
+    "exercises": "-printf %f and %s directives without implicit newline",
+    "expected": "basename and byte size are printed exactly",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "028_fprint_truncates_and_writes_file.sh",
+    "exercises": "-fprint action creates/truncates output file",
+    "expected": "output file contains the matched path",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "029_execdir_runs_in_file_directory.sh",
+    "exercises": "-execdir command ; action",
+    "expected": "command observes working directory as matched file's directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "030_delete_nonempty_directory_errors.sh",
+    "exercises": "-delete fails to remove non-empty directory",
+    "expected": "find exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]

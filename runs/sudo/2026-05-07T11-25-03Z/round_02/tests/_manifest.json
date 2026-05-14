@@ -1,0 +1,191 @@
+[
+  {
+    "filename": "001_help_stdout.sh",
+    "exercises": "-h/--help displays a short help message",
+    "expected": "standard output contains usage text",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_version_stdout.sh",
+    "exercises": "-V/--version prints sudo version information",
+    "expected": "standard output contains Sudo version",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_validate_option.sh",
+    "exercises": "-v/--validate updates cached credentials without running a command",
+    "expected": "validate exits successfully for permitted root user",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_reset_timestamp.sh",
+    "exercises": "-k/--reset-timestamp without a command",
+    "expected": "reset timestamp exits successfully",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_remove_timestamp.sh",
+    "exercises": "-K/--remove-timestamp without a command",
+    "expected": "remove timestamp exits successfully",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_noninteractive_command.sh",
+    "exercises": "-n/--non-interactive runs without prompting when no password is needed",
+    "expected": "command output is produced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_delimiter_passes_option_arg.sh",
+    "exercises": "-- delimiter ends sudo option parsing",
+    "expected": "command receives -x as its own argument",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_environment_assignment.sh",
+    "exercises": "VAR=value command environment assignment",
+    "expected": "assigned variable appears in command environment",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_preserve_env_all.sh",
+    "exercises": "-E/--preserve-env preserves existing environment variables",
+    "expected": "selected existing variable appears in command environment",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_preserve_env_list.sh",
+    "exercises": "--preserve-env=list preserves listed environment variables",
+    "expected": "listed variable appears in command environment",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_user_uid_zero.sh",
+    "exercises": "-u/--user accepts numeric UID prefixed by #",
+    "expected": "command reports uid 0",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_group_gid_zero.sh",
+    "exercises": "-g/--group accepts numeric GID prefixed by #",
+    "expected": "command reports primary gid 0",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_set_home.sh",
+    "exercises": "-H/--set-home requests HOME set to target user's home directory",
+    "expected": "HOME equals root's passwd home directory",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_shell_runs_command.sh",
+    "exercises": "-s/--shell with a command",
+    "expected": "specified command output is produced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_login_runs_command.sh",
+    "exercises": "-i/--login with a command",
+    "expected": "specified command output is produced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_background_runs_command.sh",
+    "exercises": "-b/--background runs the given command in the background",
+    "expected": "background command eventually writes marker",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_list_privileges.sh",
+    "exercises": "-l/--list without a command lists invoking user's privileges",
+    "expected": "list exits successfully for permitted root user",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_other_user_list.sh",
+    "exercises": "-U/--other-user with -l lists privileges for another user",
+    "expected": "listing root's privileges exits successfully as root",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_command_exit_status.sh",
+    "exercises": "successful command execution returns the command's exit status",
+    "expected": "sudo exits with status 7 from the executed command",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_nonexistent_command_error.sh",
+    "exercises": "given command cannot be executed",
+    "expected": "sudo exits nonzero for nonexistent command",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_close_from_less_than_three_error.sh",
+    "exercises": "-C/--close-from rejects values less than three",
+    "expected": "sudo exits nonzero for -C 2",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_remove_timestamp_with_command_error.sh",
+    "exercises": "-K/--remove-timestamp may not be used with a command",
+    "expected": "sudo exits nonzero when -K is combined with a command",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_duplicate_user_option_error.sh",
+    "exercises": "options that take a value may only be specified once",
+    "expected": "sudo exits nonzero for duplicate -u option",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "024_invalid_preserve_env_name_error.sh",
+    "exercises": "--preserve-env=list rejects invalid environment variable names",
+    "expected": "sudo exits nonzero for a name containing equals",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "025_edit_env_var_error.sh",
+    "exercises": "sudoedit/edit mode forbids environment variable assignments",
+    "expected": "sudo exits nonzero when VAR=value is specified in edit mode",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "026_sudoedit_creates_file.sh",
+    "exercises": "-e/--edit creates a specified file that does not exist",
+    "expected": "target file contains editor-written contents",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "027_sudoedit_symlink_error.sh",
+    "exercises": "sudoedit refuses to edit symbolic links by default",
+    "expected": "sudo exits nonzero when editing a symlink",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]

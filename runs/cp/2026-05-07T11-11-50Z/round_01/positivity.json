@@ -1,0 +1,17 @@
+{
+  "round_dir": "runs/cp/2026-05-07T11-11-50Z/round_01",
+  "manifest": {
+    "total": 0,
+    "pos": 0,
+    "neg": 0,
+    "pos_pct": null,
+    "neg_pct": null
+  },
+  "oracles": {
+    "real-gnu": null,
+    "rust": null
+  },
+  "util": "cp",
+  "session": "2026-05-07T11-11-50Z",
+  "round": 1
+}

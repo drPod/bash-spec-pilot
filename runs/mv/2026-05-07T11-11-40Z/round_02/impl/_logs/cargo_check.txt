@@ -1,0 +1,24 @@
+$ cargo check --quiet  (rc=101)
+--- stdout ---
+
+--- stderr ---
+error[E0425]: cannot find value `SYS_renameat2` in crate `libc`
+   --> src/main.rs:192:42
+    |
+192 |     let r = unsafe { libc::syscall(libc::SYS_renameat2, libc::AT_FDCWD, ca.as_ptr(), libc::AT_FDCWD, cb.as_ptr(), libc::RENAME_EXCHANGE) };
+    |                                          ^^^^^^^^^^^^^ not found in `libc`
+
+error[E0425]: cannot find value `RENAME_EXCHANGE` in crate `libc`
+    --> src/main.rs:192:121
+     |
+ 192 |     let r = unsafe { libc::syscall(libc::SYS_renameat2, libc::AT_FDCWD, ca.as_ptr(), libc::AT_FDCWD, cb.as_ptr(), libc::RENAME_EXCHANGE) };
+     |                                                                                                                         ^^^^^^^^^^^^^^^ help: a constant with a similar name exists: `RENAME_EXCL`
+     |
+    ::: /Users/darshpoddar/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.186/src/unix/bsd/apple/mod.rs:3287:1
+     |
+3287 | pub const RENAME_EXCL: c_uint = 0x00000004;
+     | ----------------------------- similarly named constant `RENAME_EXCL` defined here
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `mv_impl` (bin "util") due to 2 previous errors
+

@@ -1,0 +1,184 @@
+[
+  {
+    "filename": "001_basic_rename_file.sh",
+    "exercises": "basic SOURCE DEST rename",
+    "expected": "DEST has SOURCE content",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_move_multiple_to_target_directory.sh",
+    "exercises": "SOURCE... DIRECTORY form",
+    "expected": "Both sources exist in DIRECTORY",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_target_directory_option.sh",
+    "exercises": "-t/--target-directory",
+    "expected": "SOURCE is moved inside DIRECTORY",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_no_target_directory_file.sh",
+    "exercises": "-T/--no-target-directory positive file destination",
+    "expected": "DEST is treated as a normal file path",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_force_overwrites_existing.sh",
+    "exercises": "-f/--force overwriting",
+    "expected": "Existing DEST is replaced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_no_clobber_keeps_existing.sh",
+    "exercises": "-n/--no-clobber",
+    "expected": "Existing DEST is not overwritten",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_final_force_takes_effect.sh",
+    "exercises": "final option wins among -i, -f, -n",
+    "expected": "Final -f causes overwrite",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_final_no_clobber_takes_effect.sh",
+    "exercises": "final option wins among -i, -f, -n",
+    "expected": "Final -n prevents overwrite",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_backup_simple_creates_tilde.sh",
+    "exercises": "--backup with simple version control",
+    "expected": "Backup file with ~ suffix has old DEST content",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_short_backup_custom_suffix.sh",
+    "exercises": "-b and -S/--suffix",
+    "expected": "Custom-suffix backup has old DEST content",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_backup_numbered_control.sh",
+    "exercises": "--backup=numbered",
+    "expected": "Numbered backup .~1~ has old DEST content",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_backup_none_control.sh",
+    "exercises": "--backup=none/off control",
+    "expected": "No backup file is created",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_exchange_swaps_files.sh",
+    "exercises": "--exchange",
+    "expected": "SOURCE path now has former DEST content",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_update_none_skips_existing.sh",
+    "exercises": "--update=none",
+    "expected": "Existing DEST is skipped without replacement",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_update_all_replaces_existing.sh",
+    "exercises": "--update=all",
+    "expected": "Existing DEST is replaced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_update_older_replaces_older_dest.sh",
+    "exercises": "--update=older",
+    "expected": "Older DEST is replaced by newer SOURCE",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_u_skips_newer_dest.sh",
+    "exercises": "-u equivalent to --update=older",
+    "expected": "Newer DEST is not replaced",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_strip_trailing_slashes_regular_file.sh",
+    "exercises": "--strip-trailing-slashes on SOURCE",
+    "expected": "SOURCE with trailing slash is moved after stripping",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_no_copy_allows_successful_rename.sh",
+    "exercises": "--no-copy on successful rename",
+    "expected": "Successful rename still occurs",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_verbose_explains_action.sh",
+    "exercises": "-v/--verbose",
+    "expected": "Verbose mode emits an explanation",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_debug_implies_verbose_output.sh",
+    "exercises": "--debug implies -v",
+    "expected": "Debug mode emits an explanation",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_help_displays_usage.sh",
+    "exercises": "--help",
+    "expected": "Help text is displayed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_version_displays_version.sh",
+    "exercises": "--version",
+    "expected": "Version information is displayed",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "024_missing_source_fails.sh",
+    "exercises": "nonexistent SOURCE error",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "025_no_target_directory_existing_dir_fails.sh",
+    "exercises": "-T with DEST an existing directory",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "026_update_none_fail_existing_dest_fails.sh",
+    "exercises": "--update=none-fail skipped existing destination",
+    "expected": "Utility exits nonzero",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]
