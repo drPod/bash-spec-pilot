@@ -33,6 +33,14 @@ For the man-page-to-impl task specifically, the high-prior failures are: **flag 
 2. **Co-generated test suite vs. real binary.** Asking whether LLM-generated Bash *tests* pass against `/bin/cp` is a separate empirical claim from "can LLMs extract specs." This bears on Astrogator's downstream test-driven verification story.
 3. **Failure taxonomy specifically scoped to man-page → behavior extraction**, with `sudo` (security-critical, complex semantics) deliberately included alongside benign utilities.
 
+## Lab-internal sibling work: SLMFix (Fu, Gupta, Councilman, Grove, Wang, Adve)
+
+Same group, shared author with the supervisor (Aaron Councilman). Two versions in repo: arXiv 2511.19422v1 at root (`2511.19422v1.pdf`, three DSLs: Ansible/Bash/SQL) and the EMNLP 2026 anonymized submission at `literature/slmfix_2026_emnlp.pdf` (four DSLs: adds Lean; revised numbers — 40% pass-rate gain on LRPLs, 50%+ static-error elimination on HRPLs). SLMFix fine-tunes a 500M-parameter SLM via reinforcement learning (GRPO) to fix statically-detected errors (syntax, types) in LLM-generated DSL code. Two-stage reward: static validator pass plus AST similarity to ground truth. Reports the RL-tuned SLM outperforms supervised fine-tuning of 7B-parameter base models on LRPLs.
+
+**Directly relevant to the wave-3 finding.** Round-2 iteration produced compile-fail regressions in three of four utilities (Rust `?`-operator type mismatch in `find`, macro use-before-definition in `sudo`, platform-specific syscall constants in `mv`). SLMFix is purpose-built for that failure class. Candidate pipeline change: insert SLMFix's SLM as a static-validator-first fix pass between rounds N and N+1, so the round-N+1 prompt only carries semantic feedback on code that already compiles. This would unbundle the current loop's two concerns (compile correctness, behavioral fidelity) and isolate the iteration-loop variance to the half it can actually improve.
+
+**Methodologically also relevant.** SLMFix critiques test-suite-as-oracle ("constructing such test suites requires significant effort and is necessarily far from complete") and substitutes AST similarity (reported 75%+ predictive of execution match per Liang et al. 2025 and Song et al. 2024). This experiment's setup side-steps the critique because the oracle is the real GNU binary in Docker, not an LLM-generated test suite — worth saying explicitly when positioning against SLMFix. AST similarity could still be useful here as a cheap intermediate signal for ranking N≥3 resamples without spinning Docker each time.
+
 ## Open gaps the student's work could plausibly fill
 
 - **Quantify man-page vs. POSIX-spec gap empirically.** Does the LLM do better when given the man page, the POSIX spec, both, or neither? Caruca didn't compare doc sources rigorously.

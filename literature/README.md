@@ -2,11 +2,10 @@
 
 Curated literature for the **man-page → LLM → Rust impl + Bash test suite** experiment (`cp`, `mv`, `find`, `sudo`).
 
-Two papers already in the broader project scope (NOT included here, indexed separately):
+One paper in the broader project scope (NOT included here, indexed separately):
 - Astrogator (Councilman et al., arXiv 2507.13290) — formal verification of LLM-generated Ansible.
-- SLMFix (Fu/Gupta et al., arXiv 2511.19422) — RL fine-tuning to repair LLM-generated DSL code.
 
-All papers below are indexed in delphi by arXiv ID; query with `mcp__synsci-delphi__search_papers`.
+All papers below are indexed in delphi (arXiv ID or local PDF); query with `mcp__synsci-delphi__search_papers`.
 
 ---
 
@@ -87,6 +86,19 @@ State-of-the-art hand-written formal semantics for the shell language itself (no
 Lamprou, E., Jung, S.-H., Keoliya, M., Lazarek, L., Kallas, K., Greenberg, M., & Vasilakis, N. (2025). *Caruca: Effective and Efficient Specification Mining for Opaque Software Components.* [arXiv 2510.14279]
 
 **Most important paper for the student to read first.** Caruca uses LLMs to translate Unix-command documentation into structured invocation syntax, then concretely executes commands with syscall/filesystem interposition to extract pre/post-conditions and properties (parallelizability, etc.). Evaluated on 60 GNU coreutils/POSIX/third-party commands; correct specs for 59/60. This is essentially the "spec-half" of the student's experiment, **already done and published**, including some of the same target utilities. Critical to read for: (1) overlap with the student's contribution, (2) what failure modes Caruca already catalogued, (3) where the student's distinct angle (executable Rust impl + behavioral test suite, not just specs) actually lies.
+
+---
+
+## 6. Lab-internal sibling work
+
+### `slmfix_2026_emnlp.pdf`
+Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 2026 submission, anonymized for review; supersedes arXiv 2511.19422v1).
+
+**Same lab (UIUC + IBM), shared author with the student's supervisor (Aaron Councilman on both bylines).** SLMFix fine-tunes a 500M-parameter small language model via reinforcement learning (GRPO) to repair statically-detected errors (syntax, types) in LLM-generated DSL code. Two-stage reward: static validator pass + AST similarity to ground truth. Evaluated on Ansible, Bash, SQL, and Lean. Reports 40% pass-rate gain on low-resource DSLs (Ansible, Lean), 50%+ static-error elimination on high-resource DSLs (Bash, SQL). Outperforms supervised fine-tuning even on 7B-parameter base models for LRPLs.
+
+**Direct relevance to wave 3.** Round-2 iteration in this experiment produced compile-fail regressions in 3 of 4 utilities — Rust type mismatch (`find`), macro use-before-definition (`sudo`), platform-specific syscall constants (`mv`'s `RENAME_EXCHANGE` on macOS host). SLMFix is purpose-built for exactly this failure class. Candidate use: insert SLMFix's SLM as a static-validator-first fix pass between rounds N and N+1, so the round-N+1 LLM only sees semantic feedback on code that already compiles.
+
+**Adjacent methodological points.** (a) SLMFix uses AST-similarity (75%+ predictive of execution match per Liang et al. 2025 / Song et al. 2024) as a semantic score when no test oracle exists. This experiment has a real-binary oracle so doesn't need it as primary, but could use it as a cheap intermediate signal for ranking N≥3 resamples without spinning Docker each time. (b) SLMFix critiques test-suite-as-judge ("necessarily far from complete"). The differential-testing-against-real-binary setup here side-steps that critique because GNU coreutils is the oracle, not an LLM-generated test suite — worth naming explicitly in any cross-positioning write-up.
 
 ---
 
