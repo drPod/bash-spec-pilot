@@ -7,11 +7,12 @@
 
   Maintainer notes (human-only, agent never sees these):
     - Repo URL: https://github.com/drPod/bash-spec-pilot (public, first push 2026-05-07).
-    - Astrogator paper: arxiv 2507.13290 (mirrored at repo root as 2507.13290v2.pdf).
-    - SLMFix paper: arxiv 2511.19422 (mirrored at repo root as 2511.19422v1.pdf).
+    - Astrogator paper: arxiv 2507.13290 (mirrored at literature/councilman_2025_astrogator.pdf).
+    - SLMFix paper: EMNLP 2026 submission, anonymized (literature/slmfix_2026_emnlp.pdf;
+      arXiv 2511.19422v1 superseded and removed 2026-05-30).
     - Caruca paper: arxiv 2510.14279 (mirrored at literature/caruca_2025_spec_mining.pdf).
     - state_based reference impl: https://github.com/counc009/state_based
-    - Aaron's prelim proposal: Prelim_Proposal-2.pdf at repo root.
+    - Aaron's prelim proposal: literature/councilman_2025_prelim_proposal.pdf.
     - SDK pin source-of-truth: docs/openai/_pin.txt (currently openai==2.35.1).
     - taxonomy.md and for_aaron.md may be authored by parallel subagents;
       reference even if missing at write-time.

@@ -83,13 +83,13 @@ formal-verification/
 │       ├── errors.md
 │       ├── _pin.txt
 │       └── _responses_create_signature.txt
-├── literature/                        ← downloaded prior work + synthesis
-│   ├── README.md
-│   ├── _synthesis.md
-│   └── *.pdf                          ← Caruca, Endres, Tambon, Westenfelder, Schulhoff, SLMFix, ...
-├── 2507.13290v2.pdf                   ← Astrogator paper
-├── 2511.19422v1.pdf                   ← SLMFix paper
-└── Prelim_Proposal-2.pdf              ← Aaron's prelim proposal
+└── literature/                        ← downloaded prior work + synthesis
+    ├── README.md                      ← indexed catalogue per paper
+    ├── _synthesis.md
+    ├── councilman_2025_astrogator.pdf ← Astrogator (system this project extends)
+    ├── councilman_2025_prelim_proposal.pdf  ← Aaron's prelim proposal
+    ├── slmfix_2026_emnlp.pdf          ← SLMFix (lab-internal sibling work)
+    └── *.pdf                          ← Caruca, Endres, Tambon, Westenfelder, Schulhoff, ...
 ```
 
 ## Dashboard
