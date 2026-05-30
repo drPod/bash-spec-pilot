@@ -13,18 +13,18 @@ design can work around the failures.
 
 Prior work suggests man pages are enough to mine *syntax* specifications (Caruca, Lamprou et al.
 2025, 99.7% argument-level correctness) but recovers *behavioral* semantics from execution traces,
-not from prose alone. 
+not from prose alone.
 
-This experiment asks the next question: **can an LLM go from a man page directly
-to an executable implementation that matches the real GNU utility's behavior, and what does it get
-wrong when it can't?** Rust stands in for the not-yet-existent Bash specification language, and a Bash
-test suite generated alongside the impl is differentially tested against the real GNU binary in a
-pinned Debian trixie container. The output of interest is not a pass rate but a catalogue of failure
-modes in [`taxonomy.md`](taxonomy.md).
+This experiment asks the next question: **can an LLM go from a man page directly to an executable
+implementation that matches the real GNU utility's behavior, and what does it get wrong when it
+can't?** Rust stands in for the not-yet-existent Bash specification language, and a Bash test suite
+generated alongside the impl is differentially tested against the real GNU binary in a pinned Debian
+trixie container. The output of interest is not a pass rate but a catalogue of failure modes in
+[`taxonomy.md`](taxonomy.md).
 
 ## Repository layout
 
-```
+```text
 formal-verification/
 ├── README.md                          ← this file
 ├── taxonomy.md                        ← running failure catalogue
