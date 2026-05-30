@@ -78,7 +78,7 @@ Causes, in rough order of expected frequency:
 | `IMPL-CORNER-CASE` | Common path works; specific input shape (trailing slash, empty source list, symlink loop, hardlink, perm denied) fails. | Missing Corner Case |
 | `IMPL-EXIT-CODE` | Side-effects on filesystem are correct but the exit code does not match what GNU returns. | Misinterpretation, or Missing Corner Case |
 | `IMPL-COMPILE` | Rust crate doesn't compile; *every* test attributed to this cause until fixed. Round 1 baseline. | Syntax Error |
-| `IMPL-PLATFORM` | Behavior depends on a syscall or filesystem feature the test environment doesn't expose (xattrs, SELinux, reflink). Out of scope per `prompts/impl.md`. | Wrong Attribute (when LLM reaches for it) |
+| `IMPL-PLATFORM` | Behavior depends on a syscall or filesystem feature the test environment doesn't expose (xattrs, SELinux, reflink). Out of scope per `prompts/baseline/impl.md`. | Wrong Attribute (when LLM reaches for it) |
 
 ### 2B. False negatives (real-fail, rust-pass) — test-side bugs or man-page misreads
 

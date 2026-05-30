@@ -85,7 +85,7 @@ from openai import (
 MAX_FEEDBACK_FAILURES = 10
 MAX_BUILD_ERROR_LINES = 50
 
-# Strict JSON schemas matching prompts/impl.md and prompts/tests.md.
+# Strict JSON schemas matching prompts/baseline/impl.md and prompts/baseline/tests.md.
 IMPL_SCHEMA: dict = {
     "type": "object",
     "additionalProperties": False,
@@ -99,7 +99,7 @@ IMPL_SCHEMA: dict = {
 
 # `expected_to_fail` (boolean, required): true if the test exercises a
 # documented error condition where the real utility must exit nonzero.
-# See prompts/tests.md for the full semantic.
+# See prompts/baseline/tests.md for the full semantic.
 TESTS_SCHEMA: dict = {
     "type": "object",
     "additionalProperties": False,
@@ -186,7 +186,7 @@ def resolve_session(repo: Path, util: str, round_n: int, requested: str | None) 
 
 def render_base_prompt(repo: Path, util: str, prompt_kind: str) -> tuple[str, str, str]:
     """Return (rendered_prompt_no_feedback, template_sha256, manpage_sha256)."""
-    template_path = repo / "prompts" / f"{prompt_kind}.md"
+    template_path = repo / "prompts" / "baseline" / f"{prompt_kind}.md"
     manpage_path = repo / "utils" / util / "manpage.txt"
     template_text = template_path.read_text()
     manpage_text = manpage_path.read_text()
