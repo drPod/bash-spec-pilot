@@ -99,8 +99,6 @@ Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 202
 
 ---
 
----
-
 ## 7. Project-scope foundational
 
 These two are the parent context for the whole subproject, not external prior art. Moved into this folder 2026-05-30 from the repo root for hygiene.
