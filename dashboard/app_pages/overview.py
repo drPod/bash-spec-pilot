@@ -139,7 +139,6 @@ with c2:
 
 st.divider()
 st.markdown(
-    "**Where to read more:** [`for_aaron.md`](https://github.com/) — weekly status. "
-    "[`taxonomy.md`](https://github.com/) — failure classes. "
-    "[`decisions.md`](https://github.com/) — provenance + design choices."
+    "**Where to read more:** [`taxonomy.md`](https://github.com/drPod/bash-spec-pilot/blob/main/taxonomy.md) — failure classes. "
+    "[`decisions.md`](https://github.com/drPod/bash-spec-pilot/blob/main/decisions.md) — provenance + design choices."
 )

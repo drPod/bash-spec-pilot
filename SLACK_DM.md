@@ -12,7 +12,7 @@ block, top to bottom.
 
 # Slack DM template — weekly update to Aaron
 
-The DM is intentionally short. Depth goes in the dashboard and `for_aaron.md`.
+The DM is intentionally short. Depth goes in the dashboard and `taxonomy.md`.
 
 ---
 
@@ -23,8 +23,7 @@ Wave 3 done. Ran round 2 of `mv`/`find`/`sudo` vs GNU trixie. Deployed dashboard
 **Read order (~10 min):**
 
 1. Dashboard: https://bash-spec-pilot.streamlit.app/ — auto-rebuilds from `main`. Pages: *Overview → Test diversity → Failure browser → Trajectory*.
-2. `for_aaron.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/for_aaron.md
-3. `taxonomy.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14
+2. `taxonomy.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14
 
 **Headline: iteration loop ≠ "fix" step.** Four utils, four r1→r2 outcomes:
 
@@ -47,7 +46,7 @@ Three compile-fail mechanisms, one feedback prompt. Shape: **model responds to t
 
 `sudo` only util with meaningful negative slice (policy-heavy, makes sense). Rest = happy-path heavy. Negative-test GNU pass ~100% across board — LLM writes neg tests only for obvious documented errors.
 
-**Open Q:** three of four r2 impls broken. Round 3 priority: (a) tighter feedback prompt (smallest-possible-diff, no new deps), (b) N≥3 resampling first to get variance bars, (c) both. Lean (c). Arg in `for_aaron.md` § 6.
+**Open Q:** three of four r2 impls broken. Round 3 priority: (a) tighter feedback prompt (smallest-possible-diff, no new deps), (b) adversarial test pass against round-2 impls to surface concrete failure modes, (c) both. Lean (c).
 
 Per-test stderr in dashboard *Failure browser* (`GNU fail, Rust pass` = drift; `GNU pass, Rust fail` = impl regression).
 
@@ -56,7 +55,7 @@ Per-test stderr in dashboard *Failure browser* (`GNU fail, Rust pass` = drift; `
 ## Notes for future updates
 
 - Dashboard URL: https://bash-spec-pilot.streamlit.app/ (Streamlit Community Cloud, auto-rebuilds from `main`). Local fallback: `uv run streamlit run dashboard/streamlit_app.py`.
-- Update the `for_aaron.md` and `taxonomy.md` github permalink SHA to the current `main` commit hash before sending. Get it via `git rev-parse main`.
-- Keep this Slack DM ≤ 300 words excluding the table. Anything longer belongs in `for_aaron.md`.
+- Update the `taxonomy.md` github permalink SHA to the current `main` commit hash before sending. Get it via `git rev-parse main`.
+- Keep this Slack DM ≤ 300 words excluding the table. Anything longer belongs in `taxonomy.md` or `decisions.md`.
 - Lead with the one most-surprising finding of the week. Don't bury it under methodology.
 - Numbers in the table should match the dashboard's *Test diversity* page at the moment of sending. Regenerate via `uv run python scripts/positivity.py` first.
