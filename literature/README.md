@@ -104,11 +104,13 @@ Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 202
 These two are the parent context for the whole subproject, not external prior art. Moved into this folder 2026-05-30 from the repo root for hygiene.
 
 ### `councilman_2025_astrogator.pdf`
+
 Councilman, A., et al. (2025). *Towards Formal Verification of LLM-Generated Code from Natural Language Prompts.* [arXiv 2507.13290]
 
 The system this experiment extends. Verifier checks LLM-generated Ansible against a formal query the user confirms; accepts 82.9% of correct programs, rejects 92.4% of incorrect ones (Sec. 6.3). The taxonomy.md verifier-result decomposition (Sec. 2) mirrors Sec. 6.3 + 7 of this paper, swapping the verifier for differential testing. Section 7.2 explicitly names Bash as a future target — this experiment is upstream of that extension.
 
 ### `councilman_2025_prelim_proposal.pdf`
+
 Councilman, A. (2025, preliminary). *Formal verification of LLM-generated programs — preliminary proposal.* UIUC PhD prelim.
 
 Chapters 4 and 5 are the directly relevant ones for this experiment: Chapter 4 sketches the planned Bash extension to Astrogator (the verifier infrastructure that consumes the specs this experiment is about producing), and Chapter 5 names the **bootstrapping problem** — verifier needs formal utility specs, hand-writing each takes person-weeks, LLM-generated specs may themselves be wrong. The "use unreliable LLMs to produce reliable specs" framing in the project README comes directly from this chapter.
