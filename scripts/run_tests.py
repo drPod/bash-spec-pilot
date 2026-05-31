@@ -8,7 +8,7 @@ whatever `<util>` the macOS host had on PATH (BSD `cp` in practice). That
 was removed once the GNU oracle in trixie was wired up: the host BSD
 binary is not the experiment's behavioral truth source, and keeping it
 as an option invited oracle-confusion bugs of the kind documented in
-`runs/cp/legacy_pre_session/_README.md`. See `decisions.md` § 4.4 for
+`runs/cp/legacy_pre_session/_README.md`. See `docs/research/decisions.md` § 4.4 for
 the removal note.
 
 Usage:

@@ -110,7 +110,7 @@ Triggered by a runtime `TypeError: Responses.create() got an unexpected keyword 
 - **`seed` is not on `responses.create` at all.** *Decision reversed 2026-05-07 because the SDK source contradicts the doc page.* The SDK 2.35.1 signature literally does not list it, which is why the call raised `TypeError` at the SDK layer (before any HTTP call). It was a Chat Completions parameter that never migrated to Responses.
   Reason for trusting the reversal: SDK source `.venv/lib/python3.12/site-packages/openai/resources/responses/responses.py` is more authoritative than a vendor doc page. Doc pages can lag the SDK.
 - **`system_fingerprint` is not returned by the Responses API.** *Decision reversed 2026-05-07 because direct inspection of `openai/types/responses/` shows no such field.* The previous driver logged `raw.get("system_fingerprint")` which always evaluated to `None`. The determinism-by-fingerprint claim was wrong.
-- **`top_p` is also rejected by gpt-5 reasoning models** (same family of error as `temperature`). The driver doesn't pass it; SETUP.md no longer suggests it as a fallback.
+- **`top_p` is also rejected by gpt-5 reasoning models** (same family of error as `temperature`). The driver doesn't pass it; `setup.md` no longer suggests it as a fallback.
 
 The replacement determinism story is:
 

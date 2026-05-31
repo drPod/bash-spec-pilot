@@ -37,7 +37,7 @@ OPENAI_MAX_RETRIES (optional, default 3).
 GPT-5.5 is a reasoning model. The OpenAI API rejects `temperature` on
 reasoning models with the error "Unsupported parameter: 'temperature' is
 not supported with this model." (Confirmed at the OpenAI Developer
-Community thread on the GPT-5 family, 2026-05-07; see decisions.md.)
+Community thread on the GPT-5 family, 2026-05-07; see docs/research/decisions.md.)
 
 `seed` is also not on the Responses API at all - it's a Chat Completions
 parameter. The SDK signature in openai==2.35.1 does not accept it; passing

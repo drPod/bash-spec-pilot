@@ -10,15 +10,16 @@ Research experiment investigating whether large language models can extract beha
 
 - **OpenAI Python SDK behavior** (parameter signatures, error classes, reasoning config, structured outputs) — `docs/openai/`. The mirror is pinned to the installed SDK version (`docs/openai/_pin.txt`). Read this before calling `client.responses.create(...)`. Do not WebFetch platform.openai.com — it lags the SDK.
 - **Project conventions and routing** — `CLAUDE.md` at the repo root. Caveman style, agent-facing.
-- **Decision log** (why we chose Debian trixie man pages, why we removed `temperature` and `seed`, why we switched from Chat Completions to Responses) — `decisions.md`. Has a section TOC.
-- **Failure taxonomy** (Tambon-derived schema for cataloguing LLM bugs in generated Bash and Rust) — `taxonomy.md`.
+- **Decision log** (why we chose Debian trixie man pages, why we removed `temperature` and `seed`, why we switched from Chat Completions to Responses) — `docs/research/decisions.md`. Has a section TOC.
+- **Failure taxonomy** (Tambon-derived schema for cataloguing LLM bugs in generated Bash and Rust) — `docs/research/taxonomy.md`.
 - **Literature / prior work synthesis** — `literature/_synthesis.md`. Recommended read order: Caruca, Endres, Tambon, Westenfelder.
-- **Setup and onboarding** — `SETUP.md`.
+- **Setup and onboarding** — `docs/research/setup.md`.
+- **Weekly Slack-DM template to Aaron** — `docs/research/slack_dm.md`.
 
 ## Where to find code
 
 - **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory) — `scripts/driver.py`.
-- **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `decisions.md` § 4.4.
+- **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `docs/research/decisions.md` § 4.4.
 - **Manpage freezer** (fetches Debian trixie groff, renders with `mandoc -Tutf8 | col -bx`, writes `utils/<util>/manpage.txt` plus a provenance JSON) — `scripts/freeze_manpage.sh`.
 - **Evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval_round.sh`.
 - **Flag coverage metric** — `scripts/coverage_flags.py`.
@@ -44,7 +45,7 @@ Research experiment investigating whether large language models can extract beha
 
 - **No Vercel, no Next.js, no React, no JavaScript.** This is a Python research repository. Anything that auto-suggests web-framework skills based on filename patterns is wrong here.
 - **No Anthropic SDK, no LangChain, no LiteLLM.** Single-provider single-model experiment using `openai==2.35.1` against the OpenAI Responses API. Do not add a provider abstraction layer.
-- **No `temperature`, no `seed`, no `top_p`, no `system_fingerprint` on the LLM call.** GPT-5.5 is a reasoning model; the API rejects `temperature` and `top_p`, and `seed` and `system_fingerprint` belong to the Chat Completions surface, not the Responses surface this project uses. See `decisions.md` Section 3 and Section 5 for the full audit.
-- **No fancy logging or experiment-tracking framework.** Logging is plain JSONL files plus git-versioned prompt templates plus per-run directories. MLflow, Weights & Biases, Hydra, LangSmith, Langfuse, Helicone, Phoenix, Promptfoo, and Inspect AI were all explicitly considered and rejected; see `SETUP.md` Section 5 for the rationale.
+- **No `temperature`, no `seed`, no `top_p`, no `system_fingerprint` on the LLM call.** GPT-5.5 is a reasoning model; the API rejects `temperature` and `top_p`, and `seed` and `system_fingerprint` belong to the Chat Completions surface, not the Responses surface this project uses. See `docs/research/decisions.md` Section 3 and Section 5 for the full audit.
+- **No fancy logging or experiment-tracking framework.** Logging is plain JSONL files plus git-versioned prompt templates plus per-run directories. MLflow, Weights & Biases, Hydra, LangSmith, Langfuse, Helicone, Phoenix, Promptfoo, and Inspect AI were all explicitly considered and rejected; see `docs/research/setup.md` Section 5 for the rationale.
 - **No test framework.** Tests are plain Bash scripts invoked through `scripts/run_tests.py` via `subprocess.run(["bash", ...])`. No pytest harness, no Bats, no shUnit.
 - **No production-grade reimplementations.** The Rust impls are research artifacts; their job is to give us a measurable handle on whether the LLM understood the man page. Do not refactor them for code quality.

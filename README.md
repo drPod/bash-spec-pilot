@@ -20,16 +20,20 @@ implementation that matches the real GNU utility's behavior, and what does it ge
 can't?** Rust stands in for the not-yet-existent Bash specification language, and a Bash test suite
 generated alongside the impl is differentially tested against the real GNU binary in a pinned Debian
 trixie container. The output of interest is not a pass rate but a catalogue of failure modes in
-[`taxonomy.md`](taxonomy.md).
+[`docs/research/taxonomy.md`](docs/research/taxonomy.md).
 
 ## Repository layout
 
 ```text
 formal-verification/
 ├── README.md                          ← this file
-├── taxonomy.md                        ← running failure catalogue
-├── decisions.md                       ← decision log (TOC at top)
-├── SETUP.md                           ← stack choices + onboarding
+├── docs/
+│   ├── openai/                        ← pinned OpenAI SDK doc mirror
+│   └── research/
+│       ├── taxonomy.md                ← running failure catalogue
+│       ├── decisions.md               ← decision log (TOC at top)
+│       ├── setup.md                   ← stack choices + onboarding
+│       └── slack_dm.md                ← weekly Slack-DM template
 ├── dashboard/                         ← Streamlit dashboard reading runs/
 │   ├── streamlit_app.py
 │   ├── data.py
@@ -54,8 +58,7 @@ formal-verification/
 │               ├── impl/              ← Rust crate (Cargo.toml + src/main.rs)
 │               ├── tests/             ← LLM-generated Bash tests + _manifest.json
 │               ├── _logs/             ← prompt, raw response, log.jsonl
-│               ├── results_real.jsonl       ← tests vs. real utility (host)
-│               ├── results_real-gnu.jsonl   ← tests vs. real utility (Docker GNU)
+│               ├── results_real-gnu.jsonl   ← tests vs. real utility (Docker GNU oracle)
 │               ├── results_impl.jsonl       ← tests vs. LLM Rust impl
 │               └── _observations.md   ← qualitative analyst notes
 ├── prompts/

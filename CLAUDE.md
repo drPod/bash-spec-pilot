@@ -14,9 +14,9 @@
     - state_based reference impl: https://github.com/counc009/state_based
     - Aaron's prelim proposal: literature/councilman_2025_prelim_proposal.pdf.
     - SDK pin source-of-truth: docs/openai/_pin.txt (currently openai==2.35.1).
-    - taxonomy.md may be authored by parallel subagent; reference even if
-      missing at write-time.
-    - decisions.md TOC sections (read directly for full text):
+    - docs/research/taxonomy.md may be authored by parallel subagent;
+      reference even if missing at write-time.
+    - docs/research/decisions.md TOC sections (read directly for full text):
         1. Canonical man-page source per utility (Debian trixie groff).
         2. Prompt engineering choices (Schulhoff techniques applied/rejected).
         3. Driver-API verdict (Responses, no temperature/seed).
@@ -41,10 +41,10 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 # Routing — when read what
 
 - OpenAI SDK question (parameter exists? error class? reasoning effort?) -> `docs/openai/<file>.md`. NEVER WebFetch platform.openai.com. NEVER paraphrase from memory. Mirror is ground truth at pin in `docs/openai/_pin.txt`.
-- Decision history / why-we-chose-X -> `decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror.
+- Decision history / why-we-chose-X -> `docs/research/decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror.
 - Prior work / prior art / what's been tried -> `literature/_synthesis.md`. Read order: Caruca -> Endres -> Tambon -> Westenfelder.
-- Failure-mode catalog (Tambon-derived schema) -> `taxonomy.md`.
-- Setup / onboarding / stack rationale -> `SETUP.md`.
+- Failure-mode catalog (Tambon-derived schema) -> `docs/research/taxonomy.md`.
+- Setup / onboarding / stack rationale -> `docs/research/setup.md`.
 - Repo overview / why-project-exists / data-collection priorities -> `README.md`.
 
 # Conventions
@@ -55,7 +55,7 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - Tests invoke utility via `$UTIL` env var. NEVER literal command name. Always quoted `"$UTIL"`.
 - Tests carry per-test `expected_to_fail: bool` field for documented error cases. Test body still exits 0 iff utility errored exactly as documented. Capture exit via `set +e; "$UTIL" ...; status=$?; set -e`.
 - Test filenames: `NNN_short_description.sh`, 3-digit zero-padded sequence.
-- macOS BSD `cp` != GNU `cp`. `--target real-gnu` (Docker trixie) is the only behavioral oracle. `--target real` was removed 2026-05-07 (see `decisions.md` § 4.4) — host BSD cp on macOS is not the experiment's truth source.
+- macOS BSD `cp` != GNU `cp`. `--target real-gnu` (Docker trixie) is the only behavioral oracle. `--target real` was removed 2026-05-07 (see `docs/research/decisions.md` § 4.4) — host BSD cp on macOS is not the experiment's truth source.
 - Manpage source = Debian trixie pre-rendered groff. Pinned package versions in `freeze_manpage.sh` per util.
 - Logging = plain JSONL + git-versioned prompts + per-run dirs. NO MLflow / W&B / Langfuse / LangSmith.
 
