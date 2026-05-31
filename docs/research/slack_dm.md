@@ -58,4 +58,4 @@ Per-test stderr in dashboard *Failure browser* (`GNU fail, Rust pass` = drift; `
 - Update the `taxonomy.md` github permalink SHA to the current `main` commit hash before sending. Get it via `git rev-parse main`.
 - Keep this Slack DM ≤ 300 words excluding the table. Anything longer belongs in `taxonomy.md` or `decisions.md`.
 - Lead with the one most-surprising finding of the week. Don't bury it under methodology.
-- Numbers in the table should match the dashboard's *Test diversity* page at the moment of sending. Regenerate via `uv run python scripts/positivity.py` first.
+- Numbers in the table should match the dashboard's *Test diversity* page at the moment of sending. Regenerate via `uv run python scripts/eval/positivity.py` first.

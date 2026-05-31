@@ -30,13 +30,16 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 
 # Pipeline shape
 
-- `scripts/freeze_manpage.sh <util>` -> Debian trixie groff fetch -> `mandoc -Tutf8 | col -bx` -> `utils/<util>/manpage.txt` + `manpage.<section>` (raw groff) + `_source.json` (provenance: URL, pkg version, sha256). Supports `cp | mv | find | sudo`.
-- `scripts/driver.py --util <u> --prompt {impl,tests} --round N [--session <sid>]` -> renders prompt template against frozen manpage -> OpenAI Responses API with strict JSON schema -> writes `runs/<u>/<sid>/round_NN/{impl/, tests/, _logs/}`. Round 1 mints fresh session. Round >=2 reuses latest session unless `--session` given. Round >=2 appends "Previous attempt feedback" block (top-N failing tests + Rust build errors + optional `_observations.md`).
-- `scripts/run_tests.py --util <u> --session <sid> --round N --target {real,real-gnu,rust} [--in-docker]` -> runs `tests/*.sh` with `$UTIL` env var -> writes `results_<target>.jsonl`. `real-gnu` always batches inside trixie container (canonical oracle).
-- `scripts/eval_round.sh <u> <sid> <round>` -> end-to-end eval orchestrator: real-gnu pass + rust pass + flag coverage + line coverage + summary line.
-- `scripts/coverage_flags.py` -> flag-coverage metric (manpage-documented flags vs flags exercised by tests).
-- `scripts/coverage_rust.sh` -> branch/line coverage on Rust impl via `cargo tarpaulin`.
-- `scripts/sync_openai_docs.sh` -> regenerate `docs/openai/` mirror from installed SDK.
+- `scripts/freeze/freeze_manpage.sh <util>` -> Debian trixie groff fetch -> `mandoc -Tutf8 | col -bx` -> `utils/<util>/manpage.txt` + `manpage.<section>` (raw groff) + `_source.json` (provenance: URL, pkg version, sha256). Supports `cp | mv | find | sudo`.
+- `scripts/pipeline/driver.py --util <u> --prompt {impl,tests} --round N [--session <sid>]` -> renders prompt template against frozen manpage -> OpenAI Responses API with strict JSON schema -> writes `runs/<u>/<sid>/round_NN/{impl/, tests/, _logs/}`. Round 1 mints fresh session. Round >=2 reuses latest session unless `--session` given. Round >=2 appends "Previous attempt feedback" block (top-N failing tests + Rust build errors + optional `_observations.md`).
+- `scripts/pipeline/run_tests.py --util <u> --session <sid> --round N --target {real-gnu,rust} [--in-docker]` -> runs `tests/*.sh` with `$UTIL` env var -> writes `results_<target>.jsonl`. `real-gnu` always batches inside trixie container (canonical oracle).
+- `scripts/eval/eval_round.sh <u> <sid> <round>` -> end-to-end eval orchestrator: real-gnu pass + rust pass + flag coverage + line coverage + summary line.
+- `scripts/eval/coverage_flags.py` -> flag-coverage metric (manpage-documented flags vs flags exercised by tests).
+- `scripts/eval/coverage_rust.sh` -> branch/line coverage on Rust impl via `cargo tarpaulin`.
+- `scripts/eval/positivity.py` -> positive vs negative test breakdown per round.
+- `scripts/dev/sync_openai_docs.sh` -> regenerate `docs/openai/` mirror from installed SDK.
+- `scripts/dev/init_observations.sh <util> <session> <round>` -> emit `_observations.md` skeleton with pre-filled numbers.
+- `scripts/dev/format_readme.sh` -> hard-wrap `README.md` prose at 100 cols.
 
 # Routing — when read what
 
@@ -56,17 +59,17 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - Tests carry per-test `expected_to_fail: bool` field for documented error cases. Test body still exits 0 iff utility errored exactly as documented. Capture exit via `set +e; "$UTIL" ...; status=$?; set -e`.
 - Test filenames: `NNN_short_description.sh`, 3-digit zero-padded sequence.
 - macOS BSD `cp` != GNU `cp`. `--target real-gnu` (Docker trixie) is the only behavioral oracle. `--target real` was removed 2026-05-07 (see `docs/research/decisions.md` § 4.4) — host BSD cp on macOS is not the experiment's truth source.
-- Manpage source = Debian trixie pre-rendered groff. Pinned package versions in `freeze_manpage.sh` per util.
+- Manpage source = Debian trixie pre-rendered groff. Pinned package versions in `scripts/freeze/freeze_manpage.sh` per util.
 - Logging = plain JSONL + git-versioned prompts + per-run dirs. NO MLflow / W&B / Langfuse / LangSmith.
 
 # Don't
 
-- Don't WebFetch OpenAI docs. Mirror in `docs/openai/`. Refresh via `scripts/sync_openai_docs.sh`.
+- Don't WebFetch OpenAI docs. Mirror in `docs/openai/`. Refresh via `scripts/dev/sync_openai_docs.sh`.
 - Don't add `temperature=0` or `seed=42` to driver. Reasoning model rejects both. SDK 2.35.1 `Responses.create` signature doesn't accept `seed` — TypeError before HTTP call.
 - Don't iterate in round 1. Round 1 = baseline (no feedback section). Round 2+ = iteration with structured feedback from round N-1.
 - Don't run docker as `root` for sudo tests. `sudo` needs non-root user to be meaningful.
 - Don't paraphrase Caruca / Tambon / Astrogator / SLMFix from memory. Read PDFs in `literature/` (or repo root for Astrogator/SLMFix/Prelim).
-- Don't run `man <util>` on macOS dev box and freeze BSD output. Wrong project target. Use `freeze_manpage.sh`.
+- Don't run `man <util>` on macOS dev box and freeze BSD output. Wrong project target. Use `scripts/freeze/freeze_manpage.sh`.
 - Don't add `jsonschema` package. Server-side strict JSON schema covers structural correctness; driver does shape-level required-key check.
 - Don't add `anthropic` / `langchain` / `litellm`. Single-provider single-model experiment.
 

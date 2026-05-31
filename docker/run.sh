@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run an arbitrary command inside the formal-verification:trixie image with
 # the repo mounted at /work. Used by run_tests.py --in-docker, by
-# scripts/coverage_rust.sh, and by anything else that needs Linux/GNU.
+# scripts/eval/coverage_rust.sh, and by anything else that needs Linux/GNU.
 #
 # Usage:
 #   docker/run.sh <cmd> [args...]

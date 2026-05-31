@@ -22,9 +22,9 @@ Outputs:
     stdout: markdown summary table over all rounds discovered
 
 Usage:
-    python scripts/positivity.py                 # walk all runs/<util>/...
-    python scripts/positivity.py --util cp       # restrict to one util
-    python scripts/positivity.py --util cp --session 2026-05-07T11-10-34Z --round 2
+    python scripts/eval/positivity.py                 # walk all runs/<util>/...
+    python scripts/eval/positivity.py --util cp       # restrict to one util
+    python scripts/eval/positivity.py --util cp --session 2026-05-07T11-10-34Z --round 2
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parent.parent
+REPO = Path(__file__).resolve().parents[2]
 RUNS = REPO / "runs"
 
 ORACLES = ("real-gnu", "rust")

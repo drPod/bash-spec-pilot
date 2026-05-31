@@ -20,7 +20,7 @@ matched and unmatched flag lists for inspection. Returns a percentage on
 stdout for shell-level pipelines.
 
 Usage:
-    python scripts/coverage_flags.py --util cp --session <sid> --round 1
+    python scripts/eval/coverage_flags.py --util cp --session <sid> --round 1
 """
 from __future__ import annotations
 
@@ -66,7 +66,7 @@ def exercised_flags(test_bodies: list[str]) -> set[str]:
 
 def main() -> None:
     args = parse_args()
-    repo = Path(__file__).resolve().parent.parent
+    repo = Path(__file__).resolve().parents[2]
     round_dir = repo / "runs" / args.util / args.session / f"round_{args.round:02d}"
     manpage = (repo / "utils" / args.util / "manpage.txt").read_text()
     tests_dir = round_dir / "tests"

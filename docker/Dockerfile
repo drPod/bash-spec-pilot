@@ -5,7 +5,7 @@
 #   tests against BSD `/bin/cp` on a macOS dev box silently uses the wrong
 #   oracle and corrupts every per-test result. This image is the deterministic
 #   GNU oracle: coreutils, findutils, sudo at the exact Debian-trixie package
-#   versions pinned in scripts/freeze_manpage.sh, plus a Rust toolchain so
+#   versions pinned in scripts/freeze/freeze_manpage.sh, plus a Rust toolchain so
 #   `cargo build` and `cargo tarpaulin` run against the same userland the
 #   tests run against.
 #
@@ -16,7 +16,7 @@
 #     trixie-slim as of 2026-05-07). debian:trixie-slim alone floats; we want
 #     reproducibility on re-runs months from now.
 #   - coreutils/findutils/sudo apt-pinned to the trixie versions referenced
-#     by scripts/freeze_manpage.sh (9.7-3, 4.10.0-3, 1.9.16p2-3+deb13u1).
+#     by scripts/freeze/freeze_manpage.sh (9.7-3, 4.10.0-3, 1.9.16p2-3+deb13u1).
 #     Apt will install whatever trixie currently ships; if Debian rotates,
 #     `apt-get install` will pick the newer version and the build will note
 #     a mismatch in the version-check step below. That's a visible Debian
@@ -47,7 +47,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # (cargo crates with C deps - filetime, libc, etc.).
 # Two tiers of pinning:
 #   Tier A (the GNU oracle): coreutils, findutils, sudo are version-pinned to
-#     the Debian-trixie versions referenced by scripts/freeze_manpage.sh.
+#     the Debian-trixie versions referenced by scripts/freeze/freeze_manpage.sh.
 #     These are the source of truth for differential testing — drift here
 #     would mean the man page and the oracle no longer match.
 #   Tier B (image hygiene): bash, mandoc, curl, ca-certificates, build-essential,

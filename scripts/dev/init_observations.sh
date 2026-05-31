@@ -5,7 +5,7 @@
 # for the analyst to fill in.
 #
 # Usage:
-#   scripts/init_observations.sh <util> <session> <round>
+#   scripts/dev/init_observations.sh <util> <session> <round>
 #
 # Idempotent: re-running will overwrite the file. If the analyst has
 # already added qualitative content, do NOT re-run blindly. Use the
@@ -23,7 +23,7 @@ ROUND="$3"
 FORCE="${4:-}"
 RR=$(printf '%02d' "$ROUND")
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 ROUND_DIR="${REPO}/runs/${UTIL}/${SESSION}/round_${RR}"
 OUT="${ROUND_DIR}/_observations.md"
 

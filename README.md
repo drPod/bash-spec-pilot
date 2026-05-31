@@ -67,14 +67,20 @@ formal-verification/
 │   │   └── tests.md                   ← test-generation prompt template
 │   └── adversarial/                   ← reserved for wave-4 adversarial test variant
 ├── scripts/
-│   ├── driver.py                      ← render prompt → call OpenAI → save artifacts (handles iteration)
-│   ├── run_tests.py                   ← run a round's tests against real or Rust impl
-│   ├── freeze_manpage.sh              ← fetch + render man page from manpages.debian.org
-│   ├── sync_openai_docs.sh            ← refresh docs/openai/ mirror
-│   ├── coverage_flags.py              ← flag-coverage metric (manpage flags vs. exercised flags)
-│   ├── coverage_rust.sh               ← cargo tarpaulin line/branch coverage in Docker
-│   ├── eval_round.sh                  ← roll-up: test pass rates + flag cov + line cov, one-line summary
-│   └── init_observations.sh           ← scaffold a round's _observations.md
+│   ├── pipeline/
+│   │   ├── driver.py                  ← render prompt → call OpenAI → save artifacts (handles iteration)
+│   │   └── run_tests.py               ← run a round's tests against the GNU oracle or Rust impl
+│   ├── freeze/
+│   │   └── freeze_manpage.sh          ← fetch + render man page from manpages.debian.org
+│   ├── eval/
+│   │   ├── eval_round.sh              ← roll-up: test pass rates + flag cov + line cov, one-line summary
+│   │   ├── coverage_flags.py          ← flag-coverage metric (manpage flags vs. exercised flags)
+│   │   ├── coverage_rust.sh           ← cargo tarpaulin line/branch coverage in Docker
+│   │   └── positivity.py              ← per-round positive vs negative test breakdown
+│   └── dev/
+│       ├── sync_openai_docs.sh        ← refresh docs/openai/ mirror
+│       ├── init_observations.sh       ← scaffold a round's _observations.md
+│       └── format_readme.sh           ← rewrap README.md prose at 100 cols (mdformat)
 ├── docker/
 │   ├── Dockerfile                     ← debian:trixie + coreutils + findutils + sudo + Rust
 │   ├── build.sh
@@ -105,5 +111,5 @@ dashboard, reading the latest data in `runs/`:
 
 No data flows out of the repo — the dashboard reads `runs/<util>/<session>/round_NN/` and
 `utils/<util>/_source.json` directly. To regenerate the underlying numbers, run
-`scripts/eval_round.sh <util> <session> <round>` for the round you care about, then refresh the
+`scripts/eval/eval_round.sh <util> <session> <round>` for the round you care about, then refresh the
 page.

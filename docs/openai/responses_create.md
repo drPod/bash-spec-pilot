@@ -4,7 +4,7 @@ Source of truth: installed `openai==2.35.1` at
 `.venv/lib/python3.12/site-packages/openai/resources/responses/responses.py`,
 the `@overload` block starting at line 131. Verbatim parameter signatures
 and docstrings are taken from that file. Do not edit this document; refresh
-via `scripts/sync_openai_docs.sh`.
+via `scripts/dev/sync_openai_docs.sh`.
 
 The exact `inspect.signature(Responses.create)` output is at
 `docs/openai/_responses_create_signature.txt`.

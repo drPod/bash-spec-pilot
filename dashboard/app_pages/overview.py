@@ -15,7 +15,7 @@ rounds = discover_rounds()
 rounds = rounds[rounds["tests_generated"] > 0].copy()
 
 if rounds.empty:
-    st.warning("No round data yet. Run `scripts/eval_round.sh <util> <session> <round>`.")
+    st.warning("No round data yet. Run `scripts/eval/eval_round.sh <util> <session> <round>`.")
     st.stop()
 
 st.markdown(

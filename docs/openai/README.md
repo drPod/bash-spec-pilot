@@ -4,7 +4,7 @@ Pinned, ground-truth reference for `openai-python==2.35.1` (the version
 this project depends on). All content here is derived from reading the
 installed SDK source at
 `.venv/lib/python3.12/site-packages/openai/`. **Not paraphrased from
-memory or web docs.** Refresh with `scripts/sync_openai_docs.sh`.
+memory or web docs.** Refresh with `scripts/dev/sync_openai_docs.sh`.
 
 Last verified: 2026-05-07.
 
@@ -21,7 +21,7 @@ Last verified: 2026-05-07.
 
 ## Project usage map
 
-This project's only OpenAI surface is `scripts/driver.py`. Every parameter
+This project's only OpenAI surface is `scripts/pipeline/driver.py`. Every parameter
 that file passes to `client.responses.create(...)` should appear in
 `responses_create.md`. Every error path it could hit lives in `errors.md`.
 

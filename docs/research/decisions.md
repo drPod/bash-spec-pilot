@@ -21,7 +21,7 @@ Originally written by three different subagents over 2026-05-06 / 2026-05-07. Re
 ## 1. Source choice — canonical man pages
 <a id="1-source-choice--canonical-man-pages"></a>
 
-The previous version of `scripts/freeze_manpage.sh` ran `man <util>` on the undergrad's macOS dev box and froze the BSD output. That is wrong: this project targets Linux/GNU userland (the project extends Astrogator to Bash; the verifier consumes Linux semantics). BSD `cp(1)` and GNU `cp(1)` document different option sets — using BSD man pages on macOS would silently train the LLM against the wrong source.
+The previous version of `scripts/freeze/freeze_manpage.sh` ran `man <util>` on the undergrad's macOS dev box and froze the BSD output. That is wrong: this project targets Linux/GNU userland (the project extends Astrogator to Bash; the verifier consumes Linux semantics). BSD `cp(1)` and GNU `cp(1)` document different option sets — using BSD man pages on macOS would silently train the LLM against the wrong source.
 
 **Choice: pre-rendered groff from `manpages.debian.org`, pinned to Debian 13 ("trixie"), the current Debian stable as of 2025-08-09.** Each utility records `_source.json` with the URL, Debian package version, fetch timestamp, and sha256 of both the raw groff and the rendered text.
 
@@ -127,7 +127,7 @@ All five are written to `_logs/log.jsonl` per round.
 - SDK version: **2.35.1** (from `uv run python -c "import openai; print(openai.__version__)"`).
 - GitHub tag: `v2.35.1`, commit `5e8f09c2c8f65d2e93722270963f4a19a760736f`.
 - Source of truth: installed package files at `.venv/lib/python3.12/site-packages/openai/`. Every claim in `docs/openai/*.md` cites the specific `.py` it was read from.
-- Refresh script: `scripts/sync_openai_docs.sh` (idempotent; rewrites `_pin.txt` and `_responses_create_signature.txt`).
+- Refresh script: `scripts/dev/sync_openai_docs.sh` (idempotent; rewrites `_pin.txt` and `_responses_create_signature.txt`).
 
 ### 3.5 Top surprises in the actual SDK signature vs. what the driver assumed
 
@@ -158,7 +158,7 @@ The `text.format` shape, `reasoning.effort` shape, `max_output_tokens` name, and
 
 The original layout was `runs/<util>/round_<NN>/` — flat. A re-run would clobber the previous round, and there was no way to express "two distinct iteration trajectories on the same util."
 
-**New layout:** `runs/<util>/<session_id>/round_<NN>/`, where `session_id` is an ISO 8601 UTC timestamp with colons replaced for filesystem safety (`YYYY-MM-DDTHH-MM-SSZ`). One session = one trajectory. `scripts/driver.py` and `scripts/run_tests.py` both take `--session`. Round 1 with no `--session` mints a fresh timestamp; round ≥ 2 with no `--session` re-uses the latest session for the util.
+**New layout:** `runs/<util>/<session_id>/round_<NN>/`, where `session_id` is an ISO 8601 UTC timestamp with colons replaced for filesystem safety (`YYYY-MM-DDTHH-MM-SSZ`). One session = one trajectory. `scripts/pipeline/driver.py` and `scripts/pipeline/run_tests.py` both take `--session`. Round 1 with no `--session` mints a fresh timestamp; round ≥ 2 with no `--session` re-uses the latest session for the util.
 
 The pre-rework `runs/cp/round_01/` was moved verbatim to `runs/cp/legacy_pre_session/round_00/` to preserve the historical run without losing it under the new scheme. See `runs/cp/legacy_pre_session/_README.md` for the postmortem on that run.
 
@@ -176,7 +176,7 @@ The legacy round-1 `cp` test results were contaminated because the oracle was BS
 
 **Fix:** `docker/Dockerfile` builds `formal-verification:trixie` from `debian:trixie-20260421-slim` with `coreutils=9.7-3`, `findutils=4.10.0-3`, `sudo=1.9.16p2-3+deb13u1` (matching the freeze-script pins), plus `cargo` + `cargo-tarpaulin`. Built image is **378 MiB**. `docker/build.sh` is idempotent; `docker/run.sh` bind-mounts the repo at `/work` and runs `--rm`.
 
-`scripts/run_tests.py --target real-gnu` routes through `docker/run.sh`, so every per-test result against "real GNU" is deterministic regardless of the dev box's OS. All tests are batched into one `docker run` invocation rather than one container per test, because Docker Desktop on macOS adds ~1–2s of startup per container; at 30 tests that was 30–60s of pure overhead. Batched form completes in ~3s.
+`scripts/pipeline/run_tests.py --target real-gnu` routes through `docker/run.sh`, so every per-test result against "real GNU" is deterministic regardless of the dev box's OS. All tests are batched into one `docker run` invocation rather than one container per test, because Docker Desktop on macOS adds ~1–2s of startup per container; at 30 tests that was 30–60s of pure overhead. Batched form completes in ~3s.
 
 #### Tier-A vs Tier-B package pinning (deviation from "pin everything")
 
@@ -199,9 +199,9 @@ Verified end-to-end on two existing legacy tests (`004_no_target_directory_error
 
 ### 4.6 Coverage measurement
 
-- `scripts/coverage_flags.py` parses `^\s+-[A-Za-z]\b` and `^\s+--[A-Za-z][a-z0-9-]+` from the manpage for the documented set, and the same patterns out of test bodies for the exercised set. Writes `coverage_flags.json` with matched, unmatched, and `extra_used_not_documented` lists for inspection.
-- `scripts/coverage_rust.sh` runs `cargo tarpaulin --out Json` inside the trixie container against an auto-generated integration test (`tests/_run_bash_suite.rs`) that loops the bash suite through the instrumented binary. On compile failure, writes `{"compile_failed": true}` and exits 0 (eval_round treats as skipped).
-- `scripts/eval_round.sh <util> <session> <round>` runs all four metrics in sequence and emits the one-line summary the brief asked for: `<util> session=<id> round=<N> test_real=<P/T> test_rust=<P/T> flag_cov=<F%> line_cov=<L%>`.
+- `scripts/eval/coverage_flags.py` parses `^\s+-[A-Za-z]\b` and `^\s+--[A-Za-z][a-z0-9-]+` from the manpage for the documented set, and the same patterns out of test bodies for the exercised set. Writes `coverage_flags.json` with matched, unmatched, and `extra_used_not_documented` lists for inspection.
+- `scripts/eval/coverage_rust.sh` runs `cargo tarpaulin --out Json` inside the trixie container against an auto-generated integration test (`tests/_run_bash_suite.rs`) that loops the bash suite through the instrumented binary. On compile failure, writes `{"compile_failed": true}` and exits 0 (eval_round treats as skipped).
+- `scripts/eval/eval_round.sh <util> <session> <round>` runs all four metrics in sequence and emits the one-line summary the brief asked for: `<util> session=<id> round=<N> test_real=<P/T> test_rust=<P/T> flag_cov=<F%> line_cov=<L%>`.
 
 #### Tarpaulin integration harness (deviation note)
 
@@ -209,7 +209,7 @@ Tarpaulin instruments Rust unit / integration tests, not external binaries invok
 
 ### 4.7 Observations + per-util summary scaffolding
 
-- `scripts/init_observations.sh` writes the `_observations.md` skeleton per round with metrics pre-filled (parsed from JSONL and JSON files), Tambon-2025 categorization scaffold, and an empty "Open questions for next round" section.
+- `scripts/dev/init_observations.sh` writes the `_observations.md` skeleton per round with metrics pre-filled (parsed from JSONL and JSON files), Tambon-2025 categorization scaffold, and an empty "Open questions for next round" section.
 - Per-util `runs/<util>/SUMMARY.md` is the cross-session roll-up. Initial entry populated for `legacy_pre_session`.
 
 ### 4.8 Should `runs/cp/legacy_pre_session/round_00/` be replayed in the new structure?
@@ -240,7 +240,7 @@ No `runs/`, `scripts/`, `prompts/`, or `docs/` files were touched in that pass.
 ## 6. Other notes from earlier audits
 <a id="6-other-notes-from-earlier-audits"></a>
 
-- **`scripts/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/baseline/tests.md` produces. It accepts `--target real-gnu` (Docker, the canonical oracle) and `--target rust` (with optional `--in-docker`). *(Supersedes the earlier audit's "scripts/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild. Also supersedes the original `--target real` host-BSD path; see § 4.4.)*
+- **`scripts/pipeline/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/baseline/tests.md` produces. It accepts `--target real-gnu` (Docker, the canonical oracle) and `--target rust` (with optional `--in-docker`). *(Supersedes the earlier audit's "scripts/pipeline/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild. Also supersedes the original `--target real` host-BSD path; see § 4.4.)*
 - **`pyproject.toml`** declares only `openai` and `python-dotenv` as runtime deps; the new driver still fits within those. No `jsonschema` package added — the schema check we do is shape-level (required keys), and OpenAI's server-side enforcement covers structural correctness.
 - **`README.md` repository layout** originally listed only `manpage.txt`. The 2026-05-07 README rewrite expanded it to cover `manpage.1` (raw groff), `_source.json` (provenance), the `runs/<util>/<session>/round_NN/` layout, `legacy_pre_session/`, `docker/`, and `docs/openai/`. *Supersedes the "did not edit on this pass; flagging" note from the first audit.*
 - **`.env.example`** was updated 2026-05-07 to drop `OPENAI_TEMPERATURE` and `OPENAI_SEED`, document the `seed` / `temperature` / `top_p` / `system_fingerprint` situation in comments, and add `OPENAI_REASONING_EFFORT`. *Supersedes the "deliberately left for the team to acknowledge rather than silently flipping a documentation file" note from the first audit — the team has now acknowledged.*
@@ -293,7 +293,7 @@ Two structural gaps surfaced during wave 2 (round 1 of `mv` / `find` / `sudo`, r
 
 ### 9.1 `coverage_flags.py` is `find`-blind
 
-`scripts/coverage_flags.py` parses the manpage for `^\s+-[A-Za-z]\b` and `^\s+--[A-Za-z][a-z0-9-]+` — short flags and long flags. It applies the same regex to test bodies for the exercised set. This works for `cp`, `mv`, and `sudo`, whose surfaces are dominated by `-X` / `--xxx` forms. **It does not work for `find`.** Find's actual semantic surface lives in *primaries*: `-name`, `-type`, `-exec`, `-print`, `-files0-from`, `-newer`, `-perm`, `-size`, etc. — tokens that match the `^\s+-[A-Za-z]` pattern syntactically but are not flags in the GNU getopt sense, and most are followed by an argument. The reported `find` flag coverage of **60%** is therefore misleading-low: the 30 generated tests do exercise a wide subset of primaries, but the metric doesn't see them. The `extra_used_not_documented` set further pollutes the read by picking up incidental tokens like `-c`, `-e`, `-p`, `-s`, `-v` from `cp -p`/`mkdir -p` calls in test setup.
+`scripts/eval/coverage_flags.py` parses the manpage for `^\s+-[A-Za-z]\b` and `^\s+--[A-Za-z][a-z0-9-]+` — short flags and long flags. It applies the same regex to test bodies for the exercised set. This works for `cp`, `mv`, and `sudo`, whose surfaces are dominated by `-X` / `--xxx` forms. **It does not work for `find`.** Find's actual semantic surface lives in *primaries*: `-name`, `-type`, `-exec`, `-print`, `-files0-from`, `-newer`, `-perm`, `-size`, etc. — tokens that match the `^\s+-[A-Za-z]` pattern syntactically but are not flags in the GNU getopt sense, and most are followed by an argument. The reported `find` flag coverage of **60%** is therefore misleading-low: the 30 generated tests do exercise a wide subset of primaries, but the metric doesn't see them. The `extra_used_not_documented` set further pollutes the read by picking up incidental tokens like `-c`, `-e`, `-p`, `-s`, `-v` from `cp -p`/`mkdir -p` calls in test setup.
 
 **Decision: document the gap, do not fix the script before the advisor meeting.** Two reasons. First, fixing requires per-utility config (which tokens are flags vs. primaries vs. operators), which is real work that belongs in a separate change. Second, the `find` row is more honestly read as "here is the kind of metric debt that emerges when one script tries to cover four utilities with different surface conventions" — that's a methodology observation worth carrying into the conversation rather than papering over. The `for_aaron.md` results table flags `find` coverage with an asterisk; the `_observations.md` calls it out explicitly.
 
