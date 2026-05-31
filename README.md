@@ -28,7 +28,14 @@ trixie container. The output of interest is not a pass rate but a catalogue of f
 formal-verification/
 ├── README.md                          ← this file
 ├── docs/
-│   ├── openai/                        ← pinned OpenAI SDK doc mirror
+│   ├── openai/                        ← mirrored openai-python SDK reference (pinned 2.35.1)
+│   │   ├── README.md                  ← router: when-to-consult-what
+│   │   ├── responses_create.md        ← verified parameter list
+│   │   ├── reasoning.md               ← effort + token accounting
+│   │   ├── structured_outputs.md
+│   │   ├── errors.md
+│   │   ├── _pin.txt
+│   │   └── _responses_create_signature.txt
 │   └── research/
 │       ├── taxonomy.md                ← running failure catalogue
 │       ├── decisions.md               ← decision log (TOC at top)
@@ -85,15 +92,6 @@ formal-verification/
 │   ├── Dockerfile                     ← debian:trixie + coreutils + findutils + sudo + Rust
 │   ├── build.sh
 │   └── run.sh                         ← exec a command in the GNU oracle container
-├── docs/
-│   └── openai/                        ← mirrored openai-python SDK reference (pinned 2.35.1)
-│       ├── README.md                  ← router: when-to-consult-what
-│       ├── responses_create.md        ← verified parameter list
-│       ├── reasoning.md               ← effort + token accounting
-│       ├── structured_outputs.md
-│       ├── errors.md
-│       ├── _pin.txt
-│       └── _responses_create_signature.txt
 └── literature/                        ← downloaded prior work + synthesis
     ├── README.md                      ← indexed catalogue per paper
     ├── _synthesis.md
