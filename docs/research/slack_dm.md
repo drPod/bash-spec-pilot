@@ -23,7 +23,7 @@ Wave 3 done. Ran round 2 of `mv`/`find`/`sudo` vs GNU trixie. Deployed dashboard
 **Read order (~10 min):**
 
 1. Dashboard: https://bash-spec-pilot.streamlit.app/ — auto-rebuilds from `main`. Pages: *Overview → Test diversity → Failure browser → Trajectory*.
-2. `taxonomy.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/7b83674/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14
+2. `taxonomy.md` § 5: https://github.com/drPod/bash-spec-pilot/blob/main/docs/research/taxonomy.md#5-iteration-loop-failure-classes-2026-05-14
 
 **Headline: iteration loop ≠ "fix" step.** Four utils, four r1→r2 outcomes:
 

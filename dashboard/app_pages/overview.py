@@ -139,6 +139,6 @@ with c2:
 
 st.divider()
 st.markdown(
-    "**Where to read more:** [`taxonomy.md`](https://github.com/drPod/bash-spec-pilot/blob/main/taxonomy.md) — failure classes. "
-    "[`decisions.md`](https://github.com/drPod/bash-spec-pilot/blob/main/decisions.md) — provenance + design choices."
+    "**Where to read more:** [`taxonomy.md`](https://github.com/drPod/bash-spec-pilot/blob/main/docs/research/taxonomy.md) — failure classes. "
+    "[`decisions.md`](https://github.com/drPod/bash-spec-pilot/blob/main/docs/research/decisions.md) — provenance + design choices."
 )

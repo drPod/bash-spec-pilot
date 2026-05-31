@@ -93,7 +93,7 @@ hits and `id` chaining instead of fingerprints for reproducibility.
 ## What the GPT-5.5 endpoint accepts
 
 Confirmed at the SDK signature level (we are not calling the API in this
-audit — see `decisions.md` constraint). The SDK lets every parameter
+audit — see `docs/research/decisions.md` constraint). The SDK lets every parameter
 through; runtime validity per-model is enforced server-side. Known
 GPT-5.5-specific rejections from the OpenAI dev community:
 
