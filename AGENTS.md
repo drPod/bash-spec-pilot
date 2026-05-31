@@ -35,9 +35,9 @@ Research experiment investigating whether large language models can extract beha
 
 ## External resources
 
-- **Astrogator paper** (Councilman et al. 2025, the system this project extends) — `2507.13290v2.pdf` at the repo root.
-- **SLMFix paper** (Fu, Gupta et al. 2025, RL fine-tuning to fix syntax/type errors in LLM-generated code for low-resource DSLs) — `2511.19422v1.pdf` at the repo root.
-- **Aaron's preliminary proposal** (Chapters 4 and 5 are the directly relevant ones — the planned Bash extension and the bootstrapping problem this experiment helps address) — `Prelim_Proposal-2.pdf` at the repo root.
+- **Astrogator paper** (Councilman et al. 2025, the system this project extends) — `literature/councilman_2025_astrogator.pdf`.
+- **SLMFix paper** (Fu, Gupta et al., EMNLP 2026 submission anonymized; RL fine-tuning to fix syntax/type errors in LLM-generated code for low-resource DSLs) — `literature/slmfix_2026_emnlp.pdf`.
+- **Aaron's preliminary proposal** (Chapters 4 and 5 are the directly relevant ones — the planned Bash extension and the bootstrapping problem this experiment helps address) — `literature/councilman_2025_prelim_proposal.pdf`.
 - **Caruca paper** (Lamprou et al. 2025, the closest prior work — spec extraction from man pages) — `literature/caruca_2025_spec_mining.pdf`.
 - **`state_based` reference implementation** (Astrogator's Module Description Language for Ansible modules; the Bash spec language Aaron will design will be analogous) — `https://github.com/counc009/state_based`.
 

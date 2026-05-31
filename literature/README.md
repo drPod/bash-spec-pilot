@@ -1,9 +1,6 @@
 # Literature Index
 
-Curated literature for the **man-page → LLM → Rust impl + Bash test suite** experiment (`cp`, `mv`, `find`, `sudo`).
-
-One paper in the broader project scope (NOT included here, indexed separately):
-- Astrogator (Councilman et al., arXiv 2507.13290) — formal verification of LLM-generated Ansible.
+Curated literature for the **man-page → LLM → Rust impl + Bash test suite** experiment (`cp`, `mv`, `find`, `sudo`). §1–§6 are external prior art; §7 holds project-scope foundational documents (Astrogator and Aaron's prelim proposal), previously kept at the repo root, consolidated here 2026-05-30.
 
 All papers below are indexed in delphi (arXiv ID or local PDF); query with `mcp__synsci-delphi__search_papers`.
 
@@ -92,7 +89,7 @@ Lamprou, E., Jung, S.-H., Keoliya, M., Lazarek, L., Kallas, K., Greenberg, M., &
 ## 6. Lab-internal sibling work
 
 ### `slmfix_2026_emnlp.pdf`
-Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 2026 submission, anonymized for review; supersedes arXiv 2511.19422v1).
+Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 2026 submission, anonymized for review; the earlier arXiv 2511.19422v1 was previously mirrored at the repo root and removed 2026-05-30 in favor of this superseding version).
 
 **Same lab (UIUC + IBM), shared author with the student's supervisor (Aaron Councilman on both bylines).** SLMFix fine-tunes a 500M-parameter small language model via reinforcement learning (GRPO) to repair statically-detected errors (syntax, types) in LLM-generated DSL code. Two-stage reward: static validator pass + AST similarity to ground truth. Evaluated on Ansible, Bash, SQL, and Lean. Reports 40% pass-rate gain on low-resource DSLs (Ansible, Lean), 50%+ static-error elimination on high-resource DSLs (Bash, SQL). Outperforms supervised fine-tuning even on 7B-parameter base models for LRPLs.
 
@@ -102,11 +99,29 @@ Fu, J., Gupta, A., Councilman, A., Grove, D., Wang, Y.-X., & Adve, V. (EMNLP 202
 
 ---
 
+## 7. Project-scope foundational
+
+These two are the parent context for the whole subproject, not external prior art. Moved into this folder 2026-05-30 from the repo root for hygiene.
+
+### `councilman_2025_astrogator.pdf`
+
+Councilman, A., et al. (2025). *Towards Formal Verification of LLM-Generated Code from Natural Language Prompts.* [arXiv 2507.13290]
+
+The system this experiment extends. Verifier checks LLM-generated Ansible against a formal query the user confirms; accepts 82.9% of correct programs, rejects 92.4% of incorrect ones (Sec. 6.3). The taxonomy.md verifier-result decomposition (Sec. 2) mirrors Sec. 6.3 + 7 of this paper, swapping the verifier for differential testing. Section 7.2 explicitly names Bash as a future target — this experiment is upstream of that extension.
+
+### `councilman_2025_prelim_proposal.pdf`
+
+Councilman, A. (2025, preliminary). *Formal verification of LLM-generated programs — preliminary proposal.* UIUC PhD prelim.
+
+Chapters 4 and 5 are the directly relevant ones for this experiment: Chapter 4 sketches the planned Bash extension to Astrogator (the verifier infrastructure that consumes the specs this experiment is about producing), and Chapter 5 names the **bootstrapping problem** — verifier needs formal utility specs, hand-writing each takes person-weeks, LLM-generated specs may themselves be wrong. The "use unreliable LLMs to produce reliable specs" framing in the project README comes directly from this chapter.
+
+---
+
 ## How to read this folder
 
-PDFs are local. For semantic queries across all 11 papers + the two project-scope papers, use delphi:
+PDFs are local. For semantic queries across all 13 papers (11 external + 2 project-scope), use delphi:
 
-```
+```text
 mcp__synsci-delphi__search_papers query="..."
 mcp__synsci-delphi__research mode="deep" query="..."
 ```
