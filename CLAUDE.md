@@ -14,8 +14,8 @@
     - state_based reference impl: https://github.com/counc009/state_based
     - Aaron's prelim proposal: literature/councilman_2025_prelim_proposal.pdf.
     - SDK pin source-of-truth: docs/openai/_pin.txt (currently openai==2.35.1).
-    - taxonomy.md and for_aaron.md may be authored by parallel subagents;
-      reference even if missing at write-time.
+    - taxonomy.md may be authored by parallel subagent; reference even if
+      missing at write-time.
     - decisions.md TOC sections (read directly for full text):
         1. Canonical man-page source per utility (Debian trixie groff).
         2. Prompt engineering choices (Schulhoff techniques applied/rejected).
@@ -44,8 +44,7 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - Decision history / why-we-chose-X -> `decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror.
 - Prior work / prior art / what's been tried -> `literature/_synthesis.md`. Read order: Caruca -> Endres -> Tambon -> Westenfelder.
 - Failure-mode catalog (Tambon-derived schema) -> `taxonomy.md`.
-- Aaron-meeting deliverable / current planned next steps -> `for_aaron.md`.
-- Setup / onboarding / stack rationale -> `SETUP.md` (note: parts superseded by `decisions.md` Section 3 — temperature/seed claims wrong).
+- Setup / onboarding / stack rationale -> `SETUP.md`.
 - Repo overview / why-project-exists / data-collection priorities -> `README.md`.
 
 # Conventions
@@ -70,7 +69,6 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - Don't run `man <util>` on macOS dev box and freeze BSD output. Wrong project target. Use `freeze_manpage.sh`.
 - Don't add `jsonschema` package. Server-side strict JSON schema covers structural correctness; driver does shape-level required-key check.
 - Don't add `anthropic` / `langchain` / `litellm`. Single-provider single-model experiment.
-- Don't trust `SETUP.md` Sections 5-6 verbatim — `temperature=0`, `seed=42`, `system_fingerprint` claims superseded by `decisions.md` Sections 3 + 5.
 
 # Cost / budget
 
@@ -78,4 +76,4 @@ Order-of-magnitude only. cp round-1 ~$0.36 for ~27K total tokens. Multi-util mul
 
 # Status / next
 
-See `for_aaron.md` for current planned next steps + Aaron-meeting deliverable. `runs/cp/legacy_pre_session/round_00/` exists as the pre-experiment baseline (round 0 — BSD-on-macOS oracle, contaminated); new sessions use ISO timestamp ids.
+`runs/cp/legacy_pre_session/round_00/` exists as the pre-experiment baseline (round 0 — BSD-on-macOS oracle, contaminated); new sessions use ISO timestamp ids.

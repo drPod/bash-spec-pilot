@@ -13,8 +13,7 @@ Research experiment investigating whether large language models can extract beha
 - **Decision log** (why we chose Debian trixie man pages, why we removed `temperature` and `seed`, why we switched from Chat Completions to Responses) — `decisions.md`. Has a section TOC.
 - **Failure taxonomy** (Tambon-derived schema for cataloguing LLM bugs in generated Bash and Rust) — `taxonomy.md`.
 - **Literature / prior work synthesis** — `literature/_synthesis.md`. Recommended read order: Caruca, Endres, Tambon, Westenfelder.
-- **Setup and onboarding** — `SETUP.md`. Note that parts of Sections 5 and 6 are superseded by `decisions.md` Sections 3 and 5 — the `temperature=0` + `seed=42` reproducibility story documented there does not apply to GPT-5.5 reasoning models.
-- **Aaron-meeting deliverable / current planned next steps** — `for_aaron.md`.
+- **Setup and onboarding** — `SETUP.md`.
 
 ## Where to find code
 

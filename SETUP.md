@@ -142,7 +142,6 @@ runs/<util>/<session_id>/round_NN/
   tests/
     NNN_<slug>.sh
     _manifest.json             # per-test metadata: exercises, expected, expected_to_fail
-  results_real.jsonl           # tests vs. real utility on host
   results_real-gnu.jsonl       # tests vs. real utility inside Docker GNU oracle
   results_impl.jsonl           # tests vs. LLM Rust impl
   _observations.md             # qualitative analyst notes (manual)
