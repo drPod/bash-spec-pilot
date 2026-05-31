@@ -43,7 +43,7 @@ So the actual determinism story for this project is:
 > · `sha256(manpage)` logged per round
 > · `response.id` logged per round (for server-side recall via `previous_response_id`)
 
-All four are written to `_logs/log.jsonl` per round by `scripts/driver.py`. A drift in any of them is detectable by diffing the log alone. See `docs/openai/responses_create.md` for the SDK-verified parameter list.
+All four are written to `_logs/log.jsonl` per round by `scripts/pipeline/driver.py`. A drift in any of them is detectable by diffing the log alone. See `docs/openai/responses_create.md` for the SDK-verified parameter list.
 
 ---
 
@@ -175,7 +175,7 @@ run_dir = pathlib.Path("runs/cp") / time.strftime("%Y-%m-%dT%H-%M-%SZ", time.gmt
 
 Note: no `temperature`, no `top_p`, no `seed`, no `system_fingerprint` logging — see Section 1 above for why.
 
-The driver script (`scripts/driver.py`) wraps that pattern, plus iteration-feedback rendering for rounds ≥ 2. **Critical:** dump the full response object, not just `output_text` — token-usage and reasoning-token counts belong in the failure analysis. `runs/` is gitignored; share specific runs by zipping the directory.
+The driver script (`scripts/pipeline/driver.py`) wraps that pattern, plus iteration-feedback rendering for rounds ≥ 2. **Critical:** dump the full response object, not just `output_text` — token-usage and reasoning-token counts belong in the failure analysis. `runs/` is gitignored; share specific runs by zipping the directory.
 
 If this scaffolding ever feels limiting (e.g. you want web-UI diffing across runs, or live cost dashboards), then graduate to **Langfuse self-hosted** — it ingests OpenAI calls via a one-line client-side wrapper and is the lightest of the LLM-observability tools. Don't pre-optimize.
 
@@ -193,7 +193,7 @@ docker/build.sh --no-cache                         # full rebuild
 docker/run.sh bash -lc 'cp --version'              # exec a command in the oracle
 ```
 
-`docker/run.sh` bind-mounts the repo at `/work` and runs `--rm`. `scripts/run_tests.py --target real-gnu` (and any future `coverage_rust.sh`) routes through `docker/run.sh` so the test results are deterministic regardless of dev-box OS.
+`docker/run.sh` bind-mounts the repo at `/work` and runs `--rm`. `scripts/pipeline/run_tests.py --target real-gnu` (and any future `coverage_rust.sh`) routes through `docker/run.sh` so the test results are deterministic regardless of dev-box OS.
 
 ---
 
@@ -222,8 +222,8 @@ Extrapolating: a ~10-round trajectory per util × 4 utils ≈ $25, with `find`'s
 ## 9. What to do next
 
 - [ ] Build the Docker oracle (`docker/build.sh`) and run `cp --version` inside it as a smoke test.
-- [ ] Mint a fresh `cp` session against `--target real-gnu` to replace the contaminated `legacy_pre_session` baseline. Use `scripts/eval_round.sh <util> <session> <round>` for the one-line metrics roll-up.
+- [ ] Mint a fresh `cp` session against `--target real-gnu` to replace the contaminated `legacy_pre_session` baseline. Use `scripts/eval/eval_round.sh <util> <session> <round>` for the one-line metrics roll-up.
 - [ ] Read `literature/caruca_2025_spec_mining.pdf` and `literature/schulhoff_2024_prompt_report.pdf` (zero-shot + structured-output sections) before designing follow-on prompts.
-- [ ] Freeze `mv`, `find`, `sudo` man pages via `scripts/freeze_manpage.sh` so the input is reproducible on any host.
+- [ ] Freeze `mv`, `find`, `sudo` man pages via `scripts/freeze/freeze_manpage.sh` so the input is reproducible on any host.
 - [ ] Calibrate `OPENAI_MAX_OUTPUT_TOKENS` against the first round's `reasoning_tokens` reading before pushing effort to `high`.
 - [ ] Skim `taxonomy.md` so observations land in a consistent schema (Tambon-2025 categories + Astrogator-style verifier-result decomposition).

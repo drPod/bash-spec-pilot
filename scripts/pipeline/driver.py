@@ -5,14 +5,14 @@ runs/<util>/<session_id>/round_<NN>/.
 
 Usage:
     # First round of a new session (auto-generates session_id):
-    python scripts/driver.py --util cp --prompt impl  --round 1
-    python scripts/driver.py --util cp --prompt tests --round 1
+    python scripts/pipeline/driver.py --util cp --prompt impl  --round 1
+    python scripts/pipeline/driver.py --util cp --prompt tests --round 1
 
     # Subsequent rounds within the same session (auto-finds latest session):
-    python scripts/driver.py --util cp --prompt tests --round 2
+    python scripts/pipeline/driver.py --util cp --prompt tests --round 2
 
     # Explicit session id (re-runs a specific trajectory):
-    python scripts/driver.py --util cp --prompt tests --round 2 \\
+    python scripts/pipeline/driver.py --util cp --prompt tests --round 2 \\
         --session 2026-05-07T18-30-00Z
 
 A `session_id` is one iteration trajectory (rounds 1, 2, 3, ...). It is an
@@ -629,7 +629,7 @@ def extract_tests(payload: dict, round_dir: Path) -> tuple[int, dict]:
 def main() -> None:
     load_dotenv()
     args = parse_args()
-    repo = Path(__file__).resolve().parent.parent
+    repo = Path(__file__).resolve().parents[2]
 
     session = resolve_session(repo, args.util, args.round, args.session)
     round_dir = repo / "runs" / args.util / session / f"round_{args.round:02d}"

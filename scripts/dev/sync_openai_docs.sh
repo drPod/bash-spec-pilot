@@ -15,7 +15,7 @@
 
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 DOCS_DIR="docs/openai"
 mkdir -p "$DOCS_DIR"
 

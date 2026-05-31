@@ -2,8 +2,8 @@
 # Freeze a utility's man page to utils/<util>/manpage.txt for use as
 # stable LLM input.
 #
-# Usage: scripts/freeze_manpage.sh <util>          # cp | mv | find | sudo
-#        scripts/freeze_manpage.sh <util> --force  # overwrite without prompt
+# Usage: scripts/freeze/freeze_manpage.sh <util>          # cp | mv | find | sudo
+#        scripts/freeze/freeze_manpage.sh <util> --force  # overwrite without prompt
 #
 # Why not `man <util>`? The previous version of this script ran macOS BSD
 # `man cp` and froze that. Wrong: this project targets Linux/GNU userland
@@ -42,7 +42,7 @@ fi
 UTIL="$1"
 FORCE="${2:-}"
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 DST_DIR="$REPO/utils/$UTIL"
 
 # (util)         (debian package, section, debian-release, package-version-pin)

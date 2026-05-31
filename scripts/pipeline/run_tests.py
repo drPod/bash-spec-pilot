@@ -13,13 +13,13 @@ the removal note.
 
 Usage:
     # Linux/GNU oracle inside the trixie container (the canonical oracle):
-    python scripts/run_tests.py --util cp --session <sid> --round 1 --target real-gnu
+    python scripts/pipeline/run_tests.py --util cp --session <sid> --round 1 --target real-gnu
 
     # LLM-generated Rust impl, host-side (fast iteration on macOS):
-    python scripts/run_tests.py --util cp --session <sid> --round 1 --target rust
+    python scripts/pipeline/run_tests.py --util cp --session <sid> --round 1 --target rust
 
     # LLM-generated Rust impl built and run inside trixie:
-    python scripts/run_tests.py --util cp --session <sid> --round 1 --target rust --in-docker
+    python scripts/pipeline/run_tests.py --util cp --session <sid> --round 1 --target rust --in-docker
 
 # Scoring with `expected_to_fail`
 
@@ -296,7 +296,7 @@ def score(row: dict, expected_to_fail: bool | None) -> bool:
 
 def main() -> None:
     args = parse_args()
-    repo = Path(__file__).resolve().parent.parent
+    repo = Path(__file__).resolve().parents[2]
     round_dir = round_dir_for(repo, args.util, args.session, args.round)
     tests_dir = round_dir / "tests"
     if not tests_dir.exists():

@@ -3,7 +3,7 @@
 # inside the formal-verification:trixie container.
 #
 # Usage:
-#   scripts/coverage_rust.sh --util cp --session <sid> --round 1
+#   scripts/eval/coverage_rust.sh --util cp --session <sid> --round 1
 #
 # Output:
 #   runs/<util>/<session>/round_<NN>/coverage_rust.json
@@ -47,7 +47,7 @@ if [[ -z "$UTIL" || -z "$SESSION" || -z "$ROUND" ]]; then
     exit 2
 fi
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 REL_ROUND="runs/${UTIL}/${SESSION}/round_$(printf '%02d' "$ROUND")"
 ROUND_DIR="${REPO}/${REL_ROUND}"
 IMPL_DIR="${ROUND_DIR}/impl"

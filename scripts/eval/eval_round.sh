@@ -2,10 +2,10 @@
 # Run all four metrics for a single round and emit a one-line summary.
 #
 # Usage:
-#   scripts/eval_round.sh <util> <session> <round>
+#   scripts/eval/eval_round.sh <util> <session> <round>
 #
 # Example:
-#   scripts/eval_round.sh cp 2026-05-07T18-30-00Z 1
+#   scripts/eval/eval_round.sh cp 2026-05-07T18-30-00Z 1
 #
 # Order of operations:
 #   1. real-gnu tests (the canonical oracle)
@@ -25,23 +25,23 @@ SESSION="$2"
 ROUND="$3"
 RR=$(printf '%02d' "$ROUND")
 
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 ROUND_DIR="${REPO}/runs/${UTIL}/${SESSION}/round_${RR}"
 
 echo "==> real-gnu tests" >&2
-python3 "${REPO}/scripts/run_tests.py" --util "$UTIL" --session "$SESSION" \
+python3 "${REPO}/scripts/pipeline/run_tests.py" --util "$UTIL" --session "$SESSION" \
     --round "$ROUND" --target real-gnu || true
 
 echo "==> rust tests (in docker)" >&2
-python3 "${REPO}/scripts/run_tests.py" --util "$UTIL" --session "$SESSION" \
+python3 "${REPO}/scripts/pipeline/run_tests.py" --util "$UTIL" --session "$SESSION" \
     --round "$ROUND" --target rust --in-docker || true
 
 echo "==> flag coverage" >&2
-python3 "${REPO}/scripts/coverage_flags.py" --util "$UTIL" --session "$SESSION" \
+python3 "${REPO}/scripts/eval/coverage_flags.py" --util "$UTIL" --session "$SESSION" \
     --round "$ROUND" || true
 
 echo "==> rust coverage" >&2
-bash "${REPO}/scripts/coverage_rust.sh" --util "$UTIL" --session "$SESSION" \
+bash "${REPO}/scripts/eval/coverage_rust.sh" --util "$UTIL" --session "$SESSION" \
     --round "$ROUND" || true
 
 # Emit the summary line.

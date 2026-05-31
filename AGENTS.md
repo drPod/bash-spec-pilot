@@ -18,13 +18,16 @@ Research experiment investigating whether large language models can extract beha
 
 ## Where to find code
 
-- **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory) — `scripts/driver.py`.
-- **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `docs/research/decisions.md` § 4.4.
-- **Manpage freezer** (fetches Debian trixie groff, renders with `mandoc -Tutf8 | col -bx`, writes `utils/<util>/manpage.txt` plus a provenance JSON) — `scripts/freeze_manpage.sh`.
-- **Evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval_round.sh`.
-- **Flag coverage metric** — `scripts/coverage_flags.py`.
-- **Rust line / branch coverage via tarpaulin** — `scripts/coverage_rust.sh`.
-- **OpenAI SDK doc-mirror sync** — `scripts/sync_openai_docs.sh`.
+- **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory) — `scripts/pipeline/driver.py`.
+- **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/pipeline/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `docs/research/decisions.md` § 4.4.
+- **Manpage freezer** (fetches Debian trixie groff, renders with `mandoc -Tutf8 | col -bx`, writes `utils/<util>/manpage.txt` plus a provenance JSON) — `scripts/freeze/freeze_manpage.sh`.
+- **Evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval/eval_round.sh`.
+- **Flag coverage metric** — `scripts/eval/coverage_flags.py`.
+- **Rust line / branch coverage via tarpaulin** — `scripts/eval/coverage_rust.sh`.
+- **Positive vs negative test breakdown per round** — `scripts/eval/positivity.py`.
+- **OpenAI SDK doc-mirror sync** — `scripts/dev/sync_openai_docs.sh`.
+- **`_observations.md` skeleton bootstrap** — `scripts/dev/init_observations.sh`.
+- **README 100-col rewrap** — `scripts/dev/format_readme.sh`.
 - **Prompt templates** — `prompts/baseline/impl.md` (man page → Rust) and `prompts/baseline/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected. `prompts/adversarial/` is reserved for the wave-4 adversarial test variant (placeholder only).
 - **Docker** (Debian trixie image hosting the canonical GNU oracle and the cargo build environment for `--target rust --in-docker`) — `docker/Dockerfile`, `docker/build.sh`, `docker/run.sh`.
 
@@ -47,5 +50,5 @@ Research experiment investigating whether large language models can extract beha
 - **No Anthropic SDK, no LangChain, no LiteLLM.** Single-provider single-model experiment using `openai==2.35.1` against the OpenAI Responses API. Do not add a provider abstraction layer.
 - **No `temperature`, no `seed`, no `top_p`, no `system_fingerprint` on the LLM call.** GPT-5.5 is a reasoning model; the API rejects `temperature` and `top_p`, and `seed` and `system_fingerprint` belong to the Chat Completions surface, not the Responses surface this project uses. See `docs/research/decisions.md` Section 3 and Section 5 for the full audit.
 - **No fancy logging or experiment-tracking framework.** Logging is plain JSONL files plus git-versioned prompt templates plus per-run directories. MLflow, Weights & Biases, Hydra, LangSmith, Langfuse, Helicone, Phoenix, Promptfoo, and Inspect AI were all explicitly considered and rejected; see `docs/research/setup.md` Section 5 for the rationale.
-- **No test framework.** Tests are plain Bash scripts invoked through `scripts/run_tests.py` via `subprocess.run(["bash", ...])`. No pytest harness, no Bats, no shUnit.
+- **No test framework.** Tests are plain Bash scripts invoked through `scripts/pipeline/run_tests.py` via `subprocess.run(["bash", ...])`. No pytest harness, no Bats, no shUnit.
 - **No production-grade reimplementations.** The Rust impls are research artifacts; their job is to give us a measurable handle on whether the LLM understood the man page. Do not refactor them for code quality.
