@@ -66,7 +66,7 @@ Reference: Schulhoff et al., *The Prompt Report* (arXiv 2406.06608). Indexed loc
 
 ### Prompt-template provenance (added 2026-05-07)
 
-Both `prompts/impl.md` and `prompts/tests.md` carry a maintainer-note HTML comment block at the top with technique citations and a content-hash versioning note. The driver hashes the rendered template per round and writes `prompt_template_sha256` to `_logs/log.jsonl`, so a future change to either prompt is detectable from the run record alone.
+Both `prompts/baseline/impl.md` and `prompts/baseline/tests.md` carry a maintainer-note HTML comment block at the top with technique citations and a content-hash versioning note. The driver hashes the rendered template per round and writes `prompt_template_sha256` to `_logs/log.jsonl`, so a future change to either prompt is detectable from the run record alone.
 
 ---
 
@@ -95,7 +95,7 @@ Findings at that time:
 
 1. Switched to `client.responses.create(...)` with `input=` (not `messages=`).
 2. Renamed `max_completion_tokens` → `max_output_tokens`.
-3. Added `text.format` with strict JSON schemas matching `prompts/impl.md` and `prompts/tests.md`. Server-side enforcement means malformed responses raise loudly instead of silently writing garbage through regex extraction.
+3. Added `text.format` with strict JSON schemas matching `prompts/baseline/impl.md` and `prompts/baseline/tests.md`. Server-side enforcement means malformed responses raise loudly instead of silently writing garbage through regex extraction.
 4. Defense-in-depth JSON validation in the driver: even with server-side schema, the driver re-validates required keys and fails loudly via `ERROR: …` if anything is missing. No silent fallback.
 5. **Content-hash log entries.** Each run logs `prompt_template_sha256` and `manpage_sha256` to `log.jsonl`, so a future drift in either input is detectable from the run record alone.
 6. Optional `OPENAI_REASONING_EFFORT` env var (`minimal | low | medium | high`) passed through to `reasoning.effort`. Default left unset (model picks).
@@ -193,7 +193,7 @@ When `cargo build` fails the stderr is captured to `runs/<util>/<session>/round_
 
 ### 4.5 `expected_to_fail` per-test field
 
-Added to `prompts/tests.md` schema and `TESTS_SCHEMA` in `driver.py`. Tests for documented error conditions belong here; the test body still exits 0 iff the utility errored exactly as documented (`set +e; "$UTIL" ...; status=$?; set -e; [[ $status -ne 0 ]]`). `run_tests.py` writes both `expected_to_fail` and `correct` per row in the JSONL so observations can break down failures by category.
+Added to `prompts/baseline/tests.md` schema and `TESTS_SCHEMA` in `driver.py`. Tests for documented error conditions belong here; the test body still exits 0 iff the utility errored exactly as documented (`set +e; "$UTIL" ...; status=$?; set -e; [[ $status -ne 0 ]]`). `run_tests.py` writes both `expected_to_fail` and `correct` per row in the JSONL so observations can break down failures by category.
 
 Verified end-to-end on two existing legacy tests (`004_no_target_directory_error.sh`, `024_update_none_fail_errors_on_skip.sh`); both score `correct=true` on `real-gnu` because the test bodies already used the capture-and-assert-nonzero pattern.
 
@@ -240,12 +240,12 @@ No `runs/`, `scripts/`, `prompts/`, or `docs/` files were touched in that pass.
 ## 6. Other notes from earlier audits
 <a id="6-other-notes-from-earlier-audits"></a>
 
-- **`scripts/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/tests.md` produces. It accepts `--target real-gnu` (Docker, the canonical oracle) and `--target rust` (with optional `--in-docker`). *(Supersedes the earlier audit's "scripts/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild. Also supersedes the original `--target real` host-BSD path; see § 4.4.)*
+- **`scripts/run_tests.py`** reads `tests/*.sh` from the round directory and runs them with `$UTIL` set, which is exactly what the schema in `prompts/baseline/tests.md` produces. It accepts `--target real-gnu` (Docker, the canonical oracle) and `--target rust` (with optional `--in-docker`). *(Supersedes the earlier audit's "scripts/run_tests.py is unaffected, no changes needed" note — that was true of the schema-rewrite pass but not of the iteration/Docker rebuild. Also supersedes the original `--target real` host-BSD path; see § 4.4.)*
 - **`pyproject.toml`** declares only `openai` and `python-dotenv` as runtime deps; the new driver still fits within those. No `jsonschema` package added — the schema check we do is shape-level (required keys), and OpenAI's server-side enforcement covers structural correctness.
 - **`README.md` repository layout** originally listed only `manpage.txt`. The 2026-05-07 README rewrite expanded it to cover `manpage.1` (raw groff), `_source.json` (provenance), the `runs/<util>/<session>/round_NN/` layout, `legacy_pre_session/`, `docker/`, and `docs/openai/`. *Supersedes the "did not edit on this pass; flagging" note from the first audit.*
 - **`.env.example`** was updated 2026-05-07 to drop `OPENAI_TEMPERATURE` and `OPENAI_SEED`, document the `seed` / `temperature` / `top_p` / `system_fingerprint` situation in comments, and add `OPENAI_REASONING_EFFORT`. *Supersedes the "deliberately left for the team to acknowledge rather than silently flipping a documentation file" note from the first audit — the team has now acknowledged.*
 - **Trailing-newline / shebang quirks.** Prompts now require the test body to start with `#!/usr/bin/env bash`. Previous regex extractor would silently drop a missing shebang; new schema validation makes that failure visible.
-- **Prompt comment headers.** Both `prompts/impl.md` and `prompts/tests.md` now carry a maintainer-note HTML comment block at the top with technique citations and a content-hash versioning note. Headers are stripped from CLAUDE.md-style injection but preserved on disk for human review. *(See § 2 "Prompt-template provenance" for the canonical version of this note.)*
+- **Prompt comment headers.** Both `prompts/baseline/impl.md` and `prompts/baseline/tests.md` now carry a maintainer-note HTML comment block at the top with technique citations and a content-hash versioning note. Headers are stripped from CLAUDE.md-style injection but preserved on disk for human review. *(See § 2 "Prompt-template provenance" for the canonical version of this note.)*
 
 ---
 

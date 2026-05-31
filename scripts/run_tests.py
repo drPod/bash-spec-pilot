@@ -287,7 +287,7 @@ def score(row: dict, expected_to_fail: bool | None) -> bool:
         return row.get("status") == "pass"
     # Test body exits 0 iff it confirmed the documented behavior (whether
     # that behavior was a positive post-state or a documented error). The
-    # interpretation is baked into the test body per prompts/tests.md.
+    # interpretation is baked into the test body per prompts/baseline/tests.md.
     return row.get("status") == "pass"
 
 

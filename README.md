@@ -59,8 +59,10 @@ formal-verification/
 │               ├── results_impl.jsonl       ← tests vs. LLM Rust impl
 │               └── _observations.md   ← qualitative analyst notes
 ├── prompts/
-│   ├── impl.md                        ← Rust-generation prompt template
-│   └── tests.md                       ← test-generation prompt template
+│   ├── baseline/
+│   │   ├── impl.md                    ← Rust-generation prompt template
+│   │   └── tests.md                   ← test-generation prompt template
+│   └── adversarial/                   ← reserved for wave-4 adversarial test variant
 ├── scripts/
 │   ├── driver.py                      ← render prompt → call OpenAI → save artifacts (handles iteration)
 │   ├── run_tests.py                   ← run a round's tests against real or Rust impl

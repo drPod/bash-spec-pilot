@@ -24,7 +24,7 @@ Research experiment investigating whether large language models can extract beha
 - **Flag coverage metric** — `scripts/coverage_flags.py`.
 - **Rust line / branch coverage via tarpaulin** — `scripts/coverage_rust.sh`.
 - **OpenAI SDK doc-mirror sync** — `scripts/sync_openai_docs.sh`.
-- **Prompt templates** — `prompts/impl.md` (man page → Rust) and `prompts/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected.
+- **Prompt templates** — `prompts/baseline/impl.md` (man page → Rust) and `prompts/baseline/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected. `prompts/adversarial/` is reserved for the wave-4 adversarial test variant (placeholder only).
 - **Docker** (Debian trixie image hosting the canonical GNU oracle and the cargo build environment for `--target rust --in-docker`) — `docker/Dockerfile`, `docker/build.sh`, `docker/run.sh`.
 
 ## Where data lives
