@@ -13,22 +13,28 @@ Research experiment investigating whether large language models can extract beha
 - **Decision log** (why we chose Debian trixie man pages, why we removed `temperature` and `seed`, why we switched from Chat Completions to Responses) — `docs/research/decisions.md`. Has a section TOC.
 - **Failure taxonomy** (Tambon-derived schema for cataloguing LLM bugs in generated Bash and Rust) — `docs/research/taxonomy.md`.
 - **Literature / prior work synthesis** — `literature/_synthesis.md`. Recommended read order: Caruca, Endres, Tambon, Westenfelder.
+- **Adversarial test-gen prior art** — `docs/research/adversarial_prior_art.md`. Pre-design literature pass for the wave-4 adversarial pipeline (homogenization trap, self-collusion, ACH/CoverUp/Code-A1 templates). Pilot results + design decisions in `docs/research/decisions.md` § 10.
 - **Setup and onboarding** — `docs/research/setup.md`.
-- **Weekly Slack-DM template to Aaron** — `docs/research/slack_dm.md`.
 
 ## Where to find code
 
-- **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory) — `scripts/pipeline/driver.py`.
+- **Driver** (renders prompt template + manpage, calls OpenAI Responses API with strict JSON schema, writes round directory; baseline + wave-4 `adversarial-cold` / `adversarial-posthoc` modes) — `scripts/pipeline/driver.py`.
 - **Test runner** (executes a round's `tests/*.sh` against the GNU utility inside Docker (`--target real-gnu`, the canonical oracle) or the LLM-generated Rust impl (`--target rust`), and writes `results_<target>.jsonl`) — `scripts/pipeline/run_tests.py`. The `--target real` (host BSD utility) path was removed 2026-05-07; see `docs/research/decisions.md` § 4.4.
 - **Manpage freezer** (fetches Debian trixie groff, renders with `mandoc -Tutf8 | col -bx`, writes `utils/<util>/manpage.txt` plus a provenance JSON) — `scripts/freeze/freeze_manpage.sh`.
-- **Evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval/eval_round.sh`.
+- **Baseline evaluation orchestrator** (runs real-gnu + rust passes, flag coverage, Rust line coverage, prints a one-line summary) — `scripts/eval/eval_round.sh`.
+- **Wave-4 adversarial orchestrator** (static-filter + real-gnu + rust + 4-bucket classify + mut@k summary) — `scripts/eval/eval_adversarial.sh`.
+- **Static pre-filter** (`bash -n` + `shellcheck -S error`; writes `static_filter.json`; SLMFix-style) — `scripts/eval/static_filter.sh`.
+- **Divergence classifier** (4 buckets: baseline / divergence / shared_bug / hallucinated_spec; emits `classification.json` + `divergences.jsonl`; computes mut@k, DEPC, effective-test rate) — `scripts/eval/classify_divergence.py`.
+- **Metamorphic runner** (executes `tests/properties/<util>/*.sh` against trixie real-gnu; supports `--as-user` for sudo) — `scripts/eval/run_metamorphic.sh`.
+- **Failure minimizer** (ReduceFix-style LLM shrinker; reads a divergence row, emits minimized invocation) — `scripts/eval/minimize_failure.py`.
 - **Flag coverage metric** — `scripts/eval/coverage_flags.py`.
 - **Rust line / branch coverage via tarpaulin** — `scripts/eval/coverage_rust.sh`.
 - **Positive vs negative test breakdown per round** — `scripts/eval/positivity.py`.
 - **OpenAI SDK doc-mirror sync** — `scripts/dev/sync_openai_docs.sh`.
 - **`_observations.md` skeleton bootstrap** — `scripts/dev/init_observations.sh`.
 - **README 100-col rewrap** — `scripts/dev/format_readme.sh`.
-- **Prompt templates** — `prompts/baseline/impl.md` (man page → Rust) and `prompts/baseline/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected. `prompts/adversarial/` is reserved for the wave-4 adversarial test variant (placeholder only).
+- **Prompt templates** — `prompts/baseline/impl.md` (man page → Rust) and `prompts/baseline/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected. Wave-4 adversarial templates: `prompts/adversarial/cold_section.md` (manpage-only, thematic slice frame) and `prompts/adversarial/posthoc.md` (manpage + frozen Rust impl, whitebox bug-finding). Slice vocabulary + schema in `prompts/adversarial/README.md`.
+- **Metamorphic floor** (hand-written non-LLM invariants per util, control group for adversarial gen) — `tests/properties/<util>/*.sh`.
 - **Docker** (Debian trixie image hosting the canonical GNU oracle and the cargo build environment for `--target rust --in-docker`) — `docker/Dockerfile`, `docker/build.sh`, `docker/run.sh`.
 
 ## Where data lives

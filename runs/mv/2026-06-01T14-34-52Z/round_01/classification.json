@@ -1,0 +1,39 @@
+{
+  "util": "mv",
+  "session": "2026-06-01T14-34-52Z",
+  "round": 1,
+  "n_total_scored": 14,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 14,
+    "divergence": 0,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_nonexistent_source_fails.sh",
+      "002_no_operands_fails.sh",
+      "003_single_operand_missing_dest_fails.sh",
+      "004_short_t_missing_argument_fails.sh",
+      "005_long_target_directory_missing_argument_fails.sh",
+      "006_t_nonexistent_directory_fails.sh",
+      "007_T_existing_directory_target_fails.sh",
+      "008_update_none_fail_existing_dest_fails.sh",
+      "009_update_empty_value_fails.sh",
+      "010_update_none_skips_without_failure.sh",
+      "011_update_all_replaces_existing.sh",
+      "012_no_clobber_skips_existing.sh",
+      "013_final_n_then_f_overwrites.sh",
+      "014_final_f_then_n_skips.sh"
+    ],
+    "divergence": [],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.0,
+  "effective_test_rate": 0.0,
+  "depc": 0
+}

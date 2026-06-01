@@ -1,0 +1,102 @@
+{
+  "tests": [
+    {
+      "filename": "001_nonexistent_source_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\n\nset +e\n\"$UTIL\" \"$tmpdir/no_such_source\" \"$tmpdir/dest\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected nonexistent source to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "Nonexistent SOURCE: DESCRIPTION says \"Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "002_no_operands_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\n\nset +e\n\"$UTIL\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected no operands to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "Missing required operands: SYNOPSIS documents only forms requiring SOURCE DEST, SOURCE... DIRECTORY, or -t DIRECTORY SOURCE...",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "003_single_operand_missing_dest_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'data' > \"$tmpdir/src\"\n\nset +e\n\"$UTIL\" \"$tmpdir/src\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected missing destination to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "Missing DEST/DIRECTORY: SYNOPSIS documents no one-operand form; it requires SOURCE DEST, SOURCE... DIRECTORY, or -t DIRECTORY SOURCE...",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "004_short_t_missing_argument_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\n\nset +e\n\"$UTIL\" -t >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected -t without argument to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "-t requires DIRECTORY: manpage says \"-t, --target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY\" and \"Mandatory arguments to long options are mandatory for short options too.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "005_long_target_directory_missing_argument_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\n\nset +e\n\"$UTIL\" --target-directory >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected --target-directory without argument to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "--target-directory requires DIRECTORY: manpage says \"-t, --target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "006_t_nonexistent_directory_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'data' > \"$tmpdir/src\"\n\nset +e\n\"$UTIL\" -t \"$tmpdir/no_such_directory\" \"$tmpdir/src\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected nonexistent target directory to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "-t DIRECTORY requires an actual directory: manpage says \"-t, --target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "007_T_existing_directory_target_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'data' > \"$tmpdir/src\"\nmkdir \"$tmpdir/destdir\"\n\nset +e\n\"$UTIL\" -T \"$tmpdir/src\" \"$tmpdir/destdir\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected -T with directory target to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "-T with directory target: manpage says \"-T, --no-target-directory treat DEST as a normal file.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "008_update_none_fail_existing_dest_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\nset +e\n\"$UTIL\" --update=none-fail \"$tmpdir/src\" \"$tmpdir/dst\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected --update=none-fail skip to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "--update=none-fail: manpage says skipped files \"are diagnosed and induce a failure.\"",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "009_update_empty_value_fails.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\nset +e\n\"$UTIL\" --update= \"$tmpdir/src\" \"$tmpdir/dst\" >/dev/null 2>&1\nstatus=$?\nset -e\n\nif [[ $status -ne 0 ]]; then\n  exit 0\nelse\n  echo \"expected empty --update value to fail\" >&2\n  exit 1\nfi\n",
+      "exercises": "Invalid empty UPDATE value: manpage restricts UPDATE to \"{all,none,none-fail,older(default)}\".",
+      "expected": "The utility exits with a nonzero status.",
+      "expected_to_fail": true
+    },
+    {
+      "filename": "010_update_none_skips_without_failure.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\n\"$UTIL\" --update=none \"$tmpdir/src\" \"$tmpdir/dst\"\ncontent=\"$(cat \"$tmpdir/dst\" 2>/dev/null || true)\"\n\nif [[ $content == \"old\" ]]; then\n  exit 0\nelse\n  echo \"expected --update=none to leave destination unchanged\" >&2\n  exit 1\nfi\n",
+      "exercises": "--update=none: documented as like --no-clobber, with no destination files replaced and skipped files not inducing failure.",
+      "expected": "The destination file keeps its original contents.",
+      "expected_to_fail": false
+    },
+    {
+      "filename": "011_update_all_replaces_existing.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\n\"$UTIL\" --update=all \"$tmpdir/src\" \"$tmpdir/dst\"\ncontent=\"$(cat \"$tmpdir/dst\" 2>/dev/null || true)\"\n\nif [[ $content == \"new\" ]]; then\n  exit 0\nelse\n  echo \"expected --update=all to replace destination\" >&2\n  exit 1\nfi\n",
+      "exercises": "--update=all: documented as resulting in all existing files in the destination being replaced.",
+      "expected": "The destination file contains the source contents.",
+      "expected_to_fail": false
+    },
+    {
+      "filename": "012_no_clobber_skips_existing.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\n\"$UTIL\" -n \"$tmpdir/src\" \"$tmpdir/dst\"\ncontent=\"$(cat \"$tmpdir/dst\" 2>/dev/null || true)\"\n\nif [[ $content == \"old\" ]]; then\n  exit 0\nelse\n  echo \"expected -n to leave destination unchanged\" >&2\n  exit 1\nfi\n",
+      "exercises": "-n/--no-clobber: documented to not overwrite an existing file.",
+      "expected": "The destination file keeps its original contents.",
+      "expected_to_fail": false
+    },
+    {
+      "filename": "013_final_n_then_f_overwrites.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\n\"$UTIL\" -n -f \"$tmpdir/src\" \"$tmpdir/dst\"\ncontent=\"$(cat \"$tmpdir/dst\" 2>/dev/null || true)\"\n\nif [[ $content == \"new\" ]]; then\n  exit 0\nelse\n  echo \"expected final -f to override -n\" >&2\n  exit 1\nfi\n",
+      "exercises": "Final overwrite option wins: manpage says if more than one of -i, -f, -n is specified, only the final one takes effect.",
+      "expected": "The destination file is overwritten because -f is final.",
+      "expected_to_fail": false
+    },
+    {
+      "filename": "014_final_f_then_n_skips.sh",
+      "body": "#!/usr/bin/env bash\nset -euo pipefail\n\ntmpdir=$(mktemp -d)\ntrap 'rm -rf \"$tmpdir\"' EXIT\nprintf 'new' > \"$tmpdir/src\"\nprintf 'old' > \"$tmpdir/dst\"\n\n\"$UTIL\" -f -n \"$tmpdir/src\" \"$tmpdir/dst\"\ncontent=\"$(cat \"$tmpdir/dst\" 2>/dev/null || true)\"\n\nif [[ $content == \"old\" ]]; then\n  exit 0\nelse\n  echo \"expected final -n to override -f\" >&2\n  exit 1\nfi\n",
+      "exercises": "Final overwrite option wins: manpage says if more than one of -i, -f, -n is specified, only the final one takes effect.",
+      "expected": "The destination file is not overwritten because -n is final.",
+      "expected_to_fail": false
+    }
+  ]
+}

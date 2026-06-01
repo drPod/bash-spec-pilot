@@ -1,0 +1,184 @@
+{
+  "kept": [
+    "001_single_source_dest_rename.sh",
+    "002_single_source_existing_directory.sh",
+    "003_no_target_directory_rejects_dir_dest.sh",
+    "004_multi_source_directory_form.sh",
+    "005_multi_source_requires_directory.sh",
+    "006_target_directory_option_form.sh",
+    "007_target_directory_must_be_directory.sh",
+    "008_unstripped_trailing_slash_on_file_fails.sh",
+    "009_strip_trailing_slash_single_file.sh",
+    "010_strip_trailing_slashes_each_source.sh",
+    "011_final_no_clobber_wins_over_force.sh",
+    "012_final_force_wins_over_no_clobber.sh",
+    "013_interactive_reads_stdin_no.sh",
+    "014_update_older_default_skips_newer_dest.sh",
+    "015_no_update_defaults_to_all.sh",
+    "016_update_none_skips_without_failure.sh",
+    "017_update_none_fail_reports_failure.sh",
+    "018_invalid_update_value_fails.sh",
+    "019_backup_simple_suffix_tilde.sh",
+    "020_backup_numbered_name.sh",
+    "021_backup_none_makes_no_backup.sh",
+    "022_exchange_swaps_two_files.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_single_source_dest_rename.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_single_source_existing_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_no_target_directory_rejects_dir_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_multi_source_directory_form.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_multi_source_requires_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_target_directory_option_form.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_target_directory_must_be_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_unstripped_trailing_slash_on_file_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_strip_trailing_slash_single_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_strip_trailing_slashes_each_source.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_final_no_clobber_wins_over_force.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_final_force_wins_over_no_clobber.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_interactive_reads_stdin_no.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_update_older_default_skips_newer_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_no_update_defaults_to_all.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_update_none_skips_without_failure.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_update_none_fail_reports_failure.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_invalid_update_value_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_backup_simple_suffix_tilde.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_backup_numbered_name.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_backup_none_makes_no_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_exchange_swaps_two_files.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

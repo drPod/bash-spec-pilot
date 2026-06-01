@@ -1,0 +1,192 @@
+{
+  "kept": [
+    "001_force_after_interactive_overwrites.sh",
+    "002_interactive_after_force_decline_preserves.sh",
+    "003_no_clobber_after_force_preserves.sh",
+    "004_force_after_no_clobber_overwrites.sh",
+    "005_target_directory_places_source_inside.sh",
+    "006_no_target_directory_existing_dir_fails.sh",
+    "007_t_and_T_conflict_fails.sh",
+    "008_update_none_preserves_existing_success.sh",
+    "009_update_none_fail_status_nonzero.sh",
+    "010_update_older_replaces_when_dest_older.sh",
+    "011_update_older_preserves_when_dest_newer.sh",
+    "012_update_no_argument_defaults_older.sh",
+    "013_update_all_replaces_even_newer.sh",
+    "014_backup_simple_creates_tilde.sh",
+    "015_backup_numbered_creates_numbered.sh",
+    "016_backup_existing_uses_numbered_if_present.sh",
+    "017_backup_none_makes_no_backup.sh",
+    "018_suffix_overrides_backup_suffix.sh",
+    "019_version_control_env_numbered.sh",
+    "020_simple_backup_suffix_env.sh",
+    "021_strip_trailing_slashes_file_source.sh",
+    "022_exchange_swaps_two_files.sh",
+    "023_suffix_missing_argument_fails.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_force_after_interactive_overwrites.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_interactive_after_force_decline_preserves.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_no_clobber_after_force_preserves.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_force_after_no_clobber_overwrites.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_target_directory_places_source_inside.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_no_target_directory_existing_dir_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_t_and_T_conflict_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_update_none_preserves_existing_success.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_update_none_fail_status_nonzero.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_update_older_replaces_when_dest_older.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_update_older_preserves_when_dest_newer.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_update_no_argument_defaults_older.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_update_all_replaces_even_newer.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_backup_simple_creates_tilde.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_backup_numbered_creates_numbered.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_backup_existing_uses_numbered_if_present.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_backup_none_makes_no_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_suffix_overrides_backup_suffix.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_version_control_env_numbered.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_simple_backup_suffix_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_strip_trailing_slashes_file_source.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_exchange_swaps_two_files.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "023_suffix_missing_argument_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

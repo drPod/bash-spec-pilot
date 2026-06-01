@@ -1,0 +1,50 @@
+{
+  "util": "mv",
+  "session": "2026-06-01T14-36-28Z",
+  "round": 1,
+  "n_total_scored": 23,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 21,
+    "divergence": 0,
+    "shared_bug": 1,
+    "hallucinated_spec": 1,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_force_after_interactive_overwrites.sh",
+      "003_no_clobber_after_force_preserves.sh",
+      "004_force_after_no_clobber_overwrites.sh",
+      "005_target_directory_places_source_inside.sh",
+      "006_no_target_directory_existing_dir_fails.sh",
+      "007_t_and_T_conflict_fails.sh",
+      "008_update_none_preserves_existing_success.sh",
+      "009_update_none_fail_status_nonzero.sh",
+      "010_update_older_replaces_when_dest_older.sh",
+      "011_update_older_preserves_when_dest_newer.sh",
+      "012_update_no_argument_defaults_older.sh",
+      "013_update_all_replaces_even_newer.sh",
+      "014_backup_simple_creates_tilde.sh",
+      "015_backup_numbered_creates_numbered.sh",
+      "016_backup_existing_uses_numbered_if_present.sh",
+      "017_backup_none_makes_no_backup.sh",
+      "018_suffix_overrides_backup_suffix.sh",
+      "019_version_control_env_numbered.sh",
+      "020_simple_backup_suffix_env.sh",
+      "022_exchange_swaps_two_files.sh",
+      "023_suffix_missing_argument_fails.sh"
+    ],
+    "divergence": [],
+    "shared_bug": [
+      "002_interactive_after_force_decline_preserves.sh"
+    ],
+    "hallucinated_spec": [
+      "021_strip_trailing_slashes_file_source.sh"
+    ],
+    "incomplete": []
+  },
+  "mut_at_k": 0.0,
+  "effective_test_rate": 0.043478260869565216,
+  "depc": 0
+}

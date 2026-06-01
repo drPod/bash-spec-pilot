@@ -304,3 +304,112 @@ Two structural gaps surfaced during wave 2 (round 1 of `mv` / `find` / `sudo`, r
 **Decision: document, do not patch the Dockerfile before the advisor meeting.** The structural manpage-incompleteness for policy-driven utilities (`sudo(8)` documents argument syntax; `sudoers(5)` documents the policy gating that determines whether each invocation succeeds) is itself a finding. Adding a non-root user with a known-password sudoers.d entry would change the visible pass rate but would not change the underlying observation that **half of `sudo`'s "documented" behavior is gated by a man page the LLM never saw**. That's the candidate failure class — see `taxonomy.md` § 4 ("split-manpage utilities"). Surfacing it cleanly at the meeting matters more than improving the cell number now.
 
 The trade-offs of a non-root harness (sudoers.d/ provisioning, password-cache resets between tests, deciding whether to feed `sudoers(5)` into the LLM prompt) are real engineering work that belongs in a separate change after the meeting frames the question.
+
+## 10. Wave 4 cold adversarial pilot (`mv`, 2026-06-01)
+<a id="10-wave-4-cold-adversarial-pilot-mv-2026-06-01"></a>
+
+Wave 4 implements the architectural separation prescribed by the
+homogenization-trap literature (Ma et al. 2025 SAGA; Wang et al. 2026 Code-A1;
+full survey in `docs/research/adversarial_prior_art.md`). Test generation
+runs in a fresh session ID separate from impl generation, with the same
+model, so test prompts cannot inherit reasoning state from the impl-gen
+pass. Two flavors:
+
+- **cold** — `prompts/adversarial/cold_section.md`. Model sees manpage only,
+  no impl. A thematic slice (errors/flags/environment/examples) biases test
+  selection without constraining manpage parsing.
+- **posthoc** — `prompts/adversarial/posthoc.md`. Model sees manpage plus
+  frozen baseline impl. Tasked with finding documented behaviors the impl
+  handles incorrectly. Built but not run in pilot.
+
+### 10.1 Headline metric
+
+`mut@k` = divergences (real-correct, rust-incorrect) divided by total scored
+tests, per session. `DEPC` = distinct (rc, stderr-first-line) signatures
+across divergences. `effective_test_rate` = (divergences + shared-bugs) /
+total. Classifier: `scripts/eval/classify_divergence.py`.
+
+### 10.2 Pilot run
+
+Four `mv` cold-adversarial sessions, one per slice, against the wave-3
+round-2 baseline impl (`runs/mv/2026-05-07T11-11-40Z/round_02/impl`, the
+known-strong 100%-real-pass baseline).
+
+| slice | tests | baseline | divergence | shared_bug | hallucinated_spec | mut@k | DEPC |
+|---|---|---|---|---|---|---|---|
+| errors | 14 | 14 | 0 | 0 | 0 | 0.000 | 0 |
+| flags | 23 | 21 | 0 | 1 | 1 | 0.000 | 0 |
+| environment | 17 | 17 | 0 | 0 | 0 | 0.000 | 0 |
+| examples | 22 | 20 | 0 | 1 | 1 | 0.000 | 0 |
+| **total** | **76** | **72** | **0** | **2** | **2** | **0.000** | **0** |
+
+Cost: ~$0.85 OpenAI spend (well under the $1.50 pre-approved cap).
+
+### 10.3 Read
+
+The pilot tripped the user's pre-approved halt-and-reassess gate (zero
+divergences). Three things this tells us:
+
+1. The wave-3 round-2 `mv` impl is genuinely tight. Cold adversarial test
+   generation against the documented surface of `mv` does not find new
+   impl bugs — every documented behavior probed across 76 tests was handled
+   identically by GNU mv 9.7 and the Rust impl. Round 2's iteration loop
+   already absorbed the documented-error surface.
+2. The non-zero `hallucinated_spec` and `shared_bug` buckets carry real
+   research signal even though they don't count in `mut@k`:
+    - **`--strip-trailing-slashes` on file sources** (slices flags + examples,
+      both `hallucinated_spec`). GNU `mv` rejects a file source with a
+      trailing slash citing "Not a directory" — a stricter constraint than
+      the manpage's literal claim ("strips trailing slashes from each
+      SOURCE argument"). The Rust impl honors the manpage literally and
+      accepts the move. This is **manpage / real-binary disagreement**, not
+      an impl bug — and the wave-4 classification scheme buckets it as
+      "test was wrong" when arguably the *manpage* is wrong.
+    - **`-i` interactive with piped stdin** (slices flags + examples, both
+      `shared_bug`). Both implementations fail tests that pipe `n` to mv -i
+      and expect destination preservation. Real `mv` writes the prompt to
+      stderr and reads stdin; tests' stdin redirection is a design
+      mismatch with how GNU mv consumes input under non-tty conditions.
+      Documented behavior is ambiguous here; this is a test-design issue,
+      not an impl signal.
+3. The two corner-case observations above are the actual research output
+   of the pilot — both are wave-4-headline-misses but wave-4-classifier-hits
+   in a useful sense. The classifier's four buckets are too coarse to
+   distinguish "test author misread manpage" from "manpage is incomplete".
+
+### 10.4 Decisions
+
+**Pause posthoc + multi-util generalization** until the next session frames
+what to investigate. The pilot already produced one publishable observation
+(manpage-impl disagreement on `--strip-trailing-slashes`); generalizing the
+cold pipeline to `find`/`sudo`/`cp` before validating the metric on the one
+known-tight baseline would be premature.
+
+**Sharpen the classifier.** Add a fifth bucket distinguishing "manpage
+under-specifies what real binary enforces" (current `hallucinated_spec`
+sub-case) from "test asserted behavior the manpage never committed to". The
+first is research signal; the second is noise.
+
+**Cold against the wave-3 round-1 mv impl** would likely surface
+divergences the wave-3 round-2 impl had already absorbed. Defer until the
+classifier refinement above lands.
+
+### 10.5 Reproducibility
+
+- Sessions: `runs/mv/2026-06-01T14-34-52Z`, `2026-06-01T14-36-28Z`,
+  `2026-06-01T14-38-25Z`, `2026-06-01T14-39-56Z`. Each `round_01` carries
+  `tests/`, `impl/` (materialized from baseline), `_logs/`,
+  `results_real-gnu.jsonl`, `results_rust.jsonl`, `static_filter.json`,
+  `classification.json`, `divergences.jsonl`.
+- Prompt template SHA: `bb0c7a93ec21029f...` (all four runs).
+- Manpage SHA: `a89825ba3a6ca4bf...` (all four runs).
+- Model: per `.env`, dated snapshot. Token usage in each `_logs/log.jsonl`.
+
+### 10.6 Metamorphic floor
+
+Hand-written non-LLM control suites for all four utilities landed alongside
+the pilot (PRs #9 cp, #10 mv, #11 sudo, #12 find). Five property
+invariants per util at `tests/properties/<util>/*.sh`, runnable via
+`scripts/eval/run_metamorphic.sh <util>`. Each suite passes 5/5 against the
+real GNU binary in trixie. The floor exists so that wave-4 mut@k numbers
+can be read against a non-LLM baseline rather than in isolation.

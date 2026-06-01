@@ -85,6 +85,11 @@ from openai import (
 MAX_FEEDBACK_FAILURES = 10
 MAX_BUILD_ERROR_LINES = 50
 
+# Set by main() before render_prompt is called when --include-coverage-feedback
+# is passed. Off by default so existing baseline rounds reproduce byte-identical
+# feedback hashes (the flag is opt-in for round >=2 iteration runs).
+_INCLUDE_COVERAGE_FEEDBACK = False
+
 # Strict JSON schemas matching prompts/baseline/impl.md and prompts/baseline/tests.md.
 IMPL_SCHEMA: dict = {
     "type": "object",
@@ -184,16 +189,123 @@ def resolve_session(repo: Path, util: str, round_n: int, requested: str | None) 
 # ---------- prompt rendering ---------------------------------------------------
 
 
-def render_base_prompt(repo: Path, util: str, prompt_kind: str) -> tuple[str, str, str]:
+SLICE_FOCUS_HINTS: dict = {
+    "errors": (
+        "Focus on documented error conditions: nonexistent SOURCE, "
+        "target-is-directory traps (-T / --no-target-directory), permission "
+        "errors the manpage explicitly mentions, cross-device caveats, "
+        "missing required arguments. Every `expected_to_fail: true` test "
+        "here should cite a specific manpage sentence."
+    ),
+    "flags": (
+        "Focus on per-flag semantics, including documented flag interactions "
+        "(e.g. -i vs -f precedence, -T vs -t mutual exclusion, --backup "
+        "variants, --update modes). Cover both the default and each "
+        "non-default value of any enum-style option the manpage names."
+    ),
+    "environment": (
+        "Focus on environment-variable influence on behavior. Look for any "
+        "env var the manpage names (POSIXLY_CORRECT, LC_*, TMPDIR, "
+        "SIMPLE_BACKUP_SUFFIX, VERSION_CONTROL, etc.) and test how setting "
+        "or clearing it changes the documented outcome. If the manpage names "
+        "no env vars, produce tests verifying that documented behavior is "
+        "stable across a representative set of LC_ALL settings."
+    ),
+    "examples": (
+        "Focus on documented invocation patterns and edge cases the manpage "
+        "calls out by example or by name: trailing slashes on paths, "
+        "special-character filenames in the documented set, multi-source "
+        "into-directory forms, single-arg rename vs into-directory "
+        "ambiguity, the documented behavior on stdin/stdout redirection."
+    ),
+}
+
+
+def _template_path(repo: Path, prompt_kind: str) -> Path:
+    if prompt_kind == "adversarial-cold":
+        return repo / "prompts" / "adversarial" / "cold_section.md"
+    if prompt_kind == "adversarial-posthoc":
+        return repo / "prompts" / "adversarial" / "posthoc.md"
+    return repo / "prompts" / "baseline" / f"{prompt_kind}.md"
+
+
+def render_base_prompt(
+    repo: Path,
+    util: str,
+    prompt_kind: str,
+    *,
+    slice_name: str | None = None,
+    baseline_session: str | None = None,
+    baseline_round: int | None = None,
+) -> tuple[str, str, str]:
     """Return (rendered_prompt_no_feedback, template_sha256, manpage_sha256)."""
-    template_path = repo / "prompts" / "baseline" / f"{prompt_kind}.md"
+    template_path = _template_path(repo, prompt_kind)
     manpage_path = repo / "utils" / util / "manpage.txt"
     template_text = template_path.read_text()
     manpage_text = manpage_path.read_text()
     rendered = template_text.replace("{{manpage}}", manpage_text)
+
+    if prompt_kind == "adversarial-cold":
+        if not slice_name or slice_name not in SLICE_FOCUS_HINTS:
+            fail(
+                f"--slice required for adversarial-cold; one of "
+                f"{sorted(SLICE_FOCUS_HINTS)}; got {slice_name!r}"
+            )
+        rendered = rendered.replace("{{slice_name}}", slice_name)
+        rendered = rendered.replace(
+            "{{slice_focus_hint}}", SLICE_FOCUS_HINTS[slice_name]
+        )
+
+    if prompt_kind == "adversarial-posthoc":
+        if not baseline_session or baseline_round is None:
+            fail(
+                "--baseline-session and --baseline-round required for "
+                "adversarial-posthoc"
+            )
+        impl_dir = (
+            repo / "runs" / util / baseline_session
+            / f"round_{baseline_round:02d}" / "impl"
+        )
+        main_rs = (impl_dir / "src" / "main.rs").read_text()
+        cargo_toml = (impl_dir / "Cargo.toml").read_text()
+        rendered = rendered.replace("{{rust_main_rs}}", main_rs)
+        rendered = rendered.replace("{{rust_cargo_toml}}", cargo_toml)
+
     template_sha = hashlib.sha256(template_text.encode()).hexdigest()
     manpage_sha = hashlib.sha256(manpage_text.encode()).hexdigest()
     return rendered, template_sha, manpage_sha
+
+
+def _coverage_feedback_block(prev_round: Path) -> str:
+    """Render a structured 'uncovered' block from coverage_flags.json +
+    coverage_rust.json. Returns "" if neither file exists or no gaps."""
+    chunks: list[str] = []
+    cf = prev_round / "coverage_flags.json"
+    if cf.is_file():
+        try:
+            data = json.loads(cf.read_text())
+        except json.JSONDecodeError:
+            data = {}
+        uncov_flags = data.get("uncovered_flags") or data.get("uncovered") or []
+        if uncov_flags:
+            chunks.append("Flag coverage gaps (manpage-documented, no test exercises them):")
+            for f in uncov_flags[:30]:
+                chunks.append(f"  - {f}")
+    cr = prev_round / "coverage_rust.json"
+    if cr.is_file():
+        try:
+            data = json.loads(cr.read_text())
+        except json.JSONDecodeError:
+            data = {}
+        if data.get("line_coverage_pct") is not None and not data.get("compile_failed"):
+            chunks.append(
+                f"Rust line coverage: {data['line_coverage_pct']}% "
+                f"(consider adding tests for documented branches not yet "
+                f"exercised; see coverage_rust.json for the line-level map)."
+            )
+    if not chunks:
+        return ""
+    return "Coverage gaps from previous round:\n" + "\n".join(chunks)
 
 
 def build_feedback_section(
@@ -242,6 +354,13 @@ def build_feedback_section(
             chunks.append("```")
             chunks.extend(err_text)
             chunks.append("```")
+
+    # Optional structured-coverage block (--include-coverage-feedback).
+    if _INCLUDE_COVERAGE_FEEDBACK:
+        cov_block = _coverage_feedback_block(prev)
+        if cov_block:
+            chunks.append("")
+            chunks.append(cov_block)
 
     # Analyst observations (manual, optional).
     obs = prev / "_observations.md"
@@ -306,10 +425,29 @@ def _format_failure(row: dict) -> str:
 
 
 def render_prompt(
-    repo: Path, util: str, prompt_kind: str, session: str, round_n: int
+    repo: Path,
+    util: str,
+    prompt_kind: str,
+    session: str,
+    round_n: int,
+    *,
+    slice_name: str | None = None,
+    baseline_session: str | None = None,
+    baseline_round: int | None = None,
 ) -> tuple[str, str, str, str]:
     """Return (rendered_prompt, template_sha, manpage_sha, feedback_sha)."""
-    base, template_sha, manpage_sha = render_base_prompt(repo, util, prompt_kind)
+    base, template_sha, manpage_sha = render_base_prompt(
+        repo,
+        util,
+        prompt_kind,
+        slice_name=slice_name,
+        baseline_session=baseline_session,
+        baseline_round=baseline_round,
+    )
+    # Adversarial flavors run in a fresh session ID; the iteration-feedback
+    # block applies only to baseline impl/tests prompts.
+    if prompt_kind in ("adversarial-cold", "adversarial-posthoc"):
+        return base, template_sha, manpage_sha, ""
     feedback = build_feedback_section(repo, util, session, round_n, prompt_kind)
     if feedback:
         rendered = base + "\n\n" + feedback + "\n"
@@ -325,21 +463,85 @@ def render_prompt(
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser()
     ap.add_argument("--util", required=True, help="utility name, e.g. cp")
-    ap.add_argument("--prompt", required=True, choices=["impl", "tests"])
+    ap.add_argument(
+        "--prompt",
+        required=True,
+        choices=["impl", "tests", "adversarial-cold", "adversarial-posthoc"],
+    )
     ap.add_argument("--round", type=int, required=True)
     ap.add_argument(
         "--session",
         default=None,
         help=(
             "Session id (YYYY-MM-DDTHH-MM-SSZ). Omit on round 1 to mint a "
-            "fresh one; omit on round >=2 to reuse the latest session."
+            "fresh one; omit on round >=2 to reuse the latest session. "
+            "Adversarial flavors should mint a fresh session via round 1."
+        ),
+    )
+    ap.add_argument(
+        "--slice",
+        default=None,
+        choices=sorted(SLICE_FOCUS_HINTS),
+        help="thematic slice (adversarial-cold only): errors|flags|environment|examples.",
+    )
+    ap.add_argument(
+        "--baseline-session",
+        default=None,
+        help=(
+            "session id of the baseline impl to materialize into the "
+            "adversarial round dir (required for adversarial-posthoc; "
+            "optional but useful for adversarial-cold)."
+        ),
+    )
+    ap.add_argument(
+        "--baseline-round",
+        type=int,
+        default=None,
+        help="round number of the baseline impl (paired with --baseline-session).",
+    )
+    ap.add_argument(
+        "--include-coverage-feedback",
+        action="store_true",
+        help=(
+            "round >=2 only: append a structured 'uncovered' block to the "
+            "feedback section listing manpage flags with zero test coverage "
+            "and rust lines with zero branch coverage."
         ),
     )
     return ap.parse_args()
 
 
 def schema_for(prompt_kind: str) -> dict:
-    return IMPL_SCHEMA if prompt_kind == "impl" else TESTS_SCHEMA
+    # Adversarial flavors emit the same TESTS_SCHEMA so run_tests.py and
+    # the divergence classifier consume them uniformly.
+    if prompt_kind == "impl":
+        return IMPL_SCHEMA
+    return TESTS_SCHEMA
+
+
+def materialize_baseline_impl(
+    repo: Path, util: str, round_dir: Path, baseline_session: str, baseline_round: int
+) -> Path:
+    """Copy the baseline Rust impl into round_dir/impl/ so run_tests.py finds it.
+
+    Adversarial runs do not generate impl artifacts; they reuse a frozen
+    baseline impl as the differential-testing target. Materializing under
+    `impl/` (rather than `impl_baseline/`) keeps run_tests.py unchanged.
+    Returns the destination path.
+    """
+    src = repo / "runs" / util / baseline_session / f"round_{baseline_round:02d}" / "impl"
+    if not (src / "src" / "main.rs").is_file():
+        fail(f"baseline impl not found at {src}")
+    dst = round_dir / "impl"
+    if dst.exists():
+        return dst
+    shutil.copytree(src, dst, dirs_exist_ok=False)
+    # Record provenance so future readers know this impl was not gen'd here.
+    (round_dir / "_logs").mkdir(parents=True, exist_ok=True)
+    (round_dir / "_logs" / "impl_provenance.txt").write_text(
+        f"materialized from runs/{util}/{baseline_session}/round_{baseline_round:02d}/impl\n"
+    )
+    return dst
 
 
 def call_openai(
@@ -627,8 +829,10 @@ def extract_tests(payload: dict, round_dir: Path) -> tuple[int, dict]:
 
 
 def main() -> None:
+    global _INCLUDE_COVERAGE_FEEDBACK
     load_dotenv()
     args = parse_args()
+    _INCLUDE_COVERAGE_FEEDBACK = bool(getattr(args, "include_coverage_feedback", False))
     repo = Path(__file__).resolve().parents[2]
 
     session = resolve_session(repo, args.util, args.round, args.session)
@@ -637,9 +841,27 @@ def main() -> None:
     logs_dir.mkdir(parents=True, exist_ok=True)
 
     prompt, template_sha, manpage_sha, feedback_sha = render_prompt(
-        repo, args.util, args.prompt, session, args.round
+        repo,
+        args.util,
+        args.prompt,
+        session,
+        args.round,
+        slice_name=args.slice,
+        baseline_session=args.baseline_session,
+        baseline_round=args.baseline_round,
     )
     (logs_dir / f"{args.prompt}_prompt.txt").write_text(prompt)
+
+    if args.prompt in ("adversarial-cold", "adversarial-posthoc"):
+        if not args.baseline_session or args.baseline_round is None:
+            fail(
+                "adversarial flavors require --baseline-session and "
+                "--baseline-round so run_tests.py can diff against the "
+                "frozen baseline Rust impl."
+            )
+        materialize_baseline_impl(
+            repo, args.util, round_dir, args.baseline_session, args.baseline_round
+        )
 
     raw, text, dt = call_openai(prompt, args.prompt, logs_dir)
     (logs_dir / f"{args.prompt}_response.json").write_text(json.dumps(raw, indent=2))
@@ -658,6 +880,7 @@ def main() -> None:
         _, gate_info = extract_impl(payload, round_dir)
         print(f"impl written: {round_dir / 'impl'}")
     else:
+        # tests, adversarial-cold, adversarial-posthoc all emit TESTS_SCHEMA.
         n, gate_info = extract_tests(payload, round_dir)
         print(f"{n} tests written: {round_dir / 'tests'}")
 

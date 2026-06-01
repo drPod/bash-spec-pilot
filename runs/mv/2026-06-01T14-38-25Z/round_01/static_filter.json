@@ -1,0 +1,144 @@
+{
+  "kept": [
+    "001_simple_backup_suffix_env.sh",
+    "002_suffix_option_overrides_env.sh",
+    "003_version_control_none_suppresses_backup.sh",
+    "004_version_control_off_alias_suppresses_backup.sh",
+    "005_version_control_numbered_env.sh",
+    "006_version_control_t_alias_env.sh",
+    "007_version_control_existing_simple_no_numbered.sh",
+    "008_version_control_existing_numbered_present.sh",
+    "009_version_control_nil_alias_numbered_present.sh",
+    "010_version_control_simple_ignores_numbered_present.sh",
+    "011_version_control_never_alias_simple.sh",
+    "012_backup_option_overrides_version_control_env.sh",
+    "013_version_control_without_backup_no_backup.sh",
+    "014_invalid_version_control_env_fails.sh",
+    "015_invalid_backup_control_fails.sh",
+    "016_update_none_fail_existing_fails.sh",
+    "017_invalid_update_argument_fails.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_simple_backup_suffix_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_suffix_option_overrides_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_version_control_none_suppresses_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_version_control_off_alias_suppresses_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_version_control_numbered_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_version_control_t_alias_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_version_control_existing_simple_no_numbered.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_version_control_existing_numbered_present.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_version_control_nil_alias_numbered_present.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_version_control_simple_ignores_numbered_present.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_version_control_never_alias_simple.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_backup_option_overrides_version_control_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_version_control_without_backup_no_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_invalid_version_control_env_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_invalid_backup_control_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_update_none_fail_existing_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_invalid_update_argument_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

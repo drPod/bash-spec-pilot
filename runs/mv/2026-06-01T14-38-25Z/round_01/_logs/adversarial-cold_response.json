@@ -1,0 +1,128 @@
+{
+  "id": "resp_03de15426765e248006a1d9961fac081a1ac9b73694baf22f5",
+  "created_at": 1780324706.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_03de15426765e248006a1d996293b881a19da176a84307fd13",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_03de15426765e248006a1d999acd2481a19ccc3bd37c2c7aca",
+      "content": [
+        {
+          "annotations": [],
+          "text": "{\"tests\":[{\"filename\":\"001_simple_backup_suffix_env.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset VERSION_CONTROL\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nSIMPLE_BACKUP_SUFFIX=.bak \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.bak\\\"; then\\n  echo \\\"SIMPLE_BACKUP_SUFFIX backup not created with old contents\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"SIMPLE_BACKUP_SUFFIX sets the backup suffix when --backup makes a simple backup\",\"expected\":\"The existing destination is backed up using the suffix from SIMPLE_BACKUP_SUFFIX.\",\"expected_to_fail\":false},{\"filename\":\"002_suffix_option_overrides_env.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset VERSION_CONTROL\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nSIMPLE_BACKUP_SUFFIX=.env \\\"$UTIL\\\" --backup -S .cmd \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.cmd\\\"; then\\n  echo \\\"-S did not override SIMPLE_BACKUP_SUFFIX\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-S/--suffix overrides the usual backup suffix, including SIMPLE_BACKUP_SUFFIX\",\"expected\":\"The backup uses the suffix supplied by -S, not the environment suffix.\",\"expected_to_fail\":false},{\"filename\":\"003_version_control_none_suppresses_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=none \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ -e \\\"$tmpdir/dst~\\\" || -e \\\"$tmpdir/dst.~1~\\\" ]]; then\\n  echo \\\"VERSION_CONTROL=none created a backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=none: documented to never make backups even if --backup is given\",\"expected\":\"No simple or numbered backup file is created.\",\"expected_to_fail\":false},{\"filename\":\"004_version_control_off_alias_suppresses_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=off \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ -e \\\"$tmpdir/dst~\\\" || -e \\\"$tmpdir/dst.~1~\\\" ]]; then\\n  echo \\\"VERSION_CONTROL=off created a backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=off alias for none: documented to never make backups even if --backup is given\",\"expected\":\"No simple or numbered backup file is created.\",\"expected_to_fail\":false},{\"filename\":\"005_version_control_numbered_env.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=numbered \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.~1~\\\"; then\\n  echo \\\"VERSION_CONTROL=numbered did not create numbered backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=numbered selects numbered backups\",\"expected\":\"The old destination is saved as the first numbered backup.\",\"expected_to_fail\":false},{\"filename\":\"006_version_control_t_alias_env.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=t \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.~1~\\\"; then\\n  echo \\\"VERSION_CONTROL=t did not create numbered backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=t alias for numbered backups\",\"expected\":\"The old destination is saved as the first numbered backup.\",\"expected_to_fail\":false},{\"filename\":\"007_version_control_existing_simple_no_numbered.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=existing \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst~\\\"; then\\n  echo \\\"VERSION_CONTROL=existing without numbered backups did not make simple backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=existing: simple backup when no numbered backups exist\",\"expected\":\"With no numbered backup already present, the old destination is saved as a simple backup.\",\"expected_to_fail\":false},{\"filename\":\"008_version_control_existing_numbered_present.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~1~\\\"\\nVERSION_CONTROL=existing \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.~2~\\\"; then\\n  echo \\\"VERSION_CONTROL=existing with numbered backup present did not make next numbered backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=existing: numbered backup if numbered backups exist\",\"expected\":\"With an existing numbered backup, the old destination is saved as the next numbered backup.\",\"expected_to_fail\":false},{\"filename\":\"009_version_control_nil_alias_numbered_present.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~1~\\\"\\nVERSION_CONTROL=nil \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst.~2~\\\"; then\\n  echo \\\"VERSION_CONTROL=nil did not behave like existing with numbered backups present\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=nil alias for existing: numbered backup if numbered backups exist\",\"expected\":\"With an existing numbered backup, the old destination is saved as the next numbered backup.\",\"expected_to_fail\":false},{\"filename\":\"010_version_control_simple_ignores_numbered_present.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~1~\\\"\\nVERSION_CONTROL=simple \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst~\\\"; then\\n  echo \\\"VERSION_CONTROL=simple did not make a simple backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=simple always makes simple backups, even when numbered backups exist\",\"expected\":\"The old destination is saved as a simple backup.\",\"expected_to_fail\":false},{\"filename\":\"011_version_control_never_alias_simple.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~1~\\\"\\nVERSION_CONTROL=never \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst~\\\"; then\\n  echo \\\"VERSION_CONTROL=never did not behave like simple\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL=never alias for simple: always make simple backups\",\"expected\":\"The old destination is saved as a simple backup.\",\"expected_to_fail\":false},{\"filename\":\"012_backup_option_overrides_version_control_env.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=numbered \\\"$UTIL\\\" --backup=simple \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif ! grep -qx 'old' \\\"$tmpdir/dst~\\\"; then\\n  echo \\\"--backup=simple did not override VERSION_CONTROL=numbered\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"Version control method may be selected via --backup option or VERSION_CONTROL; explicit --backup=CONTROL selects simple over env numbered\",\"expected\":\"The explicit --backup=simple control creates a simple backup despite VERSION_CONTROL=numbered.\",\"expected_to_fail\":false},{\"filename\":\"013_version_control_without_backup_no_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nVERSION_CONTROL=numbered \\\"$UTIL\\\" \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\"\\nif [[ -e \\\"$tmpdir/dst~\\\" || -e \\\"$tmpdir/dst.~1~\\\" ]]; then\\n  echo \\\"VERSION_CONTROL alone caused a backup without --backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup is the option that makes backups; VERSION_CONTROL only selects the method\",\"expected\":\"No backup file is created when --backup is absent, even with VERSION_CONTROL set.\",\"expected_to_fail\":false},{\"filename\":\"014_invalid_version_control_env_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\nVERSION_CONTROL=bogus \\\"$UTIL\\\" --backup \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"invalid VERSION_CONTROL value succeeded\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"VERSION_CONTROL is documented to accept only the listed control values\",\"expected\":\"An unlisted VERSION_CONTROL value is rejected with nonzero exit status.\",\"expected_to_fail\":true},{\"filename\":\"015_invalid_backup_control_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nunset VERSION_CONTROL\\nunset SIMPLE_BACKUP_SUFFIX\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --backup=bogus \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"invalid --backup control value succeeded\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup[=CONTROL] is documented with a finite set of CONTROL values\",\"expected\":\"An unlisted --backup control value is rejected with nonzero exit status.\",\"expected_to_fail\":true},{\"filename\":\"016_update_none_fail_existing_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --update=none-fail \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"--update=none-fail skipped existing destination without failure\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=none-fail: skipped existing destination files are diagnosed and induce a failure\",\"expected\":\"Moving onto an existing destination with --update=none-fail exits nonzero.\",\"expected_to_fail\":true},{\"filename\":\"017_invalid_update_argument_fails.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --update=bogus \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>&1\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"invalid --update argument succeeded\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update accepts only UPDATE={all,none,none-fail,older(default)}\",\"expected\":\"An unlisted --update argument is rejected with nonzero exit status.\",\"expected_to_fail\":true}]}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1780324793.0,
+  "conversation": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null,
+    "context": "current_turn"
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "name": "adversarial-cold_artifact",
+      "schema_": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tests"
+        ],
+        "properties": {
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "filename",
+                "body",
+                "exercises",
+                "expected",
+                "expected_to_fail"
+              ],
+              "properties": {
+                "filename": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "exercises": {
+                  "type": "string"
+                },
+                "expected": {
+                  "type": "string"
+                },
+                "expected_to_fail": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "type": "json_schema",
+      "description": null,
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2208,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 5873,
+    "output_tokens_details": {
+      "reasoning_tokens": 2588
+    },
+    "total_tokens": 8081
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "moderation": null,
+  "presence_penalty": 0.0,
+  "store": true
+}

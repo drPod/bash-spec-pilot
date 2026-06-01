@@ -22,6 +22,12 @@ generated alongside the impl is differentially tested against the real GNU binar
 trixie container. The output of interest is not a pass rate but a catalogue of failure modes in
 [`docs/research/taxonomy.md`](docs/research/taxonomy.md).
 
+Currently, the pipeline, given a manpage, makes two independent calls to a model. One produces a
+Rust re-implementation and the other produces a test suite. We then test the Rust implementation
+against the Bash test suite and even though it's two "independent" perspectives, the model on both
+calls tends to make the same mistakes. Basically, **the test suite isn't adversarial, it's a sibling
+of the implementation.**
+
 ## Repository layout
 
 ```text
@@ -39,8 +45,8 @@ formal-verification/
 │   └── research/
 │       ├── taxonomy.md                ← running failure catalogue
 │       ├── decisions.md               ← decision log (TOC at top)
-│       ├── setup.md                   ← stack choices + onboarding
-│       └── slack_dm.md                ← weekly Slack-DM template
+│       ├── adversarial_prior_art.md   ← wave-4 prior-art pass (homogenization trap, ACH, Code-A1)
+│       └── setup.md                   ← stack choices + onboarding
 ├── dashboard/                         ← Streamlit dashboard reading runs/
 │   ├── streamlit_app.py
 │   ├── data.py
@@ -72,15 +78,25 @@ formal-verification/
 │   ├── baseline/
 │   │   ├── impl.md                    ← Rust-generation prompt template
 │   │   └── tests.md                   ← test-generation prompt template
-│   └── adversarial/                   ← reserved for wave-4 adversarial test variant
+│   └── adversarial/                   ← wave-4 adversarial test variants
+│       ├── README.md                  ← templates + slice vocabulary + schema
+│       ├── cold_section.md            ← manpage-only cold prompt ({{slice_name}})
+│       └── posthoc.md                 ← manpage + frozen Rust impl, whitebox bug-finding
+├── tests/
+│   └── properties/<util>/             ← wave-4 metamorphic floor (hand-written, non-LLM)
 ├── scripts/
 │   ├── pipeline/
-│   │   ├── driver.py                  ← render prompt → call OpenAI → save artifacts (handles iteration)
+│   │   ├── driver.py                  ← render prompt → call OpenAI → save artifacts (handles iteration + wave-4 adversarial modes)
 │   │   └── run_tests.py               ← run a round's tests against the GNU oracle or Rust impl
 │   ├── freeze/
 │   │   └── freeze_manpage.sh          ← fetch + render man page from manpages.debian.org
 │   ├── eval/
-│   │   ├── eval_round.sh              ← roll-up: test pass rates + flag cov + line cov, one-line summary
+│   │   ├── eval_round.sh              ← baseline roll-up: test pass rates + flag cov + line cov, one-line summary
+│   │   ├── eval_adversarial.sh        ← wave-4 roll-up: static-filter + real-gnu + rust + 4-bucket classify
+│   │   ├── static_filter.sh           ← bash -n + shellcheck pre-filter (SLMFix-style)
+│   │   ├── classify_divergence.py     ← 4-bucket classifier + mut@k + DEPC + effective-test rate
+│   │   ├── run_metamorphic.sh         ← runner for tests/properties/<util>/*.sh in trixie
+│   │   ├── minimize_failure.py        ← ReduceFix-style LLM divergence minimizer
 │   │   ├── coverage_flags.py          ← flag-coverage metric (manpage flags vs. exercised flags)
 │   │   ├── coverage_rust.sh           ← cargo tarpaulin line/branch coverage in Docker
 │   │   └── positivity.py              ← per-round positive vs negative test breakdown

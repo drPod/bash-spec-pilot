@@ -31,9 +31,14 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 # Pipeline shape
 
 - `scripts/freeze/freeze_manpage.sh <util>` -> Debian trixie groff fetch -> `mandoc -Tutf8 | col -bx` -> `utils/<util>/manpage.txt` + `manpage.<section>` (raw groff) + `_source.json` (provenance: URL, pkg version, sha256). Supports `cp | mv | find | sudo`.
-- `scripts/pipeline/driver.py --util <u> --prompt {impl,tests} --round N [--session <sid>]` -> renders prompt template against frozen manpage -> OpenAI Responses API with strict JSON schema -> writes `runs/<u>/<sid>/round_NN/{impl/, tests/, _logs/}`. Round 1 mints fresh session. Round >=2 reuses latest session unless `--session` given. Round >=2 appends "Previous attempt feedback" block (top-N failing tests + Rust build errors + optional `_observations.md`).
+- `scripts/pipeline/driver.py --util <u> --prompt {impl,tests,adversarial-cold,adversarial-posthoc} --round N [--session <sid>]` -> renders prompt template against frozen manpage -> OpenAI Responses API with strict JSON schema -> writes `runs/<u>/<sid>/round_NN/{impl/, tests/, _logs/}`. Round 1 mints fresh session. Round >=2 reuses latest session unless `--session` given. Round >=2 appends "Previous attempt feedback" block (top-N failing tests + Rust build errors + optional `_observations.md`). Adversarial modes accept `--slice {errors,flags,environment,examples}` (cold) or `--baseline-session/--baseline-round/--baseline-prompt` (posthoc); feedback section suppressed in adversarial round 1.
 - `scripts/pipeline/run_tests.py --util <u> --session <sid> --round N --target {real-gnu,rust} [--in-docker]` -> runs `tests/*.sh` with `$UTIL` env var -> writes `results_<target>.jsonl`. `real-gnu` always batches inside trixie container (canonical oracle).
-- `scripts/eval/eval_round.sh <u> <sid> <round>` -> end-to-end eval orchestrator: real-gnu pass + rust pass + flag coverage + line coverage + summary line.
+- `scripts/eval/eval_round.sh <u> <sid> <round>` -> baseline eval orchestrator: real-gnu pass + rust pass + flag coverage + line coverage + summary line.
+- `scripts/eval/eval_adversarial.sh <u> <sid> <round>` -> wave-4 eval orchestrator: static pre-filter + real-gnu + rust + 4-bucket classify + mut@k/DEPC summary.
+- `scripts/eval/static_filter.sh <u> <sid> <round>` -> `bash -n` + `shellcheck -S error` pre-filter, writes `static_filter.json` (kept/dropped). Dropped tests excluded from mut@k denominator (SLMFix-style).
+- `scripts/eval/classify_divergence.py <u> <sid> <round>` -> 4-bucket classifier (baseline/divergence/shared_bug/hallucinated_spec), emits `classification.json` + `divergences.jsonl` with mut@k, DEPC, effective-test rate.
+- `scripts/eval/run_metamorphic.sh <u> [--as-user]` -> runs hand-written `tests/properties/<u>/*.sh` against trixie real-gnu (sudo uses `--as-user` for non-root tester).
+- `scripts/eval/minimize_failure.py <u> <sid> <round> <test_name>` -> ReduceFix-style LLM shrinker; reads a `divergences.jsonl` row, emits minimized invocation under `minimized/`.
 - `scripts/eval/coverage_flags.py` -> flag-coverage metric (manpage-documented flags vs flags exercised by tests).
 - `scripts/eval/coverage_rust.sh` -> branch/line coverage on Rust impl via `cargo tarpaulin`.
 - `scripts/eval/positivity.py` -> positive vs negative test breakdown per round.
@@ -44,11 +49,13 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 # Routing — when read what
 
 - OpenAI SDK question (parameter exists? error class? reasoning effort?) -> `docs/openai/<file>.md`. NEVER WebFetch platform.openai.com. NEVER paraphrase from memory. Mirror is ground truth at pin in `docs/openai/_pin.txt`.
-- Decision history / why-we-chose-X -> `docs/research/decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror.
-- Prior work / prior art / what's been tried -> `literature/_synthesis.md`. Read order: Caruca -> Endres -> Tambon -> Westenfelder.
+- Decision history / why-we-chose-X -> `docs/research/decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror, wave-4 cold-adversarial pilot (§ 10).
+- Prior work / prior art / what's been tried -> `literature/_synthesis.md`. Read order: Caruca -> Endres -> Tambon -> Westenfelder. Wave-4-specific prior art -> `docs/research/adversarial_prior_art.md` (homogenization trap, self-collusion, ACH/CoverUp/Code-A1).
 - Failure-mode catalog (Tambon-derived schema) -> `docs/research/taxonomy.md`.
 - Setup / onboarding / stack rationale -> `docs/research/setup.md`.
 - Repo overview / why-project-exists / data-collection priorities -> `README.md`.
+- Wave-4 adversarial prompt templates -> `prompts/adversarial/{cold_section,posthoc}.md` + `prompts/adversarial/README.md` (slice vocabulary + schema).
+- Wave-4 metamorphic floor (hand-written non-LLM invariants per util) -> `tests/properties/<util>/*.sh`.
 
 # Conventions
 

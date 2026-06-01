@@ -1,0 +1,49 @@
+{
+  "util": "mv",
+  "session": "2026-06-01T14-39-56Z",
+  "round": 1,
+  "n_total_scored": 22,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 20,
+    "divergence": 0,
+    "shared_bug": 1,
+    "hallucinated_spec": 1,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_single_source_dest_rename.sh",
+      "002_single_source_existing_directory.sh",
+      "003_no_target_directory_rejects_dir_dest.sh",
+      "004_multi_source_directory_form.sh",
+      "005_multi_source_requires_directory.sh",
+      "006_target_directory_option_form.sh",
+      "007_target_directory_must_be_directory.sh",
+      "008_unstripped_trailing_slash_on_file_fails.sh",
+      "010_strip_trailing_slashes_each_source.sh",
+      "011_final_no_clobber_wins_over_force.sh",
+      "012_final_force_wins_over_no_clobber.sh",
+      "014_update_older_default_skips_newer_dest.sh",
+      "015_no_update_defaults_to_all.sh",
+      "016_update_none_skips_without_failure.sh",
+      "017_update_none_fail_reports_failure.sh",
+      "018_invalid_update_value_fails.sh",
+      "019_backup_simple_suffix_tilde.sh",
+      "020_backup_numbered_name.sh",
+      "021_backup_none_makes_no_backup.sh",
+      "022_exchange_swaps_two_files.sh"
+    ],
+    "divergence": [],
+    "shared_bug": [
+      "013_interactive_reads_stdin_no.sh"
+    ],
+    "hallucinated_spec": [
+      "009_strip_trailing_slash_single_file.sh"
+    ],
+    "incomplete": []
+  },
+  "mut_at_k": 0.0,
+  "effective_test_rate": 0.045454545454545456,
+  "depc": 0
+}

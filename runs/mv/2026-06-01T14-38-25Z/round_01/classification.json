@@ -1,0 +1,42 @@
+{
+  "util": "mv",
+  "session": "2026-06-01T14-38-25Z",
+  "round": 1,
+  "n_total_scored": 17,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 17,
+    "divergence": 0,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_simple_backup_suffix_env.sh",
+      "002_suffix_option_overrides_env.sh",
+      "003_version_control_none_suppresses_backup.sh",
+      "004_version_control_off_alias_suppresses_backup.sh",
+      "005_version_control_numbered_env.sh",
+      "006_version_control_t_alias_env.sh",
+      "007_version_control_existing_simple_no_numbered.sh",
+      "008_version_control_existing_numbered_present.sh",
+      "009_version_control_nil_alias_numbered_present.sh",
+      "010_version_control_simple_ignores_numbered_present.sh",
+      "011_version_control_never_alias_simple.sh",
+      "012_backup_option_overrides_version_control_env.sh",
+      "013_version_control_without_backup_no_backup.sh",
+      "014_invalid_version_control_env_fails.sh",
+      "015_invalid_backup_control_fails.sh",
+      "016_update_none_fail_existing_fails.sh",
+      "017_invalid_update_argument_fails.sh"
+    ],
+    "divergence": [],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.0,
+  "effective_test_rate": 0.0,
+  "depc": 0
+}

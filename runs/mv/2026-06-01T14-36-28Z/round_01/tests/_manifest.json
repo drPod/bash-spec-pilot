@@ -1,0 +1,163 @@
+[
+  {
+    "filename": "001_force_after_interactive_overwrites.sh",
+    "exercises": "If more than one of -i, -f, -n is specified, only the final one takes effect: final -f overwrites.",
+    "expected": "Destination contains the source content after -i -f.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_interactive_after_force_decline_preserves.sh",
+    "exercises": "If more than one of -i, -f, -n is specified, only the final one takes effect: final -i prompts before overwrite.",
+    "expected": "Answering no to the final interactive prompt leaves the destination unchanged.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_no_clobber_after_force_preserves.sh",
+    "exercises": "If more than one of -i, -f, -n is specified, only the final one takes effect: final -n does not overwrite an existing file.",
+    "expected": "Destination remains unchanged under -f -n.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_force_after_no_clobber_overwrites.sh",
+    "exercises": "If more than one of -i, -f, -n is specified, only the final one takes effect: final -f overrides -n.",
+    "expected": "Destination is overwritten under -n -f.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_target_directory_places_source_inside.sh",
+    "exercises": "-t, --target-directory=DIRECTORY moves all SOURCE arguments into DIRECTORY.",
+    "expected": "The source file appears inside the target directory with its content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_no_target_directory_existing_dir_fails.sh",
+    "exercises": "-T, --no-target-directory treats DEST as a normal file; moving a file onto an existing directory as that file is an error.",
+    "expected": "The command exits nonzero.",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_t_and_T_conflict_fails.sh",
+    "exercises": "-T no-target-directory and -t target-directory are mutually exclusive destination-selection modes.",
+    "expected": "The command exits nonzero.",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_update_none_preserves_existing_success.sh",
+    "exercises": "--update=none is like --no-clobber: no destination files are replaced and skipped files do not induce failure.",
+    "expected": "Existing destination content is preserved.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_update_none_fail_status_nonzero.sh",
+    "exercises": "--update=none-fail skips existing destinations but diagnoses skipped files and induces a failure.",
+    "expected": "The command exits nonzero when the destination already exists.",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_update_older_replaces_when_dest_older.sh",
+    "exercises": "--update=older replaces an existing destination file if it is older than the corresponding source file.",
+    "expected": "Older destination is replaced with source content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_update_older_preserves_when_dest_newer.sh",
+    "exercises": "--update=older does not replace an existing destination file that is newer than the source file.",
+    "expected": "Newer destination content is preserved.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_update_no_argument_defaults_older.sh",
+    "exercises": "--update with no UPDATE argument defaults to older, not all.",
+    "expected": "Bare --update preserves a destination newer than the source.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_update_all_replaces_even_newer.sh",
+    "exercises": "--update=all replaces all existing files in the destination; this is also the default operation when --update is not specified.",
+    "expected": "Destination is replaced even though it is newer than the source.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_backup_simple_creates_tilde.sh",
+    "exercises": "--backup=simple makes a simple backup of each existing destination file using the usual '~' suffix.",
+    "expected": "The simple backup file contains the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "015_backup_numbered_creates_numbered.sh",
+    "exercises": "--backup=numbered makes numbered backups.",
+    "expected": "The first numbered backup dest.~1~ contains the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "016_backup_existing_uses_numbered_if_present.sh",
+    "exercises": "--backup=existing makes numbered backups if numbered backups already exist, simple otherwise.",
+    "expected": "With dest.~1~ already present, the new backup is dest.~2~ containing the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "017_backup_none_makes_no_backup.sh",
+    "exercises": "--backup=none, also named off, never makes backups even if --backup is given.",
+    "expected": "No simple backup file is created.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "018_suffix_overrides_backup_suffix.sh",
+    "exercises": "-S, --suffix=SUFFIX overrides the usual backup suffix.",
+    "expected": "The backup uses .bak and contains the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "019_version_control_env_numbered.sh",
+    "exercises": "The version control method may be selected through the VERSION_CONTROL environment variable when --backup is used.",
+    "expected": "VERSION_CONTROL=numbered creates dest.~1~ containing the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "020_simple_backup_suffix_env.sh",
+    "exercises": "The backup suffix is '~' unless set with --suffix or SIMPLE_BACKUP_SUFFIX.",
+    "expected": "The simple backup uses the .save suffix and contains the old destination content.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "021_strip_trailing_slashes_file_source.sh",
+    "exercises": "--strip-trailing-slashes removes any trailing slashes from each SOURCE argument.",
+    "expected": "A file source named with a trailing slash is moved after stripping the slash.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "022_exchange_swaps_two_files.sh",
+    "exercises": "--exchange exchanges source and destination.",
+    "expected": "After exchange, the original destination content is at the source path.",
+    "expected_to_fail": false,
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "023_suffix_missing_argument_fails.sh",
+    "exercises": "--suffix=SUFFIX has a mandatory argument; absent SUFFIX is an option error.",
+    "expected": "The command exits nonzero when --suffix is missing its argument.",
+    "expected_to_fail": true,
+    "shellcheck_issues": 0
+  }
+]
