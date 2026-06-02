@@ -36,6 +36,20 @@ def _load_json(path: Path) -> dict | None:
         return None
 
 
+def _session_mode(round_dir: Path) -> str:
+    """Classify a round by the test-generation prompt recorded in log.jsonl.
+
+    Baseline rounds log `impl`/`tests`; wave-4 rounds log an adversarial prompt
+    name. Posthoc wins over cold when both appear.
+    """
+    prompts = {e.get("prompt") for e in _load_jsonl(round_dir / "_logs" / "log.jsonl")}
+    if "adversarial-posthoc" in prompts:
+        return "adversarial-posthoc"
+    if "adversarial-cold" in prompts:
+        return "adversarial-cold"
+    return "baseline"
+
+
 @st.cache_data(show_spinner=False)
 def list_utils() -> list[str]:
     return sorted(d.name for d in RUNS.iterdir() if d.is_dir())
@@ -64,6 +78,7 @@ def discover_rounds() -> pd.DataFrame:
                     "session": session,
                     "round": round_n,
                     "round_dir": str(round_dir.relative_to(REPO)),
+                    "mode": _session_mode(round_dir),
                 }
 
                 # Test counts vs each oracle.
@@ -160,3 +175,122 @@ def load_observations(util: str, session: str, round_n: int) -> str:
 def load_manpage_meta(util: str) -> dict:
     p = UTILS_DIR / util / "_source.json"
     return _load_json(p) or {}
+
+
+# --- wave-4 adversarial loaders -------------------------------------------
+
+BUCKETS = (
+    "baseline",
+    "divergence",
+    "shared_bug",
+    "hallucinated_spec",
+    "manpage_underspec",
+    "incomplete",
+)
+
+
+def _iter_round_dirs():
+    """Yield (util, session, round_n, round_dir) for every discovered round."""
+    for util_dir in sorted(RUNS.iterdir()):
+        if not util_dir.is_dir():
+            continue
+        for session_dir in sorted(util_dir.iterdir()):
+            if not session_dir.is_dir() or not SESSION_RE.match(session_dir.name):
+                continue
+            for round_dir in sorted(session_dir.iterdir()):
+                m = ROUND_RE.match(round_dir.name)
+                if m:
+                    yield util_dir.name, session_dir.name, int(m.group(1)), round_dir
+
+
+@st.cache_data(show_spinner=False)
+def load_classification(util: str, session: str, round_n: int) -> dict | None:
+    rd = RUNS / util / session / f"round_{round_n:02d}"
+    return _load_json(rd / "classification.json")
+
+
+@st.cache_data(show_spinner=False)
+def discover_classifications() -> pd.DataFrame:
+    """One row per round that carries a classification.json. Bucket counts are
+    flattened into columns alongside mut@k / DEPC / effective-test rate."""
+    rows = []
+    for util, session, round_n, round_dir in _iter_round_dirs():
+        c = _load_json(round_dir / "classification.json")
+        if not c:
+            continue
+        buckets = c.get("buckets") or {}
+        row = {
+            "util": util,
+            "session": session,
+            "round": round_n,
+            "mode": _session_mode(round_dir),
+            "mut_at_k": c.get("mut_at_k"),
+            "depc": c.get("depc"),
+            "effective_test_rate": c.get("effective_test_rate"),
+            "n_total_scored": c.get("n_total_scored"),
+            "n_static_dropped_excluded": c.get("n_static_dropped_excluded"),
+        }
+        for b in BUCKETS:
+            row[b] = buckets.get(b, 0)
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+@st.cache_data(show_spinner=False)
+def all_underspec() -> pd.DataFrame:
+    """Every manpage_underspec finding across runs/ — the research catalogue."""
+    rows = []
+    for util, session, round_n, round_dir in _iter_round_dirs():
+        for r in _load_jsonl(round_dir / "manpage_underspec.jsonl"):
+            rows.append({"util": util, "session": session, "round": round_n,
+                         "mode": _session_mode(round_dir), **r})
+    return pd.DataFrame(rows)
+
+
+@st.cache_data(show_spinner=False)
+def all_divergences() -> pd.DataFrame:
+    """Every divergence (real-GNU correct, Rust wrong) across runs/."""
+    rows = []
+    for util, session, round_n, round_dir in _iter_round_dirs():
+        for r in _load_jsonl(round_dir / "divergences.jsonl"):
+            rows.append({"util": util, "session": session, "round": round_n,
+                         "mode": _session_mode(round_dir), **r})
+    return pd.DataFrame(rows)
+
+
+@st.cache_data(show_spinner=False)
+def load_static_filter(util: str, session: str, round_n: int) -> dict | None:
+    rd = RUNS / util / session / f"round_{round_n:02d}"
+    return _load_json(rd / "static_filter.json")
+
+
+@st.cache_data(show_spinner=False)
+def load_crossver() -> list[dict]:
+    """All cross-version result.json files (runs/<util>/_crossver/<ts>/), newest
+    first, each tagged with its util."""
+    out = []
+    for util_dir in sorted(RUNS.iterdir()):
+        cv = util_dir / "_crossver"
+        if not cv.is_dir():
+            continue
+        for ts_dir in sorted(cv.iterdir(), reverse=True):
+            res = _load_json(ts_dir / "result.json")
+            if res:
+                out.append({"util": util_dir.name, "ts": ts_dir.name, **res})
+    return out
+
+
+@st.cache_data(show_spinner=False)
+def all_metamorphic() -> pd.DataFrame:
+    """Hand-written metamorphic floor results across all utils."""
+    rows = []
+    for util_dir in sorted(RUNS.iterdir()):
+        for r in _load_jsonl(util_dir / "_metamorphic" / "results.jsonl"):
+            rows.append({"util": util_dir.name, **r})
+    return pd.DataFrame(rows)
+
+
+@st.cache_data(show_spinner=False)
+def load_summary(util: str) -> str:
+    p = RUNS / util / "SUMMARY.md"
+    return p.read_text() if p.is_file() else ""

@@ -7,7 +7,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 import streamlit as st
 
-from data import discover_rounds, load_manifest, load_observations, load_results
+from data import (
+    discover_rounds,
+    load_classification,
+    load_manifest,
+    load_observations,
+    load_results,
+)
 
 rounds = discover_rounds()
 rounds = rounds[rounds["tests_generated"] > 0].copy()
@@ -38,8 +44,9 @@ rust_idx = rust.set_index("name")[["status", "rc", "stderr"]].rename(
     columns={"status": "Rust status", "rc": "Rust rc", "stderr": "Rust stderr"}
 ) if not rust.empty else pd.DataFrame()
 
-combined = m.join(gnu_idx, how="outer").join(rust_idx, how="outer").reset_index().rename(columns={"index": "test"})
-combined = combined.rename(columns={"filename": "test"}) if "filename" in combined.columns else combined
+combined = m.join(gnu_idx, how="outer").join(rust_idx, how="outer").reset_index()
+# reset_index names the test column "filename" (when manifest exists) or "index" (when empty).
+combined = combined.rename(columns={"filename": "test", "index": "test"})
 
 # Outcome quadrant.
 def quadrant(row):
@@ -68,10 +75,20 @@ combined = combined[combined["quadrant"].isin(quad_filter)]
 counts = combined["quadrant"].value_counts()
 with st.container(horizontal=True):
     for q, c in counts.items():
-        delta_color = "off"
-        if q == "GNU fail, Rust pass (drift!)":
-            delta_color = "inverse"
         st.metric(q, int(c), border=True)
+
+# 5-bucket adversarial classification, when this round was scored.
+clf = load_classification(util, session, round_n)
+if clf:
+    st.markdown("### Adversarial classification")
+    b = clf.get("buckets") or {}
+    with st.container(horizontal=True):
+        st.metric("mut@k", f"{clf.get('mut_at_k', 0):.3f}", border=True)
+        st.metric("DEPC", clf.get("depc", 0), border=True)
+        st.metric("divergence", b.get("divergence", 0), border=True)
+        st.metric("shared_bug", b.get("shared_bug", 0), border=True)
+        st.metric("manpage_underspec", b.get("manpage_underspec", 0), border=True)
+        st.metric("baseline", b.get("baseline", 0), border=True)
 
 st.markdown("### Per-test outcomes")
 
