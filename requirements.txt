@@ -3,5 +3,5 @@
 # keys needed. uv-based local dev uses pyproject.toml + uv.lock; Streamlit
 # Cloud installs from this file. Keep in sync when bumping dashboard deps.
 streamlit>=1.57
-pandas>=2.0
-plotly>=5.0
+pandas>=3.0
+plotly>=6.7
