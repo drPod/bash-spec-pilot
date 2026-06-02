@@ -22,11 +22,32 @@ generated alongside the impl is differentially tested against the real GNU binar
 trixie container. The output of interest is not a pass rate but a catalogue of failure modes in
 [`docs/research/taxonomy.md`](docs/research/taxonomy.md).
 
-Currently, the pipeline, given a manpage, makes two independent calls to a model. One produces a
-Rust re-implementation and the other produces a test suite. We then test the Rust implementation
-against the Bash test suite and even though it's two "independent" perspectives, the model on both
-calls tends to make the same mistakes. Basically, **the test suite isn't adversarial, it's a sibling
-of the implementation.**
+Okay so, basically, if you ask it to write an implementation of a utility then write tests, it
+writes the impl and then writes the tests with the same mistakes. If the model misreads the manpage
+in some way ("this flag does X" when it actually does Y), it misreads it the same way in both calls.
+
+So, to fix that, we generated tests in a separate conversation (no shared context with the impl
+call) and gave it two flavors of adversarial prompt:
+
+```text
+- Cold: "Read the manpage. Ignore any implementations. Write tests that surface bugs
+  in any implementation that misreads the manpage." Plus a thematic slice (errors,
+  flags, environment, examples) to focus the model on one part of the documented
+  surface per call.
+- Post-hoc: "Here's the manpage AND here's a frozen Rust implementation. Find
+  documented behaviors the impl doesn't handle correctly." Built but not run yet.
+```
+
+**Okay so the cool thing we found:** on `mv`, the manpage says `--strip-trailing-slashes` just
+strips trailing slashes off the SOURCE before moving. The Rust impl read that literally, strips the
+slash, does the move. But if you run `mv /tmp/file/ /tmp/dst` on real GNU `mv` (where `/tmp/file` is
+just a regular file, not a directory) it actually rejects it with
+`cannot stat '/tmp/file/': Not a directory`. So the trailing slash is doing a hidden "this better be
+a directory" check that the manpage doesn't mention anywhere.
+
+Basically, the Rust impl matches the manpage. Real `mv` doesn't. The LLM didn't mess up, the manpage
+just lies. And that's kind of the whole point of the project: if you build a Bash spec language out
+of manpages, it'll describe behavior the real binary doesn't actually do.
 
 ## Repository layout
 
@@ -92,9 +113,9 @@ formal-verification/
 │   │   └── freeze_manpage.sh          ← fetch + render man page from manpages.debian.org
 │   ├── eval/
 │   │   ├── eval_round.sh              ← baseline roll-up: test pass rates + flag cov + line cov, one-line summary
-│   │   ├── eval_adversarial.sh        ← wave-4 roll-up: static-filter + real-gnu + rust + 4-bucket classify
+│   │   ├── eval_adversarial.sh        ← wave-4 roll-up: static-filter + real-gnu + rust + 5-bucket classify
 │   │   ├── static_filter.sh           ← bash -n + shellcheck pre-filter (SLMFix-style)
-│   │   ├── classify_divergence.py     ← 4-bucket classifier + mut@k + DEPC + effective-test rate
+│   │   ├── classify_divergence.py     ← 5-bucket classifier + mut@k + DEPC + effective-test rate
 │   │   ├── run_metamorphic.sh         ← runner for tests/properties/<util>/*.sh in trixie
 │   │   ├── minimize_failure.py        ← ReduceFix-style LLM divergence minimizer
 │   │   ├── coverage_flags.py          ← flag-coverage metric (manpage flags vs. exercised flags)
