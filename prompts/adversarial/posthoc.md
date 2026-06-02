@@ -44,6 +44,11 @@ about X" must come with a clear statement of what the *manpage* says X
 must do. Hallucinated specs (tests that assert behavior the manpage does
 not commit to) are explicitly out of scope.
 
+To make that backing checkable, copy the **exact verbatim span** of the
+manpage your assertion relies on into `manpage_quote` — a literal
+substring, never a paraphrase. If a test is not tied to a specific
+documented span, set `manpage_quote` to an empty string `""`.
+
 # Per-test requirements
 
 Every test:
@@ -90,7 +95,7 @@ Respond with exactly one fenced JSON code block, no prose before or after.
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["filename", "body", "exercises", "expected", "expected_to_fail"],
+        "required": ["filename", "body", "exercises", "expected", "expected_to_fail", "manpage_quote"],
         "properties": {
           "filename": {
             "type": "string",
@@ -99,7 +104,8 @@ Respond with exactly one fenced JSON code block, no prose before or after.
           "body": {"type": "string"},
           "exercises": {"type": "string"},
           "expected": {"type": "string"},
-          "expected_to_fail": {"type": "boolean"}
+          "expected_to_fail": {"type": "boolean"},
+          "manpage_quote": {"type": "string"}
         }
       }
     }

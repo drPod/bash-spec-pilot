@@ -8,7 +8,8 @@
     "baseline": 20,
     "divergence": 0,
     "shared_bug": 1,
-    "hallucinated_spec": 1,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 1,
     "incomplete": 0
   },
   "bucket_names": {
@@ -38,7 +39,8 @@
     "shared_bug": [
       "013_interactive_reads_stdin_no.sh"
     ],
-    "hallucinated_spec": [
+    "hallucinated_spec": [],
+    "manpage_underspec": [
       "009_strip_trailing_slash_single_file.sh"
     ],
     "incomplete": []

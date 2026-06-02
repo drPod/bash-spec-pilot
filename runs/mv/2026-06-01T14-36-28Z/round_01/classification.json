@@ -8,7 +8,8 @@
     "baseline": 21,
     "divergence": 0,
     "shared_bug": 1,
-    "hallucinated_spec": 1,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 1,
     "incomplete": 0
   },
   "bucket_names": {
@@ -39,7 +40,8 @@
     "shared_bug": [
       "002_interactive_after_force_decline_preserves.sh"
     ],
-    "hallucinated_spec": [
+    "hallucinated_spec": [],
+    "manpage_underspec": [
       "021_strip_trailing_slashes_file_source.sh"
     ],
     "incomplete": []

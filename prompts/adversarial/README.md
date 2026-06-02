@@ -33,6 +33,15 @@ The driver injects a per-slice focus hint inline via `{{slice_focus_hint}}`.
 Output schema matches `prompts/baseline/tests.md`. `run_tests.py` and the
 divergence classifier consume both with one parser.
 
+Each test carries a required `manpage_quote` (string): the exact verbatim
+manpage span the assertion relies on, or an empty string when the test is
+not tied to a specific documented span. The classifier whitespace-normalizes
+this quote and substring-checks it against the frozen `utils/<util>/manpage.txt`
+to split the `hallucinated_spec` quadrant — a grounded quote whose behavior
+the real binary contradicts becomes `manpage_underspec` (the manpage
+under-specifies what the binary enforces); an ungrounded or empty quote stays
+`hallucinated_spec`.
+
 ## Why not auto-AST mutation
 
 Wang 2024 (arXiv 2406.09843) reports 26.6 pp higher non-compilability when

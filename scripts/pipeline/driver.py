@@ -121,6 +121,7 @@ TESTS_SCHEMA: dict = {
                     "exercises",
                     "expected",
                     "expected_to_fail",
+                    "manpage_quote",
                 ],
                 "properties": {
                     "filename": {"type": "string"},
@@ -128,6 +129,7 @@ TESTS_SCHEMA: dict = {
                     "exercises": {"type": "string"},
                     "expected": {"type": "string"},
                     "expected_to_fail": {"type": "boolean"},
+                    "manpage_quote": {"type": "string"},
                 },
             },
         }
@@ -805,14 +807,30 @@ def extract_tests(payload: dict, round_dir: Path) -> tuple[int, dict]:
     if not isinstance(tests, list) or not tests:
         fail("response.tests is missing or empty")
     for t in tests:
-        for key in ("filename", "body", "exercises", "expected", "expected_to_fail"):
+        for key in (
+            "filename",
+            "body",
+            "exercises",
+            "expected",
+            "expected_to_fail",
+            "manpage_quote",
+        ):
             if key not in t:
                 fail(f"test entry missing key '{key}': {list(t)}")
         path = tests_dir / t["filename"]
         path.write_text(t["body"])
         path.chmod(0o755)
         manifest.append(
-            {k: t[k] for k in ("filename", "exercises", "expected", "expected_to_fail")}
+            {
+                k: t[k]
+                for k in (
+                    "filename",
+                    "exercises",
+                    "expected",
+                    "expected_to_fail",
+                    "manpage_quote",
+                )
+            }
         )
         n += 1
 

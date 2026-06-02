@@ -9,6 +9,7 @@
     "divergence": 0,
     "shared_bug": 0,
     "hallucinated_spec": 0,
+    "manpage_underspec": 0,
     "incomplete": 0
   },
   "bucket_names": {
@@ -34,6 +35,7 @@
     "divergence": [],
     "shared_bug": [],
     "hallucinated_spec": [],
+    "manpage_underspec": [],
     "incomplete": []
   },
   "mut_at_k": 0.0,

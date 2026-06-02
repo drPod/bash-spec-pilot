@@ -88,6 +88,23 @@ Each test carries a per-test boolean `expected_to_fail`.
   documented is the strongest possible behavioral signal we can extract
   from the man page.
 
+# `manpage_quote`: provenance grounding
+
+Each test carries a per-test `manpage_quote` string.
+
+- Copy the **exact verbatim span** of the man page that your assertion
+  relies on into `manpage_quote`. Do not paraphrase, summarize, or
+  reformat — it must be a literal substring of the man page text above.
+- If the test is **not tied to a specific documented span** (e.g. a
+  general smoke test, or behavior you inferred rather than read), set
+  `manpage_quote` to an empty string `""`.
+- A short, precise span is better than a long one. Quote only the clause
+  your assertion depends on.
+
+This field lets downstream analysis distinguish tests grounded in the
+literal documentation from tests asserting behavior the man page never
+committed to.
+
 # Suite-level requirements
 
 - **15 to 30 tests total.** Quality over quantity.
@@ -119,7 +136,7 @@ after. The JSON must validate against this schema:
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["filename", "body", "exercises", "expected", "expected_to_fail"],
+        "required": ["filename", "body", "exercises", "expected", "expected_to_fail", "manpage_quote"],
         "properties": {
           "filename":  {
             "type": "string",
@@ -141,6 +158,10 @@ after. The JSON must validate against this schema:
           "expected_to_fail": {
             "type": "boolean",
             "description": "true iff this test exercises a documented error case (the real utility is expected to exit nonzero, and the test body asserts that). Aim for at least 3 of these per suite."
+          },
+          "manpage_quote": {
+            "type": "string",
+            "description": "verbatim substring of the man page the assertion relies on; empty string if not tied to documented text. Do not paraphrase."
           }
         }
       }

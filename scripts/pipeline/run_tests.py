@@ -347,6 +347,7 @@ def main() -> None:
                 "expected_to_fail": etf,
                 "exercises": mentry.get("exercises"),
                 "expected": mentry.get("expected"),
+                "manpage_quote": mentry.get("manpage_quote"),
             }
             correct = score(r_with, etf)
             r_with["correct"] = correct

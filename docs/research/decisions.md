@@ -388,7 +388,8 @@ known-tight baseline would be premature.
 **Sharpen the classifier.** Add a fifth bucket distinguishing "manpage
 under-specifies what real binary enforces" (current `hallucinated_spec`
 sub-case) from "test asserted behavior the manpage never committed to". The
-first is research signal; the second is noise.
+first is research signal; the second is noise. *Implemented 2026-06-02 — see
+§10.7.*
 
 **Cold against the wave-3 round-1 mv impl** would likely surface
 divergences the wave-3 round-2 impl had already absorbed. Defer until the
@@ -413,3 +414,64 @@ invariants per util at `tests/properties/<util>/*.sh`, runnable via
 `scripts/eval/run_metamorphic.sh <util>`. Each suite passes 5/5 against the
 real GNU binary in trixie. The floor exists so that wave-4 mut@k numbers
 can be read against a non-LLM baseline rather than in isolation.
+
+### 10.7 Fifth bucket — `manpage_underspec` via provenance grounding (2026-06-02)
+
+The §10.4 sharpening landed. The classifier now splits the
+`hallucinated_spec` quadrant (real-binary fails, Rust passes) into two
+buckets on a single axis: whether the test's assertion is *grounded* in the
+documentation.
+
+**Mechanism.** Each generated test now carries a `manpage_quote` — the
+verbatim manpage span its assertion relies on, or an empty string when the
+test is not tied to documented text. The classifier whitespace-normalizes
+the quote (the frozen manpage is `col`-rendered and hard-wrapped, so a span
+crossing a line break must survive newline collapse) and substring-checks it
+against `utils/<util>/manpage.txt`. A grounded quote whose behavior the real
+binary contradicts is `manpage_underspec` — the manpage under-specifies what
+the binary enforces, the actual research finding. An ungrounded or empty
+quote stays `hallucinated_spec` (noise: the test asserted behavior the
+manpage never committed to).
+
+**Why the Rust impl is not the trigger.** The earlier framing treated "Rust
+passed" as the signal. That is wrong: the Rust impl is itself
+LLM-generated and unreliable, so its agreement carries no authority. The
+clean discriminator is two-axis and impl-independent: (a) is the assertion
+grounded in a verbatim span, (b) does the real binary exhibit it. The impl
+drops out. This is the published doc-vs-implementation lineage — Councilman
+et al. "Towards Formal Verification of LLM-Generated Code" defines the
+`p \ s` operator (the difference between a program and an *unrefined* spec
+isolates exactly the under-specified residue this bucket names); Endres et
+al. nl2postcond separates a documentation's literal reading from its
+intent; Caruca grounds extracted facts in provenance spans; Tan et al.
+@tComment catalogs doc-code inconsistency.
+
+**Scope (v1).** Only the `hallucinated_spec` quadrant is refined. A grounded
+test where *both* the real binary and the Rust impl fail (the `shared_bug`
+quadrant, real-fail/rust-fail/grounded) is also an under-specification where
+the impl additionally missed the literal reading — a cleaner future
+classifier would key purely on (grounded?) x (real-binary behavior) and
+catch it too. Deferred. Metrics are unaffected: `mut@k` and
+`effective_test_rate` only relabel within the scored set; numerator and
+denominator are unchanged.
+
+**Retrofit.** The two `--strip-trailing-slashes` findings from the pilot
+(§10.3), generated before the schema carried `manpage_quote`, were
+reclassified by hand via a per-round `provenance.json` override
+(`{test_name: manpage_quote}`, same shape as `static_filter.json`). Both
+moved `hallucinated_spec → manpage_underspec`; the `-i` interactive
+`shared_bug` tests stayed put (test-design issue, not under-specification);
+the two zero-finding slices gained an empty bucket. No OpenAI spend. The
+per-round override exists so already-generated rounds can be grounded
+without regeneration; new rounds emit `manpage_quote` natively.
+
+| slice | session | hallucinated_spec → | manpage_underspec | shared_bug | mut@k |
+|---|---|---|---|---|---|
+| flags | `2026-06-01T14-36-28Z` | 0 | 1 | 1 | 0.000 |
+| examples | `2026-06-01T14-39-56Z` | 0 | 1 | 1 | 0.000 |
+
+The finding row in `manpage_underspec.jsonl`: `mv --strip-trailing-slashes`
+on a file source with a trailing slash exits 1 ("Not a directory") under GNU
+mv 9.7, while the manpage states "remove any trailing slashes from each
+SOURCE argument" (`utils/mv/manpage.txt:44`) without qualification. The
+finding is now named rather than buried.
