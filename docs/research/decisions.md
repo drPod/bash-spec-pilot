@@ -451,29 +451,9 @@ test where *both* the real binary and the Rust impl fail (the `shared_bug`
 quadrant, real-fail/rust-fail/grounded) is also an under-specification where
 the impl additionally missed the literal reading — a cleaner future
 classifier would key purely on (grounded?) x (real-binary behavior) and
-catch it too. *Implemented 2026-06-02 — see §10.8.* At v1, `mut@k` and
-`effective_test_rate` only relabel within the scored set; numerator and
-denominator are unchanged.
-
-### 10.8 Grounded `shared_bug` extension (2026-06-02)
-
-The §10.7 future-work extension landed. The discriminator now keys purely on
-(grounded?) x (real-binary behavior): **any** real-fail test whose
-`manpage_quote` is grounded becomes `manpage_underspec`, regardless of the
-Rust impl. The impl is fully out of the under-specification decision. The
-rust result is now used only to split the *ungrounded* real-fail residue —
-rust-fail → `shared_bug`, rust-pass → `hallucinated_spec` (noise).
-
-**Metric effect.** `effective_test_rate` now counts `manpage_underspec` in
-its numerator: `(divergence + shared_bug + manpage_underspec) / total`. A
-manpage_underspec test elicited a real doc-vs-binary signal, so it is an
-effective test; excluding it under-counted findings. `mut@k` and `DEPC` are
-untouched (both key on `divergence` only). For the two mv pilot sessions the
-reclassification moved no buckets — the `-i` interactive `shared_bug` tests
-are ungrounded (carry no `manpage_quote`) and correctly stay `shared_bug` —
-but `effective_test_rate` rose because the existing `manpage_underspec`
-finding now counts: `2026-06-01T14-36-28Z` 0.043 → 0.087,
-`2026-06-01T14-39-56Z` 0.045 → 0.091.
+catch it too. Deferred — and subsequently rejected after testing; see §10.8.
+Metrics are unaffected: `mut@k` and `effective_test_rate` only relabel within
+the scored set; numerator and denominator are unchanged.
 
 **Retrofit.** The two `--strip-trailing-slashes` findings from the pilot
 (§10.3), generated before the schema carried `manpage_quote`, were
@@ -495,3 +475,59 @@ on a file source with a trailing slash exits 1 ("Not a directory") under GNU
 mv 9.7, while the manpage states "remove any trailing slashes from each
 SOURCE argument" (`utils/mv/manpage.txt:44`) without qualification. The
 finding is now named rather than buried.
+
+### 10.8 Three deferred items closed (2026-06-02): posthoc run, cross-version, rejected shared_bug extension
+
+The §10.7 tail deferred three follow-ups. All three are now resolved; one
+came back negative and was reverted.
+
+**(A) First posthoc adversarial run.** The posthoc (whitebox) prompt mode —
+model sees the manpage *and* the frozen Rust impl, hunts for documented
+behaviors the impl mishandles — was built in wave 4 but never executed.
+First run: session `2026-06-02T10-34-45Z`, baseline impl materialized from
+`2026-05-07T11-11-40Z/round_02/impl`, 14 tests. Classified under the v1
+(`hallucinated_spec`-only) scheme: baseline 8, divergence 2, shared_bug 4,
+manpage_underspec 0 — mut@k 0.143, DEPC 2. The two divergences are genuine
+impl bugs the whitebox prompt surfaced:
+`005_strip_trailing_slashes_does_not_apply_to_dest` (the impl strips the
+trailing slash from the destination too, not only the source) and
+`006_backup_existing_detects_high_numbered_backup` (numbered-backup
+detection under `--backup=existing`). The mode works end-to-end and produces
+real signal against a tightened baseline.
+
+**(B) Cross-version verification of the `--strip-trailing-slashes` finding.**
+`scripts/eval/crossver_mv_strip_slash.sh` replays the exact repro against
+coreutils 9.5-1, 9.6-2, and 9.7-3. 9.7-3 is the trixie-pinned native
+`/usr/bin/mv`; 9.5-1 and 9.6-2 are pulled from snapshot.debian.org as .debs
+(pinned by sha1) and installed with `dpkg -i --force-downgrade` in a
+throwaway container. The image is multi-arch, and a .deb only runs on its own
+architecture, so the script reads `dpkg --print-architecture` and selects the
+matching snapshot hashes (arm64 on Apple Silicon here, amd64 on x86). Result
+(`runs/mv/_crossver/2026-06-02T10-47-35Z/result.json`): all three versions
+exit 1 with "Not a directory" — the finding is **version-stable**, not a 9.7
+quirk. (The script's repro reports `cannot move … Not a directory` rather
+than the pilot's `cannot stat …`; same rc=1, same trailing-slash
+is-a-directory check, different code path into it.)
+
+**(C) Rejected: extending `manpage_underspec` to the shared_bug quadrant.**
+§10.7 floated a "cleaner future classifier" keying purely on (grounded?) ×
+(real-binary behavior), which would also promote grounded `shared_bug` tests
+(real-fail / rust-fail) into `manpage_underspec`. This was implemented
+(`669f4e5`), tested against the posthoc output above, and **reverted** —
+the posthoc run falsified it.
+
+The defect: grounding confirms that *a* manpage span is cited and present in
+the documentation. It does **not** confirm that the test's *failing*
+assertion is the part backed by that span. In the `hallucinated_spec`
+quadrant the Rust impl passing supplies the missing check — it is independent
+evidence that at least one reasonable reading of the manpage yields the
+asserted behavior. The `shared_bug` quadrant has no such signal. Three of the
+posthoc run's four `shared_bug` tests are `-i` interactive cases that assert
+an exit code on a declined overwrite prompt; the manpage is silent on that
+exit code, the tests guessed 0, and real mv returns 1. That is "the manpage
+omits a detail" — a test-design artifact — not "the manpage positively states
+X and the binary does not-X", which is the actual research signal. The
+extension would inject guessed-exit-code noise straight into the findings
+bucket. v1's gate on the `hallucinated_spec` quadrant (where rust-pass
+supplies the sanity check the `shared_bug` quadrant lacks) is the defensible
+design. The deferred extension in §10.7 is withdrawn, not pending.

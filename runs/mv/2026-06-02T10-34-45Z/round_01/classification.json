@@ -1,0 +1,43 @@
+{
+  "util": "mv",
+  "session": "2026-06-02T10-34-45Z",
+  "round": 1,
+  "n_total_scored": 14,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 8,
+    "divergence": 2,
+    "shared_bug": 4,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "007_backup_suffix_override_simple_backup.sh",
+      "008_backup_numbered_creates_next_number.sh",
+      "009_update_older_skips_newer_destination.sh",
+      "010_update_all_default_replaces_even_newer_destination.sh",
+      "011_update_none_fail_existing_destination_errors.sh",
+      "012_invalid_update_value_errors.sh",
+      "013_target_directory_must_be_directory.sh",
+      "014_no_target_directory_treats_dest_as_file.sh"
+    ],
+    "divergence": [
+      "005_strip_trailing_slashes_does_not_apply_to_dest.sh",
+      "006_backup_existing_detects_high_numbered_backup.sh"
+    ],
+    "shared_bug": [
+      "001_interactive_n_declines_overwrite.sh",
+      "002_interactive_eof_declines_overwrite.sh",
+      "003_final_i_after_f_controls_prompt.sh",
+      "004_strip_trailing_slashes_moves_symlink_itself.sh"
+    ],
+    "hallucinated_spec": [],
+    "manpage_underspec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.14285714285714285,
+  "effective_test_rate": 0.42857142857142855,
+  "depc": 2
+}

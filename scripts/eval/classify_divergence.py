@@ -12,35 +12,28 @@ Buckets (mut@k headline metric per docs/research/adversarial_prior_art.md):
 
   baseline            real_correct=True,  rust_correct=True
   divergence          real_correct=True,  rust_correct=False   <- headline
-  manpage_underspec   real_correct=False, grounded             (rust ignored)
-  shared_bug          real_correct=False, rust_correct=False, NOT grounded
-  hallucinated_spec   real_correct=False, rust_correct=True,  NOT grounded
+  shared_bug          real_correct=False, rust_correct=False
+  hallucinated_spec   real_correct=False, rust_correct=True, NOT grounded
+  manpage_underspec   real_correct=False, rust_correct=True, grounded
 
-Every real=False test is split by *provenance grounding*: a test is grounded
-iff its `manpage_quote` (verbatim span the assertion relies on) is a
-whitespace-normalized substring of the frozen utils/<util>/manpage.txt. A
-grounded test followed the documented text literally yet the real binary
+The real=False/rust=True quadrant is split by *provenance grounding*: a test
+is grounded iff its `manpage_quote` (verbatim span the assertion relies on)
+is a whitespace-normalized substring of the frozen utils/<util>/manpage.txt.
+A grounded test followed the documented text literally yet the real binary
 rejects it -> the manpage under-specifies what the binary enforces
-(manpage_underspec, the research finding), independent of whether the Rust
-impl honored the doc or also missed it. The discriminator keys purely on
-(grounded?) x (real-binary behavior); the Rust impl is LLM-generated and not
-a trustworthy oracle, so it drops out. An ungrounded/empty quote leaves the
-test in the rust-split residue: rust_correct=False -> shared_bug, rust_correct=
-True -> hallucinated_spec (noise). (Councilman et al. `p \ s` under-specified
-residue; Endres nl2postcond literal-vs-intent; Caruca provenance extraction.)
+(manpage_underspec, the research finding). An ungrounded/empty quote means
+the assertion was never tied to documented text -> hallucinated_spec (noise).
+The split does not depend on the Rust impl, which is LLM-generated and not a
+trustworthy oracle. (Councilman et al. `p \ s` under-specified residue;
+Endres nl2postcond literal-vs-intent; Caruca provenance extraction.)
 
 A per-round provenance.json override (`{test_name: manpage_quote}`, same shape
 as static_filter.json) fills or overrides row quotes, used to retrofit pilot
 rounds generated before the schema carried manpage_quote.
 
 mut@k             = divergences / total_tests
-effective_rate    = (divergences + shared_bugs + manpage_underspec) / total_tests
+effective_rate    = (divergences + shared_bugs) / total_tests
 DEPC              = distinct (rc, stderr_first_line) signatures across divergences
-
-effective_rate counts every test that elicited a real (non-baseline) signal:
-a divergence isolated the impl, a shared_bug surfaced a fault both share, a
-manpage_underspec surfaced a doc-vs-binary gap. Only hallucinated_spec
-(ungrounded noise) and baseline are excluded.
 
 Static-filter exclusion: tests whose name appears in static_filter.json's
 `dropped` list are excluded from the mut@k denominator (matching the
@@ -194,7 +187,7 @@ def main() -> int:
             continue
         bucket = classify(real, rust)
         quote = quote_for(name, real, rust, provenance)
-        if bucket in ("hallucinated_spec", "shared_bug") and grounded(quote, manpage_norm):
+        if bucket == "hallucinated_spec" and grounded(quote, manpage_norm):
             bucket = "manpage_underspec"
         buckets[bucket].append(name)
         if bucket == "manpage_underspec":
@@ -225,7 +218,6 @@ def main() -> int:
     n_total = sum(len(v) for v in buckets.values())
     n_div = len(buckets["divergence"])
     n_shared = len(buckets["shared_bug"])
-    n_underspec = len(buckets["manpage_underspec"])
 
     classification = {
         "util": args.util,
@@ -236,7 +228,7 @@ def main() -> int:
         "buckets": {k: len(v) for k, v in buckets.items()},
         "bucket_names": buckets,
         "mut_at_k": (n_div / n_total) if n_total else 0.0,
-        "effective_test_rate": ((n_div + n_shared + n_underspec) / n_total) if n_total else 0.0,
+        "effective_test_rate": ((n_div + n_shared) / n_total) if n_total else 0.0,
         "depc": len(div_signatures),
     }
 

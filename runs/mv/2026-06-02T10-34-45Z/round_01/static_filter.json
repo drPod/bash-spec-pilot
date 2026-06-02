@@ -1,0 +1,120 @@
+{
+  "kept": [
+    "001_interactive_n_declines_overwrite.sh",
+    "002_interactive_eof_declines_overwrite.sh",
+    "003_final_i_after_f_controls_prompt.sh",
+    "004_strip_trailing_slashes_moves_symlink_itself.sh",
+    "005_strip_trailing_slashes_does_not_apply_to_dest.sh",
+    "006_backup_existing_detects_high_numbered_backup.sh",
+    "007_backup_suffix_override_simple_backup.sh",
+    "008_backup_numbered_creates_next_number.sh",
+    "009_update_older_skips_newer_destination.sh",
+    "010_update_all_default_replaces_even_newer_destination.sh",
+    "011_update_none_fail_existing_destination_errors.sh",
+    "012_invalid_update_value_errors.sh",
+    "013_target_directory_must_be_directory.sh",
+    "014_no_target_directory_treats_dest_as_file.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_interactive_n_declines_overwrite.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_interactive_eof_declines_overwrite.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_final_i_after_f_controls_prompt.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_strip_trailing_slashes_moves_symlink_itself.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_strip_trailing_slashes_does_not_apply_to_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_backup_existing_detects_high_numbered_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_backup_suffix_override_simple_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_backup_numbered_creates_next_number.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_update_older_skips_newer_destination.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_update_all_default_replaces_even_newer_destination.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_update_none_fail_existing_destination_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_invalid_update_value_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_target_directory_must_be_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_no_target_directory_treats_dest_as_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

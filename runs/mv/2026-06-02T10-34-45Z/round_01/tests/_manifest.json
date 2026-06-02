@@ -1,0 +1,114 @@
+[
+  {
+    "filename": "001_interactive_n_declines_overwrite.sh",
+    "exercises": "-i prompts before overwrite and a negative response must prevent the overwrite, even when stdin is a pipe; impl auto-confirms when stdin is not a tty",
+    "expected": "destination remains with its original contents after answering n to the interactive overwrite prompt",
+    "expected_to_fail": false,
+    "manpage_quote": "-i, --interactive\n              prompt before overwrite",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "002_interactive_eof_declines_overwrite.sh",
+    "exercises": "-i prompts before overwrite; EOF provides no affirmative response, but impl treats non-tty stdin as yes",
+    "expected": "destination remains unchanged when interactive overwrite receives EOF",
+    "expected_to_fail": false,
+    "manpage_quote": "-i, --interactive\n              prompt before overwrite",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "003_final_i_after_f_controls_prompt.sh",
+    "exercises": "when -f and -i are both specified, final -i takes effect and prompts before overwrite; impl still auto-confirms on non-tty stdin",
+    "expected": "destination remains unchanged after -f -i and an n response",
+    "expected_to_fail": false,
+    "manpage_quote": "-i, --interactive\n              prompt before overwrite\n\n       -n, --no-clobber\n              do not overwrite an existing file\n\n       If you specify more than one of -i, -f, -n, only the final one takes\n       effect.",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "004_strip_trailing_slashes_moves_symlink_itself.sh",
+    "exercises": "--strip-trailing-slashes removes trailing slashes from SOURCE before moving, including a symlink source; impl deliberately keeps slash on symlink operands",
+    "expected": "destination is a symbolic link moved from the slash-stripped source operand",
+    "expected_to_fail": false,
+    "manpage_quote": "--strip-trailing-slashes\n              remove any trailing slashes from each SOURCE argument",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "005_strip_trailing_slashes_does_not_apply_to_dest.sh",
+    "exercises": "--strip-trailing-slashes applies to SOURCE arguments only; impl maps the stripping function over all operands including DEST",
+    "expected": "mv fails rather than silently creating the destination with its trailing slash removed",
+    "expected_to_fail": true,
+    "manpage_quote": "--strip-trailing-slashes\n              remove any trailing slashes from each SOURCE argument",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "006_backup_existing_detects_high_numbered_backup.sh",
+    "exercises": "--backup=existing uses numbered backups if numbered backups already exist; impl only detects a preexisting .~1~ backup",
+    "expected": "old destination is backed up as the next numbered backup, dst.~6~",
+    "expected_to_fail": false,
+    "manpage_quote": "existing, nil\n              numbered if numbered backups exist, simple otherwise",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "007_backup_suffix_override_simple_backup.sh",
+    "exercises": "--suffix overrides the usual backup suffix for simple backups",
+    "expected": "existing destination is backed up using the .bak suffix",
+    "expected_to_fail": false,
+    "manpage_quote": "The backup suffix is '~', unless set with --suffix or\n       SIMPLE_BACKUP_SUFFIX.",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "008_backup_numbered_creates_next_number.sh",
+    "exercises": "--backup=numbered makes numbered backups",
+    "expected": "existing destination is backed up as dst.~2~ when dst.~1~ already exists",
+    "expected_to_fail": false,
+    "manpage_quote": "numbered, t\n              make numbered backups",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "009_update_older_skips_newer_destination.sh",
+    "exercises": "--update with no argument defaults to older and replaces only when destination is older than source",
+    "expected": "newer destination remains unchanged under --update",
+    "expected_to_fail": false,
+    "manpage_quote": "'older' is the default operation when --update is specified, and\n       results in files being replaced if they're older than the corresponding\n       source file.",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "010_update_all_default_replaces_even_newer_destination.sh",
+    "exercises": "without --update, update mode all replaces existing destination files regardless of timestamps",
+    "expected": "destination is replaced by the source contents",
+    "expected_to_fail": false,
+    "manpage_quote": "'all' is the default operation when an --update option is not\n       specified, and results in all existing files in the destination being\n       replaced.",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "011_update_none_fail_existing_destination_errors.sh",
+    "exercises": "--update=none-fail diagnoses skipped existing destinations and induces failure",
+    "expected": "mv exits nonzero when an existing destination is skipped under --update=none-fail",
+    "expected_to_fail": true,
+    "manpage_quote": "'none-fail' also ensures no files are replaced in the\n       destination, but any skipped files are diagnosed and induce a failure.",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "012_invalid_update_value_errors.sh",
+    "exercises": "--update accepts only the documented UPDATE values",
+    "expected": "mv exits nonzero for an invalid --update value",
+    "expected_to_fail": true,
+    "manpage_quote": "UPDATE={all,none,none-fail,older(default)}",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "013_target_directory_must_be_directory.sh",
+    "exercises": "-t/--target-directory requires a DIRECTORY target",
+    "expected": "mv exits nonzero when -t names a regular file instead of a directory",
+    "expected_to_fail": true,
+    "manpage_quote": "-t, --target-directory=DIRECTORY\n              move all SOURCE arguments into DIRECTORY",
+    "shellcheck_issues": 0
+  },
+  {
+    "filename": "014_no_target_directory_treats_dest_as_file.sh",
+    "exercises": "-T treats DEST as a normal file rather than as a target directory",
+    "expected": "mv exits nonzero when asked with -T to replace an existing directory with a regular file",
+    "expected_to_fail": true,
+    "manpage_quote": "-T, --no-target-directory\n              treat DEST as a normal file",
+    "shellcheck_issues": 0
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "finding": "mv --strip-trailing-slashes <file>/ <dest> rejects a regular-file source with trailing slash (exit!=0, 'Not a directory') despite the manpage saying the slash is stripped from each SOURCE argument",
+  "repro": "printf 'payload\\n' > src; mv --strip-trailing-slashes src/ dest",
+  "container_arch": "arm64",
+  "versions": [
+    {
+      "pinned_version": "9.7-3",
+      "reported_version": "9.7",
+      "rc": 1,
+      "stderr_head": "mv: cannot move '/tmp/tmp.zhKEXsXVlX/src' to '/tmp/tmp.zhKEXsXVlX/dest': Not a directory",
+      "reproduces_finding": true,
+      "version_verified": true
+    },
+    {
+      "pinned_version": "9.5-1",
+      "reported_version": "9.5",
+      "rc": 1,
+      "stderr_head": "mv: cannot move '/tmp/tmp.MRwu2HpGfs/src' to '/tmp/tmp.MRwu2HpGfs/dest': Not a directory",
+      "reproduces_finding": true,
+      "version_verified": true
+    },
+    {
+      "pinned_version": "9.6-2",
+      "reported_version": "9.6",
+      "rc": 1,
+      "stderr_head": "mv: cannot move '/tmp/tmp.YQxYKA5A9Z/src' to '/tmp/tmp.YQxYKA5A9Z/dest': Not a directory",
+      "reproduces_finding": true,
+      "version_verified": true
+    }
+  ],
+  "version_stable": true,
+  "all_versions_verified": true
+}

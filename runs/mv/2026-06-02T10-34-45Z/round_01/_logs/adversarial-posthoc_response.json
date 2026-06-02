@@ -1,0 +1,132 @@
+{
+  "id": "resp_06700fe3517602f5006a1eb1c6bc84819fb52fae83bc6f79a3",
+  "created_at": 1780396486.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.5-2026-04-23",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_06700fe3517602f5006a1eb1c775fc819fa16c84c09c802cef",
+      "summary": [],
+      "type": "reasoning",
+      "content": null,
+      "encrypted_content": null,
+      "status": null
+    },
+    {
+      "id": "msg_06700fe3517602f5006a1eb2647a94819f8e7e5044f77d4750",
+      "content": [
+        {
+          "annotations": [],
+          "text": "{\"tests\":[{\"filename\":\"001_interactive_n_declines_overwrite.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\nprintf 'n\\\\n' | \\\"$UTIL\\\" -i \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" != \\\"old\\\" ]]; then\\n  echo \\\"destination was overwritten despite negative interactive response\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-i prompts before overwrite and a negative response must prevent the overwrite, even when stdin is a pipe; impl auto-confirms when stdin is not a tty\",\"expected\":\"destination remains with its original contents after answering n to the interactive overwrite prompt\",\"expected_to_fail\":false,\"manpage_quote\":\"-i, --interactive\\n              prompt before overwrite\"},{\"filename\":\"002_interactive_eof_declines_overwrite.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" -i \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" </dev/null >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" != \\\"old\\\" ]]; then\\n  echo \\\"destination was overwritten despite EOF at interactive prompt\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-i prompts before overwrite; EOF provides no affirmative response, but impl treats non-tty stdin as yes\",\"expected\":\"destination remains unchanged when interactive overwrite receives EOF\",\"expected_to_fail\":false,\"manpage_quote\":\"-i, --interactive\\n              prompt before overwrite\"},{\"filename\":\"003_final_i_after_f_controls_prompt.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\nprintf 'n\\\\n' | \\\"$UTIL\\\" -f -i \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" != \\\"old\\\" ]]; then\\n  echo \\\"final -i did not prevent overwrite after negative response\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"when -f and -i are both specified, final -i takes effect and prompts before overwrite; impl still auto-confirms on non-tty stdin\",\"expected\":\"destination remains unchanged after -f -i and an n response\",\"expected_to_fail\":false,\"manpage_quote\":\"-i, --interactive\\n              prompt before overwrite\\n\\n       -n, --no-clobber\\n              do not overwrite an existing file\\n\\n       If you specify more than one of -i, -f, -n, only the final one takes\\n       effect.\"},{\"filename\":\"004_strip_trailing_slashes_moves_symlink_itself.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nmkdir \\\"$tmpdir/real\\\"\\nprintf 'payload\\\\n' > \\\"$tmpdir/real/file\\\"\\nln -s \\\"$tmpdir/real\\\" \\\"$tmpdir/link\\\"\\nset +e\\n\\\"$UTIL\\\" --strip-trailing-slashes \\\"$tmpdir/link/\\\" \\\"$tmpdir/moved\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ ! -L \\\"$tmpdir/moved\\\" ]]; then\\n  echo \\\"stripped symlink source was not moved as a symlink\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--strip-trailing-slashes removes trailing slashes from SOURCE before moving, including a symlink source; impl deliberately keeps slash on symlink operands\",\"expected\":\"destination is a symbolic link moved from the slash-stripped source operand\",\"expected_to_fail\":false,\"manpage_quote\":\"--strip-trailing-slashes\\n              remove any trailing slashes from each SOURCE argument\"},{\"filename\":\"005_strip_trailing_slashes_does_not_apply_to_dest.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'payload\\\\n' > \\\"$tmpdir/src\\\"\\nset +e\\n\\\"$UTIL\\\" --strip-trailing-slashes \\\"$tmpdir/src\\\" \\\"$tmpdir/newname/\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"destination trailing slash was stripped even though only SOURCE slashes are documented\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--strip-trailing-slashes applies to SOURCE arguments only; impl maps the stripping function over all operands including DEST\",\"expected\":\"mv fails rather than silently creating the destination with its trailing slash removed\",\"expected_to_fail\":true,\"manpage_quote\":\"--strip-trailing-slashes\\n              remove any trailing slashes from each SOURCE argument\"},{\"filename\":\"006_backup_existing_detects_high_numbered_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~5~\\\"\\nset +e\\n\\\"$UTIL\\\" --backup=existing \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ ! -e \\\"$tmpdir/dst.~6~\\\" ]]; then\\n  echo \\\"existing numbered backup did not select next numbered backup\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup=existing uses numbered backups if numbered backups already exist; impl only detects a preexisting .~1~ backup\",\"expected\":\"old destination is backed up as the next numbered backup, dst.~6~\",\"expected_to_fail\":false,\"manpage_quote\":\"existing, nil\\n              numbered if numbered backups exist, simple otherwise\"},{\"filename\":\"007_backup_suffix_override_simple_backup.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --backup=simple --suffix=.bak \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ ! -e \\\"$tmpdir/dst.bak\\\" ]]; then\\n  echo \\\"custom backup suffix was not used\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--suffix overrides the usual backup suffix for simple backups\",\"expected\":\"existing destination is backed up using the .bak suffix\",\"expected_to_fail\":false,\"manpage_quote\":\"The backup suffix is '~', unless set with --suffix or\\n       SIMPLE_BACKUP_SUFFIX.\"},{\"filename\":\"008_backup_numbered_creates_next_number.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nprintf 'prior\\\\n' > \\\"$tmpdir/dst.~1~\\\"\\nset +e\\n\\\"$UTIL\\\" --backup=numbered \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ ! -e \\\"$tmpdir/dst.~2~\\\" ]]; then\\n  echo \\\"numbered backup did not create next numbered name\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--backup=numbered makes numbered backups\",\"expected\":\"existing destination is backed up as dst.~2~ when dst.~1~ already exists\",\"expected_to_fail\":false,\"manpage_quote\":\"numbered, t\\n              make numbered backups\"},{\"filename\":\"009_update_older_skips_newer_destination.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\ntouch -t 202001010000 \\\"$tmpdir/src\\\"\\ntouch -t 202201010000 \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --update \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" != \\\"old\\\" ]]; then\\n  echo \\\"newer destination was replaced under --update=older\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update with no argument defaults to older and replaces only when destination is older than source\",\"expected\":\"newer destination remains unchanged under --update\",\"expected_to_fail\":false,\"manpage_quote\":\"'older' is the default operation when --update is specified, and\\n       results in files being replaced if they're older than the corresponding\\n       source file.\"},{\"filename\":\"010_update_all_default_replaces_even_newer_destination.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\ntouch -t 202001010000 \\\"$tmpdir/src\\\"\\ntouch -t 202201010000 \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -ne 0 ]]; then\\n  echo \\\"mv unexpectedly failed\\\" >&2\\n  exit 1\\nfi\\nif [[ \\\"$(cat \\\"$tmpdir/dst\\\")\\\" != \\\"new\\\" ]]; then\\n  echo \\\"default update=all did not replace existing destination\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"without --update, update mode all replaces existing destination files regardless of timestamps\",\"expected\":\"destination is replaced by the source contents\",\"expected_to_fail\":false,\"manpage_quote\":\"'all' is the default operation when an --update option is not\\n       specified, and results in all existing files in the destination being\\n       replaced.\"},{\"filename\":\"011_update_none_fail_existing_destination_errors.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'new\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'old\\\\n' > \\\"$tmpdir/dst\\\"\\nset +e\\n\\\"$UTIL\\\" --update=none-fail \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"--update=none-fail skipped replacement without failing\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update=none-fail diagnoses skipped existing destinations and induces failure\",\"expected\":\"mv exits nonzero when an existing destination is skipped under --update=none-fail\",\"expected_to_fail\":true,\"manpage_quote\":\"'none-fail' also ensures no files are replaced in the\\n       destination, but any skipped files are diagnosed and induce a failure.\"},{\"filename\":\"012_invalid_update_value_errors.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nset +e\\n\\\"$UTIL\\\" --update=bogus \\\"$tmpdir/src\\\" \\\"$tmpdir/dst\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"invalid --update value was accepted\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"--update accepts only the documented UPDATE values\",\"expected\":\"mv exits nonzero for an invalid --update value\",\"expected_to_fail\":true,\"manpage_quote\":\"UPDATE={all,none,none-fail,older(default)}\"},{\"filename\":\"013_target_directory_must_be_directory.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'payload\\\\n' > \\\"$tmpdir/src\\\"\\nprintf 'not a directory\\\\n' > \\\"$tmpdir/notdir\\\"\\nset +e\\n\\\"$UTIL\\\" -t \\\"$tmpdir/notdir\\\" \\\"$tmpdir/src\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"-t accepted a non-directory target\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-t/--target-directory requires a DIRECTORY target\",\"expected\":\"mv exits nonzero when -t names a regular file instead of a directory\",\"expected_to_fail\":true,\"manpage_quote\":\"-t, --target-directory=DIRECTORY\\n              move all SOURCE arguments into DIRECTORY\"},{\"filename\":\"014_no_target_directory_treats_dest_as_file.sh\",\"body\":\"#!/usr/bin/env bash\\nset -euo pipefail\\ntmpdir=$(mktemp -d)\\ntrap 'rm -rf \\\"$tmpdir\\\"' EXIT\\nprintf 'payload\\\\n' > \\\"$tmpdir/src\\\"\\nmkdir \\\"$tmpdir/destdir\\\"\\nset +e\\n\\\"$UTIL\\\" -T \\\"$tmpdir/src\\\" \\\"$tmpdir/destdir\\\" >/dev/null 2>\\\"$tmpdir/err\\\"\\nstatus=$?\\nset -e\\nif [[ $status -eq 0 ]]; then\\n  echo \\\"-T moved source into directory instead of treating DEST as a normal file\\\" >&2\\n  exit 1\\nfi\\n\",\"exercises\":\"-T treats DEST as a normal file rather than as a target directory\",\"expected\":\"mv exits nonzero when asked with -T to replace an existing directory with a regular file\",\"expected_to_fail\":true,\"manpage_quote\":\"-T, --no-target-directory\\n              treat DEST as a normal file\"}]}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1780396680.0,
+  "conversation": null,
+  "max_output_tokens": 16000,
+  "max_tool_calls": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "effort": "medium",
+    "generate_summary": null,
+    "summary": null,
+    "context": "current_turn"
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "name": "adversarial-posthoc_artifact",
+      "schema_": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tests"
+        ],
+        "properties": {
+          "tests": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "filename",
+                "body",
+                "exercises",
+                "expected",
+                "expected_to_fail",
+                "manpage_quote"
+              ],
+              "properties": {
+                "filename": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "exercises": {
+                  "type": "string"
+                },
+                "expected": {
+                  "type": "string"
+                },
+                "expected_to_fail": {
+                  "type": "boolean"
+                },
+                "manpage_quote": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "type": "json_schema",
+      "description": null,
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 6180,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 11322,
+    "output_tokens_details": {
+      "reasoning_tokens": 7768
+    },
+    "total_tokens": 17502
+  },
+  "user": null,
+  "billing": {
+    "payer": "openai"
+  },
+  "frequency_penalty": 0.0,
+  "moderation": null,
+  "presence_penalty": 0.0,
+  "store": true
+}
