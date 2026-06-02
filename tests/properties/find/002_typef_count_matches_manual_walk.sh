@@ -22,14 +22,17 @@ mkdir -p "$tmpdir/a/b" "$tmpdir/c"
 touch "$tmpdir/x" "$tmpdir/a/y" "$tmpdir/a/b/z" "$tmpdir/c/w"
 ln -s "$tmpdir/x" "$tmpdir/c/link_to_x"
 
-# Independent oracle: count regular non-symlink files via a portable
-# breadth-first walk that uses only POSIX shell features (no `find`).
+# Independent oracle: count regular non-symlink files via a breadth-first walk
+# that does not shell out to `find`. Uses Bash arrays as the queue (not POSIX
+# sh), matching this script's bash shebang. The three globs cover normal,
+# single-dot-hidden, and double-dot-hidden (`..foo`) names; non-matching globs
+# stay literal and are filtered by the existence guard below.
 expected=0
 queue=("$tmpdir")
 while [ "${#queue[@]}" -gt 0 ]; do
   d=${queue[0]}
   queue=("${queue[@]:1}")
-  for entry in "$d"/* "$d"/.[!.]*; do
+  for entry in "$d"/* "$d"/.[!.]* "$d"/..?*; do
     [ -e "$entry" ] || [ -L "$entry" ] || continue
     if [ -L "$entry" ]; then
       continue

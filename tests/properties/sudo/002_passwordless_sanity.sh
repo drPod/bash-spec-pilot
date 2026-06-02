@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Invariant: sudo true exits 0 when invoker has NOPASSWD privileges.
+# Invariant: sudo -n true exits 0 when invoker has NOPASSWD privileges.
 # Manpage backing: utils/sudo/manpage.txt lines 30-50 (sudo exits with the
 # command's exit status); -n added per lines 261-264 to make the
 # password-required path fail loudly instead of hang.

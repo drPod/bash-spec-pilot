@@ -13,6 +13,11 @@ err="$tmpdir/env.err"
 
 if ! "$UTIL" -n -E env >"$out" 2>"$err"; then
   echo "sudo -n -E env failed: $(cat "$err")" >&2
+  # -E is policy-gated; the most common harness misconfiguration is a sudoers
+  # rule without SETENV. Surface the fix instead of a bare failure.
+  if grep -qi "not allowed to preserve the environment" "$err"; then
+    echo "hint: grant SETENV (e.g. 'tester ALL=(ALL) NOPASSWD: SETENV: ALL') so -E is permitted" >&2
+  fi
   exit 1
 fi
 
