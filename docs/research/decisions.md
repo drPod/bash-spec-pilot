@@ -451,9 +451,29 @@ test where *both* the real binary and the Rust impl fail (the `shared_bug`
 quadrant, real-fail/rust-fail/grounded) is also an under-specification where
 the impl additionally missed the literal reading — a cleaner future
 classifier would key purely on (grounded?) x (real-binary behavior) and
-catch it too. Deferred. Metrics are unaffected: `mut@k` and
+catch it too. *Implemented 2026-06-02 — see §10.8.* At v1, `mut@k` and
 `effective_test_rate` only relabel within the scored set; numerator and
 denominator are unchanged.
+
+### 10.8 Grounded `shared_bug` extension (2026-06-02)
+
+The §10.7 future-work extension landed. The discriminator now keys purely on
+(grounded?) x (real-binary behavior): **any** real-fail test whose
+`manpage_quote` is grounded becomes `manpage_underspec`, regardless of the
+Rust impl. The impl is fully out of the under-specification decision. The
+rust result is now used only to split the *ungrounded* real-fail residue —
+rust-fail → `shared_bug`, rust-pass → `hallucinated_spec` (noise).
+
+**Metric effect.** `effective_test_rate` now counts `manpage_underspec` in
+its numerator: `(divergence + shared_bug + manpage_underspec) / total`. A
+manpage_underspec test elicited a real doc-vs-binary signal, so it is an
+effective test; excluding it under-counted findings. `mut@k` and `DEPC` are
+untouched (both key on `divergence` only). For the two mv pilot sessions the
+reclassification moved no buckets — the `-i` interactive `shared_bug` tests
+are ungrounded (carry no `manpage_quote`) and correctly stay `shared_bug` —
+but `effective_test_rate` rose because the existing `manpage_underspec`
+finding now counts: `2026-06-01T14-36-28Z` 0.043 → 0.087,
+`2026-06-01T14-39-56Z` 0.045 → 0.091.
 
 **Retrofit.** The two `--strip-trailing-slashes` findings from the pilot
 (§10.3), generated before the schema carried `manpage_quote`, were
