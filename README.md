@@ -49,6 +49,13 @@ Basically, the Rust impl matches the manpage. Real `mv` doesn't. The LLM didn't 
 just lies. And that's kind of the whole point of the project: if you build a Bash spec language out
 of manpages, it'll describe behavior the real binary doesn't actually do.
 
+One thing we almost got wrong: to count something as a real manpage lie (and not just a sloppy
+test), the test has to quote the exact line of the manpage it's leaning on. We tried widening it to
+also grab cases where our Rust impl *and* real `mv` both fail, figuring the impl just missed the
+same documented behavior. But that backfired: a bunch of those turned out to be tests guessing an
+exit code the manpage never actually states, so they're "the manpage forgot to mention this," not
+"the manpage lies." So we backed it out and kept the stricter rule.
+
 ## Repository layout
 
 ```text
