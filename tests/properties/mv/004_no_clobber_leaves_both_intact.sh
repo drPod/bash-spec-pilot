@@ -16,11 +16,18 @@ printf 'destination-bytes\n' > "$dst"
 src_sha=$(sha256sum "$src" | awk '{print $1}')
 dst_sha=$(sha256sum "$dst" | awk '{print $1}')
 
-# mv -n is documented to skip; coreutils may exit 0 or nonzero depending on
-# version. We assert state, not exit code.
+# mv -n is documented to skip an existing destination. Against the trixie
+# oracle (coreutils 9.x) the skip is silent and exits 0; we assert that, so an
+# impl that errors out on an unrecognized -n (leaving both paths untouched by
+# accident) cannot pass a state-only check.
 set +e
 "$UTIL" -n "$src" "$dst"
+status=$?
 set -e
+if [[ "$status" -ne 0 ]]; then
+  echo "FAIL: -n exited $status (trixie GNU mv skips silently with exit 0)" >&2
+  exit 1
+fi
 
 if [[ ! -f "$src" ]]; then
   echo "FAIL: -n removed source $src" >&2

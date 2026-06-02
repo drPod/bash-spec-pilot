@@ -8,10 +8,19 @@ catch, the homogenization-trap hypothesis is supported.
 
 All tests assume:
 - They are invoked through `$UTIL=sudo`, per repo convention.
-- The invoking user is non-root and has a `NOPASSWD` sudoers entry
-  permitting the specific commands (`true`, `id`, `env`, `bash`).
-  Container recipe in `tests/properties/sudo/README.md` mirrors the
-  one in the worker brief.
+- A non-root invoking user with a `NOPASSWD: ALL` sudoers entry, e.g.
+  `tester ALL=(ALL) NOPASSWD: ALL`. `ALL` (not a per-command allowlist) is
+  required because:
+  - test 003 runs `sudo -n -E env`; `-E`/`--preserve-env` is policy-gated and
+    needs the `SETENV` permission, which sudoers implies for a command matched
+    by `ALL`. A bare `NOPASSWD: true,id,env,bash` allowlist would reject `-E`
+    with "sorry, you are not allowed to preserve the environment".
+  - tests 001/005 run `sudo -u root ...`/`-i`, which need RunAs permission;
+    `(ALL)` in the rule grants it.
+- `env_reset` is enabled (the Debian default) and `SUDO_TEST_VAR` is not in
+  `env_keep`/`env_check`. Tests 003/004 depend on this default-scrub behavior.
+
+This exact setup is created by the canonical runner — see "How to run" below.
 
 Pass criterion: every script exits 0 against real `sudo` in trixie.
 A failure means either the invariant over-specifies behavior the
@@ -49,9 +58,12 @@ filter, or **Wrong Attribute** (#8) if the impl confuses `-E` with
 ### 004 — Default-scrub without `-E`
 Asserts `sudo env` (no `-E`) does NOT contain `SUDO_TEST_VAR`. This is
 the contrapositive of 003: `-E` only matters if the default behavior
-actually scrubs. Backed by manpage lines 100-104 (existence of `-E`
-implies a scrubbing default) and lines 553-575 (explicit allowlist of
-preserved vars; `SUDO_TEST_VAR` is not on it). Bug class:
+actually scrubs. This is a harness assumption, not a manpage guarantee:
+`-E` is policy-gated, so a policy could in principle choose not to scrub.
+The assumption holds here because the runner uses the Debian default
+`env_reset` with `SUDO_TEST_VAR` absent from `env_keep`/`env_check` (the
+ENVIRONMENT section, manpage lines 553-575, enumerates the preserved
+allowlist; `SUDO_TEST_VAR` is not on it). Bug class:
 **Non-Prompted Consideration** (#10) if the impl "helpfully" passes
 through all parent env vars by default, or **Missing Corner Case** (#5)
 if the impl only scrubs a small hard-coded set.
@@ -65,3 +77,16 @@ login; sudo attempts to chdir to the target user's home) and lines
 **Misinterpretation** (#1) if `-i` is implemented as a plain shell
 invocation without resetting HOME, or **Wrong Attribute** (#8) if the
 impl pulls HOME from the wrong source (e.g. `$SUDO_USER`'s home).
+
+## How to run
+
+```bash
+scripts/eval/run_metamorphic.sh sudo --as-user
+```
+
+`--as-user` provisions a non-root `tester` user with the `NOPASSWD: ALL`
+sudoers entry described above and runs each invariant as that user (root would
+make the sudo invariants trivially pass). Results land in
+`runs/sudo/_metamorphic/results.jsonl`. These property tests are a separate
+suite from the LLM pipeline's `runs/<util>/.../tests` and are not picked up by
+`run_tests.py`; this runner is their only entry point.

@@ -14,8 +14,9 @@ trap" in which the same model wrote impl and tests, then graded itself.
 - Invoke utility via `"$UTIL"` env var. The runner sets this; the tests
   never name `find` literally.
 - All scratch state lives under `mktemp -d`, cleaned up via `EXIT` trap.
-- Exit 0 = invariant held. Nonzero + one-line stderr diagnostic = invariant
-  violated.
+- Exit 0 = invariant held. Nonzero exit + a stderr diagnostic = invariant
+  violated. Some tests print extra context on failure (e.g. the full `find`
+  output), so a diagnostic may span multiple lines.
 
 Run inside the trixie oracle (matches the rest of the pipeline):
 

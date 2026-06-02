@@ -16,8 +16,11 @@ src="$tmpdir/src"
 dst="$tmpdir/dst"
 
 printf 'payload\n' > "$src"
+src_sha=$(sha256sum "$src" | awk '{print $1}')
 
-"$UTIL" -i "$src" "$dst" </dev/null
+# Bound the call: a buggy impl that blocks reading stdin would otherwise hang
+# the whole suite. timeout turns the hang into a nonzero exit `set -e` surfaces.
+timeout 10 "$UTIL" -i "$src" "$dst" </dev/null
 
 if [[ -e "$src" ]]; then
   echo "FAIL: -i did not move source $src (possibly prompted on /dev/null)" >&2
@@ -25,5 +28,11 @@ if [[ -e "$src" ]]; then
 fi
 if [[ ! -f "$dst" ]]; then
   echo "FAIL: -i did not create destination $dst" >&2
+  exit 1
+fi
+# The rename must carry the original bytes — an impl could create an empty or
+# wrong dst and pass an existence-only check.
+if [[ "$(sha256sum "$dst" | awk '{print $1}')" != "$src_sha" ]]; then
+  echo "FAIL: -i created destination but content != original source bytes" >&2
   exit 1
 fi

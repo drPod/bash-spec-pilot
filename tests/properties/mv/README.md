@@ -46,12 +46,14 @@ re-copies bytes can plausibly forget mode bits and pass all wave-3 tests.
 
 Asserts source AND destination both exist and both hold their original
 bytes after `mv -n src dst` when dst pre-exists. Manpage backing: lines
-34-35 "-n, --no-clobber  do not overwrite an existing file". State-only
-assertion (no exit-code check) because the manpage does not specify exit
-status for the skip case. Surfaces **test-relaxation-by-feedback**
-(taxonomy § 5.2): wave-3 round-2 feedback rewrote a mv test to swallow
-stderr rather than enforce post-state. This test enforces post-state and
-nothing else.
+34-35 "-n, --no-clobber  do not overwrite an existing file". The manpage
+does not specify exit status for the skip case, but the trixie oracle
+(coreutils 9.x) skips silently with exit 0; we assert that too, so an impl
+that merely errors on an unrecognized `-n` (leaving both paths intact by
+accident) cannot pass on post-state alone. Surfaces
+**test-relaxation-by-feedback** (taxonomy § 5.2): wave-3 round-2 feedback
+rewrote a mv test to swallow stderr rather than enforce post-state. This
+test enforces post-state and nothing else.
 
 ### 005 — `-i` does not prompt when destination is absent
 
@@ -65,14 +67,26 @@ that prompts unconditionally (or hangs on empty stdin) would pass wave-3.
 
 ## How to run
 
+Canonical runner (writes `runs/mv/_metamorphic/results.jsonl`):
+
+```bash
+scripts/eval/run_metamorphic.sh mv
+```
+
+Ad-hoc equivalent. Note the explicit `fail` flag and trailing `exit` — a
+`bash "$t" && echo PASS || echo FAIL` loop would mask failures (the `echo
+FAIL` succeeds, so the loop exits 0 and CI sees a false green):
+
 ```bash
 docker run --rm -v "$PWD:/repo" -w /repo debian:trixie-slim sh -c '
   apt-get update -qq && apt-get install -y -qq coreutils >/dev/null
   export UTIL=mv
+  fail=0
   for t in tests/properties/mv/*.sh; do
     echo "== $t =="
-    bash "$t" && echo PASS || echo FAIL
+    if bash "$t"; then echo PASS; else echo FAIL; fail=1; fi
   done
+  exit "$fail"
 '
 ```
 
