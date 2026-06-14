@@ -9,6 +9,7 @@ Research experiment investigating whether large language models can extract beha
 ## Where to find docs
 
 - **OpenAI Python SDK behavior** (parameter signatures, error classes, reasoning config, structured outputs) — `docs/openai/`. The mirror is pinned to the installed SDK version (`docs/openai/_pin.txt`). Read this before calling `client.responses.create(...)`. Do not WebFetch platform.openai.com — it lags the SDK.
+- **POSIX standard text** (what the spec says about `cp`/`mv`/`find`, pathname/trailing-slash resolution, option-syntax conventions, default STDOUT/STDERR/exit-status behavior) — `docs/posix/`, router at `docs/posix/README.md`. Pinned to Issue 8 / IEEE Std 1003.1-2024 (`docs/posix/_source.json`). The third ground-truth source for the manpage-defect work: GNU man page vs POSIX vs real binary. Do not WebFetch pubs.opengroup.org. Note `sudo` is not a POSIX utility, and GNU extensions are out of POSIX scope.
 - **Project conventions and routing** — `CLAUDE.md` at the repo root. Caveman style, agent-facing.
 - **Decision log** (why we chose Debian trixie man pages, why we removed `temperature` and `seed`, why we switched from Chat Completions to Responses) — `docs/research/decisions.md`. Has a section TOC.
 - **Failure taxonomy** (Tambon-derived schema for cataloguing LLM bugs in generated Bash and Rust) — `docs/research/taxonomy.md`.
@@ -31,6 +32,7 @@ Research experiment investigating whether large language models can extract beha
 - **Rust line / branch coverage via tarpaulin** — `scripts/eval/coverage_rust.sh`.
 - **Positive vs negative test breakdown per round** — `scripts/eval/positivity.py`.
 - **OpenAI SDK doc-mirror sync** — `scripts/dev/sync_openai_docs.sh`.
+- **POSIX doc-mirror sync** — `scripts/dev/sync_posix_docs.sh` (+ `scripts/dev/_strip_posix_html.py` nav-stripper). Issue 8 default, `POSIX_ISSUE=7` for 2018.
 - **`_observations.md` skeleton bootstrap** — `scripts/dev/init_observations.sh`.
 - **README 100-col rewrap** — `scripts/dev/format_readme.sh`.
 - **Prompt templates** — `prompts/baseline/impl.md` (man page → Rust) and `prompts/baseline/tests.md` (man page → Bash test suite). Both carry HTML maintainer-note headers documenting which prompt-engineering techniques (per Schulhoff 2024) are applied and which are deliberately rejected. Wave-4 adversarial templates: `prompts/adversarial/cold_section.md` (manpage-only, thematic slice frame) and `prompts/adversarial/posthoc.md` (manpage + frozen Rust impl, whitebox bug-finding). Slice vocabulary + schema in `prompts/adversarial/README.md`.

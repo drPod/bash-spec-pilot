@@ -43,12 +43,14 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 - `scripts/eval/coverage_rust.sh` -> branch/line coverage on Rust impl via `cargo tarpaulin`.
 - `scripts/eval/positivity.py` -> positive vs negative test breakdown per round.
 - `scripts/dev/sync_openai_docs.sh` -> regenerate `docs/openai/` mirror from installed SDK.
+- `scripts/dev/sync_posix_docs.sh` -> regenerate `docs/posix/` mirror from pubs.opengroup.org (Issue 8 default; `POSIX_ISSUE=7` for 2018). Strips nav via `_strip_posix_html.py`, renders with pandoc, writes per-page sha256 in `_source.json`.
 - `scripts/dev/init_observations.sh <util> <session> <round>` -> emit `_observations.md` skeleton with pre-filled numbers.
 - `scripts/dev/format_readme.sh` -> hard-wrap `README.md` prose at 100 cols.
 
 # Routing — when read what
 
 - OpenAI SDK question (parameter exists? error class? reasoning effort?) -> `docs/openai/<file>.md`. NEVER WebFetch platform.openai.com. NEVER paraphrase from memory. Mirror is ground truth at pin in `docs/openai/_pin.txt`.
+- POSIX standard text (what does the spec say about cp/mv/find? trailing-slash semantics? option syntax? default STDOUT/STDERR/exit-status?) -> `docs/posix/<file>.md`, router at `docs/posix/README.md`. NEVER WebFetch pubs.opengroup.org. Third ground-truth source for the manpage-defect work: manpage (`utils/<u>/manpage.txt`) vs POSIX (`docs/posix/`) vs real binary. Edition pinned in `docs/posix/_source.json`. `sudo` NOT in POSIX. GNU extensions (`--reflink`, `--backup`, find `-printf`) out of POSIX scope — absence != manpage defect.
 - Decision history / why-we-chose-X -> `docs/research/decisions.md`. Has TOC at top. Sections: man-page source, prompt engineering, driver-API verdict, SDK mirror, wave-4 cold-adversarial pilot (§ 10).
 - Prior work / prior art / what's been tried -> `literature/_synthesis.md`. Read order: Caruca -> Endres -> Tambon -> Westenfelder. Wave-4-specific prior art -> `docs/research/adversarial_prior_art.md` (homogenization trap, self-collusion, ACH/CoverUp/Code-A1).
 - Failure-mode catalog (Tambon-derived schema) -> `docs/research/taxonomy.md`.
@@ -72,6 +74,7 @@ Research repo. Exploratory experiment for Prof. Vikram Adve group at UIUC. Exten
 # Don't
 
 - Don't WebFetch OpenAI docs. Mirror in `docs/openai/`. Refresh via `scripts/dev/sync_openai_docs.sh`.
+- Don't WebFetch pubs.opengroup.org. POSIX mirror in `docs/posix/`. Refresh via `scripts/dev/sync_posix_docs.sh`.
 - Don't add `temperature=0` or `seed=42` to driver. Reasoning model rejects both. SDK 2.35.1 `Responses.create` signature doesn't accept `seed` — TypeError before HTTP call.
 - Don't iterate in round 1. Round 1 = baseline (no feedback section). Round 2+ = iteration with structured feedback from round N-1.
 - Don't run docker as `root` for sudo tests. `sudo` needs non-root user to be meaningful.

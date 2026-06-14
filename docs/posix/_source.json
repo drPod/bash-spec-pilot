@@ -1,0 +1,15 @@
+{
+  "edition": "Issue 8 / IEEE Std 1003.1-2024",
+  "issue": 8,
+  "base_url": "https://pubs.opengroup.org/onlinepubs/9799919799",
+  "fetched_utc": "2026-06-14T03:19:43Z",
+  "renderer": "curl | strip-nav | pandoc -f html -t gfm",
+  "pages": [
+    {"name": "cp", "file": "cp.md", "path": "utilities/cp.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cp.html", "sha256_html": "b0dd200bd0b67364acd4077446b871c06f7fb1de01e01001e92f4f749d0c259f"},
+    {"name": "mv", "file": "mv.md", "path": "utilities/mv.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mv.html", "sha256_html": "8c9e3796d3a630c9bc887a38d99eb78434db9fa89f34d579984cceff41a8847b"},
+    {"name": "find", "file": "find.md", "path": "utilities/find.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/find.html", "sha256_html": "c0786abed5f977ba95876ec33920eb227a65087925e9527b894bd65d3697a98f"},
+    {"name": "general_concepts", "file": "general_concepts.md", "path": "basedefs/V1_chap04.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap04.html", "sha256_html": "b7b08d49692b92ce4d91b98615570dde98d2fba367446bf8bfb54e4a2664c273"},
+    {"name": "utility_conventions", "file": "utility_conventions.md", "path": "basedefs/V1_chap12.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap12.html", "sha256_html": "3368816a3b26fb699eb6d6d11e617003a6d74305103b07b9914f93bb4f8d50ac"},
+    {"name": "shell_utilities_intro", "file": "shell_utilities_intro.md", "path": "utilities/V3_chap01.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap01.html", "sha256_html": "ca25619b6953730aa30f0814ff3f5c2db6127f9f2cb4f986263921bbab65d4b5"}
+  ]
+}
