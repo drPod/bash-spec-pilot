@@ -1,13 +1,20 @@
 # POSIX mirror — Open Group Base Specifications
 
-Local mirror of the POSIX pages this project compares Linux man pages against.
-**Edition: Issue 8 / IEEE Std 1003.1-2024.** Provenance (source URLs, per-page
-SHA-256 of the upstream HTML, fetch timestamp) is in [`_source.json`](_source.json);
-the URL list is in [`_urls.txt`](_urls.txt). Regenerate with
-`scripts/dev/sync_posix_docs.sh` (set `POSIX_ISSUE=7` for the 2018 edition).
+Full local mirror of the two POSIX volumes that bear on CLI-utility semantics.
+**Edition: Issue 8 / IEEE Std 1003.1-2024.** 172 pages: all 14 Base Definitions
+(XBD) chapters, all 3 Shell & Utilities (XCU) front chapters, and every POSIX
+utility page (155). Provenance (per-page SHA-256 of the upstream HTML, fetch
+timestamp, counts) is in [`_source.json`](_source.json); the URL list is in
+[`_urls.txt`](_urls.txt). Regenerate with `scripts/dev/sync_posix_docs.sh`
+(`POSIX_ISSUE=7` for the 2018 edition).
 
 Read this mirror, not `pubs.opengroup.org` — the pin makes comparisons
 reproducible, the same way `utils/<util>/manpage.txt` freezes the man-page side.
+The directory layout follows the upstream URL paths (`basedefs/`, `utilities/`).
+
+**Not mirrored:** the System Interfaces (XSH) volume (~1200 C-function pages —
+`open()`, `stat()`, …). That is the libc layer, not the CLI layer this project
+studies. Add an `xsh` leg to the sync script if that changes.
 
 ## Why POSIX is here
 
@@ -26,9 +33,10 @@ binary:
 
 Triangulating the three lets you say *which* document is wrong when behaviors
 diverge, not just *that* they diverge. The headline case is already settled by
-this mirror: [`general_concepts.md`](general_concepts.md) (Pathname Resolution)
-documents the trailing-slash-must-be-a-directory rule that `mv(1)` omits — POSIX
-sides with the binary, so the GNU man page is the defective source.
+this mirror: [`basedefs/04_general_concepts.md`](basedefs/04_general_concepts.md)
+(Pathname Resolution) documents the trailing-slash-must-be-a-directory rule that
+`mv(1)` omits — POSIX sides with the binary, so the GNU man page is the
+defective source.
 
 ## Scope caveats (read before drawing conclusions)
 
@@ -39,27 +47,58 @@ sides with the binary, so the GNU man page is the defective source.
   cover.
 - **`sudo` is not POSIX.** No mirror page exists for it. The three-source method
   drops to two (man page ↔ binary) for `sudo`.
-- **POSIX leaves things unspecified on purpose.** It has labeled categories —
-  `unspecified`, `undefined`, `implementation-defined`. The useful property is
-  that it *marks* the holes where the man page stays silent, not that it has
-  none. Treat "POSIX is silent here" as a third outcome, distinct from "POSIX
-  agrees / disagrees with the binary."
+- **POSIX leaves things unspecified on purpose.** The vocabulary is defined in
+  [`basedefs/02_conformance.md`](basedefs/02_conformance.md): `unspecified`,
+  `undefined`, `implementation-defined`. The useful property is that it *marks*
+  the holes where the man page stays silent, not that it has none. Treat "POSIX
+  is silent here" as a third outcome, distinct from "POSIX agrees / disagrees
+  with the binary."
 
-## Files
+## Base Definitions (XBD) — `basedefs/`
 
-| File | Lines | Upstream | When to consult |
-|---|---|---|---|
-| [`cp.md`](cp.md) | 358 | `utilities/cp.html` | `cp` semantics: synopsis forms, `-RHLPfip` options, operands, exit status, the concatenation/overwrite rules. Compare against `utils/cp/manpage.txt`. |
-| [`mv.md`](mv.md) | 296 | `utilities/mv.html` | `mv` semantics: rename vs copy-and-remove, `-fi` options, the directory/existing-file rules. The trailing-slash behavior is **not** here — it's in `general_concepts.md`. |
-| [`find.md`](find.md) | 586 | `utilities/find.html` | `find` primaries and operators POSIX defines (`-name`, `-type`, `-perm`, `-exec`, `-print`, expression grammar). GNU adds many primaries POSIX omits — expect partial coverage. |
-| [`general_concepts.md`](general_concepts.md) | 595 | `basedefs/V1_chap04.html` | Base Definitions ch. 4. **Pathname Resolution (the trailing-slash rule), symbolic-link handling, file times, file access permissions.** First stop for any cross-utility filesystem-semantics question. |
-| [`utility_conventions.md`](utility_conventions.md) | 177 | `basedefs/V1_chap12.html` | Base Definitions ch. 12. Option syntax conventions: single `-`, `--` end-of-options, grouping, option-arguments, operand ordering. The rulebook for what a conforming CLI parser must accept. |
-| [`shell_utilities_intro.md`](shell_utilities_intro.md) | 1039 | `utilities/V3_chap01.html` | Shell & Utilities vol. intro. **Default behaviors for the STDIN / STDOUT / STDERR / EXIT STATUS / CONSEQUENCES OF ERRORS sections** every utility page inherits. Relevant to the stream-convention-silence finding (taxonomy §4.1): POSIX states defaults the man page leaves implicit. |
+The cross-utility rulebook. Any single utility page is interpreted against these.
+
+| File | Chapter | When to consult |
+|---|---|---|
+| [`01_introduction.md`](basedefs/01_introduction.md) | Introduction | Scope, normative-references, how to read the standard. |
+| [`02_conformance.md`](basedefs/02_conformance.md) | **Conformance** | `shall`/`should`/`may`; the `unspecified`/`undefined`/`implementation-defined` definitions. The backbone of "POSIX marks its holes." |
+| [`03_definitions.md`](basedefs/03_definitions.md) | **Definitions** | Normative glossary: pathname, directory, file type, symbolic link, blank, etc. The exact meaning of terms the utility pages use. |
+| [`04_general_concepts.md`](basedefs/04_general_concepts.md) | **General Concepts** | **Pathname Resolution (trailing-slash rule)**, symlink handling, file times, file access permissions. First stop for filesystem-semantics questions. |
+| [`05_file_format_notation.md`](basedefs/05_file_format_notation.md) | File Format Notation | The `%`/conversion grammar used in utility output/format descriptions. |
+| [`06_character_set.md`](basedefs/06_character_set.md) | Character Set | Portable character set, char encoding assumptions. |
+| [`07_locale.md`](basedefs/07_locale.md) | Locale | `LC_*` category semantics — relevant to locale-sensitive utility behavior. |
+| [`08_environment_variables.md`](basedefs/08_environment_variables.md) | Environment Variables | `PATH`, `LC_*`, `LANG`, `TMPDIR`, etc. and their effect on utilities (the find case-folding / flaky-env class). |
+| [`09_regular_expressions.md`](basedefs/09_regular_expressions.md) | Regular Expressions | BRE/ERE definitions (grep/sed/awk; POSIX `find` has no `-regex`). |
+| [`10_directory_structure_and_devices.md`](basedefs/10_directory_structure_and_devices.md) | Directory Structure & Devices | `/dev/null`, `.`/`..` semantics. |
+| [`11_general_terminal_interface.md`](basedefs/11_general_terminal_interface.md) | General Terminal Interface | termios; mostly out of scope here. |
+| [`12_utility_conventions.md`](basedefs/12_utility_conventions.md) | **Utility Conventions** | Option syntax: single `-`, `--` end-of-options, grouping, option-arguments, operand order. The rulebook a conforming CLI parser must follow. |
+| [`13_namespace_and_future_directions.md`](basedefs/13_namespace_and_future_directions.md) | Namespace & Future Directions | Reserved names; rarely needed. |
+| [`14_headers.md`](basedefs/14_headers.md) | Headers | C header contents; libc-adjacent, rarely needed for CLI work. |
+
+## Shell & Utilities (XCU) front chapters — `utilities/_chap*.md`
+
+| File | Chapter | When to consult |
+|---|---|---|
+| [`_chap01_introduction.md`](utilities/_chap01_introduction.md) | Introduction | **Default behaviors for the STDIN/STDOUT/STDERR/EXIT STATUS/CONSEQUENCES OF ERRORS sections** every utility page inherits. Relevant to the stream-convention-silence finding (taxonomy §4.1). |
+| [`_chap02_shell_command_language.md`](utilities/_chap02_shell_command_language.md) | **Shell Command Language** | The shell grammar, quoting, expansions, pattern-matching notation, exit-status rules. Directly relevant to the eventual Bash spec — this is the closest thing POSIX has to a Bash spec. |
+| [`_chap03_utilities.md`](utilities/_chap03_utilities.md) | Utilities | Preamble to the per-utility pages. |
+
+## Utility pages — `utilities/<name>.md`
+
+All 155 POSIX utility pages are mirrored. In-scope for this project:
+
+- [`utilities/cp.md`](utilities/cp.md) — compare against `utils/cp/manpage.txt`.
+- [`utilities/mv.md`](utilities/mv.md) — note the trailing-slash rule lives in `basedefs/04_general_concepts.md`, not here.
+- [`utilities/find.md`](utilities/find.md) — POSIX primaries only; GNU adds many (`-printf`, `-regex`, `-newerXY`) that POSIX omits.
+
+`sudo` is not a POSIX utility, so there is no page for it. The full list of 155
+is in `_source.json` (or `ls utilities/`). Mirroring all of them is cheap and
+makes the discrepancy method scale to any utility the experiment expands to.
 
 ## Rendering notes
 
 Source HTML → `scripts/dev/_strip_posix_html.py` (drops Prev/Home/Next nav and
 the `codes.js` include) → `pandoc -f html -t gfm`. The DESCRIPTION/OPTIONS prose
-renders cleanly; the SYNOPSIS line carries some backtick/bold noise from the
-upstream nested `<tt><b>` markup but is faithful. Section anchors are preserved
-as `<span id="tag_...">` so they line up with the upstream page.
+renders cleanly; SYNOPSIS lines carry some backtick/bold noise from the upstream
+nested `<tt><b>` markup but are faithful. Section anchors are preserved as
+`<span id="tag_...">` so they line up with the upstream page.

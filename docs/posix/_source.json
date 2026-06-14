@@ -2,14 +2,1219 @@
   "edition": "Issue 8 / IEEE Std 1003.1-2024",
   "issue": 8,
   "base_url": "https://pubs.opengroup.org/onlinepubs/9799919799",
-  "fetched_utc": "2026-06-14T03:19:43Z",
+  "fetched_utc": "2026-06-14T03:32:27Z",
   "renderer": "curl | strip-nav | pandoc -f html -t gfm",
+  "not_mirrored": "System Interfaces (XSH) C-function volume \u2014 libc layer, out of CLI-utility scope",
+  "counts": {
+    "basedefs": 14,
+    "xcu_chapters": 3,
+    "utilities": 155,
+    "total": 172
+  },
   "pages": [
-    {"name": "cp", "file": "cp.md", "path": "utilities/cp.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cp.html", "sha256_html": "b0dd200bd0b67364acd4077446b871c06f7fb1de01e01001e92f4f749d0c259f"},
-    {"name": "mv", "file": "mv.md", "path": "utilities/mv.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mv.html", "sha256_html": "8c9e3796d3a630c9bc887a38d99eb78434db9fa89f34d579984cceff41a8847b"},
-    {"name": "find", "file": "find.md", "path": "utilities/find.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/find.html", "sha256_html": "c0786abed5f977ba95876ec33920eb227a65087925e9527b894bd65d3697a98f"},
-    {"name": "general_concepts", "file": "general_concepts.md", "path": "basedefs/V1_chap04.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap04.html", "sha256_html": "b7b08d49692b92ce4d91b98615570dde98d2fba367446bf8bfb54e4a2664c273"},
-    {"name": "utility_conventions", "file": "utility_conventions.md", "path": "basedefs/V1_chap12.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap12.html", "sha256_html": "3368816a3b26fb699eb6d6d11e617003a6d74305103b07b9914f93bb4f8d50ac"},
-    {"name": "shell_utilities_intro", "file": "shell_utilities_intro.md", "path": "utilities/V3_chap01.html", "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap01.html", "sha256_html": "ca25619b6953730aa30f0814ff3f5c2db6127f9f2cb4f986263921bbab65d4b5"}
+    {
+      "group": "basedefs",
+      "file": "basedefs/01_introduction.md",
+      "path": "basedefs/V1_chap01.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap01.html",
+      "sha256_html": "2a441222f914e1926d759b193c7d0aa6832d7c93acceb09c4d8442509c6a3fa6"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/02_conformance.md",
+      "path": "basedefs/V1_chap02.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap02.html",
+      "sha256_html": "940e3dfb82ebe82c0a2cca5a4cc67a16c0bc47e48170c9c9bf61f999c9c2c784"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/03_definitions.md",
+      "path": "basedefs/V1_chap03.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap03.html",
+      "sha256_html": "f0486b7eea2500f0f8d6e2e78c861ac495359215532547b33dda911eb1e16c30"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/04_general_concepts.md",
+      "path": "basedefs/V1_chap04.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap04.html",
+      "sha256_html": "b7b08d49692b92ce4d91b98615570dde98d2fba367446bf8bfb54e4a2664c273"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/05_file_format_notation.md",
+      "path": "basedefs/V1_chap05.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap05.html",
+      "sha256_html": "58df010f55762f0f528df400f69b9f30c77cb50b0973fa22ae7c666cd6a9b20f"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/06_character_set.md",
+      "path": "basedefs/V1_chap06.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap06.html",
+      "sha256_html": "fb5056a0f68e0bce91f4e16dcf636d43bf294eac17c4fd5db7aea790faa72e8a"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/07_locale.md",
+      "path": "basedefs/V1_chap07.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap07.html",
+      "sha256_html": "1689eeaafdeff6a2eb14da8f155bb0572d9024eb019e8c36402d610b904f4858"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/08_environment_variables.md",
+      "path": "basedefs/V1_chap08.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap08.html",
+      "sha256_html": "08711df3ffb6045b9e321894f36d2e80265f635fe6e63e72be8355fbca7385fd"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/09_regular_expressions.md",
+      "path": "basedefs/V1_chap09.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap09.html",
+      "sha256_html": "5dc00f2b9b537569410011ecda374e887574417d979e244e5dfbdfc66d2cf2ab"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/10_directory_structure_and_devices.md",
+      "path": "basedefs/V1_chap10.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap10.html",
+      "sha256_html": "554cba7d2c9b4771df27960d88611dc21dca8124d17b1c28d321abcc08968e46"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/11_general_terminal_interface.md",
+      "path": "basedefs/V1_chap11.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap11.html",
+      "sha256_html": "0e5dbb91a6e7152f07aa6a8c68d9a90a4134485d4d3b0edf8e140c0d15ed5c90"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/12_utility_conventions.md",
+      "path": "basedefs/V1_chap12.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap12.html",
+      "sha256_html": "3368816a3b26fb699eb6d6d11e617003a6d74305103b07b9914f93bb4f8d50ac"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/13_namespace_and_future_directions.md",
+      "path": "basedefs/V1_chap13.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap13.html",
+      "sha256_html": "e732e77d869c33e33d4b93f27ae9226f1954ee3bb2e41ed5ace990f0ea40f011"
+    },
+    {
+      "group": "basedefs",
+      "file": "basedefs/14_headers.md",
+      "path": "basedefs/V1_chap14.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap14.html",
+      "sha256_html": "48e276fb734170b595e4cd7ffe73904a055ffc47b24e4c7873d1fac628cf56e4"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/admin.md",
+      "path": "utilities/admin.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/admin.html",
+      "sha256_html": "1126268d9246a32c9d2a3889d9a697579253089aa34fd632de47b3b756c2c573"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/alias.md",
+      "path": "utilities/alias.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/alias.html",
+      "sha256_html": "d7a9587a447520b26e86ba6ab9ca7c67a294736b699c4a71b6153b86f6f2c44f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ar.md",
+      "path": "utilities/ar.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ar.html",
+      "sha256_html": "4b6e1b855f6bfc266187be771ef27ecda1118e185b6ad68f77d2e67d33e83a76"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/asa.md",
+      "path": "utilities/asa.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/asa.html",
+      "sha256_html": "ebe0c4d1d87b16f206113a127556a25017f57bbce9a7a012f9de9b2863d598d4"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/at.md",
+      "path": "utilities/at.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/at.html",
+      "sha256_html": "623aaacb93b460424f09848291ea5b0732ebd12c52839d84dbbb6f0745e73825"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/awk.md",
+      "path": "utilities/awk.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/awk.html",
+      "sha256_html": "096233fe356b603de39cf3ac7977ba82183d567a8f99442333f6e8632730d597"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/basename.md",
+      "path": "utilities/basename.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/basename.html",
+      "sha256_html": "9c286a77d324d23ed3bb7f301dd28c72e6fd92506fce56167d5e323c7b1b587d"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/batch.md",
+      "path": "utilities/batch.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/batch.html",
+      "sha256_html": "c82bd3a0e8227f3b4b9fa5d3ec0721cda5e17234f5ffe2b114752cdfd4fe585e"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/bc.md",
+      "path": "utilities/bc.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/bc.html",
+      "sha256_html": "37f07cc31de36737e852f7bf97ecafe9f481c09df45a366d5e7d0c1cf30e86e6"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/bg.md",
+      "path": "utilities/bg.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/bg.html",
+      "sha256_html": "6fad1a2a512114fe93ca8825f59a268fefbc0d74b2b676d1b3659eca7909f205"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/c17.md",
+      "path": "utilities/c17.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/c17.html",
+      "sha256_html": "67641556e604a60796806134631aeba430c80eaa5eca35f60395c242f5b17545"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cal.md",
+      "path": "utilities/cal.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cal.html",
+      "sha256_html": "40565c79b1527b0ba0ba24ef65ffbd0a9034cd43a31c2ed161d926fd3df61bf2"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cat.md",
+      "path": "utilities/cat.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cat.html",
+      "sha256_html": "12d363ec8d98154424920a598e6a51dbfa6db590daaf551c2ebf9f373827d6fc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cd.md",
+      "path": "utilities/cd.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cd.html",
+      "sha256_html": "1d2970408293b09b23149b3cc21333cfdaa6c681e7638a398b999781c57feab7"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cflow.md",
+      "path": "utilities/cflow.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cflow.html",
+      "sha256_html": "f792f01b480356dbccf4b6f2f28008276436b586f94c3f371d67f554e49a5c22"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/chgrp.md",
+      "path": "utilities/chgrp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/chgrp.html",
+      "sha256_html": "dd655db68a2dedc1339c1d331266816624cedf0c8403b3e8f24701f18900e6e5"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/chmod.md",
+      "path": "utilities/chmod.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/chmod.html",
+      "sha256_html": "af81a1d8a19abc2e9ea18cc75cf6c51481f30fecff69ee131abfe547b037c525"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/chown.md",
+      "path": "utilities/chown.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/chown.html",
+      "sha256_html": "a10f2dab6258a42059a58d5657aba60873f542fb9e30f3bbf4c8c428990900cf"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cksum.md",
+      "path": "utilities/cksum.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cksum.html",
+      "sha256_html": "c3b16ea937bece5a14fa17f3b51d8d09e988a0862e94ae8e50eb9a0dcf5416fe"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cmp.md",
+      "path": "utilities/cmp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cmp.html",
+      "sha256_html": "6e5aaba32338cc28cc6173c5b6d6f0a3d1c560e9bff2b4449dfdf667b1bede9a"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/comm.md",
+      "path": "utilities/comm.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/comm.html",
+      "sha256_html": "e43bc8d29d44713455ac127b4f17736efc65c8c36ad0b0a880bf1c981e7cc9dc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/command.md",
+      "path": "utilities/command.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/command.html",
+      "sha256_html": "07352498622962b33d75bea678f8e365d4c03264cf0827fcc76d22d43c8fab06"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/compress.md",
+      "path": "utilities/compress.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/compress.html",
+      "sha256_html": "8afe9039b425d5042b4f76055f0931b4ba6f396fb022c54e0211be78a03bff44"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cp.md",
+      "path": "utilities/cp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cp.html",
+      "sha256_html": "b0dd200bd0b67364acd4077446b871c06f7fb1de01e01001e92f4f749d0c259f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/crontab.md",
+      "path": "utilities/crontab.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/crontab.html",
+      "sha256_html": "377dae0b14e82eb66bd7046ebfa03734e2eba3740c8fa0a9beaf0f0188562ee7"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/csplit.md",
+      "path": "utilities/csplit.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/csplit.html",
+      "sha256_html": "f3ebb5b29250199aefa36c373ef61c8db0ca73fdef0a1e9e450f1c578e33f3af"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ctags.md",
+      "path": "utilities/ctags.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ctags.html",
+      "sha256_html": "d534dc922b9631fa0e923e132bf0140e31695cd74a28d299d093cfa7814777a0"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cut.md",
+      "path": "utilities/cut.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cut.html",
+      "sha256_html": "b6cd9cef9099f3dc7e5817eb9951e478d6db1b3a30d04183fc1e36d8347ce009"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/cxref.md",
+      "path": "utilities/cxref.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cxref.html",
+      "sha256_html": "8020ccc6c53ea6a858b327588149c58f580215d481b4ef8887482efea09af430"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/date.md",
+      "path": "utilities/date.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/date.html",
+      "sha256_html": "9e8b9c9186fffb51a2f1b5afa5f2726c6bea24474c0c99c9052f4bd068c3b8ce"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/dd.md",
+      "path": "utilities/dd.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/dd.html",
+      "sha256_html": "bd8f87f42d7900528ca0f82ae542918768b269978f5d0a707d7ffca38d7ab580"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/delta.md",
+      "path": "utilities/delta.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/delta.html",
+      "sha256_html": "a44d20e00eb19c062c8d4aa957f28add28f7efabcfb8eab06d49968ea327dd73"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/df.md",
+      "path": "utilities/df.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/df.html",
+      "sha256_html": "600cd8a74f0e10d7264f73693e5619c60249f3b5a3017ee554d5baecbf773a78"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/diff.md",
+      "path": "utilities/diff.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/diff.html",
+      "sha256_html": "a3d6dcc107a03c4fcad10219487d65010dbede25855c9f4f23146f92a6683270"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/dirname.md",
+      "path": "utilities/dirname.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/dirname.html",
+      "sha256_html": "ec19b6367edd85f41ed193cc2b7e65f0185cf5faa1dd33cabbda72e1ae6609eb"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/du.md",
+      "path": "utilities/du.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/du.html",
+      "sha256_html": "75500a564c4149695d843cc1e09d6f87aac57c657fe03b3400ed25836829fd0c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/echo.md",
+      "path": "utilities/echo.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/echo.html",
+      "sha256_html": "94bcb8104ff8aadcad2fb282d5ba3b83440be7afd1a2ea74d6d8d94a1b9615ad"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ed.md",
+      "path": "utilities/ed.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ed.html",
+      "sha256_html": "14523f492a19dc98f6aa87d5771ee3da18823d11fbedf87d43b16edff6f575a3"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/env.md",
+      "path": "utilities/env.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/env.html",
+      "sha256_html": "fbb0a4ef80289b5c6291cea590658c1bec5c20c7b46e37d4afea8ccfcff5b185"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ex.md",
+      "path": "utilities/ex.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ex.html",
+      "sha256_html": "42bdfeb0941afe408b41ffafe7a3a91b908f27e21b8171c7226b6cd5bd056398"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/expand.md",
+      "path": "utilities/expand.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/expand.html",
+      "sha256_html": "81dcf0010df114dab1eb1dd3753fae95eaf557234e5cccc61bfed639d2a82494"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/expr.md",
+      "path": "utilities/expr.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/expr.html",
+      "sha256_html": "c0b3c116ea19f3d7b5888d7612cb415c48bdb5a870231def0da4a8516a9c7642"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/false.md",
+      "path": "utilities/false.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/false.html",
+      "sha256_html": "09e112109df7467eb4096adb4ce3881bc85958d19bb624cf566320ed7bc208e0"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/fc.md",
+      "path": "utilities/fc.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/fc.html",
+      "sha256_html": "cda7de4372b76752a9acea121d24cbc57381c3876013fb1beef310ef9678f238"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/fg.md",
+      "path": "utilities/fg.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/fg.html",
+      "sha256_html": "96e4298bdbe4fafe3f835227e37d6ad0ada7456cb4e6e0c172f6a161d54aeeac"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/file.md",
+      "path": "utilities/file.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/file.html",
+      "sha256_html": "85fa5f16fa4203c601682690e8beb4a4d8a4196b6b039031afb29f694b1e2418"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/find.md",
+      "path": "utilities/find.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/find.html",
+      "sha256_html": "c0786abed5f977ba95876ec33920eb227a65087925e9527b894bd65d3697a98f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/fold.md",
+      "path": "utilities/fold.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/fold.html",
+      "sha256_html": "838969ea00755e7c2ee18060fd1203851b546f7c08deb0fec93ae7b286c922d8"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/fuser.md",
+      "path": "utilities/fuser.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/fuser.html",
+      "sha256_html": "f1f68947c83156833860abec82fbe8bf4862e226aaca22c33bde048ab701e5c2"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/gencat.md",
+      "path": "utilities/gencat.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/gencat.html",
+      "sha256_html": "7e8748375d744f0ec0b1b2ba563a69c0a9c4493b225cfde00293de7cbb3c3ef5"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/get.md",
+      "path": "utilities/get.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/get.html",
+      "sha256_html": "57374a06f29b71e86312241281a9dbfaa4dcc4744bd7200197b59778b12f48ef"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/getconf.md",
+      "path": "utilities/getconf.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/getconf.html",
+      "sha256_html": "ffe7a86f51ff6f1fbd376f0710ea5da31209d1c8ffb53c94c8457bfe3a47e262"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/getopts.md",
+      "path": "utilities/getopts.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/getopts.html",
+      "sha256_html": "1163ab01b5256f147801946a7f9d98c7934c96e10127d55ebb7cde7048a2a1c6"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/gettext.md",
+      "path": "utilities/gettext.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/gettext.html",
+      "sha256_html": "93ca8d11c164f446256aaea9412cb11089aa1df07b5c964291bb9f5fb5cf9e9b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/grep.md",
+      "path": "utilities/grep.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/grep.html",
+      "sha256_html": "a786b847b48914828634ac7c1cf01a05b2b64f3ca754fca8971bcbe773764735"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/hash.md",
+      "path": "utilities/hash.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/hash.html",
+      "sha256_html": "7ffde5a55633ef4cc99c84faca64eeac85e0b07845121d912ca10c4d5bf6ca3e"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/head.md",
+      "path": "utilities/head.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/head.html",
+      "sha256_html": "c5be3a8dc2d4f6749d78e3d3327d0a92d3a76bd32c434f4bc8e9980192adb438"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/iconv.md",
+      "path": "utilities/iconv.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/iconv.html",
+      "sha256_html": "5dee916d0af7d53ad02bc54d292a2c5f7bbecb24a7046d433f6cc28878e65485"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/id.md",
+      "path": "utilities/id.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/id.html",
+      "sha256_html": "3f9839d622da8e824ea0e2160bff930c73f6adbe3506a601ba4d27793015b641"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ipcrm.md",
+      "path": "utilities/ipcrm.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ipcrm.html",
+      "sha256_html": "e8fde9d5f930d7152db7e02081ad7bd2d4af959dd1b5c91798b022e2a44ec53c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ipcs.md",
+      "path": "utilities/ipcs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ipcs.html",
+      "sha256_html": "fbf7929c9f5eb3922f459180d4303b2c39195a5523e3e2749ab47af98bb1f1b2"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/jobs.md",
+      "path": "utilities/jobs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/jobs.html",
+      "sha256_html": "537dbe925dd3bf775b278617f5481ffb3d64e75ee4d32a3d54a5696bbb587408"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/join.md",
+      "path": "utilities/join.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/join.html",
+      "sha256_html": "4990056295b5eca8ed8d85828f647055f379a03f9cdb7ebbdd163533d4a36aa3"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/kill.md",
+      "path": "utilities/kill.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/kill.html",
+      "sha256_html": "cd300c64285501c8ab8688a3fbd4d9840729d29729d481cb3de61a292e5575a8"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/lex.md",
+      "path": "utilities/lex.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/lex.html",
+      "sha256_html": "3b9233962e2c8c30b31266afae2c3cfa51b0034d0ffc38505f9bc1e8efdb5afc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/link.md",
+      "path": "utilities/link.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/link.html",
+      "sha256_html": "541de91d51ccb9d33e6edcbd77f44011b183e7cad30775565241f09d4ffa0f04"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ln.md",
+      "path": "utilities/ln.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ln.html",
+      "sha256_html": "6c82c37e36a1e7b2fe2a62e5bb7ca668546ffe291b30df0790d8b0febf9f24d7"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/locale.md",
+      "path": "utilities/locale.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/locale.html",
+      "sha256_html": "285cc7cbd16f8376771393a2b082e378db869d072bbbb0cf1f85a524e41b6151"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/localedef.md",
+      "path": "utilities/localedef.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/localedef.html",
+      "sha256_html": "85c5825e0f6e752b8e0ea844e041ff203341d8a5ab216b5e66250a6a68eab379"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/logger.md",
+      "path": "utilities/logger.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/logger.html",
+      "sha256_html": "a35fda39971f2f336dcd1d4845d925ca7b3dd9856232b44a0a139bedd3bd62ed"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/logname.md",
+      "path": "utilities/logname.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/logname.html",
+      "sha256_html": "7a0b7829a4864e70fbaf915bd516db5dd84ebf617543f57f57f7ea8dc6542413"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/lp.md",
+      "path": "utilities/lp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/lp.html",
+      "sha256_html": "6cd43a636cfc3b015fdba5aa071d26dead27daed5c61371fe2bdb29e792a008d"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ls.md",
+      "path": "utilities/ls.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ls.html",
+      "sha256_html": "e2b9ce56853a516e0fba5d12ab6ae9e85a90ff36b36ff706e3a1f0ca872ebb67"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/m4.md",
+      "path": "utilities/m4.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/m4.html",
+      "sha256_html": "086cca78e880cdd0ffff2f0e2dd693887e39cf2fe3684f11f14f2cd0c82d1052"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/mailx.md",
+      "path": "utilities/mailx.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mailx.html",
+      "sha256_html": "4869d860182eb87cf7651c698a9c9103db9562d54bd528a333ec1443003eddff"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/make.md",
+      "path": "utilities/make.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/make.html",
+      "sha256_html": "2b06f158fe0a57658630be818058f8edefe4855df31c646dd231256914bf9ba8"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/man.md",
+      "path": "utilities/man.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/man.html",
+      "sha256_html": "33118e2027a3abcb2da78cebe71ff4cb92a3eee34732476727eadcd6d28243f1"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/mesg.md",
+      "path": "utilities/mesg.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mesg.html",
+      "sha256_html": "7a616902d05efa8b1a3478e56cedc473d469c79ceeafd2543c950bedb15dc0cc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/mkdir.md",
+      "path": "utilities/mkdir.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mkdir.html",
+      "sha256_html": "ae40a4a9f29640fcd62a9d396052022119776b2a49ee332067d04fe99cc41f44"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/mkfifo.md",
+      "path": "utilities/mkfifo.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mkfifo.html",
+      "sha256_html": "62e9e3d1decd63c1f05765237756336bb3ce25b5add7b9c893dfaf3f5cf8b64f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/more.md",
+      "path": "utilities/more.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/more.html",
+      "sha256_html": "3bde37a9d71429a24ed235a275d6b4cb7f4e6021ca2d40e42d83478150fcbccc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/msgfmt.md",
+      "path": "utilities/msgfmt.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/msgfmt.html",
+      "sha256_html": "c7db113dc2ccaa8a59e7154272b10e4d5a43aaab345b79660c2cdecc0da1c79d"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/mv.md",
+      "path": "utilities/mv.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/mv.html",
+      "sha256_html": "8c9e3796d3a630c9bc887a38d99eb78434db9fa89f34d579984cceff41a8847b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/newgrp.md",
+      "path": "utilities/newgrp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/newgrp.html",
+      "sha256_html": "c1d8e2147281172563d25ed509cbce6751e76c82a23245db89c402285170dafc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ngettext.md",
+      "path": "utilities/ngettext.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ngettext.html",
+      "sha256_html": "93ca8d11c164f446256aaea9412cb11089aa1df07b5c964291bb9f5fb5cf9e9b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/nice.md",
+      "path": "utilities/nice.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/nice.html",
+      "sha256_html": "4159e25c2c6b0f1e73641d866e39f2fe4bce2919c312ee4b4add44857990f53b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/nl.md",
+      "path": "utilities/nl.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/nl.html",
+      "sha256_html": "5ebf4d63f385d6fcad8faa26b876393a0b33aac9d33a65df63ee919b20133c4b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/nm.md",
+      "path": "utilities/nm.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/nm.html",
+      "sha256_html": "d821aad9b1e5df4e53880b93047ee4c8efd26d75ff2cec08f7716b907011f889"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/nohup.md",
+      "path": "utilities/nohup.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/nohup.html",
+      "sha256_html": "3fcc676cd81b44021aac578d609a1ebc27bbcd44801415147e5ed03e8afc87e0"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/od.md",
+      "path": "utilities/od.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/od.html",
+      "sha256_html": "a758082d85fb913f6b186713c441ee58bf57a5782f31206f44cd9282a5bf23f4"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/paste.md",
+      "path": "utilities/paste.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/paste.html",
+      "sha256_html": "9e96fadecb87e9cb76f94ae8fab11b4184accd67fb6021595bda84d45f3f732b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/patch.md",
+      "path": "utilities/patch.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/patch.html",
+      "sha256_html": "e88e75511b37df6feb888df6838d00b4e8721a966a55bf7fdd7f0ebd3eead2de"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/pathchk.md",
+      "path": "utilities/pathchk.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pathchk.html",
+      "sha256_html": "d88d132fedce276a6320f9081c02d448a730d55cc11956bcbbf072c73a9d7da2"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/pax.md",
+      "path": "utilities/pax.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pax.html",
+      "sha256_html": "f026b5d1953d3ac88d23f599d719b1a0d15de87bc9eb1568d66ebea2a2269be3"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/pr.md",
+      "path": "utilities/pr.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pr.html",
+      "sha256_html": "feec5fa2001841f761853e6c3596726055c2499b8d9ca7c6c5f936164718a4d5"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/printf.md",
+      "path": "utilities/printf.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/printf.html",
+      "sha256_html": "0d33019c8b9f2766380b7ebc357462d2047f8509428b2e87cc34d0bcf6dd38b0"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/prs.md",
+      "path": "utilities/prs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/prs.html",
+      "sha256_html": "ad76720c976908c2476ff69899dba335500cbf663d43eb95ab637cfb32b5dc1c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ps.md",
+      "path": "utilities/ps.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ps.html",
+      "sha256_html": "838a7e82e6c9dfe8587017705af30b038431ab29b065aa97c3c5d8656a7cc66d"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/pwd.md",
+      "path": "utilities/pwd.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/pwd.html",
+      "sha256_html": "ce1817f9a664dcd526d461933959064e2fa5df65c50eb24ca0e6a71555f0ed44"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/read.md",
+      "path": "utilities/read.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/read.html",
+      "sha256_html": "b59790c4220e195fe1d1983969083bc9387c5297d7b61714f5a7e1c5bf899f9f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/readlink.md",
+      "path": "utilities/readlink.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/readlink.html",
+      "sha256_html": "4da019f026918cdc95b8920461be1b0d22b9dc5f9676fa42d68ab2112e6054d6"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/realpath.md",
+      "path": "utilities/realpath.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/realpath.html",
+      "sha256_html": "c8d5a4146ad5b34b5608d99a81861ab2ed2f8a682f47ebf7891de678b32d9c79"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/renice.md",
+      "path": "utilities/renice.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/renice.html",
+      "sha256_html": "23e70cbbe2a4aa46541d3384c2b4cad2b888d558500ec0975b88a6dba2803d31"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/rm.md",
+      "path": "utilities/rm.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/rm.html",
+      "sha256_html": "9a8b02580748c941ac903857dd23c1ff672a9ddd4395b18c8a17883ea6156a4e"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/rmdel.md",
+      "path": "utilities/rmdel.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/rmdel.html",
+      "sha256_html": "1f63bcc2ed58585998781a786b92ccef56f946705876a95645ba137bb344f6cc"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/rmdir.md",
+      "path": "utilities/rmdir.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/rmdir.html",
+      "sha256_html": "76b19e60913eb1851023e32d177db5ab1e38f210bfc1158c4c0daa6777754f4b"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sact.md",
+      "path": "utilities/sact.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sact.html",
+      "sha256_html": "ea7e1f7c1b3725f08ce5f175f1fb03a2d706a0eeea1253ed056abc3736085d85"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sccs.md",
+      "path": "utilities/sccs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sccs.html",
+      "sha256_html": "424663c34907cc6f3c4a1c9a247ad3446da931d4dba4736453e20d9212897d08"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sed.md",
+      "path": "utilities/sed.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sed.html",
+      "sha256_html": "be084c02c4e4a5d60ffa59311a73811ee6bb45157aa22ef0b7a4bd982780df02"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sh.md",
+      "path": "utilities/sh.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sh.html",
+      "sha256_html": "fce7fdff5aeb803a0afab11ad76f3e900cf2910c1faceea0e744bcb20455c940"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sleep.md",
+      "path": "utilities/sleep.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sleep.html",
+      "sha256_html": "326afdad7fc8011df38107b1d21d112e5c733efa513df83dcbedff19fe9a9964"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/sort.md",
+      "path": "utilities/sort.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sort.html",
+      "sha256_html": "b581757d78f9776609c5d06cb5e195771274afadfb8fa2012afe89540255dcfa"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/split.md",
+      "path": "utilities/split.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/split.html",
+      "sha256_html": "68c07ad18a1261532728a15bf0bb36689a03ba166dc2fa351b1d9df4031b1d9f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/strings.md",
+      "path": "utilities/strings.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/strings.html",
+      "sha256_html": "8bec9dc01b6c526f6bab462e8dc296c427702b7fdd430304916345f065ee1144"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/strip.md",
+      "path": "utilities/strip.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/strip.html",
+      "sha256_html": "ff2b2b249b47c4fc5e05ee1ecb6980fd07fc067ea44e05851e14446f582db1a1"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/stty.md",
+      "path": "utilities/stty.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/stty.html",
+      "sha256_html": "74e21f8f7aa5516ce2399020d659641ebf6ebd15bdb53a84765868b8e02cf633"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tabs.md",
+      "path": "utilities/tabs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tabs.html",
+      "sha256_html": "5babff1b2cced54498bb54ff1f1bc92b5056072b57e8ff08c67da8bfcadbd66f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tail.md",
+      "path": "utilities/tail.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tail.html",
+      "sha256_html": "0f06710fcec47a2698d4f730c0606bf0896bc3269683f567298d0da32ba52f50"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/talk.md",
+      "path": "utilities/talk.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/talk.html",
+      "sha256_html": "56e571691e794ac8552240fbc91f474e14e3f243131b60486a7145b632073c5c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tee.md",
+      "path": "utilities/tee.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tee.html",
+      "sha256_html": "3de9bdbad40e069faf599cc34cad6a450ad3030981e4896d6352bc930e0e00d8"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/test.md",
+      "path": "utilities/test.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/test.html",
+      "sha256_html": "0766c582d9763a1a7bbfa2d9e6ec28d5259f152ec3bac23e9acbde201f566ad8"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/time.md",
+      "path": "utilities/time.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/time.html",
+      "sha256_html": "1fac66eb334f8ac69741f8c3367acb62dbbd714e25256529035c179913509ac2"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/timeout.md",
+      "path": "utilities/timeout.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/timeout.html",
+      "sha256_html": "25275696f2b2c3700fc31d98f7e3449d7d98d1ea4a36b338095acf08c6f6d0cb"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/touch.md",
+      "path": "utilities/touch.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/touch.html",
+      "sha256_html": "509d462b7991247ba4ff127b8350ab9f792814c5642ede97aadd694258e5f5ea"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tput.md",
+      "path": "utilities/tput.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tput.html",
+      "sha256_html": "1376a780c505368ed80a7708c15dd0be5b40bcf9a43161f2bcf11e6dc4f93962"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tr.md",
+      "path": "utilities/tr.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tr.html",
+      "sha256_html": "74953c9b67be30a9dac4ab9c2730e28657a619cf32ebe1710b0b28881dccb062"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/true.md",
+      "path": "utilities/true.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/true.html",
+      "sha256_html": "85c5d0a2d01b3e15320893db0cdf70233a9cb86cdee75c8ee3ec756f134c379c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tsort.md",
+      "path": "utilities/tsort.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tsort.html",
+      "sha256_html": "35a4e1fe6cc479fa2f10963c4324829c50674e7a3a4529acbcbcee05ce2a796f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/tty.md",
+      "path": "utilities/tty.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/tty.html",
+      "sha256_html": "5cc3efe0c29d4968b44c7e9d42e4676f132ee99d852eb0087b3ec4e023b48441"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/type.md",
+      "path": "utilities/type.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/type.html",
+      "sha256_html": "81b30e4494285aa74a4daf3ace250b567462630815fbdf90afac6421ef9104e3"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/ulimit.md",
+      "path": "utilities/ulimit.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/ulimit.html",
+      "sha256_html": "b4bd455742b5cc0f6f2f3a438fd41dc32cf7c82d5a4ee4b1fa469979838c0d57"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/umask.md",
+      "path": "utilities/umask.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/umask.html",
+      "sha256_html": "3fee0b501fad6fc347316417314a00bb57692b6a8bcf7fe8b417d2a412b9a617"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/unalias.md",
+      "path": "utilities/unalias.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/unalias.html",
+      "sha256_html": "6fd09713a56ad316b90d8add1ca29472baf512597959a15f4cf33e6ec5f0930f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uname.md",
+      "path": "utilities/uname.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uname.html",
+      "sha256_html": "bcd0b2fb89378b10631bb0c9084a20b7a7a7ce69ae419fe9185ebe249b60f942"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uncompress.md",
+      "path": "utilities/uncompress.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uncompress.html",
+      "sha256_html": "8afe9039b425d5042b4f76055f0931b4ba6f396fb022c54e0211be78a03bff44"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/unexpand.md",
+      "path": "utilities/unexpand.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/unexpand.html",
+      "sha256_html": "790caf08f129dc5ef0b91008aa8ee3cabc7ef373a0226b08ef84ea7cb6a84d94"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/unget.md",
+      "path": "utilities/unget.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/unget.html",
+      "sha256_html": "da26d70bfc2cf1fc597de2fb86b7cdb7597c7e70dcf8d7fceddd2420870c38dd"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uniq.md",
+      "path": "utilities/uniq.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uniq.html",
+      "sha256_html": "03c6c27dc28154fbe3eb2a5fec05f62322cc6652a5d804c07b90f6a5e35a04e9"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/unlink.md",
+      "path": "utilities/unlink.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/unlink.html",
+      "sha256_html": "b72eee36026b27d59d657331554be50290f101f08032586204f563bfa7b20e95"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uucp.md",
+      "path": "utilities/uucp.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uucp.html",
+      "sha256_html": "bdf8c91ba591d610fcb1ce5b575c35f79566fefe1d86ed167a84afc0f69cc67c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uudecode.md",
+      "path": "utilities/uudecode.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uudecode.html",
+      "sha256_html": "7cdeaff1c7575ae6ace00a8cd03d4c0e4cb49a4ea998b76e6547ca15ff2ced7f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uuencode.md",
+      "path": "utilities/uuencode.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uuencode.html",
+      "sha256_html": "24ef9137c2ecab15c10659bb277fe1fa447e7735a9c782b3b0a10aff36eb13e0"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uustat.md",
+      "path": "utilities/uustat.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uustat.html",
+      "sha256_html": "c0540118e232d941a8df3923453df512ec3babde08edd6e09d9f2d0a0b012a69"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/uux.md",
+      "path": "utilities/uux.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uux.html",
+      "sha256_html": "3d99b9e6e7d6354f964d8ed45dc9c6d75f050eca8e7234cd6ea5cce2e5537db6"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/val.md",
+      "path": "utilities/val.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/val.html",
+      "sha256_html": "2a7b629873f53bbaa9d84b43d20ce0a2ef3d42cde1590994882053dfa438cd64"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/vi.md",
+      "path": "utilities/vi.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/vi.html",
+      "sha256_html": "8063d73f4dda4f90ccfdf44c641793eeea93a47a03db90062c22b449cf99a0af"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/wait.md",
+      "path": "utilities/wait.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/wait.html",
+      "sha256_html": "4e205339694cac28df257bde82fa70e2d12ec2ab4e2121828c477f6e592d5a6f"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/wc.md",
+      "path": "utilities/wc.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/wc.html",
+      "sha256_html": "93fb580654a79dcb47479f6ce2285c859f93307357aa52a18f54218bd967e3ad"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/what.md",
+      "path": "utilities/what.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/what.html",
+      "sha256_html": "54c1b4866d102a4f4a1247fe2c5fd58dd85f558d39d9579bb90e45588d585f05"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/who.md",
+      "path": "utilities/who.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/who.html",
+      "sha256_html": "1631d26b23af0877e63890dcd5ab31a859731d64dbbc5cacf1bb5e68e9a20aad"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/write.md",
+      "path": "utilities/write.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/write.html",
+      "sha256_html": "87b73952379004337e591099e64009930c2f577e07e61a22a6ce180669dca68c"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/xargs.md",
+      "path": "utilities/xargs.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/xargs.html",
+      "sha256_html": "9e244600defbe87e0229b85ee645f0ae933130988f73f6d3d942caf1242883a1"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/xgettext.md",
+      "path": "utilities/xgettext.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/xgettext.html",
+      "sha256_html": "a066a00ac562f0279e9cb2e18e2f706704444021cefa230974428c759e479298"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/yacc.md",
+      "path": "utilities/yacc.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/yacc.html",
+      "sha256_html": "7fb4b4494fd1e1a12549d8429fc8cd2a677430125cc019160d75f2f8fc375204"
+    },
+    {
+      "group": "utility",
+      "file": "utilities/zcat.md",
+      "path": "utilities/zcat.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/zcat.html",
+      "sha256_html": "8afe9039b425d5042b4f76055f0931b4ba6f396fb022c54e0211be78a03bff44"
+    },
+    {
+      "group": "xcu_chapter",
+      "file": "utilities/_chap01_introduction.md",
+      "path": "utilities/V3_chap01.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap01.html",
+      "sha256_html": "ca25619b6953730aa30f0814ff3f5c2db6127f9f2cb4f986263921bbab65d4b5"
+    },
+    {
+      "group": "xcu_chapter",
+      "file": "utilities/_chap02_shell_command_language.md",
+      "path": "utilities/V3_chap02.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html",
+      "sha256_html": "62b96a98eaaf7b36f1dd5797ce099d68f71a9f1e7b0375ba8c12037dc24b210e"
+    },
+    {
+      "group": "xcu_chapter",
+      "file": "utilities/_chap03_utilities.md",
+      "path": "utilities/V3_chap03.html",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap03.html",
+      "sha256_html": "63b5d74ad6b9f491ec5c3ffd704ee7382b784c965b89219b9ce1f9b444cdb566"
+    }
   ]
 }

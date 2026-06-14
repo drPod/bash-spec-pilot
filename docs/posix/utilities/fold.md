@@ -1,0 +1,209 @@
+The Open Group Base Specifications Issue 8\
+IEEE Std 1003.1-2024\
+Copyright © 2001-2024 The IEEE and The Open Group
+
+------------------------------------------------------------------------
+
+<span id="top"></span> <span id="fold"></span> <span id="tag_20_48"></span>
+
+#### <span id="tag_20_48_01"></span>NAME
+
+> fold — filter for folding lines
+
+#### <span id="tag_20_48_02"></span>SYNOPSIS
+
+> `fold`` `**`[`**`-bs`**`] [`**`-w`` `*`width`***`] [`***`file`*`...`**`]`**
+
+#### <span id="tag_20_48_03"></span>DESCRIPTION
+
+> The *fold* utility is a filter that shall fold lines from its input files, breaking the lines to have a maximum of *width* column positions (or bytes, if the **-b** option is specified). Lines shall be broken by the insertion of a \<newline\> such that each output line (referred to later in this section as a *segment*) is the maximum width possible that does not exceed the specified number of column positions (or bytes). A line shall not be broken in the middle of a character. The behavior is undefined if *width* is less than the number of columns any single character in the input would occupy.
+>
+> If the \<carriage-return\>, \<backspace\>, or \<tab\> characters are encountered in the input, and the **-b** option is not specified, they shall be treated specially:
+>
+> \<backspace\>
+>
+> The current count of line width shall be decremented by one, although the count never shall become negative. The *fold* utility shall not insert a \<newline\> immediately before or after any \<backspace\>, unless the following character has a width greater than 1 and would cause the line width to exceed *width*.
+>
+> \<carriage-return\>
+>
+> \
+> The current count of line width shall be set to zero. The *fold* utility shall not insert a \<newline\> immediately before or after any \<carriage-return\>.
+>
+> \<tab\>
+>
+> Each \<tab\> encountered shall advance the column position pointer to the next tab stop. Tab stops shall be at each column position *n* such that *n* modulo 8 equals 1.
+
+#### <span id="tag_20_48_04"></span>OPTIONS
+
+> The *fold* utility shall conform to XBD [*12.2 Utility Syntax Guidelines*](../basedefs/V1_chap12.html#tag_12_02).
+>
+> The following options shall be supported:
+>
+> **-b**
+>
+> Count *width* in bytes rather than column positions.
+>
+> **-s**
+>
+> If a segment of a line contains a \<blank\> within the first *width* column positions (or bytes), break the line after the last such \<blank\> meeting the width constraints. If there is no \<blank\> meeting the requirements, the **-s** option shall have no effect for that output segment of the input line.
+>
+> **-w ***width*
+>
+> Specify the maximum line length, in column positions (or bytes if **-b** is specified). The results are unspecified if *width* is not a positive decimal number. The default value shall be 80.
+
+#### <span id="tag_20_48_05"></span>OPERANDS
+
+> The following operand shall be supported:
+>
+> *file*
+>
+> A pathname of a text file to be folded. If no *file* operands are specified, the standard input shall be used.
+
+#### <span id="tag_20_48_06"></span>STDIN
+
+> The standard input shall be used if no *file* operands are specified, and shall be used if a *file* operand is `'-'` and the implementation treats the `'-'` as meaning standard input. Otherwise, the standard input shall not be used. See the INPUT FILES section.
+
+#### <span id="tag_20_48_07"></span>INPUT FILES
+
+> If the **-b** option is specified, the input files shall be text files except that the lines are not limited to {LINE_MAX} bytes in length. If the **-b** option is not specified, the input files shall be text files.
+
+#### <span id="tag_20_48_08"></span>ENVIRONMENT VARIABLES
+
+> The following environment variables shall affect the execution of *fold*:
+>
+> *LANG*
+>
+> Provide a default value for the internationalization variables that are unset or null. (See XBD [*8.2 Internationalization Variables*](../basedefs/V1_chap08.html#tag_08_02) for the precedence of internationalization variables used to determine the values of locale categories.)
+>
+> *LC_ALL*
+>
+> If set to a non-empty string value, override the values of all the other internationalization variables.
+>
+> *LC_CTYPE*
+>
+> Determine the locale for the interpretation of sequences of bytes of text data as characters (for example, single-byte as opposed to multi-byte characters in arguments and input files), and for the determination of the width in column positions each character would occupy on a constant-width font output device.
+>
+> *LC_MESSAGES*
+>
+> \
+> Determine the locale that should be used to affect the format and contents of diagnostic messages written to standard error.
+>
+> *NLSPATH*
+>
+> <sup>\[[XSI](javascript:open_code('XSI'))\]</sup> <img src="../images/opt-start.gif" data-border="0" alt="[Option Start]" /> Determine the location of messages objects and message catalogs. <img src="../images/opt-end.gif" data-border="0" alt="[Option End]" />
+
+#### <span id="tag_20_48_09"></span>ASYNCHRONOUS EVENTS
+
+> Default.
+
+#### <span id="tag_20_48_10"></span>STDOUT
+
+> The standard output shall be a file containing a sequence of characters whose order shall be preserved from the input files, possibly with inserted \<newline\> characters.
+
+#### <span id="tag_20_48_11"></span>STDERR
+
+> The standard error shall be used only for diagnostic messages.
+
+#### <span id="tag_20_48_12"></span>OUTPUT FILES
+
+> None.
+
+#### <span id="tag_20_48_13"></span>EXTENDED DESCRIPTION
+
+> None.
+
+#### <span id="tag_20_48_14"></span>EXIT STATUS
+
+> The following exit values shall be returned:
+>
+>  0
+>
+> All input files were processed successfully.
+>
+> \>0
+>
+> An error occurred.
+
+#### <span id="tag_20_48_15"></span>CONSEQUENCES OF ERRORS
+
+> Default.
+
+------------------------------------------------------------------------
+
+<div class="box">
+
+*The following sections are informative.*
+
+</div>
+
+#### <span id="tag_20_48_16"></span>APPLICATION USAGE
+
+> The [*cut*](../utilities/cut.html) and *fold* utilities can be used to create text files out of files with arbitrary line lengths. The [*cut*](../utilities/cut.html) utility should be used when the number of lines (or records) needs to remain constant. The *fold* utility should be used when the contents of long lines need to be kept contiguous.
+>
+> The *fold* utility is frequently used to send text files to printers that truncate, rather than fold, lines wider than the printer is able to print (usually 80 or 132 column positions).
+
+#### <span id="tag_20_48_17"></span>EXAMPLES
+
+> An example invocation that submits a file of possibly long lines to the printer (under the assumption that the user knows the line width of the printer to be assigned by [*lp*](../utilities/lp.html)):
+>
+>
+>     fold -w 132 bigfile | lp
+
+#### <span id="tag_20_48_18"></span>RATIONALE
+
+> Although terminal input in canonical processing mode requires the erase character (frequently set to \<backspace\>) to erase the previous character (not byte or column position), terminal output is not buffered and is extremely difficult, if not impossible, to parse correctly; the interpretation depends entirely on the physical device that actually displays/prints/stores the output. In all known internationalized implementations, the utilities producing output for mixed column-width output assume that a \<backspace\> character backs up one column position and outputs enough \<backspace\> characters to return to the start of the character when \<backspace\> is used to provide local line motions to support underlining and emboldening operations. Since *fold* without the **-b** option is dealing with these same constraints, \<backspace\> is always treated as backing up one column position rather than backing up one character.
+>
+> Historical versions of the *fold* utility assumed 1 byte was one character and occupied one column position when written out. This is no longer always true. Since the most common usage of *fold* is believed to be folding long lines for output to limited-length output devices, this capability was preserved as the default case. The **-b** option was added so that applications could *fold* files with arbitrary length lines into text files that could then be processed by the standard utilities. Note that although the width for the **-b** option is in bytes, a line is never split in the middle of a character. (It is unspecified what happens if a width is specified that is too small to hold a single character found in the input followed by a \<newline\>.)
+>
+> The tab stops are hardcoded to be every eighth column to meet historical practice. No new method of specifying other tab stops was invented.
+
+#### <span id="tag_20_48_19"></span>FUTURE DIRECTIONS
+
+> None.
+
+#### <span id="tag_20_48_20"></span>SEE ALSO
+
+> [*cut*](../utilities/cut.html#)
+>
+> XBD [*8. Environment Variables*](../basedefs/V1_chap08.html#tag_08), [*12.2 Utility Syntax Guidelines*](../basedefs/V1_chap12.html#tag_12_02)
+
+#### <span id="tag_20_48_21"></span>CHANGE HISTORY
+
+> First released in Issue 4.
+
+#### <span id="tag_20_48_22"></span>Issue 6
+
+> The normative text is reworded to avoid use of the term "must" for application requirements.
+
+#### <span id="tag_20_48_23"></span>Issue 7
+
+> Austin Group Interpretation 1003.1-2001 \#092 is applied.\
+>
+> Austin Group Interpretation 1003.1-2001 \#204 is applied, updating the DESCRIPTION to clarify when a \<newline\> can be inserted before or after a \<backspace\>.
+>
+> SD5-XCU-ERN-97 is applied, updating the SYNOPSIS.
+
+#### <span id="tag_20_48_24"></span>Issue 8
+
+> Austin Group Defect 1122 is applied, changing the description of *NLSPATH .*
+
+<div class="box">
+
+*End of informative text.*
+
+</div>
+
+------------------------------------------------------------------------
+
+ 
+
+[<span class="topOfPage">return to top of page</span>](#top)\
+
+------------------------------------------------------------------------
+
+UNIX® is a registered Trademark of The Open Group.\
+POSIX™ is a Trademark of The IEEE.\
+Copyright © 2001-2024 The IEEE and The Open Group, All Rights Reserved\
+\[ [Main Index](../mindex.html) \| [XBD](../basedefs/contents.html) \| [XSH](../functions/contents.html) \| [XCU](../utilities/contents.html) \| [XRAT](../xrat/contents.html) \]
+
+------------------------------------------------------------------------

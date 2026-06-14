@@ -1,0 +1,239 @@
+The Open Group Base Specifications Issue 8\
+IEEE Std 1003.1-2024\
+Copyright © 2001-2024 The IEEE and The Open Group
+
+------------------------------------------------------------------------
+
+<span id="top"></span> <span id="wait"></span> <span id="tag_20_147"></span>
+
+#### <span id="tag_20_147_01"></span>NAME
+
+> wait — await process completion
+
+#### <span id="tag_20_147_02"></span>SYNOPSIS
+
+> `wait`` `**`[`***`pid`*`...`**`]`**
+
+#### <span id="tag_20_147_03"></span>DESCRIPTION
+
+> The *wait* utility shall wait for one or more child processes whose process IDs are known in the current shell execution environment (see [*2.13 Shell Execution Environment*](../utilities/V3_chap02.html#tag_19_13)) to terminate.
+>
+> If the *wait* utility is invoked with no operands, it shall wait until all process IDs known to the invoking shell have terminated and exit with a zero exit status.
+>
+> If one or more *pid* operands are specified that represent known process IDs, the *wait* utility shall wait until all of them have terminated. If one or more *pid* operands are specified that represent unknown process IDs, *wait* shall treat them as if they were known process IDs that exited with exit status 127. The exit status returned by the *wait* utility shall be the exit status of the process requested by the last *pid* operand.
+>
+> Once a process ID that is known in the current shell execution environment (see [*2.13 Shell Execution Environment*](../utilities/V3_chap02.html#tag_19_13)) has been successfully waited for, it shall be removed from the list of process IDs that are known in the current shell execution environment. If the process ID is associated with a background job, the corresponding job shall also be removed from the list of background jobs.
+
+#### <span id="tag_20_147_04"></span>OPTIONS
+
+> None.
+
+#### <span id="tag_20_147_05"></span>OPERANDS
+
+> The following operand shall be supported:
+>
+> *pid*
+>
+> One of the following:
+>
+> 1.  The unsigned decimal integer process ID of a child process whose termination the utility is to wait for.
+>
+> 2.  A job ID (see XBD [*3.182 Job ID*](../basedefs/V1_chap03.html#tag_03_182)) that identifies a process group in the case of a job-control background job, or a process ID in the case of a non-job-control background job (if supported), to be waited for. The job ID notation is applicable only for invocations of *wait* in the current shell execution environment; see [*2.13 Shell Execution Environment*](../utilities/V3_chap02.html#tag_19_13). The exit status of *wait* shall be determined by the exit status of the last pipeline to be executed.
+>
+>     **Note:**  
+>     The job ID type of *pid* is only available on systems supporting the User Portability Utilities option or supporting non-job-control background jobs.
+
+#### <span id="tag_20_147_06"></span>STDIN
+
+> Not used.
+
+#### <span id="tag_20_147_07"></span>INPUT FILES
+
+> None.
+
+#### <span id="tag_20_147_08"></span>ENVIRONMENT VARIABLES
+
+> The following environment variables shall affect the execution of *wait*:
+>
+> *LANG*
+>
+> Provide a default value for the internationalization variables that are unset or null. (See XBD [*8.2 Internationalization Variables*](../basedefs/V1_chap08.html#tag_08_02) for the precedence of internationalization variables used to determine the values of locale categories.)
+>
+> *LC_ALL*
+>
+> If set to a non-empty string value, override the values of all the other internationalization variables.
+>
+> *LC_CTYPE*
+>
+> Determine the locale for the interpretation of sequences of bytes of text data as characters (for example, single-byte as opposed to multi-byte characters in arguments).
+>
+> *LC_MESSAGES*
+>
+> \
+> Determine the locale that should be used to affect the format and contents of diagnostic messages written to standard error.
+>
+> *NLSPATH*
+>
+> <sup>\[[XSI](javascript:open_code('XSI'))\]</sup> <img src="../images/opt-start.gif" data-border="0" alt="[Option Start]" /> Determine the location of messages objects and message catalogs. <img src="../images/opt-end.gif" data-border="0" alt="[Option End]" />
+
+#### <span id="tag_20_147_09"></span>ASYNCHRONOUS EVENTS
+
+> Default.
+
+#### <span id="tag_20_147_10"></span>STDOUT
+
+> Not used.
+
+#### <span id="tag_20_147_11"></span>STDERR
+
+> The standard error shall be used only for diagnostic messages.
+
+#### <span id="tag_20_147_12"></span>OUTPUT FILES
+
+> None.
+
+#### <span id="tag_20_147_13"></span>EXTENDED DESCRIPTION
+
+> None.
+
+#### <span id="tag_20_147_14"></span>EXIT STATUS
+
+> If one or more operands were specified, all of them have terminated or were not known in the invoking shell execution environment, and the status of the last operand specified is known, then the exit status of *wait* shall be the status of the last operand specified. If the process terminated abnormally due to the receipt of a signal, the exit status shall be greater than 128 and shall be distinct from the exit status generated by other signals, but the exact value is unspecified. (See the [*kill*](../utilities/kill.html) **-l** option.) Otherwise, the *wait* utility shall exit with one of the following values:
+>
+>     0
+>
+> The *wait* utility was invoked with no operands and all process IDs known by the invoking shell have terminated.
+>
+> 1-126
+>
+> The *wait* utility detected an error.
+>
+>   127
+>
+> The process ID specified by the last *pid* operand specified is not known in the invoking shell execution environment.
+
+#### <span id="tag_20_147_15"></span>CONSEQUENCES OF ERRORS
+
+> Default.
+
+------------------------------------------------------------------------
+
+<div class="box">
+
+*The following sections are informative.*
+
+</div>
+
+#### <span id="tag_20_147_16"></span>APPLICATION USAGE
+
+> This utility is required to be intrinsic. See [*1.7 Intrinsic Utilities*](../utilities/V3_chap01.html#tag_18_07) for details.
+>
+> On most implementations, *wait* is a shell built-in. If it is called in a subshell or separate utility execution environment, such as one of the following:
+>
+>
+>     (wait)
+>     nohup wait ...
+>     find . -exec wait ... \;
+>
+> it returns immediately because there are no known process IDs to wait for in those environments.
+>
+> The use of job ID notation is not dependent on job control being enabled. When job control has been disabled using [*set*](../utilities/set.html) **+m**, *wait* can still be used to wait for the process group associated with a job-control background job, or the process ID associated with a non-control background job (if supported), using
+>
+>
+>     wait %<background job number>
+>
+> See also the RATIONALE for [*jobs*](../utilities/jobs.html) and [*kill*](../utilities/kill.html).
+>
+> The shell is allowed to discard the status of any process if it determines that the application cannot get the process ID for that process from the shell. It is also required to remember only {CHILD_MAX} number of processes in this way. Since the only way to get the process ID from the shell is by using the `'!'` shell parameter, the shell is allowed to discard the status of an asynchronous AND-OR list if `"$!"` was not referenced before another asynchronous AND-OR list was started. (This means that the shell only has to keep the status of the last asynchronous AND-OR list started if the application did not reference `"$!"`. If the implementation of the shell is smart enough to determine that a reference to `"$!"` was not saved anywhere that the application can retrieve it later, it can use this information to trim the list of saved information. Note also that a successful call to *wait* with no operands discards the exit status of all asynchronous AND-OR lists.)
+>
+> If the exit status of *wait* is greater than 128, there is no way for the application to know if the waited-for process exited with that value or was killed by a signal. Since most utilities exit with small values, there is seldom any ambiguity. Even in the ambiguous cases, most applications just need to know that the asynchronous job failed; it does not matter whether it detected an error and failed or was killed and did not complete its job normally.
+>
+> Some historical shells returned from wait when a process stops instead of only when it terminates. This standard does not allow wait to return when a process stops for two reasons:
+>
+> 1.  The vast majority, if not all, shell scripts that use *wait* (without using an extension) expect it not to return until the process terminates.
+>
+> 2.  It is not possible to write a portable shell script that can correctly handle *wait* returning when a process stops, because an exit status indicating a process was stopped by a signal cannot be distinguished from one indicating that the process called [*exit*()](../functions/exit.html) with the same value.
+>
+> The standard developers considered allowing interactive shells to return from *wait* when a process stops, since the interactive user would see a message which would allow them to tell whether the process stopped or terminated. However, they decided that it would be inadvisable to introduce an inconsistency between interactive and non-interactive shells, particularly as the most likely use of *wait* in an interactive shell is to try out commands before putting them in a shell script. Implementations can provide an extension that could be used to request that *wait* returns when a process stops. It is recommended that any such extension uses a different method of returning information about the wait status of the process so that the information can be unambiguous. One suitable method would be an option that takes a variable name as an option-argument. The named variable would be set to a numeric value and the exit status of wait would indicate whether this value is an exit value or a signal number, and whether the signal terminated the process or stopped it. Such an extension would also provide a way for shell scripts to obtain the full exit value (as would be returned by [*waitid*()](../functions/waitid.html)).
+
+#### <span id="tag_20_147_17"></span>EXAMPLES
+
+> Although the exact value used when a process is terminated by a signal is unspecified, if it is known that a signal terminated a process, a script can still reliably determine which signal by using [*kill*](../utilities/kill.html) as shown by the following script:
+>
+>
+>     sleep 1000&
+>     pid=$!
+>     kill -kill $pid
+>     wait $pid
+>     echo $pid was terminated by a SIG$(kill -l $?) signal.
+>
+> If the following sequence of commands is run in less than 31 seconds:
+>
+>
+>     sleep 257 | sleep 31 &
+>     jobs -l %%
+>
+> either of the following commands returns the exit status of the second [*sleep*](../utilities/sleep.html) in the pipeline:
+>
+>
+>     wait <pid of sleep 31>
+>     wait %%
+
+#### <span id="tag_20_147_18"></span>RATIONALE
+
+> The description of *wait* does not refer to the [*waitpid*()](../functions/waitpid.html) function from the System Interfaces volume of POSIX.1-2024 because that would needlessly overspecify this interface. However, the wording means that *wait* is required to wait for an explicit process when it is given an argument so that the status information of other processes is not consumed. Historical implementations use the [*wait*()](../functions/wait.html) function defined in the System Interfaces volume of POSIX.1-2024 until [*wait*()](../functions/wait.html) returns the requested process ID or finds that the requested process does not exist. Because this means that a shell script could not reliably get the status of all background children if a second background job was ever started before the first job finished, it is recommended that the *wait* utility use a method such as the functionality provided by the [*waitpid*()](../functions/waitpid.html) function.
+>
+> The ability to wait for multiple *pid* operands was adopted from the KornShell.
+>
+> This new functionality was added because it is needed to determine the exit status of any asynchronous AND-OR list accurately. The only compatibility problem that this change creates is for a script like
+>
+>
+>     while sleep 60 do
+>         job& echo Job started $(date) as $!  done
+>
+> which causes the shell to monitor all of the jobs started until the script terminates or runs out of memory. This would not be a problem if the loop did not reference `"$!"` or if the script would occasionally *wait* for jobs it started.
+
+#### <span id="tag_20_147_19"></span>FUTURE DIRECTIONS
+
+> A future version of this standard may add an option which takes a variable name as an option-argument, allowing *wait* to return information about the wait status of a process in an unambiguous way.
+
+#### <span id="tag_20_147_20"></span>SEE ALSO
+
+> [*2. Shell Command Language*](../utilities/V3_chap02.html#tag_19), [*kill*](../utilities/kill.html#tag_20_64), [*sh*](../utilities/sh.html#)
+>
+> XBD [*3.182 Job ID*](../basedefs/V1_chap03.html#tag_03_182), [*8. Environment Variables*](../basedefs/V1_chap08.html#tag_08)
+>
+> XSH [*wait*()](../functions/wait.html#tag_17_658)
+
+#### <span id="tag_20_147_21"></span>CHANGE HISTORY
+
+> First released in Issue 2.
+
+#### <span id="tag_20_147_22"></span>Issue 8
+
+> Austin Group Defect 854 is applied, adding a note to the APPLICATION USAGE section that this utility is required to be intrinsic.
+>
+> Austin Group Defect 1122 is applied, changing the description of *NLSPATH .*
+>
+> Austin Group Defect 1254 is applied, updating various requirements for the [*jobs*](../utilities/jobs.html) utility to account for the addition of [*2.11 Job Control*](../utilities/V3_chap02.html#tag_19_11).
+
+<div class="box">
+
+*End of informative text.*
+
+</div>
+
+------------------------------------------------------------------------
+
+ 
+
+[<span class="topOfPage">return to top of page</span>](#top)\
+
+------------------------------------------------------------------------
+
+UNIX® is a registered Trademark of The Open Group.\
+POSIX™ is a Trademark of The IEEE.\
+Copyright © 2001-2024 The IEEE and The Open Group, All Rights Reserved\
+\[ [Main Index](../mindex.html) \| [XBD](../basedefs/contents.html) \| [XSH](../functions/contents.html) \| [XCU](../utilities/contents.html) \| [XRAT](../xrat/contents.html) \]
+
+------------------------------------------------------------------------
