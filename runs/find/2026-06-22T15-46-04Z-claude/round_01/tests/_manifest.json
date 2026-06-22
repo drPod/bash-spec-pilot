@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "001_default_print_no_expression.sh",
+    "exercises": "default action when no expression given",
+    "expected": "starting point is printed on stdout",
+    "expected_to_fail": false,
+    "manpage_quote": "If no expression is given, the expression -print is used"
+  },
+  {
+    "filename": "002_name_glob_basename.sh",
+    "exercises": "-name shell-pattern match on base name",
+    "expected": "only files whose base name matches the glob are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "Base of file name (the path with the leading directories"
+  },
+  {
+    "filename": "003_name_basename_not_path.sh",
+    "exercises": "-name with a slash in pattern matches nothing",
+    "expected": "pattern containing a slash matches no files",
+    "expected_to_fail": false,
+    "manpage_quote": "will never match"
+  },
+  {
+    "filename": "004_iname_case_insensitive.sh",
+    "exercises": "-iname case-insensitive base-name match",
+    "expected": "matches differ only by letter case (Foo/FOO/foo)",
+    "expected_to_fail": false,
+    "manpage_quote": "Like -name, but the match is case insensitive."
+  },
+  {
+    "filename": "005_type_f_regular_file.sh",
+    "exercises": "-type f selects regular files",
+    "expected": "only the regular file is printed, not the directory",
+    "expected_to_fail": false,
+    "manpage_quote": "regular file"
+  },
+  {
+    "filename": "006_type_d_directory.sh",
+    "exercises": "-type d selects directories",
+    "expected": "start dir and the subdirectory are printed, not the file",
+    "expected_to_fail": false,
+    "manpage_quote": "directory"
+  },
+  {
+    "filename": "007_type_l_symlink.sh",
+    "exercises": "-type l selects symbolic links under default -P",
+    "expected": "only the symbolic link is printed",
+    "expected_to_fail": false,
+    "manpage_quote": "symbolic link; this is never true if the -L option"
+  },
+  {
+    "filename": "008_type_comma_list.sh",
+    "exercises": "-type f,d,l comma-separated multi-type (GNU extension)",
+    "expected": "files, directories and symlinks all matched in one pass",
+    "expected_to_fail": false,
+    "manpage_quote": "combined list of type letters separated by a comma"
+  },
+  {
+    "filename": "009_maxdepth_0_startpoint_only.sh",
+    "exercises": "-maxdepth 0 limits to the starting points",
+    "expected": "only the starting point itself is printed",
+    "expected_to_fail": false,
+    "manpage_quote": "Using -maxdepth 0 means"
+  },
+  {
+    "filename": "010_maxdepth_1_one_level.sh",
+    "exercises": "-maxdepth 1 descends only one level",
+    "expected": "start point and immediate children printed, not grandchildren",
+    "expected_to_fail": false,
+    "manpage_quote": "Descend at most levels (a non-negative integer) levels of"
+  },
+  {
+    "filename": "011_mindepth_1_excludes_startpoint.sh",
+    "exercises": "-mindepth 1 excludes the starting points",
+    "expected": "starting point is not printed, only its descendants",
+    "expected_to_fail": false,
+    "manpage_quote": "Using -mindepth 1 means process all"
+  },
+  {
+    "filename": "012_print0_nul_separator.sh",
+    "exercises": "-print0 terminates names with NUL not newline",
+    "expected": "output ends in one NUL byte and contains no newline",
+    "expected_to_fail": false,
+    "manpage_quote": "by a null character (instead of the newline character that"
+  },
+  {
+    "filename": "013_size_c_bytes_exact.sh",
+    "exercises": "-size Nc exact byte-count match",
+    "expected": "only the file of exactly N bytes is printed",
+    "expected_to_fail": false,
+    "manpage_quote": "for bytes"
+  },
+  {
+    "filename": "014_size_plus_greater_than.sh",
+    "exercises": "-size +Nc greater-than, exact size excluded",
+    "expected": "only files strictly larger than N bytes are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "an exact size of n units does not"
+  },
+  {
+    "filename": "015_empty_file_and_dir.sh",
+    "exercises": "-empty matches empty regular files and empty dirs",
+    "expected": "empty file and empty dir matched, non-empty ones not",
+    "expected_to_fail": false,
+    "manpage_quote": "File is empty and is either a regular file or a directory."
+  },
+  {
+    "filename": "016_exec_semicolon_per_file.sh",
+    "exercises": "-exec cmd ; runs once per matched file with {} substituted",
+    "expected": "command invoked exactly once per matched file",
+    "expected_to_fail": false,
+    "manpage_quote": "is replaced by the current file name being processed everywhere"
+  },
+  {
+    "filename": "017_exec_semicolon_true_status_filters.sh",
+    "exercises": "-exec cmd ; is true only when command exits 0",
+    "expected": "only files for which the command exited 0 are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "Execute command; true if 0 status is returned."
+  },
+  {
+    "filename": "018_exec_plus_batches.sh",
+    "exercises": "-exec cmd {} + batches file names into few invocations",
+    "expected": "fewer command invocations than matched files",
+    "expected_to_fail": false,
+    "manpage_quote": "the command line is built by appending"
+  },
+  {
+    "filename": "019_delete_removes_file.sh",
+    "exercises": "-delete removes a matched regular file",
+    "expected": "the targeted file no longer exists after the run",
+    "expected_to_fail": false,
+    "manpage_quote": "Delete files or directories; true if removal succeeded."
+  },
+  {
+    "filename": "020_delete_nonempty_dir_fails.sh",
+    "exercises": "-delete on a non-empty directory (documented error)",
+    "expected": "find exits nonzero because the directory is not empty",
+    "expected_to_fail": true,
+    "manpage_quote": "The -delete action will fail to remove a directory unless it is"
+  },
+  {
+    "filename": "021_newer_nonexistent_ref_fails.sh",
+    "exercises": "-newer with a reference file that cannot be examined",
+    "expected": "find exits nonzero (reference cannot be stat'd)",
+    "expected_to_fail": true,
+    "manpage_quote": "an error message is issued, and find exits with a"
+  },
+  {
+    "filename": "022_nonexistent_startpoint_errors.sh",
+    "exercises": "nonexistent starting point (cannot be processed)",
+    "expected": "find exits with status greater than 0",
+    "expected_to_fail": true,
+    "manpage_quote": "greater than 0 if errors occur"
+  },
+  {
+    "filename": "023_newerXY_invalid_combo_fatal.sh",
+    "exercises": "-newerXY with invalid X=t combination (fatal error)",
+    "expected": "find exits nonzero on the invalid XY combination",
+    "expected_to_fail": true,
+    "manpage_quote": "unsupported combination of XY is specified, a fatal error"
+  },
+  {
+    "filename": "024_not_negation.sh",
+    "exercises": "! expr negation operator",
+    "expected": "only files where the inner test is false are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "True if expr is false."
+  },
+  {
+    "filename": "025_or_operator.sh",
+    "exercises": "-o logical OR operator",
+    "expected": "files matching either disjunct are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "Or; expr2 is not evaluated if expr1 is true."
+  },
+  {
+    "filename": "026_prune_skips_directory.sh",
+    "exercises": "-prune does not descend into the matched directory",
+    "expected": "pruned directory and its contents are absent from output",
+    "expected_to_fail": false,
+    "manpage_quote": "if the file is a directory, do not descend into it."
+  },
+  {
+    "filename": "027_path_whole_name_match.sh",
+    "exercises": "-path whole-name glob where * spans a slash",
+    "expected": "only the path matching the whole-name pattern is printed",
+    "expected_to_fail": false,
+    "manpage_quote": "The metacharacters do not treat"
+  },
+  {
+    "filename": "028_quit_stops_immediately.sh",
+    "exercises": "-quit stops processing remaining starting points",
+    "expected": "only the first starting point is printed",
+    "expected_to_fail": false,
+    "manpage_quote": "no more files specified on the"
+  },
+  {
+    "filename": "029_depth_contents_before_dir.sh",
+    "exercises": "-depth processes directory contents before the directory",
+    "expected": "child is printed before its containing directory",
+    "expected_to_fail": false,
+    "manpage_quote": "Process each directory's contents before the directory itself."
+  },
+  {
+    "filename": "030_false_matches_nothing.sh",
+    "exercises": "-false always-false test",
+    "expected": "no files are printed",
+    "expected_to_fail": false,
+    "manpage_quote": "Always false."
+  }
+]

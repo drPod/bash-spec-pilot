@@ -1,0 +1,58 @@
+{
+  "util": "find",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 1,
+  "n_total_scored": 30,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 29,
+    "divergence": 1,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_default_print_no_expression.sh",
+      "002_name_glob_basename.sh",
+      "003_name_basename_not_path.sh",
+      "004_iname_case_insensitive.sh",
+      "005_type_f_regular_file.sh",
+      "006_type_d_directory.sh",
+      "007_type_l_symlink.sh",
+      "008_type_comma_list.sh",
+      "009_maxdepth_0_startpoint_only.sh",
+      "010_maxdepth_1_one_level.sh",
+      "011_mindepth_1_excludes_startpoint.sh",
+      "012_print0_nul_separator.sh",
+      "013_size_c_bytes_exact.sh",
+      "014_size_plus_greater_than.sh",
+      "015_empty_file_and_dir.sh",
+      "016_exec_semicolon_per_file.sh",
+      "017_exec_semicolon_true_status_filters.sh",
+      "018_exec_plus_batches.sh",
+      "020_delete_nonempty_dir_fails.sh",
+      "021_newer_nonexistent_ref_fails.sh",
+      "022_nonexistent_startpoint_errors.sh",
+      "023_newerXY_invalid_combo_fatal.sh",
+      "024_not_negation.sh",
+      "025_or_operator.sh",
+      "026_prune_skips_directory.sh",
+      "027_path_whole_name_match.sh",
+      "028_quit_stops_immediately.sh",
+      "029_depth_contents_before_dir.sh",
+      "030_false_matches_nothing.sh"
+    ],
+    "divergence": [
+      "019_delete_removes_file.sh"
+    ],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "manpage_underspec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.03333333333333333,
+  "effective_test_rate": 0.03333333333333333,
+  "depc": 1
+}

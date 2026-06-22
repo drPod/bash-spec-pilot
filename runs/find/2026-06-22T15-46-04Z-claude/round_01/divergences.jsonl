@@ -1,0 +1,1 @@
+{"name": "019_delete_removes_file.sh", "exercises": "-delete removes a matched regular file", "expected": "the targeted file no longer exists after the run", "expected_to_fail": false, "real_rc": 0, "real_stderr_head": [], "rust_rc": 2, "rust_stderr_head": ["util: unknown predicate `-delete'"]}

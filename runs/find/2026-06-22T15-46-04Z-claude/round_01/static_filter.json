@@ -1,0 +1,248 @@
+{
+  "kept": [
+    "001_default_print_no_expression.sh",
+    "002_name_glob_basename.sh",
+    "003_name_basename_not_path.sh",
+    "004_iname_case_insensitive.sh",
+    "005_type_f_regular_file.sh",
+    "006_type_d_directory.sh",
+    "007_type_l_symlink.sh",
+    "008_type_comma_list.sh",
+    "009_maxdepth_0_startpoint_only.sh",
+    "010_maxdepth_1_one_level.sh",
+    "011_mindepth_1_excludes_startpoint.sh",
+    "012_print0_nul_separator.sh",
+    "013_size_c_bytes_exact.sh",
+    "014_size_plus_greater_than.sh",
+    "015_empty_file_and_dir.sh",
+    "016_exec_semicolon_per_file.sh",
+    "017_exec_semicolon_true_status_filters.sh",
+    "018_exec_plus_batches.sh",
+    "019_delete_removes_file.sh",
+    "020_delete_nonempty_dir_fails.sh",
+    "021_newer_nonexistent_ref_fails.sh",
+    "022_nonexistent_startpoint_errors.sh",
+    "023_newerXY_invalid_combo_fatal.sh",
+    "024_not_negation.sh",
+    "025_or_operator.sh",
+    "026_prune_skips_directory.sh",
+    "027_path_whole_name_match.sh",
+    "028_quit_stops_immediately.sh",
+    "029_depth_contents_before_dir.sh",
+    "030_false_matches_nothing.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_default_print_no_expression.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_name_glob_basename.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_name_basename_not_path.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_iname_case_insensitive.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_type_f_regular_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_type_d_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_type_l_symlink.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_type_comma_list.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_maxdepth_0_startpoint_only.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_maxdepth_1_one_level.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_mindepth_1_excludes_startpoint.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_print0_nul_separator.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_size_c_bytes_exact.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_size_plus_greater_than.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_empty_file_and_dir.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_exec_semicolon_per_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_exec_semicolon_true_status_filters.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_exec_plus_batches.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_delete_removes_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_delete_nonempty_dir_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_newer_nonexistent_ref_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_nonexistent_startpoint_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "023_newerXY_invalid_combo_fatal.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "024_not_negation.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "025_or_operator.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "026_prune_skips_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "027_path_whole_name_match.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "028_quit_stops_immediately.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "029_depth_contents_before_dir.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "030_false_matches_nothing.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

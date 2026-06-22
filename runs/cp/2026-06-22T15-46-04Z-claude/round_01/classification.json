@@ -1,0 +1,58 @@
+{
+  "util": "cp",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 1,
+  "n_total_scored": 30,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 29,
+    "divergence": 1,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_basic_copy_source_dest.sh",
+      "002_multiple_sources_to_directory.sh",
+      "003_target_directory_short.sh",
+      "004_target_directory_long.sh",
+      "005_no_target_directory_dest_as_file.sh",
+      "006_no_target_directory_over_dir_fails.sh",
+      "007_recursive_copy_directory.sh",
+      "008_recursive_lowercase_r.sh",
+      "009_directory_without_recursive_fails.sh",
+      "010_hard_link.sh",
+      "011_symbolic_link.sh",
+      "012_no_clobber_skips_existing.sh",
+      "013_backup_simple_suffix.sh",
+      "014_backup_short_b.sh",
+      "015_backup_custom_suffix.sh",
+      "016_nonexistent_source_fails.sh",
+      "017_update_none_skips.sh",
+      "018_update_none_fail_errors.sh",
+      "019_update_older_replaces.sh",
+      "020_parents_full_source_name.sh",
+      "021_strip_trailing_slashes.sh",
+      "022_remove_destination.sh",
+      "023_no_dereference_preserves_symlink.sh",
+      "024_dereference_follows_symlink.sh",
+      "026_force_unwritable_dest.sh",
+      "027_d_preserves_links.sh",
+      "028_preserve_mode.sh",
+      "029_verbose_output.sh",
+      "030_archive_recursive.sh"
+    ],
+    "divergence": [
+      "025_force_backup_same_name.sh"
+    ],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "manpage_underspec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.03333333333333333,
+  "effective_test_rate": 0.03333333333333333,
+  "depc": 1
+}

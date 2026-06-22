@@ -1,0 +1,240 @@
+{
+  "kept": [
+    "001_help_short.sh",
+    "002_help_long.sh",
+    "003_version_string.sh",
+    "004_exit_status_propagation.sh",
+    "005_exit_status_success.sh",
+    "006_command_stdout.sh",
+    "007_user_name_identity.sh",
+    "008_user_numeric_uid.sh",
+    "009_group_name.sh",
+    "010_group_numeric_gid.sh",
+    "011_group_without_user_runs_as_invoking.sh",
+    "012_chdir_directory.sh",
+    "013_end_of_options.sh",
+    "014_env_assignment.sh",
+    "015_preserve_env_all.sh",
+    "016_preserve_env_list.sh",
+    "017_set_home.sh",
+    "018_shell_option_command.sh",
+    "019_login_shell_command.sh",
+    "020_login_sets_home.sh",
+    "021_login_sets_logname.sh",
+    "022_sudo_user_env.sh",
+    "023_sudo_command_env.sh",
+    "024_list_privileges.sh",
+    "025_unknown_user_error.sh",
+    "026_close_from_too_small_error.sh",
+    "027_duplicate_user_option_error.sh",
+    "028_preserve_env_invalid_name_error.sh",
+    "029_remove_timestamp_with_command_error.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_help_short.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_help_long.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_version_string.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_exit_status_propagation.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_exit_status_success.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_command_stdout.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_user_name_identity.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_user_numeric_uid.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_group_name.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_group_numeric_gid.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_group_without_user_runs_as_invoking.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_chdir_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_end_of_options.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_env_assignment.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_preserve_env_all.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_preserve_env_list.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_set_home.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_shell_option_command.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_login_shell_command.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_login_sets_home.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_login_sets_logname.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_sudo_user_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "023_sudo_command_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "024_list_privileges.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "025_unknown_user_error.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "026_close_from_too_small_error.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "027_duplicate_user_option_error.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "028_preserve_env_invalid_name_error.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "029_remove_timestamp_with_command_error.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

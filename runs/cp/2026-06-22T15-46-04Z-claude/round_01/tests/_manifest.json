@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "001_basic_copy_source_dest.sh",
+    "exercises": "basic copy of a single SOURCE to a new DEST file",
+    "expected": "DEST is created and its contents equal SOURCE contents",
+    "expected_to_fail": false,
+    "manpage_quote": "Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY."
+  },
+  {
+    "filename": "002_multiple_sources_to_directory.sh",
+    "exercises": "multiple SOURCE arguments copied into a DIRECTORY",
+    "expected": "each SOURCE basename exists inside the destination DIRECTORY",
+    "expected_to_fail": false,
+    "manpage_quote": "cp [OPTION]... SOURCE... DIRECTORY"
+  },
+  {
+    "filename": "003_target_directory_short.sh",
+    "exercises": "-t DIRECTORY copies all SOURCE arguments into DIRECTORY",
+    "expected": "all SOURCEs land inside the -t DIRECTORY",
+    "expected_to_fail": false,
+    "manpage_quote": "copy all SOURCE arguments into DIRECTORY"
+  },
+  {
+    "filename": "004_target_directory_long.sh",
+    "exercises": "--target-directory=DIRECTORY long form",
+    "expected": "SOURCE copied into the named DIRECTORY",
+    "expected_to_fail": false,
+    "manpage_quote": "-t, --target-directory=DIRECTORY"
+  },
+  {
+    "filename": "005_no_target_directory_dest_as_file.sh",
+    "exercises": "-T treats DEST as a normal file",
+    "expected": "DEST itself becomes the copy with SOURCE contents",
+    "expected_to_fail": false,
+    "manpage_quote": "treat DEST as a normal file"
+  },
+  {
+    "filename": "006_no_target_directory_over_dir_fails.sh",
+    "exercises": "-T with DEST being an existing directory",
+    "expected": "nonzero exit because DEST cannot be treated as a normal file",
+    "expected_to_fail": true,
+    "manpage_quote": "treat DEST as a normal file"
+  },
+  {
+    "filename": "007_recursive_copy_directory.sh",
+    "exercises": "-R copy directories recursively",
+    "expected": "nested file inside the source directory appears under DEST dir",
+    "expected_to_fail": false,
+    "manpage_quote": "copy directories recursively"
+  },
+  {
+    "filename": "008_recursive_lowercase_r.sh",
+    "exercises": "-r recursive copy (documented same as -R)",
+    "expected": "deeply nested file is reproduced under DEST dir",
+    "expected_to_fail": false,
+    "manpage_quote": "-R, -r, --recursive"
+  },
+  {
+    "filename": "009_directory_without_recursive_fails.sh",
+    "exercises": "copying a directory SOURCE without -R/-r/--recursive",
+    "expected": "nonzero exit (directory copy requires recursive)",
+    "expected_to_fail": true,
+    "manpage_quote": "copy directories recursively"
+  },
+  {
+    "filename": "010_hard_link.sh",
+    "exercises": "-l, --link hard link files instead of copying",
+    "expected": "SOURCE and DEST share the same inode number",
+    "expected_to_fail": false,
+    "manpage_quote": "hard link files instead of copying"
+  },
+  {
+    "filename": "011_symbolic_link.sh",
+    "exercises": "-s, --symbolic-link make symbolic links instead of copying",
+    "expected": "DEST is a symbolic link",
+    "expected_to_fail": false,
+    "manpage_quote": "make symbolic links instead of copying"
+  },
+  {
+    "filename": "012_no_clobber_skips_existing.sh",
+    "exercises": "-n, --no-clobber silently skip existing files",
+    "expected": "existing DEST contents unchanged",
+    "expected_to_fail": false,
+    "manpage_quote": "silently skip existing files"
+  },
+  {
+    "filename": "013_backup_simple_suffix.sh",
+    "exercises": "--backup makes a backup of each existing destination file",
+    "expected": "backup file with default '~' suffix holds prior DEST contents",
+    "expected_to_fail": false,
+    "manpage_quote": "make a backup of each existing destination file"
+  },
+  {
+    "filename": "014_backup_short_b.sh",
+    "exercises": "-b like --backup but takes no argument",
+    "expected": "backup file with default '~' suffix exists",
+    "expected_to_fail": false,
+    "manpage_quote": "like --backup but does not accept an argument"
+  },
+  {
+    "filename": "015_backup_custom_suffix.sh",
+    "exercises": "-S, --suffix=SUFFIX override the usual backup suffix",
+    "expected": "backup file uses the overridden '.bak' suffix",
+    "expected_to_fail": false,
+    "manpage_quote": "override the usual backup suffix"
+  },
+  {
+    "filename": "016_nonexistent_source_fails.sh",
+    "exercises": "copying a nonexistent SOURCE",
+    "expected": "nonzero exit because SOURCE does not exist",
+    "expected_to_fail": true,
+    "manpage_quote": "Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY."
+  },
+  {
+    "filename": "017_update_none_skips.sh",
+    "exercises": "--update=none does not replace existing files, no failure",
+    "expected": "existing DEST contents unchanged and exit success",
+    "expected_to_fail": false,
+    "manpage_quote": "no files in\n       the destination are replaced, and skipped files do not induce a\n       failure"
+  },
+  {
+    "filename": "018_update_none_fail_errors.sh",
+    "exercises": "--update=none-fail diagnoses skipped files and induces failure",
+    "expected": "nonzero exit because an existing file was skipped",
+    "expected_to_fail": true,
+    "manpage_quote": "any skipped files are diagnosed and induce a failure"
+  },
+  {
+    "filename": "019_update_older_replaces.sh",
+    "exercises": "-u (--update=older) replaces dest when older than source",
+    "expected": "older DEST is replaced with SOURCE contents",
+    "expected_to_fail": false,
+    "manpage_quote": "results in files being replaced if they're older than the corresponding\n       source file"
+  },
+  {
+    "filename": "020_parents_full_source_name.sh",
+    "exercises": "--parents uses full source file name under DIRECTORY",
+    "expected": "full source path is recreated under destination DIRECTORY",
+    "expected_to_fail": false,
+    "manpage_quote": "use full source file name under DIRECTORY"
+  },
+  {
+    "filename": "021_strip_trailing_slashes.sh",
+    "exercises": "--strip-trailing-slashes removes trailing slashes from SOURCE",
+    "expected": "SOURCE given with trailing slash is copied successfully",
+    "expected_to_fail": false,
+    "manpage_quote": "remove any trailing slashes from each SOURCE argument"
+  },
+  {
+    "filename": "022_remove_destination.sh",
+    "exercises": "--remove-destination removes existing DEST before opening it",
+    "expected": "DEST replaced with SOURCE contents",
+    "expected_to_fail": false,
+    "manpage_quote": "remove each existing destination file before attempting to open"
+  },
+  {
+    "filename": "023_no_dereference_preserves_symlink.sh",
+    "exercises": "-P, --no-dereference never follows symlinks in SOURCE",
+    "expected": "DEST is itself a symbolic link",
+    "expected_to_fail": false,
+    "manpage_quote": "never follow symbolic links in SOURCE"
+  },
+  {
+    "filename": "024_dereference_follows_symlink.sh",
+    "exercises": "-L, --dereference always follows symlinks in SOURCE",
+    "expected": "DEST is a regular file, not a symlink",
+    "expected_to_fail": false,
+    "manpage_quote": "always follow symbolic links in SOURCE"
+  },
+  {
+    "filename": "025_force_backup_same_name.sh",
+    "exercises": "force+backup with SOURCE and DEST the same existing regular file",
+    "expected": "a backup of SOURCE is created",
+    "expected_to_fail": false,
+    "manpage_quote": "cp makes a backup of SOURCE when the force and\n       backup options are given and SOURCE and DEST are the same name for an\n       existing, regular file"
+  },
+  {
+    "filename": "026_force_unwritable_dest.sh",
+    "exercises": "-f, --force removes an unopenable existing DEST and retries",
+    "expected": "DEST replaced with SOURCE contents",
+    "expected_to_fail": false,
+    "manpage_quote": "if an existing destination file cannot be opened, remove it and\n              try again"
+  },
+  {
+    "filename": "027_d_preserves_links.sh",
+    "exercises": "-d (same as --no-dereference --preserve=links)",
+    "expected": "SOURCE symlink stays a symlink at DEST",
+    "expected_to_fail": false,
+    "manpage_quote": "same as --no-dereference --preserve=links"
+  },
+  {
+    "filename": "028_preserve_mode.sh",
+    "exercises": "-p (--preserve=mode,ownership,timestamps) preserves mode",
+    "expected": "DEST mode bits equal SOURCE mode bits",
+    "expected_to_fail": false,
+    "manpage_quote": "same as --preserve=mode,ownership,timestamps"
+  },
+  {
+    "filename": "029_verbose_output.sh",
+    "exercises": "-v, --verbose explains what is being done",
+    "expected": "non-empty stdout describing the copy",
+    "expected_to_fail": false,
+    "manpage_quote": "explain what is being done"
+  },
+  {
+    "filename": "030_archive_recursive.sh",
+    "exercises": "-a, --archive (same as -dR --preserve=all) recursive tree copy",
+    "expected": "nested directory tree reproduced under DEST",
+    "expected_to_fail": false,
+    "manpage_quote": "same as -dR --preserve=all"
+  }
+]

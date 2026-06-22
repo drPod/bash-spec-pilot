@@ -1,0 +1,59 @@
+{
+  "util": "sudo",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 1,
+  "n_total_scored": 29,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 22,
+    "divergence": 4,
+    "shared_bug": 1,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 2,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_help_short.sh",
+      "002_help_long.sh",
+      "003_version_string.sh",
+      "004_exit_status_propagation.sh",
+      "005_exit_status_success.sh",
+      "006_command_stdout.sh",
+      "007_user_name_identity.sh",
+      "008_user_numeric_uid.sh",
+      "009_group_name.sh",
+      "010_group_numeric_gid.sh",
+      "011_group_without_user_runs_as_invoking.sh",
+      "013_end_of_options.sh",
+      "014_env_assignment.sh",
+      "015_preserve_env_all.sh",
+      "016_preserve_env_list.sh",
+      "017_set_home.sh",
+      "019_login_shell_command.sh",
+      "022_sudo_user_env.sh",
+      "024_list_privileges.sh",
+      "025_unknown_user_error.sh",
+      "026_close_from_too_small_error.sh",
+      "028_preserve_env_invalid_name_error.sh"
+    ],
+    "divergence": [
+      "020_login_sets_home.sh",
+      "023_sudo_command_env.sh",
+      "027_duplicate_user_option_error.sh",
+      "029_remove_timestamp_with_command_error.sh"
+    ],
+    "shared_bug": [
+      "021_login_sets_logname.sh"
+    ],
+    "hallucinated_spec": [],
+    "manpage_underspec": [
+      "012_chdir_directory.sh",
+      "018_shell_option_command.sh"
+    ],
+    "incomplete": []
+  },
+  "mut_at_k": 0.13793103448275862,
+  "effective_test_rate": 0.1724137931034483,
+  "depc": 4
+}

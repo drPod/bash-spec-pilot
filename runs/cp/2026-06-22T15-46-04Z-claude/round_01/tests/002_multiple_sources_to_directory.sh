@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+tmpdir=$(mktemp -d)
+trap 'rm -rf "$tmpdir"' EXIT
+
+a="$tmpdir/a.txt"
+b="$tmpdir/b.txt"
+destdir="$tmpdir/dest"
+printf 'aaa\n' > "$a"
+printf 'bbb\n' > "$b"
+mkdir "$destdir"
+
+"$UTIL" "$a" "$b" "$destdir"
+
+if [[ ! -f "$destdir/a.txt" || ! -f "$destdir/b.txt" ]]; then
+  echo "FAIL: not all SOURCEs copied into DIRECTORY" >&2
+  exit 1
+fi

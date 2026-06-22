@@ -1,0 +1,248 @@
+{
+  "kept": [
+    "001_rename_source_to_dest.sh",
+    "002_move_source_into_directory.sh",
+    "003_move_multiple_sources_into_directory.sh",
+    "004_target_directory_flag.sh",
+    "005_target_directory_long_flag.sh",
+    "006_no_target_directory_treats_dest_as_file.sh",
+    "007_force_overwrite_no_prompt.sh",
+    "008_no_clobber_keeps_existing.sh",
+    "009_interactive_no_response_keeps_existing.sh",
+    "010_backup_long_creates_tilde.sh",
+    "011_backup_short_b_creates_tilde.sh",
+    "012_suffix_override.sh",
+    "013_suffix_short_S.sh",
+    "014_simple_backup_suffix_env.sh",
+    "015_backup_numbered.sh",
+    "016_update_older_replaces_older_dest.sh",
+    "017_update_older_keeps_newer_dest.sh",
+    "018_update_none_skips_silently.sh",
+    "019_update_all_replaces.sh",
+    "020_verbose_prints_arrow.sh",
+    "021_exchange_swaps_source_and_dest.sh",
+    "022_strip_trailing_slashes.sh",
+    "023_final_of_nf_takes_effect.sh",
+    "024_final_of_fn_takes_effect.sh",
+    "025_version_outputs_info.sh",
+    "026_nonexistent_source_fails.sh",
+    "027_update_none_fail_induces_failure.sh",
+    "028_no_target_directory_existing_dir_fails.sh",
+    "029_exchange_missing_dest_fails.sh",
+    "030_debug_implies_verbose.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_rename_source_to_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_move_source_into_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_move_multiple_sources_into_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_target_directory_flag.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_target_directory_long_flag.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_no_target_directory_treats_dest_as_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_force_overwrite_no_prompt.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_no_clobber_keeps_existing.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_interactive_no_response_keeps_existing.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_backup_long_creates_tilde.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_backup_short_b_creates_tilde.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_suffix_override.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_suffix_short_S.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_simple_backup_suffix_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_backup_numbered.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_update_older_replaces_older_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_update_older_keeps_newer_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_update_none_skips_silently.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_update_all_replaces.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_verbose_prints_arrow.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_exchange_swaps_source_and_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_strip_trailing_slashes.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "023_final_of_nf_takes_effect.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "024_final_of_fn_takes_effect.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "025_version_outputs_info.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "026_nonexistent_source_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "027_update_none_fail_induces_failure.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "028_no_target_directory_existing_dir_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "029_exchange_missing_dest_fails.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "030_debug_implies_verbose.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

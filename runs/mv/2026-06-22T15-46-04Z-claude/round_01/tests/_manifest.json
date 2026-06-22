@@ -1,0 +1,212 @@
+[
+  {
+    "filename": "001_rename_source_to_dest.sh",
+    "exercises": "basic rename SOURCE to DEST",
+    "expected": "src gone, dst is a file holding src's content",
+    "expected_to_fail": false,
+    "manpage_quote": "Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY."
+  },
+  {
+    "filename": "002_move_source_into_directory.sh",
+    "exercises": "move a single SOURCE into an existing DIRECTORY",
+    "expected": "file lands inside dir under its basename, original gone",
+    "expected_to_fail": false,
+    "manpage_quote": "mv [OPTION]... SOURCE... DIRECTORY"
+  },
+  {
+    "filename": "003_move_multiple_sources_into_directory.sh",
+    "exercises": "move multiple SOURCE arguments into a DIRECTORY",
+    "expected": "all sources moved into dir, originals gone",
+    "expected_to_fail": false,
+    "manpage_quote": "mv [OPTION]... SOURCE... DIRECTORY"
+  },
+  {
+    "filename": "004_target_directory_flag.sh",
+    "exercises": "-t target-directory moves sources into DIRECTORY",
+    "expected": "both sources inside target dir, originals gone",
+    "expected_to_fail": false,
+    "manpage_quote": "move all SOURCE arguments into DIRECTORY"
+  },
+  {
+    "filename": "005_target_directory_long_flag.sh",
+    "exercises": "--target-directory=DIRECTORY long form",
+    "expected": "source moved into target dir, original gone",
+    "expected_to_fail": false,
+    "manpage_quote": "-t, --target-directory=DIRECTORY"
+  },
+  {
+    "filename": "006_no_target_directory_treats_dest_as_file.sh",
+    "exercises": "-T treats DEST as a normal file",
+    "expected": "dst is a file (rename), not a directory move",
+    "expected_to_fail": false,
+    "manpage_quote": "treat DEST as a normal file"
+  },
+  {
+    "filename": "007_force_overwrite_no_prompt.sh",
+    "exercises": "-f, --force overwrites without prompting",
+    "expected": "existing dst overwritten with src content",
+    "expected_to_fail": false,
+    "manpage_quote": "do not prompt before overwriting"
+  },
+  {
+    "filename": "008_no_clobber_keeps_existing.sh",
+    "exercises": "-n, --no-clobber does not overwrite existing file",
+    "expected": "dst keeps its old content",
+    "expected_to_fail": false,
+    "manpage_quote": "do not overwrite an existing file"
+  },
+  {
+    "filename": "009_interactive_no_response_keeps_existing.sh",
+    "exercises": "-i, --interactive prompts; no answer means no overwrite",
+    "expected": "dst keeps its old content when prompt not affirmed",
+    "expected_to_fail": false,
+    "manpage_quote": "prompt before overwrite"
+  },
+  {
+    "filename": "010_backup_long_creates_tilde.sh",
+    "exercises": "--backup of each existing destination file",
+    "expected": "dst~ holds previous content, dst holds new",
+    "expected_to_fail": false,
+    "manpage_quote": "make a backup of each existing destination file"
+  },
+  {
+    "filename": "011_backup_short_b_creates_tilde.sh",
+    "exercises": "-b backup without argument, default suffix ~",
+    "expected": "dst~ holds previous content",
+    "expected_to_fail": false,
+    "manpage_quote": "like --backup but does not accept an argument"
+  },
+  {
+    "filename": "012_suffix_override.sh",
+    "exercises": "--suffix=SUFFIX overrides usual backup suffix",
+    "expected": "backup uses .bak suffix, no dst~ created",
+    "expected_to_fail": false,
+    "manpage_quote": "override the usual backup suffix"
+  },
+  {
+    "filename": "013_suffix_short_S.sh",
+    "exercises": "-S SUFFIX short form overrides backup suffix",
+    "expected": "backup uses .bak suffix",
+    "expected_to_fail": false,
+    "manpage_quote": "-S, --suffix=SUFFIX"
+  },
+  {
+    "filename": "014_simple_backup_suffix_env.sh",
+    "exercises": "SIMPLE_BACKUP_SUFFIX sets backup suffix",
+    "expected": "backup uses .sb suffix from env",
+    "expected_to_fail": false,
+    "manpage_quote": "The backup suffix is '~', unless set with --suffix or\n       SIMPLE_BACKUP_SUFFIX."
+  },
+  {
+    "filename": "015_backup_numbered.sh",
+    "exercises": "--backup=numbered makes numbered backups",
+    "expected": "dst.~1~ holds previous content",
+    "expected_to_fail": false,
+    "manpage_quote": "make numbered backups"
+  },
+  {
+    "filename": "016_update_older_replaces_older_dest.sh",
+    "exercises": "--update=older replaces dest older than source",
+    "expected": "older dst replaced with src content",
+    "expected_to_fail": false,
+    "manpage_quote": "results in files being replaced if they're older than the corresponding\n       source file."
+  },
+  {
+    "filename": "017_update_older_keeps_newer_dest.sh",
+    "exercises": "--update=older does not replace dest newer than source",
+    "expected": "newer dst keeps its content",
+    "expected_to_fail": false,
+    "manpage_quote": "results in files being replaced if they're older than the corresponding\n       source file."
+  },
+  {
+    "filename": "018_update_none_skips_silently.sh",
+    "exercises": "--update=none skips existing dest without failure",
+    "expected": "dst unchanged and exit status 0",
+    "expected_to_fail": false,
+    "manpage_quote": "no files in\n       the destination are replaced, and skipped files do not induce a\n       failure."
+  },
+  {
+    "filename": "019_update_all_replaces.sh",
+    "exercises": "--update=all replaces all existing destination files",
+    "expected": "dst replaced with src content regardless of age",
+    "expected_to_fail": false,
+    "manpage_quote": "all existing files in the destination being\n       replaced."
+  },
+  {
+    "filename": "020_verbose_prints_arrow.sh",
+    "exercises": "-v, --verbose explains what is being done",
+    "expected": "stdout names both source and destination",
+    "expected_to_fail": false,
+    "manpage_quote": "explain what is being done"
+  },
+  {
+    "filename": "021_exchange_swaps_source_and_dest.sh",
+    "exercises": "--exchange swaps source and destination",
+    "expected": "src and dst contents are swapped",
+    "expected_to_fail": false,
+    "manpage_quote": "exchange source and destination"
+  },
+  {
+    "filename": "022_strip_trailing_slashes.sh",
+    "exercises": "--strip-trailing-slashes removes trailing slash from SOURCE",
+    "expected": "file source with trailing slash moved as a file",
+    "expected_to_fail": false,
+    "manpage_quote": "remove any trailing slashes from each SOURCE argument"
+  },
+  {
+    "filename": "023_final_of_nf_takes_effect.sh",
+    "exercises": "-n -f: only final option takes effect (-f wins)",
+    "expected": "dst overwritten with src content",
+    "expected_to_fail": false,
+    "manpage_quote": "If you specify more than one of -i, -f, -n, only the final one takes\n       effect."
+  },
+  {
+    "filename": "024_final_of_fn_takes_effect.sh",
+    "exercises": "-f -n: only final option takes effect (-n wins)",
+    "expected": "dst keeps old content",
+    "expected_to_fail": false,
+    "manpage_quote": "If you specify more than one of -i, -f, -n, only the final one takes\n       effect."
+  },
+  {
+    "filename": "025_version_outputs_info.sh",
+    "exercises": "--version outputs version information",
+    "expected": "non-empty version output",
+    "expected_to_fail": false,
+    "manpage_quote": "output version information and exit"
+  },
+  {
+    "filename": "026_nonexistent_source_fails.sh",
+    "exercises": "nonexistent SOURCE is a documented error",
+    "expected": "mv exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY."
+  },
+  {
+    "filename": "027_update_none_fail_induces_failure.sh",
+    "exercises": "--update=none-fail diagnoses skipped files and fails",
+    "expected": "mv exits nonzero, dst unchanged",
+    "expected_to_fail": true,
+    "manpage_quote": "any skipped files are diagnosed and induce a failure."
+  },
+  {
+    "filename": "028_no_target_directory_existing_dir_fails.sh",
+    "exercises": "-T onto an existing directory must fail",
+    "expected": "mv exits nonzero, src untouched",
+    "expected_to_fail": true,
+    "manpage_quote": "treat DEST as a normal file"
+  },
+  {
+    "filename": "029_exchange_missing_dest_fails.sh",
+    "exercises": "--exchange with a nonexistent destination must fail",
+    "expected": "mv exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "exchange source and destination"
+  },
+  {
+    "filename": "030_debug_implies_verbose.sh",
+    "exercises": "--debug implies -v output",
+    "expected": "stdout names src and dst, move succeeds",
+    "expected_to_fail": false,
+    "manpage_quote": "explain how a file is copied.  Implies -v"
+  }
+]

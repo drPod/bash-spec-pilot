@@ -1,0 +1,3 @@
+Only libc 0.2, used for rename(2)/errno (EXDEV detection for cross-device
+fallback) and for an interactive-prompt isatty check. Everything else uses
+std::fs. Skipped: SELinux/-Z, xattr/ACL, --exchange, --no-copy, --debug.

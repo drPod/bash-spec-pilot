@@ -1,0 +1,59 @@
+{
+  "util": "mv",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 1,
+  "n_total_scored": 30,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 26,
+    "divergence": 3,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 1,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_rename_source_to_dest.sh",
+      "002_move_source_into_directory.sh",
+      "003_move_multiple_sources_into_directory.sh",
+      "004_target_directory_flag.sh",
+      "005_target_directory_long_flag.sh",
+      "006_no_target_directory_treats_dest_as_file.sh",
+      "007_force_overwrite_no_prompt.sh",
+      "008_no_clobber_keeps_existing.sh",
+      "010_backup_long_creates_tilde.sh",
+      "011_backup_short_b_creates_tilde.sh",
+      "012_suffix_override.sh",
+      "013_suffix_short_S.sh",
+      "014_simple_backup_suffix_env.sh",
+      "015_backup_numbered.sh",
+      "016_update_older_replaces_older_dest.sh",
+      "017_update_older_keeps_newer_dest.sh",
+      "018_update_none_skips_silently.sh",
+      "019_update_all_replaces.sh",
+      "020_verbose_prints_arrow.sh",
+      "023_final_of_nf_takes_effect.sh",
+      "024_final_of_fn_takes_effect.sh",
+      "025_version_outputs_info.sh",
+      "026_nonexistent_source_fails.sh",
+      "027_update_none_fail_induces_failure.sh",
+      "028_no_target_directory_existing_dir_fails.sh",
+      "029_exchange_missing_dest_fails.sh"
+    ],
+    "divergence": [
+      "009_interactive_no_response_keeps_existing.sh",
+      "021_exchange_swaps_source_and_dest.sh",
+      "030_debug_implies_verbose.sh"
+    ],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "manpage_underspec": [
+      "022_strip_trailing_slashes.sh"
+    ],
+    "incomplete": []
+  },
+  "mut_at_k": 0.1,
+  "effective_test_rate": 0.1,
+  "depc": 3
+}

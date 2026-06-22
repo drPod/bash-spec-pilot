@@ -1,0 +1,205 @@
+[
+  {
+    "filename": "001_help_short.sh",
+    "exercises": "-h short help flag",
+    "expected": "exits 0 and writes a help message to standard output",
+    "expected_to_fail": false,
+    "manpage_quote": "Display a short help message to the standard output and exit."
+  },
+  {
+    "filename": "002_help_long.sh",
+    "exercises": "--help long form of help flag",
+    "expected": "exits 0 and writes a help message to standard output",
+    "expected_to_fail": false,
+    "manpage_quote": "-h, --help"
+  },
+  {
+    "filename": "003_version_string.sh",
+    "exercises": "-V version flag",
+    "expected": "exits 0 and output contains a version string",
+    "expected_to_fail": false,
+    "manpage_quote": "Print the sudo version string"
+  },
+  {
+    "filename": "004_exit_status_propagation.sh",
+    "exercises": "exit-status propagation from the run command",
+    "expected": "sudo exits with the command's exit status 7",
+    "expected_to_fail": false,
+    "manpage_quote": "the exit status from sudo will be\n     the exit status of the program that was executed"
+  },
+  {
+    "filename": "005_exit_status_success.sh",
+    "exercises": "exit-status propagation for a successful command",
+    "expected": "sudo exits 0 when the command exits 0",
+    "expected_to_fail": false,
+    "manpage_quote": "the exit status from sudo will be\n     the exit status of the program that was executed"
+  },
+  {
+    "filename": "006_command_stdout.sh",
+    "exercises": "sudo runs the given command and relays its stdout",
+    "expected": "command stdout 'hello_sudo' reaches the caller",
+    "expected_to_fail": false,
+    "manpage_quote": "execute a command as the superuser or\n     another user"
+  },
+  {
+    "filename": "007_user_name_identity.sh",
+    "exercises": "-u user identity propagation by name",
+    "expected": "id -un prints the target user daemon",
+    "expected_to_fail": false,
+    "manpage_quote": "Run the command as a user other than the default target user"
+  },
+  {
+    "filename": "008_user_numeric_uid.sh",
+    "exercises": "-u numeric UID prefixed with '#'",
+    "expected": "id -u prints 0 for '#0'",
+    "expected_to_fail": false,
+    "manpage_quote": "The user may be either a user name or a numeric\n             user-ID (UID) prefixed with the ‘#’ character (e.g., ‘#0’ for UID\n             0)."
+  },
+  {
+    "filename": "009_group_name.sh",
+    "exercises": "-g group primary-group set by name",
+    "expected": "id -gn prints the target group daemon",
+    "expected_to_fail": false,
+    "manpage_quote": "Run the command with the primary group set to group"
+  },
+  {
+    "filename": "010_group_numeric_gid.sh",
+    "exercises": "-g numeric GID prefixed with '#'",
+    "expected": "id -g prints 0 for '#0'",
+    "expected_to_fail": false,
+    "manpage_quote": "a\n             numeric group-ID (GID) prefixed with the ‘#’ character (e.g.,\n             ‘#0’ for GID 0)"
+  },
+  {
+    "filename": "011_group_without_user_runs_as_invoking.sh",
+    "exercises": "-g without -u keeps invoking user identity",
+    "expected": "id -un stays root (the invoking user)",
+    "expected_to_fail": false,
+    "manpage_quote": "If no -u\n             option is specified, the command will be run as the invoking\n             user."
+  },
+  {
+    "filename": "012_chdir_directory.sh",
+    "exercises": "-D directory / --chdir sets the working directory",
+    "expected": "pwd reports the requested directory",
+    "expected_to_fail": false,
+    "manpage_quote": "Run the command in the specified directory instead of the current\n             working directory."
+  },
+  {
+    "filename": "013_end_of_options.sh",
+    "exercises": "-- end-of-options delimiter",
+    "expected": "token after -- is passed to the command, not sudo",
+    "expected_to_fail": false,
+    "manpage_quote": "The -- is used to delimit the end of the sudo options.\n             Subsequent options are passed to the command."
+  },
+  {
+    "filename": "014_env_assignment.sh",
+    "exercises": "VAR=value environment assignment passed as an option",
+    "expected": "command sees MYVAR=set_via_sudo",
+    "expected_to_fail": false,
+    "manpage_quote": "Environment variables to be set for the command may also be passed as\n     options to sudo in the form VAR=value"
+  },
+  {
+    "filename": "015_preserve_env_all.sh",
+    "exercises": "-E / --preserve-env preserves existing environment",
+    "expected": "arbitrary parent var survives into the command env",
+    "expected_to_fail": false,
+    "manpage_quote": "Indicates to the security policy that the user wishes to preserve\n             their existing environment variables."
+  },
+  {
+    "filename": "016_preserve_env_list.sh",
+    "exercises": "--preserve-env=list adds named vars to preserved set",
+    "expected": "named var PRESERVE_ONE survives into the command env",
+    "expected_to_fail": false,
+    "manpage_quote": "Indicates to the security policy that the user wishes to add the\n             comma-separated list of environment variables to those preserved\n             from the user's environment."
+  },
+  {
+    "filename": "017_set_home.sh",
+    "exercises": "-H / --set-home sets HOME to target user's home",
+    "expected": "HOME equals root's passwd-database home directory",
+    "expected_to_fail": false,
+    "manpage_quote": "Set to the home directory of the target user when the -i\n                      or -H options are specified"
+  },
+  {
+    "filename": "018_shell_option_command.sh",
+    "exercises": "-s / --shell runs a specified command via the shell",
+    "expected": "command output 'shell_ran' produced through the shell",
+    "expected_to_fail": false,
+    "manpage_quote": "If a command is specified, it is passed to the\n             shell as a simple command using the -c option."
+  },
+  {
+    "filename": "019_login_shell_command.sh",
+    "exercises": "-i / --login runs a specified command via login shell",
+    "expected": "command output 'login_ran' produced through the login shell",
+    "expected_to_fail": false,
+    "manpage_quote": "If a command is specified, it is passed to the shell\n             as a simple command using the -c option."
+  },
+  {
+    "filename": "020_login_sets_home.sh",
+    "exercises": "-i sets HOME to the target user's home directory",
+    "expected": "HOME equals root's passwd-database home directory",
+    "expected_to_fail": false,
+    "manpage_quote": "Set to the home directory of the target user when the -i\n                      or -H options are specified"
+  },
+  {
+    "filename": "021_login_sets_logname.sh",
+    "exercises": "-i sets LOGNAME to the target user's login name",
+    "expected": "LOGNAME equals daemon under -i -u daemon",
+    "expected_to_fail": false,
+    "manpage_quote": "Set to the login name of the target user when the -i\n                      option is specified"
+  },
+  {
+    "filename": "022_sudo_user_env.sh",
+    "exercises": "SUDO_USER set to the invoking user's login name",
+    "expected": "command sees SUDO_USER=root (the invoking user)",
+    "expected_to_fail": false,
+    "manpage_quote": "Set to the login name of the user who invoked sudo."
+  },
+  {
+    "filename": "023_sudo_command_env.sh",
+    "exercises": "SUDO_COMMAND set to the command run by sudo",
+    "expected": "SUDO_COMMAND names the run command path",
+    "expected_to_fail": false,
+    "manpage_quote": "Set to the command run by sudo, including any args."
+  },
+  {
+    "filename": "024_list_privileges.sh",
+    "exercises": "-l / --list with no command lists privileges",
+    "expected": "exits 0 for a permitted, authenticated user",
+    "expected_to_fail": false,
+    "manpage_quote": "If no command is specified, list the privileges for the invoking\n             user"
+  },
+  {
+    "filename": "025_unknown_user_error.sh",
+    "exercises": "-u with a nonexistent target user (documented error)",
+    "expected": "sudo exits nonzero (cannot execute / config problem)",
+    "expected_to_fail": true,
+    "manpage_quote": "If there is an authentication failure, a configuration/permission\n     problem, or if the given command cannot be executed, sudo exits with a\n     value of 1."
+  },
+  {
+    "filename": "026_close_from_too_small_error.sh",
+    "exercises": "-C with a value less than three (documented error)",
+    "expected": "sudo exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Values less than three are not permitted."
+  },
+  {
+    "filename": "027_duplicate_user_option_error.sh",
+    "exercises": "value-taking option -u specified twice (documented error)",
+    "expected": "sudo exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Options that take a value may only be specified once unless otherwise\n     indicated in the description."
+  },
+  {
+    "filename": "028_preserve_env_invalid_name_error.sh",
+    "exercises": "--preserve-env name containing '=' (documented error)",
+    "expected": "sudo exits nonzero (invalid environment variable name)",
+    "expected_to_fail": true,
+    "manpage_quote": "One or more environment variable names specified via the -E option\n           contained an equal sign (‘=’)."
+  },
+  {
+    "filename": "029_remove_timestamp_with_command_error.sh",
+    "exercises": "-K combined with a command (documented error)",
+    "expected": "sudo exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "It is\n             not possible to use the -K option in conjunction with a command\n             or other option."
+  }
+]

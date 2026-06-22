@@ -1,0 +1,19 @@
+Dependency: libc 0.2 only. Std fs covers data copy, symlinks, hard links, dir
+recursion, and permission bits; libc is needed for the syscalls std does not
+expose for cp's documented attribute/special-file behavior: lchown (ownership),
+utimes (timestamp preservation), and mkfifo/mknod (recursive special-file
+copy).
+
+Covered: all three synopsis forms (SOURCE DEST / SOURCE... DIR / -t DIR), -t/-T,
+-R/-r/--recursive, -f/--force, -i/--interactive, -n/--no-clobber, --update
+(all/none/none-fail/older) and -u, -v/--verbose/--debug, -l/--link,
+-s/--symbolic-link, -L/-P/-H/-d/--dereference family, -p/--preserve/--no-preserve
+(mode,ownership,timestamps,links), -a/--archive, -b/--backup[=CONTROL]/-S/--suffix
+with VERSION_CONTROL + SIMPLE_BACKUP_SUFFIX, --parents, --strip-trailing-slashes,
+--remove-destination, --attributes-only, -x/--one-file-system, --help, --version,
+same-file detection, hard-link preservation across sources.
+
+Skipped per harness contract: SELinux -Z/--context, NLS/locale, xattr/ACL
+(accepted in --preserve lists but not applied), sparse/--sparse/--reflink
+(accepted, plain copy performed), --copy-contents/--keep-directory-symlink
+(accepted, no-op), signal handling, network/remote.

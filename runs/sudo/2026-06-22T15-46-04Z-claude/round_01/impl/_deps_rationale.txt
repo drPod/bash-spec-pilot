@@ -1,0 +1,87 @@
+DEPENDENCY CHOICE
+=================
+Single dependency: libc = "0.2".
+
+sudo's documented "run COMMAND as another user" path is fundamentally a
+credential-switch (setuid/setgid/initgroups/setgroups) plus passwd/group
+database lookups (getpwnam/getpwuid/getgrnam). The Rust standard library
+exposes none of these. libc is the thinnest possible binding to the exact
+POSIX/glibc functions the man page implies, with no higher-level policy of its
+own, which keeps the stand-in honest about what it does and does not do.
+std::process::Command handles the fork/execve and exit-status relay.
+
+No `nix` crate: it would add a typed wrapper but pull a much larger surface for
+the handful of raw calls used here. No `clap`: the man page's option grammar
+(short-option clustering, the -h help/host ambiguity, "--" end-of-options,
+VAR=value bare assignments, repeatable --preserve-env=list) is idiosyncratic
+enough that a hand-rolled parser tracks the documented surface more faithfully
+than a generic arg parser.
+
+
+OUT OF SCOPE / APPROXIMATED (research signal)
+=============================================
+A faithful sudo is impossible from the man page alone because the man page
+documents a FRONT-END to an unspecified security policy. The behaviorally
+decisive parts live in sudoers(5)/PAM/the plugin API, none of which the SUDO(8)
+page defines. What we approximated or stubbed:
+
+1. SECURITY POLICY (sudoers / LDAP). No /etc/sudoers parsing, no rule matching,
+   no per-command/per-host/per-user authorization. The man page repeatedly
+   defers to "the security policy" without specifying it. Our approximation:
+   permit the run iff our effective UID is 0 (root). In the test container we
+   run as root, so the command path is exercisable. This is the crudest legal
+   reading of "the security policy determines what privileges, if any."
+
+2. AUTHENTICATION (PAM / password). No password prompt, no PAM stack, no
+   askpass helper, no timeout. -A/-B/-S/-p/-n are parsed but cannot gate on a
+   real auth result. -n ("non-interactive") is a no-op because we never prompt.
+   The man page says the password requirement is "policy-specific"; with no
+   policy there is nothing to authenticate against.
+
+3. CREDENTIAL CACHE (timestamps). No timestamp files. -k/-K/-N/-v manipulate a
+   cache that does not exist. -K and bare -k exit 0 (no-op). -v exits 0 iff
+   euid==0 (our "allowed" proxy). The 15-minute cache, per-terminal/per-PID
+   timestamp records, and timestamp_type/timestamp_timeout are all absent.
+
+4. PLUGIN ARCHITECTURE. No sudo.conf, no dynamic policy/audit/IO-logging
+   plugins, no pty "monitor" process model, no I/O logging. We fork/execve
+   directly via std::process::Command (the man page's "execute the command
+   directly" special case).
+
+5. sudoedit / -e. NOT implemented. The temp-copy-edit-copyback flow, symlink
+   and writable-directory restrictions, and editor selection
+   (SUDO_EDITOR/VISUAL/EDITOR) are out of scope; this is a research stand-in
+   for the command-execution surface, not the edit surface.
+
+6. SELinux (-r role, -t type), chroot (-R), close-from (-C), command-timeout
+   (-T), background (-b), remote host (-h host). -C/-T/-h are parsed and
+   validated for shape but not enforced. -r/-t/-R/-b are not implemented
+   (per the experiment's documented skip list for MAC contexts / platform-
+   specific complexity).
+
+7. ENVIRONMENT handling is a small approximation of env_reset/env_keep/
+   env_check. We model: default reset to a minimal safe baseline
+   (TERM/PATH/DISPLAY/LANG/LC_ALL/TZ) + always-set SUDO_* vars; -E preserves
+   the whole environment; --preserve-env=list re-adds named vars; VAR=value
+   assignments override; -i/-H set HOME and -i sets LOGNAME/USER/SHELL/MAIL.
+   The real sudoers env_keep/env_check/env_delete lists are NOT modeled.
+
+8. LOGIN-SHELL argv[0]. -i should exec the shell with argv[0] = "-<shellname>"
+   so the shell treats itself as a login shell. std::process::Command does not
+   let us set argv[0] independently of the program path on stable Rust without
+   arg0() (still gated on some toolchains), so login-shell semantics are only
+   partially reproduced: we set the login environment and chdir to HOME, but
+   the shell may not see itself as a login shell. Known fidelity gap.
+
+9. SIGNAL RELAY. The man page's signal-relay / SIGINT-SIGQUIT / reboot-loop
+   handling and the pty monitor are not modeled. On signal-termination of the
+   child we approximate sudo's "re-raise the same signal" with a 128+signal
+   exit code rather than actually re-raising.
+
+BOTTOM LINE FOR THE RESEARCH: every behavior that makes sudo *sudo* (who may do
+what, after proving who they are) is unspecified by the SUDO(8) man page and
+lives in documents (sudoers(5), PAM config, plugin sources) the page only
+points at. An LLM given just this man page can produce a faithful ARGUMENT
+PARSER and a faithful PRIVILEGE-DROP-AND-EXEC mechanism, but cannot produce the
+authorization/authentication core, because the ground truth for it is not in
+the page.
