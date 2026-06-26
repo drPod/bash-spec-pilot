@@ -227,6 +227,14 @@ operational contract (exit status, stream routing, error continuation, side
 effects, interaction rules). An LLM that reads the page perfectly still cannot
 recover what the page never says.
 
+The distribution is now quantified, not asserted. Of the ~120 class-tagged
+divergences in the wave-2/3 catalog tables (`grep -cE '\| omission'` etc. on
+`runs/_posix_divergence_catalog_2026-06-26.md`): **~103 omission (~85%)**, ~11
+commits-where-POSIX-hedges (~9%), ~12 contradiction / documented-deviation (~6%).
+Omission outweighs every other class roughly nine to one. (Count is a table-row
+proxy across waves 2-3, where each divergence carries a class tag; wave-1 lives in
+narrative and is not in this tally, but its mix is the same — omission-led.)
+
 ### 6.2 Three classes (M vs P)
 
 Tag a divergence with exactly one. All three are sub-classes of § 4.4
