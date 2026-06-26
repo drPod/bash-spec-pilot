@@ -201,11 +201,13 @@ The taxonomy invites the next prompt-engineering experiment: constrain the round
 ## 6. The man page as a spec source: M-vs-POSIX sub-taxonomy (2026-06-26)
 
 § 4.4 named doc-under-specification from a single `mv` example. Scaling the
-method to **27 utilities** (wave 1: cp, mv, find, ls, rm, ln, chmod, touch; wave
-2: head, tail, cat, wc, cut, tr, uniq, paste, comm, sort, od, expr, mkdir, rmdir,
-du, basename, dirname, readlink, printf) turns that one observation into a
+method to **45 POSIX-relevant utilities** across three waves (wave 1: cp, mv,
+find, ls, rm, ln, chmod, touch; wave 2: head, tail, cat, wc, cut, tr, uniq,
+paste, comm, sort, od, expr, mkdir, rmdir, du, basename, dirname, readlink,
+printf; wave 3: join, split, csplit, expand, unexpand, fold, pr, nl, tee, cksum,
+env, date, dd, test, echo, df, id, uname) turns that one observation into a
 characterized account of *how* the man page fails as a spec source. The full
-evidence — ~120 binary-adjudicated divergences — lives in
+evidence — ~185 binary-adjudicated divergences — lives in
 `runs/_posix_divergence_catalog_2026-06-26.md`; this section is the schema.
 
 This is the deliverable Astrogator POPL 2027 § 7.2 needs. § 7.2 plans to
@@ -252,18 +254,24 @@ doc-under-specification, distinguished by *who is more complete*:
 ### 6.3 The structural instance: EXIT STATUS systematic omission
 
 The single cleanest result, deterministic from frozen texts (no probe). Across
-the 28-page POSIX corpus, **25 document no exit status at all**. Of the three that
-do: `find` carries a proper section; `ls` over-specifies (GNU `0/1/2` vs POSIX
-`0/>0`); and `expr` — uniquely — documents it **wrong**: M says "3 if an error
-occurred", the binary returns 2 for division by zero and every other runtime
-error (exit 3 is unreachable in the GMP-built coreutils 9.7). So the one coreutil
-that bothers to specify a runtime exit code specifies the wrong one. When the page
-is silent a spec-extractor must guess; when it speaks it can still mislead.
+the 47-page frozen corpus, **only `find` carries a real top-level EXIT STATUS
+section** (1/47). A loose any-mention grep finds 6/47 (env, expr, find, ls, sudo,
+test) — leaving **41/47 with no exit-status text at all**. Of the documenting
+pages: `ls` over-specifies (GNU `0/1/2` vs POSIX `0/>0`); `test` mentions exit
+only as "the status determined by EXPRESSION" with no values (yet the binary
+commits exit 2 on a malformed expression); `expr` — uniquely — documents it
+**wrong**: M says "3 if an error occurred", the binary returns 2 for division by
+zero and every other runtime error (exit 3 is unreachable in the GMP-built
+coreutils 9.7). The lone *positive* is `env`, which documents 125/126/127 inline
+and matches the binary. So among the few pages that speak, one over-specifies, one
+mentions-without-values, one is wrong, and two are right — when the page is silent
+a spec-extractor must guess, and when it speaks it is right only half the time.
 
-The same blind spot is worse for **stream routing**: 26 of 29 frozen pages never
-contain the phrase "standard error" (only find, sort, sudo do). Pages name where
-*data* goes (`stdout` documented for most), never where *diagnostics* go — so the
-verbose/header/prompt-stream finding (§ 4.1) is not anecdotal but near-total.
+The same blind spot is worse for **stream routing**: 41 of 47 frozen pages never
+contain the phrase "standard error" (only env, date, dd, find, sort, sudo do).
+Pages name where *data* goes (`stdout` documented for most), never where
+*diagnostics* go — so the verbose/header/prompt-stream finding (§ 4.1) is not
+anecdotal but near-total.
 
 Reproduce: `grep -niE '^(EXIT STATUS|RETURN VALUE)' utils/*/manpage.txt`, or the
 formalized sweep `scripts/eval/omission_fuzz.sh` (per-util coverage matrix +
@@ -287,26 +295,41 @@ substring false positive is the **no-qualifier-vs-qualifier-present asymmetry**:
 cp/mv `--strip-trailing-slashes` has no qualifying clause (real defect); sudo
 `-D` has one (false positive).
 
-### 6.5 Class-3 contradictions surfaced at scale (wave 2)
+### 6.5 Class-3 contradictions surfaced at scale (waves 2-3)
 
-Contradictions stay rare relative to omissions, but wave 2 adds five clean ones
-where M states something the binary does not do — each a case where extracting
-the spec faithfully from M yields a *wrong* spec (worse than silence, because an
-extractor would emit it with confidence):
+Contradictions stay rare relative to omissions, but scaling adds clean ones where
+M states something the binary does not do — each a case where extracting the spec
+faithfully from M yields a *wrong* spec (worse than silence, because an extractor
+would emit it with confidence):
 
 | util | M claims | B does | shape |
 |---|---|---|---|
 | od | "octal bytes by default" (DESCRIPTION) | octal *shorts* (`-t oS`) | intra-doc: M's prose contradicts M's own EXAMPLES + POSIX |
-| expr | "3 if an error occurred" | exit 2 for all runtime errors | M ≠ B; one of 3 pages that document exit status, and it is wrong |
+| expr | "3 if an error occurred" | exit 2 for all runtime errors | M ≠ B; one of few pages that document exit status, and it is wrong |
 | basename | "also remove a trailing SUFFIX" (unconditional) | suffix == whole name is *kept* | M ≠ B; literal reading produces empty output (data-shape trap) |
 | tail | `-n +NUM` = "skip NUM-1 lines" | `+0` → whole file | M's formula is nonsense at the boundary; B clamps |
 | cut | `N-M` range grammar (no constraint) | `5-2` rejected, exit 1 | M's grammar admits a form B refuses |
+| pr | (silent on header format) | ISO `2026-06-26 14:50` | B ≠ P: POSIX mandates `date "+%b %e %H:%M %Y"`; B abandons the locale format silently |
+| nl | SYNOPSIS `[FILE]...` (plural) | numbers many files continuously | M = B ≠ P: POSIX restricts nl to one file; M's synopsis documents the deviation |
+| df | "1K blocks by default" | 1024-byte blocks | M = B ≠ P: the du-parallel; POSIX mandates 512 (documented GNU deviation) |
+| cksum | "`--tag` ... (the default)" | bare POSIX `%u %d %s` triple | M ≠ B: the parenthetical governs `--tag`'s algorithm, not the default line — a format trap |
 
-Plus a true POSIX-"shall" violation the page hides: **readlink** on a non-symlink
-exits nonzero but writes *no* diagnostic (GNU `-s` is the default), where POSIX
-says it "shall write a diagnostic message to standard error." This is the
-sharpest reliability counter-example in the corpus — the binary violates the
-standard and the man page doesn't tell you.
+Plus a fresh sub-class wave 3 surfaces — **the man page documents constructs the
+standard deleted.** `test` lists `-a`/`-o`/`(`/`)` as live binary primaries and
+`-l STRING` as a length operator; POSIX Issue 8 *removed* the former (Austin Group
+Defect 1330) and *excluded* the latter. GNU still evaluates all of them (each exit
+0), so M faithfully describes B — but a man-page-only spec encodes grammar the
+current standard has retired, with no deprecation note. This is the obsolescence
+mirror of an omission: not silence, but stale positive content.
+
+And two true POSIX-"shall"/mandate violations the pages hide: **readlink** on a
+non-symlink exits nonzero but writes *no* diagnostic (GNU `-s` is the default),
+where POSIX says it "shall write a diagnostic message to standard error"; and
+**tee** with a `-` operand creates a file literally named `-`, where POSIX
+mandates `-` *not* be treated as standard output — a rule M never mentions, with
+high mislead risk because the coreutils idiom usually makes `-` a stream. These
+are the sharpest reliability counter-examples in the corpus — the binary departs
+from the standard and the man page doesn't tell you.
 
 The asymmetry for § 7.2: omissions cap recoverability from above (you cannot
 extract what is not written); contradictions are actively dangerous (you extract

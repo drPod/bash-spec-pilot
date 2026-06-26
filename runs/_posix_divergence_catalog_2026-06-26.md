@@ -1,8 +1,8 @@
 # Man-page vs POSIX divergence catalog (2026-06-26)
 
 A defect-discovery engine, and the result that reframes the project's thesis.
-Now spanning **27 utilities** across two waves, ~120 binary-adjudicated
-divergences:
+Now spanning **45 POSIX-relevant utilities** (47 frozen, counting install + sudo)
+across three waves, ~185 binary-adjudicated divergences:
 
 - **Wave 1 (8 utils):** cp, mv, find, ls, rm, ln, chmod, touch — ~42 divergences.
 - **Wave 2 (19 utils, 2026-06-26):** head, tail, cat, wc, cut, tr, uniq, paste,
@@ -10,6 +10,12 @@ divergences:
   ~75 divergences. Same method (Claude-subagent M-vs-P mining → deterministic
   trixie adjudication, non-root). Confirms the omission-dominant pattern at scale
   and adds five citation-grade contradictions (below).
+- **Wave 3 (18 utils, 2026-06-26):** join, split, csplit, expand, unexpand, fold,
+  pr, nl, tee, cksum, env, date, dd, test, echo, df, id, uname — ~68 divergences.
+  Same method (4 parallel opus subagents → `scratchpad/mp_adjudicate3.sh`, 78
+  probes in one trixie batch). Extends the corpus to the full POSIX-relevant
+  coreutils surface and surfaces a fresh contradiction class: **the man page
+  documents primaries POSIX Issue 8 deleted** (`test -a`/`-o`/`(`/`)`/`-l`).
 
 > **Provenance note.** Unlike the Claude sweeps, this catalog does NOT depend on
 > any LLM-generated impl. Candidates come from comparing two frozen authoritative
@@ -67,23 +73,31 @@ coreutils exception, and even there it diverges by *over*-specifying (GNU
 contradiction). Only `find` (findutils) documents it properly. The binary always
 returns a meaningful status; the man page just never tells you what it means.
 
-**Wave 2 confirms this is structural, not a small-sample artifact.** Across the
-full 28-page frozen corpus (`grep -niE '^(EXIT STATUS|RETURN VALUE)'
-utils/*/manpage.txt`):
+**Waves 2-3 confirm this is structural, not a small-sample artifact.** Across the
+full 47-page frozen corpus:
 
-- **25 of 28** man pages carry no top-level EXIT STATUS section.
-- **`find`** is the only one with a full section.
+- **Only `find`** carries a real top-level EXIT STATUS section
+  (`grep -liE '^(EXIT STATUS|RETURN VALUE)' utils/*/manpage.txt` → 1/47).
+- A loose any-mention grep finds **6/47** that name exit/return anywhere (env,
+  expr, find, ls, sudo, test) — leaving **41/47 with no exit-status text at all**.
 - **`ls`** has an indented `Exit status:` subsection (over-specified, see above).
-- **`expr`** states its exit status inline (the truth value *is* the utility's
-  purpose) — and **gets it wrong**. M says "2 if syntactically invalid, **3 if an
-  error occurred**"; the binary returns **2** for division by zero, modulo by
-  zero, bad operator, and non-integer operand alike (coreutils 9.7 is GMP-built,
-  so there is no overflow path, and exit 3 is effectively unreachable). The one
-  coreutil that bothers to specify a runtime exit code specifies the wrong one.
+- **`expr`** states its exit status inline — and **gets it wrong**. M says "2 if
+  syntactically invalid, **3 if an error occurred**"; the binary returns **2** for
+  division by zero, modulo by zero, bad operator, and non-integer operand alike
+  (coreutils 9.7 is GMP-built, so there is no overflow path, and exit 3 is
+  effectively unreachable). The one coreutil that bothers to specify a runtime
+  exit code specifies the wrong one.
+- **`test`** mentions exit only as "Exit with the status determined by
+  EXPRESSION" — names no numeric values, yet the binary commits exit **2** on a
+  malformed expression (probe-confirmed). Mention without contract.
+- **`env`** is the wave-3 *positive* case: it documents exit **125/126/127**
+  inline, and the binary matches (probe: not-found → 127, found-but-non-exec →
+  126). The lone coreutils page that both speaks and is correct.
 
-So exit status is omitted by 25 utils, over-specified by 1 (ls), mis-specified by
-1 (expr), and correct in exactly 1 (find). When the man page is silent a
-spec-extractor must guess; when it speaks (expr) it can still be wrong.
+So exit status is omitted by 41 utils, over-specified by 1 (ls), mis-specified by
+1 (expr), mentioned-without-values by 1 (test), and documented-and-correct by 2
+(find with a section, env inline). When the man page is silent a spec-extractor
+must guess; when it speaks it is right only half the time.
 
 ## Three-class taxonomy (M vs P)
 
@@ -325,6 +339,107 @@ defects — when M, P, and B agree, the probe says so.
 The binary accepts **both** `\101` and `\0101` as octal `A` (0x41). M's "should"
 is loose but harmless — not a defect. Logged so the count stays honest.
 
+## Wave 3 — corpus scaling to 45 utilities (2026-06-26)
+
+Mined by 4 parallel opus subagents (text-columns / split-join-checksum /
+env-date-dd-system / test-echo), all 78 candidates adjudicated in one
+deterministic batch (`scratchpad/mp_adjudicate3.sh`, trixie coreutils 9.7, uid
+1000). ~68 confirmed divergences, ~9 controls, 1 environment-limited (below).
+Confirms the omission-dominant pattern a third time and adds a new contradiction
+class: **the man page documents constructs the standard has deleted.**
+
+### Citation-grade contradictions (M ≠ B, or M = B ≠ P)
+
+| util | finding | what M says | what the binary does |
+|---|---|---|---|
+| **test** | obsolete primaries | documents `-a`/`-o`/`(`/`)` as live primaries | all exit 0 — GNU still supports the primaries **POSIX Issue 8 removed** (Austin Group Defect 1330). M never flags them as non-conformant. M = B ≠ P. |
+| **test** | `-l STRING` length | "INTEGER may also be `-l STRING`" | `test -l abc -eq 3` → exit 0 (length 3) — GNU honors the `-l` operator **POSIX excluded** (functionality moved to the shell). M = B ≠ P. |
+| **pr** | header date format | silent on format (only `-h` mentioned) | header date is ISO `2026-06-26 14:50`; POSIX *mandates* `date "+%b %e %H:%M %Y"` (`Jun 26 14:50 2026`). Clean B ≠ P. |
+| **nl** | file-operand count | SYNOPSIS `[FILE]...` (plural) | accepts multiple files, numbers continuously (`1 a / 2 b`); POSIX restricts to "only one file". M's own synopsis sides with GNU. M = B ≠ P. |
+| **df** | default block size | "1K blocks by default, unless POSIXLY_CORRECT" | plain `df` = 1024-byte blocks, `POSIXLY_CORRECT=1` halves them (ratio 2.00); POSIX mandates 512 default. The du-parallel: M = B ≠ P (documented GNU deviation). |
+| **pr** | width with `-s` | "`-s[char]` turns off (72)" | `-s` without `-w` → width **512** (80-char columns survive, 162-byte line); POSIX commits 512. M's "turns off (72)" wording contradicts. |
+| **expand** | tablist separator | "comma separated list of tab positions" | `expand -t '2 4'` → `a b` (blank separator honored); POSIX permits blank **or** comma. M's "comma" is too narrow. |
+| **split** | suffix ceiling | "default 2" / 'x'+2-char names | `split -l 1` of 1400 lines → exit 0, suffix auto-extends past the 676-file / 2-char ceiling POSIX states. GNU commits silent extension. |
+| **echo** | escapes / `-n` | `-n` a flag; escapes need `-e` (off by default) | confirmed: `-n` consumed, `a\tb` stays literal without `-e`. POSIX makes leading `-n` implementation-defined and (XSI) recognizes `\t` unconditionally. M commits the opposite of the XSI form. |
+| **cksum** | default line format | "`--tag` create a BSD-style checksum (the default)" | default crc → bare POSIX `%u %d %s` triple (`1219131554 3 f`), **not** a BSD tag. The "the default" parenthetical is a format trap; it governs `--tag`'s algorithm choice, not the default output line. |
+
+### Omission tables (M silent; binary + POSIX commit)
+
+**join / split / csplit / tee / cksum** (split/merge/checksum)
+
+| id | class | binary verdict |
+|---|---|---|
+| join-exit-status | omission | ok → 0, missing operand → 1. No exit section. |
+| **join-unsorted** | omission | unsorted input → stderr "is not sorted" **and exit 1**. M says only "a warning message will be given" — hides that the warning is a failure. |
+| join-check-order | omission | `--check-order` → exit 1 on disorder even when all lines pair. M states the check, not its failing consequence. |
+| join-t-significant | omission | `join -t:` on `a::1` → `a::1::x` (every `:` significant → empty field). M's "use CHAR as separator" understates POSIX's "every appearance significant". |
+| join-e-needs-o | omission | `-e MISSING` does nothing without `-o`; with `-o` it fills (`a 1 MISSING`). M never states the `-o` dependency. |
+| **split-suffix-exhaust** | omission | `split -a1 -l2` of 60 lines → exit 1 "suffixes exhausted", **26 files kept** (fail-and-keep, matches POSIX precisely). M silent on exhaustion. |
+| split-partial-final | omission | input with no trailing newline → partial last line kept in last file. M silent. |
+| split-empty-input | omission | empty input → 0 files, exit 0 (not an error). M silent. |
+| **csplit-nomatch-removes** | omission | non-matching pattern → exit 1, created files **removed** by default; `-k` keeps them. M leaves "no-match is an error" implicit (the precondition that makes `-k` meaningful). |
+| csplit-bytecount-format | omission | one bare `%d` byte-count line per file on stdout (`4` / `4`); `-s` → 0 bytes. M's "output byte counts" gives no format. |
+| csplit-z-elide | omission (GNU ext) | `-z` drops the empty leading piece (`xx00` kept without it). POSIX has no such option. |
+| **tee-continue-after-error** | omission | one unwritable file → other file **and** stdout still get the data, exit 1. M's "diagnose errors writing to non pipe outputs" never states the continue guarantee. |
+| **tee-dash-is-filename** | omission | `tee -` creates a file literally named `-`; POSIX *mandates* `-` not mean stdout. High mislead risk (coreutils idiom usually makes `-` a stream). M completely silent. |
+| tee-exit-status | omission | ok → 0, unwritable → 1. No exit section. |
+| tee-unbuffered | omission | newline-less partial reaches the file before EOF (18 bytes mid-run). POSIX forbids buffered writes; M silent. |
+| cksum-stdin-omits-name | omission | no operand → pathname **and its leading space** omitted (`1219131554 3`). M silent on the stdin output rule. |
+| cksum-dash-stdin | commits-where-hedges | `cksum -` → reads stdin, prints name `-`. POSIX leaves `-`=stdin implementation-defined; M commits. |
+| cksum-exit-status | omission | ok → 0, missing file → 1. No exit section. |
+
+**expand / unexpand / fold / pr / nl** (text-column tools)
+
+| id | class | binary verdict |
+|---|---|---|
+| expand/unexpand/fold/nl/pr-exit-status | omission | all five → ok 0, error 1; none has an exit section (× 5). |
+| expand-multilist-tail | omission | tab past the last listed stop → single space (`xxxx y`). M silent on the tail rule. |
+| expand-backspace | omission | `\b` copied (`^H`) and decrements the column counter (floored 0). M never mentions backspace. |
+| unexpand-multilist-tail | omission | no space→tab conversion past the last stop (`ab\t  c`). M silent. |
+| unexpand-t-enables-a | omission | `-t8` converts **interior** blank runs (acts as `-a`); M's "(enables -a)" qualifier is load-bearing and unexplained. |
+| unexpand-default-leading | omission | bare `unexpand` converts only **leading** blanks (interior runs survive). M states it only via `-a`'s converse. |
+| fold-tab-mod8 | omission | a `\t` advances the width to the next `n mod 8 == 1` stop (not counted as one column). M silent on tab handling in column mode. |
+| fold-cr-reset | omission | `\r` resets the width count to zero. M never mentions carriage-return. |
+| fold-backspace | omission | `\b` decrements the width count. M silent. |
+| fold-w-nonpositive | commits-where-hedges | `fold -w0` / `-w -1` → hard error exit 1. POSIX says "unspecified"; M silent. GNU commits. |
+| **pr-r-suppresses-warning-not-exit** | omission | `pr -r` on an unopenable file → warning suppressed (empty stderr) but **exit still 1**. M documents the message suppression, never the residual failure status. |
+| pr-page-depth | omission | default page = 66 lines (5-line header + 5-line trailer). M scatters "(66)" in the `-l` footnote; POSIX states it upfront. |
+| pr-plus-operand | omission | a leading-`+` operand is parsed as `+page` (`pr +f` → "invalid + argument"); needs `-- +f` to be a file. M documents `+FIRST_PAGE` but not the `--` requirement. |
+| nl-default-format | omission | body-type `t` (blank lines unnumbered), width-6 right-justified, TAB separator. M packs all defaults into one line; the observable matches. |
+| nl-delim-fill | omission | `-d '@'` fills the second delimiter char with `:` (so `@:@:@:` is a section delimiter). M states the fill; binary confirms. |
+
+**env / date / dd / id / uname** (environment + system)
+
+| id | class | binary verdict |
+|---|---|---|
+| **env-exit-codes** | commits-where-hedges | not-found → 127, found-but-non-exec → 126 (M commits these; POSIX hedges the env-internal range 1-125). M is the better spec; binary agrees. |
+| env-dash-implies-i | commits-where-hedges | `FOO=bar env -` → FOO absent (`-` implies `-i`). POSIX calls a leading `-` "unspecified"; M commits. |
+| date-default-format | omission | no-format `date` == `date "+%a %b %e %H:%M:%S %Z %Y"` (probe match=yes). M never states the default format. |
+| date-set-nonroot | omission | `date -s` as uid 1000 → exit 1 "Operation not permitted". M documents neither the privilege requirement nor the failure status. |
+| dd-records-stderr | omission | the `N+M records in/out` report goes to **stderr** (1 on stderr, 0 on stdout). M names stderr only for `status=` and USR1. |
+| dd-block-aggregation | omission | no `bs=` → input collected into full 512-blocks (600 bytes → `1+1 records out`). M documents the 512 default but not the aggregation rule. |
+| dd-default-truncate | omission | `conv=notrunc` preserves the tail (`BBAA`, size 10) → implies of= truncates by default. M lists `notrunc` but never the default-truncate. |
+| dd-usr1-progress | commits-where-hedges | USR1 → mid-run records report to stderr, copy continues (2 reports seen). M commits the GNU signal; POSIX leaves it implementation-defined. |
+| id-G-separator | omission | `id -G` → single line, space-separated numerics. M's "print all group IDs" gives no separator/format. |
+| uname-a-field-order | omission | `uname -a` first five fields = `s n r v m` (GNU then appends `-p`/`-i`/`-o`). POSIX fixes the five-field order; M's `-a` list inserts the extras. |
+
+### Controls (M = P = B; recorded for honesty)
+
+`env` no-COMMAND prints the environment; `uname` (no option) == `-s`, `-m` is the
+trailing `-a` field; `id -n` standalone → exit 1 (both treat `-n` as a modifier);
+`csplit` default prefix/digits (`xx00 xx01 xx02`); `date -u` == `TZ=UTC0`;
+`test --help`/`[ --help` asymmetry (test treats it as a string, `[` prints 75-line
+usage — M documents this, binary confirms); `test` 0-arg/empty/non-empty string
+algorithm (`1 / 1 / 0`). When M, P, and B agree the probe says so.
+
+### One environment-limited probe (reported, not counted)
+
+`id` default format: in bare `debian:trixie` as uid 1000 there is no
+`/etc/passwd` entry for the user, so `id` prints `uid=1000 gid=1000 groups=1000`
+with **no** parenthesized name — the POSIX `uid=%u(%s)` form can't be reproduced
+without a mapped user. The M-silence on the default format still holds (M never
+states it); the exact parenthetical is left unverified rather than overclaimed.
+
 ## B vs P conformance (extracted from adjudication)
 
 Where the GNU binary deviates from POSIX regardless of what the docs say:
@@ -359,11 +474,31 @@ Wave-2 deviations (B ≠ P), several of which the man page *correctly* documents
 - **uniq `-c` count format** — B right-pads the count to a fixed width; POSIX
   pins bare `"%d %s"`. B ≠ P; M never gives the format at all.
 
+Wave-3 deviations (B ≠ P):
+
+- **df default block size** — the df parallel to du: B uses 1024-byte blocks,
+  POSIX mandates 512. M = B ≠ P (documented: M states the 1K default + the
+  POSIXLY_CORRECT escape). Confirmed by the POSIXLY_CORRECT block-count ratio 2.00.
+- **pr header date format** — B emits ISO `2026-06-26 14:50`; POSIX *mandates*
+  `date "+%b %e %H:%M %Y"` (`Jun 26 14:50 2026`). B ≠ P, and M is silent on the
+  format, so nothing flags the deviation. A clean locale-format violation.
+- **nl multiple file operands** — B accepts many files and numbers them
+  continuously; POSIX restricts nl to "only one file". B ≠ P; M's plural
+  `[FILE]...` synopsis documents B against the standard.
+- **test obsolete primaries** — B still evaluates `-a`/`-o`/`(`/`)`/`-l`, all
+  **removed/excluded by POSIX Issue 8** (Austin Group Defect 1330). B ≠ P; M
+  documents them as live without a deprecation note. A new sub-class: the binary
+  (and the man page) retain constructs the standard deleted.
+- **echo default escape handling** — B leaves backslash escapes off until `-e` and
+  treats `-n` as a flag; POSIX-XSI recognizes `\t` etc. unconditionally and makes
+  a leading `-n` implementation-defined. B ≠ P-XSI; M documents the GNU form.
+
 Net: GNU coreutils is largely POSIX-conformant in behavior; the documented GNU
 deviations are flagged more often than not (touch `-`, find action set, du 1024,
-head `-c -N`). The reliability problem remains the man page's *silence*, not GNU's
-deviations — and the sharpest single counter-example is **readlink**, where the
-binary violates a POSIX "shall" (the diagnostic) and the man page doesn't tell you.
+df 1024, head `-c -N`, echo `-e`). The reliability problem remains the man page's
+*silence*, not GNU's deviations — with two sharp counter-examples: **readlink**,
+where the binary violates a POSIX "shall" (the diagnostic) undocumented, and
+**pr**, where the header date silently abandons the POSIX-locale format.
 
 ## Omission-fuzzing pass (B-first): verbose-flag stream silence
 
@@ -419,12 +554,24 @@ omission class with a misleading lexical pointer attached.
   binary outputs the whole file.
 - **cut decreasing range**: M's `N-M` grammar admits `5-2`; the binary rejects it
   (`invalid decreasing range`, exit 1).
+- **test documents deleted primaries** (wave 3): M lists `-a`/`-o`/`(`/`)`/`-l` as
+  live; POSIX Issue 8 removed/excluded them (Austin Group Defect 1330). The binary
+  keeps them, so a man-page-only spec encodes constructs the standard deleted.
+- **pr header date** (wave 3): GNU emits ISO `YYYY-MM-DD HH:MM`; POSIX mandates
+  `date "+%b %e %H:%M %Y"`. Silent B ≠ P locale-format violation.
+- **nl single-file restriction** (wave 3): POSIX "only one file"; GNU numbers
+  many continuously and M's `[FILE]...` synopsis documents the deviation.
+- **tee `-` is a filename** (wave 3): POSIX mandates `-` not mean stdout; GNU
+  creates a file named `-`; M is silent — a high-mislead-risk omission.
+- **join "warning" is a failure** (wave 3): M says unsorted input yields "a
+  warning message"; the binary also exits 1. Warning-vs-failure gap.
 
 ## How to find more (the engine menu)
 
-- **A. M vs P mining** (waves 1+2): deterministic, free, high-yield. Scaled to 27
-  utils. Remaining POSIX coreutils with pages: cksum, csplit, expand, fold, join,
-  nl, pr, split, tee, unexpand, plus the env/id/sleep/date family.
+- **A. M vs P mining** (waves 1-3): deterministic, free, high-yield. Scaled to 45
+  POSIX-relevant utils — the full coreutils surface is now mined. Remaining stragglers
+  are thin/low-yield (pwd, mkfifo, link, unlink, logname, tsort, true, false,
+  sleep, stty, who, pathchk) plus the non-POSIX install/sudo (frozen, out of scope).
 - **B. B vs P conformance**: probe the binary against POSIX directly — finds GNU
   deviations regardless of docs. Now a standalone deliverable:
   `scripts/eval/omission_fuzz.sh` codifies the B-first sweep. Surface is small but
@@ -450,6 +597,8 @@ full-governing-span guard ([[sudo-d-candidate-killed]]).
 Behavioral adjudication (trixie, coreutils 9.7, non-root):
 - Wave 1: `scratchpad/mp_adjudicate.sh`
 - Wave 2: `scratchpad/mp_adjudicate2.sh` + `scratchpad/expr_reprobe.sh`
+- Wave 3: `scratchpad/mp_adjudicate3.sh` (78 probes; `test`/`[`/`echo` invoked by
+  full `/usr/bin` path so the bash builtins don't shadow them)
 - run: `docker run --rm -u 1000:1000 -e HOME=/tmp -v .../<probe>.sh:/probe.sh:ro debian:trixie bash /probe.sh`
 
 EXIT STATUS finding: `grep -niE '^(EXIT STATUS|RETURN VALUE)' utils/*/manpage.txt`.
