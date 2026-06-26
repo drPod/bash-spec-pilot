@@ -1,0 +1,12 @@
+{
+  "util": "tr",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/tr.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:01Z",
+  "renderer": "mandoc",
+  "groff_sha256": "c526d01fff81fbac990d332241bbde62ce8c2d12acc6f8dc71cf5f2a6b5db727",
+  "manpage_txt_sha256": "f4d95922f7d983d33e30897fa40b534f01df593def30258f9374dc56baf60c9e"
+}

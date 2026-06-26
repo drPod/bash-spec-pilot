@@ -1,0 +1,12 @@
+{
+  "util": "mkdir",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/mkdir.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:18:58Z",
+  "renderer": "mandoc",
+  "groff_sha256": "8c3806315c1b7123a48c4f9257e3e236b4afd96a2360f7cb65323545b1acb2bc",
+  "manpage_txt_sha256": "1f49fdaaa46550753ff34012ebe205c2ed45744f5c8d718a8bd9bd030c1028b5"
+}

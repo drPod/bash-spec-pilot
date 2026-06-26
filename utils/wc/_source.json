@@ -1,0 +1,12 @@
+{
+  "util": "wc",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/wc.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:01Z",
+  "renderer": "mandoc",
+  "groff_sha256": "810614d11e3587cc6ede909695db8370a348aa4cc25909ae42677bb2b5c9cfdd",
+  "manpage_txt_sha256": "2bb8744e7065086f20668ba92c180af940ecc2c43918661edab8b176dc097a2f"
+}

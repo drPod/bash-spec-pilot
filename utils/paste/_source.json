@@ -1,0 +1,12 @@
+{
+  "util": "paste",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/paste.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:02Z",
+  "renderer": "mandoc",
+  "groff_sha256": "caa816e5ed5cbc740c568457a052c41dfe9c7653b3b9e05ef20c8741524116f2",
+  "manpage_txt_sha256": "95a3b8babdfe9c2edec8ec9491f2b63995f894a90ed37437bf859ce1341cb527"
+}

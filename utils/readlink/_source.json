@@ -1,0 +1,12 @@
+{
+  "util": "readlink",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/readlink.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:05Z",
+  "renderer": "mandoc",
+  "groff_sha256": "aa1e8b44c6e32d8c3ec83c7748e562c42456c6a130990cd1a6d7bfb95733306c",
+  "manpage_txt_sha256": "f5ea1e3a31c456be631fe24d15b10632dc380b255107899a7c108b27c1d3e874"
+}

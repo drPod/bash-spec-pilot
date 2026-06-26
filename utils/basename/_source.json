@@ -1,0 +1,12 @@
+{
+  "util": "basename",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/basename.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:04Z",
+  "renderer": "mandoc",
+  "groff_sha256": "6e0a69a29bb60bbfc8f70ec390845a32deb44de8ec52b5335ced1109c259d37d",
+  "manpage_txt_sha256": "f6774f28edc970382be173a00590c7b32e671098792151ed57a24fee99ef49a8"
+}

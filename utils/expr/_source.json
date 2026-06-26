@@ -1,0 +1,12 @@
+{
+  "util": "expr",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/expr.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:03Z",
+  "renderer": "mandoc",
+  "groff_sha256": "6ef582407bbf81eb1e926880f5c959ef426e9d2b0396066bb0f33c309ec9e870",
+  "manpage_txt_sha256": "2c66f9261fcb03f0d1a2e26d141d40c63559ba172e8f3ab0fe5f0ace80d4c235"
+}

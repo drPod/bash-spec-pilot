@@ -1,0 +1,12 @@
+{
+  "util": "dirname",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/dirname.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:04Z",
+  "renderer": "mandoc",
+  "groff_sha256": "93913301d1bde612e31bd224e9d701d08562790276761435048b891a90717a69",
+  "manpage_txt_sha256": "4d2d8f02f0c222c9fb05b8c8a44c698d92231b8a333cf6a347267d12d94635f8"
+}

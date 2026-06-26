@@ -1,0 +1,12 @@
+{
+  "util": "cut",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/cut.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:01Z",
+  "renderer": "mandoc",
+  "groff_sha256": "49bc16947b70f09fbcabac4e61a8088e6e1ee59da2da488940d2a9321fefdd99",
+  "manpage_txt_sha256": "07885417b38bd542ce2ef3d94f214772a976288c7200ef571a68412bce4c2407"
+}

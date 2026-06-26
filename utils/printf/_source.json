@@ -1,0 +1,12 @@
+{
+  "util": "printf",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/printf.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:03Z",
+  "renderer": "mandoc",
+  "groff_sha256": "c16afd447ffac058f86f43bd04416b0c4d41ce878e5fbec58cbb9d46886716c4",
+  "manpage_txt_sha256": "46829316ee28d13a678032c2973a76b28b4dce5581bb40d68fdda6fa1208e916"
+}

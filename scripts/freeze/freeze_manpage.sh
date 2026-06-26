@@ -36,7 +36,7 @@
 set -euo pipefail
 
 if [[ $# -lt 1 ]]; then
-  echo "usage: $0 <util> [--force]   util in (cp | mv | ls | rm | ln | chmod | touch | install | find | sudo)" >&2
+  echo "usage: $0 <util> [--force]   util in (cp|mv|ls|rm|ln|chmod|touch|install|find|sudo | coreutils batch: mkdir|rmdir|head|tail|cat|wc|sort|cut|tr|uniq|paste|comm|du|printf|expr|od|basename|dirname|readlink)" >&2
   exit 2
 fi
 UTIL="$1"
@@ -56,9 +56,13 @@ case "$UTIL" in
   chmod)   PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
   touch)   PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
   install) PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  # Corpus-scaling batch (2026-06-26): all coreutils 9.7-3, grouped because the
+  # provenance pin is identical. Mined M-vs-POSIX, not differential-tested.
+  mkdir|rmdir|head|tail|cat|wc|sort|cut|tr|uniq|paste|comm|du|printf|expr|od|basename|dirname|readlink) \
+           PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
   find)    PKG=findutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="4.10.0-3"           ;;
   sudo)    PKG=sudo      ; SECTION=8 ; DEB_RELEASE=trixie ; PKG_VERSION="1.9.16p2-3+deb13u1" ;;
-  *) echo "error: unsupported util '$UTIL' (expected cp|mv|ls|rm|ln|chmod|touch|install|find|sudo)" >&2; exit 2 ;;
+  *) echo "error: unsupported util '$UTIL' (expected cp|mv|ls|rm|ln|chmod|touch|install|find|sudo or coreutils batch mkdir|rmdir|head|tail|cat|wc|sort|cut|tr|uniq|paste|comm|du|printf|expr|od|basename|dirname|readlink)" >&2; exit 2 ;;
 esac
 
 URL="https://manpages.debian.org/${DEB_RELEASE}/${PKG}/${UTIL}.${SECTION}.en.gz"

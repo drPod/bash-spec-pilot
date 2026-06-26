@@ -1,0 +1,12 @@
+{
+  "util": "cat",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/cat.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:00Z",
+  "renderer": "mandoc",
+  "groff_sha256": "932171abd5d52303ccab8e4c6a626139c4fe27ed91e0df860b361ca069189c19",
+  "manpage_txt_sha256": "5b17268b04d0c637a0c638b2abcce3793f4165b96af67ffbf3589cb2f725403e"
+}

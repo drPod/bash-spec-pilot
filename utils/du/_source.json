@@ -1,0 +1,12 @@
+{
+  "util": "du",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/du.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:03Z",
+  "renderer": "mandoc",
+  "groff_sha256": "afc498a94f8860918ff8e78761cb93006f7e4a4d127679529fdfdcfbdbe65552",
+  "manpage_txt_sha256": "bad2437d39fc8302255e2a8686389b5b8841f44efabca89f76b04e32ec69c771"
+}

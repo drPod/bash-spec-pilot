@@ -1,0 +1,12 @@
+{
+  "util": "tail",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/tail.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:00Z",
+  "renderer": "mandoc",
+  "groff_sha256": "913f99e066b9d03b7bdd60a94c2c3a763296460f56e213bcc8d6d52ec0b43002",
+  "manpage_txt_sha256": "8d00c6bd74accc8065be922bb5695d8fad7ed469c6ac98df6da0314729959d10"
+}

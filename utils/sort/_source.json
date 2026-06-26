@@ -1,0 +1,12 @@
+{
+  "util": "sort",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/sort.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:01Z",
+  "renderer": "mandoc",
+  "groff_sha256": "08762993e68d15d7f6e26ff0de0ef8b5e9c6e3e2e8d1d8ac2dbe92fb98d30e87",
+  "manpage_txt_sha256": "f3f76b38963b11a725cf5ebc4eb151034bfd36794dbb45d1ccb94429a67c4be3"
+}

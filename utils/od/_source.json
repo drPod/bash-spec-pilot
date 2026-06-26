@@ -1,0 +1,12 @@
+{
+  "util": "od",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/od.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:04Z",
+  "renderer": "mandoc",
+  "groff_sha256": "1122719fcd2c54b472c0c9f593c1806bfe15e058c6bbb4f4e69836282bd8f2f6",
+  "manpage_txt_sha256": "0b6015f2bc6c1bf9db7bb30616ee595731f00572b5fb24bef354bd22922307cf"
+}

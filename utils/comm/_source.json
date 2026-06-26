@@ -1,0 +1,12 @@
+{
+  "util": "comm",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/comm.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:19:02Z",
+  "renderer": "mandoc",
+  "groff_sha256": "9ffd64eab3849eb29c23fe95c5aa3877e82ca7c1d879d1fdff90fbc6cf08838a",
+  "manpage_txt_sha256": "eda5f208cd649d16b53cc89261a850a5f7b959c3575f34fb539672ccbdffce65"
+}
