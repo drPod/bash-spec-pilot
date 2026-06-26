@@ -5,10 +5,13 @@
 - real-gnu 26/29, rust 24/29. mut@k 0.138, DEPC 4. Highest signal of the four.
 - **CAVEAT**: oracle runs as root, so all authentication/authorization gates are
   bypassed. These numbers measure arg-parsing + env/identity fidelity only.
-- **manpage_underspec 012_chdir_directory**: candidate NEW finding. Manpage:
-  "-D directory ... Run the command in the specified directory." Real sudo
-  refuses ("not permitted to use the -D option") unless sudoers grants `runcwd`,
-  a precondition SUDO(8) never states. Worth a canonical re-run.
+- **012_chdir_directory: candidate KILLED on hardening (2026-06-26).** Not a
+  manpage defect. The `-D` entry's second sentence ("The security policy may
+  return an error if the user does not have permission to specify the working
+  directory") documents the `runcwd` gate the test ignored; the test quoted only
+  the first sentence. Probe confirms `-D` works once `Defaults runcwd=*` is set,
+  refuses without it, identically root and non-root. False-positive of substring
+  grounding. See `_hardening/`.
 - **manpage_underspec 018_shell_option_command**: `-s` passing a command to the
   shell; real exits 127. Likely test-construction (command not a valid sh
   simple command), not a clean defect.

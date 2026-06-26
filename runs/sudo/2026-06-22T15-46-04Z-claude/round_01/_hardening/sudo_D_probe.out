@@ -1,0 +1,15 @@
+=== sudo version ===
+Sudo version 1.9.16p2
+=== (a) default sudoers (no runcwd), non-root tester: sudo -n -D /tmp pwd ===
+sudo: you are not permitted to use the -D option with /usr/bin/pwd
+  rc=1
+=== now grant: Defaults runcwd=* ===
+=== (b) with runcwd=*, non-root tester: sudo -n -D /tmp pwd ===
+/tmp
+  rc=0
+=== (c) with runcwd=*, long form: sudo -n --chdir=/tmp pwd ===
+/tmp
+  rc=0
+=== (d) as root (the run_tests.py confound condition): sudo -n -D /tmp pwd ===
+sudo: you are not permitted to use the -D option with /usr/bin/pwd
+  rc=1

@@ -70,17 +70,29 @@ hidden "must be a directory" check the manpage never states. A different model,
 different code, same defect surfaced: that is the strongest evidence so far that
 this is a property of the manpage, not of any one generation.
 
-### sudo `-D` / `--chdir` (test 012): candidate new finding
+### sudo `-D` / `--chdir` (test 012): candidate KILLED on hardening (2026-06-26)
 
-- **Manpage span quoted:** "Run the command in the specified directory instead
-  of the current working directory."
+Hardened via three-oracle triangulation; full verdict + reproducible probe in
+`runs/sudo/2026-06-22T15-46-04Z-claude/round_01/_hardening/`.
+
+- **Manpage span quoted by the test:** "Run the command in the specified directory
+  instead of the current working directory."
 - **Real sudo:** `you are not permitted to use the -D option with /usr/bin/pwd`,
-  nonzero exit, even running as root.
-- The manpage presents `-D` as an unconditional capability. Real sudo gates it
-  behind a sudoers setting (`runcwd`) the SUDO(8) page never mentions. The
-  manpage underspecifies the policy precondition.
-- Caveat: confounded by the as-root execution context (see sudo caveat below),
-  but the refusal here is a policy gate, not an auth prompt, so the signal holds.
+  nonzero exit.
+- **The candidate is a false positive.** The `-D` entry (utils/sudo/manpage.txt:94-98)
+  is two sentences; the test quoted only the first. The second documents the exact
+  gate that fired: "The security policy may return an error if the user does not
+  have permission to specify the working directory." The man page is correct.
+- **Probe (trixie, sudo 1.9.16p2):** default sudoers → refused; add `Defaults
+  runcwd=*` → `-D /tmp pwd` prints `/tmp`, rc=0; long form `--chdir` likewise. The
+  refusal reproduces identically as **root and non-root**, so the root confound is
+  cleared: it is the `runcwd` policy gate, exactly as documented.
+- **Reclassify** as a test-construction / provenance-grounding artifact, not a
+  manpage_underspec. POSIX is N/A (sudo not in POSIX).
+- **Durable meta-finding:** substring grounding in `classify_divergence.py` is
+  necessary but not sufficient. A `manpage_quote` can be true in isolation yet
+  negated by an adjacent clause, producing a false `manpage_underspec`. Candidate
+  caveat for `docs/research/taxonomy.md`.
 
 ### sudo `-s` shell command (test 018): weak, likely test-construction
 
@@ -132,8 +144,13 @@ that exercises non-root behavior.
 
 - **Strong:** the mv `--strip-trailing-slashes` manpage defect is model- and
   generation-independent. Reproduced here from scratch.
-- **Worth a canonical re-run:** the sudo `-D`/`--chdir` policy-gate gap looks
-  like a genuine second manpage-underspec case.
+- **Killed on hardening:** the sudo `-D`/`--chdir` case is NOT a manpage defect
+  (see the section above + `runs/sudo/.../round_01/_hardening/`). The man page
+  documents the policy gate; the test quoted only half the entry. The sudo
+  `manpage_underspec` count is effectively 0 (012 false positive; 018 already
+  flagged as test-construction).
+- **Methodology output:** substring grounding can false-positive when an adjacent
+  clause negates the quoted span. `manpage_underspec` rows need full-context review.
 - **Not licensed:** any quantitative comparison of these mut@k numbers against
   the gpt-5.5 sessions. Different generator.
 
