@@ -294,3 +294,10 @@ def all_metamorphic() -> pd.DataFrame:
 def load_summary(util: str) -> str:
     p = RUNS / util / "SUMMARY.md"
     return p.read_text() if p.is_file() else ""
+
+
+@st.cache_data(show_spinner=False)
+def load_posix_catalog() -> str:
+    """Newest man-page-vs-POSIX divergence catalog (runs/_posix_divergence_catalog_*.md)."""
+    cats = sorted(RUNS.glob("_posix_divergence_catalog_*.md"))
+    return cats[-1].read_text() if cats else ""

@@ -19,6 +19,7 @@ page = st.navigation(
         ],
         "Findings": [
             st.Page("app_pages/findings.py", title="Research findings", icon=":material/menu_book:"),
+            st.Page("app_pages/posix.py", title="Man-page vs POSIX", icon=":material/balance:"),
             st.Page("app_pages/scorecard.py", title="Adversarial scorecard", icon=":material/scoreboard:"),
             st.Page("app_pages/divergences.py", title="Divergences", icon=":material/call_split:"),
             st.Page("app_pages/crossver.py", title="Cross-version", icon=":material/history:"),
