@@ -1,0 +1,12 @@
+{
+  "util": "env",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/env.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:30Z",
+  "renderer": "mandoc",
+  "groff_sha256": "0d895708727a4a94c9c2e39ba750e42cc5a512606150ae082314bdd48777dab4",
+  "manpage_txt_sha256": "1339959d832307ebaacf89db091b3240fe8564eaa4f4e51127c1dea5083dbe75"
+}

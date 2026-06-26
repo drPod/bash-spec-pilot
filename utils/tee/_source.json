@@ -1,0 +1,12 @@
+{
+  "util": "tee",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/tee.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:29Z",
+  "renderer": "mandoc",
+  "groff_sha256": "d55df8e665c998800cd5cefbbc4168bf20c2398d6c728e80487d35936e09999b",
+  "manpage_txt_sha256": "46cebb16a070be973abda063f22b3fbfcd8b92b2773c135bb0352e2f5e4e65d1"
+}

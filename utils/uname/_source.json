@@ -1,0 +1,12 @@
+{
+  "util": "uname",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/uname.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:32Z",
+  "renderer": "mandoc",
+  "groff_sha256": "71eedee6a536445fa946ad2c220933fbb4e34a064ee4cc86ccc634c2e4be924c",
+  "manpage_txt_sha256": "98295bd46aeb9c833611855b7bcf8ef8dcc7858ad7ab8e583b54accd0ec8c57b"
+}

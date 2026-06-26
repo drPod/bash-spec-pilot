@@ -1,0 +1,12 @@
+{
+  "util": "fold",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/fold.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:28Z",
+  "renderer": "mandoc",
+  "groff_sha256": "d3239e9cdceace2c5b333bceb2e2b826208c0faea0b177ed46e78456ffd238c3",
+  "manpage_txt_sha256": "5343f8dcc053636d1461482556fcf213870ca5ff9cb715d32492d617ab5922c0"
+}

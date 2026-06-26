@@ -1,0 +1,12 @@
+{
+  "util": "unexpand",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/unexpand.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:28Z",
+  "renderer": "mandoc",
+  "groff_sha256": "45f7c4f3ec8b25ad2c4472101ddca3114a53773558ff1fde61f30e8497e7474c",
+  "manpage_txt_sha256": "6fef237ff069e475317a813113598682c358d4bcfb462d4c00f018eef815384c"
+}

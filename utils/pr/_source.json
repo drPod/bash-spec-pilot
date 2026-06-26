@@ -1,0 +1,12 @@
+{
+  "util": "pr",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/pr.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:29Z",
+  "renderer": "mandoc",
+  "groff_sha256": "53890f45cc2896e96a488482b8cc04c6b78175bedd4342d83ef9d11b5023463e",
+  "manpage_txt_sha256": "b0fa986602f1c27a0974bed106f00ab5b7ff2ffd8435779f2d6c2e59c43a196e"
+}

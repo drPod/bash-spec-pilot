@@ -1,0 +1,12 @@
+{
+  "util": "dd",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/dd.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:31Z",
+  "renderer": "mandoc",
+  "groff_sha256": "62119a3bf4ec0f885954f9b05aa170cc4f7df8d0a40aeffed3686f51b3c1b1c4",
+  "manpage_txt_sha256": "907bfd0fb46b8c1d5f301341eaca9da63996a9acca645937f59fb4c3aff777d7"
+}

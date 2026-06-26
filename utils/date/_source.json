@@ -1,0 +1,12 @@
+{
+  "util": "date",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/date.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:30Z",
+  "renderer": "mandoc",
+  "groff_sha256": "f98c20d40eb39619085a1af73c8932869a7691eca1b9c349d1f737beec708a04",
+  "manpage_txt_sha256": "217ab3911497fa0f12b5e7ab46826cf0212f46b3c754d8598d9a778bc6e1622a"
+}

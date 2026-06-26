@@ -60,6 +60,9 @@ case "$UTIL" in
   # provenance pin is identical. Mined M-vs-POSIX, not differential-tested.
   mkdir|rmdir|head|tail|cat|wc|sort|cut|tr|uniq|paste|comm|du|printf|expr|od|basename|dirname|readlink) \
            PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  # Wave 3 (2026-06-26): remaining high-yield POSIX coreutils, same pin.
+  join|split|csplit|expand|unexpand|fold|pr|nl|tee|cksum|env|date|dd|test|echo|df|id|uname) \
+           PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
   find)    PKG=findutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="4.10.0-3"           ;;
   sudo)    PKG=sudo      ; SECTION=8 ; DEB_RELEASE=trixie ; PKG_VERSION="1.9.16p2-3+deb13u1" ;;
   *) echo "error: unsupported util '$UTIL' (expected cp|mv|ls|rm|ln|chmod|touch|install|find|sudo or coreutils batch mkdir|rmdir|head|tail|cat|wc|sort|cut|tr|uniq|paste|comm|du|printf|expr|od|basename|dirname|readlink)" >&2; exit 2 ;;

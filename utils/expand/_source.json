@@ -1,0 +1,12 @@
+{
+  "util": "expand",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/expand.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:28Z",
+  "renderer": "mandoc",
+  "groff_sha256": "bc91d299b70b65259f59fcfd1674a1d08d08331cc2638a81e3e182f0c2091acf",
+  "manpage_txt_sha256": "a053adb3598eed1105621e6b014b33619094cbfd39d5a2ba5bfa0356bd41261d"
+}

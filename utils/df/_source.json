@@ -1,0 +1,12 @@
+{
+  "util": "df",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/df.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:32Z",
+  "renderer": "mandoc",
+  "groff_sha256": "6db8230582782c82d2e6d68b3bbc02f36f412e496bf0929e3610ca60d0cf0e87",
+  "manpage_txt_sha256": "fcacf783e31e9689613b3af31ef651e20d045ec9519e7199f1426ea5acf380ef"
+}

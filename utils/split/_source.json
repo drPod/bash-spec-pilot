@@ -1,0 +1,12 @@
+{
+  "util": "split",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/split.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:27Z",
+  "renderer": "mandoc",
+  "groff_sha256": "d25dbcffb092a1856abc09f13d302c535c142c2ad7e21fbd283c92d1bf104bb5",
+  "manpage_txt_sha256": "42500c5f9a2a620ac490200e727fce53e16ad9f541bf4e397e7e05a933434b1c"
+}

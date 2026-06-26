@@ -1,0 +1,12 @@
+{
+  "util": "join",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/join.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T14:42:26Z",
+  "renderer": "mandoc",
+  "groff_sha256": "820c0fc89360a8ac4e58df8c6de4d60f9a54ae41c69d816aa36086cd9100bc15",
+  "manpage_txt_sha256": "e81cda9a46cd40ed6fe49a718700313a51f044b17765f2bfd814f20460281c61"
+}
