@@ -539,7 +539,10 @@ omission class with a misleading lexical pointer attached.
   status at all (deterministic, from frozen texts); of the 3 that do, `expr`
   documents it *incorrectly* (says 3, binary 2).
 - **ln `-f a a` data-loss**: M's `-f` wording, taken literally, specifies an
-  operation POSIX forbids precisely because it destroys data.
+  operation POSIX forbids precisely because it destroys data. Documentation hazard
+  only — coreutils 9.7 *guards* self-links (`ln -f a a` → "are the same file",
+  data intact), so the danger is in M's literal spec, not the binary. No binary
+  repro (excluded from the minimal-repros table).
 - **ls `-1` does not disable long format**: M's one-line `-1` description
   contradicts the binary (which follows POSIX).
 - **od "octal bytes by default"** (line 12): the binary's default is octal
@@ -565,6 +568,32 @@ omission class with a misleading lexical pointer attached.
   creates a file named `-`; M is silent — a high-mislead-risk omission.
 - **join "warning" is a failure** (wave 3): M says unsorted input yields "a
   warning message"; the binary also exits 1. Warning-vs-failure gap.
+
+## Minimal repros (citation-grade, paper-ready)
+
+Each line is the shortest command that demonstrates the finding, with the observed
+trixie output (coreutils 9.7 / findutils 4.10.0, uid 1000). Verified together via
+`scratchpad/minimal_repros.sh`. These are the distillation a §7.2 writeup cites —
+"run this, see that." All are binary-demonstrable divergences (the `ln -f a a`
+data-loss item is *excluded* here: it is a documentation hazard only — M's literal
+`-f` wording specifies a destructive op, but coreutils 9.7 refuses self-links with
+"are the same file", so there is no binary repro).
+
+| finding | command | observed | divergence |
+|---|---|---|---|
+| cp `--strip-trailing-slashes` is not unconditional | `cp --strip-trailing-slashes src/ dst` (src a regular file) | `exit 1: cp: cannot stat 'src/': Not a directory` | M says the option strips slashes unconditionally; cp stats the slashed path first and fails. mv mirrors it. The clean lie. |
+| od default is octal *shorts* | `printf AB \| od` | `0000000 041101` | octal short `041101` (LE 0x4241), not two octal bytes `101 102`. M says "octal bytes by default". |
+| expr runtime error → exit 2 | `expr 1 / 0` | `exit 2` | M says "3 if an error occurred"; 3 is unreachable. |
+| basename keeps whole-name suffix | `basename foo foo` | `foo` | M's unconditional "remove SUFFIX" reading yields empty; POSIX step-6 guard keeps it. |
+| tail `+0` → whole file | `printf 'a\nb\nc\n' \| tail -n +0` | `a b c` | M's "skip NUM-1 lines" is nonsense at +0; binary clamps to all. |
+| cut decreasing range rejected | `echo abcdef \| cut -c5-2` | `exit 1: invalid decreasing range` | M's `N-M` grammar admits a form the binary refuses. |
+| readlink silent on non-symlink | `readlink regularfile` | `exit 1, stderr empty` | POSIX: "shall write a diagnostic message to standard error." GNU writes none. |
+| df default 1K, not POSIX 512 | `df / ; POSIXLY_CORRECT=1 df /` | block counts differ 2.0× | M = B ≠ P (documented GNU deviation; the du parallel). |
+| pr header date is ISO | `printf 'x\n' \| pr \| sed -n 3p` | `2026-06-26 15:01 ...` | POSIX mandates `date "+%b %e %H:%M %Y"` (`Jun 26 15:01 2026`). B ≠ P. |
+| nl numbers multiple files | `nl f1 f2` | `1\ta` then `2\tb` (continuous) | POSIX: "only one file can be named." M's `[FILE]...` sides with GNU. |
+| test documents deleted primaries | `test 1 -eq 1 -a 2 -eq 2 ; test -l abc -eq 3` | both `exit 0` | POSIX Issue 8 removed `-a`/`-o`/`(`/`)` (Austin Group Defect 1330) and excluded `-l`. |
+| tee `-` is a filename | `printf X \| tee -` | creates file `./-` containing `X` | POSIX: `-` shall *not* mean standard output. M silent. |
+| echo escapes off by default | `echo 'a\tb'` | `a\tb` (literal) | POSIX-XSI recognizes `\t` unconditionally; GNU needs `-e`. |
 
 ## How to find more (the engine menu)
 
