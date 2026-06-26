@@ -197,6 +197,33 @@ Net: GNU coreutils is largely POSIX-conformant in behavior; the documented GNU
 deviations are few (touch `-`, find action set) and the man page usually *flags*
 them. The reliability problem is the man page's silence, not GNU's deviations.
 
+## Omission-fuzzing pass (B-first): verbose-flag stream silence
+
+A distinct engine from M-vs-P mining: probe the binary first, then check whether
+M predicts the outcome. Targets the blind spot M-grounded methods can't see.
+This pass tested the standing taxonomy § 4.1 hypothesis (stream-convention
+silence generalizes across the verbose-flag family) and **confirmed it**:
+
+| util | `-v` narration stream (B) | M names the stream? |
+|---|---|---|
+| cp | stdout (`'s' -> 'dcopy'`) | no |
+| mv | stdout (`renamed 's' -> 'dmoved'`) | no |
+| ln | stdout (`'hlink' => 's'`) | no |
+| ln -s | stdout (`'slink' -> 's'`) | no |
+| rm | stdout (`removed 's'`) | no |
+| chmod | stdout (`mode of 's' changed ...`) | no |
+| mkdir | stdout (`mkdir: created directory 'ddir'`) | n/a |
+| install | stdout (`'s' -> 'idest'`) | no |
+
+Every coreutils `-v` writes narration to stdout; stderr is empty in all 8 cases.
+Not one of the 6 man-page `-v` paragraphs names the stream. The class is uniform
+across the family. A spec-extractor reading any of these pages must *guess* the
+stream, and the natural guess for "informational" output is stderr — wrong every
+time. `chmod -v` is worse than silent: its text "output a **diagnostic** for
+every file processed" uses POSIX's own word for stderr messages, actively
+mis-cueing toward the wrong stream while the binary writes stdout. This is the
+omission class with a misleading lexical pointer attached.
+
 ## Confirmed defects after this round
 
 - **`--strip-trailing-slashes`** (cp + mv): unconditional doc claim, binary

@@ -131,7 +131,7 @@ The man page documents *what* a flag emits but is silent on *which stream* (stdo
 
 **Concrete:** `mv` round 1, test `021_verbose_outputs_action.sh`. GNU `mv -v` writes `renamed 'src' -> 'dst'` to stdout (coreutils convention: action narration goes to stdout, errors to stderr). The LLM-generated Rust impl writes the same string to stderr. The test captures via `out=$("$UTIL" -v ...)` (command-substitution = stdout only); real-gnu populates `$out`, Rust leaves it empty. The `mv(1)` man page does not say "stdout" anywhere in the `-v` paragraph — coreutils convention is implicit, not documented.
 
-**Hypothesis (untested but cheap to check in N=3 resampling):** the same shape applies across `cp -v`, `ln -v`, `rm -v`, and any other coreutils utility with a `-v` flag whose man page documents only the *what*. A scaled-up version of this experiment should expect to see this class show up across the verbose-flag family of all coreutils.
+**Hypothesis — CONFIRMED 2026-06-26 (omission-fuzzing pass).** A B-first probe across the verbose-flag family settles it: `cp -v`, `mv -v`, `ln -v`, `ln -sv`, `rm -v`, `chmod -v`, `mkdir -v`, and `install -v` all write narration to **stdout** (stderr empty in all eight); not one of the six man-page `-v` paragraphs names the stream. The class is uniform across the family — a man-page-only spec must guess the stream, and the natural guess for "informational" output is stderr, wrong every time. `chmod -v` is worse than silent: its text "output a *diagnostic* for every file processed" borrows POSIX's word for stderr messages while the binary writes stdout, an actively misleading lexical cue. Evidence: `runs/_posix_divergence_catalog_2026-06-26.md` ("Omission-fuzzing pass").
 
 ### 4.2 Split-manpage utilities
 
