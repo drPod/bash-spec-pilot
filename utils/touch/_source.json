@@ -1,0 +1,12 @@
+{
+  "util": "touch",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/touch.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T13:19:11Z",
+  "renderer": "mandoc",
+  "groff_sha256": "af5a3234a563ba5121d74d3f3b37a8e0731a46e713673781bcf77bd68b489933",
+  "manpage_txt_sha256": "f7f801a1be7f15d92b14b84844952540f10346e957fc826961802346f625cfe1"
+}

@@ -1,0 +1,12 @@
+{
+  "util": "rm",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/rm.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T13:19:10Z",
+  "renderer": "mandoc",
+  "groff_sha256": "a94a7e77fb9a6ea3a3ff2f157ea1dea5b900f568e5929bf2a98df36dd2f50c99",
+  "manpage_txt_sha256": "1a163ffad9b23ef561d52f3c28c967e1d79816922b093f05b4fce17ce0e42634"
+}

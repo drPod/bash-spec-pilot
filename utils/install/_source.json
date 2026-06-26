@@ -1,0 +1,12 @@
+{
+  "util": "install",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/install.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T13:19:12Z",
+  "renderer": "mandoc",
+  "groff_sha256": "bafa745b0bf20742d2e3aa9871dc4b7a6619e9722422b41b6b02503cce1573fb",
+  "manpage_txt_sha256": "8f58099af004ab87b960280ca236aa239a1f8bcea19dc03f2b25f2018dbdc53d"
+}

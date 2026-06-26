@@ -1,0 +1,12 @@
+{
+  "util": "ls",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/ls.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T13:19:09Z",
+  "renderer": "mandoc",
+  "groff_sha256": "0cc30c507f88f4016624ca4f25934493fc3d08bdb8bd449a97a7c20aee3563d3",
+  "manpage_txt_sha256": "d7f97500ab25612f3d524a015d0c063ea6dbd1762065559dcf09468459a263ae"
+}

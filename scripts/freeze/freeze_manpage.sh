@@ -36,7 +36,7 @@
 set -euo pipefail
 
 if [[ $# -lt 1 ]]; then
-  echo "usage: $0 <util> [--force]   util in (cp | mv | find | sudo)" >&2
+  echo "usage: $0 <util> [--force]   util in (cp | mv | ls | rm | ln | chmod | touch | install | find | sudo)" >&2
   exit 2
 fi
 UTIL="$1"
@@ -48,11 +48,17 @@ DST_DIR="$REPO/utils/$UTIL"
 # (util)         (debian package, section, debian-release, package-version-pin)
 # Trixie versions resolved 2026-05-07 via sources.debian.org/api.
 case "$UTIL" in
-  cp)   PKG=coreutils  ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"                ;;
-  mv)   PKG=coreutils  ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"                ;;
-  find) PKG=findutils  ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="4.10.0-3"             ;;
-  sudo) PKG=sudo       ; SECTION=8 ; DEB_RELEASE=trixie ; PKG_VERSION="1.9.16p2-3+deb13u1"   ;;
-  *) echo "error: unsupported util '$UTIL' (expected cp|mv|find|sudo)" >&2; exit 2 ;;
+  cp)      PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  mv)      PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  ls)      PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  rm)      PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  ln)      PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  chmod)   PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  touch)   PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  install) PKG=coreutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="9.7-3"              ;;
+  find)    PKG=findutils ; SECTION=1 ; DEB_RELEASE=trixie ; PKG_VERSION="4.10.0-3"           ;;
+  sudo)    PKG=sudo      ; SECTION=8 ; DEB_RELEASE=trixie ; PKG_VERSION="1.9.16p2-3+deb13u1" ;;
+  *) echo "error: unsupported util '$UTIL' (expected cp|mv|ls|rm|ln|chmod|touch|install|find|sudo)" >&2; exit 2 ;;
 esac
 
 URL="https://manpages.debian.org/${DEB_RELEASE}/${PKG}/${UTIL}.${SECTION}.en.gz"

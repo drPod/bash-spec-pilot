@@ -1,0 +1,12 @@
+{
+  "util": "ln",
+  "source_url": "https://manpages.debian.org/trixie/coreutils/ln.1.en.gz",
+  "debian_release": "trixie",
+  "debian_package": "coreutils",
+  "debian_package_version": "9.7-3",
+  "man_section": 1,
+  "fetched_at": "2026-06-26T13:19:10Z",
+  "renderer": "mandoc",
+  "groff_sha256": "e202dd03e1fa9519a7177b787e65cfdf717d277815c16f9179120882bb21ac11",
+  "manpage_txt_sha256": "99463f33a18b7e1abe0561a37b2f1f3e28c57f571d65604403cfbc5bcb039ab7"
+}

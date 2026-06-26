@@ -197,3 +197,81 @@ Wave 3 produced four different outcomes across four utilities at the round-1 →
 The shared shape is "more code, more change, lower fidelity in at least one place." There is currently no instance where the iteration loop produced an unambiguous monotone improvement across both halves. The cheapest research read of this is **the structured-feedback loop, as designed today, is not a "fix" step — it is a "regenerate with extra constraints" step, and `cp` is the only utility where the regeneration happened to be lateral rather than worse.**
 
 The taxonomy invites the next prompt-engineering experiment: constrain the round-N+1 prompt to "make the smallest possible diff" — append the round-N impl + tests, ask for unified-diff patches instead of full rewrites. That is a different pipeline shape and should be a separate experiment, not folded into the current run.
+
+## 6. The man page as a spec source: M-vs-POSIX sub-taxonomy (2026-06-26)
+
+§ 4.4 named doc-under-specification from a single `mv` example. Scaling the
+method to 8 utilities (cp, mv, find, ls, rm, ln, chmod, touch) turns that one
+observation into a characterized account of *how* the man page fails as a spec
+source. The full evidence — ~42 binary-adjudicated divergences — lives in
+`runs/_posix_divergence_catalog_2026-06-26.md`; this section is the schema.
+
+This is the deliverable Astrogator POPL 2027 § 7.2 needs. § 7.2 plans to
+auto-generate Bash utility specs from man pages; the question it must answer is
+not "can an LLM read a man page" but "what is *recoverable* from a man page at
+all, before the LLM is even involved." The answer below is impl-independent — it
+compares three frozen authoritative texts (man page M, real binary B, POSIX P)
+and never trusts an LLM-generated artifact.
+
+### 6.1 The reframed thesis: omission, not falsehood
+
+The man page's dominant failure mode is **omission**, not contradiction. Outright
+lies (M states X, B does not-X) are rare across the corpus. Far more common: M is
+silent where P and B both commit. A spec-extraction step is therefore bounded
+from above by what the page *contains*, and the page systematically omits the
+operational contract (exit status, stream routing, error continuation, side
+effects, interaction rules). An LLM that reads the page perfectly still cannot
+recover what the page never says.
+
+### 6.2 Three classes (M vs P)
+
+Tag a divergence with exactly one. All three are sub-classes of § 4.4
+doc-under-specification, distinguished by *who is more complete*:
+
+1. **OMISSION** (`posix-requires / man-page-silent`). P mandates and B performs a
+   behavior M never documents. The dominant class. A man-page-only spec misses it
+   entirely. Lands in the `manpage_underspec` quadrant (real-fail, rust-pass) when
+   a test exercises it. Examples: every coreutils EXIT STATUS (§ 6.3); rm prompts
+   going to stderr; touch creation mode `0666 & ~umask`; ls operand ordering.
+2. **COMMITS-WHERE-POSIX-HEDGES** (`gnu-commits / posix-latitude`). M pins down
+   behavior P leaves "unspecified" / "implementation-defined", and B matches M.
+   Here the man page is the *better* spec. Net positive for spec extraction, but
+   verifiable only against B. Cleanest example: `chmod` symbolic `=` preserving a
+   directory's unmentioned setid bits while clearing a regular file's — M
+   documents the exact exception POSIX's `=` operator text leaves open.
+3. **CONTRADICTION / DOCUMENTED DEVIATION** (`M = B != P`, or `M != B`). M and B
+   directly disagree (the rare true lie, e.g. cp/mv `--strip-trailing-slashes`,
+   ls `-1` "does not disable long format"), or M documents a deliberate GNU
+   deviation from POSIX that B honors (find `-fprint` suppressing the implicit
+   `-print`; touch `-` operand targeting the stdout-associated file). The second
+   sub-kind is *not* a man-page defect — M correctly describes B — but it is a
+   POSIX-conformance fact a spec must record.
+
+### 6.3 The structural instance: EXIT STATUS systematic omission
+
+The single cleanest result, deterministic from frozen texts (no probe). 7 of 8
+coreutils man pages (cp, mv, rm, ln, chmod, touch, install) document **no exit
+status at all**. `ls` is the lone coreutils exception and even there diverges by
+over-specifying (GNU `0/1/2` vs POSIX `0/>0`). Only `find` (findutils) carries a
+proper EXIT STATUS section. The binary always returns a meaningful status; the
+page never states what it means. A spec-extractor cannot recover pass/fail
+semantics — the most basic contract of a utility — for 7 of 8 coreutils from the
+man page. Reproduce: `grep -niE '^(EXIT STATUS|RETURN VALUE)' utils/*/manpage.txt`.
+
+This is also the largest **shared-template defect**: the omission is identical
+across the coreutils family because the pages share generated structure. The
+inverse — cross-utility wording propagating a *positive* defect — is proven by
+`--strip-trailing-slashes` (byte-identical, defective, in both cp and mv) and
+bounded by a clean negative (`install` does not carry that wording).
+
+### 6.4 Methodology guard (carry into every promotion)
+
+A `manpage_quote` true in isolation but negated by an adjacent clause is a false
+`manpage_underspec`. The sudo `-D` candidate (killed 2026-06-26) was exactly
+this: the substring grounded, but the next sentence documented the policy gate
+that explains the binary's refusal. Before promoting any OMISSION, read the whole
+surrounding entry, not just the matched span; the quote must include any
+governing qualifier. The operational test that separates a real defect from a
+substring false positive is the **no-qualifier-vs-qualifier-present asymmetry**:
+cp/mv `--strip-trailing-slashes` has no qualifying clause (real defect); sudo
+`-D` has one (false positive).
