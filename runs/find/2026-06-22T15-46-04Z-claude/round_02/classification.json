@@ -1,0 +1,51 @@
+{
+  "util": "find",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 2,
+  "n_total_scored": 22,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 20,
+    "divergence": 1,
+    "shared_bug": 1,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "001_default_print_no_expression.sh",
+      "002_no_starting_point_dot.sh",
+      "003_maxdepth_0_startpoint_only.sh",
+      "004_maxdepth_1_boundary.sh",
+      "005_mindepth_1_excludes_start.sh",
+      "006_name_basename_not_path.sh",
+      "007_iname_case_insensitive.sh",
+      "008_name_leading_dot_matched.sh",
+      "009_type_comma_list.sh",
+      "010_size_rounding_up.sh",
+      "011_size_exact_c_no_match.sh",
+      "013_a_higher_precedence_than_o.sh",
+      "015_prune_skips_subtree.sh",
+      "016_print_quit_stops_early.sh",
+      "017_not_negates_test.sh",
+      "018_nonexistent_start_path_errors.sh",
+      "019_newerxy_invalid_combo_errors.sh",
+      "020_delete_nonempty_dir_errors.sh",
+      "021_files0from_and_cmdline_start_errors.sh",
+      "022_path_matches_whole_name.sh"
+    ],
+    "divergence": [
+      "014_explicit_action_suppresses_default_print.sh"
+    ],
+    "shared_bug": [
+      "012_empty_regular_and_dir.sh"
+    ],
+    "hallucinated_spec": [],
+    "manpage_underspec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.045454545454545456,
+  "effective_test_rate": 0.09090909090909091,
+  "depc": 1
+}

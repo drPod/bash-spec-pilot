@@ -1,0 +1,184 @@
+{
+  "kept": [
+    "001_basic_copy_source_to_dest.sh",
+    "002_recursive_copies_nested_file.sh",
+    "003_multiple_sources_into_directory.sh",
+    "004_no_clobber_skips_existing.sh",
+    "005_force_ignored_with_no_clobber.sh",
+    "006_interactive_overrides_no_clobber.sh",
+    "007_backup_dash_b_tilde_suffix.sh",
+    "008_backup_custom_suffix.sh",
+    "009_backup_none_makes_no_backup.sh",
+    "010_hard_link_instead_of_copy.sh",
+    "011_symbolic_link_instead_of_copy.sh",
+    "012_remove_destination_over_readonly.sh",
+    "013_update_older_keeps_newer_dest.sh",
+    "014_update_older_replaces_older_dest.sh",
+    "015_update_none_fail_errors.sh",
+    "016_no_target_directory_onto_dir_errors.sh",
+    "017_single_source_into_existing_dir.sh",
+    "018_strip_trailing_slashes_source.sh",
+    "019_parents_full_source_path.sh",
+    "020_recursive_into_existing_dir_nests.sh",
+    "021_target_directory_not_a_dir_errors.sh",
+    "022_multiple_sources_nondir_dest_errors.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_basic_copy_source_to_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_recursive_copies_nested_file.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_multiple_sources_into_directory.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_no_clobber_skips_existing.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_force_ignored_with_no_clobber.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_interactive_overrides_no_clobber.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_backup_dash_b_tilde_suffix.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_backup_custom_suffix.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_backup_none_makes_no_backup.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_hard_link_instead_of_copy.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_symbolic_link_instead_of_copy.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_remove_destination_over_readonly.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_update_older_keeps_newer_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_update_older_replaces_older_dest.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_update_none_fail_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_no_target_directory_onto_dir_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_single_source_into_existing_dir.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_strip_trailing_slashes_source.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_parents_full_source_path.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_recursive_into_existing_dir_nests.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_target_directory_not_a_dir_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_multiple_sources_nondir_dest_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

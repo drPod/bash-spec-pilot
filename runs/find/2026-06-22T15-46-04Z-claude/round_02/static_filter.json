@@ -1,0 +1,184 @@
+{
+  "kept": [
+    "001_default_print_no_expression.sh",
+    "002_no_starting_point_dot.sh",
+    "003_maxdepth_0_startpoint_only.sh",
+    "004_maxdepth_1_boundary.sh",
+    "005_mindepth_1_excludes_start.sh",
+    "006_name_basename_not_path.sh",
+    "007_iname_case_insensitive.sh",
+    "008_name_leading_dot_matched.sh",
+    "009_type_comma_list.sh",
+    "010_size_rounding_up.sh",
+    "011_size_exact_c_no_match.sh",
+    "012_empty_regular_and_dir.sh",
+    "013_a_higher_precedence_than_o.sh",
+    "014_explicit_action_suppresses_default_print.sh",
+    "015_prune_skips_subtree.sh",
+    "016_print_quit_stops_early.sh",
+    "017_not_negates_test.sh",
+    "018_nonexistent_start_path_errors.sh",
+    "019_newerxy_invalid_combo_errors.sh",
+    "020_delete_nonempty_dir_errors.sh",
+    "021_files0from_and_cmdline_start_errors.sh",
+    "022_path_matches_whole_name.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_default_print_no_expression.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_no_starting_point_dot.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_maxdepth_0_startpoint_only.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_maxdepth_1_boundary.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_mindepth_1_excludes_start.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_name_basename_not_path.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_iname_case_insensitive.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_name_leading_dot_matched.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_type_comma_list.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_size_rounding_up.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_size_exact_c_no_match.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_empty_regular_and_dir.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_a_higher_precedence_than_o.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_explicit_action_suppresses_default_print.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_prune_skips_subtree.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_print_quit_stops_early.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_not_negates_test.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_nonexistent_start_path_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "019_newerxy_invalid_combo_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "020_delete_nonempty_dir_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "021_files0from_and_cmdline_start_errors.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "022_path_matches_whole_name.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

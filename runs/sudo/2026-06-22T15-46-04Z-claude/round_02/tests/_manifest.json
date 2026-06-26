@@ -1,0 +1,128 @@
+[
+  {
+    "filename": "001_k_remove_ts_with_command_rejected.sh",
+    "exercises": "errors: -K cannot be used with a command",
+    "expected": "sudo -K with a trailing command exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "It is not possible to use the -K option in conjunction with a command or other option."
+  },
+  {
+    "filename": "002_k_remove_ts_with_option_rejected.sh",
+    "exercises": "errors: -K cannot be combined with another option",
+    "expected": "sudo -K -u root exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "It is not possible to use the -K option in conjunction with a command or other option."
+  },
+  {
+    "filename": "003_closefrom_below_three_rejected.sh",
+    "exercises": "errors: -C value-range constraint (num < 3)",
+    "expected": "sudo -C 2 true exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Close all file descriptors greater than or equal to num before executing a command.  Values less than three are not permitted."
+  },
+  {
+    "filename": "004_duplicate_u_rejected.sh",
+    "exercises": "errors: value-taking option (-u) specified twice",
+    "expected": "sudo -u root -u root true exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Options that take a value may only be specified once unless otherwise indicated in the description."
+  },
+  {
+    "filename": "005_preserve_env_list_with_equals_rejected.sh",
+    "exercises": "errors: --preserve-env=list element containing '='",
+    "expected": "sudo --preserve-env=FOO=bar true exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "One or more environment variable names specified via the -E option contained an equal sign (‘=’).  The arguments to the -E option should be environment variable names without an associated value."
+  },
+  {
+    "filename": "006_duplicate_user_short_long_rejected.sh",
+    "exercises": "errors: same value option named via -u and --user",
+    "expected": "sudo -u root --user=root true exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Options that take a value may only be specified once unless otherwise indicated in the description."
+  },
+  {
+    "filename": "007_help_exits_zero.sh",
+    "exercises": "flags: -h prints help to stdout and exits",
+    "expected": "sudo -h writes help text to stdout and exits 0",
+    "expected_to_fail": false,
+    "manpage_quote": "Display a short help message to the standard output and exit."
+  },
+  {
+    "filename": "008_version_prints_string.sh",
+    "exercises": "flags: -V prints version string",
+    "expected": "sudo -V output contains a version string and exits 0",
+    "expected_to_fail": false,
+    "manpage_quote": "Print the sudo version string as well as the version string of any configured plugins."
+  },
+  {
+    "filename": "009_double_dash_passes_option_to_command.sh",
+    "exercises": "flags/examples: -- delimits end of sudo options",
+    "expected": "token after -- is passed to the command, not parsed by sudo",
+    "expected_to_fail": false,
+    "manpage_quote": "The -- is used to delimit the end of the sudo options.  Subsequent options are passed to the command."
+  },
+  {
+    "filename": "010_run_command_exit_status_passthrough.sh",
+    "exercises": "examples: command exit status passthrough",
+    "expected": "sudo exits with the command's exit status (7)",
+    "expected_to_fail": false,
+    "manpage_quote": "Upon successful execution of a command, the exit status from sudo will be the exit status of the program that was executed."
+  },
+  {
+    "filename": "011_u_numeric_uid_hash.sh",
+    "exercises": "flags/identity: -u numeric UID via '#' prefix",
+    "expected": "sudo -u #0 runs the command with UID 0",
+    "expected_to_fail": false,
+    "manpage_quote": "The user may be either a user name or a numeric user-ID (UID) prefixed with the ‘#’ character (e.g., ‘#0’ for UID 0)."
+  },
+  {
+    "filename": "012_g_numeric_gid_hash.sh",
+    "exercises": "flags/identity: -g numeric GID via '#' prefix sets primary group",
+    "expected": "sudo -g #0 sets the command's primary group to GID 0",
+    "expected_to_fail": false,
+    "manpage_quote": "The group may be either a group name or a numeric group-ID (GID) prefixed with the ‘#’ character (e.g., ‘#0’ for GID 0).  When running a command as a GID, many shells require that the ‘#’ be escaped with a backslash (‘\\’).  If no -u option is specified, the command will be run as the invoking user.  In either case, the primary group will be set to group.  The sudoers policy permits any of the target user's groups to be specified via the -g option as long as the -P option is not in use."
+  },
+  {
+    "filename": "013_preserve_env_list_repeatable.sh",
+    "exercises": "flags: --preserve-env=list is repeatable (value-once exception)",
+    "expected": "two --preserve-env= options are not rejected as a duplicate",
+    "expected_to_fail": false,
+    "manpage_quote": "Indicates to the security policy that the user wishes to add the comma-separated list of environment variables to those preserved from the user's environment.  The security policy may return an error if the user does not have permission to preserve the environment.  This option may be specified multiple times."
+  },
+  {
+    "filename": "014_list_without_command_exit_zero.sh",
+    "exercises": "flags: -l with no command exit value",
+    "expected": "sudo -l (no command) exits 0 for an allowed+authenticated user",
+    "expected_to_fail": false,
+    "manpage_quote": "If the -l option was specified without a command, sudo will exit with a value of 0 if the user is allowed to run sudo and they authenticated successfully (as required by the security policy)."
+  },
+  {
+    "filename": "015_var_value_option_sets_env.sh",
+    "exercises": "environment: VAR=value option reaches command environment",
+    "expected": "VAR=value passed as an option sets that var for the command",
+    "expected_to_fail": false,
+    "manpage_quote": "The sudoers policy subjects environment variables passed as options to the same restrictions as existing environment variables with one important difference.  If the setenv option is set in sudoers, the command to be run has the SETENV tag set or the command matched is ALL, the user may set variables that would otherwise be forbidden."
+  },
+  {
+    "filename": "016_login_shell_concatenates_command.sh",
+    "exercises": "flags: -i login shell concatenates command + args",
+    "expected": "sudo -i echo A B emits 'A B' on one line via shell -c",
+    "expected_to_fail": false,
+    "manpage_quote": "If a command is specified, it is passed to the shell as a simple command using the -c option.  The command and any args are concatenated, separated by spaces, after escaping each character (including white space) with a backslash (‘\\’) except for alphanumerics, underscores, hyphens, and dollar signs."
+  },
+  {
+    "filename": "017_shell_option_concatenates_command.sh",
+    "exercises": "flags: -s shell concatenates command + args",
+    "expected": "sudo -s echo A B emits 'A B' on one line via SHELL -c",
+    "expected_to_fail": false,
+    "manpage_quote": "Run the shell specified by the SHELL environment variable if it is set or the shell specified by the invoking user's password database entry.  If a command is specified, it is passed to the shell as a simple command using the -c option.  The command and any args are concatenated, separated by spaces, after escaping each character (including white space) with a backslash (‘\\’) except for alphanumerics, underscores, hyphens, and dollar signs."
+  },
+  {
+    "filename": "018_duplicate_chdir_rejected.sh",
+    "exercises": "errors: value-taking option (-D) specified twice",
+    "expected": "sudo -D /tmp -D /tmp true exits nonzero",
+    "expected_to_fail": true,
+    "manpage_quote": "Options that take a value may only be specified once unless otherwise indicated in the description."
+  }
+]

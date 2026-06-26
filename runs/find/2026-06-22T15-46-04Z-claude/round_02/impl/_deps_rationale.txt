@@ -1,0 +1,34 @@
+Dependency: libc (0.2).
+
+Why: -name/-iname/-path/-ipath match shell glob patterns via the same
+fnmatch(3) library function the man page names (line ~619, "filename matching
+is performed with the use of the fnmatch(3) library function"). Rather than
+reimplement glob semantics (and risk diverging from GNU on edge cases such as
+bracket expressions or FNM_CASEFOLD for -iname), I bind libc::fnmatch directly.
+libc also gives the S_IFMT mode-bit constants used by -type for block/char/
+fifo/socket detection, which std::fs::FileType does not expose. Everything else
+(directory walking, stat/lstat, process spawning for -exec) uses only the std
+library, so libc is the single third-party crate.
+
+Implemented (core subset): start-point traversal with default "." and default
+-print; -P (default)/-L/-H symlink modes; -name, -iname, -path/-wholename,
+-ipath/-iwholename; -type (single letter + GNU comma list f,d,l,b,c,p,s,D);
+-maxdepth, -mindepth; -size with b/c/w/k/M/G suffixes and +/-/exact prefixes
+(round-up); -empty (zero-byte file or empty dir); -true/-false; actions -print,
+-print0, -prune, -quit, -exec CMD ; and -exec CMD {} +; operators implicit -a,
+-a/-and, -o/-or, !/-not, ( ); global option -depth/-d. Default-print
+suppression follows the man page list (suppressed by -print/-print0/-exec;
+NOT by -prune/-quit). Errors go to stderr; exit status 0 normally, 1 on a
+runtime error (unreadable dir, missing start point), 2 on a usage/parse error.
+
+Skipped (honest list): all time predicates (-mtime/-atime/-ctime/-mmin/-amin/
+-cmin/-newer/-newerXY/-anewer/-cnewer/-used/-daystart); ownership and
+permission predicates (-user/-group/-uid/-gid/-nouser/-nogroup/-perm/-readable/
+-writable/-executable); -regex/-iregex/-regextype; -lname/-ilname; -inum/
+-links/-samefile; -fstype; -xdev/-mount; -xtype; -ignore_readdir_race/-noleaf;
+the actions -delete, -ls/-fls, -fprint/-fprint0/-fprintf, -printf, -execdir,
+-ok/-okdir; the "," (comma) list operator; -files0-from; -O optimisation levels
+and -D debug; SELinux -context/%Z; UNUSUAL-FILENAMES tty quoting for -print.
+find's man page is ~1900 lines; this covers the everyday traversal-and-filter
+core a faithful test suite of common usage would exercise, and leaves the
+metadata-heavy and locale-heavy primaries for later rounds.

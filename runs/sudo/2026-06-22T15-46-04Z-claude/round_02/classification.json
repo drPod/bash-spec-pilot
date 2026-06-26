@@ -1,0 +1,46 @@
+{
+  "util": "sudo",
+  "session": "2026-06-22T15-46-04Z-claude",
+  "round": 2,
+  "n_total_scored": 18,
+  "n_static_dropped_excluded": 0,
+  "buckets": {
+    "baseline": 13,
+    "divergence": 5,
+    "shared_bug": 0,
+    "hallucinated_spec": 0,
+    "manpage_underspec": 0,
+    "incomplete": 0
+  },
+  "bucket_names": {
+    "baseline": [
+      "003_closefrom_below_three_rejected.sh",
+      "005_preserve_env_list_with_equals_rejected.sh",
+      "007_help_exits_zero.sh",
+      "008_version_prints_string.sh",
+      "009_double_dash_passes_option_to_command.sh",
+      "010_run_command_exit_status_passthrough.sh",
+      "011_u_numeric_uid_hash.sh",
+      "012_g_numeric_gid_hash.sh",
+      "013_preserve_env_list_repeatable.sh",
+      "014_list_without_command_exit_zero.sh",
+      "015_var_value_option_sets_env.sh",
+      "016_login_shell_concatenates_command.sh",
+      "017_shell_option_concatenates_command.sh"
+    ],
+    "divergence": [
+      "001_k_remove_ts_with_command_rejected.sh",
+      "002_k_remove_ts_with_option_rejected.sh",
+      "004_duplicate_u_rejected.sh",
+      "006_duplicate_user_short_long_rejected.sh",
+      "018_duplicate_chdir_rejected.sh"
+    ],
+    "shared_bug": [],
+    "hallucinated_spec": [],
+    "manpage_underspec": [],
+    "incomplete": []
+  },
+  "mut_at_k": 0.2777777777777778,
+  "effective_test_rate": 0.2777777777777778,
+  "depc": 5
+}

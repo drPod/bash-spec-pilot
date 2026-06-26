@@ -1,0 +1,18 @@
+cp/mv cp (GNU coreutils) 9.7
+=== cp regular-file source ===
+--- cp --strip-trailing-slashes w/file.txt/ w/out1 -> rc=1
+    stderr: cp: cannot stat 'w/file.txt/': Not a directory
+    out1 MISSING
+--- cp (no flag)              w/file.txt/ w/out2 -> rc=1
+    stderr: cp: cannot stat 'w/file.txt/': Not a directory
+--- cp --strip-trailing-slashes w/file.txt  w/out3 (no slash sanity) -> rc=0
+    out3 created
+=== cp directory source (-r) ===
+--- cp -r --strip-trailing-slashes w/dir/ w/dc1 -> rc=0
+    dc1 created
+--- cp -r (no flag)              w/dir/ w/dc2 -> rc=0
+    dc2 created
+=== mv parallel (regular-file source) ===
+--- mv --strip-trailing-slashes w/file.txt/ w/moved -> rc=1
+    stderr: mv: cannot move 'w/file.txt' to 'w/moved': Not a directory
+    moved MISSING

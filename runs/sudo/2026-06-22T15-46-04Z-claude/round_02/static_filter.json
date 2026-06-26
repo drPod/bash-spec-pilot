@@ -1,0 +1,152 @@
+{
+  "kept": [
+    "001_k_remove_ts_with_command_rejected.sh",
+    "002_k_remove_ts_with_option_rejected.sh",
+    "003_closefrom_below_three_rejected.sh",
+    "004_duplicate_u_rejected.sh",
+    "005_preserve_env_list_with_equals_rejected.sh",
+    "006_duplicate_user_short_long_rejected.sh",
+    "007_help_exits_zero.sh",
+    "008_version_prints_string.sh",
+    "009_double_dash_passes_option_to_command.sh",
+    "010_run_command_exit_status_passthrough.sh",
+    "011_u_numeric_uid_hash.sh",
+    "012_g_numeric_gid_hash.sh",
+    "013_preserve_env_list_repeatable.sh",
+    "014_list_without_command_exit_zero.sh",
+    "015_var_value_option_sets_env.sh",
+    "016_login_shell_concatenates_command.sh",
+    "017_shell_option_concatenates_command.sh",
+    "018_duplicate_chdir_rejected.sh"
+  ],
+  "dropped": [],
+  "per_file": {
+    "001_k_remove_ts_with_command_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "002_k_remove_ts_with_option_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "003_closefrom_below_three_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "004_duplicate_u_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "005_preserve_env_list_with_equals_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "006_duplicate_user_short_long_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "007_help_exits_zero.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "008_version_prints_string.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "009_double_dash_passes_option_to_command.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "010_run_command_exit_status_passthrough.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "011_u_numeric_uid_hash.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "012_g_numeric_gid_hash.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "013_preserve_env_list_repeatable.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "014_list_without_command_exit_zero.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "015_var_value_option_sets_env.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "016_login_shell_concatenates_command.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "017_shell_option_concatenates_command.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    },
+    "018_duplicate_chdir_rejected.sh": {
+      "bash_n": {
+        "rc": 0,
+        "stderr": ""
+      },
+      "shellcheck": null
+    }
+  },
+  "shellcheck_available": false
+}

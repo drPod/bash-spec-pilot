@@ -1,0 +1,1 @@
+{"name": "014_explicit_action_suppresses_default_print.sh", "exercises": "An explicit action (other than -prune/-quit) inhibits default -print", "expected": "With -fprint present, nothing is written to stdout", "expected_to_fail": false, "real_rc": 0, "real_stderr_head": [], "rust_rc": 2, "rust_stderr_head": ["util: unknown predicate `-fprint'"]}
