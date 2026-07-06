@@ -1,0 +1,12 @@
+name = "demo"
+defaultTargets = ["Demo", "demo"]
+
+# No mathlib: proofs use only Lean core List/Nat lemmas, so the build is fast
+# and reproducible. ponytail: core-only; add batteries/mathlib when a spec needs it.
+
+[[lean_lib]]
+name = "Demo"
+
+[[lean_exe]]
+name = "demo"
+root = "Main"
