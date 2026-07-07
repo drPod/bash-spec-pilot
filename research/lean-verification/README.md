@@ -13,8 +13,9 @@ The previous direction (v1, archived in `archive/v1/`) answered a weaker questio
 differential testing: does the candidate match the real GNU binary on the inputs we
 tried? Testing certifies only the inputs tried. A proof, checked by Lean's kernel,
 certifies all of them, and the kernel is a trust anchor an unreliable LLM cannot fool:
-a wrong proof simply fails to check. The anchor paper is VERINA (arXiv 2505.23135),
-which jointly generates code, a formal spec, and a Lean proof. Our targets differ in one
+a wrong proof simply fails to check. The anchor paper is VERINA
+([arXiv:2505.23135](https://arxiv.org/abs/2505.23135)), which jointly generates code, a
+formal spec, and a Lean proof. Our targets differ in one
 hard way: `cp`, `head`, `sudo` are not Lean functions. They are foreign binaries.
 
 ## Two walls, quantified
@@ -153,11 +154,41 @@ soundness and proof failure.
    watching where totality and state (filesystem, environment) start to bite.
 3. Apply VERINA's spec soundness/completeness method with the binary as ground truth.
 
+## Key references
+
+The papers this report leans on directly. PDFs for most are mirrored in `../../literature/`,
+and `02_prior_art_landscape.md` carries the full ~30-entry bibliography of the field.
+
+- **VERINA** (the anchor): Ye et al., "VERINA: Benchmarking Verifiable Code Generation."
+  [arXiv:2505.23135](https://arxiv.org/abs/2505.23135). Deep dive in `01_verina_deepdive.md`.
+- **Astrogator** (the group's formalism this extends): Councilman et al., "Towards Formal
+  Verification of LLM-Generated Code from Natural Language Prompts," POPL 2027 submission.
+  Local: `../../literature/councilman_2025_astrogator.pdf`.
+- **Smoosh** (closest formal shell semantics, stops at the utility boundary): Greenberg &
+  Blatt, "Executable formal semantics for the POSIX shell," OOPSLA 2020.
+  [arXiv:1907.05308](https://arxiv.org/abs/1907.05308). Local:
+  `../../literature/greenberg_2019_smoosh.pdf`.
+- **Aeneas** (the near-miss on Wall A, Rust to Lean via a deterministic compiler pass):
+  Ho & Protzenko, "Aeneas: Rust Verification by Functional Translation," ICFP 2022.
+  [arXiv:2206.07185](https://arxiv.org/abs/2206.07185).
+- **Verus** (the ATP alternative for Rust): Lattuada et al., "Verus: Verifying Rust
+  Programs using Linear Ghost Types."
+  [arXiv:2303.05491](https://arxiv.org/abs/2303.05491).
+- **Dafny** (the ATP alternative, standalone): Leino, "Dafny: An Automatic Program
+  Verifier for Functional Correctness," LPAR-16, 2010.
+  [DOI 10.1007/978-3-642-17511-4_20](https://doi.org/10.1007/978-3-642-17511-4_20).
+- **Goedel-Prover-V2** (best specialized Lean prover in VERINA's table): Lin et al.
+  [arXiv:2508.03613](https://arxiv.org/abs/2508.03613). Companion data point:
+  DeepSeek-Prover-V2, [arXiv:2504.21801](https://arxiv.org/abs/2504.21801).
+- **SLMFix** (the group's compile-fixer, deferred per decision 4): local
+  `../../literature/slmfix_2026_emnlp.pdf`.
+
 ## Reading map
 
 - `00_positioning_and_experiment.md` — full positioning and experiment design.
 - `01_verina_deepdive.md` — the anchor paper.
-- `02_prior_art_landscape.md` — the verified-codegen field.
+- `02_prior_art_landscape.md` — the verified-codegen field, with full references.
 - `03_foreign_language_semantics_gap.md` — Wall A in detail.
 - `decisions.md` — the demo-scoped picks.
 - `demo/` — the runnable artifact (`lake build`, `python3 validate.py`).
+- `../../literature/` — mirrored PDFs of the papers above and more.
