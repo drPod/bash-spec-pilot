@@ -1,0 +1,27 @@
+# Verifies both layers of the demo on every push that touches it:
+#   1. `lake build`  - Lean's kernel checks every proof in Demo/Basic.lean
+#   2. `validate.py` - the compiled model vs real GNU head (Ubuntu's /usr/bin/head)
+name: lean-demo
+on:
+  push:
+    paths:
+      - "research/lean-verification/demo/**"
+      - ".github/workflows/lean-demo.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/lean-verification/demo
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan (toolchain pinned by lean-toolchain)
+        run: |
+          curl -sSfL https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: lake build (kernel-checks all proofs)
+        run: lake build
+      - name: Differential validation vs GNU head
+        run: GHEAD=/usr/bin/head python3 validate.py 300
