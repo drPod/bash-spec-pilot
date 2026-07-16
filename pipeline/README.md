@@ -88,11 +88,12 @@ What the data says:
    mode the differential layer exists to expose and which spec-only
    benchmarks cannot see.
 3. **One compiler-feedback round does almost all the proof work; differential
-   feedback is much weaker.** Round-1 build failures were near-universal
-   (frontier included), recovery at round 2 near-universal. But mismatch
-   examples did not reliably steer the cheap model: dirname's fidelity
-   wandered 160 -> 174 -> 141 of 200 across rounds. Better refinement
-   feedback is an open tooling problem.
+   feedback appears less effective.** Round-1 build failures were
+   near-universal (frontier included), recovery at round 2 near-universal.
+   But mismatch examples did not reliably steer the cheap model: dirname's
+   fidelity wandered 160 -> 174 -> 141 of 200 across rounds. Isolating this
+   properly is the compiler-only vs compiler+differential ablation below;
+   better refinement feedback is an open tooling problem either way.
 4. **Single runs are anecdotes.** Same model, same prompt: uniq scored 64.5%
    in one session and 100% in another. Reported numbers need repeated
    sessions.
