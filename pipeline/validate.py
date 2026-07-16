@@ -20,15 +20,22 @@ from targets import TARGETS, Target, oracle_cmd
 LEAN_BIN = Path(__file__).resolve().parent / "lean" / ".lake" / "build" / "bin" / "model"
 
 
-def _run(cmd: list[str], stdin_text: str) -> tuple[list[str], int]:
-    p = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True, timeout=30)
+def _run(cmd: list[str], stdin_text: str) -> tuple[list[str], int | str]:
+    # A generated model can loop; a timed-out trial is a mismatch to report
+    # back as feedback, not a crash of the whole differential run.
+    try:
+        p = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True,
+                           timeout=30)
+    except subprocess.TimeoutExpired:
+        return [], "timeout"
     return p.stdout.splitlines(), p.returncode
 
 
 def validate(target: Target, trials: int = 200, seed: int = 0,
              max_mismatches: int = 10) -> dict:
     if not LEAN_BIN.exists():
-        sys.exit(f"build first: `lake build` in pipeline/lean (missing {LEAN_BIN})")
+        raise FileNotFoundError(
+            f"build first: `lake build` in pipeline/lean (missing {LEAN_BIN})")
     rng = random.Random(seed)  # fixed seed: reproducible, no wall-clock dependence
     oracle = oracle_cmd(target)
     passed, mismatches = 0, []

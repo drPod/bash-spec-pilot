@@ -87,8 +87,8 @@ def check(target: Target, source: str, theorems: list[dict], trials: int) -> dic
     r["guard_hits"] = hits
     if hits:
         r["failures"].append(f"forbidden constructs found: {hits} — remove them")
-    if len(theorems) < 3:
-        r["failures"].append(f"only {len(theorems)} spec theorems; the contract "
+    if not 3 <= len(theorems) <= 6:
+        r["failures"].append(f"{len(theorems)} spec theorems; the contract "
                              "requires 3 to 6 meaningful ones")
     if r["failures"]:
         return r
