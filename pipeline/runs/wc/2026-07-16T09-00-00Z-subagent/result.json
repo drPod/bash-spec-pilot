@@ -1,0 +1,17 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "build_ok": true,
+  "axioms_ok": true,
+  "diff": {
+    "passed": 200,
+    "trials": 200
+  },
+  "build_log": "\u26a0 [2/9] Built Pipeline.Generated (150ms)\nwarning: Pipeline/Generated.lean:12:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n\u2714 [3/9] Built Pipeline.Generated:c.o (44ms)\n\u2714 [4/9] Built Pipeline (131ms)\n\u2714 [7/9] Built Main (137ms)\n\u2714 [8/9] Built Main:c.o (53ms)\n\u2714 [9/9] Built model:exe (80ms)\nBuild completed successfully (9 jobs).\n",
+  "axioms_log": "'Pipeline.Generated.run' does not depend on any axioms\n'Pipeline.Generated.run_output_is_line_count' depends on axioms: [propext]\n'Pipeline.Generated.run_single_output_line' does not depend on any axioms\n'Pipeline.Generated.run_exit_success' does not depend on any axioms\n'Pipeline.Generated.run_empty_input' does not depend on any axioms\n'Pipeline.Generated.run_cons_increments' depends on axioms: [propext]\n'Pipeline.Generated.run_depends_only_on_length' depends on axioms: [propext]\n",
+  "secs": {
+    "build": 0.7,
+    "diff": 1.4
+  },
+  "guard_hits": []
+}

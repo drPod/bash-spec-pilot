@@ -24,5 +24,6 @@ The active research lives in `research/lean-verification/`. Start with its `READ
   See `archive/README.md`.
 - `literature/` — shared paper PDFs.
 
-The concrete pipeline for the new direction is still being scoped; this README and the project
-`CLAUDE.md` will grow as it firms up.
+- `pipeline/` — the LLM-in-the-loop pipeline for the new direction: an LLM generates a Lean
+  model + spec + proof of a Unix utility, the Lean kernel checks the proofs, and the compiled
+  model is validated differentially against the GNU binary. See `pipeline/README.md`.

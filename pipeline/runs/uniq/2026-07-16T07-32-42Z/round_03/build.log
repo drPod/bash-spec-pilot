@@ -1,0 +1,17 @@
+✖ [2/9] Building Pipeline.Generated (179ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Pipeline/Generated.lean:23:8: Type mismatch
+  List.mem_cons_of_mem y (ih ha)
+has type
+  a ∈ y :: ys
+but is expected to have type
+  a ∈ x :: ys
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

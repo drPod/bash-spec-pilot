@@ -1,0 +1,46 @@
+name: pipeline-lean
+
+on:
+  push:
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/pipeline-lean.yml"
+  pull_request:
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/pipeline-lean.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install elan
+        run: |
+          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Cache lake build
+        uses: actions/cache@v4
+        with:
+          path: pipeline/lean/.lake
+          key: lake-${{ runner.os }}-${{ hashFiles('pipeline/lean/lean-toolchain', 'pipeline/lean/lakefile.toml') }}
+
+      - name: Build committed stub (kernel check)
+        working-directory: pipeline/lean
+        run: lake build
+
+      - name: Target registry self-check
+        working-directory: pipeline
+        run: python3 targets.py
+
+      # The committed Generated.lean is a stub, so mismatches are expected;
+      # this only proves the differential harness runs end to end on Linux.
+      - name: Differential harness smoke (stub, mismatch OK)
+        working-directory: pipeline
+        run: python3 validate.py uniq 20 || true

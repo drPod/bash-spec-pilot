@@ -25,6 +25,9 @@ Anchor paper: VERINA (arXiv 2505.23135) — jointly generate code + spec + proof
 
 ## Routing
 
+- The pipeline (LLM generates Lean model+spec+proof; kernel checks; differential vs GNU
+  binary): top-level `pipeline/` (read its `README.md` first). Experimental record in
+  `pipeline/runs/` (git-versioned, JSONL).
 - Active research + findings: `research/lean-verification/` (read its `README.md` first).
 - Prior direction (v1, archived intact): `archive/v1/`. Its `CLAUDE.md` describes the v1 pipeline
   ONLY and does not apply here. Reusable doc mirrors are at `archive/v1/docs/openai/` (OpenAI SDK,
@@ -36,5 +39,9 @@ Anchor paper: VERINA (arXiv 2505.23135) — jointly generate code + spec + proof
 
 - Model: GPT-5.5 reasoning snapshot. NO `temperature` / `seed` / `top_p` (reasoning model rejects them).
 - Python: `uv`. Logging: plain JSONL + git-versioned artifacts, no MLflow/W&B.
-- The concrete pipeline for this direction is not designed yet. Do not invent pipeline structure;
-  flesh this file out as decisions are made.
+- Pipeline conventions live in `pipeline/README.md`: fixed contract
+  `Pipeline.Generated.run : List String → List String → List String × UInt32`, anti-cheat gates
+  in `check.py` (static guard, sorry-rejecting `lake build`, axiom whitelist), Lean 4.31.0
+  core-only. Cheap models first (`gpt-5.6-luna`); frontier = the pinned GPT-5.5 snapshot.
+- `pipeline/lean/` is shared checker state: never run two artifact checks in parallel;
+  generator subagents work in private copies.

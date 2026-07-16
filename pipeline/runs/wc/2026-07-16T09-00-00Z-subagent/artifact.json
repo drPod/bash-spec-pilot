@@ -1,0 +1,29 @@
+{
+  "lean_source": "namespace Pipeline.Generated\n\n/-- Number of lines in the input: each element of the stdin line list counts\n    as one line (POSIX: `-l` writes the number of <newline> characters, which\n    at the harness's line-level abstraction is the number of lines). -/\ndef countLines : List String \u2192 Nat\n  | [] => 0\n  | _ :: rest => countLines rest + 1\n\n/-- Model of `wc -l` reading stdin: one output line holding the decimal line\n    count, exit code 0. -/\ndef run (args stdin : List String) : List String \u00d7 UInt32 :=\n  ([Nat.repr (countLines stdin)], 0)\n\n/-- The recursive line counter agrees with list length. -/\ntheorem countLines_eq_length (xs : List String) :\n    countLines xs = xs.length := by\n  induction xs with\n  | nil => rfl\n  | cons x rest ih => simp [countLines, ih]\n\n/-- The output is exactly one line: the decimal count of input lines. -/\ntheorem run_output_is_line_count (args stdin : List String) :\n    (run args stdin).1 = [Nat.repr stdin.length] := by\n  simp [run, countLines_eq_length]\n\n/-- Exactly one line is written to standard output. -/\ntheorem run_single_output_line (args stdin : List String) :\n    (run args stdin).1.length = 1 := by\n  rfl\n\n/-- Successful completion: exit status 0. -/\ntheorem run_exit_success (args stdin : List String) :\n    (run args stdin).2 = 0 := by\n  rfl\n\n/-- Empty input has zero <newline> characters, so the count written is 0. -/\ntheorem run_empty_input (args : List String) :\n    run args [] = ([\"0\"], 0) := by\n  rfl\n\n/-- Adding one input line increments the reported count by one. -/\ntheorem run_cons_increments (args : List String) (l : String)\n    (rest : List String) :\n    (run args (l :: rest)).1 = [Nat.repr (rest.length + 1)] := by\n  simp [run, countLines, countLines_eq_length]\n\n/-- The count depends only on how many lines there are, not their contents. -/\ntheorem run_depends_only_on_length (args stdin other : List String)\n    (h : stdin.length = other.length) :\n    run args stdin = run args other := by\n  simp [run, countLines_eq_length, h]\n\nend Pipeline.Generated\n",
+  "spec_theorems": [
+    {
+      "name": "run_output_is_line_count",
+      "informal": "With -l, the standard output is a single entry containing the decimal count of <newline> characters, i.e. the number of input lines."
+    },
+    {
+      "name": "run_single_output_line",
+      "informal": "Only the information requested by the specified option is reported: exactly one output line is written."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "Successful completion returns exit status 0."
+    },
+    {
+      "name": "run_empty_input",
+      "informal": "Empty standard input contains zero <newline> characters, so wc -l writes the count 0."
+    },
+    {
+      "name": "run_cons_increments",
+      "informal": "Each additional input line increments the reported <newline> count by exactly one."
+    },
+    {
+      "name": "run_depends_only_on_length",
+      "informal": "The -l count depends only on the number of lines, not on the bytes, words, or characters within them."
+    }
+  ]
+}

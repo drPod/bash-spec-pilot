@@ -1,0 +1,7 @@
+'Pipeline.Generated.run' does not depend on any axioms
+'Pipeline.Generated.run_output' does not depend on any axioms
+'Pipeline.Generated.run_exit_success' does not depend on any axioms
+'Pipeline.Generated.run_output_membership' depends on axioms: [propext]
+'Pipeline.Generated.run_output_length_bound' depends on axioms: [propext, Quot.sound]
+'Pipeline.Generated.run_idempotent' depends on axioms: [propext]
+'Pipeline.Generated.run_output_is_input_or_empty' depends on axioms: [propext, Quot.sound]

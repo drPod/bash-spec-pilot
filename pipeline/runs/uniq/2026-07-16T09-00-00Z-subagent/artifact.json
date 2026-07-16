@@ -1,0 +1,29 @@
+{
+  "lean_source": "namespace Pipeline.Generated\n\n/-- Drop lines equal to `prev` until a different line appears; that different\n    line is kept and becomes the new comparison point. -/\ndef collapse (prev : String) : List String \u2192 List String\n  | [] => []\n  | y :: ys => if y = prev then collapse prev ys else y :: collapse y ys\n\n/-- Keep exactly the first copy of each maximal run of adjacent identical\n    lines. Non-adjacent repeats are all kept. -/\ndef uniq : List String \u2192 List String\n  | [] => []\n  | x :: xs => x :: collapse x xs\n\n/-- uniq: read stdin, write one copy of each run of adjacent duplicate lines,\n    exit 0. Options and file operands are out of modeled scope. -/\ndef run (args stdin : List String) : List String \u00d7 UInt32 :=\n  (uniq stdin, 0)\n\n/-- No two adjacent elements of the list are equal. -/\ndef noAdjDup : List String \u2192 Prop\n  | [] => True\n  | [_] => True\n  | x :: y :: rest => x \u2260 y \u2227 noAdjDup (y :: rest)\n\ntheorem collapse_subset (a prev : String) (xs : List String) :\n    a \u2208 collapse prev xs \u2192 a \u2208 xs := by\n  induction xs generalizing prev with\n  | nil => simp [collapse]\n  | cons y ys ih =>\n    by_cases h : y = prev\n    \u00b7 simp only [collapse, if_pos h]\n      intro ha\n      exact List.mem_cons_of_mem y (ih prev ha)\n    \u00b7 simp only [collapse, if_neg h, List.mem_cons]\n      intro ha\n      cases ha with\n      | inl hy => exact Or.inl hy\n      | inr hr => exact Or.inr (ih y hr)\n\ntheorem collapse_length (prev : String) (xs : List String) :\n    (collapse prev xs).length \u2264 xs.length := by\n  induction xs generalizing prev with\n  | nil => simp [collapse]\n  | cons y ys ih =>\n    by_cases h : y = prev\n    \u00b7 simp only [collapse, if_pos h]\n      exact Nat.le_trans (ih prev) (Nat.le_succ ys.length)\n    \u00b7 simp only [collapse, if_neg h, List.length_cons]\n      exact Nat.succ_le_succ (ih y)\n\ntheorem collapse_collapse (prev : String) (xs : List String) :\n    collapse prev (collapse prev xs) = collapse prev xs := by\n  induction xs generalizing prev with\n  | nil => rfl\n  | cons y ys ih =>\n    by_cases h : y = prev\n    \u00b7 simp only [collapse, if_pos h]\n      exact ih prev\n    \u00b7 simp only [collapse, if_neg h]\n      rw [ih y]\n\ntheorem noAdjDup_cons_collapse (prev : String) (xs : List String) :\n    noAdjDup (prev :: collapse prev xs) := by\n  induction xs generalizing prev with\n  | nil => exact True.intro\n  | cons y ys ih =>\n    by_cases h : y = prev\n    \u00b7 simp only [collapse, if_pos h]\n      exact ih prev\n    \u00b7 simp only [collapse, if_neg h]\n      exact \u27e8fun he => h he.symm, ih y\u27e9\n\n/-- Exit status: successful completion is reported as 0 for every input. -/\ntheorem run_exit_success (args stdin : List String) :\n    (run args stdin).2 = 0 := rfl\n\n/-- Content preservation: every output line is a line of the input\n    (uniq only writes copies of input lines). -/\ntheorem run_output_membership (args stdin : List String) (a : String) :\n    a \u2208 (run args stdin).1 \u2192 a \u2208 stdin := by\n  cases stdin with\n  | nil => simp [run, uniq]\n  | cons x xs =>\n    simp only [run, uniq, List.mem_cons]\n    intro h\n    cases h with\n    | inl hx => exact Or.inl hx\n    | inr hr => exact Or.inr (collapse_subset a x xs hr)\n\n/-- Length bound: suppressing repeated copies never produces more output\n    lines than input lines. -/\ntheorem run_output_length_le (args stdin : List String) :\n    (run args stdin).1.length \u2264 stdin.length := by\n  cases stdin with\n  | nil => exact Nat.le_refl 0\n  | cons x xs =>\n    exact Nat.succ_le_succ (collapse_length x xs)\n\n/-- Core correctness: the output contains no adjacent duplicate lines\n    (second and succeeding copies of adjacent repeats are not written). -/\ntheorem run_no_adjacent_duplicates (args stdin : List String) :\n    noAdjDup (run args stdin).1 := by\n  cases stdin with\n  | nil => exact True.intro\n  | cons x xs => exact noAdjDup_cons_collapse x xs\n\n/-- Idempotence: the output is already free of adjacent repeats, so running\n    uniq on its own output changes nothing. -/\ntheorem run_idempotent (args stdin : List String) :\n    (run args (run args stdin).1).1 = (run args stdin).1 := by\n  cases stdin with\n  | nil => rfl\n  | cons x xs =>\n    show uniq (x :: collapse x xs) = x :: collapse x xs\n    simp only [uniq]\n    rw [collapse_collapse]\n\n/-- First line preserved: the first input line is always written first\n    (one copy of each line is written, in order). -/\ntheorem run_head_preserved (args stdin : List String) :\n    (run args stdin).1.head? = stdin.head? := by\n  cases stdin with\n  | nil => rfl\n  | cons x xs => rfl\n\nend Pipeline.Generated\n",
+  "spec_theorems": [
+    {
+      "name": "run_exit_success",
+      "informal": "uniq exits with status 0 (successful completion) for every argv and stdin."
+    },
+    {
+      "name": "run_output_membership",
+      "informal": "Every output line is a copy of some input line (uniq writes one copy of each input line, never new text)."
+    },
+    {
+      "name": "run_output_length_le",
+      "informal": "Suppressing second and succeeding copies of repeated adjacent lines never yields more output lines than input lines."
+    },
+    {
+      "name": "run_no_adjacent_duplicates",
+      "informal": "The output contains no two adjacent equal lines, since second and succeeding copies of repeated adjacent input lines are not written."
+    },
+    {
+      "name": "run_idempotent",
+      "informal": "Running uniq on its own output changes nothing, because that output is already free of adjacent repeats."
+    },
+    {
+      "name": "run_head_preserved",
+      "informal": "The first input line is always written as the first output line (the first copy of each run is kept, in input order)."
+    }
+  ]
+}

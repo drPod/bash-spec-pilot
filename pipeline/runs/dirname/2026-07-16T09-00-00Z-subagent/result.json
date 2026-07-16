@@ -1,0 +1,17 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "build_ok": true,
+  "axioms_ok": true,
+  "diff": {
+    "passed": 200,
+    "trials": 200
+  },
+  "build_log": "\u26a0 [2/9] Built Pipeline.Generated (176ms)\nwarning: Pipeline/Generated.lean:30:14: Variable name `stdin` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n\u2714 [3/9] Built Pipeline (134ms)\n\u2714 [5/9] Built Pipeline.Generated:c.o (54ms)\n\u2714 [7/9] Built Main (136ms)\n\u2714 [8/9] Built Main:c.o (52ms)\n\u2714 [9/9] Built model:exe (81ms)\nBuild completed successfully (9 jobs).\n",
+  "axioms_log": "'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_output_length' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_exit_success' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_stdin_ignored' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_wrong_arity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_no_slash_dot' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_all_slash_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "secs": {
+    "build": 0.7,
+    "diff": 1.6
+  },
+  "guard_hits": []
+}

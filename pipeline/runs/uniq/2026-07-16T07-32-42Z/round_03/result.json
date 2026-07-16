@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (179ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:23:8: Type mismatch\n  List.mem_cons_of_mem y (ih ha)\nhas type\n  a \u2208 y :: ys\nbut is expected to have type\n  a \u2208 x :: ys\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output",
+      "informal": "The utility outputs exactly one copy of each maximal run of adjacent equal input lines."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "For all inputs in this modeled scope, execution completes successfully with exit code zero."
+    },
+    {
+      "name": "run_output_membership",
+      "informal": "Every output line is a line that occurred in the input."
+    },
+    {
+      "name": "run_output_length_bound",
+      "informal": "The number of output lines is no greater than the number of input lines."
+    },
+    {
+      "name": "run_idempotent",
+      "informal": "Applying the adjacent-duplicate filtering operation twice produces the same output as applying it once."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+✖ [2/9] Building Pipeline.Generated (178ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Pipeline/Generated.lean:20:4: unsolved goals
+case pos
+x a y : String
+ys : List String
+ih : a ∈ skipEqual x ys → a ∈ ys
+h : y = x
+⊢ a ∈ skipEqual x ys → a = x ∨ a ∈ ys
+error: Pipeline/Generated.lean:21:4: unsolved goals
+case neg
+x a y : String
+ys : List String
+ih : a ∈ skipEqual x ys → a ∈ ys
+h : ¬y = x
+⊢ a = y ∨ a ∈ skipEqual x ys → a = y ∨ a ∈ ys
+warning: Pipeline/Generated.lean:20:26: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  simp [skipEqual, h,̵ ̵i̵h̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Pipeline/Generated.lean:21:26: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  simp [skipEqual, h,̵ ̵i̵h̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

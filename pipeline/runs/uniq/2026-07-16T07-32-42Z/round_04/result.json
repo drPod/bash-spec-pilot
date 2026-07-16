@@ -1,0 +1,302 @@
+{
+  "failures": [
+    "kernel accepted, but the model diverged from the real program on 71/200 random inputs (examples below)"
+  ],
+  "mismatches": [
+    {
+      "args": [],
+      "stdin": [
+        "42",
+        "alpha",
+        "",
+        "the quick brown fox jumps over",
+        "x",
+        "42"
+      ],
+      "model_out": [
+        "42",
+        "alpha",
+        "",
+        "the quick brown fox jumps over",
+        "x"
+      ],
+      "oracle_out": [
+        "42",
+        "alpha",
+        "",
+        "the quick brown fox jumps over",
+        "x",
+        "42"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "beta",
+        "",
+        "beta",
+        "beta",
+        "z",
+        "",
+        "the quick brown fox jumps over",
+        "beta"
+      ],
+      "model_out": [
+        "beta",
+        "",
+        "z",
+        "",
+        "the quick brown fox jumps over"
+      ],
+      "oracle_out": [
+        "beta",
+        "",
+        "beta",
+        "z",
+        "",
+        "the quick brown fox jumps over",
+        "beta"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "the quick brown fox jumps over",
+        "",
+        "alpha",
+        "the quick brown fox jumps over",
+        "alpha",
+        "beta",
+        "beta"
+      ],
+      "model_out": [
+        "the quick brown fox jumps over",
+        "",
+        "alpha",
+        "alpha",
+        "beta",
+        "beta"
+      ],
+      "oracle_out": [
+        "the quick brown fox jumps over",
+        "",
+        "alpha",
+        "the quick brown fox jumps over",
+        "alpha",
+        "beta"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "beta",
+        "  padded  ",
+        "  padded  ",
+        "alpha",
+        "z",
+        "x"
+      ],
+      "model_out": [
+        "beta",
+        "  padded  ",
+        "  padded  ",
+        "alpha",
+        "z",
+        "x"
+      ],
+      "oracle_out": [
+        "beta",
+        "  padded  ",
+        "alpha",
+        "z",
+        "x"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "gamma",
+        "beta",
+        "a b c",
+        "beta",
+        "beta"
+      ],
+      "model_out": [
+        "gamma",
+        "beta",
+        "a b c",
+        "beta",
+        "beta"
+      ],
+      "oracle_out": [
+        "gamma",
+        "beta",
+        "a b c",
+        "beta"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "z",
+        "gamma",
+        "gamma"
+      ],
+      "model_out": [
+        "z",
+        "gamma",
+        "gamma"
+      ],
+      "oracle_out": [
+        "z",
+        "gamma"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "the quick brown fox jumps over",
+        "x",
+        "beta",
+        "",
+        "the quick brown fox jumps over"
+      ],
+      "model_out": [
+        "the quick brown fox jumps over",
+        "x",
+        "beta",
+        ""
+      ],
+      "oracle_out": [
+        "the quick brown fox jumps over",
+        "x",
+        "beta",
+        "",
+        "the quick brown fox jumps over"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "x",
+        "beta",
+        "beta",
+        "  padded  "
+      ],
+      "model_out": [
+        "x",
+        "beta",
+        "beta",
+        "  padded  "
+      ],
+      "oracle_out": [
+        "x",
+        "beta",
+        "  padded  "
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick brown fox jumps over",
+        "",
+        "the quick brown fox jumps over",
+        "gamma",
+        "gamma"
+      ],
+      "model_out": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick brown fox jumps over",
+        "",
+        "the quick brown fox jumps over",
+        "gamma",
+        "gamma"
+      ],
+      "oracle_out": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick brown fox jumps over",
+        "",
+        "the quick brown fox jumps over",
+        "gamma"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [],
+      "stdin": [
+        "z",
+        "",
+        "x",
+        "x",
+        "  padded  ",
+        "  padded  "
+      ],
+      "model_out": [
+        "z",
+        "",
+        "x",
+        "x",
+        "  padded  ",
+        "  padded  "
+      ],
+      "oracle_out": [
+        "z",
+        "",
+        "x",
+        "  padded  "
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    }
+  ],
+  "spec_theorems": [
+    {
+      "name": "run_output",
+      "informal": "The command writes exactly the adjacent-duplicate-collapsed input lines to standard output."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "Successful execution returns exit code zero."
+    },
+    {
+      "name": "run_output_membership",
+      "informal": "Every output line is an occurrence of a line from the input."
+    },
+    {
+      "name": "run_output_length_bound",
+      "informal": "The number of output lines never exceeds the number of input lines."
+    },
+    {
+      "name": "run_idempotent",
+      "informal": "Applying the adjacent-duplicate filter twice produces the same output as applying it once."
+    },
+    {
+      "name": "run_output_is_input_or_empty",
+      "informal": "If the output is nonempty, then the input is nonempty, expressing the basic relation between input and output."
+    }
+  ]
+}

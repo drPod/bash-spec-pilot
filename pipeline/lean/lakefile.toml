@@ -1,0 +1,12 @@
+name = "pipeline"
+defaultTargets = ["Pipeline", "model"]
+
+# No mathlib: generated proofs must use only Lean core lemmas, keeping builds
+# fast and the trusted base small (same call as demo/, decisions.md).
+
+[[lean_lib]]
+name = "Pipeline"
+
+[[lean_exe]]
+name = "model"
+root = "Main"
