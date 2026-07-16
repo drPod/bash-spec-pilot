@@ -1,0 +1,30 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "cutLine_is_closed_range",
+      "informal": "For a requested closed character range A-B, each output line is exactly the characters obtained by dropping the first A-1 input characters and taking at most B-A+1 characters."
+    },
+    {
+      "name": "selected_length_le_range_width",
+      "informal": "The selected character sequence from any input line is never longer than the requested closed range width."
+    },
+    {
+      "name": "selected_empty_when_short",
+      "informal": "If an input line has fewer than A characters, selecting range A-B yields no characters for that line."
+    },
+    {
+      "name": "run_valid_stdout",
+      "informal": "For valid -c A-B arguments, stdout consists of applying the per-line character cut to every stdin line."
+    },
+    {
+      "name": "run_valid_exit",
+      "informal": "For valid -c A-B arguments, the utility exits successfully with status 0."
+    },
+    {
+      "name": "run_valid_line_count",
+      "informal": "For valid -c A-B arguments, the number of output lines equals the number of input lines."
+    }
+  ]
+}

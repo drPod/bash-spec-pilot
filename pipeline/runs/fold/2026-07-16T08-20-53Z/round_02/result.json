@@ -1,0 +1,22 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "foldChars_segments_length_le",
+      "informal": "Every segment produced by folding a line has length at most the selected width."
+    },
+    {
+      "name": "foldChars_content_preserved",
+      "informal": "For every positive width, folding preserves the input characters in order and only inserts line breaks between segments."
+    },
+    {
+      "name": "run_exit_zero",
+      "informal": "The modeled invocation processes standard input successfully and returns exit status 0."
+    },
+    {
+      "name": "run_stdout_is_folded_stdin",
+      "informal": "The standard output of run is exactly the concatenation of the folded segments of each standard-input line using the selected width."
+    }
+  ]
+}

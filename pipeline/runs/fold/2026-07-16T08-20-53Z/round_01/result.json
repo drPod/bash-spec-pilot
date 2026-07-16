@@ -1,0 +1,24 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (192ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:7:13: Variable name `n` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Pipeline/Generated.lean:13:13: Variable name `n` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Pipeline/Generated.lean:52:29: `String.mk` has been deprecated: Use `String.ofList` instead\nerror: Pipeline/Generated.lean:57:9: Invalid field `bind`: The environment does not contain `List.bind`, so it is not possible to project the field `bind` from an expression\n  stdin\nof type `List String`\nerror: Pipeline/Generated.lean:70:10: Type mismatch\n  Nat.succ_le_succ (ih xs)\nhas type\n  (takeN n xs).length.succ \u2264 n.succ\nbut is expected to have type\n  (takeN n xs).length \u2264 n\nerror: Pipeline/Generated.lean:190:31: Invalid field `bind`: The environment does not contain `List.bind`, so it is not possible to project the field `bind` from an expression\n  stdin\nof type `List String`\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "foldChars_segments_length_le",
+      "informal": "Every output segment produced when folding a line has length at most the requested width."
+    },
+    {
+      "name": "foldChars_content_preserved",
+      "informal": "For every positive width, folding a line preserves all input characters in their original order, inserting only line breaks."
+    },
+    {
+      "name": "run_exit_zero",
+      "informal": "The modeled utility returns exit status 0 after processing stdin successfully."
+    },
+    {
+      "name": "run_stdout_is_folded_stdin",
+      "informal": "The model's stdout is obtained by folding each stdin line with the width selected from the arguments and concatenating those segments."
+    }
+  ]
+}

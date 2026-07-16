@@ -1,0 +1,9 @@
+⚠ [2/9] Built Pipeline.Generated (222ms)
+warning: Pipeline/Generated.lean:150:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3/9] Built Pipeline.Generated:c.o (94ms)
+✔ [4/9] Built Pipeline (134ms)
+✔ [7/9] Built Main (137ms)
+✔ [9/9] Built model:exe (79ms)
+Build completed successfully (9 jobs).

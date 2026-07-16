@@ -1,0 +1,7 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.cutLine_is_closed_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.selected_length_le_range_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.selected_empty_when_short' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_valid_stdout' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_valid_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_valid_line_count' depends on axioms: [propext, Classical.choice, Quot.sound]

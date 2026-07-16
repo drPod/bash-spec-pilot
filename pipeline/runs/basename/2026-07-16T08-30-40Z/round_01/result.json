@@ -1,0 +1,30 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_one_stdout_exact",
+      "informal": "For exactly one pathname operand, stdout consists of exactly the model basename result as its single output line."
+    },
+    {
+      "name": "run_one_exit_success",
+      "informal": "For exactly one pathname operand, the utility reports successful completion with exit status 0."
+    },
+    {
+      "name": "run_stdin_not_used",
+      "informal": "Standard input is not used: changing the input lines never changes the result of running the model."
+    },
+    {
+      "name": "basename_chars_empty_is_empty",
+      "informal": "For the null string case, this implementation-defined model chooses the null string as the resulting basename."
+    },
+    {
+      "name": "basename_chars_all_slashes_nonempty",
+      "informal": "For any nonempty pathname consisting entirely of slash characters, the resulting basename characters are a single slash."
+    },
+    {
+      "name": "basename_chars_nonempty_not_all",
+      "informal": "For any nonempty pathname not consisting entirely of slashes, the model follows the documented steps of removing trailing slashes and then taking the component after the last remaining slash."
+    }
+  ]
+}

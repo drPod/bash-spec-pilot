@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_one_stdout_content",
+      "informal": "With exactly one PATH operand, standard output consists of the single resulting directory string computed from that operand."
+    },
+    {
+      "name": "run_one_exit_success",
+      "informal": "With exactly one PATH operand, the utility completes successfully and returns exit status 0."
+    },
+    {
+      "name": "run_one_stdout_length",
+      "informal": "With exactly one PATH operand, the utility writes exactly one output line."
+    },
+    {
+      "name": "run_one_stdin_ignored",
+      "informal": "The utility does not use standard input, so changing stdin does not affect the result for the same PATH operand."
+    },
+    {
+      "name": "dirname_no_slash",
+      "informal": "If the operand contains no slash characters, the resulting directory string is \".\"."
+    }
+  ]
+}

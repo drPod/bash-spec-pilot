@@ -1,0 +1,26 @@
+⚠ [2/9] Built Pipeline.Generated (188ms)
+warning: Pipeline/Generated.lean:37:23: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:42:14: Variable name `stdin` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Pipeline/Generated.lean:106:26: This simp argument is unused:
+  hl
+
+Hint: Omit it from the simp argument list.
+  simp [dirnameChars,̵ ̵h̵l̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Pipeline/Generated.lean:114:26: This simp argument is unused:
+  hl
+
+Hint: Omit it from the simp argument list.
+  simp [dirnameChars, hl̵,̵ ̵h̵rs, hrn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3/9] Built Pipeline.Generated:c.o (56ms)
+✔ [4/9] Built Pipeline (135ms)
+✔ [7/9] Built Main (139ms)
+✔ [9/9] Built model:exe (78ms)
+Build completed successfully (9 jobs).
