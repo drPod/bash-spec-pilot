@@ -54,6 +54,74 @@ spec theorems. Forbidden in generated code: `import`, `partial`, `unsafe`,
   result, plus one `log.jsonl` summary row per round. Git-versioned; this is
   the experimental record.
 
+## Results so far (2026-07-16)
+
+One measured session per model per target, up to 4 refinement rounds, 200
+differential trials per round. Kernel acceptance was 6/6 for every model;
+the table shows differential fidelity and the round it was reached.
+
+| target | gpt-5.6-luna | gpt-5.5-2026-04-23 | claude (subagent) |
+|---|---|---|---|
+| uniq | 100% (r4) | 100% (r2) | 100% (r1) |
+| fold | 73.5%, stuck | 100% (r2) | 100% (r1) |
+| cut | 100% (r2) | 100% (r2) | 100% (r1) |
+| basename | 100% (r1) | 100% (r1) | 100% (r1) |
+| dirname | 70.5%, stuck | 100% (r1) | 100% (r1) |
+| wc | 100% (r1) | 100% (r1) | 100% (r1) |
+
+The full luna sweep cost $0.34 (68k input / 45k output tokens); the frontier
+sweep used 40k input / 65k output tokens, 51k of them reasoning. Every
+prompt, response, generated Lean source, build log, and differential result
+is committed under `runs/`.
+
+What the data says:
+
+1. **Kernel acceptance is not the bottleneck; spec fidelity is.** VERINA-style
+   reasoning predicted single-digit proof rates. With compiler feedback, even
+   the cheapest model got every target past the kernel within 4 rounds. What
+   the cheap model could not do was read POSIX correctly.
+2. **Kernel-accepted-but-divergent is real and crisp.** Three instances, all
+   clean documentation misreadings: uniq deduplicating non-adjacent lines
+   (64.5%), fold dropping empty input lines (73.5%), dirname skipping POSIX's
+   second trailing-slash strip so `/usr/lib` gives `/usr/` (70.5%). Each is a
+   proof of true theorems about the wrong model, which is exactly the failure
+   mode the differential layer exists to expose and which spec-only
+   benchmarks cannot see.
+3. **One compiler-feedback round does almost all the proof work; differential
+   feedback is much weaker.** Round-1 build failures were near-universal
+   (frontier included), recovery at round 2 near-universal. But mismatch
+   examples did not reliably steer the cheap model: dirname's fidelity
+   wandered 160 -> 174 -> 141 of 200 across rounds. Better refinement
+   feedback is an open tooling problem.
+4. **Single runs are anecdotes.** Same model, same prompt: uniq scored 64.5%
+   in one session and 100% in another. Reported numbers need repeated
+   sessions.
+
+## Status: what exists vs what the paper needs
+
+Exists: the general P <-> q harness with anti-cheat gates, six instantiated
+targets, and the qualitative findings above with committed evidence.
+
+Needed for a paper, in rough order:
+
+1. **Repeated-session statistics.** Every table cell above is n=1 and finding 4
+   shows the variance. ~5-10 sessions per target per model; mean and spread.
+2. **Harder targets to map the failure boundary.** The current six are
+   terminating, stateless, and deliberately scoped down (uniq without
+   options, cut with one `-c` range). Widen scopes and add utilities where
+   options interact or filesystem/environment state bites, so the method's
+   limits are measured rather than avoided.
+3. **A stronger differential layer.** Inputs come from small fixed word/path
+   pools; 100% fidelity means 100% on that distribution. Grammar-based or
+   adversarial input generation would make the fidelity claim defensible.
+4. **The spec-quality study (the actual paper).** Nothing yet measures whether
+   the proved theorems pin down behavior or are vacuously weak (`run_exit_success`
+   passes the theorem-count gate). VERINA's spec soundness/completeness
+   method with the binary as ground truth is the missing centerpiece, and the
+   piece worth designing together before building.
+5. **Ablations.** No-feedback vs compiler-only vs compiler+differential;
+   comparison against VERINA's published numbers on comparable tasks.
+
 ## Usage
 
 ```sh
