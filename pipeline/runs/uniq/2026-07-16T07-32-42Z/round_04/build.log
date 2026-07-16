@@ -1,0 +1,12 @@
+⚠ [2/9] Built Pipeline.Generated (183ms)
+warning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3/9] Built Pipeline.Generated:c.o (48ms)
+✔ [4/9] Built Pipeline (136ms)
+✔ [7/9] Built Main (140ms)
+✔ [8/9] Built Main:c.o (53ms)
+✔ [9/9] Built model:exe (81ms)
+Build completed successfully (9 jobs).

@@ -1,0 +1,29 @@
+{
+  "lean_source": "namespace Pipeline.Generated\n\n/-!\nPOSIX `dirname`: print the directory portion of the single PATH operand.\nThe classic step algorithm, on the reversed character list so that\n`dropWhile` from the front edits the end of the pathname:\n  * string entirely of '/' characters (they are all leading) -> \"/\",\n    empty string -> \".\"\n  * step 3: remove trailing '/' characters\n  * step 4: no '/' remaining -> \".\"\n  * steps 5 and 7: remove the final component, then trailing '/' again\n  * step 8: everything consumed -> \"/\"\n-/\n\n/-- Trailing slashes stripped, then the final component, then trailing\n    slashes again: the parent, still reversed. -/\ndef parentRev (cs : List Char) : List Char :=\n  ((cs.reverse.dropWhile (\u00b7 == '/')).dropWhile (fun c => !(c == '/'))).dropWhile (\u00b7 == '/')\n\ndef dirCore (cs : List Char) : List Char :=\n  if cs.all (\u00b7 == '/') then\n    if cs.isEmpty then ['.'] else ['/']\n  else if (cs.reverse.dropWhile (\u00b7 == '/')).any (\u00b7 == '/') then\n    if (parentRev cs).isEmpty then ['/'] else (parentRev cs).reverse\n  else\n    ['.']\n\ndef dirname (s : String) : String := String.ofList (dirCore s.toList)\n\ndef run (args stdin : List String) : List String \u00d7 UInt32 :=\n  match args with\n  | [p] => ([dirname p], 0)\n  | _ => ([], 1)\n\n/-! ### Helper lemmas -/\n\ntheorem not_mem_dropWhile_of_not_mem {p : Char \u2192 Bool} {a : Char}\n    {l : List Char} (h : a \u2209 l) : a \u2209 l.dropWhile p :=\n  fun hmem => h ((List.dropWhile_sublist p).mem hmem)\n\ntheorem any_slash_eq_false {l : List Char} (h : '/' \u2209 l) :\n    l.any (\u00b7 == '/') = false := by\n  rw [List.any_eq_false]\n  intro x hx hbeq\n  rw [beq_iff_eq] at hbeq\n  exact h (hbeq \u25b8 hx)\n\ntheorem dirCore_no_slash {cs : List Char} (h : '/' \u2209 cs) :\n    dirCore cs = ['.'] := by\n  cases cs with\n  | nil => rfl\n  | cons c cs' =>\n    have hc : c \u2260 '/' := fun hEq => h (List.mem_cons.mpr (Or.inl hEq.symm))\n    have hall : ((c :: cs').all (\u00b7 == '/')) = false := by simp [hc]\n    have hmem : '/' \u2209 (c :: cs').reverse := fun hm => h (List.mem_reverse.mp hm)\n    have hany : (((c :: cs').reverse.dropWhile (\u00b7 == '/')).any (\u00b7 == '/')) = false :=\n      any_slash_eq_false (not_mem_dropWhile_of_not_mem hmem)\n    unfold dirCore\n    rw [hall, hany]\n    simp\n\ntheorem dirCore_all_slash {cs : List Char} (hne : cs \u2260 [])\n    (h : \u2200 c \u2208 cs, c = '/') : dirCore cs = ['/'] := by\n  have hall : cs.all (\u00b7 == '/') = true := by\n    rw [List.all_eq_true]\n    intro x hx\n    exact beq_iff_eq.mpr (h x hx)\n  have hempty : cs.isEmpty = false := by\n    cases cs with\n    | nil => exact absurd rfl hne\n    | cons _ _ => rfl\n  unfold dirCore\n  rw [hall, hempty]\n  simp\n\n/-! ### Spec theorems -/\n\n/-- STDOUT: dirname writes exactly one line for one operand. -/\ntheorem run_output_length (p : String) (stdin : List String) :\n    ((run [p] stdin).1).length = 1 := rfl\n\n/-- EXIT STATUS: successful completion returns 0 for one operand. -/\ntheorem run_exit_success (p : String) (stdin : List String) :\n    (run [p] stdin).2 = 0 := rfl\n\n/-- STDIN: not used; the result never depends on standard input. -/\ntheorem run_stdin_ignored (args s\u2081 s\u2082 : List String) :\n    run args s\u2081 = run args s\u2082 := by\n  cases args with\n  | nil => rfl\n  | cons a rest => cases rest <;> rfl\n\n/-- EXIT STATUS: anything other than exactly one operand is an error (>0),\n    with nothing on stdout. -/\ntheorem run_wrong_arity (args stdin : List String) (h : args.length \u2260 1) :\n    run args stdin = ([], 1) := by\n  match args with\n  | [] => rfl\n  | [_] => exact absurd rfl h\n  | _ :: _ :: _ => rfl\n\n/-- DESCRIPTION: if the pathname does not contain a '/' (this includes the\n    empty string), the resulting string is \".\". -/\ntheorem run_no_slash_dot (p : String) (stdin : List String)\n    (h : '/' \u2209 p.toList) : (run [p] stdin).1 = [\".\"] := by\n  show [dirname p] = [\".\"]\n  unfold dirname\n  rw [dirCore_no_slash h]\n\n/-- DESCRIPTION: trailing slashes that are also leading slashes are kept, so a\n    nonempty pathname made only of '/' characters yields \"/\". -/\ntheorem run_all_slash_root (p : String) (stdin : List String)\n    (hne : p.toList \u2260 []) (h : \u2200 c \u2208 p.toList, c = '/') :\n    (run [p] stdin).1 = [\"/\"] := by\n  show [dirname p] = [\"/\"]\n  unfold dirname\n  rw [dirCore_all_slash hne h]\n\nend Pipeline.Generated\n",
+  "spec_theorems": [
+    {
+      "name": "run_output_length",
+      "informal": "STDOUT: dirname writes exactly one line to standard output for one operand."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "EXIT STATUS: successful completion with one operand returns exit code 0."
+    },
+    {
+      "name": "run_stdin_ignored",
+      "informal": "STDIN: not used; the result is independent of standard input."
+    },
+    {
+      "name": "run_wrong_arity",
+      "informal": "EXIT STATUS: any argument count other than exactly one operand is an error, exiting >0 with no stdout."
+    },
+    {
+      "name": "run_no_slash_dot",
+      "informal": "DESCRIPTION: if the pathname contains no '/' (including the empty string), the resulting string is \".\"."
+    },
+    {
+      "name": "run_all_slash_root",
+      "informal": "DESCRIPTION: trailing slashes that are also leading slashes are kept, so a nonempty pathname consisting only of '/' characters yields \"/\"."
+    }
+  ]
+}

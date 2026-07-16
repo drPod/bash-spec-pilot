@@ -1,0 +1,7 @@
+[project]
+name = "pipeline"
+version = "0.1.0"
+description = "LLM-in-the-loop generation of Lean models+specs+proofs for Unix utilities, kernel-checked, differential-validated against the real binary"
+requires-python = ">=3.12"
+# openai pinned to the version archive/v1/docs/openai/ mirrors (ground truth).
+dependencies = ["openai==2.35.1"]

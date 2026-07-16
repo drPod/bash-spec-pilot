@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (162ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:62:30: Application type mismatch: The argument\n  ihs\nhas type\n  (uniq ys).length \u2264 ys.length \u2192 (skipEqual x ys).length \u2264 ys.length\nbut is expected to have type\n  ?m.53 \u2264 ?m.54\nin the application\n  Nat.le_trans ihs\nerror: Pipeline/Generated.lean:63:59: Application type mismatch: The argument\n  ihs\nhas type\n  (uniq ys).length \u2264 ys.length \u2192 (skipEqual x ys).length \u2264 ys.length\nbut is expected to have type\n  ?m.64 \u2264 ?m.65\nin the application\n  Nat.succ_le_succ ihs\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output",
+      "informal": "The stdout produced by run is exactly the adjacent-duplicate-collapsed version of the input lines."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "The utility returns exit code zero for every argument list and input."
+    },
+    {
+      "name": "run_output_membership",
+      "informal": "Every output line is a line that occurred in the input."
+    },
+    {
+      "name": "run_output_length_bound",
+      "informal": "The number of output lines is no greater than the number of input lines."
+    },
+    {
+      "name": "run_idempotent",
+      "informal": "Applying the duplicate-collapsing utility to its own output leaves that output unchanged."
+    }
+  ]
+}

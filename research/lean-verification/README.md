@@ -150,6 +150,8 @@ soundness and proof failure.
 
 1. Put the LLM in the loop: have it generate model + spec + proof for held-out utilities
    and measure kernel acceptance, with a compiler-feedback refinement loop.
+   **Done — implemented as the top-level `pipeline/` (see its README); first results in
+   `pipeline/runs/`.**
 2. Scale past four utilities toward ones with real spec weight (`wc`, `cut`, `uniq`),
    watching where totality and state (filesystem, environment) start to bite.
 3. Apply VERINA's spec soundness/completeness method with the binary as ground truth.

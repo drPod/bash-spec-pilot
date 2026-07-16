@@ -1,0 +1,29 @@
+{
+  "lean_source": "namespace Pipeline.Generated\n\n/-- Parse a decimal numeral; 0 signals malformed input (outside modeled scope). -/\ndef parseNat (s : String) : Nat :=\n  (s.toNat?).getD 0\n\n/-- Parse a range spec \"A-B\" into (A, B); (0, 0) on malformed input. -/\ndef parseRange (s : String) : Nat \u00d7 Nat :=\n  match s.splitOn \"-\" with\n  | [a, b] => (parseNat a, parseNat b)\n  | _ => (0, 0)\n\n/-- Characters A..B (1-indexed, inclusive) of one line's character list. -/\ndef cutChars (a b : Nat) (l : List Char) : List Char :=\n  (l.drop (a - 1)).take (b - a + 1)\n\n/-- `cut -c A-B` applied to a single line. A line shorter than A yields \"\". -/\ndef cutLine (a b : Nat) (s : String) : String :=\n  String.ofList (cutChars a b s.toList)\n\n/-- Model of `cut -c A-B` reading stdin: argv is [\"-c\", \"A-B\"]; every input\n    line is cut to its characters A..B; exit status 0. -/\ndef run (args stdin : List String) : List String \u00d7 UInt32 :=\n  match args with\n  | [_, spec] =>\n      (stdin.map (cutLine (parseRange spec).1 (parseRange spec).2), 0)\n  | _ => ([], 1)\n\n/-- EXIT STATUS: all input was output successfully, so the exit value is 0. -/\ntheorem run_exit_zero (flag spec : String) (stdin : List String) :\n    (run [flag, spec] stdin).2 = 0 := rfl\n\n/-- STDOUT relation: the output is exactly the per-line character cut applied\n    to each input line, in input order. -/\ntheorem run_output_eq (flag spec : String) (stdin : List String) :\n    (run [flag, spec] stdin).1\n      = stdin.map (cutLine (parseRange spec).1 (parseRange spec).2) := rfl\n\n/-- cut writes one output line per input line (the line/record count is\n    preserved; in particular empty input produces no output). -/\ntheorem run_line_count (flag spec : String) (stdin : List String) :\n    (run [flag, spec] stdin).1.length = stdin.length := by\n  rw [run_output_eq]\n  exact List.length_map _\n\n/-- \"It shall not be an error to select characters not present in the input\n    line\": an input line shorter than A becomes an empty output line. -/\ntheorem run_short_line_empty (flag spec : String) (stdin : List String)\n    (i : Nat) (s : String) (hs : stdin[i]? = some s)\n    (hshort : s.toList.length < (parseRange spec).1) :\n    (run [flag, spec] stdin).1[i]? = some \"\" := by\n  rw [run_output_eq, List.getElem?_map, hs]\n  have hdrop : s.toList.drop ((parseRange spec).1 - 1) = [] :=\n    List.drop_eq_nil_of_le (Nat.le_sub_one_of_lt hshort)\n  simp [cutLine, cutChars, hdrop, String.ofList_nil]\n\n/-- Each output line selects the closed range A..B, so it has at most\n    B - A + 1 characters. -/\ntheorem run_line_length_bound (flag spec : String) (stdin : List String)\n    (out : String) (hout : out \u2208 (run [flag, spec] stdin).1) :\n    out.length \u2264 (parseRange spec).2 - (parseRange spec).1 + 1 := by\n  rw [run_output_eq] at hout\n  rcases List.mem_map.mp hout with \u27e8s, _, rfl\u27e9\n  rw [cutLine, String.length_ofList, cutChars, List.length_take]\n  exact Nat.min_le_left _ _\n\n/-- Content preservation: every character of an output line occurs in the\n    corresponding input line (cut selects, it never invents characters). -/\ntheorem run_line_chars_from_input (flag spec : String) (stdin : List String)\n    (out : String) (hout : out \u2208 (run [flag, spec] stdin).1) :\n    \u2203 s \u2208 stdin, \u2200 c \u2208 out.toList, c \u2208 s.toList := by\n  rw [run_output_eq] at hout\n  rcases List.mem_map.mp hout with \u27e8s, hmem, rfl\u27e9\n  refine \u27e8s, hmem, ?_\u27e9\n  intro c hc\n  rw [cutLine, String.toList_ofList] at hc\n  exact List.mem_of_mem_drop (List.mem_of_mem_take hc)\n\nend Pipeline.Generated\n",
+  "spec_theorems": [
+    {
+      "name": "run_exit_zero",
+      "informal": "cut -c A-B exits with status 0 (all input files were output successfully)."
+    },
+    {
+      "name": "run_output_eq",
+      "informal": "Standard output is exactly the per-line character cut applied to each input line, in input order."
+    },
+    {
+      "name": "run_line_count",
+      "informal": "cut writes one output line per input line, so the line count is preserved and empty input produces no output."
+    },
+    {
+      "name": "run_short_line_empty",
+      "informal": "Selecting characters not present in the input line is not an error: a line shorter than A becomes an empty output line."
+    },
+    {
+      "name": "run_line_length_bound",
+      "informal": "Each output line contains at most B - A + 1 characters, the size of the closed selected range A..B."
+    },
+    {
+      "name": "run_line_chars_from_input",
+      "informal": "Content preservation: every character of an output line occurs in its originating input line; cut selects but never invents characters."
+    }
+  ]
+}

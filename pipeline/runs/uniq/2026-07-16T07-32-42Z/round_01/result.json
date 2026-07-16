@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (178ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:11:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:20:4: unsolved goals\ncase pos\nx a y : String\nys : List String\nih : a \u2208 skipEqual x ys \u2192 a \u2208 ys\nh : y = x\n\u22a2 a \u2208 skipEqual x ys \u2192 a = x \u2228 a \u2208 ys\nerror: Pipeline/Generated.lean:21:4: unsolved goals\ncase neg\nx a y : String\nys : List String\nih : a \u2208 skipEqual x ys \u2192 a \u2208 ys\nh : \u00acy = x\n\u22a2 a = y \u2228 a \u2208 skipEqual x ys \u2192 a = y \u2228 a \u2208 ys\nwarning: Pipeline/Generated.lean:20:26: This simp argument is unused:\n  ih\n\nHint: Omit it from the simp argument list.\n  simp [skipEqual, h,\u0335 \u0335i\u0335h\u0335]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: Pipeline/Generated.lean:21:26: This simp argument is unused:\n  ih\n\nHint: Omit it from the simp argument list.\n  simp [skipEqual, h,\u0335 \u0335i\u0335h\u0335]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output",
+      "informal": "The standard output consists exactly of the adjacent-duplicate-collapsed input lines."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "Successful completion returns exit code zero."
+    },
+    {
+      "name": "run_output_membership",
+      "informal": "Every output line is an occurrence of a line from the input."
+    },
+    {
+      "name": "run_output_length_bound",
+      "informal": "Collapsing adjacent duplicates never increases the number of lines."
+    },
+    {
+      "name": "run_idempotent",
+      "informal": "Applying the adjacent-duplicate filter again does not change its output."
+    }
+  ]
+}

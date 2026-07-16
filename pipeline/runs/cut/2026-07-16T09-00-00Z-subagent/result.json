@@ -1,0 +1,17 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "build_ok": true,
+  "axioms_ok": true,
+  "diff": {
+    "passed": 200,
+    "trials": 200
+  },
+  "build_log": "\u2714 [2/9] Built Pipeline.Generated (158ms)\n\u2714 [3/9] Built Pipeline (132ms)\n\u2714 [5/9] Built Pipeline.Generated:c.o (61ms)\n\u2714 [7/9] Built Main (140ms)\n\u2714 [8/9] Built Main:c.o (53ms)\n\u2714 [9/9] Built model:exe (81ms)\nBuild completed successfully (9 jobs).\n",
+  "axioms_log": "'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_exit_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_output_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_line_count' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_short_line_empty' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_line_length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Pipeline.Generated.run_line_chars_from_input' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "secs": {
+    "build": 0.7,
+    "diff": 1.5
+  },
+  "guard_hits": []
+}

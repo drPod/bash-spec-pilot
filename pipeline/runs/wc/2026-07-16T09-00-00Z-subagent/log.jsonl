@@ -1,0 +1,1 @@
+{"ts": "2026-07-16T07:44:39.747988+00:00", "target": "wc", "model": "claude-fable-5:subagent", "round": 1, "build_ok": true, "axioms_ok": true, "diff": {"passed": 200, "trials": 200}, "status": "success"}
