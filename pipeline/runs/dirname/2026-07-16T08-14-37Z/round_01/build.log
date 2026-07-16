@@ -1,0 +1,68 @@
+✖ [2/9] Building Pipeline.Generated (174ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+error: Pipeline/Generated.lean:35:10: unexpected token 'prefix'; expected '=>'
+error: Pipeline/Generated.lean:35:17: unexpected token '=>'; expected ':'
+error: Pipeline/Generated.lean:36:43: unexpected token 'match'; expected ':'
+warning: Pipeline/Generated.lean:42:2: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:44:14: Variable name `stdin` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Pipeline/Generated.lean:50:9: Application type mismatch: The argument
+  s
+has type
+  List String
+but is expected to have type
+  String
+in the application
+  List.cons s
+error: Pipeline/Generated.lean:50:30: Application type mismatch: The argument
+  s
+has type
+  List String
+but is expected to have type
+  String
+in the application
+  dirname s
+error: Pipeline/Generated.lean:54:10: Application type mismatch: The argument
+  s
+has type
+  List String
+but is expected to have type
+  String
+in the application
+  List.cons s
+error: Pipeline/Generated.lean:58:10: Application type mismatch: The argument
+  s
+has type
+  List String
+but is expected to have type
+  String
+in the application
+  List.cons s
+warning: Pipeline/Generated.lean:58:25: `String.mk` has been deprecated: Use `String.ofList` instead
+error: Pipeline/Generated.lean:58:51: Invalid field `toList`: The environment does not contain `List.toList`, so it is not possible to project the field `toList` from an expression
+  s
+of type `List String`
+error: Pipeline/Generated.lean:62:10: Application type mismatch: The argument
+  s
+has type
+  List String
+but is expected to have type
+  String
+in the application
+  List.cons s
+warning: Pipeline/Generated.lean:70:9: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:70:33: `String.mk` has been deprecated: Use `String.ofList` instead
+error: Pipeline/Generated.lean:71:2: Tactic `rfl` failed: The left-hand side
+  run [String.mk []] stdin
+is not definitionally equal to the right-hand side
+  ([String.mk ['.']], 0)
+
+stdin : List String
+⊢ run [String.mk []] stdin = ([String.mk ['.']], 0)
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

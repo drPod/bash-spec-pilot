@@ -1,0 +1,6 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_valid_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_preserves_line_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.cutSpec_length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.cutSpec_content_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_exit_code_on_valid_input' depends on axioms: [propext, Classical.choice, Quot.sound]

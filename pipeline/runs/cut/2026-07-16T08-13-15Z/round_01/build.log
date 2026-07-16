@@ -1,0 +1,31 @@
+✖ [2/9] Building Pipeline.Generated (1.0s)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:7:14: Variable name `seen` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Pipeline/Generated.lean:28:2: `String.mk` has been deprecated: Use `String.ofList` instead
+error: Pipeline/Generated.lean:46:8: Type mismatch
+  Nat.add_le_add_right (ih (i + 1)) 1
+has type
+  (selectAux a b (i + 1) xs).length + 1 ≤ xs.length + 1
+but is expected to have type
+  (selectAux a b (i + 1) xs).length ≤ xs.length
+error: Pipeline/Generated.lean:76:2: Type mismatch: After simplification, term
+  select_length_le a b 1 s.toList
+ has type
+  (selectAux a b 1 s.toList).length ≤ s.toList.length
+but is expected to have type
+  (String.mk (selectAux a b 1 s.toList)).toList.length ≤ s.toList.length
+error: Pipeline/Generated.lean:81:2: Type mismatch: After simplification, term
+  select_mem a b 1 s.toList
+ has type
+  ?m.11 ∈ selectAux a b 1 s.toList → ?m.11 ∈ s.toList
+but is expected to have type
+  c ∈ (String.mk (selectAux a b 1 s.toList)).toList → c ∈ s.toList
+error: Pipeline/Generated.lean:86:2: No goals to be solved
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

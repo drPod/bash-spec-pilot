@@ -1,0 +1,32 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (174ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nerror: Pipeline/Generated.lean:35:10: unexpected token 'prefix'; expected '=>'\nerror: Pipeline/Generated.lean:35:17: unexpected token '=>'; expected ':'\nerror: Pipeline/Generated.lean:36:43: unexpected token 'match'; expected ':'\nwarning: Pipeline/Generated.lean:42:2: `String.mk` has been deprecated: Use `String.ofList` instead\nwarning: Pipeline/Generated.lean:44:14: Variable name `stdin` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:50:9: Application type mismatch: The argument\n  s\nhas type\n  List String\nbut is expected to have type\n  String\nin the application\n  List.cons s\nerror: Pipeline/Generated.lean:50:30: Application type mismatch: The argument\n  s\nhas type\n  List String\nbut is expected to have type\n  String\nin the application\n  dirname s\nerror: Pipeline/Generated.lean:54:10: Application type mismatch: The argument\n  s\nhas type\n  List String\nbut is expected to have type\n  String\nin the application\n  List.cons s\nerror: Pipeline/Generated.lean:58:10: Application type mismatch: The argument\n  s\nhas type\n  List String\nbut is expected to have type\n  String\nin the application\n  List.cons s\nwarning: Pipeline/Generated.lean:58:25: `String.mk` has been deprecated: Use `String.ofList` instead\nerror: Pipeline/Generated.lean:58:51: Invalid field `toList`: The environment does not contain `List.toList`, so it is not possible to project the field `toList` from an expression\n  s\nof type `List String`\nerror: Pipeline/Generated.lean:62:10: Application type mismatch: The argument\n  s\nhas type\n  List String\nbut is expected to have type\n  String\nin the application\n  List.cons s\nwarning: Pipeline/Generated.lean:70:9: `String.mk` has been deprecated: Use `String.ofList` instead\nwarning: Pipeline/Generated.lean:70:33: `String.mk` has been deprecated: Use `String.ofList` instead\nerror: Pipeline/Generated.lean:71:2: Tactic `rfl` failed: The left-hand side\n  run [String.mk []] stdin\nis not definitionally equal to the right-hand side\n  ([String.mk ['.']], 0)\n\nstdin : List String\n\u22a2 run [String.mk []] stdin = ([String.mk ['.']], 0)\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_single_operand",
+      "informal": "With exactly one operand, the utility emits the documented dirname result and succeeds."
+    },
+    {
+      "name": "output_has_one_line",
+      "informal": "A successful invocation writes exactly one output line."
+    },
+    {
+      "name": "output_is_documented_parent",
+      "informal": "The emitted line is the pathname of the directory portion computed by the documented algorithm."
+    },
+    {
+      "name": "successful_exit_code",
+      "informal": "A successful one-operand invocation returns exit status zero."
+    },
+    {
+      "name": "stdin_is_ignored",
+      "informal": "The utility does not use standard input, so changing stdin does not change the result."
+    },
+    {
+      "name": "empty_operand_outputs_dot",
+      "informal": "An empty pathname operand produces the directory name \".\"."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (176ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nerror: Pipeline/Generated.lean:68:14: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?m.67 \u2208 ?m.68 ++ ?m.69\nin the target expression\n  c \u2208 List.take w (a :: xs) :: chunkGo w (List.drop w (a :: xs)) n\n\ncase succ.cons\nw n : Nat\nih : \u2200 (xs c : List Char), c \u2208 chunkGo w xs n \u2192 c.length \u2264 w\nc : List Char\na : Char\nxs : List Char\nhc : c \u2208 List.take w (a :: xs) :: chunkGo w (List.drop w (a :: xs)) n\n\u22a2 c.length \u2264 w\nerror: Pipeline/Generated.lean:85:6: unsolved goals\ncase pos\nw : Nat\ns : String\nh : \u00acs.toList = []\nc : List Char\nhc : c \u2208 chunks w s.toList\nht : String.ofList c \u2208 if False then [\"\"] else List.map String.ofList (chunks w s.toList)\nhw : w = 0\n\u22a2 c \u2208 chunkGo 0 s.toList (s.toList.length + 1)\nerror: Pipeline/Generated.lean:87:10: `simp` made no progress\nwarning: Pipeline/Generated.lean:85:14: This simp argument is unused:\n  chunks\n\nHint: Omit it from the simp argument list.\n  simp [\u0335c\u0335h\u0335u\u0335n\u0335k\u0335s\u0335,\u0335 \u0335h\u0335w\u0335]\u0335[\u0332h\u0332w\u0332]\u0332\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The returned stdout is exactly the input lines folded independently and concatenated in order."
+    },
+    {
+      "name": "run_exit_code",
+      "informal": "Successful processing returns exit code zero."
+    },
+    {
+      "name": "foldLine_empty",
+      "informal": "An empty input line produces one empty output line."
+    },
+    {
+      "name": "run_cons_lines",
+      "informal": "Folding preserves input line order and relates the output of a cons input to the outputs of its parts."
+    },
+    {
+      "name": "run_single_line",
+      "informal": "For one input line, stdout is precisely that line's sequence of width-bounded segments."
+    },
+    {
+      "name": "segment_length_bound",
+      "informal": "Every output segment has at most the specified width characters."
+    }
+  ]
+}

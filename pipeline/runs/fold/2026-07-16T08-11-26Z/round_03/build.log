@@ -1,0 +1,21 @@
+✖ [2/9] Building Pipeline.Generated (154ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:44:18: This simp argument is unused:
+  chunks
+
+Hint: Omit it from the simp argument list.
+  simp [foldLine,̵ ̵c̵h̵u̵n̵k̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Pipeline/Generated.lean:53:2: Tactic `rfl` failed: The left-hand side
+  (run args [line]).fst
+is not definitionally equal to the right-hand side
+  foldLine (widthOf args) line
+
+args : List String
+line : String
+⊢ (run args [line]).fst = foldLine (widthOf args) line
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

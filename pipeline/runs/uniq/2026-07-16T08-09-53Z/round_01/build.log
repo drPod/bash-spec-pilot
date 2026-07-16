@@ -1,0 +1,71 @@
+✖ [2/9] Building Pipeline.Generated (164ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:9:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Pipeline/Generated.lean:24:6: Tactic `rfl` failed: No `[refl]` lemma registered for relation
+  LE.le
+
+Hint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic
+
+case nil
+⊢ (uniq []).length ≤ (uniq []).length
+error: Pipeline/Generated.lean:28:10: Tactic `rfl` failed: No `[refl]` lemma registered for relation
+  LE.le
+
+Hint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic
+
+case cons.nil
+x : String
+ih : (uniq []).length ≤ [].length
+⊢ (uniq [x]).length ≤ (uniq [x]).length
+error: Pipeline/Generated.lean:45:10: unsolved goals
+case pos
+a x y : String
+ys : List String
+ih : a ∈ uniq (y :: ys) → a ∈ y :: ys
+h : x = y
+⊢ a ∈ uniq (y :: ys) → a = y ∨ a ∈ ys
+error: Pipeline/Generated.lean:46:10: unsolved goals
+case neg
+a x y : String
+ys : List String
+ih : a ∈ uniq (y :: ys) → a ∈ y :: ys
+h : ¬x = y
+⊢ a = x ∨ a ∈ uniq (y :: ys) → a = x ∨ a = y ∨ a ∈ ys
+warning: Pipeline/Generated.lean:45:27: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  simp [uniq, h,̵ ̵i̵h̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Pipeline/Generated.lean:46:27: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  simp [uniq, h,̵ ̵i̵h̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Pipeline/Generated.lean:65:16: unsolved goals
+case pos
+x y : String
+hxy : ¬x = y
+zs : List String
+ih : uniq (uniq (y :: y :: zs)) = uniq (y :: y :: zs)
+⊢ uniq (x :: uniq (y :: zs)) = x :: uniq (y :: zs)
+error: Pipeline/Generated.lean:67:16: unsolved goals
+case neg
+x y : String
+hxy : ¬x = y
+z : String
+zs : List String
+ih : uniq (uniq (y :: z :: zs)) = uniq (y :: z :: zs)
+hyz : ¬y = z
+⊢ uniq (y :: uniq (z :: zs)) = y :: uniq (z :: zs)
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

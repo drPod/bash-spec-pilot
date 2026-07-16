@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (163ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:14:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:53:40: Application type mismatch: The argument\n  ha\nhas type\n  a \u2208 uniq (x :: y :: ys)\nbut is expected to have type\n  a \u2208 uniq (y :: ys)\nin the application\n  ih ha\nerror: Pipeline/Generated.lean:56:12: Dependent elimination failed: Failed to solve equation\n  Decidable.rec (fun h => (fun x_1 => x :: uniq (y :: ys)) h) (fun h => (fun x => uniq (y :: ys)) h)\n      (instDecidableEqString x y) =\n    a :: as\u271d\nerror: Pipeline/Generated.lean:103:39: Invalid argument name `xs` for function\nerror: Pipeline/Generated.lean:105:50: Invalid argument name `xs` for function\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The standard output is exactly the input lines with adjacent duplicate lines collapsed."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "The utility returns exit status zero for every invocation in the modeled scope."
+    },
+    {
+      "name": "uniq_length_bound",
+      "informal": "Collapsing adjacent duplicates never increases the number of output lines."
+    },
+    {
+      "name": "uniq_content_preservation",
+      "informal": "Every output line is an input line, so collapsing preserves line content."
+    },
+    {
+      "name": "uniq_idempotent",
+      "informal": "Applying adjacent-duplicate elimination twice produces the same result as applying it once."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The utility outputs exactly the adjacent-duplicate-collapsed input lines."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "Successful processing returns exit code zero."
+    },
+    {
+      "name": "uniq_length_bound",
+      "informal": "The number of output lines is no greater than the number of input lines."
+    },
+    {
+      "name": "uniq_content_preservation",
+      "informal": "Every output line is an occurrence of an input line."
+    },
+    {
+      "name": "good_uniq_output",
+      "informal": "Adjacent lines in the output are distinct, so no repeated adjacent lines remain."
+    },
+    {
+      "name": "uniq_idempotent",
+      "informal": "Applying adjacent-duplicate elimination to an already processed output leaves it unchanged."
+    }
+  ]
+}

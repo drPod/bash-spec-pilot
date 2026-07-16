@@ -1,0 +1,11 @@
+⚠ [2/9] Built Pipeline.Generated (198ms)
+warning: Pipeline/Generated.lean:7:14: Variable name `seen` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3/9] Built Pipeline.Generated:c.o (75ms)
+✔ [4/9] Built Pipeline (130ms)
+✔ [7/9] Built Main (137ms)
+✔ [9/9] Built model:exe (81ms)
+Build completed successfully (9 jobs).

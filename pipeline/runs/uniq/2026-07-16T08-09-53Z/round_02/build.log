@@ -1,0 +1,25 @@
+✖ [2/9] Building Pipeline.Generated (163ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:14:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Pipeline/Generated.lean:53:40: Application type mismatch: The argument
+  ha
+has type
+  a ∈ uniq (x :: y :: ys)
+but is expected to have type
+  a ∈ uniq (y :: ys)
+in the application
+  ih ha
+error: Pipeline/Generated.lean:56:12: Dependent elimination failed: Failed to solve equation
+  Decidable.rec (fun h => (fun x_1 => x :: uniq (y :: ys)) h) (fun h => (fun x => uniq (y :: ys)) h)
+      (instDecidableEqString x y) =
+    a :: as✝
+error: Pipeline/Generated.lean:103:39: Invalid argument name `xs` for function
+error: Pipeline/Generated.lean:105:50: Invalid argument name `xs` for function
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

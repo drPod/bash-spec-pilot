@@ -1,0 +1,24 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (1.0s)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:7:14: Variable name `seen` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Pipeline/Generated.lean:28:2: `String.mk` has been deprecated: Use `String.ofList` instead\nerror: Pipeline/Generated.lean:46:8: Type mismatch\n  Nat.add_le_add_right (ih (i + 1)) 1\nhas type\n  (selectAux a b (i + 1) xs).length + 1 \u2264 xs.length + 1\nbut is expected to have type\n  (selectAux a b (i + 1) xs).length \u2264 xs.length\nerror: Pipeline/Generated.lean:76:2: Type mismatch: After simplification, term\n  select_length_le a b 1 s.toList\n has type\n  (selectAux a b 1 s.toList).length \u2264 s.toList.length\nbut is expected to have type\n  (String.mk (selectAux a b 1 s.toList)).toList.length \u2264 s.toList.length\nerror: Pipeline/Generated.lean:81:2: Type mismatch: After simplification, term\n  select_mem a b 1 s.toList\n has type\n  ?m.11 \u2208 selectAux a b 1 s.toList \u2192 ?m.11 \u2208 s.toList\nbut is expected to have type\n  c \u2208 (String.mk (selectAux a b 1 s.toList)).toList \u2192 c \u2208 s.toList\nerror: Pipeline/Generated.lean:86:2: No goals to be solved\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_valid_shape",
+      "informal": "For the supported -c A-B invocation, one output line is produced for each input line and each is the corresponding cut result, with successful exit status."
+    },
+    {
+      "name": "cutLine_length_bound",
+      "informal": "Selecting a character range cannot produce a line longer than the input line."
+    },
+    {
+      "name": "cutLine_content_preserved",
+      "informal": "Every character appearing in a cut output line also appears in the corresponding input line."
+    },
+    {
+      "name": "run_exit_code_on_valid_input",
+      "informal": "A valid supported invocation returns exit status zero."
+    }
+  ]
+}

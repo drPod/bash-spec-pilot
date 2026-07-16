@@ -1,0 +1,32 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (154ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:44:18: This simp argument is unused:\n  chunks\n\nHint: Omit it from the simp argument list.\n  simp [foldLine,\u0335 \u0335c\u0335h\u0335u\u0335n\u0335k\u0335s\u0335]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Pipeline/Generated.lean:53:2: Tactic `rfl` failed: The left-hand side\n  (run args [line]).fst\nis not definitionally equal to the right-hand side\n  foldLine (widthOf args) line\n\nargs : List String\nline : String\n\u22a2 (run args [line]).fst = foldLine (widthOf args) line\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The output consists exactly of the input lines folded independently and concatenated in input order."
+    },
+    {
+      "name": "run_exit_code",
+      "informal": "A successful processing of the input returns exit code zero."
+    },
+    {
+      "name": "foldLine_empty",
+      "informal": "An empty input line is preserved as an empty output line."
+    },
+    {
+      "name": "run_cons_lines",
+      "informal": "Folding preserves line order and processes each input line independently."
+    },
+    {
+      "name": "run_single_line",
+      "informal": "For one input line, the output is precisely that line split into width-bounded chunks."
+    },
+    {
+      "name": "width_option_is_used",
+      "informal": "The -w WIDTH option supplies the decimal width used by the model."
+    }
+  ]
+}

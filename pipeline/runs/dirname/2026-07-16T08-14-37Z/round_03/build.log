@@ -1,0 +1,13 @@
+⚠ [2/9] Built Pipeline.Generated (162ms)
+warning: Pipeline/Generated.lean:39:2: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:41:14: Variable name `stdin` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Pipeline/Generated.lean:60:25: `String.mk` has been deprecated: Use `String.ofList` instead
+✔ [3/9] Built Pipeline (128ms)
+✔ [5/9] Built Pipeline.Generated:c.o (57ms)
+✔ [7/9] Built Main (136ms)
+✔ [9/9] Built model:exe (79ms)
+Build completed successfully (9 jobs).

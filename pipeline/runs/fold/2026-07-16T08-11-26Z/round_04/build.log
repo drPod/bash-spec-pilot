@@ -1,0 +1,37 @@
+✖ [2/9] Building Pipeline.Generated (176ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+error: Pipeline/Generated.lean:68:14: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.67 ∈ ?m.68 ++ ?m.69
+in the target expression
+  c ∈ List.take w (a :: xs) :: chunkGo w (List.drop w (a :: xs)) n
+
+case succ.cons
+w n : Nat
+ih : ∀ (xs c : List Char), c ∈ chunkGo w xs n → c.length ≤ w
+c : List Char
+a : Char
+xs : List Char
+hc : c ∈ List.take w (a :: xs) :: chunkGo w (List.drop w (a :: xs)) n
+⊢ c.length ≤ w
+error: Pipeline/Generated.lean:85:6: unsolved goals
+case pos
+w : Nat
+s : String
+h : ¬s.toList = []
+c : List Char
+hc : c ∈ chunks w s.toList
+ht : String.ofList c ∈ if False then [""] else List.map String.ofList (chunks w s.toList)
+hw : w = 0
+⊢ c ∈ chunkGo 0 s.toList (s.toList.length + 1)
+error: Pipeline/Generated.lean:87:10: `simp` made no progress
+warning: Pipeline/Generated.lean:85:14: This simp argument is unused:
+  chunks
+
+Hint: Omit it from the simp argument list.
+  simp [̵c̵h̵u̵n̵k̵s̵,̵ ̵h̵w̵]̵[̲h̲w̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

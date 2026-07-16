@@ -1,0 +1,173 @@
+{
+  "failures": [
+    "kernel accepted, but the model diverged from the real program on 26/200 random inputs"
+  ],
+  "mismatches": [
+    {
+      "args": [
+        "/usr/lib"
+      ],
+      "stdin": [],
+      "model_out": [
+        "usr"
+      ],
+      "oracle_out": [
+        "/usr"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "/usr/lib"
+      ],
+      "stdin": [],
+      "model_out": [
+        "usr"
+      ],
+      "oracle_out": [
+        "/usr"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "/usr/lib"
+      ],
+      "stdin": [],
+      "model_out": [
+        "usr"
+      ],
+      "oracle_out": [
+        "/usr"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "/usr/lib"
+      ],
+      "stdin": [],
+      "model_out": [
+        "usr"
+      ],
+      "oracle_out": [
+        "/usr"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "a/b/c"
+      ],
+      "stdin": [],
+      "model_out": [
+        "ab"
+      ],
+      "oracle_out": [
+        "a/b"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    }
+  ],
+  "spec_theorems": [
+    {
+      "name": "run_single_operand",
+      "informal": "With exactly one operand, the utility returns that operand's documented dirname result and succeeds."
+    },
+    {
+      "name": "output_has_one_line",
+      "informal": "For one operand, successful execution produces exactly one output line."
+    },
+    {
+      "name": "output_length_bound",
+      "informal": "For one operand, the output contains no more than one line."
+    },
+    {
+      "name": "output_is_documented_parent",
+      "informal": "The output line is the pathname computed by the dirname parent-directory algorithm."
+    },
+    {
+      "name": "successful_exit_code",
+      "informal": "Processing one operand successfully returns exit status zero."
+    },
+    {
+      "name": "stdin_is_ignored",
+      "informal": "The utility does not depend on stdin."
+    }
+  ]
+}

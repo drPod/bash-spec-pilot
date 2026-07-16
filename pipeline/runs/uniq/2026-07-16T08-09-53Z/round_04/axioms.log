@@ -1,0 +1,7 @@
+'Pipeline.Generated.run' does not depend on any axioms
+'Pipeline.Generated.run_output_shape' does not depend on any axioms
+'Pipeline.Generated.run_exit_success' does not depend on any axioms
+'Pipeline.Generated.uniq_length_bound' depends on axioms: [propext]
+'Pipeline.Generated.uniq_content_preservation' depends on axioms: [propext]
+'Pipeline.Generated.good_uniq_output' depends on axioms: [propext]
+'Pipeline.Generated.uniq_idempotent' depends on axioms: [propext]
