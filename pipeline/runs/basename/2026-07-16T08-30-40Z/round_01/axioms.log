@@ -1,0 +1,7 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_stdout_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_exit_success' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_stdin_not_used' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.basename_chars_empty_is_empty' depends on axioms: [propext]
+'Pipeline.Generated.basename_chars_all_slashes_nonempty' depends on axioms: [propext]
+'Pipeline.Generated.basename_chars_nonempty_not_all' depends on axioms: [propext]

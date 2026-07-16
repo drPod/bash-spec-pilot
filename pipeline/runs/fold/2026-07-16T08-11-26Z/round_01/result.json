@@ -1,0 +1,24 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (149ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nerror: Pipeline/Generated.lean:4:28: failed to synthesize instance of type class\n  HSub UInt32 Nat Nat\n\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_spec",
+      "informal": "The standard output is obtained by folding every input line in order, and the exit code is zero."
+    },
+    {
+      "name": "run_exit_code",
+      "informal": "All inputs in the modeled successful scope are processed successfully and return exit code zero."
+    },
+    {
+      "name": "run_empty_stdin",
+      "informal": "With no input lines, folding produces no output lines and returns success."
+    },
+    {
+      "name": "run_cons_lines",
+      "informal": "The output for a sequence of input lines is the concatenation of the folded output for its first line and the output for the remaining lines."
+    }
+  ]
+}

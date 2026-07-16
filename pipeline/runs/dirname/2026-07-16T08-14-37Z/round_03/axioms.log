@@ -1,0 +1,7 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_single_operand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.output_has_one_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.output_length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.output_is_documented_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.successful_exit_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.stdin_is_ignored' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_one_output",
+      "informal": "For exactly one pathname operand, basename writes exactly one output line containing the documented resulting pathname component."
+    },
+    {
+      "name": "run_one_output_length",
+      "informal": "For exactly one pathname operand, successful basename output consists of exactly one line."
+    },
+    {
+      "name": "run_one_exit_success",
+      "informal": "A basename invocation with exactly one operand completes successfully with exit code zero."
+    },
+    {
+      "name": "run_one_stdin_ignored",
+      "informal": "Basename does not use standard input, so changing stdin does not change its result."
+    },
+    {
+      "name": "output_length_bound",
+      "informal": "The modeled utility produces at most one output line for every argument list."
+    }
+  ]
+}

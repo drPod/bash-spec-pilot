@@ -1,0 +1,6 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_stdout_content' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_exit_success' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_stdout_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_one_stdin_ignored' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.dirname_no_slash' depends on axioms: [propext, Classical.choice, Quot.sound]

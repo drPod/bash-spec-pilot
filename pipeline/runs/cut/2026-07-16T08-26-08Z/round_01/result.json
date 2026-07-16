@@ -1,0 +1,32 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (194ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:39:30: `String.mk` has been deprecated: Use `String.ofList` instead\nwarning: Pipeline/Generated.lean:39:63: `String.mk` has been deprecated: Use `String.ofList` instead\nwarning: Pipeline/Generated.lean:60:54: `String.mk` has been deprecated: Use `String.ofList` instead\nwarning: Pipeline/Generated.lean:77:2: `String.mk` has been deprecated: Use `String.ofList` instead\nerror: Pipeline/Generated.lean:89:15: Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  LE.le\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic\n\ncase zero.nil\n\u03b1 : Type\n\u22a2 (takeN 0 []).length \u2264 (takeN 0 []).length\nerror: Pipeline/Generated.lean:90:21: Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  LE.le\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic\n\ncase zero.cons\n\u03b1 : Type\nx : \u03b1\nxs : List \u03b1\n\u22a2 (takeN 0 (x :: xs)).length \u2264 (takeN 0 (x :: xs)).length\nerror: Pipeline/Generated.lean:139:2: No goals to be solved\nerror: Pipeline/Generated.lean:146:2: No goals to be solved\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "selected_chars_are_closed_range",
+      "informal": "For a closed character range A-B, the selected characters of a line are exactly the input characters after dropping the first A-1 characters and taking B-A+1 characters."
+    },
+    {
+      "name": "selected_length_le_range_width",
+      "informal": "For every input line, the number of emitted characters is at most the width of the requested closed range."
+    },
+    {
+      "name": "selected_empty_when_short",
+      "informal": "If an input line has no character at position A, selecting A-B emits no characters for that line."
+    },
+    {
+      "name": "run_valid_stdout",
+      "informal": "For valid -c A-B arguments, standard output consists of applying the per-line character selection to every input line."
+    },
+    {
+      "name": "run_valid_exit",
+      "informal": "For valid -c A-B arguments read from standard input, the utility reports successful completion with exit status 0."
+    },
+    {
+      "name": "run_valid_line_count",
+      "informal": "For valid -c A-B arguments, the number of output lines is the same as the number of input lines."
+    }
+  ]
+}

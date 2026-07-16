@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (211ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:19:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nwarning: Pipeline/Generated.lean:29:22: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nerror: Pipeline/Generated.lean:71:8: Type mismatch\n  Or.inr ht\nhas type\n  ?m.85 \u2228 s \u2208 y :: ys\nbut is expected to have type\n  s \u2208 x :: y :: ys\nerror: Pipeline/Generated.lean:76:12: Type mismatch\n  Or.inl hx\nhas type\n  s = x \u2228 ?m.127\nbut is expected to have type\n  s \u2208 x :: y :: ys\nerror: Pipeline/Generated.lean:78:12: Type mismatch\n  Or.inr (uniqLines_mem_input s (y :: ys) ht)\nhas type\n  ?m.137 \u2228 s \u2208 y :: ys\nbut is expected to have type\n  s \u2208 x :: y :: ys\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_exit_success",
+      "informal": "For every invocation in this modeled no-option scope, `uniq` completes successfully with exit status 0."
+    },
+    {
+      "name": "run_stdout_noAdjacent",
+      "informal": "The stdout produced by the model contains no adjacent duplicate lines."
+    },
+    {
+      "name": "run_output_length_le_input",
+      "informal": "Filtering adjacent duplicates never produces more output lines than input lines."
+    },
+    {
+      "name": "run_output_lines_from_input",
+      "informal": "Every line written to stdout is copied from some line of the input."
+    },
+    {
+      "name": "run_output_idempotent",
+      "informal": "Once adjacent duplicate runs have been collapsed, applying the same collapse again leaves the output unchanged."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+'Pipeline.Generated.run' does not depend on any axioms
+'Pipeline.Generated.run_stdout_eq_count' does not depend on any axioms
+'Pipeline.Generated.run_exit_success' does not depend on any axioms
+'Pipeline.Generated.run_stdout_has_one_line' does not depend on any axioms
+'Pipeline.Generated.run_independent_of_args' does not depend on any axioms
+'Pipeline.Generated.run_append_counts_all_input_lines' depends on axioms: [propext]

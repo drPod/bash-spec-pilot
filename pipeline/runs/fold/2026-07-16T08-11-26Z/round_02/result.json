@@ -1,0 +1,441 @@
+{
+  "failures": [
+    "kernel accepted, but the model diverged from the real program on 53/200 random inputs"
+  ],
+  "mismatches": [
+    {
+      "args": [
+        "-w",
+        "7"
+      ],
+      "stdin": [
+        "alpha",
+        "",
+        "the quick brown fox jumps over",
+        "x",
+        "42",
+        ""
+      ],
+      "model_out": [
+        "alpha",
+        "the qui",
+        "ck brow",
+        "n fox j",
+        "umps ov",
+        "er",
+        "x",
+        "42"
+      ],
+      "oracle_out": [
+        "alpha",
+        "",
+        "the qui",
+        "ck brow",
+        "n fox j",
+        "umps ov",
+        "er",
+        "x",
+        "42",
+        ""
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "8"
+      ],
+      "stdin": [
+        "z",
+        "gamma",
+        "the quick brown fox jumps over",
+        "beta",
+        ""
+      ],
+      "model_out": [
+        "z",
+        "gamma",
+        "the quic",
+        "k brown ",
+        "fox jump",
+        "s over",
+        "beta"
+      ],
+      "oracle_out": [
+        "z",
+        "gamma",
+        "the quic",
+        "k brown ",
+        "fox jump",
+        "s over",
+        "beta",
+        ""
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "5"
+      ],
+      "stdin": [
+        "beta",
+        "z",
+        "beta",
+        "",
+        "beta",
+        "beta",
+        "beta",
+        "  padded  "
+      ],
+      "model_out": [
+        "beta",
+        "z",
+        "beta",
+        "beta",
+        "beta",
+        "beta",
+        "  pad",
+        "ded  "
+      ],
+      "oracle_out": [
+        "beta",
+        "z",
+        "beta",
+        "",
+        "beta",
+        "beta",
+        "beta",
+        "  pad",
+        "ded  "
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "4"
+      ],
+      "stdin": [
+        "x",
+        "x",
+        "the quick brown fox jumps over",
+        "",
+        "alpha",
+        "the quick brown fox jumps over",
+        "alpha",
+        "beta"
+      ],
+      "model_out": [
+        "x",
+        "x",
+        "the ",
+        "quic",
+        "k br",
+        "own ",
+        "fox ",
+        "jump",
+        "s ov",
+        "er",
+        "alph",
+        "a",
+        "the ",
+        "quic",
+        "k br",
+        "own ",
+        "fox ",
+        "jump",
+        "s ov",
+        "er",
+        "alph",
+        "a",
+        "beta"
+      ],
+      "oracle_out": [
+        "x",
+        "x",
+        "the ",
+        "quic",
+        "k br",
+        "own ",
+        "fox ",
+        "jump",
+        "s ov",
+        "er",
+        "",
+        "alph",
+        "a",
+        "the ",
+        "quic",
+        "k br",
+        "own ",
+        "fox ",
+        "jump",
+        "s ov",
+        "er",
+        "alph",
+        "a",
+        "beta"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "3"
+      ],
+      "stdin": [
+        "x",
+        "beta",
+        "beta",
+        "a b c",
+        "the quick brown fox jumps over",
+        "x",
+        "beta",
+        ""
+      ],
+      "model_out": [
+        "x",
+        "bet",
+        "a",
+        "bet",
+        "a",
+        "a b",
+        " c",
+        "the",
+        " qu",
+        "ick",
+        " br",
+        "own",
+        " fo",
+        "x j",
+        "ump",
+        "s o",
+        "ver",
+        "x",
+        "bet",
+        "a"
+      ],
+      "oracle_out": [
+        "x",
+        "bet",
+        "a",
+        "bet",
+        "a",
+        "a b",
+        " c",
+        "the",
+        " qu",
+        "ick",
+        " br",
+        "own",
+        " fo",
+        "x j",
+        "ump",
+        "s o",
+        "ver",
+        "x",
+        "bet",
+        "a",
+        ""
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "5"
+      ],
+      "stdin": [
+        "beta",
+        "z",
+        "42",
+        "a b c",
+        "z",
+        "gamma",
+        ""
+      ],
+      "model_out": [
+        "beta",
+        "z",
+        "42",
+        "a b c",
+        "z",
+        "gamma"
+      ],
+      "oracle_out": [
+        "beta",
+        "z",
+        "42",
+        "a b c",
+        "z",
+        "gamma",
+        ""
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "12"
+      ],
+      "stdin": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick brown fox jumps over",
+        "",
+        "the quick brown fox jumps over",
+        "gamma",
+        "gamma"
+      ],
+      "model_out": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick br",
+        "own fox jump",
+        "s over",
+        "the quick br",
+        "own fox jump",
+        "s over",
+        "gamma",
+        "gamma"
+      ],
+      "oracle_out": [
+        "  padded  ",
+        "42",
+        "beta",
+        "the quick br",
+        "own fox jump",
+        "s over",
+        "",
+        "the quick br",
+        "own fox jump",
+        "s over",
+        "gamma",
+        "gamma"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "11"
+      ],
+      "stdin": [
+        "z",
+        "",
+        "x",
+        "x",
+        "  padded  ",
+        "  padded  "
+      ],
+      "model_out": [
+        "z",
+        "x",
+        "x",
+        "  padded  ",
+        "  padded  "
+      ],
+      "oracle_out": [
+        "z",
+        "",
+        "x",
+        "x",
+        "  padded  ",
+        "  padded  "
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "10"
+      ],
+      "stdin": [
+        "gamma",
+        "gamma",
+        "alpha",
+        "beta",
+        ""
+      ],
+      "model_out": [
+        "gamma",
+        "gamma",
+        "alpha",
+        "beta"
+      ],
+      "oracle_out": [
+        "gamma",
+        "gamma",
+        "alpha",
+        "beta",
+        ""
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    },
+    {
+      "args": [
+        "-w",
+        "9"
+      ],
+      "stdin": [
+        "z",
+        "beta",
+        "",
+        "beta",
+        "gamma",
+        "beta"
+      ],
+      "model_out": [
+        "z",
+        "beta",
+        "beta",
+        "gamma",
+        "beta"
+      ],
+      "oracle_out": [
+        "z",
+        "beta",
+        "",
+        "beta",
+        "gamma",
+        "beta"
+      ],
+      "model_code": 0,
+      "oracle_code": 0
+    }
+  ],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The output characters preserve input line order and consist of the independently folded segments of each input line."
+    },
+    {
+      "name": "run_exit_code",
+      "informal": "When the modeled input is processed successfully, fold returns exit status zero."
+    },
+    {
+      "name": "run_empty_stdin",
+      "informal": "With no input lines, fold produces no output lines and exits successfully."
+    },
+    {
+      "name": "run_cons_lines",
+      "informal": "The output for a first input line followed by remaining lines is the folded first line followed by the remaining folded output."
+    },
+    {
+      "name": "width_option_is_used",
+      "informal": "For the supported -w WIDTH invocation, the specified decimal width is used as the folding width."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_stdout_eq_uniqLines",
+      "informal": "The stdout produced by the model is precisely the input lines with each adjacent run of equal lines collapsed to one line."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "In the no-option standard-input/standard-output scope, the utility completes successfully with exit status 0."
+    },
+    {
+      "name": "run_stdout_noAdjacent",
+      "informal": "After processing, the output contains no equal neighboring lines."
+    },
+    {
+      "name": "run_output_length_le_input",
+      "informal": "Filtering adjacent duplicates never increases the number of output lines."
+    },
+    {
+      "name": "run_output_lines_from_input",
+      "informal": "Every line written to output is one of the original input lines."
+    },
+    {
+      "name": "run_output_idempotent",
+      "informal": "Applying the same adjacent-duplicate collapse to the output again leaves it unchanged."
+    }
+  ]
+}

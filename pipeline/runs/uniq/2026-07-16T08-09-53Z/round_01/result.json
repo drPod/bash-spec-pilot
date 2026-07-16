@@ -1,0 +1,28 @@
+{
+  "failures": [
+    "Lean build failed:\n\u2716 [2/9] Building Pipeline.Generated (164ms)\ntrace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json\nwarning: Pipeline/Generated.lean:9:9: Variable name `args` is not explicitly referenced.\n\nThe binding can be removed (if unused) or named `_` (if used implicitly).\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nerror: Pipeline/Generated.lean:24:6: Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  LE.le\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic\n\ncase nil\n\u22a2 (uniq []).length \u2264 (uniq []).length\nerror: Pipeline/Generated.lean:28:10: Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  LE.le\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic\n\ncase cons.nil\nx : String\nih : (uniq []).length \u2264 [].length\n\u22a2 (uniq [x]).length \u2264 (uniq [x]).length\nerror: Pipeline/Generated.lean:45:10: unsolved goals\ncase pos\na x y : String\nys : List String\nih : a \u2208 uniq (y :: ys) \u2192 a \u2208 y :: ys\nh : x = y\n\u22a2 a \u2208 uniq (y :: ys) \u2192 a = y \u2228 a \u2208 ys\nerror: Pipeline/Generated.lean:46:10: unsolved goals\ncase neg\na x y : String\nys : List String\nih : a \u2208 uniq (y :: ys) \u2192 a \u2208 y :: ys\nh : \u00acx = y\n\u22a2 a = x \u2228 a \u2208 uniq (y :: ys) \u2192 a = x \u2228 a = y \u2228 a \u2208 ys\nwarning: Pipeline/Generated.lean:45:27: This simp argument is unused:\n  ih\n\nHint: Omit it from the simp argument list.\n  simp [uniq, h,\u0335 \u0335i\u0335h\u0335]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: Pipeline/Generated.lean:46:27: This simp argument is unused:\n  ih\n\nHint: Omit it from the simp argument list.\n  simp [uniq, h,\u0335 \u0335i\u0335h\u0335]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nerror: Pipeline/Generated.lean:65:16: unsolved goals\ncase pos\nx y : String\nhxy : \u00acx = y\nzs : List String\nih : uniq (uniq (y :: y :: zs)) = uniq (y :: y :: zs)\n\u22a2 uniq (x :: uniq (y :: zs)) = x :: uniq (y :: zs)\nerror: Pipeline/Generated.lean:67:16: unsolved goals\ncase neg\nx y : String\nhxy : \u00acx = y\nz : String\nzs : List String\nih : uniq (uniq (y :: z :: zs)) = uniq (y :: z :: zs)\nhyz : \u00acy = z\n\u22a2 uniq (y :: uniq (z :: zs)) = y :: uniq (z :: zs)\nerror: Lean exited with code 1\nSome required targets logged failures:\n- Pipeline.Generated\nerror: build failed\n"
+  ],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "The utility writes exactly the adjacent-duplicate-collapsed input lines to standard output."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "Successful processing returns exit status zero."
+    },
+    {
+      "name": "uniq_length_bound",
+      "informal": "Collapsing adjacent duplicate lines never increases the number of output lines."
+    },
+    {
+      "name": "uniq_content_preservation",
+      "informal": "Every output line is an occurrence of a line from the input."
+    },
+    {
+      "name": "uniq_idempotent",
+      "informal": "Applying adjacent-duplicate collapsing a second time does not change the output."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_valid_shape",
+      "informal": "For the supported -c invocation, the output is the input line list mapped through the character-range transformation and the exit code is zero."
+    },
+    {
+      "name": "run_preserves_line_count",
+      "informal": "The utility emits exactly one output line for every input line."
+    },
+    {
+      "name": "cutSpec_length_bound",
+      "informal": "Selecting a closed character range cannot produce a line longer than its input line."
+    },
+    {
+      "name": "cutSpec_content_preserved",
+      "informal": "Every character appearing in a selected output line also appeared in the corresponding input line."
+    },
+    {
+      "name": "run_exit_code_on_valid_input",
+      "informal": "A supported -c invocation over stdin returns exit status zero."
+    }
+  ]
+}

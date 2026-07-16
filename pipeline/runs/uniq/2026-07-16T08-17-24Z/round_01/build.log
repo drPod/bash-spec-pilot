@@ -1,0 +1,32 @@
+✖ [2/9] Building Pipeline.Generated (211ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:19:9: Variable name `args` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Pipeline/Generated.lean:29:22: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+error: Pipeline/Generated.lean:71:8: Type mismatch
+  Or.inr ht
+has type
+  ?m.85 ∨ s ∈ y :: ys
+but is expected to have type
+  s ∈ x :: y :: ys
+error: Pipeline/Generated.lean:76:12: Type mismatch
+  Or.inl hx
+has type
+  s = x ∨ ?m.127
+but is expected to have type
+  s ∈ x :: y :: ys
+error: Pipeline/Generated.lean:78:12: Type mismatch
+  Or.inr (uniqLines_mem_input s (y :: ys) ht)
+has type
+  ?m.137 ∨ s ∈ y :: ys
+but is expected to have type
+  s ∈ x :: y :: ys
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

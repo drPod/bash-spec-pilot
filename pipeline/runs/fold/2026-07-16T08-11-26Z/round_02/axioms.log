@@ -1,0 +1,6 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_output_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_exit_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_empty_stdin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_cons_lines' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.width_option_is_used' depends on axioms: [propext, Classical.choice, Quot.sound]

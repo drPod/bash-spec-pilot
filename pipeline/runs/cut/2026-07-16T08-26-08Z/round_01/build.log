@@ -1,0 +1,30 @@
+✖ [2/9] Building Pipeline.Generated (194ms)
+trace: .> LEAN_PATH=/Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean /Users/darshpoddar/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean /Users/darshpoddar/Coding/formal-verification/pipeline/lean/Pipeline/Generated.lean -o /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.olean -i /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/lib/lean/Pipeline/Generated.ilean -c /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.c --setup /Users/darshpoddar/Coding/formal-verification/pipeline/lean/.lake/build/ir/Pipeline/Generated.setup.json --json
+warning: Pipeline/Generated.lean:39:30: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:39:63: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:60:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: Pipeline/Generated.lean:77:2: `String.mk` has been deprecated: Use `String.ofList` instead
+error: Pipeline/Generated.lean:89:15: Tactic `rfl` failed: No `[refl]` lemma registered for relation
+  LE.le
+
+Hint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic
+
+case zero.nil
+α : Type
+⊢ (takeN 0 []).length ≤ (takeN 0 []).length
+error: Pipeline/Generated.lean:90:21: Tactic `rfl` failed: No `[refl]` lemma registered for relation
+  LE.le
+
+Hint: Add the `[refl]` attribute to reflexivity lemmas for `LE.le` to use this tactic
+
+case zero.cons
+α : Type
+x : α
+xs : List α
+⊢ (takeN 0 (x :: xs)).length ≤ (takeN 0 (x :: xs)).length
+error: Pipeline/Generated.lean:139:2: No goals to be solved
+error: Pipeline/Generated.lean:146:2: No goals to be solved
+error: Lean exited with code 1
+Some required targets logged failures:
+- Pipeline.Generated
+error: build failed

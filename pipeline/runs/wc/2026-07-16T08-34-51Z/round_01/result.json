@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_stdout_eq_count",
+      "informal": "With the line-count option over standard input, stdout is exactly one decimal field: the number of input lines."
+    },
+    {
+      "name": "run_exit_success",
+      "informal": "For this successful standard-input line-counting mode, the utility exits with status 0."
+    },
+    {
+      "name": "run_stdout_has_one_line",
+      "informal": "Because no filename or totals are written in this scope, the utility emits exactly one output line."
+    },
+    {
+      "name": "run_independent_of_args",
+      "informal": "In the modeled scope, only standard input is read and no file name is written, so the result is independent of argv details."
+    },
+    {
+      "name": "run_append_counts_all_input_lines",
+      "informal": "The reported line count for combined standard input is the sum of the counts of the input parts."
+    }
+  ]
+}

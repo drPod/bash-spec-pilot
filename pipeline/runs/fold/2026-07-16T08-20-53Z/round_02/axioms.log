@@ -1,0 +1,5 @@
+'Pipeline.Generated.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.foldChars_segments_length_le' depends on axioms: [propext]
+'Pipeline.Generated.foldChars_content_preserved' does not depend on any axioms
+'Pipeline.Generated.run_exit_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pipeline.Generated.run_stdout_is_folded_stdin' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,26 @@
+{
+  "failures": [],
+  "mismatches": [],
+  "spec_theorems": [
+    {
+      "name": "run_output_shape",
+      "informal": "With the -l slice, execution produces exactly one stdout line."
+    },
+    {
+      "name": "run_output_bound",
+      "informal": "The stdout output has length at most one line."
+    },
+    {
+      "name": "run_output_content",
+      "informal": "The sole output line is the decimal representation of the number of input lines."
+    },
+    {
+      "name": "run_exit_code",
+      "informal": "Successful completion returns exit code zero."
+    },
+    {
+      "name": "run_idempotent_empty_append",
+      "informal": "Appending no input lines does not change the result."
+    }
+  ]
+}
