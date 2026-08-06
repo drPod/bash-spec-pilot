@@ -1,5 +1,31 @@
 # Does the leakage actually inflate the score?
 
+> ## ⚠️ The causal claim on this page is WITHDRAWN
+>
+> This page asked whether BashBench 2026's self-leakage inflates its headline score, and answered
+> yes: 99.4% on leaked tasks vs 21.9% on clean ones, holding up under difficulty-matching and
+> prompt-deduplication. **That interpretation is wrong**, and `benchmark-validity.md` shows why:
+> the benchmark's `func_pass` **does not depend on the generated code at all**. The harness writes
+> the candidate to `solution.sh` and then runs a test script that never reads it.
+>
+> So every number below is a property of the benchmark's *test scripts*, not of the model. The
+> leaked/clean gap says test scripts for leaked tasks exit 0 at 99.4% and test scripts for clean
+> tasks exit 0 at 21.9% — most likely because the clean tasks are much more complex (3.5× longer
+> reference solutions, 8× the pipes, as measured below) and their generated tests reach for
+> external tools that are absent from the bare sandbox. My difficulty-matching used
+> reference-solution complexity as a proxy, which does not control for test-script fragility, so
+> it did not rescue the claim.
+>
+> **What survives:** the leakage itself (91.7% byte-identical, `bashbench-2026-audit.md`) — that
+> is a hash match and is unaffected. The recitation signature below — that is measured on
+> generated text, not on the harness, and also unaffected. What dies is "the leakage inflates the
+> score," because on this benchmark *nothing* the model does can change the score.
+>
+> The rest of this page is kept as recorded, since the measurements are correct as measurements
+> and the one useful thing they show is that **the clean subset is largely untestable**.
+
+---
+
 `bashbench-2026-audit.md` established that **709 of BashBench 2026's 773 scored single-line
 benchmark tasks (91.7%) appear byte-identically in the SFT file shipped in its own release**, against
 an explicit claim of being "completely isolated from all training data."
@@ -99,15 +125,26 @@ The signature shows the training answers are in there; the pass-rate gap is what
 
 ## What this means
 
-The reported 93.01% FuncRate is not an estimate of how well BashCoder-R1 writes Bash. It is
-approximately a weighted average of ~99% recall on the 91.7% of tasks it was trained on and ~29%
-capability on the remainder. **The generalizing performance implied by these numbers is roughly
-30%, not 93%** — taking the most conservative (deduplicated, difficulty-matched) estimate.
+**Superseded — see the banner at the top.** What I concluded here was that the reported 93.01%
+FuncRate is a weighted average of ~99% recall on the memorized 91.7% and ~29% capability on the
+rest, implying real performance near 30%. That inference required `func_pass` to be a function of
+the generated code, and it is not.
 
-That reframes the paper's headline comparison against baselines, none of which were trained on this
-SFT set, so none of which get the recall term.
+The correct reading of the split: **the 64 "clean" records are largely untestable** — their test
+scripts fail in the sandbox 78% of the time on their own. That is worth knowing if anyone tries to
+salvage a held-out subset from this benchmark, and it is the opposite of a capability estimate.
 
-## Open question: the multi-line half
+## Open question: the multi-line half — RESOLVED
+
+**Resolved in `benchmark-validity.md`, and neither reading below was right.** The multi-line half
+is genuinely held out — a near-duplicate scan (`data/neardup.py`) puts its mean
+nearest-training-neighbour similarity at 0.135, against 0.118 for same-generator training items
+compared to each other and 1.000 for the known-leaked control, so reading 1's premise holds and
+reading 2 is unsupported. But its 93.9% is not capability either: **every model tested scores
+93.3–94.1% once its code is extractable**, because the multi-line tests are candidate-independent
+in exactly the same way. The section below is kept for the record.
+
+### (as recorded before the resolution)
 
 The 179 multi-line tasks are clean of the released script-side SFT and GRPO sets, and BashCoder-R1
 scores **93.9%** on them (168/179). That does not fit a simple memorization story and is the
