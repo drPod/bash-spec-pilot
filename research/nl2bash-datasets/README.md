@@ -36,14 +36,29 @@ completely (`AnishJoshi/nl2bash-custom` looked independent, and is actually 60% 
 
 ## The four things worth acting on
 
-**0. Half the Bash benchmarks in common use are not held-out data.** Measured against the eight
-corpora most HuggingFace Bash datasets descend from, contamination tracks *how the benchmark was
-built*: benchmarks assembled by sampling an existing NL→command corpus are contaminated by
-construction (`InterCode-Corrections` 100%, `intercode-nl2bash-curated` 64%), while benchmarks
-authored against an execution environment are clean (Terminal-Bench, LHTB, `bashbench2`,
-`posix-sdc`, all 0%). A verification success rate reported on the InterCode/NL2Bash line measures
-memorization as much as capability. Details and the second failure mode — a benchmark leaking
-against its *own* released training data — in `contamination.md`.
+**0. Half the Bash benchmarks in common use are not held-out data, and which half is predictable
+from how they were built.** Measured against the union of the seven corpora most HuggingFace Bash
+datasets descend from (78,441 unique commands):
+
+| | gold commands | in the union |
+|---|---|---|
+| `westenfelder/InterCode-Corrections` | 192 | **100.0%** |
+| `epinnock/intercode-nl2bash-curated` | 196 | **63.8%** |
+| *every generic NL→command corpus, as a baseline* | | *10.4 – 100%* |
+| `ia03/terminal-bench` (oracle solutions) | 13,855 | **0.2%** |
+| `tiararodney/posix-sdc` | 5,597 | **0.1%** |
+
+Benchmarks assembled by sampling an existing corpus are contaminated *by construction* — the
+InterCode line was drawn from NL2Bash, so filtering cannot repair it. Benchmarks authored against an
+execution environment come out ~500× cleaner, because their commands are bound to concrete
+environment state and cannot coincide with generic one-liners. A verification success rate reported
+on the InterCode/NL2Bash line measures memorization as much as capability.
+
+The controls matter here: an earlier draft got these same 0% figures *for the wrong reason* (it had
+compared English task descriptions against command hashes) and had to be withdrawn and re-measured
+from actual oracle solutions. `contamination.md` documents that, the positive/baseline controls that
+now back the numbers, the two benchmarks that ship no gold command and so cannot be audited at all,
+and the second failure mode — a benchmark leaking against its *own* released training data.
 
 **1. BashBench (BashCoder-R1, arXiv 2606.27733, 2026) looked like the best fit — use only its
 multi-line half.** 952 tasks split **773 single-line / 179 multi-line**, each with an executable
