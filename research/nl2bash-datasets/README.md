@@ -8,6 +8,7 @@ are duplicates of each other.
 |---|---|
 | `rows-to-add.csv` | **The deliverable.** 45 rows in the sheet's exact column order (`Name / # Single Line / # Multi Line / Includes Eval? / Available? / Notes`) — paste straight in. |
 | `duplicates.md` | Measured duplicate clusters, corrections to two rows already on the sheet, and what each corpus is actually made of. |
+| `contamination.md` | Which benchmarks are actually held out, measured against the public training corpora. |
 | `bashbench-2026-audit.md` | Why the most promising benchmark's single-line half can't be used as held-out data. |
 | `data/` | Raw measurement JSON and the scripts, so any number here can be re-derived. |
 
@@ -33,7 +34,16 @@ picks the wrong column often enough that every overlap figure here was re-checke
 values. Four datasets had to be re-measured after this check, and it flipped one conclusion
 completely (`AnishJoshi/nl2bash-custom` looked independent, and is actually 60% ⊆ NL2Bash).
 
-## The three things worth acting on
+## The four things worth acting on
+
+**0. Half the Bash benchmarks in common use are not held-out data.** Measured against the eight
+corpora most HuggingFace Bash datasets descend from, contamination tracks *how the benchmark was
+built*: benchmarks assembled by sampling an existing NL→command corpus are contaminated by
+construction (`InterCode-Corrections` 100%, `intercode-nl2bash-curated` 64%), while benchmarks
+authored against an execution environment are clean (Terminal-Bench, LHTB, `bashbench2`,
+`posix-sdc`, all 0%). A verification success rate reported on the InterCode/NL2Bash line measures
+memorization as much as capability. Details and the second failure mode — a benchmark leaking
+against its *own* released training data — in `contamination.md`.
 
 **1. BashBench (BashCoder-R1, arXiv 2606.27733, 2026) looked like the best fit — use only its
 multi-line half.** 952 tasks split **773 single-line / 179 multi-line**, each with an executable
