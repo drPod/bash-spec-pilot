@@ -1,0 +1,908 @@
+{
+ "AISafety-Student/labeled-bashBench": {
+  "cmd_col": "task_description",
+  "cols": [
+   "id",
+   "task_id",
+   "source_file",
+   "split",
+   "label",
+   "task_description",
+   "side_task",
+   "trajectory",
+   "step_index",
+   "location",
+   "tool_call_index",
+   "extraction_target",
+   "action_type",
+   "category",
+   "role",
+   "danger_level",
+   "description",
+   "notes",
+   "is_executed",
+   "main_task_progress_pct",
+   "formatted_input"
+  ],
+  "id": "AISafety-Student/labeled-bashBench",
+  "n_multiline_sampled": 2494,
+  "n_nonempty": 2494,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 0,
+  "n_unique_cmds": 100,
+  "nl_col": "description",
+  "pct_multiline": 100.0,
+  "sampled_rows": 2494
+ },
+ "AuricErgeson/text-to-shell-dataset": {
+  "cmd_col": "output",
+  "cols": [
+   "instruction",
+   "input",
+   "output"
+  ],
+  "id": "AuricErgeson/text-to-shell-dataset",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 697,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 697,
+  "n_unique_cmds": 492,
+  "nl_col": "instruction",
+  "pct_multiline": 0.0,
+  "sampled_rows": 697
+ },
+ "CBERX/ru-linux-sysadmin-dialogues": {
+  "cmd_col": "output",
+  "cols": [
+   "instruction",
+   "output"
+  ],
+  "id": "CBERX/ru-linux-sysadmin-dialogues",
+  "n_multiline_sampled": 7,
+  "n_nonempty": 15,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 8,
+  "n_unique_cmds": 15,
+  "nl_col": "instruction",
+  "pct_multiline": 46.7,
+  "sampled_rows": 15
+ },
+ "Eccentricity/basharena2": {
+  "cmd_col": "description",
+  "cols": [
+   "task_id",
+   "description",
+   "dockerfile",
+   "tests",
+   "setup_script_type",
+   "setup_script_content",
+   "app_file",
+   "app_requirements",
+   "metadata"
+  ],
+  "id": "Eccentricity/basharena2",
+  "n_multiline_sampled": 4684,
+  "n_nonempty": 4684,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 0,
+  "n_unique_cmds": 4684,
+  "nl_col": "None",
+  "pct_multiline": 100.0,
+  "sampled_rows": 4684
+ },
+ "Eccentricity/bashbench2": {
+  "cmd_col": "description",
+  "cols": [
+   "task_id",
+   "description",
+   "dockerfile",
+   "tests",
+   "setup_script_type",
+   "setup_script_content",
+   "app_file",
+   "app_requirements",
+   "metadata"
+  ],
+  "id": "Eccentricity/bashbench2",
+  "n_multiline_sampled": 637,
+  "n_nonempty": 637,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 0,
+  "n_unique_cmds": 637,
+  "nl_col": "None",
+  "pct_multiline": 100.0,
+  "sampled_rows": 637
+ },
+ "EuniAI/TerminalWorld": {
+  "cmd_col": "None",
+  "cols": [
+   "task_id",
+   "instruction",
+   "artifact_path",
+   "requires_docker",
+   "terminal_domain",
+   "source_type",
+   "pii_status",
+   "license"
+  ],
+  "id": "EuniAI/TerminalWorld",
+  "n_parquet_files": 3,
+  "nl_col": "instruction",
+  "sampled_rows": 1750
+ },
+ "GunA-SD/bash_code": {
+  "cmd_col": "None",
+  "cols": [
+   "Unnamed: 0",
+   "content"
+  ],
+  "id": "GunA-SD/bash_code",
+  "n_parquet_files": 2,
+  "nl_col": "None",
+  "sampled_rows": 171360
+ },
+ "IntelligenceLab/Long-Horizon-Terminal-Bench": {
+  "cmd_col": "description",
+  "cols": [
+   "task_id",
+   "name",
+   "category",
+   "difficulty",
+   "keywords",
+   "description",
+   "instruction",
+   "docker_image",
+   "allow_internet",
+   "cpus",
+   "memory_mb",
+   "gpus",
+   "agent_timeout_min",
+   "expert_time_estimate_min"
+  ],
+  "id": "IntelligenceLab/Long-Horizon-Terminal-Bench",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 46,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 46,
+  "n_unique_cmds": 46,
+  "nl_col": "instruction",
+  "pct_multiline": 0.0,
+  "sampled_rows": 46
+ },
+ "Jawajawa/command-linux-bash-balanced-sft": {
+  "cmd_col": "None",
+  "cols": [
+   "messages",
+   "source",
+   "intent_type",
+   "entities"
+  ],
+  "id": "Jawajawa/command-linux-bash-balanced-sft",
+  "n_parquet_files": 1,
+  "nl_col": "intent_type",
+  "sampled_rows": 3289
+ },
+ "Live-By-Unix/fused-linux-ai": {
+  "err": "no parquet",
+  "id": "Live-By-Unix/fused-linux-ai"
+ },
+ "Mo7art/Stack2Graph_KG_bash": {
+  "err": "HTTP Error 400: Bad Request",
+  "id": "Mo7art/Stack2Graph_KG_bash"
+ },
+ "NousResearch/terminal-bench-2": {
+  "cmd_col": "None",
+  "cols": [
+   "task_name",
+   "instruction",
+   "docker_image",
+   "category",
+   "difficulty",
+   "tags",
+   "agent_timeout_sec",
+   "test_timeout_sec",
+   "environment_tar",
+   "tests_tar",
+   "test_sh"
+  ],
+  "id": "NousResearch/terminal-bench-2",
+  "n_parquet_files": 1,
+  "nl_col": "instruction",
+  "sampled_rows": 89
+ },
+ "Rendra8631/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "Rendra8631/linux-commands",
+  "n_multiline_sampled": 132,
+  "n_nonempty": 39150,
+  "n_parquet_files": 11,
+  "n_singleline_sampled": 39018,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 39150
+ },
+ "Romit2004/LinuxCommands": {
+  "cmd_col": "cmd",
+  "cols": [
+   "invocation",
+   "cmd",
+   "augmented_text"
+  ],
+  "id": "Romit2004/LinuxCommands",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 17450,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 17450,
+  "n_unique_cmds": 17442,
+  "nl_col": "invocation",
+  "pct_multiline": 0.0,
+  "sampled_rows": 17450
+ },
+ "TRamesh2/NL2CMD": {
+  "cmd_col": "Response",
+  "cols": [
+   "Instruction",
+   "Response",
+   "Text"
+  ],
+  "id": "TRamesh2/NL2CMD",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 10347,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 10347,
+  "n_unique_cmds": 8513,
+  "nl_col": "Instruction",
+  "pct_multiline": 0.0,
+  "sampled_rows": 10347
+ },
+ "adeelahmad/bash-agent-grpo-pairs": {
+  "cmd_col": "answer",
+  "cols": [
+   "system_prompt",
+   "prompt",
+   "answer",
+   "type",
+   "ground_truth",
+   "ground_truth_text",
+   "possible_boxed_answers",
+   "is_multi_answer"
+  ],
+  "id": "adeelahmad/bash-agent-grpo-pairs",
+  "n_multiline_sampled": 11745,
+  "n_nonempty": 11745,
+  "n_parquet_files": 3,
+  "n_singleline_sampled": 0,
+  "n_unique_cmds": 11745,
+  "nl_col": "prompt",
+  "pct_multiline": 100.0,
+  "sampled_rows": 11745
+ },
+ "ajayk007/shellsmith-commands": {
+  "cmd_col": "None",
+  "cols": [
+   "messages"
+  ],
+  "id": "ajayk007/shellsmith-commands",
+  "n_parquet_files": 3,
+  "nl_col": "None",
+  "sampled_rows": 263
+ },
+ "amechanicus/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "amechanicus/linux-commands",
+  "n_multiline_sampled": 132,
+  "n_nonempty": 39150,
+  "n_parquet_files": 11,
+  "n_singleline_sampled": 39018,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 39150
+ },
+ "b-mc2/cli-commands-explained": {
+  "cmd_col": "code",
+  "cols": [
+   "code",
+   "author",
+   "title",
+   "date",
+   "votes",
+   "description",
+   "id",
+   "url",
+   "ai_generated_description"
+  ],
+  "id": "b-mc2/cli-commands-explained",
+  "n_multiline_sampled": 123,
+  "n_nonempty": 16090,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 15967,
+  "n_unique_cmds": 15679,
+  "nl_col": "description",
+  "pct_multiline": 0.8,
+  "sampled_rows": 16098
+ },
+ "bii90/shell-model-eval": {
+  "err": "HTTP Error 400: Bad Request",
+  "id": "bii90/shell-model-eval"
+ },
+ "byroneverson/shell-cmd-instruct": {
+  "cmd_col": "cmd",
+  "cols": [
+   "instruction",
+   "cmd",
+   "sh",
+   "output"
+  ],
+  "id": "byroneverson/shell-cmd-instruct",
+  "n_multiline_sampled": 4,
+  "n_nonempty": 500,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 496,
+  "n_unique_cmds": 377,
+  "nl_col": "instruction",
+  "pct_multiline": 0.8,
+  "sampled_rows": 500
+ },
+ "chowmean/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "chowmean/linux-commands",
+  "n_multiline_sampled": 132,
+  "n_nonempty": 39150,
+  "n_parquet_files": 11,
+  "n_singleline_sampled": 39018,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 39150
+ },
+ "crazycog/linux-sysadmin-qa-askhole": {
+  "cmd_col": "answer",
+  "cols": [
+   "question",
+   "answer",
+   "personality"
+  ],
+  "id": "crazycog/linux-sysadmin-qa-askhole",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 200,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 200,
+  "n_unique_cmds": 200,
+  "nl_col": "question",
+  "pct_multiline": 0.0,
+  "sampled_rows": 200
+ },
+ "darkknight25/Red_Team_Operations_ShellScript_Dataset": {
+  "err": "no parquet",
+  "id": "darkknight25/Red_Team_Operations_ShellScript_Dataset"
+ },
+ "datasetter458/bash-reference-manual-general-QAs": {
+  "cmd_col": "Answer",
+  "cols": [
+   "Question",
+   "Answer"
+  ],
+  "id": "datasetter458/bash-reference-manual-general-QAs",
+  "n_multiline_sampled": 1,
+  "n_nonempty": 1275,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 1274,
+  "n_unique_cmds": 1204,
+  "nl_col": "Question",
+  "pct_multiline": 0.1,
+  "sampled_rows": 1276
+ },
+ "datasetter458/diverse-bash-dataset": {
+  "cmd_col": "code answer",
+  "cols": [
+   "Question",
+   "code answer"
+  ],
+  "id": "datasetter458/diverse-bash-dataset",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 4912,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 4912,
+  "n_unique_cmds": 4888,
+  "nl_col": "Question",
+  "pct_multiline": 0.0,
+  "sampled_rows": 4912
+ },
+ "datasetter458/diverse-bash-dataset-extended": {
+  "cmd_col": "code answer",
+  "cols": [
+   "Question",
+   "code answer"
+  ],
+  "id": "datasetter458/diverse-bash-dataset-extended",
+  "n_multiline_sampled": 1,
+  "n_nonempty": 9351,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 9350,
+  "n_unique_cmds": 8340,
+  "nl_col": "Question",
+  "pct_multiline": 0.0,
+  "sampled_rows": 9351
+ },
+ "datasetter458/w3schools-bash-tutorial-QAs": {
+  "cmd_col": "Answer",
+  "cols": [
+   "Context / Page Section",
+   "Question",
+   "Answer"
+  ],
+  "id": "datasetter458/w3schools-bash-tutorial-QAs",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 417,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 417,
+  "n_unique_cmds": 416,
+  "nl_col": "Question",
+  "pct_multiline": 0.0,
+  "sampled_rows": 417
+ },
+ "dougiefresh/manpages": {
+  "cmd_col": "None",
+  "cols": [
+   "messages"
+  ],
+  "id": "dougiefresh/manpages",
+  "n_parquet_files": 3,
+  "nl_col": "None",
+  "sampled_rows": 20009
+ },
+ "feifeinoban/Shell": {
+  "cmd_col": "None",
+  "cols": [
+   "language",
+   "domain",
+   "account",
+   "attack_type",
+   "attack_desc",
+   "scenario",
+   "scenario_info",
+   "risk_factor",
+   "risk_detail",
+   "identity",
+   "query"
+  ],
+  "id": "feifeinoban/Shell",
+  "n_parquet_files": 1,
+  "nl_col": "query",
+  "sampled_rows": 750
+ },
+ "huytd189/command-line-suggestions": {
+  "cmd_col": "output",
+  "cols": [
+   "instruction",
+   "output",
+   "context",
+   "trigger"
+  ],
+  "id": "huytd189/command-line-suggestions",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 3334,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 3334,
+  "n_unique_cmds": 2855,
+  "nl_col": "instruction",
+  "pct_multiline": 0.0,
+  "sampled_rows": 3334
+ },
+ "infinite-dataset-hub/ShellScriptDataset": {
+  "cmd_col": "script_name",
+  "cols": [
+   "idx",
+   "script_name",
+   "author",
+   "script_content",
+   "label"
+  ],
+  "id": "infinite-dataset-hub/ShellScriptDataset",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 88,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 88,
+  "n_unique_cmds": 84,
+  "nl_col": "None",
+  "pct_multiline": 0.0,
+  "sampled_rows": 100
+ },
+ "iselabvn/Linux-terminal-tool-calling": {
+  "cmd_col": "None",
+  "cols": [
+   "messages",
+   "metadata"
+  ],
+  "id": "iselabvn/Linux-terminal-tool-calling",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 600
+ },
+ "jasmar2/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "jasmar2/linux-commands",
+  "n_multiline_sampled": 132,
+  "n_nonempty": 39150,
+  "n_parquet_files": 11,
+  "n_singleline_sampled": 39018,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 39150
+ },
+ "kth8/bash-toolcalls": {
+  "cmd_col": "command",
+  "cols": [
+   "command",
+   "stdout",
+   "stderr",
+   "exit_code",
+   "command_tokens",
+   "stdout_tokens",
+   "stderr_tokens",
+   "execution_seconds",
+   "datetime",
+   "uuid"
+  ],
+  "id": "kth8/bash-toolcalls",
+  "n_multiline_sampled": 7,
+  "n_nonempty": 862,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 855,
+  "n_unique_cmds": 662,
+  "nl_col": "None",
+  "pct_multiline": 0.8,
+  "sampled_rows": 862
+ },
+ "laion/bash-textbook-v2": {
+  "cmd_col": "None",
+  "cols": [
+   "path",
+   "task_binary"
+  ],
+  "id": "laion/bash-textbook-v2",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 9078
+ },
+ "laion/nemotron-terminal-corpus-unified": {
+  "cmd_col": "None",
+  "cols": [
+   "conversations",
+   "source"
+  ],
+  "id": "laion/nemotron-terminal-corpus-unified",
+  "n_parquet_files": 740,
+  "nl_col": "None",
+  "sampled_rows": 3000
+ },
+ "missvector/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "missvector/linux-commands",
+  "n_multiline_sampled": 44,
+  "n_nonempty": 13050,
+  "n_parquet_files": 33,
+  "n_singleline_sampled": 13006,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 13050
+ },
+ "mlech26l/shell-helper": {
+  "cmd_col": "None",
+  "cols": [
+   "messages"
+  ],
+  "id": "mlech26l/shell-helper",
+  "n_parquet_files": 5,
+  "nl_col": "None",
+  "sampled_rows": 60464
+ },
+ "mrheinen/linux-commands": {
+  "cmd_col": "output",
+  "cols": [
+   "output",
+   "input",
+   "instruction"
+  ],
+  "id": "mrheinen/linux-commands",
+  "n_multiline_sampled": 295,
+  "n_nonempty": 481,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 186,
+  "n_unique_cmds": 397,
+  "nl_col": "instruction",
+  "pct_multiline": 61.3,
+  "sampled_rows": 481
+ },
+ "nuprl/MultiPL-E": {
+  "cmd_col": "None",
+  "cols": [
+   "name",
+   "language",
+   "prompt",
+   "doctests",
+   "original",
+   "prompt_terminology",
+   "tests",
+   "stop_tokens"
+  ],
+  "id": "nuprl/MultiPL-E",
+  "n_parquet_files": 47,
+  "nl_col": "prompt",
+  "sampled_rows": 950
+ },
+ "nvidia/Nemotron-Terminal-Corpus": {
+  "cmd_col": "None",
+  "cols": [
+   "conversations",
+   "agent",
+   "model",
+   "model_provider",
+   "date",
+   "task",
+   "episode",
+   "run_id",
+   "trial_name",
+   "enable_thinking"
+  ],
+  "id": "nvidia/Nemotron-Terminal-Corpus",
+  "n_parquet_files": 29,
+  "nl_col": "None",
+  "sampled_rows": 14963
+ },
+ "nvidia/Nemotron-Terminal-Synthetic-Tasks": {
+  "err": "no parquet",
+  "id": "nvidia/Nemotron-Terminal-Synthetic-Tasks"
+ },
+ "penfever/terminal-bench-2": {
+  "cmd_col": "None",
+  "cols": [
+   "conversations",
+   "agent",
+   "model",
+   "model_provider",
+   "date",
+   "task",
+   "episode",
+   "run_id",
+   "trial_name"
+  ],
+  "id": "penfever/terminal-bench-2",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 82
+ },
+ "saurabh5/rlvr-code-data-bash": {
+  "cmd_col": "target_language",
+  "cols": [
+   "translated_problem",
+   "translated_solution",
+   "translated_test_cases",
+   "id",
+   "messages",
+   "ground_truth",
+   "target_language"
+  ],
+  "id": "saurabh5/rlvr-code-data-bash",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 66624,
+  "n_parquet_files": 2,
+  "n_singleline_sampled": 66624,
+  "n_unique_cmds": 1,
+  "nl_col": "None",
+  "pct_multiline": 0.0,
+  "sampled_rows": 66624
+ },
+ "shantoislamdev/linux-commands": {
+  "cmd_col": "completion",
+  "cols": [
+   "eng",
+   "ru",
+   "ch",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "ja",
+   "ko",
+   "ar",
+   "completion",
+   "category"
+  ],
+  "id": "shantoislamdev/linux-commands",
+  "n_multiline_sampled": 132,
+  "n_nonempty": 39150,
+  "n_parquet_files": 11,
+  "n_singleline_sampled": 39018,
+  "n_unique_cmds": 5451,
+  "nl_col": "None",
+  "pct_multiline": 0.3,
+  "sampled_rows": 39150
+ },
+ "spignelon/bash_history": {
+  "cmd_col": "None",
+  "cols": [
+   "text"
+  ],
+  "id": "spignelon/bash_history",
+  "n_parquet_files": 1,
+  "nl_col": "text",
+  "sampled_rows": 180970
+ },
+ "tiararodney/posix-sdc": {
+  "cmd_col": "reference_solution",
+  "cols": [
+   "id",
+   "version",
+   "archetype",
+   "terminal",
+   "split",
+   "environment",
+   "workdir",
+   "generator_model",
+   "provider",
+   "announcement",
+   "directives",
+   "fixtures",
+   "checker",
+   "reference_solution",
+   "quarantine",
+   "scenario_id",
+   "verified",
+   "outcome",
+   "operator_model",
+   "turns"
+  ],
+  "id": "tiararodney/posix-sdc",
+  "n_multiline_sampled": 1933,
+  "n_nonempty": 2975,
+  "n_parquet_files": 2,
+  "n_singleline_sampled": 1042,
+  "n_unique_cmds": 2367,
+  "nl_col": "None",
+  "pct_multiline": 65.0,
+  "sampled_rows": 4765
+ },
+ "tmskss/linux-man-pages-tldr-summarized": {
+  "cmd_col": "Command",
+  "cols": [
+   "Command",
+   "Text",
+   "Summary"
+  ],
+  "id": "tmskss/linux-man-pages-tldr-summarized",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 481,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 481,
+  "n_unique_cmds": 396,
+  "nl_col": "Text",
+  "pct_multiline": 0.0,
+  "sampled_rows": 481
+ },
+ "westenfelder/InterCode-Corrections": {
+  "cmd_col": "gold",
+  "cols": [
+   "query",
+   "gold",
+   "gold2"
+  ],
+  "id": "westenfelder/InterCode-Corrections",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 193,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 193,
+  "n_unique_cmds": 192,
+  "nl_col": "query",
+  "pct_multiline": 0.0,
+  "sampled_rows": 193
+ },
+ "westenfelder/NL2SH-ALFA": {
+  "cmd_col": "bash",
+  "cols": [
+   "nl",
+   "bash",
+   "bash2",
+   "difficulty"
+  ],
+  "id": "westenfelder/NL2SH-ALFA",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 40939,
+  "n_parquet_files": 2,
+  "n_singleline_sampled": 40939,
+  "n_unique_cmds": 40544,
+  "nl_col": "nl",
+  "pct_multiline": 0.0,
+  "sampled_rows": 40939
+ },
+ "yogeshm/text_to_bash": {
+  "cmd_col": "Code",
+  "cols": [
+   "Text",
+   "Code"
+  ],
+  "id": "yogeshm/text_to_bash",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 124,
+  "n_parquet_files": 2,
+  "n_singleline_sampled": 124,
+  "n_unique_cmds": 100,
+  "nl_col": "Text",
+  "pct_multiline": 0.0,
+  "sampled_rows": 124
+ }
+}

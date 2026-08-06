@@ -1,0 +1,511 @@
+{
+ "0penEye/nl2bash_reasoning": {
+  "err": "parquet read failed",
+  "id": "0penEye/nl2bash_reasoning"
+ },
+ "AnishJoshi/nl2bash-custom": {
+  "cmd_col": "nl_command",
+  "cols": [
+   "bash_code",
+   "nl_command",
+   "srno"
+  ],
+  "id": "AnishJoshi/nl2bash-custom",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 24573,
+  "n_parquet_files": 3,
+  "n_singleline_sampled": 24573,
+  "n_unique_cmds": 12957,
+  "nl_col": "None",
+  "pct_multiline": 0.0,
+  "sampled_rows": 24573
+ },
+ "AryaYT/nl2shell-terminal-bench": {
+  "cmd_col": "None",
+  "cols": [
+   "messages"
+  ],
+  "id": "AryaYT/nl2shell-terminal-bench",
+  "n_parquet_files": 2,
+  "nl_col": "None",
+  "sampled_rows": 7509
+ },
+ "AryaYT/nl2shell-training-v3": {
+  "cmd_col": "bash",
+  "cols": [
+   "text",
+   "nl",
+   "bash",
+   "source"
+  ],
+  "id": "AryaYT/nl2shell-training-v3",
+  "n_multiline_sampled": 1031,
+  "n_nonempty": 12834,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 11803,
+  "n_unique_cmds": 12799,
+  "nl_col": "nl",
+  "pct_multiline": 8.0,
+  "sampled_rows": 12834
+ },
+ "DCAgent/nl2bash-verified": {
+  "cmd_col": "None",
+  "cols": [
+   "path",
+   "task_binary"
+  ],
+  "id": "DCAgent/nl2bash-verified",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 10175
+ },
+ "Edoigtrd/tldr-pages": {
+  "cmd_col": "command",
+  "cols": [
+   "prompt",
+   "command"
+  ],
+  "id": "Edoigtrd/tldr-pages",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 5274,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 5274,
+  "n_unique_cmds": 5012,
+  "nl_col": "prompt",
+  "pct_multiline": 0.0,
+  "sampled_rows": 5274
+ },
+ "Euroswarms/bash": {
+  "cmd_col": "response",
+  "cols": [
+   "messages",
+   "system",
+   "user",
+   "response",
+   "metadata"
+  ],
+  "id": "Euroswarms/bash",
+  "n_multiline_sampled": 167863,
+  "n_nonempty": 483553,
+  "n_parquet_files": 3,
+  "n_singleline_sampled": 315690,
+  "n_unique_cmds": 4618,
+  "nl_col": "None",
+  "pct_multiline": 34.7,
+  "sampled_rows": 483553
+ },
+ "Frost2o24/bash-instruct-55k": {
+  "cmd_col": "None",
+  "cols": [
+   "messages",
+   "category",
+   "utility"
+  ],
+  "id": "Frost2o24/bash-instruct-55k",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 55000
+ },
+ "Frost2o24/bash-instruct-II-55k": {
+  "cmd_col": "None",
+  "cols": [
+   "messages",
+   "category",
+   "utility",
+   "variant_group"
+  ],
+  "id": "Frost2o24/bash-instruct-II-55k",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 54803
+ },
+ "GWHed/nl2bash": {
+  "cmd_col": "bash",
+  "cols": [
+   "nl",
+   "bash"
+  ],
+  "id": "GWHed/nl2bash",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 9305,
+  "n_parquet_files": 3,
+  "n_singleline_sampled": 9305,
+  "n_unique_cmds": 7559,
+  "nl_col": "nl",
+  "pct_multiline": 0.0,
+  "sampled_rows": 9305
+ },
+ "Mitchins/NL-SHELL-MULTI": {
+  "cmd_col": "command",
+  "cols": [
+   "command",
+   "description",
+   "source"
+  ],
+  "id": "Mitchins/NL-SHELL-MULTI",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 78768,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 78768,
+  "n_unique_cmds": 63862,
+  "nl_col": "description",
+  "pct_multiline": 0.0,
+  "sampled_rows": 78768
+ },
+ "NickIBrody/linux-shell-corpus-ru-en": {
+  "cmd_col": "None",
+  "cols": [
+   "messages"
+  ],
+  "id": "NickIBrody/linux-shell-corpus-ru-en",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 25000
+ },
+ "XUO/terminal-bench": {
+  "cmd_col": "base_description",
+  "cols": [
+   "task_id",
+   "archive",
+   "task_yaml",
+   "difficulty",
+   "tags",
+   "author_email",
+   "category",
+   "base_description",
+   "max_agent_timeout_sec",
+   "max_test_timeout_sec",
+   "tar_sha256",
+   "archive_bytes",
+   "n_files",
+   "generated_at"
+  ],
+  "id": "XUO/terminal-bench",
+  "n_multiline_sampled": 86,
+  "n_nonempty": 112,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 26,
+  "n_unique_cmds": 112,
+  "nl_col": "None",
+  "pct_multiline": 76.8,
+  "sampled_rows": 112
+ },
+ "ZygAI/zygai_linux_commands": {
+  "cmd_col": "command",
+  "cols": [
+   "command",
+   "category",
+   "description_lt",
+   "description_en",
+   "usage",
+   "examples",
+   "notes_lt",
+   "notes_en",
+   "source"
+  ],
+  "id": "ZygAI/zygai_linux_commands",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 254,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 254,
+  "n_unique_cmds": 239,
+  "nl_col": "description_lt",
+  "pct_multiline": 0.0,
+  "sampled_rows": 254
+ },
+ "abandonedmonk/NL2SH-ALPACA": {
+  "cmd_col": "output",
+  "cols": [
+   "instruction",
+   "input",
+   "output"
+  ],
+  "id": "abandonedmonk/NL2SH-ALPACA",
+  "n_multiline_sampled": 300,
+  "n_nonempty": 40939,
+  "n_parquet_files": 2,
+  "n_singleline_sampled": 40639,
+  "n_unique_cmds": 40579,
+  "nl_col": "instruction",
+  "pct_multiline": 0.7,
+  "sampled_rows": 40939
+ },
+ "aelhalili/bash-commands-dataset": {
+  "cmd_col": "response",
+  "cols": [
+   "prompt",
+   "response"
+  ],
+  "id": "aelhalili/bash-commands-dataset",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 840,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 840,
+  "n_unique_cmds": 472,
+  "nl_col": "prompt",
+  "pct_multiline": 0.0,
+  "sampled_rows": 840
+ },
+ "ajibawa-2023/Shell-Code-Large": {
+  "cmd_col": "code",
+  "cols": [
+   "code",
+   "language"
+  ],
+  "id": "ajibawa-2023/Shell-Code-Large",
+  "n_multiline_sampled": 101362,
+  "n_nonempty": 103042,
+  "n_parquet_files": 7,
+  "n_singleline_sampled": 1680,
+  "n_unique_cmds": 27824,
+  "nl_col": "None",
+  "pct_multiline": 98.4,
+  "sampled_rows": 103042
+ },
+ "alibabagroup/terminal-bench-pro": {
+  "cmd_col": "None",
+  "cols": [
+   "task_id",
+   "instruction",
+   "config",
+   "archive",
+   "file_count"
+  ],
+  "id": "alibabagroup/terminal-bench-pro",
+  "n_parquet_files": 1,
+  "nl_col": "instruction",
+  "sampled_rows": 200
+ },
+ "baladhurgesh97/nl2bash": {
+  "err": "no parquet",
+  "id": "baladhurgesh97/nl2bash"
+ },
+ "emirkaanozdemr/bash_command_data_6K": {
+  "cmd_col": "completion",
+  "cols": [
+   "prompt",
+   "completion"
+  ],
+  "id": "emirkaanozdemr/bash_command_data_6K",
+  "n_multiline_sampled": 684,
+  "n_nonempty": 6153,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 5469,
+  "n_unique_cmds": 4451,
+  "nl_col": "prompt",
+  "pct_multiline": 11.1,
+  "sampled_rows": 6153
+ },
+ "epinnock/intercode-nl2bash-curated": {
+  "cmd_col": "gold",
+  "cols": [
+   "query",
+   "gold"
+  ],
+  "id": "epinnock/intercode-nl2bash-curated",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 200,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 200,
+  "n_unique_cmds": 196,
+  "nl_col": "query",
+  "pct_multiline": 0.0,
+  "sampled_rows": 200
+ },
+ "gradients-io-tournaments/intercode_bigcode_combined_12k": {
+  "err": "no parquet",
+  "id": "gradients-io-tournaments/intercode_bigcode_combined_12k"
+ },
+ "gradients-io-tournaments/intercode_bigcode_combined_24k": {
+  "err": "no parquet",
+  "id": "gradients-io-tournaments/intercode_bigcode_combined_24k"
+ },
+ "harborframework/terminal-bench-2.0": {
+  "err": "HTTP Error 400: Bad Request",
+  "id": "harborframework/terminal-bench-2.0"
+ },
+ "harpomaxx/unix-commands": {
+  "cmd_col": "output",
+  "cols": [
+   "input",
+   "instruction",
+   "output"
+  ],
+  "id": "harpomaxx/unix-commands",
+  "n_multiline_sampled": 89,
+  "n_nonempty": 100,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 11,
+  "n_unique_cmds": 97,
+  "nl_col": "instruction",
+  "pct_multiline": 89.0,
+  "sampled_rows": 100
+ },
+ "ia03/terminal-bench": {
+  "cmd_col": "base_description",
+  "cols": [
+   "task_id",
+   "archive",
+   "task_yaml",
+   "difficulty",
+   "tags",
+   "author_email",
+   "category",
+   "base_description",
+   "max_agent_timeout_sec",
+   "max_test_timeout_sec",
+   "tar_sha256",
+   "archive_bytes",
+   "n_files",
+   "generated_at"
+  ],
+  "id": "ia03/terminal-bench",
+  "n_multiline_sampled": 86,
+  "n_nonempty": 112,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 26,
+  "n_unique_cmds": 112,
+  "nl_col": "None",
+  "pct_multiline": 76.8,
+  "sampled_rows": 112
+ },
+ "jiacheng-ye/nl2bash": {
+  "cmd_col": "bash",
+  "cols": [
+   "nl",
+   "bash"
+  ],
+  "id": "jiacheng-ye/nl2bash",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 9305,
+  "n_parquet_files": 3,
+  "n_singleline_sampled": 9305,
+  "n_unique_cmds": 7559,
+  "nl_col": "nl",
+  "pct_multiline": 0.0,
+  "sampled_rows": 9305
+ },
+ "jragsdale1/ShIO-bash-26.1": {
+  "cmd_col": "output",
+  "cols": [
+   "input",
+   "input_args",
+   "output",
+   "exit_code",
+   "redundancy_score",
+   "context_patch",
+   "session_id"
+  ],
+  "id": "jragsdale1/ShIO-bash-26.1",
+  "n_multiline_sampled": 160781,
+  "n_nonempty": 266686,
+  "n_parquet_files": 14,
+  "n_singleline_sampled": 105905,
+  "n_unique_cmds": 119630,
+  "nl_col": "input",
+  "pct_multiline": 60.3,
+  "sampled_rows": 316245
+ },
+ "laion/stackexchange-unix-sandboxes-verified": {
+  "cmd_col": "None",
+  "cols": [
+   "path",
+   "task_binary"
+  ],
+  "id": "laion/stackexchange-unix-sandboxes-verified",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 10000
+ },
+ "lisayan/rlvr-bash-terminal-bench": {
+  "cmd_col": "completion",
+  "cols": [
+   "task_id",
+   "prompt",
+   "sample_id",
+   "completion",
+   "model",
+   "temperature",
+   "finish_reason",
+   "reward",
+   "test_passed",
+   "test_failed",
+   "test_errors",
+   "test_total",
+   "pass_rate",
+   "solution_exit_code",
+   "test_exit_code",
+   "solution_stdout",
+   "solution_stderr",
+   "test_stdout",
+   "test_stderr"
+  ],
+  "id": "lisayan/rlvr-bash-terminal-bench",
+  "n_multiline_sampled": 1076,
+  "n_nonempty": 1118,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 42,
+  "n_unique_cmds": 1019,
+  "nl_col": "prompt",
+  "pct_multiline": 96.2,
+  "sampled_rows": 1120
+ },
+ "mecha-org/linux-command-dataset": {
+  "cmd_col": "output",
+  "cols": [
+   "input",
+   "output"
+  ],
+  "id": "mecha-org/linux-command-dataset",
+  "n_multiline_sampled": 13,
+  "n_nonempty": 8669,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 8656,
+  "n_unique_cmds": 7500,
+  "nl_col": "input",
+  "pct_multiline": 0.1,
+  "sampled_rows": 8669
+ },
+ "penfever/nl2bash-tasks-cleaned": {
+  "cmd_col": "None",
+  "cols": [
+   "path",
+   "task_binary"
+  ],
+  "id": "penfever/nl2bash-tasks-cleaned",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 7044
+ },
+ "penfever/nl2bash-verified-cleaned": {
+  "cmd_col": "None",
+  "cols": [
+   "path",
+   "task_binary"
+  ],
+  "id": "penfever/nl2bash-verified-cleaned",
+  "n_parquet_files": 1,
+  "nl_col": "None",
+  "sampled_rows": 10172
+ },
+ "rlawltjd/korean-nl2bash": {
+  "cmd_col": "output",
+  "cols": [
+   "instruction",
+   "output"
+  ],
+  "id": "rlawltjd/korean-nl2bash",
+  "n_multiline_sampled": 0,
+  "n_nonempty": 8089,
+  "n_parquet_files": 1,
+  "n_singleline_sampled": 8089,
+  "n_unique_cmds": 6381,
+  "nl_col": "instruction",
+  "pct_multiline": 0.0,
+  "sampled_rows": 8089
+ },
+ "zai-org/terminal-bench-2-verified": {
+  "err": "HTTP Error 400: Bad Request",
+  "id": "zai-org/terminal-bench-2-verified"
+ }
+}
