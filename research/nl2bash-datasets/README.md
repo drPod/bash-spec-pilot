@@ -10,6 +10,7 @@ are duplicates of each other.
 | `duplicates.md` | Measured duplicate clusters, corrections to two rows already on the sheet, and what each corpus is actually made of. |
 | `contamination.md` | Which benchmarks are actually held out, measured against the public training corpora. |
 | `bashbench-2026-audit.md` | Why the most promising benchmark's single-line half can't be used as held-out data. |
+| `leakage-effect.md` | That leakage measurably inflates the benchmark's headline score — from the authors' own released per-task results. |
 | `data/` | Raw measurement JSON and the scripts, so any number here can be re-derived. |
 
 ## Method
@@ -81,6 +82,21 @@ support "completely isolated." The **179 multi-line tasks are clean** and are th
 project cares about, so they are the defensible core. Two further caveats: only ~40 of the 179
 multi-line tests are re-runnable from the archive, and the harness executes model output as plain
 bash on the host with no container isolation.
+
+**…and the leakage measurably inflates the score.** The release also ships per-task pass/fail for
+the authors' own model, so the effect can be measured without running anything
+(`leakage-effect.md`, `data/leak_*.py`). Splitting the published 93.01% FuncRate by the leak line:
+
+| | leaked | clean |
+|---|---|---|
+| as published (per record) | 99.4% (705/709) | 21.9% (14/64) |
+| prompt-deduplicated **and** difficulty-matched | **99.4%** (175/176) | **28.6%** (4/14) |
+
+The clean tasks are genuinely harder, so the raw gap is confounded — but matching on
+reference-solution complexity does not close it: leaked tasks score 99–100% in *every* complexity
+band while clean tasks collapse above the trivial band. So the headline 93% is approximately
+99% recall on the 91.7% that leaked plus ~29% capability on the rest. The binding limitation is that
+only 27 distinct prompts are held out.
 
 ⚠️ **Two unrelated benchmarks are both named "BashBench."** The other is Redwood Research's
 (Ctrl-Z, arXiv 2504.10374): 257 multi-step sysadmin tasks graded by public + private pytest suites.
