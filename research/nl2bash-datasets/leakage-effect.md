@@ -77,6 +77,26 @@ The last row is the one to quote: deduplicated *and* difficulty-matched, the gap
 with confidence intervals nowhere near overlapping. Every way of being conservative about it leaves
 the effect intact.
 
+## A recitation signature, independent of the pass rates
+
+For a leaked task there are **two** reference answers: the one in the SFT training file and the one
+in the benchmark. The audit found these are never identical (0 shared input+output pairs). So which
+one the model reproduces is diagnostic, and it can be measured without executing anything.
+
+| on leaked tasks (n=709) | vs benchmark reference | vs SFT training answer |
+|---|---|---|
+| reproduced verbatim | 5.9% | **13.8%** |
+| mean similarity | 0.562 | **0.692** |
+
+The model reproduces the *training* answer more than twice as often as the benchmark's own reference
+answer, and is measurably closer to it. On clean tasks it reproduces the benchmark reference **0%**
+of the time, at mean similarity 0.325.
+
+One honest qualification: pass rate does **not** track recitation. Leaked tasks where the model
+reproduced the SFT answer verbatim pass 99.0%; leaked tasks where it did not pass 99.5%. So verbatim
+recall is not the mechanism — the model does not need to recite to pass a task it was trained on.
+The signature shows the training answers are in there; the pass-rate gap is what shows they matter.
+
 ## What this means
 
 The reported 93.01% FuncRate is not an estimate of how well BashCoder-R1 writes Bash. It is
@@ -94,17 +114,34 @@ scores **93.9%** on them (168/179). That does not fit a simple memorization stor
 strongest evidence *against* the reading above — a genuinely held-out split scoring 93.9% suggests
 real capability.
 
-Two readings, not yet distinguished:
+Two readings, not distinguished:
 1. The model genuinely generalizes on multi-line tasks, and the single-line gap reflects something
    about the single-line clean subset specifically.
 2. The multi-line tasks leaked at a different training stage. The release also ships a **4.3 GB
    continued-pretraining corpus** (`data/cpt/bash_cpt_with_general.jsonl`) that no contamination
    check would normally look at, because it is a pretraining corpus rather than a labelled set.
 
-`data/cpt_scan.py` streams that corpus and Aho-Corasick-searches it for all 179 multi-line prompts
-and all 64 clean single-line prompts, with 60 known-leaked prompts included as a positive control on
-the scanner. Result in `data/cpt_scan.json` once it lands. Until then this section is open, and the
-claim above is scoped to the single-line benchmark.
+**Reading 2 was tested and the test came back uninformative.** `data/cpt_scan.py` streams that
+corpus and Aho-Corasick-searches it for all 179 multi-line prompts and the 27 distinct clean
+single-line prompts, with 58 known-leaked prompts as a positive control on the scanner:
+
+| needle group | found in the CPT corpus |
+|---|---|
+| multi-line benchmark prompts (179) | 0 |
+| clean single-line prompts (27) | 0 |
+| **known-leaked prompts (58) — positive control** | **1 (1.7%)** |
+
+The control essentially failed, which is the expected outcome in hindsight: the CPT corpus is raw
+Bash text and documentation, not instruction prompts, so a *task prompt* would not appear there
+verbatim even for tasks we know leaked into SFT. **A 0% here therefore cannot be read as "the
+multi-line half is clean at the pretraining stage"** — it only says this method cannot see that kind
+of leakage. Testing reading 2 properly would need a semantic or code-side match against the CPT
+corpus rather than a prompt-string match. (Coverage caveat: the stream ended after 3.21 GB of the
+listed 4.29 GB, so ~75% of the corpus was scanned. Given the control failed, more coverage would not
+have changed the conclusion.)
+
+So the multi-line anomaly stands unexplained, and the claim above is scoped to the single-line
+benchmark.
 
 ## Caveats
 
