@@ -1,0 +1,42 @@
+{
+ "AnishJoshi/nl2bash-custom": {
+  "cmd_col": "bash_code",
+  "id": "AnishJoshi/nl2bash-custom",
+  "n_multiline_sampled": 1619,
+  "n_nonempty": 24569,
+  "n_singleline_sampled": 22950,
+  "n_unique_cmds": 12659,
+  "nl_col": "nl_command",
+  "pct_multiline": 6.6
+ },
+ "adeelahmad/bash-agent-grpo-pairs": {
+  "cmd_col": "ground_truth",
+  "id": "adeelahmad/bash-agent-grpo-pairs",
+  "n_multiline_sampled": 5427,
+  "n_nonempty": 11745,
+  "n_singleline_sampled": 6318,
+  "n_unique_cmds": 11745,
+  "nl_col": "prompt",
+  "pct_multiline": 46.2
+ },
+ "jragsdale1/ShIO-bash-26.1": {
+  "cmd_col": "input",
+  "id": "jragsdale1/ShIO-bash-26.1",
+  "n_multiline_sampled": 207,
+  "n_nonempty": 316245,
+  "n_singleline_sampled": 316038,
+  "n_unique_cmds": 312736,
+  "nl_col": null,
+  "pct_multiline": 0.1
+ },
+ "saurabh5/rlvr-code-data-bash": {
+  "cmd_col": "translated_solution",
+  "id": "saurabh5/rlvr-code-data-bash",
+  "n_multiline_sampled": 66614,
+  "n_nonempty": 66624,
+  "n_singleline_sampled": 10,
+  "n_unique_cmds": 66004,
+  "nl_col": "translated_problem",
+  "pct_multiline": 100.0
+ }
+}

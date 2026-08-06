@@ -1,0 +1,17 @@
+{
+ "single-clean": {
+  "total": 27,
+  "in_cpt": 0,
+  "pct": 0.0
+ },
+ "multi": {
+  "total": 179,
+  "in_cpt": 0,
+  "pct": 0.0
+ },
+ "single-leaked-CONTROL": {
+  "total": 58,
+  "in_cpt": 1,
+  "pct": 1.7
+ }
+}

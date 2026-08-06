@@ -1,0 +1,108 @@
+{
+ "LEAKED into SFT": {
+  "n": 709,
+  "func_pass": {
+   "k": 705,
+   "pct": 99.44,
+   "ci95": [
+    98.6,
+    99.8
+   ]
+  },
+  "full_pass": {
+   "k": 683,
+   "pct": 96.33,
+   "ci95": [
+    94.7,
+    97.5
+   ]
+  }
+ },
+ "clean of SFT": {
+  "n": 64,
+  "func_pass": {
+   "k": 14,
+   "pct": 21.88,
+   "ci95": [
+    13.5,
+    33.4
+   ]
+  },
+  "full_pass": {
+   "k": 13,
+   "pct": 20.31,
+   "ci95": [
+    12.3,
+    31.7
+   ]
+  }
+ },
+ "LEAKED into SFT or GRPO": {
+  "n": 715,
+  "func_pass": {
+   "k": 711,
+   "pct": 99.44,
+   "ci95": [
+    98.6,
+    99.8
+   ]
+  },
+  "full_pass": {
+   "k": 689,
+   "pct": 96.36,
+   "ci95": [
+    94.7,
+    97.5
+   ]
+  }
+ },
+ "clean of both": {
+  "n": 58,
+  "func_pass": {
+   "k": 8,
+   "pct": 13.79,
+   "ci95": [
+    7.2,
+    24.9
+   ]
+  },
+  "full_pass": {
+   "k": 7,
+   "pct": 12.07,
+   "ci95": [
+    6.0,
+    22.9
+   ]
+  }
+ },
+ "gaps": [
+  {
+   "metric": "func_pass",
+   "leaked_group": "LEAKED into SFT",
+   "clean_group": "clean of SFT",
+   "gap_pts": 77.6,
+   "fisher_p": 8.396984121915197e-61
+  },
+  {
+   "metric": "func_pass",
+   "leaked_group": "LEAKED into SFT or GRPO",
+   "clean_group": "clean of both",
+   "gap_pts": 85.6,
+   "fisher_p": 3.476507278068144e-65
+  },
+  {
+   "metric": "full_pass",
+   "leaked_group": "LEAKED into SFT",
+   "clean_group": "clean of SFT",
+   "gap_pts": 76.0,
+   "fisher_p": 8.042696937428873e-48
+  },
+  {
+   "metric": "full_pass",
+   "leaked_group": "LEAKED into SFT or GRPO",
+   "clean_group": "clean of both",
+   "gap_pts": 84.3,
+   "fisher_p": 2.2905379455299126e-52
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "band": "0-0",
+  "leaked_n": 320,
+  "clean_n": 4,
+  "leaked_pass": "99.1%",
+  "clean_pass": "100.0%"
+ },
+ {
+  "band": "1-2",
+  "leaked_n": 180,
+  "clean_n": 14,
+  "leaked_pass": "99.4%",
+  "clean_pass": "14.3%"
+ },
+ {
+  "band": "3-5",
+  "leaked_n": 181,
+  "clean_n": 11,
+  "leaked_pass": "100.0%",
+  "clean_pass": "27.3%"
+ },
+ {
+  "band": "6-9",
+  "leaked_n": 21,
+  "clean_n": 3,
+  "leaked_pass": "100.0%",
+  "clean_pass": "33.3%"
+ },
+ {
+  "band": "10-14",
+  "leaked_n": 4,
+  "clean_n": 20,
+  "leaked_pass": "100.0%",
+  "clean_pass": "0.0%"
+ },
+ {
+  "band": "15+",
+  "leaked_n": 3,
+  "clean_n": 12,
+  "leaked_pass": "100.0%",
+  "clean_pass": "33.3%"
+ }
+]
