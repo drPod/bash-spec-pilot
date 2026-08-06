@@ -1,6 +1,6 @@
 import json,glob,itertools
 res={}
-for f in ["res1.json","res2.json"]:
+for f in ["res1.json","res2.json","res_fix.json"]:  # res_fix last: it supersedes bad column picks
     try: res.update(json.load(open(f)))
     except Exception as e: print("skip",f,e)
 sets={k:set(v["hashes"]) for k,v in res.items() if v.get("hashes")}

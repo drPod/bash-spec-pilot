@@ -18,7 +18,9 @@
   "n_unique_cmds": 12957,
   "nl_col": "None",
   "pct_multiline": 0.0,
-  "sampled_rows": 24573
+  "sampled_rows": 24573,
+  "superseded_by": "res_fix.json",
+  "superseded_reason": "auto column detection picked cmd_col='nl_command'; the real command column is 'bash_code'. Use the res_fix.json entry for this dataset."
  },
  "AryaYT/nl2shell-terminal-bench": {
   "cmd_col": "None",
@@ -404,7 +406,9 @@
   "n_unique_cmds": 119630,
   "nl_col": "input",
   "pct_multiline": 60.3,
-  "sampled_rows": 316245
+  "sampled_rows": 316245,
+  "superseded_by": "res_fix.json",
+  "superseded_reason": "auto column detection picked cmd_col='output'; the real command column is 'input'. Use the res_fix.json entry for this dataset."
  },
  "laion/stackexchange-unix-sandboxes-verified": {
   "cmd_col": "None",

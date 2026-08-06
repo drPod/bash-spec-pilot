@@ -290,7 +290,9 @@
   "n_unique_cmds": 11745,
   "nl_col": "prompt",
   "pct_multiline": 100.0,
-  "sampled_rows": 11745
+  "sampled_rows": 11745,
+  "superseded_by": "res_fix.json",
+  "superseded_reason": "auto column detection picked cmd_col='answer'; the real command column is 'ground_truth'. Use the res_fix.json entry for this dataset."
  },
  "ajayk007/shellsmith-commands": {
   "cmd_col": "None",
@@ -765,7 +767,9 @@
   "n_unique_cmds": 1,
   "nl_col": "None",
   "pct_multiline": 0.0,
-  "sampled_rows": 66624
+  "sampled_rows": 66624,
+  "superseded_by": "res_fix.json",
+  "superseded_reason": "auto column detection picked cmd_col='target_language'; the real command column is 'translated_solution'. Use the res_fix.json entry for this dataset."
  },
  "shantoislamdev/linux-commands": {
   "cmd_col": "completion",

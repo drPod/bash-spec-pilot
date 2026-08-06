@@ -1,7 +1,8 @@
 import json, hashlib
 res = {}
-for f in ('res1.json', 'res2.json'):
-    res.update(json.load(open(f)))
+for f in ('res1.json', 'res2.json', 'res_fix.json'):
+    res.update(json.load(open(f)))  # res_fix last: AnishJoshi/nl2bash-custom is a REF corpus below
+                                    # and its res1 entry used the NL column, not bash_code
 REF_IDS = ['jiacheng-ye/nl2bash', 'TRamesh2/NL2CMD', 'Romit2004/LinuxCommands',
            'westenfelder/NL2SH-ALFA', 'Edoigtrd/tldr-pages', 'AnishJoshi/nl2bash-custom',
            'b-mc2/cli-commands-explained']

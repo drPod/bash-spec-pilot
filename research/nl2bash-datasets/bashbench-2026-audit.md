@@ -88,10 +88,17 @@ GitHub repo for BashCoder-R1 exists, so the harness has no issue tracker and no 
 
 ## Recommendation
 
-Use the **179 multi-line tasks** as the defensible core: unique, uncontaminated, and they are the
-regime this project actually cares about. If the single-line half is used at all, dedupe it to its
-**606 unique** prompts and report it as *in-training-distribution*, not held-out. Add container
-isolation regardless.
+**Do not use either half as an evaluation.** This section previously recommended the 179 multi-line
+tasks as the defensible core; that is withdrawn. `benchmark-validity.md` shows the released tests
+never execute the candidate — no test script reads `solution.sh` — so a passing score is not
+evidence about the generated code in either split, contamination aside.
+
+What the audit below still establishes is about the tasks as **data**, and there the two halves
+differ. The 179 multi-line tasks are unique and uncontaminated, so they are usable as held-out
+*prompts* with reference solutions (themselves LLM-generated). The single-line half is not: if it is
+used at all, dedupe it to its **606 unique** prompts and label it *in-training-distribution*. Any
+re-execution of this artifact needs container isolation regardless, since the harness runs model
+output as plain bash on the host.
 
 The contamination and duplication are properties of the *released artifact*. If the authors hold
 back a clean split, that would resolve Finding 1 — but there is no repository or contact channel

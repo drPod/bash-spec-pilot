@@ -16,7 +16,7 @@ REF_IDS = ["jiacheng-ye/nl2bash", "TRamesh2/NL2CMD", "Romit2004/LinuxCommands",
            "b-mc2/cli-commands-explained"]
 
 res = {}
-for f in ("res1.json", "res2.json"):
+for f in ("res1.json", "res2.json", "res_fix.json"):  # res_fix last: it supersedes bad column picks
     res.update(json.load(open(f)))
 
 REF = set()
