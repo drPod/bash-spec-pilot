@@ -8,7 +8,8 @@ are duplicates of each other.
 |---|---|
 | `rows-to-add.csv` | **The deliverable.** 45 rows in the sheet's exact column order (`Name / # Single Line / # Multi Line / Includes Eval? / Available? / Notes`) — paste straight in. |
 | `duplicates.md` | Measured duplicate clusters, corrections to two rows already on the sheet, and what each corpus is actually made of. |
-| `data/` | Raw measurement JSON, so any number here can be re-derived. |
+| `bashbench-2026-audit.md` | Why the most promising benchmark's single-line half can't be used as held-out data. |
+| `data/` | Raw measurement JSON and the scripts, so any number here can be re-derived. |
 
 ## Method
 
@@ -34,12 +35,27 @@ completely (`AnishJoshi/nl2bash-custom` looked independent, and is actually 60% 
 
 ## The three things worth acting on
 
-**1. BashBench (BashCoder-R1, arXiv 2606.27733, 2026) is the best fit we found.** 952 tasks split
-**773 single-line / 179 multi-line**, each with an executable functional test suite that was
-LLM-generated and then *manually reviewed*. It is the only dataset that publishes an explicit
-single/multi split *and* per-task tests. Release: <https://zenodo.org/records/18408692>
-(1.1 GB, CC-BY-4.0). It also ships an SFT set of 12,334 (7,005 single / 5,329 multi) and an RL set
-of 1,824 (812 single / 1,012 multi).
+**1. BashBench (BashCoder-R1, arXiv 2606.27733, 2026) looked like the best fit — use only its
+multi-line half.** 952 tasks split **773 single-line / 179 multi-line**, each with an executable
+test suite. It is the only dataset publishing an explicit single/multi split *and* per-task tests.
+Release: <https://zenodo.org/records/18408692> (1.1 GB, CC-BY-4.0).
+
+We audited it before recommending it (`bashbench-2026-audit.md`, reproducible via
+`data/bashbench_audit.py`). The paper states the tasks are *"completely isolated from all training
+data."* Measured against the released artifact:
+
+| | single-line (773) | multi-line (179) |
+|---|---|---|
+| appears in the released SFT file | **709 = 91.7%** | **0** |
+| appears in the released GRPO file | 204 = 26.4% | 0 |
+| unique prompts | **606 of 773** (one repeats 16×) | 179 of 179 |
+
+The leakage is task-level, not record-level — no benchmark task shares an identical (input, output)
+pair with the training set, so the *questions* leaked and the *answers* did not. That still does not
+support "completely isolated." The **179 multi-line tasks are clean** and are the regime this
+project cares about, so they are the defensible core. Two further caveats: only ~40 of the 179
+multi-line tests are re-runnable from the archive, and the harness executes model output as plain
+bash on the host with no container isolation.
 
 ⚠️ **Two unrelated benchmarks are both named "BashBench."** The other is Redwood Research's
 (Ctrl-Z, arXiv 2504.10374): 257 multi-step sysadmin tasks graded by public + private pytest suites.
