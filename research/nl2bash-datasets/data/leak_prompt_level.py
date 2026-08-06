@@ -14,6 +14,11 @@ for r in scored:
     by[norm(r["input_task"])].append(r)
 
 def wilson(k, n):
+    """95% Wilson score interval for k successes in n, as percentages.
+
+    Wilson rather than normal approximation because the clean subset is tiny (27 prompts) and
+    lands near the ends of the scale, where the normal interval is badly wrong.
+    """
     if not n: return (0, 0)
     p, z = k / n, 1.959963985
     d = 1 + z*z/n; c = p + z*z/(2*n)

@@ -1,3 +1,13 @@
+"""The two controls that make the contamination numbers in contamination.md mean something.
+
+Positive control: benchmarks known to be drawn from the reference corpora have to come back high
+through the identical pipeline, which shows the union matches what it should.
+
+Baseline control: independent command corpora already overlap the union to some degree, so the
+near-zero figures for execution-environment benchmarks need that floor to be read against. Without
+it, a 0.1% result is indistinguishable from a measurement bug, which is exactly the mistake the
+first pass made.
+"""
 import json, hashlib
 res = {}
 for f in ('res1.json', 'res2.json', 'res_fix.json'):

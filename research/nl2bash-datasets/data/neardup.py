@@ -50,6 +50,11 @@ def best_neighbour(queries, corpus, analyzer="word", ngram=(1, 2), self_exclude=
 
 
 def describe(label, arr, n_show=(50, 90, 95, 99)):
+    """Print n, mean, max and the tail percentiles of a similarity array, and return it.
+
+    The upper percentiles are the point: a clean split can have a low mean and still hide a
+    handful of near-identical items in its tail.
+    """
     a = np.asarray(arr)
     q = ", ".join(f"p{p}={np.percentile(a, p):.3f}" for p in n_show)
     print(f"  {label:<46s} n={len(a):>5d}  mean={a.mean():.3f}  max={a.max():.3f}  {q}")

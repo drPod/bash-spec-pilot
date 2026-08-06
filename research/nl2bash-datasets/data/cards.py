@@ -1,3 +1,9 @@
+"""Fetch each candidate dataset's README and grep it for signs of a real evaluation.
+
+Prints the matching lines per dataset, which is how the "Includes Eval?" column was first
+populated. What a card claims was then confirmed against the artifact itself, since BashBench
+2026 shows a card can advertise tests that do not test anything.
+"""
 import urllib.request,re,sys
 IDS="""nvidia/Nemotron-Terminal-Corpus
 nvidia/Nemotron-Terminal-Synthetic-Tasks

@@ -1,3 +1,8 @@
+"""Drop machine-generated bulk uploads from the shortlist.
+
+Agent trajectory dumps and timestamped run artifacts match the keyword filter in score.py but are
+not NL->Bash datasets, and there are enough of them to bury the real ones. Writes shortlist2.json.
+"""
 import json,re
 sl=json.load(open("shortlist.json"))
 SPAM=[r"^DCAgent", r"^mlfoundations-dev/", r"20\d{6}[_-]\d{6}", r"maxEps", r"-traces", r"_traces",

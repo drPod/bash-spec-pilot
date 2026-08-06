@@ -1,5 +1,13 @@
+"""Collect row counts for every candidate from the datasets-server /size endpoint.
+
+Reads dataset ids from cands.txt and writes sizes.json. These are the advertised totals; the
+counts that reach the deliverable come from analyze.py, which reads the rows themselves. The gap
+between the two is sometimes the story, as with Euroswarms/bash advertising a million rows.
+"""
 import json,urllib.request,urllib.parse,sys,time
 def get(u):
+    """GET a JSON endpoint, returning {"_err": ...} instead of raising so one bad id cannot
+    abort the sweep."""
     try:
         req=urllib.request.Request(u,headers={"User-Agent":"research"})
         with urllib.request.urlopen(req,timeout=40) as r: return json.load(r)

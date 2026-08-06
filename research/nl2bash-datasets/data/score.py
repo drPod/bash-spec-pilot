@@ -1,3 +1,9 @@
+"""Rank the swept HuggingFace index down to a plausible shortlist.
+
+Keyword scoring over the id, description and tags, weighted so a match in the id counts for more
+than one in the prose. The NOISE list drops the words that merely contain "shell" (nutshell,
+seashell, bombshell) unless the id itself also matches something strong. Writes shortlist.json.
+"""
 import json,re
 seen=json.load(open("hf_raw.json"))
 STRONG=[r"nl2bash",r"nl2cmd",r"nl2sh",r"bash",r"\bshell\b",r"\bzsh\b",r"coreutils",r"\btldr\b",

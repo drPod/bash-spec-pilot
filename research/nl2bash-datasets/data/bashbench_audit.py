@@ -38,6 +38,7 @@ def load(root, rel):
 
 
 def norm(s):
+    """Collapse all whitespace, so leakage is matched on content rather than formatting."""
     return " ".join((s or "").split())
 
 
@@ -51,6 +52,12 @@ def has_test(rec):
 
 
 def main(root):
+    """Reproduce the audit from an extracted copy of the Zenodo archive.
+
+    Reports how many of the benchmark's scored tasks reappear in the SFT and GRPO files released
+    alongside it, and how many of its prompts are distinct. Takes the directory the 1.1 GB archive
+    was unpacked into.
+    """
     root = pathlib.Path(root)
     d = {k: load(root, v) for k, v in FILES.items()}
 

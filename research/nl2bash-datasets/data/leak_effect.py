@@ -67,6 +67,7 @@ def fisher(a, b, c, d):
     n = a + b + c + d
     r1, c1 = a + b, a + c
     def p(x):
+        """Hypergeometric probability of exactly x in the cell, under independence."""
         return comb(r1, x) * comb(n - r1, c1 - x) / comb(n, c1)
     p0 = p(a)
     lo = max(0, c1 - (n - r1))

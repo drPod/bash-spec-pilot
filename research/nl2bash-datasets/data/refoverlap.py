@@ -1,3 +1,9 @@
+"""Print every dataset's overlap against the five canonical NL->Bash corpora.
+
+Each cell is containment: the share of the dataset's own unique commands that appear in that
+reference. Rows are sorted by worst case, so remixes surface at the top and the genuinely
+independent corpora fall to the bottom.
+"""
 import json
 res={}
 for f in ["res1.json","res2.json","res_fix.json"]: res.update(json.load(open(f)))  # res_fix supersedes

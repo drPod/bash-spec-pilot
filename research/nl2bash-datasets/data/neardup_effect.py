@@ -43,6 +43,7 @@ print(f"matched {len(passes)}/179 tasks to a scored record ({missing} unmatched)
 
 
 def wilson(k, n, z=1.96):
+    """95% Wilson score interval for k successes in n, as proportions."""
     if n == 0:
         return (0.0, 0.0)
     p = k / n
@@ -53,6 +54,11 @@ def wilson(k, n, z=1.96):
 
 
 def band(label, mask):
+    """Print pass rate with its confidence interval for one similarity band.
+
+    Splitting by band is what tests whether the near-duplicate tail explains the pass rate: if it
+    did, the high-similarity band would score above the low one.
+    """
     n = mask.sum()
     if n == 0:
         print(f"  {label:<42s} n=    0")

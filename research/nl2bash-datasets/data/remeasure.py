@@ -30,11 +30,13 @@ print(f"union of reference corpora: {len(REF):,} unique command hashes\n")
 
 
 def parquet_urls(did, config, split):
+    """List the Parquet file URLs for one dataset config and split."""
     u = f"https://huggingface.co/api/datasets/{did}/parquet/{config}/{split}"
     return json.load(urllib.request.urlopen(u))
 
 
 def load(did, config, split, columns, max_files=None):
+    """Read the named columns of a dataset split into one DataFrame."""
     urls = parquet_urls(did, config, split)[:max_files]
     frames = [pd.read_parquet(io.BytesIO(urllib.request.urlopen(u).read()), columns=columns)
               for u in urls]
@@ -42,6 +44,12 @@ def load(did, config, split, columns, max_files=None):
 
 
 def report(name, cmds, note=""):
+    """Measure one benchmark's commands against the reference union and print the result.
+
+    Prints three sample commands as well as the percentage, deliberately: the first version of
+    this measurement reported a correct-looking 0% because it had been handed English prose
+    instead of commands, and only the samples make that visible.
+    """
     cmds = [c for c in (x.strip() for x in cmds) if c]
     hs = {H(c) for c in cmds}
     hit = len(hs & REF)

@@ -26,6 +26,7 @@ print("=" * 78)
 
 
 def stats(g, key, f):
+    """Mean and median of f over a group, formatted for the side-by-side leaked/clean table."""
     v = [f(r) for r in g]
     return f"mean {st.mean(v):7.1f}   median {st.median(v):6.1f}"
 

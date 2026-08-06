@@ -1,3 +1,10 @@
+"""A dead end, kept as the record of it.
+
+This paginates the HuggingFace dataset search with &offset=. That parameter is silently ignored:
+every offset returns the same first page, so the whole run adds almost nothing and looks like the
+index is simply exhausted. sweep3.py works around it by raising the limit and varying the search
+term instead, which is what took the sweep from 809 to 5,661 unique datasets.
+"""
 import json, urllib.request, urllib.parse, time, sys
 seen=json.load(open("hf_raw.json"))
 SAT=["nl2bash","bash","shell","terminal","cli","tldr","terminal bench","linux command","unix","intercode","os agent","command generation"]

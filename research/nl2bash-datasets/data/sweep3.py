@@ -1,3 +1,8 @@
+"""Widen the sweep by raising the result limit and varying the search term.
+
+The working replacement for sweep2.py's ignored &offset=. Merges into hf_raw.json, and this is
+the step that took the index from 809 to 5,661 unique datasets.
+"""
 import json, urllib.request, urllib.parse, time, sys
 seen=json.load(open("hf_raw.json"))
 SAT=["nl2bash","bash","shell","terminal","cli","tldr","terminal bench","linux command","unix","intercode","command line interface","sh","script"]
