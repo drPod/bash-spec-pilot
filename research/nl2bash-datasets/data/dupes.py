@@ -4,11 +4,9 @@ Reports every pair at 50% containment or above, labelled IDENTICAL, SUBSET or HE
 writes dupe_pairs.json. Containment is the primary measure rather than Jaccard: a small re-upload
 sitting entirely inside a large corpus scores low on Jaccard but is still a duplicate.
 """
-import json,glob,itertools
-res={}
-for f in ["res1.json","res2.json","res_fix.json"]:  # res_fix last: it supersedes bad column picks
-    try: res.update(json.load(open(f)))
-    except Exception as e: print("skip",f,e)
+import json,itertools
+from resload import load
+res=load()
 sets={k:set(v["hashes"]) for k,v in res.items() if v.get("hashes")}
 print(f"datasets with command hashes: {len(sets)}\n")
 pairs=[]

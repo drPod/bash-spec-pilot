@@ -1,8 +1,12 @@
 """Does BashBench 2026's self-contamination actually inflate its headline number?
 
 The audit established that 709 of the 773 scored single-line benchmark tasks appear
-byte-identically in the SFT file shipped in the same release. This splits the authors'
+(after whitespace normalization) in the SFT file shipped in the same release. This splits the authors'
 own released per-task scores by that line and compares pass rates.
+
+NOTE: the causal reading these numbers were collected for is WITHDRAWN. benchmark-validity.md
+shows the harness never executes the candidate, so func_pass is a property of the released test
+scripts, not of any model. Read every rate below as a test-script exit rate.
 """
 import json, math, sys
 

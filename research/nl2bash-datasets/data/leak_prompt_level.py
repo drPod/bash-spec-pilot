@@ -1,5 +1,9 @@
 """Robustness: the 773 tasks are only 606 distinct prompts, and the clean group is only 27.
 Records within a repeated prompt are not independent, so redo the comparison per distinct prompt.
+
+NOTE: the causal reading these numbers were collected for is WITHDRAWN. benchmark-validity.md
+shows the harness never executes the candidate, so func_pass is a property of the released test
+scripts, not of any model. Read every rate below as a test-script exit rate.
 """
 import json, math, statistics as st
 from collections import defaultdict
@@ -30,7 +34,7 @@ for name, keys in (("leaked into SFT", [p for p in by if p in SFT]),
                    ("clean of SFT",    [p for p in by if p not in SFT])):
     n = len(keys)
     k = sum(1 for p in keys
-            if sum(bool(r["func_pass"]) for r in by[p]) * 2 >= len(by[p]))
+            if sum(bool(r["func_pass"]) for r in by[p]) * 2 > len(by[p]))   # strict: a tie is not a majority
     lo, hi = wilson(k, n)
     print(f"  {name:18s} {k:>3d}/{n:<3d} = {100*k/n:5.1f}%  [{lo:.1f}, {hi:.1f}]")
 

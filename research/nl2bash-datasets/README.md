@@ -40,7 +40,7 @@ completely (`AnishJoshi/nl2bash-custom` looked independent, and is actually 60% 
 
 **0. Half the Bash benchmarks in common use are not held-out data, and which half is predictable
 from how they were built.** Measured against the union of the seven corpora most HuggingFace Bash
-datasets descend from (78,441 unique commands):
+datasets descend from (69,597 unique commands):
 
 | | gold commands | in the union |
 |---|---|---|
@@ -49,6 +49,11 @@ datasets descend from (78,441 unique commands):
 | *every generic NL→command corpus, as a baseline* | | *10.4 – 100%* |
 | `ia03/terminal-bench` (oracle solutions) | 13,855 | **0.2%** |
 | `tiararodney/posix-sdc` | 5,597 | **0.1%** |
+
+The gold-command counts in this table come from `data/remeasure.py`, which pulls each
+benchmark's actual solutions and explodes list- and trajectory-valued fields into individual
+commands. They are deliberately not the per-dataset counts in `data/res1.json` / `res2.json`,
+which are a capped inventory sample over a single column (112 and 2,975 rows for these two).
 
 Benchmarks assembled by sampling an existing corpus are contaminated *by construction* — the
 InterCode line was drawn from NL2Bash, so filtering cannot repair it. Benchmarks authored against an
@@ -131,8 +136,8 @@ is single-line one-liners. The only substantial multi-line sources found are:
 | Source | Multi-line | Has tests? |
 |---|---|---|
 | `saurabh5/rlvr-code-data-bash` | 66,614 (100% of its bash rows) | yes |
-| `ajibawa-2023/Shell-Code-Large` | ~101,390 in sample (98.4%) | no, and no NL side |
-| `tiararodney/posix-sdc` | ~1,935 (65%) | yes (`checker`) |
+| `ajibawa-2023/Shell-Code-Large` | 101,362 in sample (98.4%) | no, and no NL side |
+| `tiararodney/posix-sdc` | 1,933 (65%) | yes (`checker`) |
 | BashBench 2026 | 179 eval + 5,329 SFT | ships tests, but they **don't test the candidate** — see above |
 | MultiPL-E sh (already on the sheet) | 540 | yes |
 | Terminal-Bench family | 89 + 200 + 46 + 1,530 + 637 | yes |
@@ -140,7 +145,7 @@ is single-line one-liners. The only substantial multi-line sources found are:
 This matters for us specifically: multi-line is the regime where verification gets hard, and it is
 also the regime where the data barely exists. That gap is a defensible motivation for the project.
 
-**3. Roughly half the HuggingFace "bash" ecosystem is re-uploads.** Six byte-identical copies of one
+**3. Roughly half the HuggingFace "bash" ecosystem is re-uploads.** Six identical copies (after whitespace normalization) of one
 5,451-command file; NL2SH-ALFA is ~half recycled from the other three corpora already on the sheet;
 one dataset advertises 1M rows and has 4,618 unique values. See `duplicates.md`. Both duplicate
 flags already on the sheet were confirmed by hashing, and two more rows on it need correcting.

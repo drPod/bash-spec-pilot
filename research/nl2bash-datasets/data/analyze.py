@@ -67,7 +67,7 @@ def analyze(did,max_rows=60000):
     cols=[str(c) for c in df.columns]
     cmdc=pick(list(df.columns),CMD_HINTS)
     nlc=pick(list(df.columns),NL_HINTS,exclude=(cmdc,))
-    res={"id":did,"sampled_rows":len(df),"n_parquet_files":len(urls),"cols":cols,"cmd_col":str(cmdc),"nl_col":str(nlc)}
+    res={"id":did,"sampled_rows":len(df),"n_parquet_files":len(urls),"cols":cols,"cmd_col":cmdc,"nl_col":nlc}
     if cmdc is not None:
         vals=[("" if v is None else str(v)) for v in df[cmdc].tolist()]
         vals=[v for v in vals if v and v.lower()!="nan"]

@@ -4,9 +4,8 @@ Each cell is containment: the share of the dataset's own unique commands that ap
 reference. Rows are sorted by worst case, so remixes surface at the top and the genuinely
 independent corpora fall to the bottom.
 """
-import json
-res={}
-for f in ["res1.json","res2.json","res_fix.json"]: res.update(json.load(open(f)))  # res_fix supersedes
+from resload import load
+res=load()
 sets={k:set(v["hashes"]) for k,v in res.items() if v.get("hashes") and len(v["hashes"])>20}
 REFS=["jiacheng-ye/nl2bash","westenfelder/NL2SH-ALFA","Romit2004/LinuxCommands","Edoigtrd/tldr-pages","TRamesh2/NL2CMD"]
 print("Overlap of each dataset against the 5 canonical corpora (% of the dataset's unique commands found in ref)\n")

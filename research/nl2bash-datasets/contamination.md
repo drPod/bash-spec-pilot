@@ -5,9 +5,16 @@ both sides are public, so this is directly checkable.
 
 **Method.** MD5 over whitespace-normalized command strings. Reference side = the union of the seven
 corpora most HuggingFace Bash datasets descend from or reproduce (NL2Bash, NL2CMD, NL2CMD-Fu /
-LinuxCommands, NL2SH-ALFA, tldr-pages, nl2bash-custom, cli-commands-explained) = **78,441 unique
-commands**. A benchmark task counts as contaminated if its gold command appears byte-identically in
-that union. Every measurement below compares *commands against commands*; see "How this was
+LinuxCommands, NL2SH-ALFA, tldr-pages, nl2bash-custom, cli-commands-explained) = **69,597 unique
+commands**. A benchmark task counts as contaminated if its gold command appears, after whitespace
+normalization, in that union.
+
+(This figure was first reported as 78,441. That was the pre-correction union, which counted 12,957
+`nl_command` *English sentences* from `nl2bash-custom` as if they were commands and omitted its
+12,659 real ones. Re-running `data/control.py` and `data/remeasure.py` against the corrected union
+leaves every percentage below unchanged: the positive controls still return 100.0% and 63.8%, the
+baseline floor is still 10.4%, and the two execution-environment benchmarks move by one hit each,
+5/5,597 and 30/13,855, still 0.1% and 0.2%.) Every measurement below compares *commands against commands*; see "How this was
 validated" for why that qualifier is load-bearing.
 
 ## The result
@@ -74,7 +81,7 @@ contamination auditing impossible too. Worth stating plainly rather than scoring
 ## The second failure mode: self-contamination
 
 BashBench 2026 (BashCoder-R1, arXiv 2606.27733) leaks against its *own* released training set:
-**709 of its 773 single-line tasks (91.7%)** appear byte-identically in the SFT file shipped in the
+**709 of its 773 single-line tasks (91.7%)** appear (after whitespace normalization) in the SFT file shipped in the
 same release, against an explicit claim of being "completely isolated from all training data." Its
 179 multi-line tasks are clean. Full measurement in `bashbench-2026-audit.md`, reproducible via
 `data/bashbench_audit.py`.

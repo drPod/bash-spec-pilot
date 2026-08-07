@@ -10,6 +10,10 @@ Expects these files, extracted from Zenodo record 18408692 (BashCoder-R1.zip):
     data/grpo/grpo_command.json        data/grpo/grpo_script.json
 
 Filenames may be flattened with '__' separators; both layouts are handled.
+
+Scope: this covers the contamination and duplication half of the audit only, and it starts from
+already-extracted JSON. Downloading the Zenodo record, unpacking it, and the harness inspection
+written up in benchmark-validity.md were all done by hand and are not reproduced here.
 """
 
 import collections

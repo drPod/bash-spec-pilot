@@ -9,15 +9,15 @@ import hashlib, io, json, re, sys, tarfile, urllib.parse, urllib.request
 
 import pandas as pd
 
+from resload import load
+
 H = lambda s: hashlib.md5(" ".join(s.split()).encode("utf-8", "replace")).hexdigest()[:12]
 
 REF_IDS = ["jiacheng-ye/nl2bash", "TRamesh2/NL2CMD", "Romit2004/LinuxCommands",
            "westenfelder/NL2SH-ALFA", "Edoigtrd/tldr-pages", "AnishJoshi/nl2bash-custom",
            "b-mc2/cli-commands-explained"]
 
-res = {}
-for f in ("res1.json", "res2.json", "res_fix.json"):  # res_fix last: it supersedes bad column picks
-    res.update(json.load(open(f)))
+res = load()
 
 REF = set()
 for r in REF_IDS:

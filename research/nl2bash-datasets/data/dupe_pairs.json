@@ -1,587 +1,569 @@
 [
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "missvector/linux-commands",
   "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "jasmar2/linux-commands",
   "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "jasmar2/linux-commands",
   "b": "missvector/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "chowmean/linux-commands",
   "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "chowmean/linux-commands",
   "b": "missvector/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "chowmean/linux-commands",
   "b": "jasmar2/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "amechanicus/linux-commands",
   "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "amechanicus/linux-commands",
   "b": "missvector/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "amechanicus/linux-commands",
   "b": "jasmar2/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "amechanicus/linux-commands",
   "b": "chowmean/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "XUO/terminal-bench",
   "b": "ia03/terminal-bench",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 112,
   "uniq_a": 112,
-  "uniq_b": 112
+  "uniq_b": 112,
+  "shared": 112
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "Rendra8631/linux-commands",
   "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "Rendra8631/linux-commands",
   "b": "missvector/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "Rendra8631/linux-commands",
   "b": "jasmar2/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "Rendra8631/linux-commands",
   "b": "chowmean/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "Rendra8631/linux-commands",
   "b": "amechanicus/linux-commands",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 5451,
   "uniq_a": 5451,
-  "uniq_b": 5451
+  "uniq_b": 5451,
+  "shared": 5451
  },
  {
+  "containment": 1.0,
+  "jaccard": 1.0,
   "a": "GWHed/nl2bash",
   "b": "jiacheng-ye/nl2bash",
-  "containment": 1.0,
-  "jaccard": 1.0,
-  "shared": 7559,
   "uniq_a": 7559,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 7559
  },
  {
+  "containment": 1.0,
+  "jaccard": 0.8441592803280857,
   "a": "jiacheng-ye/nl2bash",
   "b": "rlawltjd/korean-nl2bash",
-  "containment": 1.0,
-  "jaccard": 0.8441592803280857,
-  "shared": 6381,
   "uniq_a": 7559,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 6381
  },
  {
+  "containment": 1.0,
+  "jaccard": 0.8441592803280857,
   "a": "GWHed/nl2bash",
   "b": "rlawltjd/korean-nl2bash",
-  "containment": 1.0,
-  "jaccard": 0.8441592803280857,
-  "shared": 6381,
   "uniq_a": 7559,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 6381
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
+  "containment": 1.0,
+  "jaccard": 0.6724859783553203,
+  "a": "AnishJoshi/nl2bash-custom",
+  "b": "TRamesh2/NL2CMD",
+  "uniq_a": 12659,
+  "uniq_b": 8513,
+  "shared": 8513
+ },
+ {
+  "containment": 1.0,
+  "jaccard": 0.504068251836638,
+  "a": "AnishJoshi/nl2bash-custom",
   "b": "rlawltjd/korean-nl2bash",
+  "uniq_a": 12659,
+  "uniq_b": 6381,
+  "shared": 6381
+ },
+ {
   "containment": 1.0,
   "jaccard": 0.4985545745761388,
-  "shared": 6381,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "rlawltjd/korean-nl2bash",
   "uniq_a": 12799,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 6381
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "TRamesh2/NL2CMD",
+  "containment": 1.0,
+  "jaccard": 0.15698587127158556,
+  "a": "AISafety-Student/labeled-bashBench",
+  "b": "Eccentricity/bashbench2",
+  "uniq_a": 100,
+  "uniq_b": 637,
+  "shared": 100
+ },
+ {
   "containment": 1.0,
   "jaccard": 0.1333030597225267,
-  "shared": 8513,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "TRamesh2/NL2CMD",
   "uniq_a": 63862,
-  "uniq_b": 8513
+  "uniq_b": 8513,
+  "shared": 8513
  },
  {
+  "containment": 1.0,
+  "jaccard": 0.11836459866587329,
   "a": "Mitchins/NL-SHELL-MULTI",
   "b": "jiacheng-ye/nl2bash",
-  "containment": 1.0,
-  "jaccard": 0.11836459866587329,
-  "shared": 7559,
   "uniq_a": 63862,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 7559
  },
  {
+  "containment": 1.0,
+  "jaccard": 0.11836459866587329,
   "a": "GWHed/nl2bash",
   "b": "Mitchins/NL-SHELL-MULTI",
-  "containment": 1.0,
-  "jaccard": 0.11836459866587329,
-  "shared": 7559,
   "uniq_a": 7559,
-  "uniq_b": 63862
+  "uniq_b": 63862,
+  "shared": 7559
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "rlawltjd/korean-nl2bash",
   "containment": 1.0,
   "jaccard": 0.09991857442610629,
-  "shared": 6381,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "rlawltjd/korean-nl2bash",
   "uniq_a": 63862,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 6381
  },
  {
-  "a": "westenfelder/InterCode-Corrections",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 1.0,
   "jaccard": 0.004735595895816891,
-  "shared": 192,
-  "uniq_a": 192,
-  "uniq_b": 40544
- },
- {
-  "a": "saurabh5/rlvr-code-data-bash",
-  "b": "tmskss/linux-man-pages-tldr-summarized",
-  "containment": 1.0,
-  "jaccard": 0.0025252525252525255,
-  "shared": 1,
-  "uniq_a": 1,
-  "uniq_b": 396
- },
- {
-  "a": "saurabh5/rlvr-code-data-bash",
-  "b": "shantoislamdev/linux-commands",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 1,
-  "uniq_b": 5451
- },
- {
-  "a": "missvector/linux-commands",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 5451,
-  "uniq_b": 1
- },
- {
-  "a": "jasmar2/linux-commands",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 5451,
-  "uniq_b": 1
- },
- {
-  "a": "chowmean/linux-commands",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 5451,
-  "uniq_b": 1
- },
- {
-  "a": "amechanicus/linux-commands",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 5451,
-  "uniq_b": 1
- },
- {
-  "a": "Rendra8631/linux-commands",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 0.000183452577508714,
-  "shared": 1,
-  "uniq_a": 5451,
-  "uniq_b": 1
- },
- {
-  "a": "saurabh5/rlvr-code-data-bash",
+  "a": "westenfelder/InterCode-Corrections",
   "b": "westenfelder/NL2SH-ALFA",
-  "containment": 1.0,
-  "jaccard": 2.4664561957379637e-05,
-  "shared": 1,
-  "uniq_a": 1,
-  "uniq_b": 40544
+  "uniq_a": 192,
+  "uniq_b": 40544,
+  "shared": 192
  },
  {
-  "a": "abandonedmonk/NL2SH-ALPACA",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 2.464328840040415e-05,
-  "shared": 1,
-  "uniq_a": 40579,
-  "uniq_b": 1
+  "containment": 0.9998677073686996,
+  "jaccard": 0.596998420221169,
+  "a": "AnishJoshi/nl2bash-custom",
+  "b": "jiacheng-ye/nl2bash",
+  "uniq_a": 12659,
+  "uniq_b": 7559,
+  "shared": 7558
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 1.565876421032852e-05,
-  "shared": 1,
-  "uniq_a": 63862,
-  "uniq_b": 1
+  "containment": 0.9998677073686996,
+  "jaccard": 0.596998420221169,
+  "a": "AnishJoshi/nl2bash-custom",
+  "b": "GWHed/nl2bash",
+  "uniq_a": 12659,
+  "uniq_b": 7559,
+  "shared": 7558
  },
  {
-  "a": "jragsdale1/ShIO-bash-26.1",
-  "b": "saurabh5/rlvr-code-data-bash",
-  "containment": 1.0,
-  "jaccard": 8.359107247345984e-06,
-  "shared": 1,
-  "uniq_a": 119630,
-  "uniq_b": 1
- },
- {
-  "a": "TRamesh2/NL2CMD",
-  "b": "rlawltjd/korean-nl2bash",
   "containment": 0.9989029932612443,
   "jaccard": 0.7481220657276996,
-  "shared": 6374,
+  "a": "TRamesh2/NL2CMD",
+  "b": "rlawltjd/korean-nl2bash",
   "uniq_a": 8513,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 6374
  },
  {
+  "containment": 0.9985447810556952,
+  "jaccard": 0.8854997653683716,
   "a": "TRamesh2/NL2CMD",
   "b": "jiacheng-ye/nl2bash",
-  "containment": 0.9985447810556952,
-  "jaccard": 0.8854997653683716,
-  "shared": 7548,
   "uniq_a": 8513,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 7548
  },
  {
+  "containment": 0.9985447810556952,
+  "jaccard": 0.8854997653683716,
   "a": "GWHed/nl2bash",
   "b": "TRamesh2/NL2CMD",
-  "containment": 0.9985447810556952,
-  "jaccard": 0.8854997653683716,
-  "shared": 7548,
   "uniq_a": 7559,
-  "uniq_b": 8513
+  "uniq_b": 8513,
+  "shared": 7548
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 0.9939325177584846,
   "jaccard": 0.6285954951020154,
-  "shared": 40298,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 63862,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 40298
  },
  {
-  "a": "abandonedmonk/NL2SH-ALPACA",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 0.9934638910812944,
   "jaccard": 0.9861668788561355,
-  "shared": 40279,
+  "a": "abandonedmonk/NL2SH-ALPACA",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 40579,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 40279
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "abandonedmonk/NL2SH-ALPACA",
   "containment": 0.9926070134798788,
   "jaccard": 0.6277703313487735,
-  "shared": 40279,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "abandonedmonk/NL2SH-ALPACA",
   "uniq_a": 63862,
-  "uniq_b": 40579
+  "uniq_b": 40579,
+  "shared": 40279
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
-  "b": "jiacheng-ye/nl2bash",
   "containment": 0.9917978568593729,
   "jaccard": 0.582925122463261,
-  "shared": 7497,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "jiacheng-ye/nl2bash",
   "uniq_a": 12799,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 7497
  },
  {
+  "containment": 0.9917978568593729,
+  "jaccard": 0.582925122463261,
   "a": "AryaYT/nl2shell-training-v3",
   "b": "GWHed/nl2bash",
-  "containment": 0.9917978568593729,
-  "jaccard": 0.582925122463261,
-  "shared": 7497,
   "uniq_a": 12799,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 7497
  },
  {
-  "a": "westenfelder/NL2SH-ALFA",
-  "b": "yogeshm/text_to_bash",
   "containment": 0.99,
   "jaccard": 0.00244173140954495,
-  "shared": 99,
+  "a": "westenfelder/NL2SH-ALFA",
+  "b": "yogeshm/text_to_bash",
   "uniq_a": 40544,
-  "uniq_b": 100
+  "uniq_b": 100,
+  "shared": 99
  },
  {
-  "a": "abandonedmonk/NL2SH-ALPACA",
-  "b": "yogeshm/text_to_bash",
   "containment": 0.99,
   "jaccard": 0.0024396254312469196,
-  "shared": 99,
+  "a": "abandonedmonk/NL2SH-ALPACA",
+  "b": "yogeshm/text_to_bash",
   "uniq_a": 40579,
-  "uniq_b": 100
+  "uniq_b": 100,
+  "shared": 99
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "yogeshm/text_to_bash",
   "containment": 0.99,
   "jaccard": 0.0015501933827098632,
-  "shared": 99,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "yogeshm/text_to_bash",
   "uniq_a": 63862,
-  "uniq_b": 100
+  "uniq_b": 100,
+  "shared": 99
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
-  "b": "TRamesh2/NL2CMD",
   "containment": 0.9827322917890285,
   "jaccard": 0.6462227715124362,
-  "shared": 8366,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "TRamesh2/NL2CMD",
   "uniq_a": 12799,
-  "uniq_b": 8513
+  "uniq_b": 8513,
+  "shared": 8366
  },
  {
-  "a": "rlawltjd/korean-nl2bash",
-  "b": "westenfelder/NL2SH-ALFA",
+  "containment": 0.9338020380756774,
+  "jaccard": 0.8668328811322138,
+  "a": "AnishJoshi/nl2bash-custom",
+  "b": "AryaYT/nl2shell-training-v3",
+  "uniq_a": 12659,
+  "uniq_b": 12799,
+  "shared": 11821
+ },
+ {
   "containment": 0.8566055477197931,
   "jaccard": 0.13184109602257651,
-  "shared": 5466,
+  "a": "rlawltjd/korean-nl2bash",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 6381,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 5466
  },
  {
-  "a": "abandonedmonk/NL2SH-ALPACA",
-  "b": "rlawltjd/korean-nl2bash",
   "containment": 0.8553518257326438,
   "jaccard": 0.131511734374247,
-  "shared": 5458,
+  "a": "abandonedmonk/NL2SH-ALPACA",
+  "b": "rlawltjd/korean-nl2bash",
   "uniq_a": 40579,
-  "uniq_b": 6381
+  "uniq_b": 6381,
+  "shared": 5458
  },
  {
+  "containment": 0.8503770339992063,
+  "jaccard": 0.15424115176964606,
   "a": "jiacheng-ye/nl2bash",
   "b": "westenfelder/NL2SH-ALFA",
-  "containment": 0.8503770339992063,
-  "jaccard": 0.15424115176964606,
-  "shared": 6428,
   "uniq_a": 7559,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 6428
  },
  {
+  "containment": 0.8503770339992063,
+  "jaccard": 0.15424115176964606,
   "a": "GWHed/nl2bash",
   "b": "westenfelder/NL2SH-ALFA",
-  "containment": 0.8503770339992063,
-  "jaccard": 0.15424115176964606,
-  "shared": 6428,
   "uniq_a": 7559,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 6428
  },
  {
+  "containment": 0.8489218150549015,
+  "jaccard": 0.15380743510462358,
   "a": "abandonedmonk/NL2SH-ALPACA",
   "b": "jiacheng-ye/nl2bash",
-  "containment": 0.8489218150549015,
-  "jaccard": 0.15380743510462358,
-  "shared": 6417,
   "uniq_a": 40579,
-  "uniq_b": 7559
+  "uniq_b": 7559,
+  "shared": 6417
  },
  {
+  "containment": 0.8489218150549015,
+  "jaccard": 0.15380743510462358,
   "a": "GWHed/nl2bash",
   "b": "abandonedmonk/NL2SH-ALPACA",
-  "containment": 0.8489218150549015,
-  "jaccard": 0.15380743510462358,
-  "shared": 6417,
   "uniq_a": 7559,
-  "uniq_b": 40579
+  "uniq_b": 40579,
+  "shared": 6417
  },
  {
-  "a": "TRamesh2/NL2CMD",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 0.8390696581698579,
   "jaccard": 0.17042038459703202,
-  "shared": 7143,
+  "a": "TRamesh2/NL2CMD",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 8513,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 7143
  },
  {
-  "a": "TRamesh2/NL2CMD",
-  "b": "abandonedmonk/NL2SH-ALPACA",
   "containment": 0.8370727123223306,
   "jaccard": 0.16980412715055043,
-  "shared": 7126,
+  "a": "TRamesh2/NL2CMD",
+  "b": "abandonedmonk/NL2SH-ALPACA",
   "uniq_a": 8513,
-  "uniq_b": 40579
+  "uniq_b": 40579,
+  "shared": 7126
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
+  "containment": 0.8025910419464413,
+  "jaccard": 0.15310197254411476,
+  "a": "AnishJoshi/nl2bash-custom",
   "b": "Mitchins/NL-SHELL-MULTI",
+  "uniq_a": 12659,
+  "uniq_b": 63862,
+  "shared": 10160
+ },
+ {
   "containment": 0.7660754746464568,
   "jaccard": 0.14665848988871605,
-  "shared": 9805,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "Mitchins/NL-SHELL-MULTI",
   "uniq_a": 12799,
-  "uniq_b": 63862
+  "uniq_b": 63862,
+  "shared": 9805
  },
  {
-  "a": "Mitchins/NL-SHELL-MULTI",
-  "b": "Romit2004/LinuxCommands",
   "containment": 0.7274395138172228,
   "jaccard": 0.18491313979246823,
-  "shared": 12688,
+  "a": "Mitchins/NL-SHELL-MULTI",
+  "b": "Romit2004/LinuxCommands",
   "uniq_a": 63862,
-  "uniq_b": 17442
+  "uniq_b": 17442,
+  "shared": 12688
  },
  {
-  "a": "Romit2004/LinuxCommands",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 0.7272101823185414,
   "jaccard": 0.27998763851485586,
-  "shared": 12684,
+  "a": "Romit2004/LinuxCommands",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 17442,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 12684
  },
  {
-  "a": "Romit2004/LinuxCommands",
-  "b": "abandonedmonk/NL2SH-ALPACA",
   "containment": 0.7272101823185414,
   "jaccard": 0.2797714890707369,
-  "shared": 12684,
+  "a": "Romit2004/LinuxCommands",
+  "b": "abandonedmonk/NL2SH-ALPACA",
   "uniq_a": 17442,
-  "uniq_b": 40579
+  "uniq_b": 40579,
+  "shared": 12684
  },
  {
-  "a": "Edoigtrd/tldr-pages",
-  "b": "Mitchins/NL-SHELL-MULTI",
   "containment": 0.6646049481245012,
   "jaccard": 0.05082159803487787,
-  "shared": 3331,
+  "a": "Edoigtrd/tldr-pages",
+  "b": "Mitchins/NL-SHELL-MULTI",
   "uniq_a": 5012,
-  "uniq_b": 63862
+  "uniq_b": 63862,
+  "shared": 3331
  },
  {
-  "a": "epinnock/intercode-nl2bash-curated",
-  "b": "westenfelder/InterCode-Corrections",
   "containment": 0.6145833333333334,
   "jaccard": 0.43703703703703706,
-  "shared": 118,
+  "a": "epinnock/intercode-nl2bash-curated",
+  "b": "westenfelder/InterCode-Corrections",
   "uniq_a": 196,
-  "uniq_b": 192
+  "uniq_b": 192,
+  "shared": 118
  },
  {
-  "a": "epinnock/intercode-nl2bash-curated",
-  "b": "westenfelder/NL2SH-ALFA",
   "containment": 0.6020408163265306,
   "jaccard": 0.002904829895130717,
-  "shared": 118,
+  "a": "epinnock/intercode-nl2bash-curated",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 196,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 118
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
+  "containment": 0.5658424836084999,
+  "jaccard": 0.1555821025195482,
+  "a": "AnishJoshi/nl2bash-custom",
   "b": "westenfelder/NL2SH-ALFA",
+  "uniq_a": 12659,
+  "uniq_b": 40544,
+  "shared": 7163
+ },
+ {
+  "containment": 0.564420570345209,
+  "jaccard": 0.15501269173193327,
+  "a": "AnishJoshi/nl2bash-custom",
+  "b": "abandonedmonk/NL2SH-ALPACA",
+  "uniq_a": 12659,
+  "uniq_b": 40579,
+  "shared": 7145
+ },
+ {
   "containment": 0.5555121493866708,
   "jaccard": 0.1537862565699825,
-  "shared": 7110,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "westenfelder/NL2SH-ALFA",
   "uniq_a": 12799,
-  "uniq_b": 40544
+  "uniq_b": 40544,
+  "shared": 7110
  },
  {
-  "a": "AryaYT/nl2shell-training-v3",
-  "b": "abandonedmonk/NL2SH-ALPACA",
   "containment": 0.5540276584108134,
   "jaccard": 0.15319636182945534,
-  "shared": 7091,
+  "a": "AryaYT/nl2shell-training-v3",
+  "b": "abandonedmonk/NL2SH-ALPACA",
   "uniq_a": 12799,
-  "uniq_b": 40579
+  "uniq_b": 40579,
+  "shared": 7091
  }
 ]

@@ -44,7 +44,11 @@ Keep at most one, and count it as **5,451**, not 71,775.
 - `rlawltjd/korean-nl2bash` — 100% ⊆ NL2Bash. Korean translation of the NL side only; the commands
   are unchanged.
 - `AryaYT/nl2shell-training-v3` — 59% ⊆ NL2Bash, 65% ⊆ TRamesh2/NL2CMD. ~35% novel.
-- `AnishJoshi/nl2bash-custom` — 60% ⊆ NL2Bash, 67% ⊆ NL2CMD, 57% ⊆ NL2SH-ALFA.
+- `AnishJoshi/nl2bash-custom` — a **merge, and it is the containing set**. It holds all 8,513 of
+  `TRamesh2/NL2CMD`, 7,558 of NL2Bash's 7,559, and all 6,381 of `rlawltjd/korean-nl2bash`. Of its
+  12,659 unique commands, roughly 4,100 appear in none of the seven reference corpora. Reading it
+  the other way (60% ⊆ NL2Bash, 67% ⊆ NL2CMD, 57% ⊆ NL2SH-ALFA) understates it: pick this one and
+  you already have NL2CMD, NL2Bash and korean-nl2bash in full.
 - `epinnock/intercode-nl2bash-curated` — 60% ⊆ NL2SH-ALFA.
 
 ### NL2SH-ALFA re-formats
@@ -54,6 +58,10 @@ Keep at most one, and count it as **5,451**, not 71,775.
 - `Mitchins/NL-SHELL-MULTI` (78,768 rows / 63,862 unique) — its card documents it as NL2Bash +
   tldr-pages + NL2SH-ALFA. Hashing confirms it fully contains `jiacheng-ye/nl2bash` (7,559),
   `TRamesh2/NL2CMD` (8,513), and `rlawltjd/korean-nl2bash`.
+
+### BashBench subsets
+- `AISafety-Student/labeled-bashBench` — all 100 of its tasks are inside
+  `Eccentricity/bashbench2` (637). A labelled 100-task slice, not a separate task set.
 
 ### Terminal-Bench and Nemotron re-uploads
 - `XUO/terminal-bench` ≡ `ia03/terminal-bench` (112 rows each, identical).

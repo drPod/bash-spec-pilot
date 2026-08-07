@@ -16,7 +16,7 @@
 > reference-solution complexity as a proxy, which does not control for test-script fragility, so
 > it did not rescue the claim.
 >
-> **What survives:** the leakage itself (91.7% byte-identical, `bashbench-2026-audit.md`) — that
+> **What survives:** the leakage itself (91.7% identical after whitespace normalization, `bashbench-2026-audit.md`) — that
 > is a hash match and is unaffected. The recitation signature below — that is measured on
 > generated text, not on the harness, and also unaffected. What dies is "the leakage inflates the
 > score," because on this benchmark *nothing* the model does can change the score.
@@ -27,7 +27,7 @@
 ---
 
 `bashbench-2026-audit.md` established that **709 of BashBench 2026's 773 scored single-line
-benchmark tasks (91.7%) appear byte-identically in the SFT file shipped in its own release**, against
+benchmark tasks (91.7%) appear (after whitespace normalization) in the SFT file shipped in its own release**, against
 an explicit claim of being "completely isolated from all training data."
 
 Contamination existing is not the same as contamination mattering. This measures whether it does,

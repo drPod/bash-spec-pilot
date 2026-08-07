@@ -3,7 +3,7 @@
   "name": "tiararodney/posix-sdc  (2,975 scenarios)",
   "n_cmds": 8945,
   "n_unique": 5597,
-  "n_hit": 4,
+  "n_hit": 5,
   "pct": 0.1,
   "note": "exploded from list-valued reference_solution"
  },
@@ -11,7 +11,7 @@
   "name": "ia03/terminal-bench  (112 tasks with oracle)",
   "n_cmds": 21971,
   "n_unique": 13855,
-  "n_hit": 29,
+  "n_hit": 30,
   "pct": 0.2,
   "note": "individual lines of solution.sh / solution.yaml"
  }

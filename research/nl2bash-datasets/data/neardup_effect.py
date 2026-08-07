@@ -4,6 +4,10 @@ neardup.py found the 179 multi-line tasks are prompt-side indistinguishable from
 siblings, but have a fatter code-side tail (12.3% above the sibling p95 vs 5% expected). If
 that tail is real leakage it should show up as a pass-rate gradient, the same way byte-identical
 leakage did on the single-line half.
+
+NOTE: the causal reading these numbers were collected for is WITHDRAWN. benchmark-validity.md
+shows the harness never executes the candidate, so func_pass is a property of the released test
+scripts, not of any model. Read every rate below as a test-script exit rate.
 """
 import json, re
 import numpy as np

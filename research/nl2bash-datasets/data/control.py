@@ -8,17 +8,19 @@ near-zero figures for execution-environment benchmarks need that floor to be rea
 it, a 0.1% result is indistinguishable from a measurement bug, which is exactly the mistake the
 first pass made.
 """
-import json, hashlib
-res = {}
-for f in ('res1.json', 'res2.json', 'res_fix.json'):
-    res.update(json.load(open(f)))  # res_fix last: AnishJoshi/nl2bash-custom is a REF corpus below
-                                    # and its res1 entry used the NL column, not bash_code
+from resload import load
+res = load()
 REF_IDS = ['jiacheng-ye/nl2bash', 'TRamesh2/NL2CMD', 'Romit2004/LinuxCommands',
            'westenfelder/NL2SH-ALFA', 'Edoigtrd/tldr-pages', 'AnishJoshi/nl2bash-custom',
            'b-mc2/cli-commands-explained']
 REF = set()
-for r in REF_IDS:
-    REF |= set(res[r]['hashes'])
+print('REFERENCE UNION — check every column and sample before trusting anything below.')
+for r in REF_IDS:                       # a wrong column here silently invalidates every result,
+    v = res[r]                          # which is the exact failure the first pass shipped
+    assert v.get('hashes'), f'{r}: no hashes'
+    print(f"  {r:35s} col={str(v['cmd_col']):22s} n={len(v['hashes']):6d}  "
+          f"e.g. {str(v.get('samples', ['?'])[0])[:48]!r}")
+    REF |= set(v['hashes'])
 print('REF size', len(REF), '\n')
 
 print('POSITIVE CONTROL — known-contaminated, same union, same hash fn')
