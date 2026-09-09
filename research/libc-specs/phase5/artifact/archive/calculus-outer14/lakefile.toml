@@ -1,0 +1,35 @@
+name = "phase5_integration"
+defaultTargets = ["CalculusFragment", "fragment-json", "CalculusNested", "CalculusExport", "CalculusBody", "CalculusRelayLoop", "CalculusSimulation", "CalculusRelayOuter", "export-run", "compare-run"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true", "-DElab.async=false"]
+[[lean_lib]]
+name = "MemoryTransfer"
+[[lean_lib]]
+name = "BufferRelay"
+[[lean_lib]]
+name = "ShellObservation"
+[[lean_lib]]
+name = "CalculusFragment"
+[[lean_lib]]
+name = "CalculusNested"
+[[lean_lib]]
+name = "CalculusExport"
+[[lean_lib]]
+name = "CalculusBody"
+[[lean_lib]]
+name = "CalculusRelayLoop"
+[[lean_lib]]
+name = "CalculusSimulation"
+[[lean_lib]]
+name = "CalculusRelayOuter"
+[[lean_exe]]
+name = "fragment-json"
+root = "FragmentMain"
+[[lean_exe]]
+name = "nested-json"
+root = "NestedMain"
+[[lean_exe]]
+name = "export-run"
+root = "ExportMain"
+[[lean_exe]]
+name = "compare-run"
+root = "CompareMain"

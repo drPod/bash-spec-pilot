@@ -1,0 +1,37 @@
+name = "artifact_replay_calculus_typed_shared77"
+defaultTargets = ["SpecAstExportAxioms"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true", "-DElab.async=false"]
+[[lean_lib]]
+name = "MemoryTransfer"
+[[lean_lib]]
+name = "BufferRelay"
+[[lean_lib]]
+name = "CalculusNested"
+[[lean_lib]]
+name = "CalculusExport"
+[[lean_lib]]
+name = "CalculusBody"
+[[lean_lib]]
+name = "CalculusSimulation"
+[[lean_lib]]
+name = "CalculusRelayLoop"
+[[lean_lib]]
+name = "CalculusRelayOuter"
+[[lean_lib]]
+name = "CompareMain"
+[[lean_lib]]
+name = "CalculusRelaySpec"
+[[lean_lib]]
+name = "ScheduleConsumption"
+[[lean_lib]]
+name = "CalculusRelaySchedules"
+[[lean_lib]]
+name = "CalculusRelayShared"
+[[lean_lib]]
+name = "CalculusTyping"
+[[lean_lib]]
+name = "CalculusLowering"
+[[lean_lib]]
+name = "CalculusTypeCheck"
+[[lean_lib]]
+name = "SpecAstExport"

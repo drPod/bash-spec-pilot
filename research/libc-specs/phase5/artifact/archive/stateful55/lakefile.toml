@@ -1,0 +1,19 @@
+name = "shell_lean_final"
+defaultTargets = ["LeanFinal", "LeanFinalAudit", "ScheduleConsumption", "StatefulFinal", "StatefulFinalAudit"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true"]
+[[lean_lib]]
+name = "MemoryTransfer"
+[[lean_lib]]
+name = "BufferRelay"
+[[lean_lib]]
+name = "ShellObservation"
+[[lean_lib]]
+name = "LeanFinal"
+[[lean_lib]]
+name = "LeanFinalAudit"
+[[lean_lib]]
+name = "ScheduleConsumption"
+[[lean_lib]]
+name = "StatefulFinal"
+[[lean_lib]]
+name = "StatefulFinalAudit"

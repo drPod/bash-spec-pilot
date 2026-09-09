@@ -1,22 +1,6 @@
-"""Near-duplicate leakage scan for BashBench 2026's multi-line half.
+"""TF-IDF near-duplicate scan with exact-match, clean, generator-sibling, and cross-task controls.
 
-The audit found 0 byte-identical multi-line tasks in the released training sets. But a
-paraphrased task leaks just as effectively and is invisible to hashing. This asks: how close
-is each held-out multi-line task to its nearest training-set neighbour, and is that closer
-than training items are to *each other*?
-
-Controls, in order of importance:
-  POSITIVE  single-line benchmark prompts vs sft_command -- 709 are known byte-identical, so
-            they must come back at ~1.0. If they don't, the retriever is broken.
-  CLEAN REF the 64 known-clean single-line prompts -- the distribution a genuinely held-out
-            task should produce, through this exact pipeline.
-  SIBLING   hold-one-out nearest neighbour *within* the SFT script set. Both the eval tasks and
-            the SFT scripts were emitted by the same generator with the same instruction
-            string and the same <think> format, so they are stylistically identical by
-            construction. This is the number that says what "same pipeline, different task"
-            looks like -- without it, any similarity reading is meaningless.
-  NULL      multi-line prompts vs sft_command prompts (same domain, different task type).
-"""
+Sibling similarity controls for shared generation style; similarity alone does not establish leakage."""
 import json, re, sys
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -50,11 +34,7 @@ def best_neighbour(queries, corpus, analyzer="word", ngram=(1, 2), self_exclude=
 
 
 def describe(label, arr, n_show=(50, 90, 95, 99)):
-    """Print n, mean, max and the tail percentiles of a similarity array, and return it.
-
-    The upper percentiles are the point: a clean split can have a low mean and still hide a
-    handful of near-identical items in its tail.
-    """
+    """Report tail percentiles: a low mean can hide rare near-duplicates."""
     a = np.asarray(arr)
     q = ", ".join(f"p{p}={np.percentile(a, p):.3f}" for p in n_show)
     print(f"  {label:<46s} n={len(a):>5d}  mean={a.mean():.3f}  max={a.max():.3f}  {q}")

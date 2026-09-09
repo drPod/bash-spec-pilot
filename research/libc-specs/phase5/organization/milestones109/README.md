@@ -1,0 +1,1 @@
+Four accepted bounded milestones: artifact, corrected evaluation reporting, literal identities, partial exception branch. Private Atlas and existing OpenScience imports are verified by GET. Full research remains open.

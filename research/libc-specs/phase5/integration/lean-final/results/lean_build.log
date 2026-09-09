@@ -1,0 +1,41 @@
+ℹ [2/8] Replayed MemoryTransfer
+info: MemoryTransfer.lean:289:0: 'MemoryTransfer.load_store' depends on axioms: [propext, Quot.sound]
+info: MemoryTransfer.lean:290:0: 'MemoryTransfer.load_store_disjoint' depends on axioms: [propext, Quot.sound]
+info: MemoryTransfer.lean:291:0: 'MemoryTransfer.success_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:292:0: 'MemoryTransfer.success_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:293:0: 'MemoryTransfer.read_emit_observation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:295:0: 'MemoryTransfer.relay_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:296:0: 'MemoryTransfer.relays_observation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:297:0: 'MemoryTransfer.relays_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:298:0: 'MemoryTransfer.ready_relay_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:299:0: 'MemoryTransfer.store_frame' depends on axioms: [propext, Quot.sound]
+info: MemoryTransfer.lean:300:0: 'MemoryTransfer.invalid_is_ub' depends on axioms: [propext]
+info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]
+info: MemoryTransfer.lean:302:0: 'MemoryTransfer.Examples.short_binary_read' does not depend on any axioms
+info: MemoryTransfer.lean:303:0: 'MemoryTransfer.Examples.exhausted_input_read' does not depend on any axioms
+info: MemoryTransfer.lean:304:0: 'MemoryTransfer.Examples.foreign_pointer_ub' does not depend on any axioms
+info: MemoryTransfer.lean:305:0: 'MemoryTransfer.Examples.overrun_ub_even_when_short' does not depend on any axioms
+info: MemoryTransfer.lean:306:0: 'MemoryTransfer.Examples.one_past_zero' does not depend on any axioms
+info: MemoryTransfer.lean:307:0: 'MemoryTransfer.Examples.one_past_nonzero_ub' does not depend on any axioms
+info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms
+info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms
+info: MemoryTransfer.lean:310:0: 'MemoryTransfer.store_at' depends on axioms: [propext]
+info: MemoryTransfer.lean:311:0: 'MemoryTransfer.amount_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MemoryTransfer.lean:312:0: 'MemoryTransfer.read' does not depend on any axioms
+info: MemoryTransfer.lean:313:0: 'MemoryTransfer.emit' depends on axioms: [propext, Quot.sound]
+ℹ [7/8] Replayed LeanFinalAudit
+info: LeanFinalAudit.lean:7:0: 'LeanFinal.redirect_then_mark_success' does not depend on any axioms
+info: LeanFinalAudit.lean:8:0: 'LeanFinal.redirect_then_mark_error' does not depend on any axioms
+info: LeanFinalAudit.lean:9:0: 'LeanFinal.redirect_then_direct_restored' does not depend on any axioms
+info: LeanFinalAudit.lean:10:0: 'LeanFinal.Concrete.concreteBase_H_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:11:0: 'LeanFinal.Concrete.concreteBase_H_mark' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:12:0: 'LeanFinal.Concrete.concreteBase_H_redirect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:13:0: 'LeanFinal.Concrete.concreteBase_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:14:0: 'LeanFinal.Concrete.abc_status_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:15:0: 'LeanFinal.Concrete.truncate_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:16:0: 'LeanFinal.Concrete.append_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:17:0: 'LeanFinal.Concrete.empty_path_open_failure_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:18:0: 'LeanFinal.Concrete.relay_error_nonempty_path_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:19:0: 'LeanFinal.Concrete.parameterized_success_applied' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:20:0: 'LeanFinal.Concrete.parameterized_empty_path_error_applied' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8 jobs).

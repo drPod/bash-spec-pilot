@@ -1,6 +1,3 @@
-# Verifies both layers of the demo on every push that touches it:
-#   1. `lake build`  - Lean's kernel checks every proof in Demo/Basic.lean
-#   2. `validate.py` - the compiled model vs real GNU head (Ubuntu's /usr/bin/head)
 name: lean-demo
 on:
   push:

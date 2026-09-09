@@ -1,0 +1,14 @@
+[
+  {
+    "marker": "PH5-MILESTONE-83/machine-ast",
+    "title": "Pinned parser AST now linked to the nine Lean utility bodies",
+    "summary": "Machine AST export and kernel equality independently accepted; exporter tooling remains trusted.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-83/machine-ast\nThe pinned OCaml parser produced the preserved 4579-byte, 33-declaration S-expression AST. The generator deterministically produces SpecAstExport. Root77 independently verified container fixture/executable/raw hashes, negative controls, regeneration and fresh Lean compilation. exportedSpec_eq_hand is axiom-free; exported_lowers uses propext. This closes the hand-transcription gap for this fixture, not verification of the OCaml parser, printer, Python generator, lower.ml or interp.ml source. Full-text tokenizer and general command/query compilation remain open.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-spec-export-review-77/ROOT-REVIEW.json SHA256 51c6b7ad0aba47441f0ac18a5f2b3c016e3ab21360b8e48d1a37c49633b154d7"
+  },
+  {
+    "marker": "PH5-MILESTONE-83/write-block-guards",
+    "title": "Actual write_block guards establish five formerly assumed facts",
+    "summary": "Two modules independently recompiled; eleven exact standard-Lean axiom audits passed.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-83/write-block-guards\nRoot82 accepted CalculusGuards and CalculusGuardsAxioms after fresh direct Lean checks under a serialized 3GiB limit. The actual guard prefix establishes 0 <= off <= n <= len <= cap and n <= rangeMax when passed. write_block_guarded derives these facts rather than assuming them; range failure and AssertionFailure remain explicit outcomes. Byte/length state invariants, counter headroom, attribute-update existence and nonnegative write schedule case remain hypotheses. This is not general no-failure. Relay integration and read_block guard work continue in Claude79; command/query proof continues in Claude73.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-guards-review-82/ROOT-REVIEW.json SHA256 815ae2c8ec6a97636c19a7e900990286746f268c0a3fc2331abff382505ada48"
+  }
+]

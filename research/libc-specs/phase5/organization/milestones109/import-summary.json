@@ -1,0 +1,45 @@
+{
+  "hosted_total": 291,
+  "hosted_all_private": true,
+  "local_nodes": 2363,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "PH5-MILESTONE-109/query-artifact",
+      "hosted_id": "c4eebdb9-4f2c-457f-bca9-917c4a9f1feb",
+      "hosted_hash": "fc6f7d286207d6a5da093164e97d395e502b55afc37602a0e7e281db5ef7ecd5",
+      "private": true,
+      "local_id": "fe1017ed2ce01078",
+      "content_sha256": "f51477f26c3d914ef516769553a93efd92e7d7778915eeaf4d91bac151d01271",
+      "local_get_verified": true
+    },
+    {
+      "marker": "PH5-MILESTONE-109/evaluation-report",
+      "hosted_id": "ad3b6606-f1f8-430c-b276-836d215a69d2",
+      "hosted_hash": "7d0c1aa004077a2e08e64512cd45159148f465eecf4bbb62176bf282affa97a9",
+      "private": true,
+      "local_id": "6c7bd13ffa213f09",
+      "content_sha256": "489e2019a15cf7b0e1b7b6b0d95d8c7f3c9aa5079da95af71ccc7d57b35bda2d",
+      "local_get_verified": true
+    },
+    {
+      "marker": "PH5-MILESTONE-109/text-literals",
+      "hosted_id": "ffbdb02e-d4d7-4e29-bc31-42d3e566a2a9",
+      "hosted_hash": "ab7d89de7b372973c6528592d144be201a910650e4ed9cb79b7e2010bfc3548d",
+      "private": true,
+      "local_id": "93c8526b678eff91",
+      "content_sha256": "13b1cf1d81c313c0b105c4cd94bda32c5386add18d72fd9679b79ce939a55f05",
+      "local_get_verified": true
+    },
+    {
+      "marker": "PH5-MILESTONE-109/raising-branch",
+      "hosted_id": "7859c1f1-2aba-4636-81d9-1668807baf76",
+      "hosted_hash": "0ea91ef5118765c53199453603f861257d3cd7bef4a1dac1cca4462636c4dedc",
+      "private": true,
+      "local_id": "1d9cc49c3ebf39cb",
+      "content_sha256": "c45b191ee372d993eb0eb0d1ccbcc1811dfdcfd245da855bc715f119dbc84091",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Four accepted bounded milestones only; original research remains open; no full current-manifest replay."
+}

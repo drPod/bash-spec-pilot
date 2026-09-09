@@ -1,0 +1,83 @@
+{
+  "status": "generated Clight accepted by Coq; no functional correctness theorem yet",
+  "target": {
+    "arch": "x86",
+    "model": "64",
+    "abi": "standard",
+    "bitsize": 64,
+    "big_endian": false
+  },
+  "versions": {
+    "CompCert": "3.15",
+    "Coq": "8.20.1",
+    "OCaml": "4.13.1+flambda"
+  },
+  "container_image": "coqorg/coq@sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+  "source": "research/libc-specs/phase2/relay.c",
+  "source_sha256": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+  "artifacts": {
+    "relay/relay.v": "ce8c381c0027a227102e47605c274d8711e72fbf8d3c75d261d1e456fc0ab687",
+    "relay/relay.i": "6027491fa9cdd7de87ec9c5e4a2bbaa2023d0753c63ebc192b6301e4f5225f1c",
+    "relay/include/unistd.h": "a4ad5b168afe5c58190d0d6b31fe2c25b1e2cf15df25ba1f646fde77793b8bb1",
+    "run_vst.py": "7efb59981bda6c15b2717c5c7a08e48bcf891b58a26fd15a1bee6b092d093b07"
+  },
+  "clightgen_sha256": "7219a47562eb2e99c75a7d9dc52ef2b7e9f174cbece2f3fdeff5340de344672f",
+  "compcert_stddef_sha256": "b94b9d8485408cab3737f25edf527f82f1f954f2ba329d288f6d55744ac6ad7b",
+  "header_boundary": "CompCert stddef.h and local declaration-only unistd.h; not host glibc headers or implementation",
+  "source_audit": {
+    "n_and_w": "tlong",
+    "off": "tulong",
+    "buffer": "tarray tuchar 32",
+    "read_and_write_results": "tlong",
+    "count_arguments": "tulong",
+    "retry_pointer": "buf + off",
+    "retry_count": "(size_t)n - off",
+    "error_guards": "signed n < 0 and w <= 0 before corresponding unsigned casts"
+  },
+  "runs": {
+    "relay-clightgen-1": {
+      "command": [
+        "clightgen",
+        "-normalize",
+        "-dprepro",
+        "-nostdinc",
+        "-Iinclude",
+        "-I/home/coq/.opam/4.13.1+flambda/lib/compcert/include",
+        "-std=c11",
+        "-fnone",
+        "relay.c"
+      ],
+      "workdir": "/home/coq/phase5/relay",
+      "container_image_id": "sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+      "started_unix": 1788762924.7519467,
+      "wall_limit_seconds": 60,
+      "host_elapsed_seconds": 0.14365744590759277,
+      "elapsed_seconds": 0.01,
+      "peak_rss_kib": 17152,
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "measurement": "GNU time around timeout/prlimit; maximum child RSS, not aggregate process-tree memory",
+      "scope": "Command receipt only; inspect theorem types, assumptions and logs before claiming verification."
+    },
+    "relay-ast-coqc-1": {
+      "command": [
+        "coqc",
+        "relay.v"
+      ],
+      "workdir": "/home/coq/phase5/relay",
+      "container_image_id": "sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+      "started_unix": 1788762953.623112,
+      "wall_limit_seconds": 120,
+      "host_elapsed_seconds": 0.8438537120819092,
+      "elapsed_seconds": 0.72,
+      "peak_rss_kib": 507948,
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "measurement": "GNU time around timeout/prlimit; maximum child RSS, not aggregate process-tree memory",
+      "scope": "Command receipt only; inspect theorem types, assumptions and logs before claiming verification."
+    }
+  },
+  "trust_boundary": "Preprocessor, parsing/elaboration and Coq export path not certified by this experiment. Hashes and Coq AST typechecking do not prove textual-source equivalence, memory safety, I/O effects, termination or shell/query correspondence."
+}

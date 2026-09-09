@@ -1,20 +1,11 @@
-"""Measure each shortlisted HuggingFace dataset from its actual contents, not its card.
+"""Measure Parquet samples using guessed command columns; check cmd_col and samples before trusting results.
 
-Pulls the Parquet export, guesses the command and NL columns from their names, classifies every
-command as single or multi-line, and MD5-hashes the whitespace-normalized commands so datasets
-can be compared to each other later.
-
-    python analyze.py <ids.txt> <out.json>      # produced res1.json and res2.json
-
-The column guess is the weak step. It picked wrong for four datasets, which fix.py re-measures
-into res_fix.json, so check `cmd_col` and `samples` on a row before trusting its numbers.
-"""
+fix.py corrects known column errors. At most six files and max_rows rows are sampled."""
 import json,urllib.request,sys,hashlib,warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 
 def api(u):
-    """GET a HuggingFace API endpoint and return the parsed JSON."""
     req=urllib.request.Request(u,headers={"User-Agent":"research"})
     with urllib.request.urlopen(req,timeout=90) as r: return json.load(r)
 
@@ -22,12 +13,7 @@ CMD_HINTS=["cmd","command","bash","shell","code","output","completion","response
 NL_HINTS=["nl","instruction","prompt","query","question","input","text","description","invocation","intent"]
 
 def pick(cols,hints,exclude=()):
-    """Guess which column holds the commands (or the NL), by name.
-
-    Exact name matches win over substring matches, and hints are tried in priority order. This is
-    the step that misfired on four datasets: it will happily return an English column, a constant
-    like `target_language`, or stdout instead of the command. fix.py overrides those by hand.
-    """
+    """Guessed columns can be wrong; fix.py supplies explicit overrides."""
     low={c:str(c).lower() for c in cols}
     for h in hints:
         for c in cols:
@@ -40,15 +26,9 @@ def pick(cols,hints,exclude=()):
     return None
 
 def analyze(did,max_rows=60000):
-    """Measure one dataset: row count, single/multi-line split, unique command hashes, samples.
-
-    Reads up to max_rows rows across at most 6 Parquet files, so large datasets are sampled rather
-    than pulled whole; rows measured this way are labelled as sampled in the deliverable.
-    """
     pq=api(f"https://huggingface.co/api/datasets/{did}/parquet")
     urls=[]
     def walk(o):
-        """Collect every .parquet URL anywhere in the nested config/split response."""
         if isinstance(o,dict):
             for v in o.values(): walk(v)
         elif isinstance(o,list):

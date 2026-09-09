@@ -1,0 +1,21 @@
+{
+  "archived_utc": "2026-09-08T18:25:07.700963+00:00",
+  "source_project": "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-schedule-repair-55/project",
+  "accepted_receipt": "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-schedule-repair-55/ROOT-FINAL-RECEIPT.json",
+  "accepted_receipt_sha256": "909ff2c91f070a413f0b9565f78d2efcb12986e5f20759e0b5a3bcac91ece5d1",
+  "source_sha256": {
+    "MemoryTransfer.lean": "9f80ebc6b33b81960aada7a3967ad0455d9b086d679b55439454302dca6d1d71",
+    "BufferRelay.lean": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+    "ShellObservation.lean": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+    "LeanFinal.lean": "894f663f1d7e0eb7a991c857655708944a29b25288b52a75c9948d8b121d5670",
+    "ScheduleConsumption.lean": "952e3e7307457b929da8a16ec0b4fdc881b27c5a96bc0fd562b9bf3fd4e96235",
+    "StatefulFinal.lean": "c12dcf89479e7448cb8fafa1048eea1f6e35bcaa99566c556145f645bcb12180",
+    "StatefulFinalAudit.lean": "cf043f371ad34be79790c16ee82e2e471ff55a3592bbdb121ba8961afefae589",
+    "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+    "lakefile.toml": "6a01cd3cf94658d9141300c6753b9b136b4faa2eb4bf0fa8362cd5c088e094e7",
+    "LeanFinalAudit.lean": "221f1a43cf9b83dfb2ec6496b2443532a173781e9ac2a30d158a8200ce088343"
+  },
+  "scope": "Stateful Lean reference composition, actual residual schedules via executeI projection; no checked Coq/C-to-Lean bridge.",
+  "artifact_replay_status": "Targeted eight-module sequential direct Lean replay69 accepted;18audits. No full25 replay.",
+  "artifact_replay_receipt": "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-stateful-replay-69/ROOT-RECEIPT-AUDIT.json"
+}

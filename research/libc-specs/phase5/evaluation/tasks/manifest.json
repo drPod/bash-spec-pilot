@@ -1,0 +1,123 @@
+{
+  "schema": "phase5-evaluation-tasks/1",
+  "frozen_utc": "2026-09-07T08:31:19+00:00",
+  "lean": "leanprover/lean4:v4.31.0",
+  "tasks": {
+    "shell_status": {
+      "source": "phase3/ShellObservation.lean",
+      "source_sha256": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+      "module": "ShellObservation",
+      "theorem": "ShellObservation.query_transfer",
+      "facet": "shell short-circuit / status composition: accepted query transfers through `;`, `&&`, `||` with exit status and residual state",
+      "prefix_lines": [
+        1,
+        36
+      ],
+      "helper_lines": [
+        [
+          37,
+          70
+        ]
+      ],
+      "target_lines": [
+        71,
+        79
+      ],
+      "removed_in_base": [
+        "ShellObservation.command_refines"
+      ],
+      "imports_available": [
+        "BufferRelay (phase2; not needed for this target)"
+      ],
+      "statement": "/-- All terminating concrete behaviors satisfy an abstract query when primitive\n    simulation and query preservation are proved. This does not imply termination. -/\ntheorem query_transfer (concrete : Primitive Atom C) (abstract : Primitive Atom A)\n    (R : C \u2192 A \u2192 Prop) (hp : PrimitiveRefines concrete abstract R)\n    (cmd : Command Atom) (c : C) (a : A) (hr : R c a)\n    (Q : Nat \u2192 A \u2192 Prop) (P : Nat \u2192 C \u2192 Prop)\n    (hq : \u2200 rc a', Exec abstract cmd a rc a' \u2192 Q rc a')\n    (hobs : \u2200 rc c' a', R c' a' \u2192 Q rc a' \u2192 P rc c') :\n    \u2200 rc c', Exec concrete cmd c rc c' \u2192 P rc c' :=",
+      "conditions": {
+        "helper": {
+          "template": "tasks/shell_status/helper.template.lean",
+          "template_sha256": "85ad99f313c82f2fdc9b9f7ec4b4a6b0e5246aeaa082e7beb9d63f48f4b59366"
+        },
+        "base": {
+          "template": "tasks/shell_status/base.template.lean",
+          "template_sha256": "7fc12c0f2a109a01f8a0d5cae476dda13862b7daa770d4bd61f68a11d34a2c19"
+        }
+      }
+    },
+    "byte_relay": {
+      "source": "phase3/RelayComposition.lean",
+      "source_sha256": "96cbd2cd68d1f7f957e9aa0e39b46e17b2ad06d67388cbe391d22b39884653de",
+      "module": "RelayComposition",
+      "theorem": "RelayComposition.fragment_refines",
+      "facet": "byte-bearing relay instantiation of the generic status-composition lemma (pointer-memory evaluator refines the list model under the shell fragment)",
+      "prefix_lines": [
+        1,
+        32
+      ],
+      "helper_lines": [
+        [
+          33,
+          43
+        ]
+      ],
+      "target_lines": [
+        44,
+        46
+      ],
+      "removed_in_base": [
+        "RelayComposition.primitive_eq",
+        "RelayComposition.primitive_refines"
+      ],
+      "imports_available": [
+        "PointerRelay.run_detailed_eq : observe (run input reads writes).state = BufferRelay.runDetailed input reads writes",
+        "ShellObservation.command_refines (unchanged, statement in prompt)"
+      ],
+      "statement": "theorem fragment_refines (cmd : ShellObservation.Command Atom) (s t : Streams)\n    (rc : Nat) (h : ShellObservation.Exec (graph concrete) cmd s rc t) :\n    ShellObservation.Exec (graph abstract) cmd s rc t :=",
+      "conditions": {
+        "helper": {
+          "template": "tasks/byte_relay/helper.template.lean",
+          "template_sha256": "c4c2001f8b8e766db7490e1af2ad5d0d76bf3a89523cb4e2b0dd533991b823ff"
+        },
+        "base": {
+          "template": "tasks/byte_relay/base.template.lean",
+          "template_sha256": "ae42c38c65a2adeac43f589201c639537abd16f88e97ca38bc2bf51c72989368"
+        }
+      }
+    },
+    "partial_error": {
+      "source": "phase2/BufferRelay.lean",
+      "source_sha256": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+      "module": "BufferRelay",
+      "theorem": "BufferRelay.run_write_failure_residual",
+      "facet": "partial-error behaviour: a write failure (status 2) leaves a nonempty pending suffix and delivered bytes strictly below consumed bytes",
+      "prefix_lines": [
+        1,
+        322
+      ],
+      "helper_lines": [
+        [
+          323,
+          327
+        ]
+      ],
+      "target_lines": [
+        328,
+        332
+      ],
+      "removed_in_base": [
+        "BufferRelay.run_conservation"
+      ],
+      "imports_available": [
+        "MemoryTransfer (memory-experiment; framing lemmas)"
+      ],
+      "statement": "theorem run_write_failure_residual (input : List Byte) (reads writes : List Int)\n    (h : (run input reads writes).status = 2) :\n    (runDetailed input reads writes).pending \u2260 [] \u2227\n    (run input reads writes).output.length <\n      input.length - (run input reads writes).remaining.length :=",
+      "conditions": {
+        "helper": {
+          "template": "tasks/partial_error/helper.template.lean",
+          "template_sha256": "134ebe062f73cb9ecb1af39fa9da00b955a05769abafb88b24ad022d3248dfd0"
+        },
+        "base": {
+          "template": "tasks/partial_error/base.template.lean",
+          "template_sha256": "6267749b6c5526ea3021856b6c47c4423d464d4c35cd3a0e671b1c197c41a2ac"
+        }
+      }
+    }
+  }
+}

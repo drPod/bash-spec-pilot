@@ -1,0 +1,11 @@
+{
+  "note": "Final compiled receipts for research/libc-specs/phase5/shell-expansion/*.v, exit 0, in container phase5-vst via run_vst.py. Earlier iterations (including compile-error attempts while developing the proofs) are NOT deleted from ~/agent-jobs/astra-research/phase5/runs/; this file lists only the final accepted run per source file.",
+  "runs_dir": "~/agent-jobs/astra-research/phase5/runs/",
+  "receipts": [
+    {"file": "Pipeline.v", "receipt": "shell-expansion4-Pipeline-v23", "exit_status": 0, "elapsed_seconds": 0.6, "peak_rss_kib": 485060},
+    {"file": "Redirect.v", "receipt": "shell-expansion4-Redirect-v11", "exit_status": 0, "elapsed_seconds": 0.59, "peak_rss_kib": 484448},
+    {"file": "Bridge2.v", "receipt": "shell-expansion4-Bridge2-v3", "exit_status": 0, "elapsed_seconds": 0.47, "peak_rss_kib": 423648},
+    {"file": "ParseExpansion.v", "receipt": "shell-expansion4-ParseExpansion-v1", "exit_status": 0, "elapsed_seconds": 0.49, "peak_rss_kib": 438364},
+    {"file": "ShellExpansionAudit.v", "receipt": "shell-expansion4-Audit-v2", "exit_status": 0, "elapsed_seconds": 3.97, "peak_rss_kib": 512452, "content": "27x Print Assumptions (Pipeline+Redirect+Bridge2+ParseExpansion), all 'Closed under the global context'"}
+  ]
+}

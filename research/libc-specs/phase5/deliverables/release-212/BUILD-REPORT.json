@@ -1,0 +1,20 @@
+{
+  "file_count": 2465,
+  "gates": {
+    "full30_174": true,
+    "source_196": true,
+    "supplemental_191": true
+  },
+  "inner_tar_sha256": "7fcea4414d857551ee3b40e74de069b1654b6a5ebb25699f0e6b02e19e066a7a",
+  "release_ready": true,
+  "tarball": "/home/coder/agent-jobs/astra-research/phase5/deliverables/release-212/libc-specs-source.tar.gz",
+  "tarball_bytes": 3821400,
+  "tarball_sha256": "1977a2c25794acfbdd02a01d9929c2471439359c4771784d92daaa8de1fdf6db",
+  "verify": {
+    "checked_files": 2465,
+    "member_count": 2468,
+    "members_sorted": true,
+    "mismatches": [],
+    "ok": true
+  }
+}

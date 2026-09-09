@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "phase5 research-inventory-5 catalog schema",
+  "type": "object",
+  "required": ["schema_version", "records", "independent_audits"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "generated_by": {"type": "string"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title", "summary", "claim_status", "worker"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^PH5-[A-Z0-9]+-[0-9]{3}$", "description": "Stable ID, unique across catalog.json 'records'. Safe to use as an external primary key."},
+          "kind": {"type": "string", "description": "Free-text record type, e.g. vst-body-proof, universal-termination-proof, calibration-negative-result, interrupted-no-artifact."},
+          "title": {"type": "string"},
+          "summary": {"type": "string"},
+          "claim_status": {"type": "string", "description": "See organization/README.md '#how-to-read-claim_status' for the controlled vocabulary and how to interpret each value; do not treat any 'checked-*' value as unconditionally 'proved' without reading 'distinctions'."},
+          "worker": {"type": "string", "description": "job dir name under claude-resume/ or pi-reviews/ that produced this record."},
+          "dependencies": {"type": "array", "items": {"type": "string"}, "description": "Other record IDs this one builds on."},
+          "source": {"type": "object", "description": "Optional: pins/hashes of the real-world source (coreutils/gnulib commit, file sha256)."},
+          "proof_statement": {"type": "string", "description": "Optional: the exact Coq/Lean theorem signature, transcribed from the authoring worker's own REPORT.md/receipt log, when the record is proof-shaped."},
+          "assumptions": {"type": "string", "description": "Optional: the axiom/assumption set the theorem depends on, as printed by that worker's own Print Assumptions / #print axioms pass."},
+          "receipts": {"type": "array", "items": {"type": "object"}, "description": "Named compiler/tool receipts (see artifacts.jsonl for the full flat index)."},
+          "affected_files": {"type": "array", "items": {"type": "string"}, "description": "Repo-relative paths."},
+          "prior_or_superseded": {"type": "string", "description": "Optional: what this record replaces or corrects."},
+          "distinctions": {"type": "string", "description": "The single most important field for correct citation: states what the record does NOT establish, in the terms the project itself uses (witness vs universal, finite vs theorem, safety vs functional, etc.)."},
+          "model_harness": {"type": "string"},
+          "actual_times": {"type": "string", "description": "Real clock/receipt-timestamp windows, never estimated or invented."}
+        }
+      }
+    },
+    "independent_audits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "worker", "reviews"],
+        "properties": {
+          "id": {"type": "string"},
+          "worker": {"type": "string"},
+          "reviews": {"type": "string", "description": "Which 'records' id(s) this audit concerns."},
+          "exit_code": {"type": "integer"},
+          "actual_time_utc": {"type": "string"},
+          "note": {"type": "string"},
+          "claim_status": {"type": "string"}
+        }
+      }
+    }
+  }
+}

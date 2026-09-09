@@ -1,0 +1,671 @@
+{
+ "fixtures_sha256": "7d4834a5a4506c0277188f1a2dedb1bf8c77bf26e0073e4307aa8ea31f04da14",
+ "bash_version": "5.2.21(1)-release",
+ "accepted_total": 29,
+ "accepted_disagreements": 0,
+ "rejected_total": 28,
+ "rejected_but_bash_n_accepts": 19,
+ "scope": "directed finite tests; not a parser correctness proof",
+ "records": [
+  {
+   "kind": "accepted",
+   "text": "t",
+   "ast": "call \"t\"",
+   "expected": [
+    0,
+    "t"
+   ],
+   "bash": [
+    0,
+    "t"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0032
+  },
+  {
+   "kind": "accepted",
+   "text": "f",
+   "ast": "call \"f\"",
+   "expected": [
+    1,
+    "f"
+   ],
+   "bash": [
+    1,
+    "f"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0029
+  },
+  {
+   "kind": "accepted",
+   "text": "  t  ",
+   "ast": "call \"t\"",
+   "expected": [
+    0,
+    "t"
+   ],
+   "bash": [
+    0,
+    "t"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0029
+  },
+  {
+   "kind": "accepted",
+   "text": "t;",
+   "ast": "call \"t\"",
+   "expected": [
+    0,
+    "t"
+   ],
+   "bash": [
+    0,
+    "t"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0029
+  },
+  {
+   "kind": "accepted",
+   "text": "t ; f",
+   "ast": "seq (call \"t\") (call \"f\")",
+   "expected": [
+    1,
+    "tf"
+   ],
+   "bash": [
+    1,
+    "tf"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0022
+  },
+  {
+   "kind": "accepted",
+   "text": "f;t",
+   "ast": "seq (call \"f\") (call \"t\")",
+   "expected": [
+    0,
+    "ft"
+   ],
+   "bash": [
+    0,
+    "ft"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0034
+  },
+  {
+   "kind": "accepted",
+   "text": "t && u",
+   "ast": "and_then (call \"t\") (call \"u\")",
+   "expected": [
+    0,
+    "tu"
+   ],
+   "bash": [
+    0,
+    "tu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0034
+  },
+  {
+   "kind": "accepted",
+   "text": "f && u",
+   "ast": "and_then (call \"f\") (call \"u\")",
+   "expected": [
+    1,
+    "f"
+   ],
+   "bash": [
+    1,
+    "f"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.002
+  },
+  {
+   "kind": "accepted",
+   "text": "t || u",
+   "ast": "or_else (call \"t\") (call \"u\")",
+   "expected": [
+    0,
+    "t"
+   ],
+   "bash": [
+    0,
+    "t"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0035
+  },
+  {
+   "kind": "accepted",
+   "text": "f || u",
+   "ast": "or_else (call \"f\") (call \"u\")",
+   "expected": [
+    0,
+    "fu"
+   ],
+   "bash": [
+    0,
+    "fu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0031
+  },
+  {
+   "kind": "accepted",
+   "text": "g || f",
+   "ast": "or_else (call \"g\") (call \"f\")",
+   "expected": [
+    1,
+    "gf"
+   ],
+   "bash": [
+    1,
+    "gf"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0022
+  },
+  {
+   "kind": "accepted",
+   "text": "t && f || u",
+   "ast": "or_else (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "expected": [
+    0,
+    "tfu"
+   ],
+   "bash": [
+    0,
+    "tfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0021
+  },
+  {
+   "kind": "accepted",
+   "text": "f || t && g",
+   "ast": "and_then (or_else (call \"f\") (call \"t\")) (call \"g\")",
+   "expected": [
+    2,
+    "ftg"
+   ],
+   "bash": [
+    2,
+    "ftg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0029
+  },
+  {
+   "kind": "accepted",
+   "text": "f && t || g",
+   "ast": "or_else (and_then (call \"f\") (call \"t\")) (call \"g\")",
+   "expected": [
+    2,
+    "fg"
+   ],
+   "bash": [
+    2,
+    "fg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.003
+  },
+  {
+   "kind": "accepted",
+   "text": "t || f && g",
+   "ast": "and_then (or_else (call \"t\") (call \"f\")) (call \"g\")",
+   "expected": [
+    2,
+    "tg"
+   ],
+   "bash": [
+    2,
+    "tg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0061
+  },
+  {
+   "kind": "accepted",
+   "text": "f ; t && u",
+   "ast": "seq (call \"f\") (and_then (call \"t\") (call \"u\"))",
+   "expected": [
+    0,
+    "ftu"
+   ],
+   "bash": [
+    0,
+    "ftu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0078
+  },
+  {
+   "kind": "accepted",
+   "text": "t && f ; u",
+   "ast": "seq (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "expected": [
+    0,
+    "tfu"
+   ],
+   "bash": [
+    0,
+    "tfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0038
+  },
+  {
+   "kind": "accepted",
+   "text": "f && t ; g",
+   "ast": "seq (and_then (call \"f\") (call \"t\")) (call \"g\")",
+   "expected": [
+    2,
+    "fg"
+   ],
+   "bash": [
+    2,
+    "fg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0021
+  },
+  {
+   "kind": "accepted",
+   "text": "t ; f ; g",
+   "ast": "seq (seq (call \"t\") (call \"f\")) (call \"g\")",
+   "expected": [
+    2,
+    "tfg"
+   ],
+   "bash": [
+    2,
+    "tfg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0018
+  },
+  {
+   "kind": "accepted",
+   "text": "f && (t ; g)",
+   "ast": "and_then (call \"f\") (seq (call \"t\") (call \"g\"))",
+   "expected": [
+    1,
+    "f"
+   ],
+   "bash": [
+    1,
+    "f"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.002
+  },
+  {
+   "kind": "accepted",
+   "text": "t && (f ; u)",
+   "ast": "and_then (call \"t\") (seq (call \"f\") (call \"u\"))",
+   "expected": [
+    0,
+    "tfu"
+   ],
+   "bash": [
+    0,
+    "tfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0034
+  },
+  {
+   "kind": "accepted",
+   "text": "(t && f) || u",
+   "ast": "or_else (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "expected": [
+    0,
+    "tfu"
+   ],
+   "bash": [
+    0,
+    "tfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0023
+  },
+  {
+   "kind": "accepted",
+   "text": "t && (f || u)",
+   "ast": "and_then (call \"t\") (or_else (call \"f\") (call \"u\"))",
+   "expected": [
+    0,
+    "tfu"
+   ],
+   "bash": [
+    0,
+    "tfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0035
+  },
+  {
+   "kind": "accepted",
+   "text": "(f;)",
+   "ast": "call \"f\"",
+   "expected": [
+    1,
+    "f"
+   ],
+   "bash": [
+    1,
+    "f"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0035
+  },
+  {
+   "kind": "accepted",
+   "text": "( f || g ) && t;",
+   "ast": "and_then (or_else (call \"f\") (call \"g\")) (call \"t\")",
+   "expected": [
+    2,
+    "fg"
+   ],
+   "bash": [
+    2,
+    "fg"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0033
+  },
+  {
+   "kind": "accepted",
+   "text": "t\t&&\tu",
+   "ast": "and_then (call \"t\") (call \"u\")",
+   "expected": [
+    0,
+    "tu"
+   ],
+   "bash": [
+    0,
+    "tu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0019
+  },
+  {
+   "kind": "accepted",
+   "text": "g || (f && t) || u",
+   "ast": "or_else (or_else (call \"g\") (and_then (call \"f\") (call \"t\"))) (call \"u\")",
+   "expected": [
+    0,
+    "gfu"
+   ],
+   "bash": [
+    0,
+    "gfu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0035
+  },
+  {
+   "kind": "accepted",
+   "text": "( (t) )",
+   "ast": "call \"t\"",
+   "expected": [
+    0,
+    "t"
+   ],
+   "bash": [
+    0,
+    "t"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0033
+  },
+  {
+   "kind": "accepted",
+   "text": "( ( f ) ) || u",
+   "ast": "or_else (call \"f\") (call \"u\")",
+   "expected": [
+    0,
+    "fu"
+   ],
+   "bash": [
+    0,
+    "fu"
+   ],
+   "bash_stderr": "",
+   "agree": true,
+   "seconds": 0.0034
+  },
+  {
+   "kind": "rejected",
+   "text": "",
+   "why": "empty program",
+   "bash_n_accepts": true,
+   "seconds": 0.0037
+  },
+  {
+   "kind": "rejected",
+   "text": "t | u",
+   "why": "pipeline not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0036
+  },
+  {
+   "kind": "rejected",
+   "text": "t > x",
+   "why": "redirection not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "t &",
+   "why": "background operator not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0041
+  },
+  {
+   "kind": "rejected",
+   "text": "t & u",
+   "why": "background operator not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0043
+  },
+  {
+   "kind": "rejected",
+   "text": "t\nu",
+   "why": "newline not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "t ;; u",
+   "why": "double semicolon",
+   "bash_n_accepts": false,
+   "seconds": 0.0046
+  },
+  {
+   "kind": "rejected",
+   "text": "; t",
+   "why": "leading semicolon",
+   "bash_n_accepts": false,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "t &&",
+   "why": "dangling operator",
+   "bash_n_accepts": false,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "&& t",
+   "why": "leading operator",
+   "bash_n_accepts": false,
+   "seconds": 0.0031
+  },
+  {
+   "kind": "rejected",
+   "text": "t || || u",
+   "why": "repeated operator",
+   "bash_n_accepts": false,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "(t",
+   "why": "unbalanced parenthesis",
+   "bash_n_accepts": false,
+   "seconds": 0.0043
+  },
+  {
+   "kind": "rejected",
+   "text": "t)",
+   "why": "unbalanced parenthesis",
+   "bash_n_accepts": false,
+   "seconds": 0.0041
+  },
+  {
+   "kind": "rejected",
+   "text": "()",
+   "why": "empty parentheses",
+   "bash_n_accepts": false,
+   "seconds": 0.0032
+  },
+  {
+   "kind": "rejected",
+   "text": "t arg",
+   "why": "arguments not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0034
+  },
+  {
+   "kind": "rejected",
+   "text": "echo $x",
+   "why": "expansion not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0044
+  },
+  {
+   "kind": "rejected",
+   "text": "'t'",
+   "why": "quoting not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "! t",
+   "why": "negation not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0043
+  },
+  {
+   "kind": "rejected",
+   "text": "if",
+   "why": "reserved word",
+   "bash_n_accepts": false,
+   "seconds": 0.0042
+  },
+  {
+   "kind": "rejected",
+   "text": "time t",
+   "why": "reserved word / arguments",
+   "bash_n_accepts": true,
+   "seconds": 0.0041
+  },
+  {
+   "kind": "rejected",
+   "text": "t # c",
+   "why": "comment not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0041
+  },
+  {
+   "kind": "rejected",
+   "text": "{ t; }",
+   "why": "brace group not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0041
+  },
+  {
+   "kind": "rejected",
+   "text": "t;u;\u00e9",
+   "why": "non-ASCII",
+   "bash_n_accepts": true,
+   "seconds": 0.0053
+  },
+  {
+   "kind": "rejected",
+   "text": "1t",
+   "why": "identifier cannot start with digit",
+   "bash_n_accepts": true,
+   "seconds": 0.0048
+  },
+  {
+   "kind": "rejected",
+   "text": "t=1",
+   "why": "assignment not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0036
+  },
+  {
+   "kind": "rejected",
+   "text": "$(t)",
+   "why": "substitution not in fragment",
+   "bash_n_accepts": true,
+   "seconds": 0.0047
+  },
+  {
+   "kind": "rejected",
+   "text": "((t))",
+   "why": "adjacent (( is the Bash arithmetic command, not grouping (bash runs it with status 1)",
+   "bash_n_accepts": true,
+   "seconds": 0.0035
+  },
+  {
+   "kind": "rejected",
+   "text": "t && ((u))",
+   "why": "adjacent (( is the Bash arithmetic command",
+   "bash_n_accepts": true,
+   "seconds": 0.0039
+  }
+ ]
+}

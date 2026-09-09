@@ -1,0 +1,36 @@
+{
+  "hosted_total": 307,
+  "hosted_all_private": true,
+  "local_nodes": 2379,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "phase5/root197",
+      "hosted_id": "cf32b050-128a-49ab-a163-7a9a773b4389",
+      "hosted_hash": "7fd9931b5cfecbd16683e7f1dafebdbfa1663f3b8f32bb798b7039d9d7db405c",
+      "private": true,
+      "local_id": "b0dc55f8465a1458",
+      "content_sha256": "0cf93af0d2794af271df896e8c339c8075c7baccd69d4d056dd6dd6b951e10e0",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root198",
+      "hosted_id": "5929e4fc-242c-4220-86a5-751d8501d968",
+      "hosted_hash": "663d22a74751b2578f3319f4cea3f41aece20da253da8add44ba3f434b687987",
+      "private": true,
+      "local_id": "5fcbe92eab60cb95",
+      "content_sha256": "a36b5fcffc22bf2a13482c83a406cfd64c7d3a7156da7c2e69fb923c4a8425d0",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root203",
+      "hosted_id": "71001eac-c503-432a-952d-47e8f83e2a02",
+      "hosted_hash": "408be2a1f1e33143ee7910010141b227a4f311edfde983b8bcfe53a57b941007",
+      "private": true,
+      "local_id": "9db0d3520e4cff5d",
+      "content_sha256": "7c879adf4c2b278f70a0e19fc6ba74b8d18cdcbacf155568f66e6e23200be423",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Accepted bounded source197 and fresh replays198/203. Final deliverables remain open."
+}

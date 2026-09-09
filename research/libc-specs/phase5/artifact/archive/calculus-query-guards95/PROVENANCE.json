@@ -1,0 +1,57 @@
+{
+  "archived_utc": "2026-09-08T19:42:30.644820+00:00",
+  "archive_dir": "phase5/artifact/archive/calculus-query-guards95",
+  "accepted_reviews": [
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-commands-review-87/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-guards-review-82/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-guard-integration-review-89/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-query-review-92/ROOT-REVIEW.json"
+  ],
+  "source_sha256": {
+    "BufferRelay.lean": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+    "CalculusBody.lean": "481d8d61041e2893697c03c2cc5db7cc92d1f7c8389041164d4b43ff3c3aa5c6",
+    "CalculusCommands.lean": "16efc2851af54840989030f876a062a26216b51fb85464e8a21a5fa83721f681",
+    "CalculusExport.lean": "d11ba63f0bd8f465bf60f489c3b5daab9bf4f46bc4c3f051361e8aae4083a763",
+    "CalculusGuards.lean": "f1bff245754de8d46ebc8f8631980e8872d5d0875cdcfcc6fb65aa497b065544",
+    "CalculusGuardsAxioms.lean": "2d939f596c167e64b853c13c172c4b99e1b615662461524fe9e4a004a1ba8b99",
+    "CalculusGuardsRead.lean": "e35b5ae5b6525047a43c8abe7cb986cdfb1a9d87644289b73aaa86341dae3d9c",
+    "CalculusGuardsRelay.lean": "1c284e09d4589a6cc3fa7f79a77ca8d2361f10e3df86181159028a512458e38a",
+    "CalculusGuardsRelayAxioms.lean": "1e0fdc1d2fcea0317a1ec22cfa245f0bb699c1e9e8660ce6cd648545d06a8baf",
+    "CalculusLowering.lean": "45a2bae49592eef5eb0979c5de633b284a0ee07a31e0930dc10539c9af3197c3",
+    "CalculusNested.lean": "e2a7cffb206b3669da4bb56961b22d6d676063feeebade3212be822ee1fd651d",
+    "CalculusQuery.lean": "0162c7938bac5e1cd73c56dc1f12c6f813978c7ea6234f5f9dcce2b9e0906c59",
+    "CalculusQueryExportLink.lean": "1f3265be91db5c9a692435cf1345b9eecf1919164deba235fa83805a20dbd7b1",
+    "CalculusRelayLoop.lean": "c5ece9e93b95002116de63b2fd2736971bf08ad0625f6c049fa7abe10c604f09",
+    "CalculusRelayOuter.lean": "c49b20a885f1a5dfa52997e68fbfc885d90b5f3f7d2c7598c1d992d6200bc1eb",
+    "CalculusRelaySchedules.lean": "af7e21e14e9cbbbb0ccd257f47e8b102614ad9faf778b857fe8b9aa8fe3baac4",
+    "CalculusRelayShared.lean": "160830a7807ccd8b6e0f8c8e731fa1bae37cf503566e4646a06212d42ad54fda",
+    "CalculusRelaySpec.lean": "860e66d82bc39ec8b1dbbf25f088c228a92c70ddf4780538dec379b07b8d35ca",
+    "CalculusSimulation.lean": "37ed70b30c5347ebe33ee5b9cb5cb233b296f83a828ab1b5f7a9eaba1362bc80",
+    "CalculusTryCatch.lean": "a163717c41c9c898a515b8af30972dbb97b975539b86ffd6927873668579bd8a",
+    "CalculusTryCatchAxioms.lean": "66413ecf3afdb792961e2634fab1e3487f9574f46eedff144b28575db70f478d",
+    "CompareMain.lean": "6b9177464411f05dc42bff1bab5151d4ca22103d27450990b0492b85605f8d00",
+    "MemoryTransfer.lean": "9f80ebc6b33b81960aada7a3967ad0455d9b086d679b55439454302dca6d1d71",
+    "ScheduleConsumption.lean": "952e3e7307457b929da8a16ec0b4fdc881b27c5a96bc0fd562b9bf3fd4e96235",
+    "ShellObservation.lean": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+    "lakefile.toml": "09871112836f5573c5264113e5e00dec7771b294a6feb0e3bd549f7870ff1188",
+    "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee"
+  },
+  "identities": {
+    "CalculusQuery.lean": "0162c793\u2026",
+    "CalculusCommands.lean": "16efc285\u2026",
+    "CalculusQueryExportLink.lean": "1f3265be\u2026",
+    "CalculusLowering.lean": "45a2bae49592eef5eb0979c5de633b284a0ee07a31e0930dc10539c9af3197c3"
+  },
+  "source_comment": "CalculusQuery.lean still contains the stale comment hash 5a994b4b; bytes are unchanged. Actual compiled Lowering identity is 45a2bae4\u2026 (root74/root92, rfl mark_body_identity).",
+  "scope": "Accepted Commands87 + Guards82 + guard-integration89 + Query92 import closure. Query AST compiles to Nested statements; generic predicate transfer in Commands is a different theorem.",
+  "not_included": [
+    "tokenizer drafts",
+    "Typing/TypeCheck/SpecAstExport (not imported)",
+    "full Bash",
+    "OCaml source",
+    "Coq import",
+    "query text parser",
+    "byte queries",
+    "whole-program"
+  ]
+}

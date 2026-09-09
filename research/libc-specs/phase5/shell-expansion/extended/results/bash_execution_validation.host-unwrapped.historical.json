@@ -1,0 +1,115 @@
+{
+ "bash_version": "5.2.21(1)-release",
+ "relay_source_sha256": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+ "relay_source_matches_checked_relay_i": true,
+ "scope": "directed, actual-execution finite tests against real bash + the real relay binary (compiled from phase2/relay.c, matching phase5/relay/relay.i); not a parser/semantics completeness or correctness proof",
+ "total": 12,
+ "disagreements": 0,
+ "records": [
+  {
+   "name": "bare_relay",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "abc",
+   "expected_status": 0,
+   "expected_stdout": "abc"
+  },
+  {
+   "name": "bare_mark",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout_bytes": [
+    33
+   ],
+   "expected_status": 0,
+   "expected_stdout_bytes": [
+    33
+   ]
+  },
+  {
+   "name": "pipe_relay_relay",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "abcdef",
+   "expected_status": 0,
+   "expected_stdout": "abcdef"
+  },
+  {
+   "name": "redirect_truncate",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "",
+   "file_bytes": "abc",
+   "expected_file_bytes": "abc"
+  },
+  {
+   "name": "redirect_append",
+   "agree": true,
+   "bash_status": 0,
+   "file_bytes": "xyabc",
+   "expected_file_bytes": "xyabc"
+  },
+  {
+   "name": "pipe_then_redirect",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "",
+   "file_bytes": "abcdef",
+   "expected_file_bytes": "abcdef"
+  },
+  {
+   "name": "seq_then_redirect",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "abc",
+   "file_bytes": [
+    33
+   ],
+   "expected_stdout": "abc",
+   "expected_file_bytes": [
+    33
+   ]
+  },
+  {
+   "name": "and_success_runs_mark",
+   "agree": true,
+   "bash_status": 0,
+   "bash_stdout": "abc!"
+  },
+  {
+   "name": "read_error_closed_stdin",
+   "agree": true,
+   "bash_stdout": "STATUS 1\n",
+   "expected_status": 1,
+   "note": "relay's own convention (relay.c: read<0 => return 1); this is relay's contract, not a general EBADF->1 Bash rule"
+  },
+  {
+   "name": "and_short_circuits_on_read_error",
+   "agree": true,
+   "bash_stdout": "STATUS 1\n"
+  },
+  {
+   "name": "or_runs_mark_on_read_error",
+   "agree": true,
+   "bash_stdout_bytes": [
+    33,
+    83,
+    84,
+    65,
+    84,
+    85,
+    83,
+    32,
+    48,
+    10
+   ]
+  },
+  {
+   "name": "real_sigpipe_matches_modelled_status",
+   "agree": true,
+   "bash_stdout": "STATUS 141\n",
+   "expected_pipestatus0": 141,
+   "note": "independent oracle check of the 128+SIGPIPE convention; relay is the LEFT stage here (writer), not composed via PipeRR"
+  }
+ ]
+}

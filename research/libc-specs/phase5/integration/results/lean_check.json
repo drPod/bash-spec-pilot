@@ -1,0 +1,39 @@
+{
+  "lean": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)",
+  "toolchain_file": "leanprover/lean4:v4.31.0",
+  "command": "LEAN_NUM_THREADS=1 LEAN_STACK_SIZE_KB=16384 flock <lock> timeout 300s prlimit --as=3221225472 lake build; lake env lean -j1 -s16384 -DElab.async=false Axioms.lean; ./.lake/build/bin/fragment-json",
+  "lakefile_moreLeanArgs": [
+    "-j1",
+    "-s16384",
+    "-DwarningAsError=true",
+    "-DElab.async=false"
+  ],
+  "final_build": {
+    "wall_seconds": 4.35,
+    "peak_rss_kib": 790160,
+    "exit_status": 0,
+    "note": "GNU time around lake build + axiom audit + executable; earlier failed iterations 1-9 kept in the cache dir"
+  },
+  "axioms": [
+    "'CalculusFragment.run_sound' depends on axioms: [propext, Quot.sound]",
+    "'CalculusFragment.run_complete' depends on axioms: [propext, Quot.sound]",
+    "'CalculusFragment.run_iff_exec' depends on axioms: [propext, Quot.sound]",
+    "'CalculusFragment.encode_run' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'CalculusFragment.encode_exec' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'CalculusFragment.evalExpr_rcZero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'CalculusFragment.Env.insert_insert' depends on axioms: [Quot.sound]",
+    "'CalculusFragment.fixtureJson' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'CalculusFragment.runFixture' depends on axioms: [propext, Quot.sound]"
+  ],
+  "sorry_free": true,
+  "inputs_sha256": {
+    "MemoryTransfer.lean": "9f80ebc6b33b81960aada7a3967ad0455d9b086d679b55439454302dca6d1d71",
+    "BufferRelay.lean": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+    "ShellObservation.lean": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+    "CalculusFragment.lean": "6ebb0ebf4440bddc3eb79544671c229248fb1273d733fbee907103fad46cdb9b",
+    "FragmentMain.lean": "3a89a3640e7f9c094ae3dd68850f32e1ad89e4c3749d2117a1d0377f9c09edcc",
+    "Axioms.lean": "e9147b372c3c938decdad98399f6a7be5d30fcaab141914ebeafd441cb5c9beb",
+    "lakefile.toml": "789fff560c18695b8535255149ded5b0422c996526e78c8d12a1b7b496a39a3f"
+  },
+  "scope": "Theorems are about the Lean transcription and the phase3 grammar, not about the OCaml interpreter."
+}

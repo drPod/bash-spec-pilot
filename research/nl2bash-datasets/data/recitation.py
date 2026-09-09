@@ -1,11 +1,4 @@
-"""A memorization signature that needs no execution.
-
-For a leaked task there are TWO reference answers: the one in the SFT training file and the
-one in the benchmark. The audit found they are never identical (0 shared input+output pairs).
-So if the model is reciting training data rather than solving the task, its generated code
-should match the SFT answer specifically -- and match it much more often on leaked tasks than
-its code matches the benchmark answer on clean tasks.
-"""
+"""Compare generated code with SFT and benchmark answers to test training-answer recitation."""
 import json, re, difflib
 from collections import defaultdict
 
@@ -13,9 +6,7 @@ norm = lambda s: " ".join((s or "").split())
 
 
 def extract(text):
-    """Same order of preference as the shipped BashScriptExtractor, simplified.
-    Returns code with newlines INTACT -- strip_sb must run before any normalization,
-    or the shebang regex eats a single-line string whole."""
+    """Preserve newlines: strip_sb must run before normalization or its shebang regex eats the whole script."""
     if not text:
         return ""
     t = re.sub(r"<think>.*?</think>", "", text, flags=re.S)

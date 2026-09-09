@@ -1,0 +1,5 @@
+Require Import EmbedJuicy2.
+Print Assumptions write_juicy_pre_relay_to_iow.
+Print Assumptions relay_read_call_iow_dry_pre.
+Print Assumptions relay_write_call_iow_dry_pre.
+Check relay_read_call_iow_dry_pre.

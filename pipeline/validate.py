@@ -1,28 +1,19 @@
 #!/usr/bin/env python3
-"""Differential layer: does the kernel-verified Lean model match the real binary?
-
-Layer 1 (proof) is checked by generate.py via `lake build` + the axiom gate.
-Layer 2 (this file) runs the compiled model head-to-head against the GNU
-utility over seeded random cases and compares stdout lines + exit code.
-Mismatches are findings (model-fidelity gaps) rather than crashes; they feed
-the refinement loop and the spec-quality story.
-
-Usage: uv run validate.py <target> [trials]
-"""
+"""Compare compiled Lean models with GNU utilities on seeded inputs, using stdout lines and exit status."""
 
 import random
 import subprocess
 import sys
 from pathlib import Path
 
+from contracts import DifferentialResult, ExitStatus, Mismatch
 from targets import TARGETS, Target, oracle_cmd
 
 LEAN_BIN = Path(__file__).resolve().parent / "lean" / ".lake" / "build" / "bin" / "model"
 
 
-def _run(cmd: list[str], stdin_text: str) -> tuple[list[str], int | str]:
-    # A generated model can loop; a timed-out trial is a mismatch to report
-    # back as feedback, not a crash of the whole differential run.
+def _run(cmd: list[str], stdin_text: str) -> tuple[list[str], ExitStatus]:
+    # Report nontermination as refinement feedback.
     try:
         p = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True,
                            timeout=30)
@@ -32,13 +23,14 @@ def _run(cmd: list[str], stdin_text: str) -> tuple[list[str], int | str]:
 
 
 def validate(target: Target, trials: int = 200, seed: int = 0,
-             max_mismatches: int = 10) -> dict:
+             max_mismatches: int = 10) -> DifferentialResult:
     if not LEAN_BIN.exists():
         raise FileNotFoundError(
             f"build first: `lake build` in pipeline/lean (missing {LEAN_BIN})")
-    rng = random.Random(seed)  # fixed seed: reproducible, no wall-clock dependence
+    rng = random.Random(seed)
     oracle = oracle_cmd(target)
-    passed, mismatches = 0, []
+    passed = 0
+    mismatches: list[Mismatch] = []
     for _ in range(trials):
         args, lines = target.gen_case(rng)
         stdin_text = ("\n".join(lines) + "\n") if lines else ""

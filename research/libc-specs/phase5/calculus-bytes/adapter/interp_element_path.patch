@@ -1,0 +1,21 @@
+--- a/bash-verifier/lib/calculus/interp.ml
++++ b/bash-verifier/lib/calculus/interp.ml
+@@ -54,7 +54,17 @@
+           in let* e = interp e
+           in match b with
+           | V.SRef b ->
+-              Some (V.SRef (V.Nested (elem, e, b)))
++              (* calculus-resume-2 private patch 2026-09-07 (adapter-chosen semantics):
++                 every consumer of a state path in state.ml (ConcreteState and
++                 RandomizeState walk `Nested (elem, v, rest)` by looking up
++                 (elem, v) in the CURRENT state and then descending into `rest`)
++                 and Value.string_of_value read paths OUTERMOST-FIRST. The pinned
++                 producer here prepended the new hop, so `a(1).b(2)` was walked as
++                 `b(2).a(1)`. Append the hop instead; one-level paths are unchanged. *)
++              let rec snoc = function
++                | V.Here -> V.Nested (elem, e, V.Here)
++                | V.Nested (x, y, n) -> V.Nested (x, y, snoc n)
++              in Some (V.SRef (snoc b))
+           | _ -> None
+     in interp e
+ 

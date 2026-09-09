@@ -1,0 +1,64 @@
+{
+  "schema": "phase5-evaluation-protocol/1",
+  "title": "Bounded non-UTF8 proof-regeneration diagnostic on frozen phase2/phase3 Lean theorems",
+  "frozen_utc": "2026-09-07T08:31Z (tasks/manifest.json written before any model call; first model call 08:34:21Z)",
+  "purpose": "Measure whether a bounded, fresh-context model can regenerate proofs of already-checked theorems tied to byte conservation, partial-error behaviour and shell short-circuit/status semantics, and whether reviewed reusable helper lemmas change the outcome. Unpowered diagnostic; not a benchmark, not a model comparison, not novelty evidence.",
+  "tasks": {
+    "shell_status": {
+      "theorem": "ShellObservation.query_transfer",
+      "source": "research/libc-specs/phase3/ShellObservation.lean",
+      "facet": "shell short-circuit and exit-status composition: an accepted query proved on the abstract fragment transfers to every terminating concrete execution across `;`, `&&`, `||`",
+      "helper_condition_keeps": ["ShellObservation.command_refines (proved)"],
+      "base_condition_removes": ["ShellObservation.command_refines"],
+      "imports_unchanged": ["BufferRelay"]
+    },
+    "byte_relay": {
+      "theorem": "RelayComposition.fragment_refines",
+      "source": "research/libc-specs/phase3/RelayComposition.lean",
+      "facet": "byte-bearing relay: the pointer-memory evaluator refines the list model under the whole shell fragment; delivered bytes, unread stream and status observable, pending hidden at exit",
+      "helper_condition_keeps": ["RelayComposition.primitive_eq (proved)", "RelayComposition.primitive_refines (proved)"],
+      "base_condition_removes": ["RelayComposition.primitive_eq", "RelayComposition.primitive_refines"],
+      "imports_unchanged": ["PointerRelay (run_detailed_eq available; statement given in prompt)", "ShellObservation (command_refines available; statement given in prompt)"]
+    },
+    "partial_error": {
+      "theorem": "BufferRelay.run_write_failure_residual",
+      "source": "research/libc-specs/phase2/BufferRelay.lean",
+      "facet": "partial-error behaviour: write failure (status 2) leaves a nonempty pending suffix and delivered bytes strictly below consumed bytes",
+      "helper_condition_keeps": ["BufferRelay.run_conservation (proved)"],
+      "base_condition_removes": ["BufferRelay.run_conservation"],
+      "imports_unchanged": ["MemoryTransfer"],
+      "note": "execute_contract and all earlier lemmas stay in both conditions because later definitions and downstream modules depend on them; the base condition therefore removes only the designated reusable byte-conservation contract."
+    }
+  },
+  "freeze": {
+    "what_is_frozen": "imports, definitions, helper lemma set per condition, target theorem statement (byte-for-byte), closing namespace; recorded in tasks/manifest.json with SHA-256 per template and per source file",
+    "what_the_model_may_produce": "the proof after the final `:=` only (tactic block or term)",
+    "leak_control": "model runs with all tools disabled, no session, no context files; prompt contains the frozen template and statement-only signatures of the imported declarations named above; original proofs are held out (tasks/*/original_proof.txt is used only as the checker's positive control)",
+    "known_limitation": "the model's training data is unknown; the phase2/phase3 sources are in a private repository, but memorisation cannot be excluded by this protocol"
+  },
+  "conditions": {
+    "helper": "reviewed reusable helper lemmas that precede the target in the same file are present with proofs",
+    "base": "those helper lemmas are deleted (statement and proof); imports and definitions identical",
+    "same_across_conditions": ["model xai/grok-4.6", "harness pi 0.84.2 --print --mode json --no-tools --no-skills --no-prompt-templates --no-extensions --no-context-files", "thinking level: pi default (unset)", "120 s wall limit per model call", "0 feedback rounds (first pass only)", "checker and its limits"]
+  },
+  "design": {
+    "cells": 6,
+    "attempts_per_cell": 2,
+    "total_attempts": 12,
+    "order": "interleaved (attempt 1 of every cell, then attempt 2), one Pi process at a time",
+    "outcome_categories": ["accepted", "build failed (compiler error)", "lexical guard", "axiom gate", "theorem type mismatch", "no code block / timeout"]
+  },
+  "checker": {
+    "script": "check_attempt.py",
+    "gates": ["frozen identity (template + all baseline sources byte-identical to the repository)", "lexical guard (no sorry/admit/axiom/new declarations/imports/options/native_decide)", "lake build +Module:olean in a private copy, LEAN_NUM_THREADS=1, 120 s, 3 GiB address space, build output must not mention sorry", "#print axioms ⊆ {propext, Classical.choice, Quot.sound}", "#check @theorem output equals the type recorded from the unchanged repository build (tasks/*/expected_check.txt)"],
+    "lean": "leanprover/lean4:v4.31.0, core only",
+    "compiler_lock": "~/.cache/bash-spec-pilot/phase3-compiler.lock (shared flock; added 08:36Z after orchestrator correction — attempts 1-10 were checked before the lock was added; all accepted submissions were re-checked under the lock, receipts recheck-*)",
+    "controls": ["original proof accepted in every helper cell (3/3)", "original proof rejected in every base cell (3/3): it depends on the removed helper", "`by sorry` rejected (lexical)", "`by native_decide` rejected (lexical)", "`by simp` rejected (build)"]
+  },
+  "accounting": {
+    "first_pass_vs_assisted": "all 12 attempts are first-pass; no assisted round was run",
+    "interventions": "none on any submission; harness re-indents lines by two spaces only; a harness bug (missing -s16384 for lake env lean) was fixed before attempts began (controls control-* vs control2-*)",
+    "orchestrator_vs_agent_vs_human": "task selection, freeze, checker and prompt authored by the Claude evaluation worker; model attempts by grok-4.6 via Pi; orchestrator supplied the coordination correction on the compiler lock; no human edits"
+  },
+  "non_claims": ["no C, libc, OS or CompCert/VST evidence", "no Bash parser or State Calculus evidence", "no Coq–Lean connection", "no second real utility", "no UTF-8 calibration content", "no model-superiority or novelty claim; n=2 per cell"]
+}

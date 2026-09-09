@@ -1,0 +1,14 @@
+[
+  {
+    "marker": "PH5-MILESTONE-91/command-encoding",
+    "title": "Actual-calculus command composition with derived counter headroom",
+    "summary": "Root87 accepted sequence/and/or over relay and mark, exact seven-field state and structural fuel.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-91/command-encoding\nEvery supported command is encoded into actual CalculusNested statements. encode_run gives exact status and related seven-field world; syntactic relayBudget and initial Budget derive cumulative headroom for every call, including EOF reads on empty input. runCmd is related to ShellObservation.Exec, and encode_sound plus query-predicate transfer replace an assumed primitive simulation. Relay&&mark and read-error recovery witnesses are checked. Root87 independently compiled ShellObservation and CalculusCommands (0.644s/1.889s), checked11 exact standard-Lean axiom outputs and accepted dependency source/olean identities. This is not yet a bounded query AST compiler, full Bash frontend, OCaml-source or cross-kernel theorem.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-commands-review-87/ROOT-REVIEW.json SHA256 32cc300a7f9e694a3a03ba73adb1798181026f24dcc544e81a333cde1ed06858"
+  },
+  {
+    "marker": "PH5-MILESTONE-91/guard-integration",
+    "title": "Relay and read_block guard integration plus conditional catch behavior",
+    "summary": "Root89 accepted five modules and19 audit outputs (15new/4dependencies).",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-91/guard-integration\nInnerInvW omits five guard facts; actual inner-step/loop theorems derive them on the passing branch and retain explicit failure/assertion-raise alternatives. read_block range failure occurs after bookkeeping state updates; capacity upper bound, byte input and counter headroom remain imported. Actual relay_caught behavior is proved for each supplied callee result; relay_raising whole-body remains open. Root89 independently compiled allfive modules (0.25\u20130.53s), verified source/log/olean hashes and19 exact standard-Lean audits. No general no-failure claim.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-guard-integration-review-89/ROOT-REVIEW.json SHA256 3463076375ae48e7857b6573836e18922a3784fd594c445a9e89d64e26af3941"
+  }
+]

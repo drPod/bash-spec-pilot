@@ -1,0 +1,7 @@
+'CalculusLowering.exportedSpec_eq_hand' does not depend on any axioms
+'CalculusLowering.exported_lowers' depends on axioms: [propext]
+'CalculusLowering.lowering_checked' depends on axioms: [propext]
+33
+some ["read_block", "write_block", "relay", "relay_raising", "relay_caught", "mark", "relay_seq_relay",
+ "relay_and_mark", "relay_or_mark"]
+limits: prlimit --as=3221225472 LEAN_NUM_THREADS=1 MIMALLOC_ARENA_RESERVE=65536 lean -j1 -s 16384 -DwarningAsError=true -DElab.async=false (direct toolchain binary, explicit LEAN_PATH) 2026-09-08T19:03:32Z

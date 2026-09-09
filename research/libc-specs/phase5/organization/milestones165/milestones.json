@@ -1,0 +1,20 @@
+[
+  {
+    "marker": "phase5/root158",
+    "title": "Self-contained tokenizer artifact targeted replay accepted",
+    "summary": "Root158 accepts targeted tokenizer replay210926Z after independent audit156:72 archived data files,36 original source identities,41 build receipts,23 named assumption checks,33 saved pairs/1593 comparisons and12 negative controls. The adapter uses archived inputs and comparator only and enforces accepted binary hashes. Root independently rehashed41 logs and41 outputs. Not a full-manifest replay.",
+    "content": "phase5/root158\nRoot158 accepts targeted tokenizer replay210926Z after independent audit156:72 archived data files,36 original source identities,41 build receipts,23 named assumption checks,33 saved pairs/1593 comparisons and12 negative controls. The adapter uses archived inputs and comparator only and enforces accepted binary hashes. Root independently rehashed41 logs and41 outputs. Not a full-manifest replay.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-tokenizer-artifact-review-158/ROOT-REVIEW.json\nSHA256: 9e920d28e26bbbea04cb9acafd9b2aab43bfabb23bff702f712306f261982080"
+  },
+  {
+    "marker": "phase5/root162",
+    "title": "Fresh exception-proof dependency archive accepted",
+    "summary": "Root162 accepts private153 archive replay211654Z:all16 module source/log/output hashes verified and28 exact named assumption checks allowed. Final theorems are the accepted151 actual raising/caught status andseven-field initial-state correspondence, with explicit premises. Shared artifact integration and final full replay remain pending.",
+    "content": "phase5/root162\nRoot162 accepts private153 archive replay211654Z:all16 module source/log/output hashes verified and28 exact named assumption checks allowed. Final theorems are the accepted151 actual raising/caught status andseven-field initial-state correspondence, with explicit premises. Shared artifact integration and final full replay remain pending.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-exception-artifact-review-162/ROOT-REVIEW.json\nSHA256: 3b19e312774fdd06fd525fd0287c7286457920f4096342a7c5a56206be36b633"
+  },
+  {
+    "marker": "phase5/root164",
+    "title": "Fresh supported shell-text dependency archive accepted",
+    "summary": "Root164 accepts private142 replay211840Z:20 freshly compiled modules,66 exact named assumption checks and38 fixtures independently verified againstroot135. Root fixed missing actual compiler environment and partial theorem-name qualification in earlier failed recipes; failed receipts retained. Scope is supported text with independent token grammar and actual calculus/query connector, not full Bash or a character-level lexer theorem. Shared integration and final full replay remain pending.",
+    "content": "phase5/root164\nRoot164 accepts private142 replay211840Z:20 freshly compiled modules,66 exact named assumption checks and38 fixtures independently verified againstroot135. Root fixed missing actual compiler environment and partial theorem-name qualification in earlier failed recipes; failed receipts retained. Scope is supported text with independent token grammar and actual calculus/query connector, not full Bash or a character-level lexer theorem. Shared integration and final full replay remain pending.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-shell-artifact-review-164/ROOT-REVIEW.json\nSHA256: e85047615c673de2ebb66aaa1ea9fb905765c5b64eb42ab399e6cfe62c7cc796"
+  }
+]

@@ -1,0 +1,3 @@
+import CalculusTokenizeCopyEq
+#print axioms CalculusTokenizeCopyEq.tokenizeTotal_eq
+#print axioms CalculusTokenizeCopyEq.parseText_eq

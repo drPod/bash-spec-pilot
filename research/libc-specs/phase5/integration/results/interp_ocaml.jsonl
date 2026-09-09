@@ -1,0 +1,15 @@
+{"mode": "interp", "name": "call_ok", "command": "relay_ok", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc"}]}
+{"mode": "interp", "name": "call_late_error", "command": "relay_late_error", "outcome": "continue", "rc": 1, "attrs": [{"stdout": "abc"}]}
+{"mode": "interp", "name": "and_ok_mark", "command": "(relay_ok && mark)", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc!"}]}
+{"mode": "interp", "name": "and_late_mark", "command": "(relay_late_error && mark)", "outcome": "continue", "rc": 1, "attrs": [{"stdout": "abc"}]}
+{"mode": "interp", "name": "or_late_mark", "command": "(relay_late_error || mark)", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc!"}]}
+{"mode": "interp", "name": "or_ok_mark", "command": "(relay_ok || mark)", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc"}]}
+{"mode": "interp", "name": "seq_late_mark", "command": "(relay_late_error ; mark)", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc!"}]}
+{"mode": "interp", "name": "and_or_nested", "command": "((relay_late_error || mark) && relay_ok)", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abc!abc"}]}
+{"mode": "interp", "name": "and_late_nested", "command": "(relay_late_error && (mark || relay_ok))", "outcome": "continue", "rc": 1, "attrs": [{"stdout": "abc"}]}
+{"mode": "interp", "name": "seq_ok_late", "command": "(relay_ok ; relay_late_error)", "outcome": "continue", "rc": 1, "attrs": [{"stdout": "abcabc"}]}
+{"mode": "interp", "name": "seq_seq_and", "command": "((relay_ok ; relay_late_error) ; (relay_ok && mark))", "outcome": "continue", "rc": 0, "attrs": [{"stdout": "abcabcabc!"}]}
+{"mode": "interp", "name": "control_noreturn_action", "command": "noreturn", "outcome": "failure"}
+{"mode": "interp", "name": "control_cond_nonbool", "command": "if (nonbool)", "outcome": "failure"}
+{"mode": "interp", "name": "control_get_missing_attr", "command": "get missing", "outcome": "failure"}
+{"mode": "interp", "name": "control_unbound_variable", "command": "rc unbound", "outcome": "failure"}

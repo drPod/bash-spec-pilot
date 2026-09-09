@@ -1,0 +1,5 @@
+{"export_entry": "mut_head_keyword_foreach", "outcome": "parse_rejected"}
+{"export_entry": "mut_truncated", "outcome": "parse_rejected"}
+{"export_entry": "mut_bad_int_literal", "outcome": "failure"}
+{"export_entry": "mut_unknown_func", "outcome": "parse_rejected"}
+{"export_entry": "mut_match_head", "outcome": "parse_rejected"}

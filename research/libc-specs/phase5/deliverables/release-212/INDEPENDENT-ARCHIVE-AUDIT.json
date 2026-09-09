@@ -1,0 +1,125 @@
+{
+  "job": "final-archive-audit-213",
+  "mode": "independent extract+rehash; no repo/buildarchive edits; no compiler/main; no network/catalog/git",
+  "prior_audit": "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/final-archive-audit-210/AUDIT.json",
+  "tarball": "/home/coder/agent-jobs/astra-research/phase5/deliverables/release-212/libc-specs-source.tar.gz",
+  "tarball_sha256_claimed": "1977a2c25794acfbdd02a01d9929c2471439359c4771784d92daaa8de1fdf6db",
+  "tarball_sha256_sidecar": "1977a2c25794acfbdd02a01d9929c2471439359c4771784d92daaa8de1fdf6db",
+  "tarball_sha256_measured": "1977a2c25794acfbdd02a01d9929c2471439359c4771784d92daaa8de1fdf6db",
+  "tarball_sha256_ok": true,
+  "tarball_bytes": 3821400,
+  "inner_tar_sha256_claimed": "7fcea4414d857551ee3b40e74de069b1654b6a5ebb25699f0e6b02e19e066a7a",
+  "inner_tar_sha256_measured": "7fcea4414d857551ee3b40e74de069b1654b6a5ebb25699f0e6b02e19e066a7a",
+  "inner_tar_sha256_ok": true,
+  "extract_root": "/tmp/final-archive-audit-213/outer/libc-specs-source",
+  "member_count_tar_tz": 2468,
+  "disk_files_after_extract": 2468,
+  "sha256sums_entries": 2465,
+  "inventory_entries": 2465,
+  "sha256sums_format": "sha256 size mode path (not GNU sha256sum two-field)",
+  "sha256sums_hash_mismatches": [],
+  "inventory_hash_mismatches": [],
+  "inventory_vs_sha256sums_paths_equal": true,
+  "inventory_jsonl_sha256_measured": "9d78aee5188fb26e0dba30e3bf59dcff6a9d24d07d14c376e561da62db188aa5",
+  "inventory_head_inventory_sha256": "9d78aee5188fb26e0dba30e3bf59dcff6a9d24d07d14c376e561da62db188aa5",
+  "inventory_head_hash_matches_jsonl": true,
+  "builder_verify_not_sole_evidence": true,
+  "verdict": "PASS",
+  "package_integrity": "PASS",
+  "release_ready_claimed_in_build_report": true,
+  "gates": {
+    "full30_174_present": true,
+    "full30_manifest_entries": 30,
+    "full30_summary_results": 30,
+    "full30_summary_sha256": "165a63d40cdf862605142d368c61a057a3571e4ae9d29f6c81e1b95b2f347aee",
+    "full30_summary_matches_audit210": true,
+    "full30_selected_all_passed": true,
+    "full30_full_scope_complete": true,
+    "supplemental_191_closure_pins_ok": true,
+    "supplemental_191_summary_sha256": "a8528873723704287780d6973e53957bfd97ec3139e21580dcd3d81d94e3c781",
+    "supplemental_191_summary_matches_audit210": true,
+    "supplemental_198_receipt_matches_summary": true,
+    "source_196_closure_pins_ok": true,
+    "source_196_new_modules_ok": true,
+    "source_196_generator_freeze_ok": true,
+    "source_196_summary_sha256": "89527fb4b6a09dd7ba01cf1f26ab8d1e46372bc40b4fc014977e6314a9b1693d",
+    "source_196_summary_matches_audit210": true,
+    "source_197_receipt_present": true,
+    "source_203_receipt_matches_summary": true,
+    "audit_195_present": true,
+    "matrix_200_present": true,
+    "paper206_html_sha256": "0f8135f30a7e0ac938cd344cd5d002253cd5867e2eebbba81389bc2f80214c81",
+    "paper206_md_sha256": "b515b98b7bf53c16bde46c1b11140111c68a5dac043e4537a0b0efb74269801a",
+    "paper206_html_match": true,
+    "paper206_md_match_DRAFT_PAPER_md": true,
+    "paper206_RENDER_RECEIPT_packed": true,
+    "paper206_RENDER_RECEIPT_html_sha256": "0f8135f30a7e0ac938cd344cd5d002253cd5867e2eebbba81389bc2f80214c81",
+    "paper206_RENDER_RECEIPT_source_sha256": "b515b98b7bf53c16bde46c1b11140111c68a5dac043e4537a0b0efb74269801a",
+    "ledgers_207_in_tree": {
+      "phase5/REQUIREMENTS.md": "495b22b96e81802ab56837af20bc4fb69bae84eb91d3600e029f1ad250b13420",
+      "phase5/COMPLETION-AUDIT.md": "a3c97f2439a34a0ba4bc3436b65ccc0f576db314f4a039a0d93e66bebd1fe3f4",
+      "phase5/integration/COMPLETION-AUDIT.md": "ba4ac8a9ee2eebb29fa22875f867693eae7f17fdb3dab73e0797095cd4890bca",
+      "phase5/integration/PROOF-CHAIN.md": "723c85bc35fcbba69fbf34a61345bc9af487cd843eee831dc4238a268a97f66a"
+    },
+    "ledgers_match_audit210": true,
+    "job207_REPORT_packed": false,
+    "imports": {
+      "supplemental191_runner_support": true,
+      "supplemental191_replay": true,
+      "source196_runner_support": true,
+      "source196_replay": true,
+      "source196_generator_fixtures": true,
+      "executed_compiler_or_main": false
+    }
+  },
+  "secret_filename_hits_runtime": [
+    "external-receipts/root-artifact-full30-174/process.json"
+  ],
+  "events_jsonl_packed": false,
+  "sessions_dir_packed": false,
+  "historical_cp17_packed": false,
+  "absolute_hardcoded_paths_noted": [
+    "external-receipts/source-196-not-full30/replay.py LEAN=/home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean",
+    "external-receipts/supplemental-191-not-full30/replay.py same elan pin",
+    "INVENTORY.jsonl source fields record original host paths (inventory metadata, not runtime)"
+  ],
+  "toolchain_prereqs_ok_not_packed": [
+    "elan leanprover--lean4---v4.31.0",
+    "Docker phase5-vst"
+  ],
+  "missing_frozen_inputs": [],
+  "prior_blocking_fixes": [
+    {
+      "id": "FIX-HEAD-INVENTORY-SHA",
+      "was": "blocking in audit-210",
+      "now": "resolved: HEAD inventory_sha256 equals measured INVENTORY.jsonl SHA-256 9d78aee5188fb26e0dba30e3bf59dcff6a9d24d07d14c376e561da62db188aa5"
+    },
+    {
+      "id": "FIX-SIDECAR-206-RECEIPT",
+      "was": "material in audit-210",
+      "now": "resolved: packed external-receipts/root-reviews/root-final-paper-review-206/RENDER-RECEIPT.json"
+    }
+  ],
+  "remaining_non_integrity": [
+    {
+      "id": "FIX-SIDECAR-FINAL-RECEIPT",
+      "severity": "process",
+      "detail": "In-tree docs still predate this tarball. Final delivery receipt/catalog are root follow-up, not proof or package-hash changes. This job does not treat that as package-integrity FAIL."
+    },
+    {
+      "id": "FIX-CATALOG",
+      "severity": "process",
+      "detail": "Catalog counts after package remain out of scope (no catalog)."
+    }
+  ],
+  "matrix200_remaining_delivery_items_reviewed": {
+    "fresh_replay_196_199": "closed in-tree: packed source-196 replay-out 20260908T224120Z summary 89527fb4… matches root203",
+    "ledger_reconcile_197": "ledgers match audit-210 hashes (root197/207 accepted bytes)",
+    "artifact_shape_supplemental_not_full30": "honored: 175/191/196 tagged *-not-full30",
+    "source_package_tar": "release-212; outer 1977a2c2… inner 7fcea441…; HEAD authenticator matches jsonl",
+    "catalog": "still pending; not performed here"
+  },
+  "git_note_disclosed": "INVENTORY-HEAD.json git_note: research/libc-specs untracked working tree; delivery is content-hashed tar",
+  "accepted_proofs_not_rewritten": true,
+  "note_pycache": "Import check created __pycache__ under scratch extract only; not present in tarball members"
+}

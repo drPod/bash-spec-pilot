@@ -1,0 +1,557 @@
+{
+  "schema": "phase5-evaluation-expanded-results/1",
+  "total_attempts": 96,
+  "cells": {
+    "nested_add_attrs|base|claude:fable": {
+      "task": "nested_add_attrs",
+      "condition": "base",
+      "model": "claude:fable",
+      "attempts": 5,
+      "accepted": 1,
+      "acceptance_rate": 0.2,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 50.6,
+      "model_seconds": [
+        40.47,
+        47.28,
+        43.65,
+        67.63,
+        54.0
+      ],
+      "cost_usd_total": 1.2216,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_add_attrs|base|claude:sonnet": {
+      "task": "nested_add_attrs",
+      "condition": "base",
+      "model": "claude:sonnet",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "no lean code block in response (or timeout)",
+        "no lean code block in response (or timeout)",
+        "no lean code block in response (or timeout)"
+      ],
+      "model_seconds_mean": 129.0,
+      "model_seconds": [
+        69.97,
+        124.59,
+        150.11,
+        150.11,
+        150.03
+      ],
+      "cost_usd_total": 0.2512,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_add_attrs|base|pi:xai/grok-4.6": {
+      "task": "nested_add_attrs",
+      "condition": "base",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 6,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 35.3,
+      "model_seconds": [
+        20.68,
+        52.58,
+        33.22,
+        31.67,
+        32.67,
+        40.86
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "nested_add_attrs|helper|claude:fable": {
+      "task": "nested_add_attrs",
+      "condition": "helper",
+      "model": "claude:fable",
+      "attempts": 5,
+      "accepted": 2,
+      "acceptance_rate": 0.4,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 30.3,
+      "model_seconds": [
+        26.34,
+        27.82,
+        35.1,
+        33.63,
+        28.83
+      ],
+      "cost_usd_total": 0.7944,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_add_attrs|helper|claude:sonnet": {
+      "task": "nested_add_attrs",
+      "condition": "helper",
+      "model": "claude:sonnet",
+      "attempts": 5,
+      "accepted": 1,
+      "acceptance_rate": 0.2,
+      "reject_reasons": [
+        "build failed",
+        "no lean code block in response (or timeout)",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 80.5,
+      "model_seconds": [
+        36.13,
+        150.08,
+        44.29,
+        47.67,
+        124.43
+      ],
+      "cost_usd_total": 0.3227,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_add_attrs|helper|pi:xai/grok-4.6": {
+      "task": "nested_add_attrs",
+      "condition": "helper",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 26.5,
+      "model_seconds": [
+        20.23,
+        53.13,
+        17.97,
+        16.51,
+        24.7
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_frame|base|claude:fable": {
+      "task": "nested_frame",
+      "condition": "base",
+      "model": "claude:fable",
+      "attempts": 6,
+      "accepted": 1,
+      "acceptance_rate": 0.167,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 44.8,
+      "model_seconds": [
+        41.67,
+        45.65,
+        44.4,
+        46.66,
+        49.0,
+        41.18
+      ],
+      "cost_usd_total": 1.4193,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "nested_frame|base|claude:sonnet": {
+      "task": "nested_frame",
+      "condition": "base",
+      "model": "claude:sonnet",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "no lean code block in response (or timeout)",
+        "no lean code block in response (or timeout)",
+        "build failed"
+      ],
+      "model_seconds_mean": 141.8,
+      "model_seconds": [
+        148.78,
+        140.41,
+        150.11,
+        150.13,
+        119.63
+      ],
+      "cost_usd_total": 0.5088,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_frame|base|pi:xai/grok-4.6": {
+      "task": "nested_frame",
+      "condition": "base",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 45.1,
+      "model_seconds": [
+        26.09,
+        63.27,
+        76.37,
+        28.05,
+        31.56
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_frame|helper|claude:fable": {
+      "task": "nested_frame",
+      "condition": "helper",
+      "model": "claude:fable",
+      "attempts": 6,
+      "accepted": 4,
+      "acceptance_rate": 0.667,
+      "reject_reasons": [
+        "attempt directory already exists",
+        "build failed"
+      ],
+      "model_seconds_mean": 28.7,
+      "model_seconds": [
+        27.94,
+        25.55,
+        25.59,
+        31.55,
+        26.52,
+        35.22
+      ],
+      "cost_usd_total": 0.9245,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_frame|helper|claude:sonnet": {
+      "task": "nested_frame",
+      "condition": "helper",
+      "model": "claude:sonnet",
+      "attempts": 6,
+      "accepted": 1,
+      "acceptance_rate": 0.167,
+      "reject_reasons": [
+        "attempt directory already exists",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 58.6,
+      "model_seconds": [
+        53.37,
+        97.55,
+        66.11,
+        21.33,
+        66.42,
+        46.8
+      ],
+      "cost_usd_total": 0.4694,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_frame|helper|pi:xai/grok-4.6": {
+      "task": "nested_frame",
+      "condition": "helper",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 6,
+      "accepted": 1,
+      "acceptance_rate": 0.167,
+      "reject_reasons": [
+        "attempt directory already exists",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 28.4,
+      "model_seconds": [
+        52.39,
+        26.75,
+        30.77,
+        17.02,
+        16.27,
+        27.48
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_remove_frame|base|claude:fable": {
+      "task": "nested_remove_frame",
+      "condition": "base",
+      "model": "claude:fable",
+      "attempts": 5,
+      "accepted": 5,
+      "acceptance_rate": 1.0,
+      "reject_reasons": [],
+      "model_seconds_mean": 19.6,
+      "model_seconds": [
+        22.29,
+        21.84,
+        16.97,
+        17.87,
+        18.81
+      ],
+      "cost_usd_total": 0.5164,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_remove_frame|base|claude:sonnet": {
+      "task": "nested_remove_frame",
+      "condition": "base",
+      "model": "claude:sonnet",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 5.3,
+      "model_seconds": [
+        5.57,
+        5.2,
+        4.92,
+        5.01,
+        5.57
+      ],
+      "cost_usd_total": 0.0602,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_remove_frame|base|pi:xai/grok-4.6": {
+      "task": "nested_remove_frame",
+      "condition": "base",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 5,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 27.2,
+      "model_seconds": [
+        26.2,
+        26.44,
+        33.87,
+        25.84,
+        23.59
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_remove_frame|helper|claude:fable": {
+      "task": "nested_remove_frame",
+      "condition": "helper",
+      "model": "claude:fable",
+      "attempts": 5,
+      "accepted": 5,
+      "acceptance_rate": 1.0,
+      "reject_reasons": [],
+      "model_seconds_mean": 3.8,
+      "model_seconds": [
+        4.01,
+        3.69,
+        4.02,
+        3.5,
+        3.76
+      ],
+      "cost_usd_total": 0.1336,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nested_remove_frame|helper|claude:sonnet": {
+      "task": "nested_remove_frame",
+      "condition": "helper",
+      "model": "claude:sonnet",
+      "attempts": 6,
+      "accepted": 0,
+      "acceptance_rate": 0.0,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 3.6,
+      "model_seconds": [
+        4.16,
+        4.85,
+        3.03,
+        2.76,
+        2.94,
+        3.98
+      ],
+      "cost_usd_total": 0.0809,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "nested_remove_frame|helper|pi:xai/grok-4.6": {
+      "task": "nested_remove_frame",
+      "condition": "helper",
+      "model": "pi:xai/grok-4.6",
+      "attempts": 5,
+      "accepted": 2,
+      "acceptance_rate": 0.4,
+      "reject_reasons": [
+        "build failed",
+        "build failed",
+        "build failed"
+      ],
+      "model_seconds_mean": 8.1,
+      "model_seconds": [
+        8.59,
+        5.28,
+        11.95,
+        9.4,
+        5.33
+      ],
+      "cost_usd_total": null,
+      "feedback_rounds_used": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

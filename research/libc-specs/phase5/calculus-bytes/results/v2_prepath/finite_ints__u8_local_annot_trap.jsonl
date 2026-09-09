@@ -1,0 +1,1 @@
+{"mode": "lower", "file": "fixtures/v2/finite_ints.sc", "outcome": "lexer_error", "message": "uncaught lexer/parser exception: Int8.of_string"}

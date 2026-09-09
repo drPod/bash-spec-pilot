@@ -1,0 +1,12 @@
+Original proof body (held out from prompts; used only as the helper-condition positive control).
+by
+  have hp := (execute_contract (fun _ => 0) input reads writes).2.2.2.1 h
+  have hc := run_conservation input reads writes
+  have hl := congrArg List.length hc
+  simp only [List.length_append] at hl
+  have hpos := List.length_pos_iff.mpr hp
+  refine ⟨hp, ?_⟩
+  change (runDetailed input reads writes).output.length <
+    input.length - (runDetailed input reads writes).remaining.length
+  change 0 < (runDetailed input reads writes).pending.length at hpos
+  omega

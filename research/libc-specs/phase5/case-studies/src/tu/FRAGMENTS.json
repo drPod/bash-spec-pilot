@@ -1,0 +1,47 @@
+[
+  {
+    "name": "head_bytes",
+    "source": "src/pinned/coreutils/head.c",
+    "source_sha256": "484c3074adb5109c89c8de75384e2593e5eccf2988b998819d45cf1cf2af1310",
+    "lines_inclusive": [
+      774,
+      797
+    ],
+    "byte_range_half_open": [
+      24038,
+      24672
+    ],
+    "fragment_bytes": 634,
+    "fragment_sha256": "ae9f42de06cf55ca1bfcc8720986b32f8c8d14b8063af8374dece0b886bbc4b7"
+  },
+  {
+    "name": "xwrite_stdout",
+    "source": "src/pinned/coreutils/head.c",
+    "source_sha256": "484c3074adb5109c89c8de75384e2593e5eccf2988b998819d45cf1cf2af1310",
+    "lines_inclusive": [
+      176,
+      189
+    ],
+    "byte_range_half_open": [
+      5114,
+      5521
+    ],
+    "fragment_bytes": 407,
+    "fragment_sha256": "bb26b78f6b0df6e41c22497b27709f30225627f42326fa80fd85625ae8a5262c"
+  },
+  {
+    "name": "wc_lines",
+    "source": "src/pinned/coreutils/wc.c",
+    "source_sha256": "b659507f9873b5e92eacb112c32ee9eb172756d90e16e3a970b6275473a41816",
+    "lines_inclusive": [
+      266,
+      330
+    ],
+    "byte_range_half_open": [
+      7583,
+      9177
+    ],
+    "fragment_bytes": 1594,
+    "fragment_sha256": "7d22d9fdfd6f97e3f149088c597840afc90f7912eba038fdf5941b94978c26fd"
+  }
+]

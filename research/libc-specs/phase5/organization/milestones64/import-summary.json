@@ -1,0 +1,75 @@
+{
+  "hosted_get_total": 279,
+  "hosted_get_fetched": 279,
+  "hosted_sharing": {
+    "private": 279
+  },
+  "hosted_created": 2,
+  "hosted_verified": 2,
+  "local": {
+    "base_url": "http://127.0.0.1:4096/provenance",
+    "project": "prj_fa7ceb0639254b3dba5833834ce25366",
+    "status": "verified",
+    "summary": {
+      "total": 2351,
+      "edges": 2436,
+      "kinds": {
+        "artifact": 1524,
+        "run": 698,
+        "source": 12,
+        "claim": 117
+      },
+      "reviews": {
+        "supports": 0,
+        "refutes": 0,
+        "blocking": 0,
+        "major": 0,
+        "minor": 0,
+        "info": 0
+      },
+      "orphan_edges": 0
+    },
+    "nodes": 2351,
+    "edges": 2436,
+    "known_prior_milestone_identity_verified": true,
+    "receipts": [
+      {
+        "marker": "PH5-MILESTONE-64/stateful55-consumption",
+        "id": "24d8106e7d1f487f",
+        "created": true,
+        "get_verified": true,
+        "content_sha256": "fd6c1301622363188cf13bb47de33702796b360af32466a01b1acccb035a223b"
+      },
+      {
+        "marker": "PH5-MILESTONE-64/case-wrapper63",
+        "id": "029e3b3a75fee193",
+        "created": true,
+        "get_verified": true,
+        "content_sha256": "1182f4b662304c536928fa0982484cbf8601daffba61adc1d51126ab4e1b7fa6"
+      }
+    ],
+    "service_restarted": false,
+    "hosted_requests": 0
+  },
+  "local_receipts": [
+    {
+      "marker": "PH5-MILESTONE-64/stateful55-consumption",
+      "id": "24d8106e7d1f487f",
+      "created": true,
+      "get_verified": true,
+      "content_sha256": "fd6c1301622363188cf13bb47de33702796b360af32466a01b1acccb035a223b"
+    },
+    {
+      "marker": "PH5-MILESTONE-64/case-wrapper63",
+      "id": "029e3b3a75fee193",
+      "created": true,
+      "get_verified": true,
+      "content_sha256": "1182f4b662304c536928fa0982484cbf8601daffba61adc1d51126ab4e1b7fa6"
+    }
+  ],
+  "scope": "Two accepted milestones only; full19 plus five targeted additions, no full24; stateful not artifact-packaged; no checked Coq-to-Lean bridge",
+  "local_initial4097": {
+    "status": "unavailable",
+    "error": "URLError"
+  }
+}

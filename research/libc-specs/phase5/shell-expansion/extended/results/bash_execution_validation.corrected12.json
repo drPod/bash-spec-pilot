@@ -1,0 +1,350 @@
+{
+ "runid": "20260908T075236Z-31964e40",
+ "workdir": "/home/coq/phase5/shellexpval9-20260908T075236Z-31964e40",
+ "provenance": {
+  "relay_c_path": "/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase2/relay.c",
+  "relay_c_sha256": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+  "relay_i_path": "/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/relay/relay.i",
+  "relay_i_sha256": "6027491fa9cdd7de87ec9c5e4a2bbaa2023d0753c63ebc192b6301e4f5225f1c",
+  "relay_c_equals_relay_i": false,
+  "identity_claim": "Exact file hashes recorded. relay.c and CompCert-preprocessed relay.i are different artifacts; this script does not claim substring presence proves translation identity.",
+  "wrapper": "/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/run_vst.py",
+  "wrapper_sha256": "50457639ee226db70d0d635fd488197e5f690466b083577cd20748bcb8d1fb3d",
+  "container": "phase5-vst",
+  "expectations": "hand-coded literals in validate_extended.py; no executable Coq oracle",
+  "scope": "Finite directed container execution via run_vst.py. Not a parser/semantics completeness or correctness proof. Not an automated model differential."
+ },
+ "gcc_receipt": {
+  "name": "shellexpval9-20260908T075236Z-31964e40-gcc",
+  "exit_status": 0,
+  "timing_exit_status": 0,
+  "elapsed_seconds": 0.03,
+  "host_elapsed_seconds": 0.17202425003051758,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "peak_rss_kib": 25600,
+  "wrapper_returncode": 0
+ },
+ "driver_receipt": {
+  "name": "shellexpval9-20260908T075236Z-31964e40-driver",
+  "exit_status": 0,
+  "timing_exit_status": 0,
+  "elapsed_seconds": 0.09,
+  "host_elapsed_seconds": 0.2429807186126709,
+  "log_sha256": "9459259ab06f2678bfcdfe956e380a4a62163a051e19004ee19489ddc8456559",
+  "peak_rss_kib": 10624,
+  "wrapper_returncode": 0
+ },
+ "historical_host_unwrapped": "results/bash_execution_validation.host-unwrapped.historical.json",
+ "total": 12,
+ "disagreements": 0,
+ "records": [
+  {
+   "name": "bare_relay",
+   "agree": true,
+   "observed": {
+    "name": "bare_relay",
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99
+    ]
+   }
+  },
+  {
+   "name": "bare_mark",
+   "agree": true,
+   "observed": {
+    "name": "bare_mark",
+    "status": 0,
+    "stdout_bytes": [
+     33
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [
+     33
+    ]
+   }
+  },
+  {
+   "name": "pipe_relay_relay",
+   "agree": true,
+   "observed": {
+    "name": "pipe_relay_relay",
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99,
+     100,
+     101,
+     102
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99,
+     100,
+     101,
+     102
+    ]
+   }
+  },
+  {
+   "name": "redirect_truncate",
+   "agree": true,
+   "observed": {
+    "name": "redirect_truncate",
+    "status": 0,
+    "stdout_bytes": [],
+    "file_bytes": [
+     97,
+     98,
+     99
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [],
+    "file_bytes": [
+     97,
+     98,
+     99
+    ]
+   }
+  },
+  {
+   "name": "redirect_append",
+   "agree": true,
+   "observed": {
+    "name": "redirect_append",
+    "status": 0,
+    "stdout_bytes": [],
+    "file_bytes": [
+     120,
+     121,
+     97,
+     98,
+     99
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "file_bytes": [
+     120,
+     121,
+     97,
+     98,
+     99
+    ]
+   }
+  },
+  {
+   "name": "pipe_then_redirect",
+   "agree": true,
+   "observed": {
+    "name": "pipe_then_redirect",
+    "status": 0,
+    "stdout_bytes": [],
+    "file_bytes": [
+     97,
+     98,
+     99,
+     100,
+     101,
+     102
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [],
+    "file_bytes": [
+     97,
+     98,
+     99,
+     100,
+     101,
+     102
+    ]
+   }
+  },
+  {
+   "name": "seq_then_redirect",
+   "agree": true,
+   "observed": {
+    "name": "seq_then_redirect",
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99
+    ],
+    "file_bytes": [
+     33
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99
+    ],
+    "file_bytes": [
+     33
+    ]
+   }
+  },
+  {
+   "name": "and_success_runs_mark",
+   "agree": true,
+   "observed": {
+    "name": "and_success_runs_mark",
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99,
+     33
+    ]
+   },
+   "expected_hand_coded": {
+    "status": 0,
+    "stdout_bytes": [
+     97,
+     98,
+     99,
+     33
+    ]
+   }
+  },
+  {
+   "name": "read_error_closed_stdin",
+   "agree": true,
+   "observed": {
+    "name": "read_error_closed_stdin",
+    "status": 0,
+    "stdout_bytes": [
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     49,
+     10
+    ]
+   },
+   "expected_hand_coded": {
+    "closed_relay_status": 1
+   },
+   "parsed_status": 1
+  },
+  {
+   "name": "and_short_circuits_on_read_error",
+   "agree": true,
+   "observed": {
+    "name": "and_short_circuits_on_read_error",
+    "status": 0,
+    "stdout_bytes": [
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     49,
+     10
+    ]
+   },
+   "expected_hand_coded": {
+    "stdout_bytes": [
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     49,
+     10
+    ]
+   }
+  },
+  {
+   "name": "or_runs_mark_on_read_error",
+   "agree": true,
+   "observed": {
+    "name": "or_runs_mark_on_read_error",
+    "status": 0,
+    "stdout_bytes": [
+     33,
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     48,
+     10
+    ]
+   },
+   "expected_hand_coded": {
+    "stdout_bytes": [
+     33,
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     48,
+     10
+    ]
+   }
+  },
+  {
+   "name": "real_sigpipe_matches_modelled_status",
+   "agree": true,
+   "observed": {
+    "name": "real_sigpipe_matches_modelled_status",
+    "status": 0,
+    "stdout_bytes": [
+     83,
+     84,
+     65,
+     84,
+     85,
+     83,
+     32,
+     49,
+     52,
+     49,
+     10
+    ]
+   },
+   "expected_hand_coded": {
+    "pipestatus0": 141
+   },
+   "parsed_pipestatus0": 141,
+   "note": "Hand-coded 141 = 128+SIGPIPE; independent of PipeRR. Not a Coq-executed oracle."
+  }
+ ]
+}

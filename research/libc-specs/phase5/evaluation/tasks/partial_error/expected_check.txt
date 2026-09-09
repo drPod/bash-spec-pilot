@@ -1,0 +1,5 @@
+BufferRelay.run_write_failure_residual : ∀ (input : List BufferRelay.Byte) (reads writes : List Int),
+  (BufferRelay.run input reads writes).status = 2 →
+    (BufferRelay.runDetailed input reads writes).pending ≠ [] ∧
+      (BufferRelay.run input reads writes).output.length <
+        input.length - (BufferRelay.run input reads writes).remaining.length

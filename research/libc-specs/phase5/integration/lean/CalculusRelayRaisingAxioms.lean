@@ -1,0 +1,32 @@
+/- Axiom audit for `CalculusRelayRaising` (raising-entry-catch-118). -/
+import CalculusRelayRaising
+
+#print axioms CalculusRelayRaising.relayRaisingBody_eq
+#print axioms CalculusRelayRaising.raising_prologue
+#print axioms CalculusRelayRaising.raising_outerInv_prologue
+#print axioms CalculusRelayRaising.raising_runEntry
+#print axioms CalculusRelayRaising.raising_body_shape
+#print axioms CalculusRelayRaising.raising_caught_shape
+#print axioms CalculusRelayRaising.raising_caught_runEntry
+#print axioms CalculusRelayRaising.raising_caught_readError_one
+#print axioms CalculusRelayRaising.raising_outer_loop_terminates
+#print axioms CalculusRelayRaising.raising_caught_eof_zero
+#print axioms CalculusRelayRaising.raising_relay_zero_read_same_post
+#print axioms CalculusRelayRaising.raising_eof_rbK
+#print axioms CalculusRelayRaising.raising_relay_neg_read_same_post
+#print axioms CalculusRelayRaising.raising_caught_of_neg_read_same_s
+#print axioms CalculusRelayRaising.raising_relay_inner_step_same_post
+#print axioms CalculusRelayRaising.raising_relay_inner_step_inv_same_post_envs
+#print axioms CalculusRelayRaising.raising_relay_inner_loop_run_same_post_envs
+#print axioms CalculusRelayRaising.raising_relay_inner_loop_run_same_post
+#print axioms CalculusRelayRaising.raising_relay_outer_step_same_post_envs
+#print axioms CalculusRelayRaising.raising_relay_outer_loop_run_same_post_envs
+#print axioms CalculusRelayRaising.raising_relay_outer_loop_run_same_post
+#print axioms CalculusRelayRaising.raising_relay_body_same_post
+#print axioms CalculusRelayRaising.raising_relay_runEntry_same_post
+#print axioms CalculusRelayRaising.raising_caught_body_same_post
+#print axioms CalculusRelayRaising.raising_caught_runEntry_same_post
+#print axioms CalculusRelayRaising.runEntry_fuel_mono_le
+#print axioms CalculusRelayRaising.raising_matches_phase3_schedules
+#print axioms CalculusRelayRaising.raising_caught_matches_phase3_schedules
+

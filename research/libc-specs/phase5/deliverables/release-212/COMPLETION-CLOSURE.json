@@ -1,0 +1,242 @@
+{
+  "status": "complete at documented research bounds",
+  "scope_source": "/home/coder/agent-jobs/astra-research/phase5/claude-resume/completion-requirements-audit-200/REQUIREMENT-MATRIX.json",
+  "scope_source_sha256": "7c51e13cca6dad36d516234d3e7b7d1901238416c274bce31ec205cb0da80643",
+  "requirements": [
+    {
+      "id": "U1",
+      "requirement": "Script matches query for all possible inputs/system states, Lean as final checker",
+      "status": "complete_bounded",
+      "evidence": [
+        "CalculusCommands.encode_run / encode_sound / encoded_query_sound (root87 ROOT-REVIEW; 11 theorems, std axioms)",
+        "CalculusQuery.script_query_run / script_query_universal / *_spec (root92; 17 theorems + rfl export identity)",
+        "CalculusShellText.compileScriptQuery_nested (root135; text \u2192 command \u2192 Nested program, 38/38 fixtures)",
+        "CalculusShellTextExport.compileScriptQuery_nested_export (root188/198; exported mark body, 9 theorems)",
+        "all of the above compose the accepted relay primitives CalculusRelayShared.relay_action_shared (root70) and Schedules67"
+      ],
+      "bounds_that_are_part_of_the_claim": "universal over Related seven-field states with syntactic relay Budget (integer headroom), finite read/write schedules, block cap 32; grammar = relay|mark with ; && || parentheses; query AST over status/counters/list lengths; fuel = sufficient structural bound; query universality is proved on the abstract world (hq premise) and transferred to the actual Nested interpreter",
+      "gap_type": "none mandated; fragment limits disclosed in paper \u00a72 and ledgers"
+    },
+    {
+      "id": "U2",
+      "requirement": "Queries and bash scripts compile to the state calculus",
+      "status": "complete_bounded",
+      "evidence": [
+        "text \u2192 Command: CalculusShellText.parseSupported + parseSupported_sound (TOKEN grammar), root135",
+        "Command \u2192 Nested: encodeCmd (root87); Query AST \u2192 Nested: Query.compile with compile_eval/program_run (root92)",
+        "kernel-checked text witnesses relay && mark / relay || mark / (relay && mark); / pipe rejected (root188)"
+      ],
+      "bounds_that_are_part_of_the_claim": "Lean lexer has no grammar theorem (soundness is relative to the token grammar); query input is a Lean AST, no query-text parser (audit108/152: never mandated); no full Bash",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "U3",
+      "requirement": "Utility C source as the specification; specify only libc",
+      "status": "complete_bounded",
+      "evidence": [
+        "relay: CompCert 3.15 Clight relay.v (ce8c381c\u2026, Coq-accepted; frontend-results.json), VST body_relay against Specs.v read/write contracts (relay-body-coqc-16), PH5-RELAY-007/008 UniversalShell (Jsub-free), replayed in full30 20260908T213227Z (root183/177)",
+        "GNU leaves: body_safe_read/safe_write/full_write/simple_cat + AllVSU (utility-reuse/RESULTS.md, gnu_vsu_utility_reuse_chain_replay in full30)",
+        "libc contracts: Specs.v read_spec/write_spec over Protocol.v read32/write_block (scheduled worlds); Lean mirror BufferRelay.action/readAmount/drain"
+      ],
+      "bounds_that_are_part_of_the_claim": "two syscalls (read fd 0 count 32, write fd 1) with scheduled outcomes; not general libc, not host OS, not GNU main; CompCert frontend and external-call contracts trusted",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "U4",
+      "requirement": "Each utility's C code compiles into the formal language used for reasoning (source \u2192 calculus connection into the Lean script/query proofs)",
+      "status": "complete_bounded",
+      "evidence": [
+        "ClightSubset.lean (7e3061ea\u2026), RelayClightDump.lean (fd49f46c\u2026, generated from relay.v ce8c381c\u2026 by clight_to_lean.py 75755153\u2026), ClightRelayLink.lean (cc02a88c\u2026): fRelay_body rfl; inner_run; outer_run; relay_clight_execute(_body) = BufferRelay.execute for every initial memory; clight_calculus_initialState (via accepted relay_matches_phase3_schedules); clight_calculus_shared (via accepted relay_action_shared, ties CalculusCommands.atomStep .relay)",
+        "root197 ROOT-REVIEW accepted cp18/19/20 (independent 195 audit sha a5c689e5\u2026; 187 semantics review; 189 generator audit 17/17; 194 outer audit); promoted to integration/lean with CLIGHT-SOURCE-ACCEPTANCE.md; repo hashes match receipts (verified this job)",
+        "18 printed theorems: fRelay_body axiom-free, all others propext/Classical.choice/Quot.sound"
+      ],
+      "bounds_that_are_part_of_the_claim": "TCB per root197: CompCert clightgen; syntax-directed Python dump; reviewed Lean transcription of the used Clight/Cop rules (NOT a CompCert step* theorem); scheduled libc contracts. Model choices: total UInt8 memory with theorems over every initial memory (not a Vundef theorem); read error leaves buffer unchanged; only the relay utility has a C source \u2014 the script atom mark is a modelled marker with no C code; the calculus lost field's prior prefix is a ghost accumulator, only this call's pending [off,n) is C memory",
+      "gap_type": "none mandated for the supported fragment; the pattern is applied to relay only (the only C utility in the script grammar). Fresh replay of the 181 closure (jobs 196/199) is pending_packaging; module set is supplemental, not in the 30-entry manifest"
+    },
+    {
+      "id": "U5",
+      "requirement": "Related work with delphi; reuse existing libraries/tools rather than hand-implementing",
+      "status": "complete_bounded",
+      "evidence": [
+        "research/libc-specs/04_io_prior_art.md (Penninckx ESOP'15, VeriFast artifacts pinned 8a4c11f3, Koh CPP'19 \u2026; delphi indexed the PDFs); literature/ (26 PDFs, README with hashes); paper \u00a75 cites the review and explicitly disclaims established novelty",
+        "reuse: CompCert 3.15, VST 2.15, VeriFast reuse probe (phase4), pinned upstream state_based frontend; no bespoke C frontend"
+      ],
+      "bounds_that_are_part_of_the_claim": "novelty relative to prior work is not established (paper \u00a71/\u00a75 say so); the prior-art review is a survey, not a comparative evaluation",
+      "gap_type": "none mandated; 'conference-quality / go the step beyond' (record :1243) is not an auditable formal requirement \u2014 see REPORT"
+    },
+    {
+      "id": "U6",
+      "requirement": "Bounded calibration experiment (independent correctness reference), not a pivot",
+      "status": "complete_bounded",
+      "evidence": [
+        "calibration/RESULTS.md: frozen gnulib u8_mbtoucr, Unicode-16 oracle UnicodeSpec.v (axiom-free lemmas), 1,190,417 cases + directed cases with sanitizers, 51/51 lines 50/50 branches; VST body theorem and gettext caller transfer NOT established; stop rule reached"
+      ],
+      "bounds_that_are_part_of_the_claim": "closed as a stated negative result; no C-conformance proof; must not be re-extended",
+      "gap_type": "none (negative result preserved)"
+    },
+    {
+      "id": "U7",
+      "requirement": "Complete all remaining work and additional case studies beyond UTF-8 (2026-09-07T21:25Z)",
+      "status": "complete_bounded",
+      "evidence": [
+        "head_bytes / wc_lines: body_head_bytes, body_wc_lines, lifted + entry wrapper lemmas under common Gprog (case-transfer-finish-44/ROOT-ASSUMPTION-AUDIT.json; root-case-transfer-{head,wc}-audit-51; targeted replay63; in full30 case_studies_full_chain_replay)",
+        "all originally named workstreams have root-accepted results at documented bounds (rows R1\u2013R12 below)"
+      ],
+      "bounds_that_are_part_of_the_claim": "head uses stdio XWrite (not FullWrite reuse); wc has no write routine; bodies+wrappers only, not GNU command-line programs; these case studies are Coq/VST-only and are not connected to the Lean script fragment (not required: scripts contain relay/mark only)",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "U8",
+      "requirement": "Keep Aaron's Bash/State-Calculus objective intact; no silent scope change",
+      "status": "complete_bounded",
+      "evidence": [
+        "scope audits 108/152/179; audit179 corrected review171's mislabeling of the source link as optional; ORIGINAL-USER-SCOPE.md quotes verified against the rollouts this job"
+      ],
+      "bounds_that_are_part_of_the_claim": "n/a",
+      "gap_type": "none"
+    },
+    {
+      "id": "R1",
+      "requirement": "REQUIREMENTS.md row: Existing-library reuse decision",
+      "status": "complete_bounded",
+      "evidence": [
+        "utility-reuse/RESULTS.md (4 GNU leaf bodies, unchanged funspecs), head/wc reuse SafeRead unchanged; head write side needed new XWrite contract (documented reuse limit)"
+      ],
+      "gap_type": "none"
+    },
+    {
+      "id": "R2",
+      "requirement": "Trustworthy C representation",
+      "status": "complete_bounded",
+      "evidence": [
+        "relay.v Coq-accepted, hashes in frontend-results.json; now additionally the generated Lean AST RelayClightDump with deterministic generator (189)"
+      ],
+      "bounds_that_are_part_of_the_claim": "CompCert parser/elaborator trusted; no textual-source translation proof",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "R3",
+      "requirement": "Byte-bearing memory and I/O",
+      "status": "complete_bounded",
+      "evidence": [
+        "adequacy/Dry.v, Safety.v (Jsub on safety family only), PH5-RELAY-007/008 + UniversalShell.v Jsub-free; Lean MemoryTransfer/BufferRelay; now ClightSubset memory link outer_run status-2 [off,n)"
+      ],
+      "gap_type": "none mandated; host-OS termination out of scope by construction"
+    },
+    {
+      "id": "R4",
+      "requirement": "Nonvacuity and progress",
+      "status": "complete_bounded",
+      "evidence": [
+        "PH5-RELAY-007 witness, PH5-RELAY-008 bounded-\u2200; Lean encode_run is an existence theorem (nonvacuous), relay_clight_execute existence for every m0/input/schedule"
+      ],
+      "gap_type": "none"
+    },
+    {
+      "id": "R5",
+      "requirement": "Source-as-specification",
+      "status": "complete_bounded",
+      "evidence": [
+        "hand-authored functional consequences (cat_true_copies_all, HeadOutcome, WcLinesShort, XWrite_effect) proved of the VST bodies; CaseTransfer wrappers; for relay the Lean source link U4"
+      ],
+      "bounds_that_are_part_of_the_claim": "no automatic C-text spec extractor (never mandated); C-as-spec preserves source bugs",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "R6",
+      "requirement": "Independent correctness calibration",
+      "status": "complete_bounded",
+      "evidence": [
+        "= U6"
+      ],
+      "gap_type": "none (negative)"
+    },
+    {
+      "id": "R7",
+      "requirement": "Reuse beyond purpose-built relay",
+      "status": "complete_bounded",
+      "evidence": [
+        "utility13 juicy/dry (ROOT-JUICY-DRY-AUDIT), utility14 transport (utility-transport-audit-31, ROOT-FULL27-RECEIPT-AUDIT), AllVSU, head/wc"
+      ],
+      "bounds_that_are_part_of_the_claim": "not whole linked main / funspec_sub / juicy reverse",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "R8",
+      "requirement": "Aaron's frontend integration / general calculus correspondence",
+      "status": "complete_bounded",
+      "evidence": [
+        "Calc14/15/67/70; Typing74; Export77 (machine parser-AST identity); Guards82/89; Raising151/147 (scope152); Tokenizer117/133/158; Query92 export identity"
+      ],
+      "bounds_that_are_part_of_the_claim": "OCaml parser/printer/generator/interpreter are executed and compared (1,593 + 12 negatives), not proved from source; type preservation permits failure",
+      "gap_type": "none mandated (OCaml source proof was never a user requirement; explicit boundary)"
+    },
+    {
+      "id": "R9",
+      "requirement": "Shell/query connection",
+      "status": "complete_bounded",
+      "evidence": [
+        "Coq: shell-bridge, Compose.v pipes/redirect, fd24; Lean: Stateful55, parser135, Commands87, Query92, Export175/188"
+      ],
+      "bounds_that_are_part_of_the_claim": "pipes/redirections only in the Coq chain; no Coq\u2192Lean import; no full Bash",
+      "gap_type": "none mandated"
+    },
+    {
+      "id": "R10",
+      "requirement": "Final proof-assistant boundary (Lean-final over the actual calculus, with the source connection)",
+      "status": "complete_bounded",
+      "evidence": [
+        "U1 + U4: script/query theorems over actual Nested interpreter whose relay primitive is now tied to the generated Clight relay (clight_calculus_shared)"
+      ],
+      "bounds_that_are_part_of_the_claim": "TCB of U4; two independent proofs (VST, Lean) about the same Clight program, no cross-kernel import",
+      "gap_type": "none mandated; ledgers/paper still say OPEN (stale, docs gate)"
+    },
+    {
+      "id": "R11",
+      "requirement": "Automation improvement evaluation",
+      "status": "complete_bounded",
+      "evidence": [
+        "evaluation-expanded/REPORT.md, RESULTS-CORRECTED.json: 90 scheduled / 93 first-pass / 90 scored; 22/90 and 23/90 both disclosed; by model 18/2/3; frozen, no new trials; agent-assisted baseline 1/3"
+      ],
+      "bounds_that_are_part_of_the_claim": "model+harness confounded, n=30/model, not a general ranking",
+      "gap_type": "none (frozen)"
+    },
+    {
+      "id": "R12",
+      "requirement": "Paper contribution and reproducible artifact",
+      "status": "complete_bounded",
+      "evidence": [
+        "full30 20260908T213227Z: 29 PASS + 1 experimental host-OCaml skip, container PASS, fresh, unfiltered (root183; independent177 AUDIT.json: 500/500 nested logs, 175/175 outputs, 440/440 identities); paper193 (378140f9\u2026) with render receipt; source package builder 176/178 reviewed 182 (no tar built)",
+        "release212/ROOT-INTEGRITY-CHECK.json",
+        "release212/INDEPENDENT-ARCHIVE-AUDIT.json",
+        "release212/CATALOG-RECEIPT.json",
+        "release212/DELIVERY-RECEIPT.md"
+      ],
+      "bounds_that_are_part_of_the_claim": "supplemental 175 (fresh replay 198 accepted) and 181 (fresh replay 196/199 prepared, not run) are outside the 30-entry snapshot",
+      "gap_type": "none; closed by source fresh203, paper206/ledgers207, rebuilt archive212/audit213 and catalog215",
+      "historical_status": "pending_packaging"
+    }
+  ],
+  "trusted_boundaries": [
+    "CompCert clightgen (C text \u2192 Clight) for relay, head_bytes, wc_lines, GNU leaves",
+    "Lean ClightSubset transcription of the used Clight/Cop rules (reviewed 187/195/197); not a CompCert step* theorem; total UInt8 memory, theorems over every initial memory",
+    "clight_to_lean.py syntax-directed dump (audited 189, deterministic, fail-closed; not verified)",
+    "scheduled libc contracts for read(0,\u00b7,32)/write(1,\u00b7,\u00b7) (Specs.v \u2261 BufferRelay shape)",
+    "OCaml parser/printer/generator/interpreter of the pinned frontend: executed and compared (1,593 + 12 negatives, root77 machine AST identity), not proved from source",
+    "Lean lexer for the supported text fragment (soundness relative to token grammar only)",
+    "no Coq\u2194Lean proof import: VST and Lean are independent proofs about the same Clight program",
+    "mark script atom is a modelled marker process (no C source); scripts with a second real C utility are outside the fragment",
+    "external-call/libc contracts, host OS, full Bash, GNU main: out of scope by construction"
+  ],
+  "closure_updates": {
+    "source_fresh_replay": "root-clight-fresh-review-203 accepted 18 modules/18 axiom reports; summary89527fb4b6a09dd7ba01cf1f26ab8d1e46372bc40b4fc014977e6314a9b1693d",
+    "export_fresh_replay": "root-supplemental-fresh-review-198 accepted23modules; summarya8528873723704287780d6973e53957bfd97ec3139e21580dcd3d81d94e3c781",
+    "paper": "root-final-paper-review-206 rendered and reviewed; receipt included in release212",
+    "ledgers": "207 reconciled with accepted197/198/203, paper206; package completion intentionally pending in frozen snapshot",
+    "archive": "release212:root independently rehashed2465files and exact inventory authenticator; independent213PASS",
+    "catalog": "milestone215 POST/GET content hashes verified:308private Atlas nodes,2380OpenScience nodes,2436edges"
+  },
+  "goal_complete": true,
+  "remaining_required_work": [],
+  "historical_evidence_note": "Original matrix200 prose is preserved verbatim for provenance; closure_updates supersede its pending operational items. Requirements remain at their original documented bounds."
+}

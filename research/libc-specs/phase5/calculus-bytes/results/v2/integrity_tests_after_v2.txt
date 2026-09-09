@@ -1,0 +1,11 @@
+PASS test_duplicate_replacing_missing
+PASS test_missing_case
+PASS test_unexpected_case
+PASS test_absent_typed_suite_required
+PASS test_truncated_mutant_via_main
+PASS test_malformed_json
+PASS test_malformed_record
+PASS test_malformed_name_unhashable
+PASS test_missing_mode_fails_exact_set
+PASS test_failure_outcome_still_mismatch
+FAIL test_frozen_positive_and_mutants_via_main AssertionError 

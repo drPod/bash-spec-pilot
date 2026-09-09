@@ -1,0 +1,131 @@
+{
+  "schema": "phase5-evaluation-expanded-results-corrected/1",
+  "generated_by": "evaluation-finalize-8",
+  "denominators": {
+    "originally_scheduled_model_calls": 90,
+    "infra_unscored": {
+      "count": 3,
+      "names": [
+        "nested_frame-helper-pi-xai_grok-4.6-a0",
+        "nested_frame-helper-claude-sonnet-a0",
+        "nested_frame-helper-claude-fable-a0"
+      ],
+      "reason": "stale pre-freeze checker cache dir; real model response exists for each"
+    },
+    "scored_original": {
+      "count": 87,
+      "tally": {
+        "build_failed": 59,
+        "accepted": 22,
+        "timeout_or_noblock": 6
+      }
+    },
+    "makeup_calls": {
+      "count": 3,
+      "tally": {
+        "build_failed": 2,
+        "accepted": 1
+      },
+      "names": [
+        "nested_frame-helper-pi-xai_grok-4.6-a5",
+        "nested_frame-helper-claude-sonnet-a5",
+        "nested_frame-helper-claude-fable-a5"
+      ]
+    },
+    "total_first_pass_model_calls": 93,
+    "total_scored_eligible": {
+      "count": 90,
+      "tally": {
+        "build_failed": 61,
+        "accepted": 23,
+        "timeout_or_noblock": 6
+      }
+    }
+  },
+  "acceptance_rate_scored90": 0.2556,
+  "acceptance_rate_if_collisions_counted_as_failed": 0.2444,
+  "by_model": {
+    "pi:xai/grok-4.6": {
+      "build_failed": 27,
+      "accepted": 3
+    },
+    "claude:sonnet": {
+      "build_failed": 22,
+      "accepted": 2,
+      "timeout_or_noblock": 6
+    },
+    "claude:fable": {
+      "accepted": 18,
+      "build_failed": 12
+    }
+  },
+  "by_task_condition": {
+    "nested_frame|helper": {
+      "build_failed": 9,
+      "accepted": 6
+    },
+    "nested_frame|base": {
+      "build_failed": 12,
+      "timeout_or_noblock": 2,
+      "accepted": 1
+    },
+    "nested_add_attrs|helper": {
+      "build_failed": 11,
+      "timeout_or_noblock": 1,
+      "accepted": 3
+    },
+    "nested_add_attrs|base": {
+      "build_failed": 11,
+      "timeout_or_noblock": 3,
+      "accepted": 1
+    },
+    "nested_remove_frame|helper": {
+      "accepted": 7,
+      "build_failed": 8
+    },
+    "nested_remove_frame|base": {
+      "build_failed": 10,
+      "accepted": 5
+    }
+  },
+  "base_condition_ablation_bypass": {
+    "finding": "all base-condition acceptances came from exactly one model",
+    "model": "claude:fable",
+    "count": 7,
+    "other_models_base_accepted": 0
+  },
+  "assisted_feedback": {
+    "protocol_budget_calls": 3,
+    "actual_calls_made": 6,
+    "deviation_disclosed": true,
+    "deviation_corrected": false,
+    "cells": [
+      {
+        "model": "pi:xai/grok-4.6",
+        "task": "nested_add_attrs",
+        "condition": "base",
+        "round0": "build_failed",
+        "round1": "build_failed"
+      },
+      {
+        "model": "claude:sonnet",
+        "task": "nested_remove_frame",
+        "condition": "helper",
+        "round0": "build_failed",
+        "round1": "build_failed"
+      },
+      {
+        "model": "claude:fable",
+        "task": "nested_frame",
+        "condition": "base",
+        "round0": "build_failed",
+        "round1": "build_failed"
+      }
+    ]
+  },
+  "collaborative_baseline": {
+    "label": "agent-assisted, NOT human",
+    "runs": 3,
+    "accepted": 1
+  }
+}

@@ -1,21 +1,5 @@
 #!/usr/bin/env python3
-"""LLM-in-the-loop driver: generate a Lean model+spec+proof, kernel-check, validate.
-
-Per round: compose prompt (POSIX doc + contract + feedback) -> Responses API with
-strict JSON schema -> check.py gates (static guard, `lake build` kernel check,
-axiom gate, differential vs the GNU binary). Kernel rejection or behavioral
-mismatch becomes the next round's feedback. Success = kernel-accepted AND 100%
-fidelity within the round budget.
-
-This is the OpenAI backend; check.py is generator-agnostic, so a Claude subagent
-(or a human) can drive the same loop without this file; see README.
-
-Every round's prompt, raw response, Lean source, build log, and result land in
-runs/<target>/<session>/round_NN/; one summary line per round in log.jsonl.
-
-Usage: uv run generate.py --target uniq [--rounds 4] [--trials 200]
-                          [--model gpt-5.6-luna] [--effort low]
-"""
+"""Generate Lean artifacts and refine them from checker feedback; record each round under runs/."""
 
 import argparse
 import hashlib
@@ -26,17 +10,17 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from check import check
+from contracts import Mismatch
 from targets import TARGETS, Target
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 TEMPLATE = (HERE / "prompts" / "generate.md").read_text()
 
-# The cheap prototyping default (Aaron: cheaper models first, frontier later).
-# Frontier runs: --model gpt-5.5-2026-04-23 (the project's pinned snapshot).
 DEFAULT_MODEL = "gpt-5.6-luna"
 
 OUTPUT_SCHEMA = {
@@ -60,15 +44,7 @@ OUTPUT_SCHEMA = {
 
 
 def load_env() -> None:
-    """Minimal .env loader (repo root); real environment wins over the file."""
-    envf = REPO / ".env"
-    if not envf.exists():
-        return
-    for line in envf.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip())
+    load_dotenv(REPO / ".env", override=False)
 
 
 def compose_prompt(target: Target, feedback: str) -> str:
@@ -97,7 +73,7 @@ def call_llm(client: OpenAI, model: str, prompt: str, effort: str | None) -> tup
 
 
 def format_feedback(round_no: int, source: str, failures: list[str],
-                    mismatches: list[dict]) -> str:
+                    mismatches: list[Mismatch]) -> str:
     parts = [f"\n## Previous attempt feedback (round {round_no})\n",
              "Your previous module (revise it; return the COMPLETE new module):\n",
              "```lean\n" + source + "\n```\n"]

@@ -1,10 +1,7 @@
-"""Robustness: the 773 tasks are only 606 distinct prompts, and the clean group is only 27.
-Records within a repeated prompt are not independent, so redo the comparison per distinct prompt.
+"""Compare rates per distinct prompt because repeated records are not independent.
 
-NOTE: the causal reading these numbers were collected for is WITHDRAWN. benchmark-validity.md
-shows the harness never executes the candidate, so func_pass is a property of the released test
-scripts, not of any model. Read every rate below as a test-script exit rate.
-"""
+Causal interpretation withdrawn: the harness never executes candidates. These are test-script
+exit rates, not model success rates; see benchmark-validity.md."""
 import json, math, statistics as st
 from collections import defaultdict
 
@@ -18,11 +15,7 @@ for r in scored:
     by[norm(r["input_task"])].append(r)
 
 def wilson(k, n):
-    """95% Wilson score interval for k successes in n, as percentages.
-
-    Wilson rather than normal approximation because the clean subset is tiny (27 prompts) and
-    lands near the ends of the scale, where the normal interval is badly wrong.
-    """
+    """95% Wilson interval as percentages; normal intervals are unreliable for this small sample."""
     if not n: return (0, 0)
     p, z = k / n, 1.959963985
     d = 1 + z*z/n; c = p + z*z/(2*n)

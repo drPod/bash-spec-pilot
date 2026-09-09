@@ -1,0 +1,14 @@
+[
+  {
+    "marker": "phase5/root170",
+    "title": "Phase5 root170: shared artifact targeted acceptance",
+    "summary": "Shared exception artifact targeted replay accepted: 16 source/log/output checks and 28 named axiom outputs; independent audit169. Raising/caught initialState exact status and seven fields, with explicit action definitions, headroom and fuel. Exceptions are entry-level results, not supported script atoms.",
+    "content": "phase5/root170\nShared exception artifact targeted replay accepted: 16 source/log/output checks and 28 named axiom outputs; independent audit169. Raising/caught initialState exact status and seven fields, with explicit action definitions, headroom and fuel. Exceptions are entry-level results, not supported script atoms.\nRoot receipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-shared-exception-review-170/ROOT-REVIEW.json\nReceipt SHA256: e674d7521c2041a29d0391cb0ba6067cd1d3df85a5383537f429fb498e188555\nReplay summary SHA256: cbddb8975660a26a49ecb12818adf8dcf6938458a669ccb250700b32a509b33c\nIndependent audit SHA256: 6bcd6a86c8e5e0a4ea6a078b2605ee035bd1d8dc0b7775d84981dc19a75c9c28\nCurrent manifest contains 30 entries. Full replay174 remains running; this milestone is not a full replay or research completion claim. C utility proofs and Lean query proofs lack a checked cross-chain link; original scope audit179 is investigating the outstanding obligation."
+  },
+  {
+    "marker": "phase5/root173",
+    "title": "Phase5 root173: shared artifact targeted acceptance",
+    "summary": "Shared shell frontend artifact targeted replay accepted: 20 source/log/output checks, 66 named axiom outputs, 38 fixtures; independent audit172. Supported two-atom text parser and token grammar with explicit action definitions, Related and Budget. Character lexer correctness and host Bash equivalence are not proved.",
+    "content": "phase5/root173\nShared shell frontend artifact targeted replay accepted: 20 source/log/output checks, 66 named axiom outputs, 38 fixtures; independent audit172. Supported two-atom text parser and token grammar with explicit action definitions, Related and Budget. Character lexer correctness and host Bash equivalence are not proved.\nRoot receipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-shared-shell-review-173/ROOT-REVIEW.json\nReceipt SHA256: bcbbc8b95117aa6e94cff68f0e3c00cb09ab234bcafaaccde8b0875435b30a4c\nReplay summary SHA256: 6a27c3a71e01af32ec2b263bc6438882104c130cef68aee5fb8f9eea11fe3f3d\nIndependent audit SHA256: 642b86c392f8e4d66a2031d1271fc741c3ce326db0b88c1934ea445fef5e13de\nCurrent manifest contains 30 entries. Full replay174 remains running; this milestone is not a full replay or research completion claim. C utility proofs and Lean query proofs lack a checked cross-chain link; original scope audit179 is investigating the outstanding obligation."
+  }
+]

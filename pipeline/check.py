@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
-"""Checker: gate one generated artifact through kernel + differential layers.
-
-Generator-agnostic on purpose: the artifact may come from the OpenAI driver
-(generate.py), a Claude subagent, or a human. Sequence: static guard ->
-`lake build` (kernel check, builds the executable) -> axiom gate (#print axioms
-whitelisted to propext/Classical.choice/Quot.sound) -> differential run vs the
-GNU binary. Returns machine-readable failures suitable as refinement feedback.
-
-Artifact JSON: {"lean_source": "...", "spec_theorems": [{"name": ..., "informal": ...}]}
-
-Usage: uv run check.py --target uniq --artifact artifact.json [--trials 200]
-"""
+"""Check generated Lean artifacts with static, kernel, axiom, and differential gates."""
 
 import argparse
 import json
@@ -19,6 +8,7 @@ import subprocess
 import time
 from pathlib import Path
 
+from contracts import CheckResult, SpecTheorem
 from targets import TARGETS, Target
 from validate import validate
 
@@ -29,10 +19,11 @@ ALLOWED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 AXIOM_LINE = re.compile(
     r"'([^']+)' (?:depends on axioms: \[([^\]]*)\]|does not depend on any axioms)")
 LEAN_IDENT = re.compile(r"[A-Za-z_][A-Za-z0-9_'.]*\Z")
+# Lexical filter only, not a complete Lean-command sandbox.
 FORBIDDEN = re.compile(
     r"^\s*import\b"
     r"|\b(partial|unsafe|axiom|sorry|admit|opaque|native_decide|macro|elab)\b"
-    r"|@\[\s*(extern|implemented_by)", re.M)
+    r"|\b(extern|implemented_by)\b", re.M)
 
 
 def lake_build() -> tuple[bool, str, float]:
@@ -40,14 +31,12 @@ def lake_build() -> tuple[bool, str, float]:
     p = subprocess.run(["lake", "build"], cwd=LEAN_DIR,
                        capture_output=True, text=True, timeout=600)
     out = p.stdout + p.stderr
-    # `sorry` only warns at build time; reject it here so the message is precise
-    # (the axiom gate would catch it too, via sorryAx).
+    # Lean can exit successfully with a sorry warning.
     ok = p.returncode == 0 and "declaration uses `sorry`" not in out
     return ok, out, time.time() - t0
 
 
 def axiom_gate(theorem_names: list[str]) -> tuple[list[str], str]:
-    """#print axioms for run + every claimed spec theorem; whitelist core axioms."""
     problems, decls = [], ["Pipeline.Generated.run"]
     for n in theorem_names:
         if not LEAN_IDENT.match(n):  # names are LLM output: no Lean injection
@@ -77,44 +66,45 @@ def axiom_gate(theorem_names: list[str]) -> tuple[list[str], str]:
     return problems, out
 
 
-def check(target: Target, source: str, theorems: list[dict], trials: int) -> dict:
-    """Run every gate; returns failures (feedback-ready) + per-gate detail."""
-    r: dict = {"failures": [], "mismatches": [], "build_ok": None,
-               "axioms_ok": None, "diff": None, "build_log": "", "axioms_log": "",
-               "secs": {}}
+def check(target: Target, source: str, theorems: list[SpecTheorem], trials: int) -> CheckResult:
+    result: CheckResult = {
+        "failures": [], "mismatches": [], "guard_hits": [],
+        "build_ok": None, "axioms_ok": None, "diff": None,
+        "build_log": "", "axioms_log": "", "secs": {},
+    }
     GENERATED.write_text(source)
     hits = sorted({m.group(0).strip() for m in FORBIDDEN.finditer(source)})
-    r["guard_hits"] = hits
+    result["guard_hits"] = hits
     if hits:
-        r["failures"].append(f"forbidden constructs found: {hits} — remove them")
+        result["failures"].append(f"forbidden constructs found: {hits} — remove them")
     if not 3 <= len(theorems) <= 6:
-        r["failures"].append(f"{len(theorems)} spec theorems; the contract "
-                             "requires 3 to 6 meaningful ones")
-    if r["failures"]:
-        return r
+        result["failures"].append(
+            f"{len(theorems)} spec theorems; the contract requires 3 to 6 meaningful ones")
+    if result["failures"]:
+        return result
 
-    r["build_ok"], r["build_log"], secs = lake_build()
-    r["secs"]["build"] = round(secs, 1)
-    if not r["build_ok"]:
-        r["failures"].append("Lean build failed:\n" + r["build_log"][-6000:])
-        return r
+    result["build_ok"], result["build_log"], secs = lake_build()
+    result["secs"]["build"] = round(secs, 1)
+    if not result["build_ok"]:
+        result["failures"].append("Lean build failed:\n" + result["build_log"][-6000:])
+        return result
 
-    ax_problems, r["axioms_log"] = axiom_gate([t["name"] for t in theorems])
-    r["axioms_ok"] = not ax_problems
-    r["failures"].extend(ax_problems)
+    ax_problems, result["axioms_log"] = axiom_gate([t["name"] for t in theorems])
+    result["axioms_ok"] = not ax_problems
+    result["failures"].extend(ax_problems)
     if ax_problems:
-        return r
+        return result
 
     t0 = time.time()
     diff = validate(target, trials=trials)
-    r["secs"]["diff"] = round(time.time() - t0, 1)
-    r["diff"] = {"passed": diff["passed"], "trials": diff["trials"]}
-    r["mismatches"] = diff["mismatches"]
+    result["secs"]["diff"] = round(time.time() - t0, 1)
+    result["diff"] = {"passed": diff["passed"], "trials": diff["trials"]}
+    result["mismatches"] = diff["mismatches"]
     if diff["passed"] < diff["trials"]:
-        r["failures"].append(
+        result["failures"].append(
             f"kernel accepted, but the model diverged from the real program on "
             f"{diff['trials'] - diff['passed']}/{diff['trials']} random inputs")
-    return r
+    return result
 
 
 def main() -> int:
@@ -125,19 +115,19 @@ def main() -> int:
     ap.add_argument("--out", help="write full result JSON here")
     args = ap.parse_args()
     art = json.loads(Path(args.artifact).read_text())
-    r = check(TARGETS[args.target], art["lean_source"],
-              art["spec_theorems"], args.trials)
+    result = check(TARGETS[args.target], art["lean_source"],
+                   art["spec_theorems"], args.trials)
     if args.out:
-        Path(args.out).write_text(json.dumps(r, indent=2))
-    print(f"{args.target}: build={r['build_ok']} axioms={r['axioms_ok']} "
-          f"diff={r['diff']}")
-    for f in r["failures"]:
+        Path(args.out).write_text(json.dumps(result, indent=2))
+    print(f"{args.target}: build={result['build_ok']} axioms={result['axioms_ok']} "
+          f"diff={result['diff']}")
+    for f in result["failures"]:
         print(f"FAILURE: {f[:2000]}")
-    for m in r["mismatches"][:5]:
+    for m in result["mismatches"][:5]:
         print(f"  MISMATCH args={m['args']} stdin={m['stdin']!r}\n"
               f"    model={m['model_out']!r} (exit {m['model_code']})\n"
               f"    gnu  ={m['oracle_out']!r} (exit {m['oracle_code']})")
-    return 0 if not r["failures"] else 1
+    return 0 if not result["failures"] else 1
 
 
 if __name__ == "__main__":

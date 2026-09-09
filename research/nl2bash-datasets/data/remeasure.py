@@ -1,10 +1,4 @@
-"""Re-measure contamination for the benchmarks whose earlier '0%' was an artifact.
-
-The first pass compared these datasets' English task-description columns against a set of
-*command* hashes, which returns 0% by construction. This pulls their actual gold commands
-(exploding list-valued and trajectory-valued fields into individual commands) and re-runs the
-same containment measurement, so the numbers mean what they appear to mean.
-"""
+"""Re-measure gold commands after the first pass mistakenly hashed English descriptions."""
 import hashlib, io, json, re, sys, tarfile, urllib.parse, urllib.request
 
 import pandas as pd
@@ -30,13 +24,11 @@ print(f"union of reference corpora: {len(REF):,} unique command hashes\n")
 
 
 def parquet_urls(did, config, split):
-    """List the Parquet file URLs for one dataset config and split."""
     u = f"https://huggingface.co/api/datasets/{did}/parquet/{config}/{split}"
     return json.load(urllib.request.urlopen(u))
 
 
 def load(did, config, split, columns, max_files=None):
-    """Read the named columns of a dataset split into one DataFrame."""
     urls = parquet_urls(did, config, split)[:max_files]
     frames = [pd.read_parquet(io.BytesIO(urllib.request.urlopen(u).read()), columns=columns)
               for u in urls]
@@ -44,12 +36,7 @@ def load(did, config, split, columns, max_files=None):
 
 
 def report(name, cmds, note=""):
-    """Measure one benchmark's commands against the reference union and print the result.
-
-    Prints three sample commands as well as the percentage, deliberately: the first version of
-    this measurement reported a correct-looking 0% because it had been handed English prose
-    instead of commands, and only the samples make that visible.
-    """
+    """Include command samples to expose wrong-column measurements."""
     cmds = [c for c in (x.strip() for x in cmds) if c]
     hs = {H(c) for c in cmds}
     hit = len(hs & REF)
@@ -65,13 +52,11 @@ def report(name, cmds, note=""):
 
 out = []
 
-# ---- posix-sdc: reference_solution is a LIST of commands; explode it -------------------------
 df = load("tiararodney/posix-sdc", "scenarios", "train", ["id", "reference_solution"])
 cmds = [c for row in df["reference_solution"] if row is not None for c in row]
 out.append(report(f"tiararodney/posix-sdc  ({len(df):,} scenarios)", cmds,
                   "exploded from list-valued reference_solution"))
 
-# ---- terminal-bench: oracle solution lives inside the per-task tar archive --------------------
 df = load("ia03/terminal-bench", "default", "test", ["task_id", "archive"])
 sols, n_with = [], 0
 for blob in df["archive"]:
@@ -86,7 +71,7 @@ for blob in df["archive"]:
         base = m.name.rsplit("/", 1)[-1]
         if base in ("solution.sh", "solution.yaml"):
             txt = tf.extractfile(m).read().decode("utf-8", "replace")
-            if base == "solution.yaml":  # list of {command: ...} steps
+            if base == "solution.yaml":
                 txt = "\n".join(re.findall(r'^\s*-?\s*command:\s*(.+)$', txt, re.M))
             sols.append(txt)
             got = True

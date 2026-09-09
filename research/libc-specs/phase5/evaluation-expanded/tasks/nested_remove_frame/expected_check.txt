@@ -1,0 +1,5 @@
+CalculusNested.removeElemAt_here_frame : ∀ (st st' : CalculusNested.St) (n : String) (v : CalculusNested.Val),
+  CalculusNested.removeElemAt CalculusNested.Path.here st n v = some st' →
+    st'.attrs = st.attrs ∧
+      ∀ (m : String) (w : CalculusNested.Val),
+        (m, w) ≠ (n, v) → CalculusNested.lookup st'.elems (m, w) = CalculusNested.lookup st.elems (m, w)

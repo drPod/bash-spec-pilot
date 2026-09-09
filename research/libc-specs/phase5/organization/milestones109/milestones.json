@@ -1,0 +1,26 @@
+[
+  {
+    "marker": "PH5-MILESTONE-109/query-artifact",
+    "title": "Command/query/guard artifact independently accepted",
+    "summary": "Root105 accepts25 modules and59 exact per-file audits in the27th targeted entry.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-109/query-artifact\nImmutable calculus-query-guards95 closes imports for Commands87, Guards82/89 and Query92, including actual exported mark identity and original ShellObservation. Independent audit102 and root105 verified all25 actual source/log/olean hashes and terminal receipts;59 exact audits allow only standard Lean axioms, keyed by file for repeated dependency theorems. Full coverage remains full19 plus8targeted additions, NOT a full27 replay. Fresh full27 run106 is in progress, not yet accepted. New tokenizer and remaining raising proofs are excluded.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-query-artifact-review-105/ROOT-REVIEW.json SHA256 cdbf3953be53450b141ab35d9a49ebe2a63bb658a7cc76259c3e63cb3cf4e81f"
+  },
+  {
+    "marker": "PH5-MILESTONE-109/evaluation-report",
+    "title": "Expanded evaluation reporting reconciled without new trials",
+    "summary": "Root98 independently re-tallied immutable attempts and verified frozen templates and collaborative records.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-109/evaluation-report\nOriginal90calls yielded22accepts including3checker collisions as nonaccepts. Three first-pass makeups yielded1accept, giving93actualfirst-passcalls and90scored/23accepts. Scoredmodel/harness counts Fable18/30,Sonnet2/30,GrokPi3/30; no model ranking. Sixassistedcalls allrejected versusplanned3; threeagent-assistedcollaborative runs1accepted, nothuman. All6frozen tasktemplates and archivedsource36525e18 match; rawledgerd93bfc58 unchanged. Published RESULTS-CORRECTED.json, REPORT.md, REPORT-ACCOUNTING.json and rewrittenmanuscript+standalonepaper.html. Independent manuscript107 verified scopes/accounting; no newmodeltrials. ActualBash-text->LeanCommand gap108 remainsopen and112implements it.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-evaluation-report-98/ROOT-ACCOUNTING.json SHA256 2a06778d6d67356375440e2eb0501a799478b194babea3711f167ba148b9e25d"
+  },
+  {
+    "marker": "PH5-MILESTONE-109/text-literals",
+    "title": "Three original text literals linked to character lists",
+    "summary": "Root103 accepts9 literal/list/length audits, not full tokenizer closure.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-109/text-literals\nFull original writeBlockText,relayText,readBlockText equal their explicit String.ofList character lists; all3literal equalities axiom-free. DerivedtoList/lengththeorems useonlystandardLeanaxioms. Fresh genericTokenize5191.982s, correctedliteralmodule8616210b3.440s,audit0.249s. Sourceheadercorrectedbeforecheck toremovefalsefull-tokenizer/subsecondclaims. Wholelisttokenization stillrequireschunkproofs; sixtext-token/ASTtheorems notprovedbythischeckpoint. Worker100writeBlockcandidateisunderroot116review;115extendsother2exports.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-text-literals-review-103/ROOT-REVIEW.json SHA256 92bce3c24df095c4e194d1bf731fef484aa6e1f921938ab83d73740db41edf3a"
+  },
+  {
+    "marker": "PH5-MILESTONE-109/raising-branch",
+    "title": "Actual exception-loop read-error branch checked",
+    "summary": "Root104 independently accepted a partial9-theorem checkpoint; wholebody remainsopen.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-109/raising-branch\nActual exported relay_raising shape is identified by rfl. Negative/nonnegative condition swaps and outernegative-read branch compare raisingReadError with ordinaryrelayreturn1, given the read action result. Freshrootcompiles0.437s/0.254s and9exactstandardaxiomaudits. This is not wholebody/runEntry or catchwithprovedcallee. Further101/111candidatebranches andinnerloop are not accepted byroot104;114worksonthegeneralouterloop.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-raising-branch-review-104/ROOT-REVIEW.json SHA256 263358499800b25ff142d16e4f8f52a960ae4df79f107da52c56334aab73c0e8"
+  }
+]

@@ -1,0 +1,12 @@
+{"mode": "lean", "name": "call_ok", "command": "relay_ok", "outcome": "continue", "rc": 0, "stdout": "abc"}
+{"mode": "lean", "name": "call_late_error", "command": "relay_late_error", "outcome": "continue", "rc": 1, "stdout": "abc"}
+{"mode": "lean", "name": "and_ok_mark", "command": "(relay_ok && mark)", "outcome": "continue", "rc": 0, "stdout": "abc!"}
+{"mode": "lean", "name": "and_late_mark", "command": "(relay_late_error && mark)", "outcome": "continue", "rc": 1, "stdout": "abc"}
+{"mode": "lean", "name": "or_late_mark", "command": "(relay_late_error || mark)", "outcome": "continue", "rc": 0, "stdout": "abc!"}
+{"mode": "lean", "name": "or_ok_mark", "command": "(relay_ok || mark)", "outcome": "continue", "rc": 0, "stdout": "abc"}
+{"mode": "lean", "name": "seq_late_mark", "command": "(relay_late_error ; mark)", "outcome": "continue", "rc": 0, "stdout": "abc!"}
+{"mode": "lean", "name": "and_or_nested", "command": "((relay_late_error || mark) && relay_ok)", "outcome": "continue", "rc": 0, "stdout": "abc!abc"}
+{"mode": "lean", "name": "and_late_nested", "command": "(relay_late_error && (mark || relay_ok))", "outcome": "continue", "rc": 1, "stdout": "abc"}
+{"mode": "lean", "name": "seq_ok_late", "command": "(relay_ok ; relay_late_error)", "outcome": "continue", "rc": 1, "stdout": "abcabc"}
+{"mode": "lean", "name": "seq_seq_and", "command": "((relay_ok ; relay_late_error) ; (relay_ok && mark))", "outcome": "continue", "rc": 0, "stdout": "abcabcabc!"}
+{"mode": "lean", "name": "control_noreturn_action", "command": "noreturn", "outcome": "failure"}

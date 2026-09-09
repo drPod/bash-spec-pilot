@@ -1,0 +1,24 @@
+[
+  {
+    "marker": "PH5-MILESTONE-64/stateful55-consumption",
+    "node_id": "134e92e9-cfe8-4144-95af-a3af8019f84b",
+    "created": true,
+    "http_get": 200,
+    "sharing_mode": "private",
+    "kind": "insight",
+    "title_summary_content_sha256": "f05b3379df4b168f98871762fd17be32a705e10d766f06942ed07c8d390bf0c6",
+    "content_sha256": "fd6c1301622363188cf13bb47de33702796b360af32466a01b1acccb035a223b",
+    "url": "https://app.syntheticsciences.ai/nodes/134e92e9-cfe8-4144-95af-a3af8019f84b"
+  },
+  {
+    "marker": "PH5-MILESTONE-64/case-wrapper63",
+    "node_id": "aa9bd339-6673-4927-b356-40107a064987",
+    "created": true,
+    "http_get": 200,
+    "sharing_mode": "private",
+    "kind": "insight",
+    "title_summary_content_sha256": "8ab0048718e1a8c61a456f8c5cadeed076a147c618f355af46d27de33683b806",
+    "content_sha256": "1182f4b662304c536928fa0982484cbf8601daffba61adc1d51126ab4e1b7fa6",
+    "url": "https://app.syntheticsciences.ai/nodes/aa9bd339-6673-4927-b356-40107a064987"
+  }
+]

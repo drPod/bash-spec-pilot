@@ -1,23 +1,16 @@
-"""Re-measure the datasets whose command column analyze.py guessed wrong.
+"""Correct guessed command columns in res_fix.json; None selects manual column inspection.
 
-Each FIX entry names the column explicitly. Entries with a None column only print sample values
-for each column, which is how the correct one was identified by eye.
-
-Writes res_fix.json, which supersedes the matching res1/res2 entries. Anything reading those
-files must load this one last, or it will use the wrong-column hashes. See README.md.
-"""
+Load res_fix.json after res1/res2 so corrected records take precedence."""
 import json,urllib.request,hashlib,warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 def api(u):
-    """GET a HuggingFace API endpoint and return the parsed JSON."""
     req=urllib.request.Request(u,headers={"User-Agent":"research"})
     with urllib.request.urlopen(req,timeout=90) as r: return json.load(r)
 def load(did,maxr=60000):
     """Return up to maxr rows of a dataset as one DataFrame, skipping unreadable Parquet files."""
     pq=api(f"https://huggingface.co/api/datasets/{did}/parquet"); urls=[]
     def walk(o):
-        """Collect every .parquet URL anywhere in the nested config/split response."""
         if isinstance(o,dict):
             for v in o.values(): walk(v)
         elif isinstance(o,list):
@@ -31,7 +24,6 @@ def load(did,maxr=60000):
         fr.append(df); t+=len(df)
         if t>=maxr: break
     return pd.concat(fr,ignore_index=True) if fr else None
-# explicit (dataset, command_column, nl_column)
 FIX=[("AnishJoshi/nl2bash-custom","bash_code","nl_command"),
      ("saurabh5/rlvr-code-data-bash","translated_solution","translated_problem"),
      ("adeelahmad/bash-agent-grpo-pairs","ground_truth","prompt"),

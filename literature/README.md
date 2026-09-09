@@ -125,3 +125,53 @@ PDFs are local. For semantic queries across all 13 papers (11 external + 2 proje
 mcp__synsci-delphi__search_papers query="..."
 mcp__synsci-delphi__research mode="deep" query="..."
 ```
+
+---
+
+## 8. libc specifications and C verification (added 2026-09-07 for `research/libc-specs/`)
+
+Primary sources for the survey in `research/libc-specs/01_libc_spec_survey.md`. Not yet indexed in
+delphi (no Docker on the OVH box; see that survey for what was verified how).
+
+### `ridge_2015_sibylfs.pdf`
+Ridge, T., Sheets, D., Tuerk, T., Giugliano, A., Madhavapeddy, A., & Sewell, P. (2015). *SibylFS: formal specification and oracle-based testing for POSIX and real-world file systems.* SOSP 2015. [DOI 10.1145/2815400.2815411]
+
+Executable model (in Lem) of the allowed behaviours of a file system for sequences of syscalls, used as a test oracle; 21,000+ tests, ~40 configurations. The reference for what `open/read/write/...` must mean one layer below stdio.
+
+### `efremov_2018_verker_linux_libc.pdf`
+Efremov, D., & Mandrykin, M. (2018). *Deductive Verification of Unmodified Linux Kernel Library Functions.* ISoLA 2018. [arXiv 1809.00626]
+
+26 kernel string/memory functions with ACSL functional contracts; 23 fully proved with AstraVer. The best existing functional-contract corpus for the string/memory tier.
+
+### `zhou_2026_autoacsl.pdf`
+Zhou, H., Luo, Y., & Xu, D. (2026). *AutoACSL: Synthesizing ACSL Specifications by Integrating LLMs with CPG-Based Static Analysis.* [arXiv 2606.20969]
+
+LLM + code-property-graph features + Frama-C/WP feedback loop; 604 programs; 98% generation success and 96% full-proof ratio with Gemini-3. State of the art for LLM-generated C contracts (for given code).
+
+### `beg_2026_llm_acsl_eval.pdf`
+Beg, A., O'Donoghue, D., & Monahan, R. (2026). *Evaluating LLM-Generated ACSL Annotations for Formal Verification.* [arXiv 2602.13851]
+
+One-shot ACSL generation: rule-based script vs Frama-C RTE vs DeepSeek-V3.2 / GPT-5.2 / OLMo 3.1 32B on a CASP subset; rule-based more reliable, LLMs more variable. The sober counterpoint to AutoACSL.
+
+### `mukherjee_2024_synver.pdf`
+Mukherjee, P., & Delaware, B. (2024). *Towards Automated Verification of LLM-Synthesized C Programs (SynVer).* CoqPL 2025. [arXiv 2410.14835]
+
+Two LLMs (program, then VST/Rocq proof) with syntactic restrictions on candidates to keep them verifiable. The closest published shape to "LLM writes C and a machine-checked proof about it".
+
+### `bhat_2024_lean_mlir.pdf`
+Bhat, S., Keizer, A., Hughes, C., Goens, A., & Grosser, T. (2024). *Verifying Peephole Rewriting in SSA Compiler IRs.* ITP 2024. [arXiv 2407.03685]
+
+SSA IR calculus mechanised in Lean 4 with an MLIR frontend and LLVM bitvector rewrites. Evidence that Lean 4 can host a production IR semantics; a candidate landing zone for compiled C.
+
+
+## Functional I/O prior art — independently reviewed 2026-09-07
+
+These primary papers correct the initial libc survey's I/O absence claim. They were read and
+indexed in the OVH-local Delphi instance (hash/lexical retrieval, not neural semantic retrieval).
+No historical Coq/VeriFast build was reproduced. See `research/libc-specs/04_io_prior_art.md`.
+
+| Local file | Primary source | SHA-256 |
+|---|---|---|
+| [penninckx_2015_io_verification.pdf](penninckx_2015_io_verification.pdf) | [Penninckx et al., ESOP 2015](https://www.willemp.be/cw/input-output-verification/esop2015-ioverif.pdf) | `fbe3f474a48c0005c02811853aba4834173cd32c3f43a7a705507ace64ce103f` |
+| [koh_2019_deepweb.pdf](koh_2019_deepweb.pdf) | [Koh et al., CPP 2019](https://www.cis.upenn.edu/~bcpierce/papers/deepweb-cpp-2019.pdf) | `c797411ea2d5a58a8076fe7193cef00c3ef60c4d3dcc7cdb4db9a9fb24bd2cb7` |
+| [xia_2020_interaction_trees.pdf](xia_2020_interaction_trees.pdf) | [Xia et al., POPL 2020](https://arxiv.org/pdf/1906.00046) | `943dc278978b9d85f8957e9044ec2f571f315b43e98d58762dad3e08dca4934c` |

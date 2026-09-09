@@ -1,0 +1,18 @@
+'CalculusRelaySpec.relay_inner_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusRelaySpec.relay_outer_exact_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusRelaySpec.relay_outer_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusRelaySpec.relay_matches_phase3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusFragmentRules.interp_pure_state' depends on axioms: [propext]
+'CalculusFragmentRules.supported_of_stmt' does not depend on any axioms
+'CalculusTokenize.small_text_tokens' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_unterminated_string' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_unterminated_after_escape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_non_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_trailing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_match_text' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTokenize.rejects_underscore_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+(true, true, true)
+(true, true, true)
+(true, true, true)
+{ output := [0, 255, 10, 128], remaining := [], status := 0, readCalls := 4, writeCalls := 4 }
+"\"outcome\": \"continue\", \"rc\": 0, \"state\": {\"attrs\": {\"input\": \"()\", \"delivered\": [0, 255, 10, 128], \"lost\": \"()\", \"reads\": \"()\", \"writes\": \"()\", \"read_calls\": 4, \"write_calls\": 4}, \"elements\": [{\"element\": \"block\", \"arg\": \"0\", \"attrs\": {\"cap\": 32, \"len\": 0, \"bytes\": \"()\"}, \"elements\": []}]}"

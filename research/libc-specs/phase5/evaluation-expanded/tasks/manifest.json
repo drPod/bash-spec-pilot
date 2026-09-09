@@ -1,0 +1,80 @@
+{
+  "schema": "phase5-evaluation-expanded-tasks/1",
+  "module": "CalculusNested",
+  "source": "phase5/integration/lean/CalculusNested.lean",
+  "source_sha256": "36525e18cde92225dcaef9d30077565f1124a7c96782b22ef3e3366c75783587",
+  "tasks": {
+    "nested_frame": {
+      "theorem": "CalculusNested.setAttrAt_frame",
+      "module": "CalculusNested",
+      "facet": "nested-state frame preservation: writing an attribute at path p changes no other (path, attribute) pair (parent attrs, sibling elements, unrelated subtrees all preserved) -- the property nested_state.sc checks by execution",
+      "helper_lemmas": [
+        "lookup_assocSet_same",
+        "lookup_assocSet_other"
+      ],
+      "removed_in_base": [
+        "lookup_assocSet_same",
+        "lookup_assocSet_other"
+      ],
+      "statement": "theorem setAttrAt_frame : \u2200 (p : Path) (st st' : St) (a : String) (x : Val),\n    setAttrAt p st a x = some st' \u2192\n    \u2200 (q : Path) (b : String), (q \u2260 p \u2228 b \u2260 a) \u2192 getAttrAt q st' b = getAttrAt q st b :=\n",
+      "conditions": {
+        "helper": {
+          "template": "tasks/nested_frame/helper.template.lean",
+          "template_sha256": "283ed0ff024a1d9e67a47c5acb1597798c6252bb71bff6ed7e8a82e596e5ee56"
+        },
+        "base": {
+          "template": "tasks/nested_frame/base.template.lean",
+          "template_sha256": "e4434e77be88a2a2dbbdb1be996b083a99795a82587001aac7a2fa40b314325b"
+        }
+      }
+    },
+    "nested_add_attrs": {
+      "theorem": "CalculusNested.addElemAt_attrs",
+      "module": "CalculusNested",
+      "facet": "nested-state element creation preserves every attribute everywhere (a fresh element is empty, add_if_absent keeps an existing one with its attributes)",
+      "helper_lemmas": [
+        "lookup_assocSet_same",
+        "lookup_assocSet_other",
+        "getAttrAt_empty"
+      ],
+      "removed_in_base": [
+        "lookup_assocSet_same",
+        "lookup_assocSet_other",
+        "getAttrAt_empty"
+      ],
+      "statement": "theorem addElemAt_attrs : \u2200 (p : Path) (st st' : St) (n : String) (v : Val),\n    addElemAt p st n v = some st' \u2192\n    \u2200 (q : Path) (b : String), getAttrAt q st' b = getAttrAt q st b :=\n",
+      "conditions": {
+        "helper": {
+          "template": "tasks/nested_add_attrs/helper.template.lean",
+          "template_sha256": "ec23fb34d75b5200ee8a0c28f67f6890bfe34a055ad92fab6f45e7546a2b929b"
+        },
+        "base": {
+          "template": "tasks/nested_add_attrs/base.template.lean",
+          "template_sha256": "468e2c0b485e4b1d3b034f4b7a55b798cdf22ddd61532f1436f548efe01fde6a"
+        }
+      }
+    },
+    "nested_remove_frame": {
+      "theorem": "CalculusNested.removeElemAt_here_frame",
+      "module": "CalculusNested",
+      "facet": "clearing an element at the state root keeps the root attributes and every sibling element (only the cleared element itself is affected)",
+      "helper_lemmas": [
+        "lookup_assocRemove_other"
+      ],
+      "removed_in_base": [
+        "lookup_assocRemove_other"
+      ],
+      "statement": "theorem removeElemAt_here_frame (st st' : St) (n : String) (v : Val)\n    (h : removeElemAt .here st n v = some st') :\n    st'.attrs = st.attrs \u2227 \u2200 (m : String) (w : Val), (m, w) \u2260 (n, v) \u2192\n      lookup st'.elems (m, w) = lookup st.elems (m, w) :=\n",
+      "conditions": {
+        "helper": {
+          "template": "tasks/nested_remove_frame/helper.template.lean",
+          "template_sha256": "ad336cfaaabe96530d201bc9ea4539d58281a20a3c73dec6910da4d7aee958d9"
+        },
+        "base": {
+          "template": "tasks/nested_remove_frame/base.template.lean",
+          "template_sha256": "6f73ea80ed38c14995425d8b16e9a03487cb1ed02c6929e1f2ae7a36fbca5f4e"
+        }
+      }
+    }
+  }
+}

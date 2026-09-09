@@ -1,0 +1,77 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["0729622437d7cf91.olean"],
+  "m": false,
+  "i": "6055db79a558237e.ilean",
+  "c": "23591774f477d980.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean /home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean -j1 -s16384 -DwarningAsError=true /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/LeanFinalAudit.lean -o /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/LeanFinalAudit.olean -i /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/LeanFinalAudit.ilean -c /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/ir/LeanFinalAudit.c --setup /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/ir/LeanFinalAudit.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "LeanFinalAudit.lean:7:0: 'LeanFinal.redirect_then_mark_success' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:8:0: 'LeanFinal.redirect_then_mark_error' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:9:0: 'LeanFinal.redirect_then_direct_restored' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:10:0: 'LeanFinal.Concrete.concreteBase_H_direct' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:11:0: 'LeanFinal.Concrete.concreteBase_H_mark' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:12:0: 'LeanFinal.Concrete.concreteBase_H_redirect' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:13:0: 'LeanFinal.Concrete.concreteBase_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:14:0: 'LeanFinal.Concrete.abc_status_zero' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:15:0: 'LeanFinal.Concrete.truncate_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:16:0: 'LeanFinal.Concrete.append_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:17:0: 'LeanFinal.Concrete.empty_path_open_failure_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:18:0: 'LeanFinal.Concrete.relay_error_nonempty_path_witness' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:19:0: 'LeanFinal.Concrete.parameterized_success_applied' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "LeanFinalAudit.lean:20:0: 'LeanFinal.Concrete.parameterized_empty_path_error_applied' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["LeanFinalAudit:deps",
+   [["deps",
+     [["shell_lean_final/LeanFinalAudit:extraDep",
+       [["@shell_lean_final:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["LeanFinal transitive imports (legacy)", "d1909bbd362eb300"],
+        ["LeanFinal:importAllArts", "b5336579f1cc96e5"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.31.0, commit 68218e876d2a38b1985b8590fff244a83c321783",
+   "fc45ac412f28501c"],
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/LeanFinalAudit.lean",
+   "d1d00e935fb1964c"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: LeanFinalAudit", "1e7ab3f2223e65d1"],
+  ["Package.id?: (some shell_lean_final)", "933a4a5fbe43413a"],
+  ["Module.leanArgs: #[-j1, -s16384, -DwarningAsError=true]",
+   "7aee8e280d509a4e"]],
+ "depHash": "4b86688c8303db21"}

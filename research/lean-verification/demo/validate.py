@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""Differential validation: does the *proven Lean model* match the real GNU binary?
-
-Layer 1 (proof) lives in Demo/Basic.lean: `model ⊨ spec`, checked by Lean's kernel.
-Layer 2 (this file) is `model ≈ binary`: feed identical stdin to the compiled Lean
-`head` model and to GNU `ghead`, compare outputs line-for-line over random inputs.
-
-We call the *same* total function the theorems are about (the compiled `demo` binary),
-so there is no separate Python re-implementation to drift from what was proved.
-
-Usage: python3 validate.py [N_TRIALS]   (default 300)
-"""
+"""Compare the compiled Lean head model with GNU head on seeded line inputs."""
 import os
 import random
 import subprocess
@@ -18,27 +8,23 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DEMO_BIN = HERE / ".lake" / "build" / "bin" / "demo"
-# Real GNU coreutils head, the differential oracle. macOS: brew's ghead; CI: /usr/bin/head.
 GHEAD = os.environ.get("GHEAD", "/opt/homebrew/bin/ghead")
 
 WORDS = ["alpha", "beta", "gamma", "", "a b c", "42", "x", "the quick", "z"]
 
 
 def rand_input(rng):
-    """A random document as a list of lines (never containing newlines themselves)."""
     n = rng.randint(0, 8)
     return [rng.choice(WORDS) for _ in range(n)]
 
 
 def as_stdin(lines):
-    # A real text file: each line terminated by a newline (empty file if no lines).
     return ("\n".join(lines) + "\n") if lines else ""
 
 
 def run(cmd, stdin_text):
     p = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True)
-    # Compare at the line level (the model's abstraction); this normalizes the one
-    # trailing-newline byte the model deliberately does not track.
+    # Match the model's abstraction, which loses final-newline presence.
     return p.stdout.splitlines()
 
 
@@ -54,9 +40,8 @@ def main():
     if not DEMO_BIN.exists():
         sys.exit(f"build first: `lake build` (missing {DEMO_BIN})")
     trials = int(sys.argv[1]) if len(sys.argv) > 1 else 300
-    rng = random.Random(0)  # fixed seed: reproducible run, no wall-clock dependence
+    rng = random.Random(0)
 
-    # --- Suite A: the modeled domain (non-negative counts) ---
     passed, mismatches = 0, []
     for _ in range(trials):
         lines = rand_input(rng)
@@ -73,10 +58,6 @@ def main():
     for lines, k, m, g in mismatches:
         print(f"  MISMATCH k={k} input={lines!r}\n    model={m!r}\n    gnu  ={g!r}")
 
-    # --- Suite B: a known model-fidelity GAP, surfaced honestly, not hidden ---
-    # GNU `head -n -K` prints all-but-the-last-K lines (count-from-end). headModel
-    # takes a Nat, so it cannot express this; the differential layer is exactly what
-    # exposes the gap. This is a finding, not a crash.
     lines = ["l1", "l2", "l3", "l4", "l5"]
     g = gnu_head(-2, as_stdin(lines))
     print("\nSuite B  head -n -2 (count-from-end)  MODEL GAP")

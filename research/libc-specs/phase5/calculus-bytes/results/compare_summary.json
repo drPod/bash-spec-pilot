@@ -1,0 +1,537 @@
+{
+ "positive": [
+  {
+   "file": "curated_relay.jsonl",
+   "entry": "relay",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_relay_caught.jsonl",
+   "entry": "relay_caught",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_relay_seq_relay.jsonl",
+   "entry": "relay_seq_relay",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_relay_and_mark.jsonl",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_relay_or_mark.jsonl",
+   "entry": "relay_or_mark",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "phase3_relay.jsonl",
+   "entry": "relay",
+   "records": 953,
+   "agree": 953,
+   "block_ok": 953,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "phase3_relay_caught.jsonl",
+   "entry": "relay_caught",
+   "records": 953,
+   "agree": 953,
+   "block_ok": 953,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_typed_relay.jsonl",
+   "entry": "relay",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  },
+  {
+   "file": "curated_typed_relay_and_mark.jsonl",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 20,
+   "block_ok": 20,
+   "mismatches": 0,
+   "problems": [],
+   "missing_names": [],
+   "extra_names": [],
+   "duplicate_names": [],
+   "integrity": [],
+   "integrity_ok": true
+  }
+ ],
+ "mutants": [
+  {
+   "mutant": "mut_wrong_offset",
+   "entry": "relay",
+   "records": 20,
+   "agree": 4,
+   "differing": 16,
+   "differing_outcomes": {
+    "continue": 16
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "continue",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": {
+     "status": 2,
+     "delivered": "6263",
+     "unread": "",
+     "lost": "63",
+     "read_calls": 1,
+     "write_calls": 2
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_wrong_offset",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 4,
+   "differing": 16,
+   "differing_outcomes": {
+    "continue": 16
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "continue",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": {
+     "status": 2,
+     "delivered": "6263",
+     "unread": "",
+     "lost": "63",
+     "read_calls": 1,
+     "write_calls": 2
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_uninit_region",
+   "entry": "relay",
+   "records": 20,
+   "agree": 12,
+   "differing": 8,
+   "differing_outcomes": {
+    "raise": 8
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "raise",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": true,
+    "value": "(\"AssertionFailure\", ())"
+   }
+  },
+  {
+   "mutant": "mut_uninit_region",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 12,
+   "differing": 8,
+   "differing_outcomes": {
+    "raise": 8
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "raise",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": true,
+    "value": "(\"AssertionFailure\", ())"
+   }
+  },
+  {
+   "mutant": "mut_uninit_noassert",
+   "entry": "relay",
+   "records": 20,
+   "agree": 12,
+   "differing": 8,
+   "differing_outcomes": {
+    "failure": 8
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "failure",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": false,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_uninit_noassert",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 12,
+   "differing": 8,
+   "differing_outcomes": {
+    "failure": 8
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "failure",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": false,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_bad_byte",
+   "entry": "relay",
+   "records": 20,
+   "agree": 20,
+   "differing": 0,
+   "differing_outcomes": {},
+   "integrity_ok": true,
+   "integrity": [],
+   "example": null
+  },
+  {
+   "mutant": "mut_bad_byte",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 10,
+   "differing": 10,
+   "differing_outcomes": {
+    "failure": 10
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "nul255",
+    "outcome": "failure",
+    "expected": {
+     "status": 0,
+     "delivered": "00ff0a2121",
+     "unread": "",
+     "lost": "",
+     "read_calls": 3,
+     "write_calls": 2
+    },
+    "observed": null,
+    "block_ok": false,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_status_swap",
+   "entry": "relay",
+   "records": 20,
+   "agree": 10,
+   "differing": 10,
+   "differing_outcomes": {
+    "continue": 10
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "continue",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": {
+     "status": 2,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_status_swap",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 10,
+   "differing": 10,
+   "differing_outcomes": {
+    "continue": 10
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "continue",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": {
+     "status": 2,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_zero_write_retry",
+   "entry": "relay",
+   "records": 20,
+   "agree": 16,
+   "differing": 4,
+   "differing_outcomes": {
+    "continue": 4
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_b_zero_write_pending",
+    "outcome": "continue",
+    "expected": {
+     "status": 2,
+     "delivered": "6162",
+     "unread": "6566",
+     "lost": "6364",
+     "read_calls": 1,
+     "write_calls": 2
+    },
+    "observed": {
+     "status": 0,
+     "delivered": "616263646566",
+     "unread": "",
+     "lost": "",
+     "read_calls": 3,
+     "write_calls": 4
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_zero_write_retry",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 16,
+   "differing": 4,
+   "differing_outcomes": {
+    "continue": 4
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_b_zero_write_pending",
+    "outcome": "continue",
+    "expected": {
+     "status": 2,
+     "delivered": "6162",
+     "unread": "6566",
+     "lost": "6364",
+     "read_calls": 1,
+     "write_calls": 2
+    },
+    "observed": {
+     "status": 0,
+     "delivered": "61626364656621",
+     "unread": "",
+     "lost": "",
+     "read_calls": 3,
+     "write_calls": 4
+    },
+    "block_ok": true,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_no_fresh_block",
+   "entry": "relay",
+   "records": 20,
+   "agree": 0,
+   "differing": 20,
+   "differing_outcomes": {
+    "failure": 20
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "failure",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": false,
+    "value": null
+   }
+  },
+  {
+   "mutant": "mut_no_fresh_block",
+   "entry": "relay_and_mark",
+   "records": 20,
+   "agree": 0,
+   "differing": 20,
+   "differing_outcomes": {
+    "failure": 20
+   },
+   "integrity_ok": true,
+   "integrity": [],
+   "example": {
+    "name": "input_a_late_read_error",
+    "outcome": "failure",
+    "expected": {
+     "status": 1,
+     "delivered": "616263",
+     "unread": "",
+     "lost": "",
+     "read_calls": 2,
+     "write_calls": 1
+    },
+    "observed": null,
+    "block_ok": false,
+    "value": null
+   }
+  }
+ ],
+ "all_positive_agree_and_all_mutants_detected": true
+}

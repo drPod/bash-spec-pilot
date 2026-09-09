@@ -1,0 +1,79 @@
+{
+ "checked": 63,
+ "problems": [],
+ "calculus_md5": {
+  "finite_ints": {
+   "carrier_max": "e7263bf56cd9b70397d6c34e3a808fe9",
+   "overflow_add": "5f705a8141568ae7c1e2b886cfec6a8d",
+   "overflow_sub": "ec34e17cf81bbe19a2b0d6c3608481af",
+   "overflow_mul": "2a512b4cc338ebca491eddcd324561b5",
+   "overflow_neg": "8d85159c466909e1d6fe8691955ea387",
+   "div_trunc": "d0a2002886346cf35515d59a3d1eeaea",
+   "mod_sign": "0af5ffb9ccbcf4dcaf75f3e6260e2850",
+   "div_zero": "6f4cf7cba380728de6921f1881f6f26b",
+   "u8_ok": "19225d18a9c5916fe97dfaabad222858",
+   "u8_overflow_runtime": "04f1b17399bc40f3dbde84a976456133",
+   "u8_local_annot": "ad8243a20564732509c9c7c1daa2f4a0",
+   "u8_local_annot_trap": "10b19bbe6b6aed9b85446996e182b550",
+   "u8_param": "2acd124049852d9f93d4d72d1174c8b9",
+   "u8_param_ok": "0b3d0e6edf324089533d1ea4f9e79259",
+   "u8_param_trap": "088dd89bb729c176f756a72ca2a95150",
+   "u64_negative_trap": "d9ebf1a1a68a65ff5a5686ff29328258",
+   "ret_u8_trap": "a4e29138b58a2d99c6206d1178146491",
+   "ret_u8_ok": "2b6e98de0b98d1921f79db8d6a26f457",
+   "typed_literal_widths": "5f8d1c0d081f5985c2bcd455d6aa5369",
+   "big_attr": "2a83105be3bb5556ab9fd38a117572d8",
+   "char_lit": "fb8120b01a527bc56017acd572244e23"
+  },
+  "nested_state": {
+   "deep_set": "f0f48fd64992a5e2f784622796bcb348",
+   "deep_clear": "b8c67744ff6ad069efdab64e0f0e40f6",
+   "deep_touch_keeps": "a4c7a5331fab1a81f258797255054b9c",
+   "deep3": "6a0eef293adf44a89d1e3cca4df6e9cc",
+   "missing_parent": "36ce0a944aa717ec19fff3f1f2c7dc3f",
+   "cleared_then_read": "08f88e3e7ce74f77c04f8df91a556d40",
+   "wrong_order_probe": "3fd598c712fb2107d38c27ece3ce96a2"
+  },
+  "scope_ok": {
+   "branch_lets": "cc14814bc7c764f54a569cd211c8f3f4",
+   "loop_let": "70ca65708cbb633132962a70d2bb816d",
+   "catch_scope": "3fb1c4fa3bda36d499df64d59799bb8d",
+   "finally_runs": "c46188765e8f310bc36f3f5003f56ddf",
+   "uncaught_is_raise": "127cbe4efd248c121904f660712a29ab",
+   "partial_effects_survive_raise": "f31b7351d0f6b6620c9959508f1c43a1"
+  },
+  "short_circuit": {
+   "bump": "4b87f3b04329768dd17b65a0c97b44e3",
+   "bump_false": "5fc35f5d11eaf431b6a2bb6060181f6b",
+   "sc_skip_trap_and": "faeac107a46881fd052e3cbdbf10ca5d",
+   "sc_skip_trap_or": "bcef51d3b06a3422054dc1f4292ccce7",
+   "sc_eval_trap_and": "1a1663783f5ec6086ed0a0f6a8d4d025",
+   "sc_eval_trap_or": "79d35b93e79d9b566e8ad6c44b19bc04",
+   "sc_action_skipped": "b814981f9810cdf114ee2fb71f57e7dd",
+   "sc_action_taken": "c899d584a01740522bd2d325a4f5009e",
+   "sc_or_action_skipped": "8cf59bc0284c66d9c989da8aeb10e8fa",
+   "sc_or_action_taken": "ab439363624e5adc2cefb99289956c34",
+   "sc_left_to_right": "4fab89d9a9713bb0ea731f9aa9e7af35",
+   "sc_nested_or_and": "8b0fcec78a4f892d54fae8ac23e042be",
+   "sc_relay_style_assert": "83f195f3e539e4ca44cfd2467df8f28e",
+   "sc_assert_fails_skips_trap": "39f74bb4189a9117b516f1ee2425fcc1",
+   "sc_not_and": "51472e29e10b18d6c23ce49174906d98"
+  }
+ },
+ "negatives": {
+  "neg_bool_and_int": "left operand of a short-circuit operator has type int[1,1], expected bool",
+  "neg_dup_alias": "type alias 't' declared twice",
+  "neg_literal_range": "literal 300 is outside the declared range [0,255]",
+  "neg_scope_after_block": "undefined name 'x'",
+  "neg_unknown_type_int": "unknown type name 'integer' (declare `type integer = <width>` first)",
+  "neg_shadow": "redeclaration of local 'x' (shadowing is outside the fragment)",
+  "neg_cond_int": "condition has type int[1,1], expected bool",
+  "neg_eq_list": "equality between list<int[0,255]> and list<int[0,255]> is outside the fragment (only int/bool/unit literals)",
+  "neg_uninterp_shape": "uninterpreted 'length' declared with signature (int[carrier])->int[0,4611686018427387903], which does not match the builtin's shape",
+  "neg_i64_literal_carrier": "i64 literal 4611686018427387904 is outside the adapter carrier [-4611686018427387904,4611686018427387903]",
+  "neg_arg_type": "type mismatch: expression has type bool, expected int[0,255]",
+  "neg_attr_literal_range": "literal 256 is outside the declared range [0,255]",
+  "neg_arith_cond": "condition has type int[carrier], expected bool",
+  "neg_sc_rhs_int": "right operand of a short-circuit operator has type int[1,1], expected bool"
+ }
+}

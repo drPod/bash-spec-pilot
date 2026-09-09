@@ -1,0 +1,8 @@
+[
+  {
+    "marker": "phase5/root183",
+    "title": "Phase5 full30 fresh artifact replay accepted",
+    "summary": "All30 entries selected fresh:29 passed and1 experimental host OCaml skip, with pinned container OCaml passing. Independent audit177 passed and root183 rehashed481 log pairs and175 output pairs. Research remains incomplete: original C-to-calculus semantic connection is open.",
+    "content": "phase5/root183\nRun20260908T213227Z, exit0,1266 seconds. Manifest26current+3required+1experimental. No only filter. Summary SHA256 165a63d40cdf862605142d368c61a057a3571e4ae9d29f6c81e1b95b2f347aee\nIndependent audit SHA256 164f0d6a1c8093174bdc02de6c4c9e8b959183d370d13cc83ef007ad5a706970\nRoot receipt /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-full30-review-183/ROOT-REVIEW.json SHA256 5bb1530cb0e5270b5c599d148c85446c7f5d4634a5dbfc692f58efed76f0b6fe\nFull scope complete flag describes artifact manifest coverage, not research goal. Supplemental175 is not in this snapshot. Original-source audit179 confirms C utility semantics-to-Lean calculus connection remains open; Claude181 implementing. Docs/sourcepackage/final catalogs also outstanding. No additional evaluation calls or UTF8 trials."
+  }
+]

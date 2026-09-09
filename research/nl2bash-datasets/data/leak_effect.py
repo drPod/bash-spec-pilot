@@ -1,13 +1,7 @@
-"""Does BashBench 2026's self-contamination actually inflate its headline number?
+"""Compare released exit rates by SFT overlap.
 
-The audit established that 709 of the 773 scored single-line benchmark tasks appear
-(after whitespace normalization) in the SFT file shipped in the same release. This splits the authors'
-own released per-task scores by that line and compares pass rates.
-
-NOTE: the causal reading these numbers were collected for is WITHDRAWN. benchmark-validity.md
-shows the harness never executes the candidate, so func_pass is a property of the released test
-scripts, not of any model. Read every rate below as a test-script exit rate.
-"""
+Causal interpretation withdrawn: the harness never executes candidates. These are test-script
+exit rates, not model success rates; see benchmark-validity.md."""
 import json, math, sys
 
 EX = "extract/"
@@ -15,14 +9,12 @@ TR = "testres/singleline_eval_20251222_022036.json"
 
 norm = lambda s: " ".join((s or "").split())
 
-# ---- the leaked / clean partition, rebuilt exactly as in the audit -------------------------
 sft = json.load(open(EX + "data__sft__sft_command.json"))
 grpo = json.load(open(EX + "data__grpo__grpo_command.json"))
 SFT = {norm(r.get("input", "")) for r in sft}
 GRPO = {norm(r.get("input", "")) for r in grpo}
 print(f"SFT inputs {len(SFT):,} | GRPO inputs {len(GRPO):,}")
 
-# ---- the authors' own scored results -------------------------------------------------------
 res = json.load(open(TR))
 scored = [r for r in res if r.get("has_test_script")]
 print(f"scored tasks with a test script: {len(scored)}  (paper: 773)\n")
@@ -64,7 +56,6 @@ for name, g in groups.items():
     print(f"{name:28s} {n:>5} {cells[0]:>21s} {cells[1]:>21s}")
     out[name] = row
 
-# ---- the gap, with a Fisher exact test ------------------------------------------------------
 def fisher(a, b, c, d):
     """two-sided Fisher exact on [[a,b],[c,d]]"""
     from math import comb

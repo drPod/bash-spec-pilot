@@ -1,0 +1,1 @@
+Two accepted milestones, imported privately to Atlas and into the existing local OpenScience provenance service. See mapping and import-summary for independently fetched identities. Prior milestone76 remains a historical snapshot; machine AST identity is now accepted. No full research completion is claimed.

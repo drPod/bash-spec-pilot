@@ -1,0 +1,311 @@
+{
+ "_comment": "Directed tests for the bounded shell-text frontend (Parse.v). 'ast' is the exact Coq term expected from parse_program; 'status'/'stdout' are the Coq run/test_env predictions AND what real bash must produce with the functions t(){ printf t; return 0; } u(){ printf u; return 0; } f(){ printf f; return 1; } g(){ printf g; return 2; }. Rejected inputs list why they are outside the fragment; bash_accepts records whether real bash -n parses them (informational).",
+ "env": {
+  "t": [
+   0,
+   "t"
+  ],
+  "u": [
+   0,
+   "u"
+  ],
+  "f": [
+   1,
+   "f"
+  ],
+  "g": [
+   2,
+   "g"
+  ]
+ },
+ "accepted": [
+  {
+   "text": "t",
+   "ast": "call \"t\"",
+   "status": 0,
+   "stdout": "t"
+  },
+  {
+   "text": "f",
+   "ast": "call \"f\"",
+   "status": 1,
+   "stdout": "f"
+  },
+  {
+   "text": "  t  ",
+   "ast": "call \"t\"",
+   "status": 0,
+   "stdout": "t"
+  },
+  {
+   "text": "t;",
+   "ast": "call \"t\"",
+   "status": 0,
+   "stdout": "t"
+  },
+  {
+   "text": "t ; f",
+   "ast": "seq (call \"t\") (call \"f\")",
+   "status": 1,
+   "stdout": "tf"
+  },
+  {
+   "text": "f;t",
+   "ast": "seq (call \"f\") (call \"t\")",
+   "status": 0,
+   "stdout": "ft"
+  },
+  {
+   "text": "t && u",
+   "ast": "and_then (call \"t\") (call \"u\")",
+   "status": 0,
+   "stdout": "tu"
+  },
+  {
+   "text": "f && u",
+   "ast": "and_then (call \"f\") (call \"u\")",
+   "status": 1,
+   "stdout": "f"
+  },
+  {
+   "text": "t || u",
+   "ast": "or_else (call \"t\") (call \"u\")",
+   "status": 0,
+   "stdout": "t"
+  },
+  {
+   "text": "f || u",
+   "ast": "or_else (call \"f\") (call \"u\")",
+   "status": 0,
+   "stdout": "fu"
+  },
+  {
+   "text": "g || f",
+   "ast": "or_else (call \"g\") (call \"f\")",
+   "status": 1,
+   "stdout": "gf"
+  },
+  {
+   "text": "t && f || u",
+   "ast": "or_else (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "status": 0,
+   "stdout": "tfu"
+  },
+  {
+   "text": "f || t && g",
+   "ast": "and_then (or_else (call \"f\") (call \"t\")) (call \"g\")",
+   "status": 2,
+   "stdout": "ftg"
+  },
+  {
+   "text": "f && t || g",
+   "ast": "or_else (and_then (call \"f\") (call \"t\")) (call \"g\")",
+   "status": 2,
+   "stdout": "fg"
+  },
+  {
+   "text": "t || f && g",
+   "ast": "and_then (or_else (call \"t\") (call \"f\")) (call \"g\")",
+   "status": 2,
+   "stdout": "tg"
+  },
+  {
+   "text": "f ; t && u",
+   "ast": "seq (call \"f\") (and_then (call \"t\") (call \"u\"))",
+   "status": 0,
+   "stdout": "ftu"
+  },
+  {
+   "text": "t && f ; u",
+   "ast": "seq (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "status": 0,
+   "stdout": "tfu"
+  },
+  {
+   "text": "f && t ; g",
+   "ast": "seq (and_then (call \"f\") (call \"t\")) (call \"g\")",
+   "status": 2,
+   "stdout": "fg"
+  },
+  {
+   "text": "t ; f ; g",
+   "ast": "seq (seq (call \"t\") (call \"f\")) (call \"g\")",
+   "status": 2,
+   "stdout": "tfg"
+  },
+  {
+   "text": "f && (t ; g)",
+   "ast": "and_then (call \"f\") (seq (call \"t\") (call \"g\"))",
+   "status": 1,
+   "stdout": "f"
+  },
+  {
+   "text": "t && (f ; u)",
+   "ast": "and_then (call \"t\") (seq (call \"f\") (call \"u\"))",
+   "status": 0,
+   "stdout": "tfu"
+  },
+  {
+   "text": "(t && f) || u",
+   "ast": "or_else (and_then (call \"t\") (call \"f\")) (call \"u\")",
+   "status": 0,
+   "stdout": "tfu"
+  },
+  {
+   "text": "t && (f || u)",
+   "ast": "and_then (call \"t\") (or_else (call \"f\") (call \"u\"))",
+   "status": 0,
+   "stdout": "tfu"
+  },
+  {
+   "text": "(f;)",
+   "ast": "call \"f\"",
+   "status": 1,
+   "stdout": "f"
+  },
+  {
+   "text": "( f || g ) && t;",
+   "ast": "and_then (or_else (call \"f\") (call \"g\")) (call \"t\")",
+   "status": 2,
+   "stdout": "fg"
+  },
+  {
+   "text": "t\t&&\tu",
+   "ast": "and_then (call \"t\") (call \"u\")",
+   "status": 0,
+   "stdout": "tu"
+  },
+  {
+   "text": "g || (f && t) || u",
+   "ast": "or_else (or_else (call \"g\") (and_then (call \"f\") (call \"t\"))) (call \"u\")",
+   "status": 0,
+   "stdout": "gfu"
+  },
+  {
+   "text": "( (t) )",
+   "ast": "call \"t\"",
+   "status": 0,
+   "stdout": "t"
+  },
+  {
+   "text": "( ( f ) ) || u",
+   "ast": "or_else (call \"f\") (call \"u\")",
+   "status": 0,
+   "stdout": "fu"
+  }
+ ],
+ "rejected": [
+  {
+   "text": "",
+   "why": "empty program"
+  },
+  {
+   "text": "t | u",
+   "why": "pipeline not in fragment"
+  },
+  {
+   "text": "t > x",
+   "why": "redirection not in fragment"
+  },
+  {
+   "text": "t &",
+   "why": "background operator not in fragment"
+  },
+  {
+   "text": "t & u",
+   "why": "background operator not in fragment"
+  },
+  {
+   "text": "t\nu",
+   "why": "newline not in fragment"
+  },
+  {
+   "text": "t ;; u",
+   "why": "double semicolon"
+  },
+  {
+   "text": "; t",
+   "why": "leading semicolon"
+  },
+  {
+   "text": "t &&",
+   "why": "dangling operator"
+  },
+  {
+   "text": "&& t",
+   "why": "leading operator"
+  },
+  {
+   "text": "t || || u",
+   "why": "repeated operator"
+  },
+  {
+   "text": "(t",
+   "why": "unbalanced parenthesis"
+  },
+  {
+   "text": "t)",
+   "why": "unbalanced parenthesis"
+  },
+  {
+   "text": "()",
+   "why": "empty parentheses"
+  },
+  {
+   "text": "t arg",
+   "why": "arguments not in fragment"
+  },
+  {
+   "text": "echo $x",
+   "why": "expansion not in fragment"
+  },
+  {
+   "text": "'t'",
+   "why": "quoting not in fragment"
+  },
+  {
+   "text": "! t",
+   "why": "negation not in fragment"
+  },
+  {
+   "text": "if",
+   "why": "reserved word"
+  },
+  {
+   "text": "time t",
+   "why": "reserved word / arguments"
+  },
+  {
+   "text": "t # c",
+   "why": "comment not in fragment"
+  },
+  {
+   "text": "{ t; }",
+   "why": "brace group not in fragment"
+  },
+  {
+   "text": "t;u;\u00e9",
+   "why": "non-ASCII"
+  },
+  {
+   "text": "1t",
+   "why": "identifier cannot start with digit"
+  },
+  {
+   "text": "t=1",
+   "why": "assignment not in fragment"
+  },
+  {
+   "text": "$(t)",
+   "why": "substitution not in fragment"
+  },
+  {
+   "text": "((t))",
+   "why": "adjacent (( is the Bash arithmetic command, not grouping (bash runs it with status 1)"
+  },
+  {
+   "text": "t && ((u))",
+   "why": "adjacent (( is the Bash arithmetic command"
+  }
+ ]
+}

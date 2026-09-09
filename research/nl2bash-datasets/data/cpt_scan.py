@@ -1,11 +1,4 @@
-"""Is the 'clean' half of BashBench 2026 actually clean?
-
-The 179 multi-line tasks and the 64 non-leaked single-line tasks are clean of the released
-SFT/GRPO sets. But the release also ships a 4.3 GB continued-pretraining corpus. This streams
-that corpus (never materializing it) and Aho-Corasick-searches it for every one of those task
-prompts, so we learn whether "clean" means "absent from training" or only "absent from the
-two files anyone would think to check".
-"""
+"""Stream the continued-pretraining corpus to check prompts absent from released SFT/GRPO data."""
 import json, sys
 import ahocorasick
 from remotezip import RemoteZip
@@ -53,7 +46,7 @@ tail = b""
 done = 0
 with RemoteZip(URL) as z, z.open(CPT) as fh:
     while True:
-        chunk = fh.read(1 << 24)          # 16 MB
+        chunk = fh.read(1 << 24)
         if not chunk:
             break
         done += len(chunk)

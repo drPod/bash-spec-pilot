@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "elapsed_seconds": 0.3901555049997114,
+  "tool": "VeriFast26.01",
+  "target": "Linux64",
+  "mode": "-c modular verification; external contracts trusted; no independent kernel certificate",
+  "tool_sha256": "67c8afa463c3f3b14bbe1a4ff3fbc3fbc2164f59a2ce3ba158606976c329c150",
+  "source_identity": "C tokens unchanged after removing annotations/comments; headers explicitly replaced by contracts",
+  "sources": {
+    "research/libc-specs/phase2/relay.c": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+    "research/libc-specs/phase4/verifast/relay_annotated.c": "0d8666f9b12cb9f7583c1b06a5f4e5cc64ca136622004134b6a21708aa24622f",
+    "research/libc-specs/phase4/verifast/include/unistd.h": "57de48fa3567bc7884c2ee06b35298c2a4dbf30dc1fff5c39eff8f3b4880f11b",
+    "research/libc-specs/phase4/check_adoption.py": "974f9a9c1728c82176e62d9a42fd9c692cfa014305fc71d127b4f42687907781"
+  },
+  "cases": [
+    {
+      "name": "relay",
+      "status": 0,
+      "verified": true,
+      "statements": 25,
+      "expected_verified": true,
+      "matched": true,
+      "scope": "memory/initialized-slice and return-range partial correctness",
+      "seconds": 0.05,
+      "peak_rss_kib": 27648,
+      "log_sha256": "158cfdecd3edc4c3373abf1f177452ba1705a7a53241eb2c9cb9323b8bb2d3bb",
+      "source_sha256": "0d8666f9b12cb9f7583c1b06a5f4e5cc64ca136622004134b6a21708aa24622f"
+    },
+    {
+      "name": "read_33",
+      "status": 1,
+      "verified": false,
+      "statements": 0,
+      "expected_verified": false,
+      "matched": true,
+      "scope": "request exceeds declared allocated capacity",
+      "seconds": 0.04,
+      "peak_rss_kib": 27648,
+      "log_sha256": "ee1c347bee8d8ca3cdb5a4f3ac69fba9161c92318308424163f0df2c4fa81995",
+      "source_sha256": "dfb139a9875dd6a486d8a14986d80365827bbc93422b986cca712a51dadf7c68"
+    },
+    {
+      "name": "residual_n",
+      "status": 1,
+      "verified": false,
+      "statements": 0,
+      "expected_verified": false,
+      "matched": true,
+      "scope": "retry requests more initialized memory than remains",
+      "seconds": 0.04,
+      "peak_rss_kib": 27776,
+      "log_sha256": "81dcdf6213cecbff65652be7b2353cf50e499ea43dc10d2feef7993692290626",
+      "source_sha256": "8f7c9aa4b0d075348d0ee445e4a44bd0061b5d33237648ddd2bec40104bbd298"
+    },
+    {
+      "name": "zero_retry",
+      "status": 0,
+      "verified": true,
+      "statements": 25,
+      "expected_verified": true,
+      "matched": true,
+      "scope": "partial correctness does not establish progress after zero writes; ghost cleanup follows changed guard",
+      "seconds": 0.04,
+      "peak_rss_kib": 27520,
+      "log_sha256": "158cfdecd3edc4c3373abf1f177452ba1705a7a53241eb2c9cb9323b8bb2d3bb",
+      "source_sha256": "93c28776e420befb1e7dca8e714a32db48d95dc2656f1bc45699c7edf88628a3"
+    },
+    {
+      "name": "wrong_pointer",
+      "status": 0,
+      "verified": true,
+      "statements": 25,
+      "expected_verified": true,
+      "matched": true,
+      "scope": "base-pointer retry remains memory safe; annotation partitions actual requested base range; byte-order contract absent",
+      "seconds": 0.04,
+      "peak_rss_kib": 27648,
+      "log_sha256": "158cfdecd3edc4c3373abf1f177452ba1705a7a53241eb2c9cb9323b8bb2d3bb",
+      "source_sha256": "6e9573d6771a31d86ffce8d0f1b4b4a6bf6e67b2ac620a3622c854dfd7bd736b"
+    },
+    {
+      "name": "upstream_buffered_io",
+      "status": 0,
+      "verified": true,
+      "statements": 60,
+      "expected_verified": true,
+      "matched": true,
+      "scope": "upstream custom buffered-I/O API; no host stdio claim",
+      "seconds": 0.05,
+      "peak_rss_kib": 29440,
+      "log_sha256": "f227387707158f2562f017a426629f1f91980165f4b39526ea315b23e36a6825",
+      "source_sha256": "220b6b73c306b1417fb2521ea46f5c7408ed2bc85e2d742851d1dd64a577489c"
+    }
+  ],
+  "scope": "Infrastructure adoption evidence. Does not prove byte-stream refinement, termination, POSIX conformance or C-to-Lean preservation."
+}

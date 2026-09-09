@@ -1,20 +1,6 @@
-"""Reproduce the BashBench (BashCoder-R1, arXiv 2606.27733) audit in bashbench-2026-audit.md.
+"""Reproduce contamination and duplication measurements from extracted BashCoder-R1 JSON.
 
-Usage:
-    uv run --with nothing python bashbench_audit.py <dir-with-extracted-json>
-
-Expects these files, extracted from Zenodo record 18408692 (BashCoder-R1.zip):
-    test_cases/command_test_cases_validated.json
-    data/evaluation/script/evaluation_multi-line_script.json
-    data/sft/sft_command.json          data/sft/sft_script.json
-    data/grpo/grpo_command.json        data/grpo/grpo_script.json
-
-Filenames may be flattened with '__' separators; both layouts are handled.
-
-Scope: this covers the contamination and duplication half of the audit only, and it starts from
-already-extracted JSON. Downloading the Zenodo record, unpacking it, and the harness inspection
-written up in benchmark-validity.md were all done by hand and are not reproduced here.
-"""
+See bashbench-2026-audit.md. Downloading, extraction, and harness inspection are not reproduced."""
 
 import collections
 import json
@@ -42,13 +28,11 @@ def load(root, rel):
 
 
 def norm(s):
-    """Collapse all whitespace, so leakage is matched on content rather than formatting."""
     return " ".join((s or "").split())
 
 
 def has_test(rec):
-    """The archive ships 927 single-line records; the paper's 773 are the validated ones
-    that actually carry a test script. This is also how the shipped harness counts `total`."""
+    """Matches the released harness denominator: only validated records carrying a test script."""
     t = rec.get("test_case")
     if isinstance(t, dict):
         return bool((t.get("test_script") or "").strip())
@@ -56,12 +40,6 @@ def has_test(rec):
 
 
 def main(root):
-    """Reproduce the audit from an extracted copy of the Zenodo archive.
-
-    Reports how many of the benchmark's scored tasks reappear in the SFT and GRPO files released
-    alongside it, and how many of its prompts are distinct. Takes the directory the 1.1 GB archive
-    was unpacked into.
-    """
     root = pathlib.Path(root)
     d = {k: load(root, v) for k, v in FILES.items()}
 

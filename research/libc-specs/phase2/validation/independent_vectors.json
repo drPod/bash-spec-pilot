@@ -1,0 +1,224 @@
+[
+  {
+    "name": "empty_defaults",
+    "input_hex": "",
+    "reads": [],
+    "writes": [],
+    "expected": {
+      "output_hex": "",
+      "status": 0,
+      "consumed": 0,
+      "read_calls": 1,
+      "write_calls": 0
+    }
+  },
+  {
+    "name": "read_error_at_empty_input",
+    "input_hex": "",
+    "reads": [
+      -1
+    ],
+    "writes": [],
+    "expected": {
+      "output_hex": "",
+      "status": 1,
+      "consumed": 0,
+      "read_calls": 1,
+      "write_calls": 0
+    }
+  },
+  {
+    "name": "one_byte",
+    "input_hex": "58",
+    "reads": [],
+    "writes": [],
+    "expected": {
+      "output_hex": "58",
+      "status": 0,
+      "consumed": 1,
+      "read_calls": 2,
+      "write_calls": 1
+    }
+  },
+  {
+    "name": "error_after_all_delivered",
+    "input_hex": "616263",
+    "reads": [
+      3,
+      -1
+    ],
+    "writes": [],
+    "expected": {
+      "output_hex": "616263",
+      "status": 1,
+      "consumed": 3,
+      "read_calls": 2,
+      "write_calls": 1
+    }
+  },
+  {
+    "name": "read_error_before_any_consumption",
+    "input_hex": "616263",
+    "reads": [
+      -1
+    ],
+    "writes": [],
+    "expected": {
+      "output_hex": "",
+      "status": 1,
+      "consumed": 0,
+      "read_calls": 1,
+      "write_calls": 0
+    }
+  },
+  {
+    "name": "write_zero_after_read",
+    "input_hex": "616263",
+    "reads": [],
+    "writes": [
+      0
+    ],
+    "expected": {
+      "output_hex": "",
+      "status": 2,
+      "consumed": 3,
+      "read_calls": 1,
+      "write_calls": 1
+    }
+  },
+  {
+    "name": "write_error_after_one_byte",
+    "input_hex": "616263",
+    "reads": [],
+    "writes": [
+      1,
+      -1
+    ],
+    "expected": {
+      "output_hex": "61",
+      "status": 2,
+      "consumed": 3,
+      "read_calls": 1,
+      "write_calls": 2
+    }
+  },
+  {
+    "name": "zero_with_unread_input",
+    "input_hex": "616263646566",
+    "reads": [
+      4
+    ],
+    "writes": [
+      2,
+      0
+    ],
+    "expected": {
+      "output_hex": "6162",
+      "status": 2,
+      "consumed": 4,
+      "read_calls": 1,
+      "write_calls": 2
+    }
+  },
+  {
+    "name": "short_read_then_error",
+    "input_hex": "616263646566",
+    "reads": [
+      2,
+      -1
+    ],
+    "writes": [],
+    "expected": {
+      "output_hex": "6162",
+      "status": 1,
+      "consumed": 2,
+      "read_calls": 2,
+      "write_calls": 1
+    }
+  },
+  {
+    "name": "short_writes_exhaust_default",
+    "input_hex": "6162636465",
+    "reads": [],
+    "writes": [
+      1,
+      1
+    ],
+    "expected": {
+      "output_hex": "6162636465",
+      "status": 0,
+      "consumed": 5,
+      "read_calls": 2,
+      "write_calls": 3
+    }
+  },
+  {
+    "name": "schedules_consumed_per_call",
+    "input_hex": "616263646566",
+    "reads": [
+      2,
+      1
+    ],
+    "writes": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "expected": {
+      "output_hex": "616263646566",
+      "status": 0,
+      "consumed": 6,
+      "read_calls": 4,
+      "write_calls": 5
+    }
+  },
+  {
+    "name": "binary_boundary_33",
+    "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+    "reads": [],
+    "writes": [
+      31,
+      1
+    ],
+    "expected": {
+      "output_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+      "status": 0,
+      "consumed": 33,
+      "read_calls": 3,
+      "write_calls": 3
+    }
+  },
+  {
+    "name": "clipped_quota",
+    "input_hex": "616263",
+    "reads": [
+      1000000
+    ],
+    "writes": [
+      1000000
+    ],
+    "expected": {
+      "output_hex": "616263",
+      "status": 0,
+      "consumed": 3,
+      "read_calls": 2,
+      "write_calls": 1
+    }
+  },
+  {
+    "name": "unused_error_on_no_write",
+    "input_hex": "",
+    "reads": [],
+    "writes": [
+      -1
+    ],
+    "expected": {
+      "output_hex": "",
+      "status": 0,
+      "consumed": 0,
+      "read_calls": 1,
+      "write_calls": 0
+    }
+  }
+]

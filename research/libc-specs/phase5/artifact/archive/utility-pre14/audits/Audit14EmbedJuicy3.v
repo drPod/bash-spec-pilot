@@ -1,0 +1,4 @@
+Require Import EmbedJuicy3.
+Print Assumptions relay_read_call_iow_dry_post.
+Print Assumptions relay_write_call_iow_dry_post.
+Check relay_read_call_iow_dry_post.

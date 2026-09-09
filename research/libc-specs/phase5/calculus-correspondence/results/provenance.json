@@ -1,0 +1,278 @@
+[
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "deep_set",
+    "calculus_md5": "f0f48fd64992a5e2f784622796bcb348"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "deep_clear",
+    "calculus_md5": "b8c67744ff6ad069efdab64e0f0e40f6"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "deep_touch_keeps",
+    "calculus_md5": "a4c7a5331fab1a81f258797255054b9c"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "deep3",
+    "calculus_md5": "6a0eef293adf44a89d1e3cca4df6e9cc"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "missing_parent",
+    "calculus_md5": "36ce0a944aa717ec19fff3f1f2c7dc3f"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "cleared_then_read",
+    "calculus_md5": "08f88e3e7ce74f77c04f8df91a556d40"
+  },
+  {
+    "file": "fixtures/v2/nested_state.sc",
+    "batch": "nested_state",
+    "fn": "wrong_order_probe",
+    "calculus_md5": "3fd598c712fb2107d38c27ece3ce96a2"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "carrier_max",
+    "calculus_md5": "e7263bf56cd9b70397d6c34e3a808fe9"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "overflow_add",
+    "calculus_md5": "5f705a8141568ae7c1e2b886cfec6a8d"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "overflow_sub",
+    "calculus_md5": "ec34e17cf81bbe19a2b0d6c3608481af"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "overflow_mul",
+    "calculus_md5": "2a512b4cc338ebca491eddcd324561b5"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "overflow_neg",
+    "calculus_md5": "8d85159c466909e1d6fe8691955ea387"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "div_trunc",
+    "calculus_md5": "d0a2002886346cf35515d59a3d1eeaea"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "mod_sign",
+    "calculus_md5": "0af5ffb9ccbcf4dcaf75f3e6260e2850"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "div_zero",
+    "calculus_md5": "6f4cf7cba380728de6921f1881f6f26b"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_ok",
+    "calculus_md5": "19225d18a9c5916fe97dfaabad222858"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_overflow_runtime",
+    "calculus_md5": "04f1b17399bc40f3dbde84a976456133"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_local_annot",
+    "calculus_md5": "ad8243a20564732509c9c7c1daa2f4a0"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_local_annot_trap",
+    "calculus_md5": "10b19bbe6b6aed9b85446996e182b550"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_param",
+    "calculus_md5": "2acd124049852d9f93d4d72d1174c8b9"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_param_ok",
+    "calculus_md5": "0b3d0e6edf324089533d1ea4f9e79259"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u8_param_trap",
+    "calculus_md5": "088dd89bb729c176f756a72ca2a95150"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "u64_negative_trap",
+    "calculus_md5": "d9ebf1a1a68a65ff5a5686ff29328258"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "ret_u8_trap",
+    "calculus_md5": "a4e29138b58a2d99c6206d1178146491"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "ret_u8_ok",
+    "calculus_md5": "2b6e98de0b98d1921f79db8d6a26f457"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "typed_literal_widths",
+    "calculus_md5": "5f8d1c0d081f5985c2bcd455d6aa5369"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "big_attr",
+    "calculus_md5": "2a83105be3bb5556ab9fd38a117572d8"
+  },
+  {
+    "file": "fixtures/v2/finite_ints.sc",
+    "batch": "finite_ints",
+    "fn": "char_lit",
+    "calculus_md5": "fb8120b01a527bc56017acd572244e23"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "read_block",
+    "calculus_md5": "243422966bb984a221f9c15247afcbc7"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "write_block",
+    "calculus_md5": "8edd28d85d6d5bc5585a4582a39df5fe"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay",
+    "calculus_md5": "6117d0a820fb29fbc276ca792799d2d0"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay_raising",
+    "calculus_md5": "7a4f03ca541f1bc209f45bfbf53d9480"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay_caught",
+    "calculus_md5": "662df1a951bd29c5d93eb3b24956d9a8"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "mark",
+    "calculus_md5": "2edfebc878aea9849d8935df0f537277"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay_seq_relay",
+    "calculus_md5": "a7bd36cd7f250f7d0357220746bace60"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay_and_mark",
+    "calculus_md5": "5a972d63caae0e306d6f6b42bc405e47"
+  },
+  {
+    "file": "fixtures/byte_relay_exec.sc",
+    "batch": "byte_relay_exec",
+    "fn": "relay_or_mark",
+    "calculus_md5": "146d70b0a39e80ea73a5093ab6c4ebd1"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "read_block",
+    "calculus_md5": "243422966bb984a221f9c15247afcbc7"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "write_block",
+    "calculus_md5": "8edd28d85d6d5bc5585a4582a39df5fe"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay",
+    "calculus_md5": "e65ee28bb635237870bf7378ddff2fef"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay_raising",
+    "calculus_md5": "dfee205675033248dc67f7c6ef13d061"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay_caught",
+    "calculus_md5": "662df1a951bd29c5d93eb3b24956d9a8"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "mark",
+    "calculus_md5": "2edfebc878aea9849d8935df0f537277"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay_seq_relay",
+    "calculus_md5": "a7bd36cd7f250f7d0357220746bace60"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay_and_mark",
+    "calculus_md5": "5a972d63caae0e306d6f6b42bc405e47"
+  },
+  {
+    "file": "fixtures/byte_relay_exec_typed.sc",
+    "batch": "byte_relay_exec_typed",
+    "fn": "relay_or_mark",
+    "calculus_md5": "146d70b0a39e80ea73a5093ab6c4ebd1"
+  }
+]

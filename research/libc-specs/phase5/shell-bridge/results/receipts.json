@@ -1,0 +1,313 @@
+{
+ "date": "2026-09-07",
+ "checker": "Coq 8.20.1 in phase5-vst (CompCert 3.15, VST 2.15) via run_vst.py",
+ "final_chain_runs": {
+  "Shell.v": {
+   "receipt": "shell-bridge-final-Shell",
+   "elapsed_seconds": 0.66,
+   "peak_rss_kib": 485660
+  },
+  "Parse.v": {
+   "receipt": "shell-bridge-final-Parse",
+   "elapsed_seconds": 0.65,
+   "peak_rss_kib": 482836
+  },
+  "Fixtures.v": {
+   "receipt": "shell-bridge-final-Fixtures",
+   "elapsed_seconds": 0.63,
+   "peak_rss_kib": 484900
+  },
+  "Bridge.v": {
+   "receipt": "shell-bridge-final-Bridge",
+   "elapsed_seconds": 0.49,
+   "peak_rss_kib": 434580
+  },
+  "RandomFixtures.v": {
+   "receipt": "shell-bridge-final-RandomFixtures",
+   "elapsed_seconds": 1.66,
+   "peak_rss_kib": 486660
+  },
+  "Lex.v": {
+   "receipt": "shell-bridge-final-Lex",
+   "elapsed_seconds": 0.61,
+   "peak_rss_kib": 483992
+  },
+  "ShellAudit.v": {
+   "receipt": "shell-bridge-final-ShellAudit",
+   "elapsed_seconds": 4.52,
+   "peak_rss_kib": 512956
+  }
+ },
+ "print_assumptions_closed": 44,
+ "print_assumptions_with_axioms": 0,
+ "bash_directed": {
+  "accepted": 29,
+  "accepted_disagreements": 0,
+  "rejected": 28,
+  "rejected_but_bash_n_accepts": 19
+ },
+ "bash_random": {
+  "count": 200,
+  "seed": 1,
+  "bash_version": "5.2.21(1)-release",
+  "coq_reproduces_all": true
+ },
+ "all_runs_including_failed_iterations": [
+  {
+   "name": "shell-bridge-coqc-1",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.58,
+   "peak_rss_kib": 484932,
+   "log_sha256": "824e2c1de0456c354c8c14edcbaa0cb260fce3c1e229a8892a5b677c8b3aacf1"
+  },
+  {
+   "name": "shell-bridge-coqc-2",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.62,
+   "peak_rss_kib": 485324,
+   "log_sha256": "3896f3c8119e52156d7da050cad7990e3f9b126561186fa4040ff028ba1e3359"
+  },
+  {
+   "name": "shell-bridge-coqc-3",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.63,
+   "peak_rss_kib": 485200,
+   "log_sha256": "f6efcade7a9097ed5f954b93a9ebf7865967ca39586b427a213c454387dd781b"
+  },
+  {
+   "name": "shell-bridge-coqc-4",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.65,
+   "peak_rss_kib": 485968,
+   "log_sha256": "8c3f7df5faadcc55b8d49f67a1c26dad8b82c0734b483564f0108e2a3e40ed61"
+  },
+  {
+   "name": "shell-bridge-coqc-5",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.74,
+   "peak_rss_kib": 485892,
+   "log_sha256": "ae6e42efdd72222a0ac81575db53de587f5e9444d512489eebeede84bbbd081b"
+  },
+  {
+   "name": "shell-bridge-coqc-6",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.67,
+   "peak_rss_kib": 486024,
+   "log_sha256": "53f15b06451174a0b6754fc51975013d1972093854a37b8f11a6271b953aed8a"
+  },
+  {
+   "name": "shell-bridge-coqc-7",
+   "file": "Shell.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.66,
+   "peak_rss_kib": 485776,
+   "log_sha256": "6c91239f903f4bec2a68cd3846c7f6605d68ba94c893711796eb877226d647a3"
+  },
+  {
+   "name": "shell-bridge-coqc-8",
+   "file": "Shell.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.69,
+   "peak_rss_kib": 485652,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-parse-coqc-1",
+   "file": "Parse.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.46,
+   "peak_rss_kib": 413064,
+   "log_sha256": "0dcfeb03145ad265eae0794ffab893389daeefa5268fb0bc69a4477a49998e63"
+  },
+  {
+   "name": "shell-bridge-parse-coqc-2",
+   "file": "Parse.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.59,
+   "peak_rss_kib": 482572,
+   "log_sha256": "1ae8fb5ead13d33f8a29e74da3944e51dc95d48720bd47c70b2196b18c9f77aa"
+  },
+  {
+   "name": "shell-bridge-parse-coqc-3",
+   "file": "Parse.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.66,
+   "peak_rss_kib": 482760,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-fixtures-coqc-1",
+   "file": "Fixtures.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.63,
+   "peak_rss_kib": 484484,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-audit-1",
+   "file": "ShellAudit.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.4,
+   "peak_rss_kib": 356488,
+   "log_sha256": "a2dec664c2fb14f9438d0e94c32cabebf74056be0ac4fa039198e63a50d8e3fd"
+  },
+  {
+   "name": "shell-bridge-audit-2",
+   "file": "ShellAudit.v",
+   "exit_status": 0,
+   "elapsed_seconds": 3.25,
+   "peak_rss_kib": 508556,
+   "log_sha256": "61ebd3ba464fed790c60c214851c1d94b3911f027f340c45de86258358f982ed"
+  },
+  {
+   "name": "shell-bridge-bridge-coqc-1",
+   "file": "Bridge.v",
+   "exit_status": 1,
+   "elapsed_seconds": 0.57,
+   "peak_rss_kib": 484424,
+   "log_sha256": "3fcada7cdfedcc16854db9dd1715d9a9f03e522d2bbadbc3e1e338be5c514f39"
+  },
+  {
+   "name": "shell-bridge-bridge-coqc-2",
+   "file": "Bridge.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.51,
+   "peak_rss_kib": 434060,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-audit-3",
+   "file": "ShellAudit.v",
+   "exit_status": 0,
+   "elapsed_seconds": 4.68,
+   "peak_rss_kib": 512956,
+   "log_sha256": "a4bc3dc01618496cbeac7b6a2a411b033f750c1c3f3616e0e4cb45aa2f094575"
+  },
+  {
+   "name": "shell-bridge-random-coqc-1",
+   "file": "RandomFixtures.v",
+   "exit_status": 0,
+   "elapsed_seconds": 1.62,
+   "peak_rss_kib": 486744,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-audit-4",
+   "file": "ShellAudit.v",
+   "exit_status": 0,
+   "elapsed_seconds": 4.66,
+   "peak_rss_kib": 513212,
+   "log_sha256": "239aaa59e090af82fee7252d7013446118a468903f158429f9d2c7bef70be00a"
+  },
+  {
+   "name": "shell-bridge-lex-coqc-1",
+   "file": "Lex.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.62,
+   "peak_rss_kib": 483464,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-audit-5",
+   "file": "ShellAudit.v",
+   "exit_status": 0,
+   "elapsed_seconds": 4.74,
+   "peak_rss_kib": 513084,
+   "log_sha256": "fe472fa0f5bd7f0d315079da45448009b96689396df4b5784c9f531d97d59fd0"
+  },
+  {
+   "name": "shell-bridge-final-Shell",
+   "file": "Shell.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.66,
+   "peak_rss_kib": 485660,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-Parse",
+   "file": "Parse.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.65,
+   "peak_rss_kib": 482836,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-Fixtures",
+   "file": "Fixtures.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.63,
+   "peak_rss_kib": 484900,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-Bridge",
+   "file": "Bridge.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.49,
+   "peak_rss_kib": 434580,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-RandomFixtures",
+   "file": "RandomFixtures.v",
+   "exit_status": 0,
+   "elapsed_seconds": 1.66,
+   "peak_rss_kib": 486660,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-Lex",
+   "file": "Lex.v",
+   "exit_status": 0,
+   "elapsed_seconds": 0.61,
+   "peak_rss_kib": 483992,
+   "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "shell-bridge-final-ShellAudit",
+   "file": "ShellAudit.v",
+   "exit_status": 0,
+   "elapsed_seconds": 4.52,
+   "peak_rss_kib": 512956,
+   "log_sha256": "fe472fa0f5bd7f0d315079da45448009b96689396df4b5784c9f531d97d59fd0"
+  }
+ ],
+ "source_sha256": {
+  "Shell.v": "dbf72d607d46ef37ffbb992271781d26133a055b7bf219cca5fadff19076c8af",
+  "Parse.v": "c25385f59fddf0f08c4731f2dadd2aa5c09b3737bc2209526b766f6a73a3613e",
+  "Lex.v": "9b1997bc9ad70e79a6acca5c188d0bdb81c8a551a94cf408ef4069519a3a5d0d",
+  "Fixtures.v": "28c9e797a1a34c720207b1927906719e5a0dda7f7811850695d26638f6ea9f08",
+  "Bridge.v": "b81849cf2f5660c41a2120e2caca1d76be5992726ce3b8dcde683d04d0cecbae",
+  "RandomFixtures.v": "fcf4e5618abb3ab4486c11e659667f7630be0b496852649770749527f2b5ef78",
+  "ShellAudit.v": "e899fd25071b732e0435b193a68c674c575ba7080638f72c445c07b75a54152a",
+  "text_fixtures.json": "7d4834a5a4506c0277188f1a2dedb1bf8c77bf26e0073e4307aa8ea31f04da14",
+  "validate_text.py": "96db1cf948b098e4ff4ffb21a63325d68c197ae758003d9cf26c589cc912ef10"
+ },
+ "relay_dependency_sha256": {
+  "Protocol.v": "1f5b6364d0933dfe4ca23a18d5e666aafabde9aade6d567b22fbabac0660da4d",
+  "Reach.v": "24b5d01b171c34f509b13ae813b1487c914e05f03581de3cb5a184846979a98b",
+  "ReachExamples.v": "459a65ed55cfac11c4a693ecdb6d71ea0e7439617248a50d8bdf1629ae390344",
+  "Conservation.v": "3ff4b6385a070652af2d6fd8e442d2bb4c79656a838cf2dd4cecfbdbcabdffc7",
+  "Specs.v": "b1c6b3bc0aaba46a4c0a3dfee31c0cbf3948a07505a53080e196d1e1296f4359"
+ },
+ "container_vo_sha256": {
+  "/home/coq/phase5/shell-bridge/Bridge.vo": "14fa502756756eb56f667ef0b77c93040d3abf5685f6a640e1484c1bf1528c6f",
+  "/home/coq/phase5/shell-bridge/Fixtures.vo": "03a96fbba8c847649c04067d63c913e09ed63d21a413f8df1d35067e581865e7",
+  "/home/coq/phase5/shell-bridge/Lex.vo": "7e49ffb2cd476d987428777fa500d778d0b6ea3817210b70e38e71cc4ca98a39",
+  "/home/coq/phase5/shell-bridge/Parse.vo": "7246ed6a73df2770583e55d7feadcd06b0b4ba8eafe44fae0177e57f662f4417",
+  "/home/coq/phase5/shell-bridge/RandomFixtures.vo": "5e650c921aca96f3898f17c04873f030469aa4e9fc5886846d7a8c9d73b7ff78",
+  "/home/coq/phase5/shell-bridge/Shell.vo": "7be5dd5171d5744bc0a80ff878758567a086c2e5d3c9c6d84b731c7ffe592cfe",
+  "/home/coq/phase5/shell-bridge/ShellAudit.vo": "ed31d872a3c5b90effb1c8386ac6aed92eba98f5809c3572d32694e2e9163506",
+  "/home/coq/phase5/relay/Protocol.vo": "ec8648b8a6d4921150a1ca0bdcc7e5843323b622b09c9abbc53d5ac27689f95c",
+  "/home/coq/phase5/relay/Reach.vo": "fb4b61c45b41f55deeec9eba32f8eb38fb1601d6b2d3bdbfc7d2d0790df30948",
+  "/home/coq/phase5/relay/ReachExamples.vo": "9c4d5f6f6d1636c1221b10c41e2ec196f533f7d38ee03337c8adbbc6873049c1",
+  "/home/coq/phase5/relay/Conservation.vo": "e597bab82a4f229cb04c8e99fff1223f780311a4429e8dd259e5ac2b4ecb225a"
+ },
+ "scope": "Command receipts and hashes; theorem statements are in the .v files; see README.md for what is and is not established."
+}

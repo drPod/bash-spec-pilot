@@ -1,0 +1,439 @@
+{
+  "phase": "2026-09-07 byte/memory/refinement pilot",
+  "proof_checks": {
+    "scope": "reviewed mathematical models; no C compiler or kernel conformance proof",
+    "lean_version": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)",
+    "measurements": {
+      "byte_build": {
+        "elapsed_seconds": 2.44,
+        "peak_rss_kb": 541056,
+        "driver_elapsed_seconds": 2.451,
+        "exit_code": 0,
+        "axioms": {
+          "RawWc.wcProg_raw": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.liftByte_newline": [
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.count_liftBytes": [
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.runBytes_correct": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.runBytes_append": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.no_line_factorization": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      },
+      "byte_kernel": {
+        "elapsed_seconds": 0.63,
+        "peak_rss_kb": 506640,
+        "driver_elapsed_seconds": 0.634,
+        "exit_code": 0,
+        "axioms": {
+          "RawWc.wcProg_raw": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.liftByte_newline": [
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.count_liftBytes": [
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.runBytes_correct": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.runBytes_append": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "RawWc.no_line_factorization": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      },
+      "MemoryTransfer": {
+        "elapsed_seconds": 0.77,
+        "peak_rss_kb": 790444,
+        "driver_elapsed_seconds": 0.779,
+        "exit_code": 0,
+        "axioms": {
+          "MemoryTransfer.load_store": [
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.load_store_disjoint": [
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.success_bounds": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.success_contract": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.read_emit_observation": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.relay_contract": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.relays_observation": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.relays_conservation": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.ready_relay_exists": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.store_frame": [
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.invalid_is_ub": [
+            "propext"
+          ],
+          "MemoryTransfer.error_preserves_state": [
+            "propext"
+          ],
+          "MemoryTransfer.Examples.short_binary_read": [],
+          "MemoryTransfer.Examples.exhausted_input_read": [],
+          "MemoryTransfer.Examples.foreign_pointer_ub": [],
+          "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+          "MemoryTransfer.Examples.one_past_zero": [],
+          "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+          "MemoryTransfer.Examples.error_has_no_effect": [],
+          "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+          "MemoryTransfer.store_at": [
+            "propext"
+          ],
+          "MemoryTransfer.amount_bounds": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryTransfer.read": [],
+          "MemoryTransfer.emit": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      },
+      "CounterRefinement": {
+        "elapsed_seconds": 0.47,
+        "peak_rss_kb": 779284,
+        "driver_elapsed_seconds": 0.476,
+        "exit_code": 0,
+        "axioms": {
+          "CounterRefinement.step": [],
+          "CounterRefinement.run": [],
+          "CounterRefinement.run_value": [
+            "propext"
+          ],
+          "CounterRefinement.run_append": [],
+          "CounterRefinement.run_from_nat": [
+            "propext"
+          ],
+          "CounterRefinement.no_overflow_refinement": [
+            "propext"
+          ],
+          "CounterRefinement.zero_start_refinement": [
+            "propext"
+          ],
+          "CounterRefinement.prefix_stream_refinement": [
+            "propext"
+          ],
+          "CounterRefinement.counter8_255": [
+            "Quot.sound",
+            "propext"
+          ],
+          "CounterRefinement.counter8_256": [
+            "Quot.sound",
+            "propext"
+          ],
+          "CounterRefinement.counter8_wrap_gap": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      },
+      "MemoryCounterComposition": {
+        "elapsed_seconds": 0.36,
+        "peak_rss_kb": 755036,
+        "driver_elapsed_seconds": 0.371,
+        "exit_code": 0,
+        "axioms": {
+          "MemoryCounterComposition.relay_modular_count": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ],
+          "MemoryCounterComposition.relay_no_overflow_count": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      }
+    },
+    "sources": {
+      "byte-experiment/RawWc.lean": "84deadfa61d78b75a4247000deabe0b667de29f3547850dad715d2dbddda5825",
+      "byte-experiment/Main.lean": "78c03a98fcb020de431c981a4f02acc984485ceaac2e04424519506bbd8315ff",
+      "byte-experiment/lakefile.toml": "4fbd48321c822612129e461deb715279da25756ec27a76fba66e464bec1d701f",
+      "byte-experiment/lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+      "example/WcFromC.lean": "8fd46fcb36db4e80c3de70981529b83e6b6531d9bf6f7952165be43e9bc10030",
+      "memory-experiment/MemoryTransfer.lean": "015e775cdd77680bea9c6fba1c0defefe46b914ce2befc1b3a862eb33ecf341a",
+      "memory-experiment/CounterRefinement.lean": "8f8fea7f37fb4a457ce3c3e865da452f43a838de45ab563c28f4512be9574bbb",
+      "memory-experiment/MemoryCounterComposition.lean": "f199dd04c6a1daea0168ab981c474b4a746fdeb0d73106bd023646a99bcb181c"
+    }
+  },
+  "differential": {
+    "meta": {
+      "script_sha256": "8d609136a028446634f601a70ec29c4ea504e4a5a24671396020e294e42117cc",
+      "timestamp_utc": "2026-09-07T01:31:34Z",
+      "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "model_sha256": "87267320a0ea9925f6a360e7017d5ceb0aa346f835b39fa46cb7f04f042daae9",
+      "model_size": 4221664,
+      "c_source_sha256": "e2bbd1e31aadfc60b2ba1f8d2fcb5d90b0b15a688c519e3b67615bdc5a8c7197",
+      "cc": "/usr/bin/cc",
+      "cc_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "wc": "/usr/bin/wc",
+      "wc_version": "wc (GNU coreutils) 9.4",
+      "wc_is_gnu": true,
+      "time_binary": "/usr/bin/time",
+      "time_version": "time (GNU Time) UNKNOWN",
+      "old_model_sha256": "493f085c291155fa02f0a50d022c16115477199cab579c327982f690259e4425",
+      "source_hashes": {
+        "WcFromC.lean": "8fd46fcb36db4e80c3de70981529b83e6b6531d9bf6f7952165be43e9bc10030",
+        "RawWc.lean": "84deadfa61d78b75a4247000deabe0b667de29f3547850dad715d2dbddda5825",
+        "Main.lean": "78c03a98fcb020de431c981a4f02acc984485ceaac2e04424519506bbd8315ff"
+      }
+    },
+    "compile": {
+      "returncode": 0,
+      "elapsed_s": 0.03,
+      "peak_rss_kib": 22528,
+      "stderr": "",
+      "binary_sha256": "53f46a18836fba243e0f84d3bd1e8ac2104add2940bdc10f3a644de5b1b5d6bb"
+    },
+    "summary": {
+      "verdict": "PASS",
+      "cases": 1000,
+      "by_category": {
+        "directed": 38,
+        "exhaustive": 596,
+        "random": 366
+      },
+      "seed": 20260907,
+      "corpus_sha256": "60ea637e14f0e0547ee4106a49819abfc0d8d7d106e88d2c4bee6e5a8458e82e",
+      "subjects": {
+        "rawwc": {
+          "pass": 1000,
+          "fail": 0,
+          "elapsed_s": 4.539
+        },
+        "c_wc": {
+          "pass": 1000,
+          "fail": 0,
+          "elapsed_s": 0.71
+        },
+        "gnu_wc": {
+          "pass": 1000,
+          "fail": 0,
+          "elapsed_s": 1.969
+        },
+        "old_line_shim": {
+          "pass": 0,
+          "fail": 0,
+          "elapsed_s": 4.537
+        }
+      },
+      "mismatch_count": 0,
+      "old_line_shim": {
+        "agree_with_byte_count": 192,
+        "collision_plus_one": 221,
+        "invalid_utf8_exception": 587,
+        "prediction_mismatch": 0,
+        "other": 0,
+        "examples": [
+          {
+            "name": "single_byte_no_nl",
+            "input": "a",
+            "byte_count": 0,
+            "old_shim_stdout": "1\n"
+          },
+          {
+            "name": "two_lines_missing_final_nl",
+            "input": "a\nb",
+            "byte_count": 1,
+            "old_shim_stdout": "2\n"
+          },
+          {
+            "name": "nul_only",
+            "input": "\u0000",
+            "byte_count": 0,
+            "old_shim_stdout": "1\n"
+          },
+          {
+            "name": "nul_inside_lines",
+            "input": "a\u0000b\nc\u0000\n\u0000",
+            "byte_count": 2,
+            "old_shim_stdout": "3\n"
+          },
+          {
+            "name": "nul_run_1k",
+            "input": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+            "byte_count": 0,
+            "old_shim_stdout": "1\n"
+          },
+          {
+            "name": "valid_utf8_no_final_nl",
+            "input": "\u00c3\u00bcn\u00c3\u00afc\u00c3\u00b6d\u00c3\u00a9",
+            "byte_count": 0,
+            "old_shim_stdout": "1\n"
+          }
+        ]
+      },
+      "observation_contract": "run subject with stdin=case bytes (GNU wc with argv ['-l']); PASS iff raw stdout == str(bytes.count(10)).encode()+b'\\n' and stderr == b'' and exit status == 0"
+    },
+    "long_inputs": {
+      "long_line_1MiB_no_nl": {
+        "rawwc": {
+          "elapsed_s": 0.18,
+          "peak_rss_kib": 139568
+        },
+        "c_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 1536
+        },
+        "gnu_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 2176
+        },
+        "old_line_shim": {
+          "elapsed_s": 0.24,
+          "peak_rss_kib": 164148
+        }
+      },
+      "long_newlines_1MiB": {
+        "rawwc": {
+          "elapsed_s": 0.15,
+          "peak_rss_kib": 107060
+        },
+        "c_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 1536
+        },
+        "gnu_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 2176
+        },
+        "old_line_shim": {
+          "elapsed_s": 0.25,
+          "peak_rss_kib": 134148
+        }
+      },
+      "long_seq_1_to_200000": {
+        "rawwc": {
+          "elapsed_s": 0.15,
+          "peak_rss_kib": 78384
+        },
+        "c_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 1536
+        },
+        "gnu_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 2176
+        },
+        "old_line_shim": {
+          "elapsed_s": 0.26,
+          "peak_rss_kib": 82296
+        }
+      },
+      "long_random_1MiB": {
+        "rawwc": {
+          "elapsed_s": 0.12,
+          "peak_rss_kib": 57804
+        },
+        "c_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 1536
+        },
+        "gnu_wc": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 2176
+        },
+        "old_line_shim": {
+          "elapsed_s": 0.0,
+          "peak_rss_kib": 12716
+        }
+      }
+    },
+    "mismatches": []
+  },
+  "checker_regression": {
+    "positive": {
+      "build_ok": true,
+      "axioms_ok": true,
+      "diff": {
+        "passed": 200,
+        "trials": 200
+      },
+      "secs": {
+        "build": 2.0,
+        "diff": 1.1
+      }
+    },
+    "negative": {
+      "guard_hits": [
+        "implemented_by"
+      ],
+      "build_ok": null,
+      "axioms_ok": null,
+      "diff": null
+    },
+    "source_sha256": "eaf1a0a7167f1a0f2cadcce8e728a0a3b2c0dbd33687df344a8c33a00695d931"
+  },
+  "scope": "Model proofs and finite normal-I/O agreement; no verified C translation or GNU/Bash correctness."
+}

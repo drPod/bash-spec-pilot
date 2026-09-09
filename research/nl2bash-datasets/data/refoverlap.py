@@ -1,9 +1,4 @@
-"""Print every dataset's overlap against the five canonical NL->Bash corpora.
-
-Each cell is containment: the share of the dataset's own unique commands that appear in that
-reference. Rows are sorted by worst case, so remixes surface at the top and the genuinely
-independent corpora fall to the bottom.
-"""
+"""Report containment of each dataset in five reference corpora, sorted by maximum overlap."""
 from resload import load
 res=load()
 sets={k:set(v["hashes"]) for k,v in res.items() if v.get("hashes") and len(v["hashes"])>20}

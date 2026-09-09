@@ -1,0 +1,8 @@
+--- src/state_based/bash-verifier/dune-project	2026-09-07 08:09:02.708171153 +0000
++++ build/bash-verifier/dune-project	2026-09-07 08:13:23.103459914 +0000
+@@ -1,4 +1,4 @@
+-(lang dune 3.23)
++(lang dune 3.21)
+ 
+ (name bash-verifier)
+ 

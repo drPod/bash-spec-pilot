@@ -1,0 +1,36 @@
+{
+  "hosted_total": 300,
+  "hosted_all_private": true,
+  "local_nodes": 2372,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "phase5/root158",
+      "hosted_id": "87e11972-7f20-4209-859e-57a87ad94b15",
+      "hosted_hash": "e5724d87c3eff7f84bccb538b762d4fd52795349b4d754308066791b5b944747",
+      "private": true,
+      "local_id": "4691683d5801127d",
+      "content_sha256": "f4df14b914cb07b4b4f01d4c92b459798c5143afbed6a5c0e23ae4600140c4e5",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root162",
+      "hosted_id": "16b0c595-3a26-40e3-b07e-8c3f8f77f8ee",
+      "hosted_hash": "0b924d5991cb0c4791c1dc8946ed8c2171b6a68c7c5dd582dc2cfa55dd0ccfce",
+      "private": true,
+      "local_id": "0192f7672261226c",
+      "content_sha256": "03215f7bd6626e50014cccec9cd79b3b071279d14bed973a6ab54f0d1d560805",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root164",
+      "hosted_id": "0b628aa8-0a76-4b4a-8fc8-de9d1bf9759a",
+      "hosted_hash": "35d11ed3e014a156e3982bc92a58dc8e4967db08004d0cf1697b04fe25cc70cf",
+      "private": true,
+      "local_id": "d5193e9ad056422c",
+      "content_sha256": "41e454610e46690daf6f205005468e2279d120d914af25c5cf1d778fd3f68e0c",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Three accepted artifact milestones158/162/164. Shared integration and final full-manifest replay remain open."
+}

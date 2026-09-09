@@ -1,0 +1,8 @@
+import CalculusTokenizeRelayChars
+open CalculusTokenize CalculusTokenizeRelayChars
+namespace CalculusTokenizeRelayCharsSuf
+set_option maxRecDepth 100000
+theorem calculustokenizerelaychars_s0_tok_len :
+    tokenizeT (calculustokenizerelaychars_s0.length + 1) calculustokenizerelaychars_s0 = some calculustokenizerelaychars_st0 :=
+  tokenizeT_sufficient 924 calculustokenizerelaychars_s0 calculustokenizerelaychars_st0 calculustokenizerelaychars_s0_tok
+end CalculusTokenizeRelayCharsSuf

@@ -1,14 +1,6 @@
-"""Is BashBench 2026's FuncRate a function of the generated code at all?
+"""Check whether func_pass agrees across models when candidate extraction succeeds.
 
-Static reading of the shipped harness says no: `execute_test_script` writes the candidate to
-`solution.sh` and then runs `test.sh`, but no test script in the release references solution.sh.
-That predicts something falsifiable in the already-released per-task results:
-
-    among models whose code was successfully EXTRACTED for a given task, func_pass should be
-    the SAME for every model -- because the thing being executed is the same either way.
-
-A real functional test would produce the opposite: weak models failing tasks strong models pass.
-"""
+The released test scripts never invoke solution.sh, so candidate code should not affect the result."""
 import glob, json, os, re, collections
 
 FILES = sorted(glob.glob("ml_base_full/*.json")) + ["testres_ml/multiline_eval_20251115_124953_20260123_033003.json"]
@@ -26,7 +18,6 @@ print(f"{len(models)} models x 179 tasks\n")
 ids = sorted(set.intersection(*[set(m) for m in models.values()]))
 NO_CODE = "No code to execute"
 
-# Per task: among models where extraction produced code, do they agree on func_pass?
 agree = disagree = 0
 disagreements = []
 for sid in ids:
@@ -53,7 +44,6 @@ print(f"  any disagreement                  : {disagree}/{tot} = {100*disagree/t
 print("\n  A functional test of the generated code cannot look like this: a 3B model and a 32B")
 print("  model do not write the same script, so they should not get the same verdict.\n")
 
-# What DOES vary between models is whether code could be extracted at all.
 print("=" * 92)
 print("What actually drives the reported FuncRate")
 print("=" * 92)
@@ -66,7 +56,6 @@ for mn, m in sorted(models.items(), key=lambda kv: -sum(bool(r.get('func_pass'))
     cond = 100 * sum(bool(r.get("func_pass")) for r in ext) / len(ext) if ext else 0
     print(f"  {mn:<34s}{100*len(ext)/n:>10.1f}%{100*fp/n:>9.1f}%{cond:>15.1f}%")
 
-# The tasks that fail: same ones for everyone?
 fail_sets = {}
 for mn, m in models.items():
     fail_sets[mn] = {sid for sid, r in m.items()

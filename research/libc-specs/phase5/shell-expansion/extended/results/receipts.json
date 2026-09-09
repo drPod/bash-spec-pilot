@@ -1,0 +1,28 @@
+{
+  "container": "phase5-vst",
+  "workdir": "/home/coq/phase5/shell-expansion8",
+  "compile_command_template": "coqc -Q /home/coq/phase5/relay \"\" -Q /home/coq/phase5/shell-bridge \"\" <file>.v",
+  "note": "shell-expansion/{Pipeline,Bridge2,Redirect,ParseExpansion}.v are the frozen shell-expansion-4 files, recompiled fresh (unmodified) in this job's own container directory to establish Compose.v's dependency chain under this job's own receipts, not reused from shell-expansion4's compiled state.",
+  "receipts": [
+    {"name": "shellexp8-Pipeline-v1", "file": "Pipeline.v", "exit_status": 0, "elapsed_seconds": 0.64, "peak_rss_kib": 484708},
+    {"name": "shellexp8-Bridge2-v1", "file": "Bridge2.v", "exit_status": 0, "elapsed_seconds": 0.48, "peak_rss_kib": 423392},
+    {"name": "shellexp8-Redirect-v1", "file": "Redirect.v", "exit_status": 0, "elapsed_seconds": 0.6, "peak_rss_kib": 484240},
+    {"name": "shellexp8-ParseExpansion-v1", "file": "ParseExpansion.v", "exit_status": 0, "elapsed_seconds": 0.49, "peak_rss_kib": 438500},
+    {"name": "shellexp8-Compose-v16", "file": "Compose.v", "exit_status": 0, "elapsed_seconds": 1.14, "peak_rss_kib": 495728,
+     "note": "final accepted compile; v1-v15 and dbg1-dbg3 in the same runs directory are preserved, unmodified, earlier development iterations (compile errors / diagnostic idtac probes), not discarded"},
+    {"name": "shellexp8-ComposeAudit-v1", "file": "ComposeAudit.v", "exit_status": 0, "elapsed_seconds": 4.74, "peak_rss_kib": 521932,
+     "note": "30x Print Assumptions, every one 'Closed under the global context'"}
+  ],
+  "runs_directory": "~/agent-jobs/astra-research/phase5/runs/ (outside repo, per run_vst.py's own enforced rule)",
+  "grep_audit": "grep -rn Admitted|admit|Axiom|Parameter|Conjecture across Compose.v and ComposeAudit.v: no matches",
+  "bash_execution_validation": "results/bash_execution_validation.json (validate_extended.py, real bash + real relay binary, 12/12 agree)",
+  "clean_replay_from_scratch": {
+    "note": "container dir wiped (docker exec phase5-vst rm -rf .../shell-expansion8) and rebuilt from the repo .v files one at a time, in dependency order, to confirm the README's own Replay section actually works end to end (an earlier concurrent-loop attempt raced Bridge2 ahead of Pipeline.vo being written and failed; this sequential rerun is the one that counts)",
+    "receipts": [
+      {"name": "shellexp8-clean-Bridge2", "exit_status": 0, "elapsed_seconds": 0.49, "peak_rss_kib": 423532},
+      {"name": "shellexp8-clean-ParseExpansion", "exit_status": 0, "elapsed_seconds": 0.53, "peak_rss_kib": 438164},
+      {"name": "shellexp8-clean-Compose", "exit_status": 0, "elapsed_seconds": 1.15, "peak_rss_kib": 495600},
+      {"name": "shellexp8-clean-ComposeAudit", "exit_status": 0, "elapsed_seconds": 4.87, "peak_rss_kib": 521052, "result": "30x Closed under the global context"}
+    ]
+  }
+}

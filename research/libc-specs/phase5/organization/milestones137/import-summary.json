@@ -1,0 +1,36 @@
+{
+  "hosted_total": 296,
+  "hosted_all_private": true,
+  "local_nodes": 2368,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "phase5/root133",
+      "hosted_id": "c13e443c-c0c9-4acf-88f3-ba8be0f01785",
+      "hosted_hash": "781eba2f6bfc74fd23035e43a74b5f60bd0cc6e9fe91226769288e0c0bbe6270",
+      "private": true,
+      "local_id": "cc104e136d3e7152",
+      "content_sha256": "4cf3f74b7037240718e1be9ba0e93db793c722cb087bc19cd2caff7b1b95f44e",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root135",
+      "hosted_id": "826c94af-6634-426b-9773-a940f13c7cd3",
+      "hosted_hash": "ac8ca058af4e9354f309bea63392e3abdf13e632454b6e7a47b7dd2720ff38ae",
+      "private": true,
+      "local_id": "6d4f500624736524",
+      "content_sha256": "bdba195729e15dbbfdbb3d91076bb82fd113f8eb1586a0723af72a2052ac9270",
+      "local_get_verified": true
+    },
+    {
+      "marker": "phase5/root132",
+      "hosted_id": "dead8c7e-0283-4282-b5a5-3e5e09a71532",
+      "hosted_hash": "edf0769a6536dbd005a8264b67bfba01a7dd06971005785300c84d170351f025",
+      "private": true,
+      "local_id": "d9203bf9a4cda288",
+      "content_sha256": "10dc06c329a57882e1d561107b18910c92eb06761ce6a98e7e971a6b7eb6b74e",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Three bounded accepted milestones133/135/132. Final artifact and exact exception correspondence remain open."
+}

@@ -1,5 +1,7 @@
 # Research — active direction: proof-based verification with Lean
 
+**Current research paper:** [Using C Utility Implementations to Verify Shell Scripts (PDF)](libc-specs/phase5/evaluation/paper.pdf).
+
 This folder holds the new research direction for the project: verifying LLM-generated code
 against a specification with a proof assistant (Lean 4), instead of differential-testing
 against a real binary (the v1 approach, now inventoried in `../archive/`).
@@ -29,3 +31,7 @@ or `sudo`) is not written in Lean, so its semantics must first be modeled inside
   what is actually tractable for a first experiment.
 - `lean-verification/00_positioning_and_experiment.md` — synthesis: how this relates to
   Astrogator, SLMFix, and v1, plus a concrete first-experiment sketch. (Written last.)
+- `libc-specs/` — the 2026-08-27 direction: C source as the utility's specification, libc as
+  the formal trust boundary. Survey of existing libc specs (evidence matrix), a spec-generation
+  approach, and a checked `wc -l` example whose spec is a C program (passes `pipeline/check.py`).
+  Start with `libc-specs/README.md`.

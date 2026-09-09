@@ -1,0 +1,39 @@
+--- state.ml.pinned	2026-09-07 09:22:01.666616597 +0000
++++ build/bash-verifier/lib/calculus/state.ml	2026-09-07 09:22:01.688616580 +0000
+@@ -126,8 +126,11 @@
+           let attrs = AttrMap.add attr v attrs
+           in Some (State { attrs; elems })
+       | V.Nested (elem, v, n) ->
++          (* calculus-bytes private patch 2026-09-07: rebuild the enclosing state;
++             the pinned code returned the nested state as the whole state *)
+           let* st = ElemMap.find_opt (elem, v) elems
+-          in set st n
++          in let* st = set st n
++          in Some (State { attrs; elems = ElemMap.add (elem, v) st elems })
+     in set st where
+ 
+   let pos_elem st where elem v =
+@@ -136,8 +139,10 @@
+           let elems = ElemMap.add_if_absent (elem, v) empty_t elems
+           in Some (State { attrs; elems })
+       | V.Nested (elem, v, n) ->
++          (* calculus-bytes private patch 2026-09-07, see set_attr *)
+           let* st = ElemMap.find_opt (elem, v) elems
+-          in add st n
++          in let* st = add st n
++          in Some (State { attrs; elems = ElemMap.add (elem, v) st elems })
+     in add st where
+ 
+   let neg_elem st where elem v =
+@@ -146,8 +151,10 @@
+           let elems = ElemMap.remove (elem, v) elems
+           in Some (State { attrs; elems })
+       | V.Nested (elem, v, n) ->
++          (* calculus-bytes private patch 2026-09-07, see set_attr *)
+           let* st = ElemMap.find_opt (elem, v) elems
+-          in remove st n
++          in let* st = remove st n
++          in Some (State { attrs; elems = ElemMap.add (elem, v) st elems })
+     in remove st where
+ 
+   let get_attr st where attr (k : t * V.t -> 'a) ~failure =

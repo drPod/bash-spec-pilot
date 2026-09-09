@@ -1,0 +1,21 @@
+{"export_entry": "carrier_max", "outcome": "continue", "rc": 4611686018427387903, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "overflow_add", "outcome": "failure"}
+{"export_entry": "overflow_sub", "outcome": "failure"}
+{"export_entry": "overflow_mul", "outcome": "failure"}
+{"export_entry": "overflow_neg", "outcome": "failure"}
+{"export_entry": "div_trunc", "outcome": "continue", "rc": -3, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "mod_sign", "outcome": "continue", "rc": -1, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "div_zero", "outcome": "failure"}
+{"export_entry": "u8_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {"small": 255}, "elements": []}}
+{"export_entry": "u8_overflow_runtime", "outcome": "failure"}
+{"export_entry": "u8_local_annot", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "u8_local_annot_trap", "outcome": "failure"}
+{"export_entry": "u8_param", "outcome": "failure"}
+{"export_entry": "u8_param_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "u8_param_trap", "outcome": "failure"}
+{"export_entry": "u64_negative_trap", "outcome": "failure"}
+{"export_entry": "ret_u8_trap", "outcome": "failure"}
+{"export_entry": "ret_u8_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "typed_literal_widths", "outcome": "continue", "rc": 65662, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "big_attr", "outcome": "continue", "rc": -4611686018427387904, "state": {"attrs": {"big": -4611686018427387904}, "elements": []}}
+{"export_entry": "char_lit", "outcome": "continue", "rc": 33, "state": {"attrs": {}, "elements": []}}

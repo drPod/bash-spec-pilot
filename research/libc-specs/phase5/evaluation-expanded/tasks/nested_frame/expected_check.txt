@@ -1,0 +1,5 @@
+CalculusNested.setAttrAt_frame : ∀ (p : CalculusNested.Path) (st st' : CalculusNested.St) (a : String)
+  (x : CalculusNested.Val),
+  CalculusNested.setAttrAt p st a x = some st' →
+    ∀ (q : CalculusNested.Path) (b : String),
+      q ≠ p ∨ b ≠ a → CalculusNested.getAttrAt q st' b = CalculusNested.getAttrAt q st b

@@ -1,0 +1,1686 @@
+{
+  "schema": "phase2-evidence-v1",
+  "overall": "PASS",
+  "recorded_utc": "2026-09-07T02:52:13.838470+00:00",
+  "scope": "Pure Lean model checked; C parsing/lowering, native runtime, primitives and shell composition unverified.",
+  "translation_verified": false,
+  "host": "OVH, 4 vCPU / 8 GiB RAM, serial compilation and validation",
+  "toolchain": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)",
+  "python": "3.12.3",
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "binutils": "GNU nm (GNU Binutils for Ubuntu) 2.42",
+  "strace": "strace -- version 6.8",
+  "version_probe_note": "The standalone validator lean --version probe has no global elan default; the proof workspace explicitly pins Lean4.31.0.",
+  "measurements": {
+    "proof": {
+      "elapsed_seconds": 8.72,
+      "peak_rss_kib": 793008
+    },
+    "validation": {
+      "elapsed_seconds": 98.39,
+      "peak_rss_kib": 88968
+    }
+  },
+  "proof_measurements": {
+    "frontend_tests": {
+      "elapsed_seconds": 0.1,
+      "peak_rss_kib": 24512,
+      "exit_code": 0,
+      "axioms": {}
+    },
+    "build_MemoryTransfer_lean": {
+      "elapsed_seconds": 2.15,
+      "peak_rss_kib": 774704,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_MemoryTransfer_c": {
+      "elapsed_seconds": 0.44,
+      "peak_rss_kib": 111240,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_BufferRelay_lean": {
+      "elapsed_seconds": 2.35,
+      "peak_rss_kib": 793008,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_BufferRelay_c": {
+      "elapsed_seconds": 0.34,
+      "peak_rss_kib": 111248,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_GeneratedRelay_lean": {
+      "elapsed_seconds": 0.45,
+      "peak_rss_kib": 739592,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_GeneratedRelay_c": {
+      "elapsed_seconds": 0.14,
+      "peak_rss_kib": 111240,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_Main_lean": {
+      "elapsed_seconds": 0.54,
+      "peak_rss_kib": 744924,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build_Main_c": {
+      "elapsed_seconds": 0.34,
+      "peak_rss_kib": 111384,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "build": {
+      "elapsed_seconds": 0.34,
+      "peak_rss_kib": 386448,
+      "exit_code": 0,
+      "axioms": {
+        "MemoryTransfer.load_store": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.load_store_disjoint": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.success_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read_emit_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relay_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_observation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.relays_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.ready_relay_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.store_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.invalid_is_ub": [
+          "propext"
+        ],
+        "MemoryTransfer.error_preserves_state": [
+          "propext"
+        ],
+        "MemoryTransfer.Examples.short_binary_read": [],
+        "MemoryTransfer.Examples.exhausted_input_read": [],
+        "MemoryTransfer.Examples.foreign_pointer_ub": [],
+        "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+        "MemoryTransfer.Examples.one_past_zero": [],
+        "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+        "MemoryTransfer.Examples.error_has_no_effect": [],
+        "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+        "MemoryTransfer.store_at": [
+          "propext"
+        ],
+        "MemoryTransfer.amount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MemoryTransfer.read": [],
+        "MemoryTransfer.emit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "kernel": {
+      "elapsed_seconds": 0.4,
+      "peak_rss_kib": 724092,
+      "exit_code": 0,
+      "axioms": {
+        "BufferRelay.ValidReads": [],
+        "BufferRelay.ValidWrites": [],
+        "BufferRelay.action": [],
+        "BufferRelay.drain": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.readAmount": [],
+        "BufferRelay.readAmount_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.readAmount_positive": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.readAmount_valid": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.fill": [],
+        "BufferRelay.loaded": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.loaded_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.retry_pointer_load": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.runDetailed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_contract": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_success": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_failure_pending": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute_contract": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_prefix": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_output_eq_take": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_success_exact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_status": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_call_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.read_request_valid": [],
+        "BufferRelay.fill_frame": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.write_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_stop": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_retry": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute_read_error": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute_eof": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute_write_failure": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_conservation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_write_failure_residual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Positive": [],
+        "BufferRelay.positive_action": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.drain_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.execute_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.run_positive_success": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.read_matches_phase1": [
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.default_binary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.retry_binary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.zero_after_short": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.error_after_short": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.read_error_after_drain": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.error_at_eof": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "BufferRelay.Examples.short_failure_pending": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "binding": {
+      "elapsed_seconds": 0.39,
+      "peak_rss_kib": 730268,
+      "exit_code": 0,
+      "axioms": {
+        "GeneratedRelay.binding_is_reference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "input_bound_tests": {
+      "elapsed_seconds": 0.52,
+      "peak_rss_kib": 737000,
+      "exit_code": 0,
+      "axioms": {}
+    }
+  },
+  "proof_source_hashes": {
+    "relay.c": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+    "BufferRelay.lean": "9947124b1c9f20cb3563cf1dc2a20969aa13261e89a21d1ad4fba35d60547e25",
+    "Axioms.lean": "f455c629fd7bae7d30272c37e1ac931ca9b1bd0b7dda7663be2c5a15aa2266c8",
+    "Main.lean": "fa0e0743b5e750080937e0e636025b7704b8d934db8fddcf2f6aefadd86a7aa9",
+    "InputBoundTests.lean": "49d9b32f27b4217f38738d82d0743a60e4cc46877979e6afdf3281b6bf189744",
+    "lakefile.toml": "6eae827cf5892236146520937e9c9d7635bcfb2ae1d4add46d060bf8e2ce2442",
+    "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+    "MemoryTransfer.lean": "015e775cdd77680bea9c6fba1c0defefe46b914ce2befc1b3a862eb33ecf341a",
+    "GeneratedRelay.lean": "dc824444b2cd9e688ca299e021758f799cc9452adf971c17e36a0494afc99a94",
+    "frontend.py": "4ea526f7c0ec91e978b830b92b3c9cb4a1aa1f32c93a088b185ca4f93eb0cff3",
+    "test_frontend.py": "bfb561ebc556a3b29b8db176e94e093693db5c992c85b0a1eff55fec15ac79a3",
+    "test_replay_guard.py": "de0f2851ccdf6f7bd1d2199410fb0470edd66ad3af22bcfa43446c0fd9eec1c4",
+    "run_checks.py": "f990cb2be1299ba5fdc742cfa07d4ccd4579e204cede59dccd0be8c12aadc004"
+  },
+  "validation_source_hashes": {
+    "driver/main_real.c": "3b68d04c2b0e946209b58e0d5b8f2dd52deb626aa131cb25abbdea4ea7c8e324",
+    "driver/relay_driver.c": "730dfa8cfc4e0e0980ce66ad4e7438455cfcf9a4a85d2e01f876a942bdb0ab20",
+    "independent_vectors.json": "7e5d807835325830255b36e9d1c59985de28c24adafb9adf583fd89e3d374463",
+    "relaycheck/__init__.py": "7e1840e84faa626576ccc2b17a5e97ac654f04e20e34a61f11836ebff681651c",
+    "relaycheck/build.py": "86274c9444a32cc561c04373cf50dc9945c21c505cceeced96cb96a25091c114",
+    "relaycheck/corpus.py": "8a2708202c9c3e3486dc4d95558eeb71337ed72a5a8a7e63d52f415e55db72f4",
+    "relaycheck/mutants.py": "54179851c62a1d8cad04a671aca4391135c7b7de3011fc21b7f60202e17abbb1",
+    "relaycheck/oracle.py": "ae65178c422ff44460d13d7e64841148e72955870baa91c6d5c0fa6cec2253d4",
+    "relaycheck/runner.py": "d5091bd2a21d36c522b0061d8234931016fc0190a1b6469c9699100a46681124",
+    "relaycheck/schedule.py": "a8035e6a78ce69e1eb9e3f24656a718dc0c1b3c617abbe20129abe58a25a89f0",
+    "tests/test_driver_cap.py": "c0fb3346cb858cbcd82f37a2c95d12b5aefb17e62dcda13eed48beb2fa59b716",
+    "tests/test_recovery.py": "e4a286a261d2e5aa860b1e2d26439fde56837158e15eac50ca50868069b29c0c",
+    "tests/test_relaycheck.py": "d4def09454c34fcf7263bed105d205aa4fdb91470fbcfd3169f1d8440eee8d0d",
+    "validate.py": "d1df99ba6bc2654ab719caa5cb322dd61400dcf8f1227f54675e94bfbb286291"
+  },
+  "reproduce_script_sha256": "a69ad829bc99ca0cfba9ab9166c25aff1e4571548101c54278891223f8d2a446",
+  "ast_sha256": "dadd36a7f98c84e2334b86c4896efa6c21aed682d9333b25f40ab301fc6eebdd",
+  "model_executable_sha256": "6d25d5d8ce2378e3fb06cbee078c9b1b0ebdf14bd367c4a22ba53c626b3914fc",
+  "corpus": {
+    "tier": "standard",
+    "cases": 2627,
+    "sha256": "40bdd2a73eccbbcf26ce719ca1fbab00df0ad2eaec2aae7df60e072f335761a6",
+    "by_category": {
+      "exhaustive_small": 2205,
+      "exhaustive_buffer": 273,
+      "directed": 88,
+      "noflags": 5,
+      "independent_vectors": 14,
+      "reject": 42
+    }
+  },
+  "oracle": {
+    "seconds_all_cases": 0.0162,
+    "valid_cases": 2585,
+    "reject_cases": 42
+  },
+  "checks": {
+    "selftest_ok": true,
+    "source_matches_frozen": true,
+    "symbol_checks_ok": true,
+    "c_originals_match_oracle": true,
+    "unshimmed_control_fails_as_predicted": true,
+    "real_relay_default_cases_ok": true,
+    "all_mutants_distinguished": true,
+    "kernel_smoke_ok": true,
+    "oracle_accepts_all_valid_cases": true,
+    "model_matches_oracle": true
+  },
+  "python_selftests": {
+    "ran": 23,
+    "failures": 0,
+    "errors": 0,
+    "ok": true
+  },
+  "input_bound_runtime_tests": {
+    "finite_cases": 72,
+    "returning_no_eof_cases": 1,
+    "passed": true
+  },
+  "frontend_tests": {
+    "groups": 6,
+    "accepted_nonsemantic_variants": 5,
+    "semantic_rejections": 19,
+    "unsupported_unit_rejections": 22,
+    "stale_binding_guard": true
+  },
+  "executables": {
+    "model": {
+      "role": "model",
+      "runs": 2627,
+      "wall_sum_s": 23.31,
+      "wall_mean_ms": 8.873,
+      "wall_max_ms": 6288.9,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "mut_eof_as_error": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.23,
+      "wall_mean_ms": 1.61,
+      "wall_max_ms": 6.34,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "1": 1653,
+        "2": 932,
+        "64": 42
+      },
+      "distinguished_cases": 898,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n0/r_/w_",
+        "problems": [
+          "status 1 != 0"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 770,
+        "exhaustive_buffer": 49,
+        "directed": 68,
+        "noflags": 4,
+        "independent_vectors": 7
+      }
+    },
+    "mut_ignore_write_error": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.244,
+      "wall_mean_ms": 1.616,
+      "wall_max_ms": 6.62,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 1259,
+        "1": 836,
+        "2": 490,
+        "64": 42
+      },
+      "distinguished_cases": 466,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n1/r_/w-1",
+        "problems": [
+          "status 0 != 2",
+          "stderr 'consumed=1\\nread_calls=2\\nwrite_calls=1\\n' != 'consumed=1\\nread_calls=1\\nwrite_calls=1\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 399,
+        "exhaustive_buffer": 60,
+        "directed": 6,
+        "independent_vectors": 1
+      }
+    },
+    "mut_ignore_zero_write": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.242,
+      "wall_mean_ms": 1.615,
+      "wall_max_ms": 7.09,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 1223,
+        "1": 822,
+        "2": 540,
+        "64": 42
+      },
+      "distinguished_cases": 466,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n1/r_/w0",
+        "problems": [
+          "status 0 != 2",
+          "stdout length 1 != 0",
+          "stderr 'consumed=1\\nread_calls=2\\nwrite_calls=2\\n' != 'consumed=1\\nread_calls=1\\nwrite_calls=1\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 399,
+        "exhaustive_buffer": 60,
+        "directed": 5,
+        "independent_vectors": 2
+      }
+    },
+    "mut_no_offset_advance": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.487,
+      "wall_mean_ms": 1.708,
+      "wall_max_ms": 45.56,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 343,
+        "1": 614,
+        "2": 1036,
+        "3": 592,
+        "64": 42
+      },
+      "distinguished_cases": 769,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 592,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n1/r_/w_",
+        "problems": [
+          "status 3 != 0",
+          "stdout length 19999 != 1",
+          "stderr 'consumed=1\\nread_calls=1\\nwrite_calls=20000\\naborted=max_calls\\n' != 'consumed=1\\nread_calls=2\\nwrite_calls=1\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 594,
+        "exhaustive_buffer": 89,
+        "directed": 75,
+        "noflags": 4,
+        "independent_vectors": 7
+      }
+    },
+    "mut_read_error_status_2": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.244,
+      "wall_mean_ms": 1.616,
+      "wall_max_ms": 6.11,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "2": 1687,
+        "64": 42
+      },
+      "distinguished_cases": 755,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n0/r-1/w_",
+        "problems": [
+          "status 2 != 1"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 637,
+        "exhaustive_buffer": 104,
+        "directed": 9,
+        "noflags": 1,
+        "independent_vectors": 4
+      }
+    },
+    "mut_read_size_16": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.247,
+      "wall_mean_ms": 1.617,
+      "wall_max_ms": 6.75,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 897,
+        "1": 756,
+        "2": 932,
+        "64": 42
+      },
+      "distinguished_cases": 206,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_buffer/n33/r_/w_",
+        "problems": [
+          "stderr 'consumed=33\\nread_calls=4\\nwrite_calls=3\\n' != 'consumed=33\\nread_calls=3\\nwrite_calls=2\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_buffer": 134,
+        "directed": 68,
+        "noflags": 3,
+        "independent_vectors": 1
+      }
+    },
+    "mut_read_size_31": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.258,
+      "wall_mean_ms": 1.621,
+      "wall_max_ms": 17.08,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 897,
+        "1": 756,
+        "2": 932,
+        "64": 42
+      },
+      "distinguished_cases": 155,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_buffer/n33/r_/w-1",
+        "problems": [
+          "stderr 'consumed=31\\nread_calls=1\\nwrite_calls=1\\n' != 'consumed=32\\nread_calls=1\\nwrite_calls=1\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_buffer": 109,
+        "directed": 45,
+        "noflags": 1
+      }
+    },
+    "mut_short_write_as_full": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.262,
+      "wall_mean_ms": 1.622,
+      "wall_max_ms": 19.76,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 974,
+        "1": 777,
+        "2": 834,
+        "64": 42
+      },
+      "distinguished_cases": 352,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n2/r_/w1",
+        "problems": [
+          "stdout length 1 != 2",
+          "stderr 'consumed=2\\nread_calls=2\\nwrite_calls=1\\n' != 'consumed=2\\nread_calls=2\\nwrite_calls=2\\n'"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 293,
+        "exhaustive_buffer": 29,
+        "directed": 24,
+        "noflags": 1,
+        "independent_vectors": 5
+      }
+    },
+    "mut_wrong_write_offset": {
+      "role": "mutant",
+      "runs": 2627,
+      "wall_sum_s": 4.231,
+      "wall_mean_ms": 1.611,
+      "wall_max_ms": 11.07,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "distinguished_cases": 226,
+      "valid_cases": 2585,
+      "killed": true,
+      "aborts_status3": 0,
+      "first_distinguishing": {
+        "case": "exhaustive_small/n2/r_/w1",
+        "problems": [
+          "stdout differs at byte 1: 0x2d != 0xff"
+        ]
+      },
+      "distinguished_by_category": {
+        "exhaustive_small": 183,
+        "exhaustive_buffer": 19,
+        "directed": 20,
+        "noflags": 1,
+        "independent_vectors": 3
+      }
+    },
+    "orig_macro_O0": {
+      "role": "original",
+      "runs": 2627,
+      "wall_sum_s": 4.411,
+      "wall_mean_ms": 1.679,
+      "wall_max_ms": 5.39,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "orig_macro_O2": {
+      "role": "original",
+      "runs": 2627,
+      "wall_sum_s": 4.318,
+      "wall_mean_ms": 1.644,
+      "wall_max_ms": 4.93,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "orig_wrap_O0": {
+      "role": "original",
+      "runs": 2627,
+      "wall_sum_s": 4.287,
+      "wall_mean_ms": 1.632,
+      "wall_max_ms": 18.14,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "orig_wrap_O2": {
+      "role": "original",
+      "runs": 2627,
+      "wall_sum_s": 4.236,
+      "wall_mean_ms": 1.612,
+      "wall_max_ms": 5.08,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 898,
+        "1": 755,
+        "2": 932,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "relay_real": {
+      "role": "real",
+      "runs": 35,
+      "wall_sum_s": 0.064,
+      "wall_mean_ms": 1.817,
+      "wall_max_ms": 6.7,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "0": 35
+      },
+      "ok": 35,
+      "mismatches": [],
+      "all_ok": true
+    },
+    "unshimmed_control": {
+      "role": "unshimmed_control",
+      "runs": 2627,
+      "wall_sum_s": 4.239,
+      "wall_mean_ms": 1.614,
+      "wall_max_ms": 4.47,
+      "maxrss_kb_max": 88968,
+      "timeouts": 0,
+      "status_histogram": {
+        "1": 2585,
+        "64": 42
+      },
+      "ok": 2627,
+      "mismatches": [],
+      "all_ok": true
+    }
+  },
+  "kernel_smoke": [
+    {
+      "name": "real/copy_1028_bytes",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 1028,
+      "stdout_sha256": "9820fb56061d1595e390950bef6886c9c142dfb76c6b5edcd0f5a4fd15403146",
+      "stderr": "",
+      "wall": 0.00212,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "real/copy_1MiB",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 1048576,
+      "stdout_sha256": "52077475f79dda187bbca53c807e6bdef1ab6dc09f6960a2bdaf1b855a8e6230",
+      "stderr": "",
+      "wall": 0.0533,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "real/empty_input_status0",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "wall": 0.0018,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "real/closed_stdin_EBADF_status1",
+      "ok": true,
+      "status": 1,
+      "stdout_len": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "wall": 0.00419,
+      "maxrss_kb": 50672,
+      "timed_out": false
+    },
+    {
+      "name": "real/stdout_dev_full_ENOSPC_status2",
+      "ok": true,
+      "status": 2,
+      "stdout_len": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "wall": 0.00152,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "real/stdout_dev_full_empty_input_status0",
+      "ok": true,
+      "status": 0,
+      "stdout_len": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "wall": 0.00145,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "real/closed_stdout_EBADF_status2",
+      "ok": true,
+      "status": 2,
+      "stdout_len": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "wall": 0.00352,
+      "maxrss_kb": 50672,
+      "timed_out": false
+    },
+    {
+      "name": "real/stdin_regular_file",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 1028,
+      "stdout_sha256": "9820fb56061d1595e390950bef6886c9c142dfb76c6b5edcd0f5a4fd15403146",
+      "stderr": "",
+      "wall": 0.00179,
+      "maxrss_kb": 88968,
+      "timed_out": false
+    },
+    {
+      "name": "strace/real_relay_40B_read3_write2",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 40,
+      "stdout_sha256": "5faa4eec3611556812c2d74b437c8c49add3f910f10063d801441f7d75cd5e3b",
+      "stderr": "",
+      "wall": 0.00532,
+      "maxrss_kb": 88968,
+      "timed_out": false,
+      "kernel_read_fd0": 3,
+      "kernel_write_fd1": 2,
+      "kernel_write_other": 0,
+      "strace_lines": 7,
+      "note": "relay_real: read 32, read 8, read 0; write 32, write 8"
+    },
+    {
+      "name": "strace/shimmed_driver_no_kernel_relay_io",
+      "ok": true,
+      "status": 0,
+      "stdout_len": 40,
+      "stdout_sha256": "5faa4eec3611556812c2d74b437c8c49add3f910f10063d801441f7d75cd5e3b",
+      "stderr": "consumed=40\nread_calls=7\nwrite_calls=6\n",
+      "wall": 0.00567,
+      "maxrss_kb": 88968,
+      "timed_out": false,
+      "kernel_read_fd0": 2,
+      "kernel_write_fd1": 0,
+      "kernel_write_other": 2,
+      "strace_lines": 6,
+      "shim_read_calls": 7,
+      "shim_write_calls": 6,
+      "note": "shim counted 7 reads / 6 writes; kernel saw only the driver's stdin slurp on fd 0 and no write(1,...)"
+    }
+  ],
+  "kernel_smoke_skipped": [],
+  "proof_limits": {
+    "parallel_builds": 1,
+    "lean_threads": 1,
+    "thread_stack_kib": 16384,
+    "command_address_space_bytes": 3221225472,
+    "command_wall_seconds": 120
+  },
+  "validation_limits": {
+    "workers": 1,
+    "parallel_compilers": 1,
+    "parent_address_space_bytes": 3221225472,
+    "parent_cpu_seconds": 600,
+    "child_address_space_bytes": 3221225472,
+    "child_cpu_seconds": 30,
+    "child_wall_seconds": 30.0,
+    "capture_file_cap_bytes": 134217728,
+    "compiler_address_space_bytes": 1073741824,
+    "compiler_wall_seconds": 60
+  },
+  "c_compiler_flags": [
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-U_FORTIFY_SOURCE"
+  ],
+  "symbol_checks": {
+    "checked": 13,
+    "passed": true
+  },
+  "c_executable_hashes": {
+    "orig_macro_O2": "f4f0d137ef3e39c9860526a30abc2c1cb11bc2e677d16eb66c37702b9cda99ff",
+    "orig_wrap_O2": "a9f629d0ceca8c7def0c9257d9e3fd3aa295133f22df3eb52998dfae2565037a",
+    "orig_macro_O0": "236f085d5c1accd986bbb680331a05929a1ede085eee5eab86784fd854bbf1f2",
+    "orig_wrap_O0": "7f7369a1e99ffca1c2bf672f0f2f7f732663ca7e3708e7b5557a2e07cf0ebeb3",
+    "unshimmed_control": "20dd87f3e425cf87e88e7772e9abfdf1a229d3275923d56f1614a56020c61966",
+    "relay_real": "860a445c8d0e97885f68aa9a150f0833c9bcefcc02ce621f02bd54d636c151e4",
+    "mut_wrong_write_offset": "cf20f7e021e694c6822dda70ed7fa62ee561e28abb9cfa00365beaeacd61e197",
+    "mut_short_write_as_full": "5da828d5d1fa3a4b7986bd50ad54397d3c3c35ced3de14271d1e3e028285c91d",
+    "mut_ignore_zero_write": "9f83e7bab8a809e9c95df6552980ad3fe38a42bba1414f7063d2faf86315f5fd",
+    "mut_ignore_write_error": "5a9c9a5a007c27cc0ff80215cbc4af35df8f69a01edcc7dee526b50fae9f17f5",
+    "mut_read_size_16": "5f90c7fe3f461cf9b8ddaece3ca7008e930d11c1c1ac855a6a98110bc52e34e4",
+    "mut_read_size_31": "3870574ee9d2a7fa19f51c1ca389874293881c3d91389ddd7fca355872fbb7e7",
+    "mut_eof_as_error": "212c477beae38a3500df724dfe4b5ed90dcaf9d2dd84b1d24f186f43331adcde",
+    "mut_read_error_status_2": "08414bd57f725275249fa683220138c63f2b274fb914ecc9dea984e99d016277",
+    "mut_no_offset_advance": "c5c29ebf812180af09e18363e76f0be3154d3fe52dca40b4c44b06ea21465ce5"
+  },
+  "full_replay_record_sha256": "302609edcf113374fc5100b45b14cf72d5ea91ba503904643bd1dc456982c283",
+  "per_case_record_sha256": "41404dfca6f5ae8d9319d7c7632f9bf5620b66f80fe9a779a1ca2e1d911a2ddf",
+  "phase1_preservation": {
+    "checked_files": 26,
+    "mismatches": [],
+    "unchanged": true
+  },
+  "limitations": [
+    "C-to-AST and schema-to-model translation unverified",
+    "Local pointer-load bridge only; no whole-execution pointer-machine refinement",
+    "No C integer/ABI/compiler or native runtime proof",
+    "No host POSIX/libc/kernel realization or real process termination theorem",
+    "No State Calculus or Bash composition theorem",
+    "Deterministic finite schedule-product testing is not exhaustive over bytes or POSIX behaviors",
+    "Single observed timing run, not a benchmark or proof-generation evaluation"
+  ]
+}

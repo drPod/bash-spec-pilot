@@ -1,9 +1,4 @@
-"""Discover candidate datasets by searching the HuggingFace dataset index.
-
-One request per query term, results merged by id with the terms that found it recorded in
-_found_via. Writes hf_raw.json. This first pass reached 809 unique datasets; see sweep3.py for
-what got it to 5,661.
-"""
+"""Search the dataset index and merge by id into hf_raw.json, retaining discovery terms."""
 import json, urllib.request, urllib.parse, time, sys
 
 QUERIES = ["nl2bash","bash","shell","nl2cmd","nl2sh","command line","linux command","terminal",

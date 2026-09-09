@@ -1,0 +1,13 @@
+'CalculusGuards.range_guard_int' depends on axioms: [propext]
+'CalculusGuards.range_guard_some' depends on axioms: [propext]
+'CalculusGuards.range_guard_fail' depends on axioms: [propext]
+'CalculusGuards.rangeList_guard_some' depends on axioms: [propext]
+'CalculusGuards.assign_range_cases' depends on axioms: [propext]
+'CalculusGuards.assert_guard' depends on axioms: [propext]
+'CalculusGuards.assert_guard_continue' depends on axioms: [propext]
+'CalculusGuards.assert_le_continue' depends on axioms: [propext]
+'CalculusGuards.writeBlockBody_eq_prefix' depends on axioms: [propext]
+'CalculusGuards.write_block_guard_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusGuards.write_block_guarded' depends on axioms: [propext, Classical.choice, Quot.sound]
+true
+limits: prlimit --as=3221225472 LEAN_NUM_THREADS=1 MIMALLOC_ARENA_RESERVE=65536 lean -j1 -s 16384 -DwarningAsError=true -DElab.async=false (direct toolchain binary, explicit LEAN_PATH) rss_kb=475352 wall=0.25 2026-09-08T19:12:42Z

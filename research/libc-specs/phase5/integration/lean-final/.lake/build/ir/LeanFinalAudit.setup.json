@@ -1,0 +1,15 @@
+{"plugins": [],
+ "package": "shell_lean_final",
+ "options": {},
+ "name": "LeanFinalAudit",
+ "isModule": false,
+ "importArts":
+ {"ShellObservation":
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/ShellObservation.olean"],
+  "MemoryTransfer":
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/MemoryTransfer.olean"],
+  "LeanFinal":
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/LeanFinal.olean"],
+  "BufferRelay":
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/BufferRelay.olean"]},
+ "dynlibs": []}

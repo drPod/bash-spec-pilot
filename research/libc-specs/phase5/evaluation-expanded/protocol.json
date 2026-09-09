@@ -1,0 +1,49 @@
+{
+  "schema": "phase5-evaluation-expanded-protocol/1",
+  "title": "Expanded multi-model held-out proof-regeneration evaluation on new nested-state frame theorems",
+  "frozen_utc": "2026-09-07T21:51:36Z (tasks/manifest.json and expected_check.txt written and controls run before any model call; first real model call after this timestamp)",
+  "purpose": "Measure, on three FROZEN held-out theorems distinct from the prior 12-cell diagnostic (evaluation/), whether a bounded fresh-context model can regenerate an already-checked nested-state frame/preservation proof for the Aaron-frontend adapter's patched state mutators, whether a reviewed reusable association-list helper lemma changes the outcome, and whether this differs by model. Unpowered as a model-superiority ranking (n=5/cell); it IS powered enough to see whether the helper-ablation design used here is effective (unlike the prior partial_error cell) and to record model+harness confounds honestly.",
+  "distinctness_from_prior_diagnostic": "All three targets (CalculusNested.setAttrAt_frame, addElemAt_attrs, removeElemAt_here_frame) are new: different file (phase5/integration/lean/CalculusNested.lean, not phase2/phase3), different facet (nested nested-state frame preservation for the patched set_attr/pos_elem/neg_elem walkers, not shell short-circuit/byte-relay/partial-error), never used in any prior model attempt in this repository.",
+  "tasks": {
+    "nested_frame": "CalculusNested.setAttrAt_frame -- writing an attribute at path p changes no other (path, attribute) pair",
+    "nested_add_attrs": "CalculusNested.addElemAt_attrs -- touching (creating) an element preserves every attribute everywhere",
+    "nested_remove_frame": "CalculusNested.removeElemAt_here_frame -- clearing an element at the root preserves root attrs and every sibling"
+  },
+  "conditions": {
+    "helper": "the task's designated association-list lemma(s) (lookup_assocSet_same/other, or lookup_assocRemove_other, or +getAttrAt_empty) are present, proved, before the target",
+    "base": "those lemma(s) are deleted (statement and proof); every structural definition (Path, St, getAttrAt, setAttrAt, addElemAt, removeElemAt, hasElemAt, lookup/assocSet/assocRemove) is identical in both conditions",
+    "effectiveness_precondition_checked": "unlike the prior partial_error cell (whose base condition left the real dependency, execute_contract, present in both conditions), here the helper IS the only lemma the target's own accepted proof calls beyond the shared structural definitions -- verified by inspection and by the base-condition negative control (original proof, base condition) rejecting on 'build failed' for all three tasks before any model call"
+  },
+  "models": {
+    "pi:xai/grok-4.6": "Pi 0.84.2, --no-tools --no-skills --no-prompt-templates --no-extensions --no-context-files, no session",
+    "claude:sonnet": "claude CLI (claude-sonnet-5) -p --tools \"\" --strict-mcp-config --mcp-config <empty> --effort low --no-session-persistence",
+    "claude:fable": "claude CLI (claude-fable-5.1 alias) -p --tools \"\" --strict-mcp-config --mcp-config <empty> --effort low --no-session-persistence"
+  },
+  "model_harness_confound": "The three models run under two different harnesses (Pi for grok, the claude CLI for sonnet/fable) with different default system prompts, tool-schema overhead and thinking-token accounting. --effort low and --strict-mcp-config were added to the claude CLI calls ONLY after measuring that the default configuration produces genuine long extended-thinking runs (measured: 9,797 thinking tokens / 84.5s wall for one nested_frame/helper call at default effort) that risk the non-streaming JSON call exceeding the wall budget with zero partial output. This is a harness setting, applied identically to both claude models, not a per-model tuning. Results below are a model+harness comparison, not a controlled model-only ranking.",
+  "design": {
+    "cells": 18,
+    "attempts_per_cell": 5,
+    "total_first_pass_attempts": 90,
+    "order": "interleaved by task, then condition, then model, then attempt index; one model process at a time (no concurrent model calls; checker calls are additionally globally lock-serialized against sibling proof workers)",
+    "wall_limit_seconds_per_first_pass_call": 150,
+    "outcome_categories": ["accepted", "build failed (compiler error)", "lexical guard", "axiom gate", "theorem type mismatch", "no code block / timeout"]
+  },
+  "assisted_feedback": {
+    "budget": "bounded: 1 extra round on exactly one rejected cell per model (3 extra calls total), not a general second pass over all 90 -- kept small deliberately to bound account spend after repeated same-day quota incidents recorded in ORCHESTRATION.md",
+    "mechanism": "the checker's reject_reason and (if a build was attempted) the compiler error tail are returned to a FRESH model process (same frozen template re-supplied in full; no session continuation) with an explicit instruction to correct the proof; the checker is re-run unchanged on the new submission",
+    "labeling": "labeled 'agent-assisted' throughout; this is model-to-model feedback mediated by our checker's error text, not a human reviewing the proof"
+  },
+  "collaborative_baseline": {
+    "definition": "one bounded run per task where the SAME model (claude:sonnet) is given real Read/Edit/Bash tool access to a private scratch copy of the minimal lake project (never the live repository) and is told to make `lake build` succeed on the frozen helper-condition target, iterating against the real compiler itself, under a wall/turn budget",
+    "labeling": "explicitly 'agent-assisted collaborative baseline', NOT a human baseline (no manual human baseline was collected; the requirements note this rather than inventing one) and NOT directly comparable to the first-pass cells (different tool access, different wall budget, self-directed iteration)",
+    "independent_oracle": "acceptance is decided by re-running the SAME frozen check_attempt.py against whatever file the collaborative run leaves behind, not by the run's own self-report of success"
+  },
+  "checker": {
+    "script": "check_attempt.py",
+    "gates": ["frozen identity (template + real repository CalculusNested.lean unchanged)", "lexical guard (no sorry/admit/axiom/new declarations/imports/options/native_decide)", "lake build +CalculusNested:olean in a private minimal lake project, LEAN_NUM_THREADS=1, -s16384, 120-150 s, 3 GiB address space", "#print axioms ⊆ {propext, Classical.choice, Quot.sound}", "#check @theorem output equals the type recorded from the unchanged repository build"],
+    "lean": "leanprover/lean4:v4.31.0, core only",
+    "compiler_lock": "~/.cache/bash-spec-pilot/phase3-compiler.lock (same shared flock used by run_vst.py and the original evaluation checker)",
+    "controls_run_before_any_model_call": ["original proof accepted, helper condition, all 3 tasks (control-baseline-*)", "original proof rejected, base condition, all 3 tasks, reason 'build failed' (control-base-reject-*)", "'by sorry' rejected, lexical guard (control-sorry-*)"]
+  },
+  "non_claims": ["no C, libc, OS or CompCert/VST evidence", "no Bash parser or full State Calculus correctness evidence", "no Coq-Lean connection", "no model-superiority claim (n=5/cell, two harnesses)", "memorisation of the private phase5 source by a model cannot be excluded by this protocol", "the collaborative baseline is agent-assisted, not a human baseline, and is not powered for comparison to the first-pass cells"]
+}

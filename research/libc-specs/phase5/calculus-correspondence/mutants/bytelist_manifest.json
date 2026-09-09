@@ -1,0 +1,22 @@
+[
+  {
+    "name": "mut_single_out_of_range",
+    "description": "mark's real `(single 33)` byte literal changed to 999 (out of the required 0..255 range)",
+    "sexpr": "(seq (seq (get $t27 \u03c3 delivered) (set-attr \u03c3 delivered (append (pair $t27 (single 999))))) (return 0))"
+  },
+  {
+    "name": "mut_unsupported_byte_func",
+    "description": "mark's real `single` call renamed to `reverse`, a plausible-looking but unsupported byte-list name",
+    "sexpr": "(seq (seq (get $t27 \u03c3 delivered) (set-attr \u03c3 delivered (append (pair $t27 (reverse 33))))) (return 0))"
+  },
+  {
+    "name": "mut_negative_take_count",
+    "description": "read_block's real `take` count replaced with a literal `(neg 1)` (negative count, violates 0<=n<=len)",
+    "sexpr": "(seq (assign b \u03b9) (seq (seq (get $t1 \u03c3 reads) (seq (get $t2 b cap) (assign q (head_or (pair $t1 $t2))))) (seq (seq (get $t3 \u03c3 reads) (set-attr \u03c3 reads (tail $t3))) (seq (seq (get $t4 \u03c3 read_calls) (set-attr \u03c3 read_calls (+ (pair $t4 1)))) (seq (if (< (pair q 0)) (return -1) pass) (seq (seq (get $t5 b cap) (seq (get $t6 \u03c3 input) (assign k (min (pair (max (pair 1 q)) (min (pair $t5 (length $t6)))))))) (seq (seq (get $t7 \u03c3 input) (set-attr b bytes (take (pair $t7 (neg 1))))) (seq (set-attr b len (range:0:4611686018427387903 k)) (seq (seq (get $t8 \u03c3 input) (set-attr \u03c3 input (drop (pair $t8 (range:0:4611686018427387903 k))))) (return k))))))))))"
+  },
+  {
+    "name": "mut_length_of_nonlist",
+    "description": "read_block's real `(length $t6)` (a variable bound to a byte list) replaced with `(length 999)` (a bare int, not a well-formed list)",
+    "sexpr": "(seq (assign b \u03b9) (seq (seq (get $t1 \u03c3 reads) (seq (get $t2 b cap) (assign q (head_or (pair $t1 $t2))))) (seq (seq (get $t3 \u03c3 reads) (set-attr \u03c3 reads (tail $t3))) (seq (seq (get $t4 \u03c3 read_calls) (set-attr \u03c3 read_calls (+ (pair $t4 1)))) (seq (if (< (pair q 0)) (return -1) pass) (seq (seq (get $t5 b cap) (seq (get $t6 \u03c3 input) (assign k (min (pair (max (pair 1 q)) (min (pair $t5 (length 999)))))))) (seq (seq (get $t7 \u03c3 input) (set-attr b bytes (take (pair $t7 (range:0:4611686018427387903 k))))) (seq (set-attr b len (range:0:4611686018427387903 k)) (seq (seq (get $t8 \u03c3 input) (set-attr \u03c3 input (drop (pair $t8 (range:0:4611686018427387903 k))))) (return k))))))))))"
+  }
+]

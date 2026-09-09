@@ -1,0 +1,21 @@
+/-
+NEW audit: print the six exact named text_tokens/_ast theorems.
+Does not rewrite CalculusTokenizeFull. Relies on private oleans already checked.
+-/
+import CalculusTokenizeCharsAst
+import CalculusTokenizeRelayCharsAst
+import CalculusTokenizeReadCharsAst
+
+#print CalculusTokenizeCharsIdent.writeBlock_text_tokens
+#print CalculusTokenizeCharsAst.writeBlock_text_ast
+#print CalculusTokenizeRelayCharsIdent.relay_text_tokens
+#print CalculusTokenizeRelayCharsAst.relay_text_ast
+#print CalculusTokenizeReadCharsIdent.readBlock_text_tokens
+#print CalculusTokenizeReadCharsAst.readBlock_text_ast
+
+#print axioms CalculusTokenizeCharsIdent.writeBlock_text_tokens
+#print axioms CalculusTokenizeCharsAst.writeBlock_text_ast
+#print axioms CalculusTokenizeRelayCharsIdent.relay_text_tokens
+#print axioms CalculusTokenizeRelayCharsAst.relay_text_ast
+#print axioms CalculusTokenizeReadCharsIdent.readBlock_text_tokens
+#print axioms CalculusTokenizeReadCharsAst.readBlock_text_ast

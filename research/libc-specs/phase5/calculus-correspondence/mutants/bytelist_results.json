@@ -1,0 +1,28 @@
+[
+  {
+    "name": "mut_single_out_of_range",
+    "test": "compare-run mark (proper initial state, delivered=[])",
+    "outcome": "failure",
+    "note": "range check 0<=b<=255 in funcDef .single correctly traps"
+  },
+  {
+    "name": "mut_unsupported_byte_func",
+    "test": "export-run (parse-level)",
+    "outcome": "parse_rejected",
+    "note": "\"reverse\" is not one of the 11 supported names; correctly fails closed at parse time, not silently accepted"
+  },
+  {
+    "name": "mut_negative_take_count",
+    "test": "compare-run relay, case nul255 (input=00ff0a21, reads=[3])",
+    "outcome": "failure",
+    "baseline_outcome": "continue rc=0",
+    "note": "swapped into read_block within the full relay chain; take's range check 0<=n<=len correctly traps on a negative count, breaking a case that succeeds unmutated"
+  },
+  {
+    "name": "mut_length_of_nonlist",
+    "test": "compare-run relay, case nul255 (input=00ff0a21, reads=[3])",
+    "outcome": "failure",
+    "baseline_outcome": "continue rc=0",
+    "note": "swapped into read_block within the full relay chain; length applied to a bare int (not a well-formed nil/cons list) correctly traps via asIntList?"
+  }
+]

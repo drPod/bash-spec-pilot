@@ -1,0 +1,51 @@
+{
+  "archived_utc": "2026-09-08T19:14:06.021001+00:00",
+  "archive_dir": "phase5/artifact/archive/calculus-typed-shared77",
+  "accepted_reviews": [
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-calculus-schedules-67/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-calculus-shared-70/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-typing-review-74/ROOT-REVIEW.json",
+    "/home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-spec-export-review-77/ROOT-REVIEW.json"
+  ],
+  "source_sha256": {
+    "CalculusRelayLoop.lean": "c5ece9e93b95002116de63b2fd2736971bf08ad0625f6c049fa7abe10c604f09",
+    "ScheduleConsumption.lean": "952e3e7307457b929da8a16ec0b4fdc881b27c5a96bc0fd562b9bf3fd4e96235",
+    "SpecAstExportAxioms.lean": "fa79f7ec0f89188a2e315355d8ab4b0941b4cc7a26636116a0bffadafb1b7c65",
+    "CalculusSimulation.lean": "37ed70b30c5347ebe33ee5b9cb5cb233b296f83a828ab1b5f7a9eaba1362bc80",
+    "CalculusRelayOuter.lean": "c49b20a885f1a5dfa52997e68fbfc885d90b5f3f7d2c7598c1d992d6200bc1eb",
+    "CalculusTypeCheck.lean": "9b6bc7e90fe8a845f33dadfb1a39b37cae02267bc3b4467b501bedc282ad778a",
+    "CalculusRelayShared.lean": "160830a7807ccd8b6e0f8c8e731fa1bae37cf503566e4646a06212d42ad54fda",
+    "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+    "SpecAstExport.lean": "6b8599547d8becbda4142b0cb26c4202d533ce449ebb4f46dc083723a9ca409f",
+    "CalculusRelaySchedulesAxioms.lean": "41db8e2d1f9aab324aa5ad3bc65fc6ab4da6ecfdfa79127d195e3b0370f800b9",
+    "CalculusRelaySchedules.lean": "af7e21e14e9cbbbb0ccd257f47e8b102614ad9faf778b857fe8b9aa8fe3baac4",
+    "CalculusTyping.lean": "13c414667f18f7779390859585cc9cf555be98ed7d6be9431491ec72276e8a6b",
+    "CalculusLowering.lean": "45a2bae49592eef5eb0979c5de633b284a0ee07a31e0930dc10539c9af3197c3",
+    "CalculusTypingAxioms.lean": "3b6fa9bd5800cae6dcf3d12a8c66c0dc60d99a5eeecb8ae170c0c80c2c1e8a83",
+    "CompareMain.lean": "6b9177464411f05dc42bff1bab5151d4ca22103d27450990b0492b85605f8d00",
+    "BufferRelay.lean": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+    "CalculusBody.lean": "481d8d61041e2893697c03c2cc5db7cc92d1f7c8389041164d4b43ff3c3aa5c6",
+    "MemoryTransfer.lean": "9f80ebc6b33b81960aada7a3967ad0455d9b086d679b55439454302dca6d1d71",
+    "CalculusNested.lean": "e2a7cffb206b3669da4bb56961b22d6d676063feeebade3212be822ee1fd651d",
+    "CalculusRelaySpec.lean": "860e66d82bc39ec8b1dbbf25f088c228a92c70ddf4780538dec379b07b8d35ca",
+    "lakefile.toml": "d4a7ba4b434c34409f4e1f4743a68f368c02db66b1f4656a43d70418421f14ae",
+    "CalculusExport.lean": "d11ba63f0bd8f465bf60f489c3b5daab9bf4f46bc4c3f051361e8aae4083a763"
+  },
+  "export_boundary_sha256": {
+    "byte_relay_exec.ast.sexp": "3f687ca1d1f8294266fac10194252059275b87e8eaf4b89c83fe84be8a67f2f4",
+    "sexp_to_lean.py": "cbb13c97875a1da1e99a6d964ee561b3e48a8b0ab7ceb3eb7ce4169348454082"
+  },
+  "raw_export_sha256": "3f687ca1d1f8294266fac10194252059275b87e8eaf4b89c83fe84be8a67f2f4",
+  "generator_sha256": "cbb13c97875a1da1e99a6d964ee561b3e48a8b0ab7ceb3eb7ce4169348454082",
+  "spec_ast_export_sha256": "6b8599547d8becbda4142b0cb26c4202d533ce449ebb4f46dc083723a9ca409f",
+  "scope": "Fresh Lean closure of residual/shared/typing/AST-export plus archived raw export + deterministic generator. Original OCaml parser/printer execution remains evidence77, not rebuilt here.",
+  "modules_import_closure": 19,
+  "audit_wrapper": "CalculusRelaySchedulesAxioms.lean",
+  "not_included": [
+    "tokenizer",
+    "Commands",
+    "Query",
+    "Range drafts",
+    "OCaml parser rebuild"
+  ]
+}

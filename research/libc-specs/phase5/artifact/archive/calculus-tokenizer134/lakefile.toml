@@ -1,0 +1,67 @@
+name = "artifact_replay_calculus_tokenizer134"
+defaultTargets = ["CalculusTokenizeCopyAudit"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true", "-DElab.async=false"]
+[[lean_lib]]
+name = "CalculusNested"
+[[lean_lib]]
+name = "CalculusExport"
+[[lean_lib]]
+name = "CalculusBody"
+[[lean_lib]]
+name = "CalculusSimulation"
+[[lean_lib]]
+name = "CalculusRelayLoop"
+[[lean_lib]]
+name = "CalculusRelayOuter"
+[[lean_lib]]
+name = "CalculusTokenize"
+[[lean_lib]]
+name = "CalculusTokenizeFull"
+[[lean_lib]]
+name = "CalculusTextLiteralAxioms"
+[[lean_lib]]
+name = "CalculusTokenizeChars"
+[[lean_lib]]
+name = "CalculusTokenizeCharsJoin"
+[[lean_lib]]
+name = "CalculusTokenizeCharsSuf"
+[[lean_lib]]
+name = "CalculusTokenizeCharsIdent"
+[[lean_lib]]
+name = "CalculusTokenizeCharsAst"
+[[lean_lib]]
+name = "CalculusTokenizeRelayChars"
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsJoin"
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsSuf"
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsIdent"
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsAst"
+[[lean_lib]]
+name = "CalculusTokenizeReadChars"
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsJoin"
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsSuf"
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsIdent"
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsAst"
+[[lean_lib]]
+name = "CalculusTokenizeSixAudit"
+[[lean_lib]]
+name = "CalculusTokenizeChunks"
+[[lean_lib]]
+name = "CalculusTokenizeTotal"
+[[lean_lib]]
+name = "CalculusTokenizeCopyEq"
+[[lean_lib]]
+name = "CalculusTokenizeCopyAudit"
+[[lean_lib]]
+name = "CompareTotalMain"
+[[lean_lib]]
+name = "ExportTotalMain"
+[[lean_lib]]
+name = "CompareMain"

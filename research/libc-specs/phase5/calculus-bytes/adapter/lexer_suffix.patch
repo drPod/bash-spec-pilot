@@ -1,0 +1,85 @@
+--- lexer.mll.pinned	2026-09-07 09:30:32.056574449 +0000
++++ build/bash-verifier/lib/frontend/lexer.mll	2026-09-07 09:30:32.092574464 +0000
+@@ -6,6 +6,11 @@
+   let next_line lexbuf = new_line lexbuf
+ 
+   exception LexerError of string
++
++  (* calculus-bytes private patch 2026-09-07: the pinned rules handed the whole
++     suffixed lexeme (e.g. "0u64") to Stdint.*.of_string, which raises
++     Invalid_argument; strip the type suffix first. *)
++  let unsuffix n s = String.sub s 0 (String.length s - n)
+ }
+ 
+ let digit = ['0'-'9']
+@@ -109,38 +114,38 @@
+   | "true"  { BOOLLIT true }
+   | "false" { BOOLLIT false }
+ 
+-  | decimal "i8"    { INT8LIT (Int8.of_string (lexeme lexbuf)) }
+-  | decimal "i16"   { INT16LIT (Int16.of_string (lexeme lexbuf)) }
+-  | decimal "i32"   { INT32LIT (Int32.of_string (lexeme lexbuf)) }
+-  | decimal "i64"   { INT64LIT (Int64.of_string (lexeme lexbuf)) }
+-  | decimal "u8"    { UINT8LIT (Uint8.of_string (lexeme lexbuf)) }
+-  | decimal "u16"   { UINT16LIT (Uint16.of_string (lexeme lexbuf)) }
+-  | decimal "u32"   { UINT32LIT (Uint32.of_string (lexeme lexbuf)) }
+-  | decimal "u64"   { UINT64LIT (Uint64.of_string (lexeme lexbuf)) }
+-  | binary "i8"     { INT8LIT (Int8.of_string (lexeme lexbuf)) }
+-  | binary "i16"    { INT16LIT (Int16.of_string (lexeme lexbuf)) }
+-  | binary "i32"    { INT32LIT (Int32.of_string (lexeme lexbuf)) }
+-  | binary "i64"    { INT64LIT (Int64.of_string (lexeme lexbuf)) }
+-  | binary "u8"     { UINT8LIT (Uint8.of_string (lexeme lexbuf)) }
+-  | binary "u16"    { UINT16LIT (Uint16.of_string (lexeme lexbuf)) }
+-  | binary "u32"    { UINT32LIT (Uint32.of_string (lexeme lexbuf)) }
+-  | binary "u64"    { UINT64LIT (Uint64.of_string (lexeme lexbuf)) }
+-  | octal "i8"      { INT8LIT (Int8.of_string (lexeme lexbuf)) }
+-  | octal "i16"     { INT16LIT (Int16.of_string (lexeme lexbuf)) }
+-  | octal "i32"     { INT32LIT (Int32.of_string (lexeme lexbuf)) }
+-  | octal "i64"     { INT64LIT (Int64.of_string (lexeme lexbuf)) }
+-  | octal "u8"      { UINT8LIT (Uint8.of_string (lexeme lexbuf)) }
+-  | octal "u16"     { UINT16LIT (Uint16.of_string (lexeme lexbuf)) }
+-  | octal "u32"     { UINT32LIT (Uint32.of_string (lexeme lexbuf)) }
+-  | octal "u64"     { UINT64LIT (Uint64.of_string (lexeme lexbuf)) }
+-  | hex "i8"        { INT8LIT (Int8.of_string (lexeme lexbuf)) }
+-  | hex "i16"       { INT16LIT (Int16.of_string (lexeme lexbuf)) }
+-  | hex "i32"       { INT32LIT (Int32.of_string (lexeme lexbuf)) }
+-  | hex "i64"       { INT64LIT (Int64.of_string (lexeme lexbuf)) }
+-  | hex "u8"        { UINT8LIT (Uint8.of_string (lexeme lexbuf)) }
+-  | hex "u16"       { UINT16LIT (Uint16.of_string (lexeme lexbuf)) }
+-  | hex "u32"       { UINT32LIT (Uint32.of_string (lexeme lexbuf)) }
+-  | hex "u64"       { UINT64LIT (Uint64.of_string (lexeme lexbuf)) }
++  | decimal "i8"    { INT8LIT (Int8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | decimal "i16"   { INT16LIT (Int16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | decimal "i32"   { INT32LIT (Int32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | decimal "i64"   { INT64LIT (Int64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | decimal "u8"    { UINT8LIT (Uint8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | decimal "u16"   { UINT16LIT (Uint16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | decimal "u32"   { UINT32LIT (Uint32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | decimal "u64"   { UINT64LIT (Uint64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "i8"     { INT8LIT (Int8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | binary "i16"    { INT16LIT (Int16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "i32"    { INT32LIT (Int32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "i64"    { INT64LIT (Int64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "u8"     { UINT8LIT (Uint8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | binary "u16"    { UINT16LIT (Uint16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "u32"    { UINT32LIT (Uint32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | binary "u64"    { UINT64LIT (Uint64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "i8"      { INT8LIT (Int8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | octal "i16"     { INT16LIT (Int16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "i32"     { INT32LIT (Int32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "i64"     { INT64LIT (Int64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "u8"      { UINT8LIT (Uint8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | octal "u16"     { UINT16LIT (Uint16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "u32"     { UINT32LIT (Uint32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | octal "u64"     { UINT64LIT (Uint64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "i8"        { INT8LIT (Int8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | hex "i16"       { INT16LIT (Int16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "i32"       { INT32LIT (Int32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "i64"       { INT64LIT (Int64.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "u8"        { UINT8LIT (Uint8.of_string (unsuffix 2 (lexeme lexbuf))) }
++  | hex "u16"       { UINT16LIT (Uint16.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "u32"       { UINT32LIT (Uint32.of_string (unsuffix 3 (lexeme lexbuf))) }
++  | hex "u64"       { UINT64LIT (Uint64.of_string (unsuffix 3 (lexeme lexbuf))) }
+ 
+   (* Just plain decimal becomes an INTLIT which is also used for tuple field
+    * accesses (and is otherwise promoted to i64) *)

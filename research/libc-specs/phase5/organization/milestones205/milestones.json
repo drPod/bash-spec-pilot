@@ -1,0 +1,20 @@
+[
+  {
+    "marker": "phase5/root197",
+    "title": "Phase5 root197: accepted source and replay evidence",
+    "summary": "Final cp18/19/20 generated Clight relay linked to BufferRelay and actual Nested/script relay atom under explicit action identities, headroom and fuel. Trusted clightgen, Python AST translation, reviewed Lean subset interpreter and scheduled libc contracts. Not CompCert step preservation or Vundef proof; historical lost is ghost.",
+    "content": "phase5/root197\nFinal cp18/19/20 generated Clight relay linked to BufferRelay and actual Nested/script relay atom under explicit action identities, headroom and fuel. Trusted clightgen, Python AST translation, reviewed Lean subset interpreter and scheduled libc contracts. Not CompCert step preservation or Vundef proof; historical lost is ghost.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-clight-source-review-197/ROOT-REVIEW.json\nSHA256: 81254daff168c132b943cdfb6c23f74db3e795a12dd794f74aa17b9149ce9ba3\nFinal requirements audit200 identifies no mandated proof gap at stated bounds; final documentation/package/catalog gates remain. This milestone is not whole-goal completion."
+  },
+  {
+    "marker": "phase5/root198",
+    "title": "Phase5 root198: accepted source and replay evidence",
+    "summary": "Supplemental exported-mark text connector fresh replay accepted:23 modules,9 named axiom outputs,46 root log/output hash checks. Separate from full30.",
+    "content": "phase5/root198\nSupplemental exported-mark text connector fresh replay accepted:23 modules,9 named axiom outputs,46 root log/output hash checks. Separate from full30.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-supplemental-fresh-review-198/ROOT-REVIEW.json\nSHA256: 102131c17722635a9b23402d8c445192b86e5528147a4550b63d1101e6242b60\nFinal requirements audit200 identifies no mandated proof gap at stated bounds; final documentation/package/catalog gates remain. This milestone is not whole-goal completion."
+  },
+  {
+    "marker": "phase5/root203",
+    "title": "Phase5 root203: accepted source and replay evidence",
+    "summary": "Final source connection fresh replay accepted:18 modules,18 named axiom outputs,36 root log/output hashes, exact AST regeneration and17/17 generator fixtures. Separate from full30; explicit source197 TCB retained.",
+    "content": "phase5/root203\nFinal source connection fresh replay accepted:18 modules,18 named axiom outputs,36 root log/output hashes, exact AST regeneration and17/17 generator fixtures. Separate from full30; explicit source197 TCB retained.\nReceipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-clight-fresh-review-203/ROOT-REVIEW.json\nSHA256: b94d2c0ea6448f64d385b11e796b1180330f1305c1d8345ca7a424334d7dda5e\nFinal requirements audit200 identifies no mandated proof gap at stated bounds; final documentation/package/catalog gates remain. This milestone is not whole-goal completion."
+  }
+]

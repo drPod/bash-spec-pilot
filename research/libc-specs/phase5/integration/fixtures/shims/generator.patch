@@ -1,0 +1,13 @@
+--- /home/coder/agent-jobs/astra-research/phase5/claude-resume/integration/src/state_based/bash-verifier/lib/calculus/generator.ml	2026-09-07 08:09:02.708171153 +0000
++++ lib/calculus/generator.ml	2026-09-07 08:17:16.210265515 +0000
+@@ -30,8 +30,8 @@
+         mutable selected : int;
+         (* select maps [0, nonempty) to the index of a non-empty option *)
+         mutable select   : int array;
+-                options  : 'v iarray;
+-                children : 'v traverse_space ref iarray }
++                options  : 'v Iarray.t;
++                children : 'v traverse_space ref Iarray.t }
+ 
+   type gen_info = Bool of bool | Value of V.t | Elems of V.t list
+ 

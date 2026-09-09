@@ -1,7 +1,4 @@
-/-
-Placeholder overwritten by the driver each round with the LLM's candidate.
-The committed stub keeps `lake build` green on a fresh checkout.
--/
+/- Buildable placeholder; the checker overwrites it with each candidate. -/
 namespace Pipeline.Generated
 
 def run (_args _stdin : List String) : List String × UInt32 :=

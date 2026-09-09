@@ -1,0 +1,10 @@
+{"mode": "semant", "file": "bash-verifier/fixtures/pinned_filesys.sc", "outcome": "exception", "exception": "Failure TODO"}
+{"mode": "semant", "file": "bash-verifier/fixtures/byte_relay.sc", "outcome": "lexer_error", "message": "uncaught lexer/parser exception: Uint64.of_string"}
+{"mode": "semant", "file": "bash-verifier/fixtures/byte_relay_plain.sc", "outcome": "exception", "exception": "Failure TODO"}
+{"mode": "semant", "file": "bash-verifier/fixtures/byte_relay_raise_semicolon.sc", "outcome": "parse_error", "line": 40, "column": 56}
+{"mode": "semant", "file": "bash-verifier/fixtures/shell_fragment.sc", "outcome": "exception", "exception": "Failure TODO"}
+{"mode": "semant", "file": "bash-verifier/fixtures/decls_only.sc", "outcome": "ok"}
+{"mode": "semant", "file": "bash-verifier/fixtures/decls_errors.sc", "outcome": "errors", "errors": [{"line": 3, "column": 1, "message": "Type byte already defined"}, {"line": 4, "column": 23, "message": "Undefined type 'missing_type'"}, {"line": 7, "column": 1, "message": "Exception ReadError already defined"}, {"line": 8, "column": 1, "message": "Multiple arguments named a"}, {"line": 9, "column": 21, "message": "Undefined type 'nothere'"}, {"line": 9, "column": 34, "message": "Undefined type 'pair'"}]}
+{"mode": "semant", "file": "bash-verifier/fixtures/unsupported_bash.sc", "outcome": "lexer_error", "message": "Lexer error at line 1, column 1 : invalid symbol '#'"}
+{"mode": "semant", "file": "bash-verifier/fixtures/unsupported_c_for.sc", "outcome": "parse_error", "line": 4, "column": 7}
+{"mode": "semant", "file": "bash-verifier/fixtures/unterminated_comment.sc", "outcome": "lexer_error", "message": "Lexer error, comment at line 1, column 1 not terminated"}

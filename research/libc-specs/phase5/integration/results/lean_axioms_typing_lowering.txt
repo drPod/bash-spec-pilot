@@ -1,0 +1,28 @@
+'CalculusTyping.Sub_sound' depends on axioms: [propext]
+'CalculusTyping.funcDef_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTyping.ETy_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTyping.STy_extends' depends on axioms: [propext]
+'CalculusTyping.preservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusLowering.lowering_checked' depends on axioms: [propext]
+some ["read_block", "write_block", "relay", "relay_raising", "relay_caught", "mark", "relay_seq_relay",
+ "relay_and_mark", "relay_or_mark"]
+[("read_block", true),
+ ("write_block", true),
+ ("relay", true),
+ ("relay_raising", true),
+ ("relay_caught", true),
+ ("mark", true),
+ ("relay_seq_relay", true),
+ ("relay_and_mark", true),
+ ("relay_or_mark", true)]
+'CalculusTypeCheck.subB_sound' depends on axioms: [propext]
+'CalculusTypeCheck.inferE_sound' depends on axioms: [propext]
+'CalculusTypeCheck.checkS_sound' depends on axioms: [propext, Quot.sound]
+'CalculusTypeCheck.writeBlock_typed' depends on axioms: [propext]
+'CalculusTypeCheck.relayCaught_typed' depends on axioms: [propext]
+'CalculusTypeCheck.relayActs_typed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusTypeCheck.writeBlock_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+some ["$t16", "k", "$t15", "$t14", "q", "$t13", "req", "$t12", "$t11", "l", "$t10", "$t9", "n", "off", "b", "ι", "σ"]
+some ["$t8", "$t7", "k", "$t6", "$t5", "$t4", "$t3", "q", "$t2", "$t1", "b", "ι", "σ"]
+some ["b", "ι", "σ"]
+maxrss_kb=490064 elapsed=0.30s limits: prlimit --as=3221225472 LEAN_NUM_THREADS=1 MIMALLOC_ARENA_RESERVE=65536 lean -j1 -s 16384 -DElab.async=false (direct toolchain binary, explicit LEAN_PATH) 2026-09-08T18:49:34Z

@@ -1,0 +1,5 @@
+Original proof body (held out from prompts; used only as the helper-condition positive control).
+by
+  intro rc c' he
+  obtain ⟨a', ha', hr'⟩ := command_refines concrete abstract R hp cmd c c' rc he a hr
+  exact hobs rc c' a' hr' (hq rc a' ha')

@@ -1,0 +1,43 @@
+{
+  "frozen_at_utc": "2026-09-08T06:17:37Z",
+  "frozen_by": "organization-current-evidence-8",
+  "prior_validate7_inventory": "2242 nodes / 2348 edges",
+  "files": {
+    "catalog.json": {
+      "sha256": "c2dcdac32ca9f972e1f685117050c778d14a60ff59928d5b078741148cc58084",
+      "size": 74097
+    },
+    "artifacts.jsonl": {
+      "sha256": "6d355a1ebe006171b8167dfe42b8d351e121590fa92e6123398eef02347e8138",
+      "size": 795010
+    },
+    "README.md": {
+      "sha256": "a5176e10b1a60f2e759321bd37d326eba22417c5d75db8aadf34058b33e27a3b",
+      "size": 8055
+    },
+    "schema.json": {
+      "sha256": "bd93de5d398e6088e6d59594fc5bab811691d8d4e69c282779d2c7888a49cac6",
+      "size": 3456
+    },
+    "REQUIREMENTS-CROSSWALK.md": {
+      "sha256": "71111bd4461d70e7883c5dae787fe87d33a74c0b04edd088c4b7b2201fdfb76f",
+      "size": 6307
+    },
+    "COVERAGE-GAPS.md": {
+      "sha256": "558358b29566271c4bbd137c92d9c02d5e80062f9d79b89c4a6a2bf8ee5d5cd5",
+      "size": 5755
+    },
+    "app-mapping.json": {
+      "sha256": "b91fa9c06c2efe6ac6b765c7d2969393a380e968758457ac5c2f86ab61e828fe",
+      "size": 2383
+    },
+    "IMPORT-GET-VERIFICATION.md": {
+      "sha256": "5e89c1e929cb3ee9fe303f8f9b24163b6882bc28f8400d6e6b5825f28cd74b69",
+      "size": 2831
+    },
+    "CURRENT-EVIDENCE.json": {
+      "sha256": "1f14c41f34856db02e91d4cdae58fe1e9dcba7f78a780fcbfe4a763e31446bb4",
+      "size": 1403
+    }
+  }
+}

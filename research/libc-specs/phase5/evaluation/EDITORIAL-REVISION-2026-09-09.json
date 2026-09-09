@@ -1,0 +1,19 @@
+{
+  "revision": "2026-09-09 editorial rewrite",
+  "purpose": "Explain research question, approach, demonstrated results and limitations before implementation evidence",
+  "changes": [
+    "Removed internal checkpoint chronology from narrative",
+    "Separated motivating application from implemented prototype",
+    "Distinguished script/query correctness from fidelity to user intent",
+    "Separated proof regeneration from script generation evaluation",
+    "Replaced stale packaging-pending prose with verified final-delivery status"
+  ],
+  "proofs_or_experiments_changed": false,
+  "frozen_archive_changed": false,
+  "validation": "HTML regenerated; all14 local Markdown links resolve; formal and empirical claims reconciled with previous manuscript and delivery receipt",
+  "sha256": {
+    "DRAFT-PAPER.md": "84473d52a3feeba4fe2c77e4a9ce8b013bb1bc07ed4d4a1930c141951b603015",
+    "paper.html": "4460badf221d95f3981494de8eab8e64a234035752c56548e384f0f2944b669a",
+    "editorial-history/DRAFT-PAPER-2026-09-08.md": "b515b98b7bf53c16bde46c1b11140111c68a5dac043e4537a0b0efb74269801a"
+  }
+}

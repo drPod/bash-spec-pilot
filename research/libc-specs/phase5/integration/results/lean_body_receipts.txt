@@ -1,0 +1,13 @@
+(true, true)
+(true, true)
+'CalculusBody.writeBlock_parse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.writeBlock_render' depends on axioms: [propext]
+'CalculusBody.relay_parse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.relay_render' depends on axioms: [propext]
+'CalculusBody.setAttrAt_isSome_of_getAttrAt' depends on axioms: [propext]
+'CalculusBody.write_block_body_ret' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.write_block_body_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.write_block_assert1_raises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.write_block_assert2_raises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.write_block_assert3_raises' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CalculusBody.relay_inner_step' depends on axioms: [propext, Classical.choice, Quot.sound]

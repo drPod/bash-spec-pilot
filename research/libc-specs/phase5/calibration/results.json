@@ -1,0 +1,175 @@
+{
+  "scope": "Bounded calibration of gnulib u8_mbtoucr. Command receipts and hashes only; every claim is qualified in RESULTS.md. No Bash, gettext-binary, or research-objective claim.",
+  "authoring_window_utc": {
+    "dedicated_start": "2026-09-07T06:56:24Z",
+    "deadline": "2026-09-07T08:56:24Z",
+    "budget_seconds": 7200,
+    "extended": false,
+    "resumed_worker_started": "2026-09-07T08:06:59.676887Z",
+    "resumed_worker_finished": "2026-09-07T08:25:58.360372Z",
+    "stopped_before_deadline": true,
+    "timing_note": "Supervisor timestamps; not a deadline timeout or uninterrupted two-hour proof attempt."
+  },
+  "source_identities_sha256": {
+    "u8_mbtoucr.c": "2bcc5f8d88f2170ed29cf95834d49d4c5fc3114e08f4a20cbdf49b35d634a4f3",
+    "u8_mbtoucr.c_upstream_url": "https://raw.githubusercontent.com/coreutils/gnulib/e9c1d94f58eaacee919bb2015da490b980a5eedf/lib/unistr/u8-mbtoucr.c",
+    "u8_mbtoucr.c_matches_upstream_download": true,
+    "unistr.in.h_upstream_frozen_api_declaration": "a2e4670f5beb2c1f07b3cadd73feba254d800f2432cb652120c1662468e848de",
+    "unitypes.in.h_upstream": "12ee063d1298bbbdb28fe382170cb6431ade1258ddc0b6c66e291f9e2394ffc2",
+    "include/config.h": "96af2884cad467c8f8d3d59d453af46be64b79727fd7c16a287a1f37112b3a34",
+    "include/stdint.h": "8820dbd85d203a919a00a75ea5be8a92f00c6630169b3b1b5069be3926a853bd",
+    "include/unistr.h": "fd8257549a69554da32fac0fe820790a87cdc9a18a17e5a48726de1a3c93e6ff",
+    "u8_mbtoucr.i": "1ce851f088b01f61bdd47c96a090f89e0aa3f5d6d7bea5c09e44f6bd082995d9",
+    "u8_mbtoucr.v": "4888b44c01fd1ab61bab9703de90fd30cff6057d7dbed71412d4d1f2c559422e",
+    "UnicodeSpec.v": "e0371c09e4ace1ce3b680a865bd53fee611ed2a2ad641251e9158665d7ecfda4",
+    "UnicodeSpecLemmas.v": "aa3fa14f0c35616a10440c3b3345fa3bc5b90c152824c5fcbc2f49340f687024",
+    "Verif_u8_mbtoucr_spec.v": "a0a56af6b97dfffee1d43e3b47b5c5e30efb98e2619b847eebf3e211a9257f9d",
+    "unicode_oracle.py": "5672eb47677bd27ed24e27e1c0122a7469afdc079ffcccbb90133fc6a3b7c1d2",
+    "make_vectors.py": "909497c44d03d10c963c218b2422b998605a488a4b47057ab2ced53b722fc902",
+    "test_driver.c": "434844dd722abf3441cf9c58f65f2100b73723ccf2e0bceb692de9425bb72e4a"
+  },
+  "tool_identities": {
+    "container_image_id": "sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+    "coq": "8.20.1",
+    "compcert_clightgen": "3.15",
+    "vst": "2.15 (opam coq-vst.2.15, coq-vst-zlist.2.13)",
+    "gcc": "Debian 12.2.0-14+deb12u1",
+    "python_corpus_generation": "3.12.3 (host)",
+    "clightgen_command": [
+      "clightgen",
+      "-normalize",
+      "-dprepro",
+      "-nostdinc",
+      "-Iinclude",
+      "-I/home/coq/.opam/4.13.1+flambda/lib/compcert/include",
+      "-std=c11",
+      "-fnone",
+      "u8_mbtoucr.c"
+    ]
+  },
+  "corpus": {
+    "generator": "make_vectors.py (seed 5192026)",
+    "input.hex_sha256": "f2482006445c099f4109d434018525575d8dfd534f782527e454a40fc0e62d1e",
+    "expected.txt_sha256": "9ab0ccdff1d8b9899a30426decb25b5e5cbfdb3f8faab14124135c89a782fc45",
+    "location_outside_repo": "~/.cache/bash-spec-pilot/phase5-utf8-vectors/",
+    "total_cases": 1190417,
+    "counts": {
+      "exhaustive_length_1": 256,
+      "exhaustive_length_2": 65536,
+      "all_unicode_scalars": 1112064,
+      "row_boundaries_and_truncations": 6679,
+      "legal_or_illegal_prefix_with_suffix": 1779,
+      "seeded_arbitrary_bytes": 4096,
+      "explicit_regressions": 7
+    },
+    "input_length_range_bytes": [
+      1,
+      32
+    ],
+    "duplicates_note": "groups intentionally overlap; counts are cases, not unique byte strings",
+    "independent_provenance": "all_unicode_scalars expectations cross-checked at generation time against Python's standard UTF-8 encoder (distinct provenance from the table oracle); all other groups' expectations come from unicode_oracle.py, which shares its table construction with UnicodeSpec.v"
+  },
+  "differential_result": {
+    "run": "utf8-full-corpus-resume-1",
+    "executable": "utf8_check_nopie (gcc -O1 -g -fno-pie -no-pie -fsanitize=address,undefined --coverage; container sha256 caddfdb7fc23b24b857fb1fcc4a8e6917099d8b14a914d8f82dc0536e7f2c468)",
+    "exit_status": 0,
+    "output_sha256_equals_expected": "9ab0ccdff1d8b9899a30426decb25b5e5cbfdb3f8faab14124135c89a782fc45",
+    "sanitizer_reports": 0,
+    "input_preservation_check": "driver returns 13 if input bytes changed; did not trigger",
+    "elapsed_seconds": 0.76,
+    "peak_rss_kib": 111616,
+    "limits": {
+      "wall_seconds": 120,
+      "container_memory_bytes": 3221225472,
+      "address_space_limit": "disabled for ASan shadow (--allow-sanitizer-shadow)",
+      "output_file_bytes": 67108864
+    }
+  },
+  "coverage": {
+    "run": "utf8-gcov-nopie-1",
+    "tool": "gcov -b -c on utf8_check_nopie-u8_mbtoucr.gcda (accumulated over startup.hex and the full corpus)",
+    "lines_executed": "100.00% of 51",
+    "branches_executed": "100.00% of 50",
+    "branches_taken_at_least_once": "100.00% of 50",
+    "unexecuted_lines": 0
+  },
+  "pie_startup_failure": {
+    "runs": [
+      "utf8-sanitizer-build-1",
+      "utf8-sanitizer-run-1",
+      "utf8-asan-startup-diagnosis-1"
+    ],
+    "observation": "The default (PIE) ASan build looped emitting AddressSanitizer:DEADLYSIGNAL at startup until the 60 s timeout (16,141,438 lines; exit 143). With handle_segv=0 the same binary ran startup.hex correctly. The -fno-pie/-no-pie rebuild ran startup and the full corpus without any report.",
+    "root_cause": "NOT established. Do not cite as diagnosed."
+  },
+  "coq_results": {
+    "UnicodeSpec.v": {
+      "run": "unicode-spec-coqc-2",
+      "exit_status": 0
+    },
+    "u8_mbtoucr.v (Clight AST)": {
+      "run": "utf8-ast-coqc-1",
+      "exit_status": 0
+    },
+    "UnicodeSpecLemmas.v": {
+      "run": "utf8-oracle-lemmas-coqc-6",
+      "exit_status": 0,
+      "failed_iterations": [
+        "utf8-oracle-lemmas-coqc-1",
+        "utf8-oracle-lemmas-coqc-2",
+        "utf8-oracle-lemmas-coqc-3",
+        "utf8-oracle-lemmas-coqc-4",
+        "utf8-oracle-lemmas-coqc-5"
+      ],
+      "axiom_audit": {
+        "run": "utf8-oracle-lemmas-axioms-1",
+        "result": "Print Assumptions: Closed under the global context for all 7 audited statements"
+      }
+    },
+    "Verif_u8_mbtoucr_spec.v": {
+      "run": "utf8-vst-spec-coqc-1",
+      "exit_status": 0,
+      "content": "funspec statement and body obligation as Prop; no proof"
+    },
+    "aborted_probes_outside_repo": {
+      "start_function_accepts_funspec": "utf8-vst-probe-startfunction-2",
+      "ascii_branch_closed_inside_aborted_proof": [
+        "utf8-vst-probe-ascii-11",
+        "utf8-vst-probe-ascii-12"
+      ],
+      "failed_probe_iterations": [
+        "utf8-vst-probe-startfunction-1",
+        "utf8-vst-probe-ascii-1",
+        "utf8-vst-probe-ascii-2",
+        "utf8-vst-probe-ascii-3",
+        "utf8-vst-probe-ascii-4",
+        "utf8-vst-probe-ascii-5",
+        "utf8-vst-probe-ascii-6",
+        "utf8-vst-probe-ascii-7",
+        "utf8-vst-probe-ascii-8",
+        "utf8-vst-probe-ascii-9",
+        "utf8-vst-probe-ascii-10"
+      ],
+      "note": "Probe sources end in Abort and prove nothing; they live in the worker job directory, not in the repo. 1 of 25 conditionals explored."
+    }
+  },
+  "obligations": {
+    "independent_semantic_oracle_frozen": "done (UnicodeSpec.v, reviewed)",
+    "oracle_lemmas_connecting_decode_to_encoding": "done (UnicodeSpecLemmas.v)",
+    "differential_evidence_C_vs_oracle": "done, bounded to corpus (not a theorem)",
+    "frozen_VST_funspec": "done (statement only)",
+    "VST_C_conformance_body_theorem": "NOT ESTABLISHED when worker stopped early; only bounded probes attempted",
+    "gettext_caller_transfer": "NOT ATTEMPTED before early stop",
+    "twelve_proof_generation_trials": "NOT RUN (no proved baseline exists)"
+  },
+  "run_receipts_location_outside_repo": "~/agent-jobs/astra-research/phase5/runs/<run>.{json,log}",
+  "supplementary_directed_tests": {
+    "cases": 5,
+    "all_absent_from_frozen_corpus": true,
+    "build_run": "pi-utf8-controls-build-2",
+    "execution_run": "pi-utf8-controls-run-1",
+    "exact_expected_match": true,
+    "output_sha256": "73e4b5e29c21792775f3fff9efb04f9c5d65954f816de283e8e618159d78be68",
+    "scope": "Additional test inputs, not mutation controls, not part of frozen baseline and not proof evidence."
+  }
+}

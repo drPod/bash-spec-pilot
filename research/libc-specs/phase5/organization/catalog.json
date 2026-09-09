@@ -1,0 +1,1139 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "research-inventory-5 (Claude CLI worker, job dir research-inventory-5)",
+  "generated_unix": 1788837471,
+  "generated_at_utc": "2026-09-08T03:17:51Z",
+  "generated_note": "This catalog was authored by a Claude CLI agent (research-inventory-5), reading existing REPORT.md/RESULTS.md/STATUS.md/exit.json/REQUIREMENTS.md files across research/libc-specs/phase2-5 and /home/coder/agent-jobs/astra-research/phase5/{claude-resume,pi-reviews}. No NEW research proof attempts, model calls for proof generation, or compiler/lake/coqc reruns were performed to produce this catalog. claim_status reflects the authoring worker's own stated result, cross-checked against exit.json timestamps and, where noted, an independent pi-review, a later worker's re-inspection, or this cataloging worker's own direct re-check of on-disk files. 'exit_code' in receipts is the CLI/process exit code and is recorded separately from 'claim_status' because at least one worker (evaluation-artifact-4) exited 0 mid-matrix while its background run_matrix.py continued to completion afterward, and two workers (calculus-correspondence-4, nonutf8-cases-4) exited 1 purely on an account rate limit with no logical failure claimed by that exit code alone.",
+  "hash_disclaimer": "Most 'hashes' values below are copied VERBATIM (including trailing ellipsis '\u2026') from the authoring worker's own REPORT.md/RESULTS.md prose; they are quoted provenance, not independently recomputed by this cataloging worker, unless the record also carries an 'independently_verified_hashes' object. Where present, 'independently_verified_hashes' entries were computed by this cataloging worker directly via sha256sum against the exact file path listed, on 2026-09-08, and are full 64-hex-char values that were checked to match the authoring worker's quoted prefix.",
+  "approximate_timestamp_disclaimer": "Any timestamp prefixed with '~' anywhere in this catalog (including independent_audits[].actual_time_utc) is this cataloging worker's own approximate placement based on file mtimes / surrounding REPORT.md prose ordering, not a value read from an exact receipt or exit.json field. Exact values (no '~') are transcribed directly from a named receipt's started_unix/finished_unix or from exit.json.",
+  "records": [
+    {
+      "id": "PH5-PRIOR-000",
+      "kind": "predecessor-summary",
+      "title": "Phase2-4 predecessor evidence (Lean-only relay model, pointer refinement, backend decision)",
+      "summary": "Phase2: a kernel-checked pure buffer-view Lean model of a restricted C relay under a deterministic adapter (47 declarations, standard axioms only), a 2627-case standard corpus with C/Python/Lean cross-comparison (all agree), real-I/O/strace checks (10/10), 9/9 mutants distinguished. Explicitly 'not a C/Bash verifier'. Phase3: a Lean-to-Lean execution refinement (PointerRelay.complete_execution_refines) plus a hand-AST command-composition layer (ShellObservation.command_refines / RelayComposition.fragment_refines), 112 audited declarations, same standard-axiom set, explicitly 'not a coinductive theorem about arbitrary OS executions'. Phase4: the backend DECISION (research/libc-specs/phase4/DECISION.md, dated 2026-09-07) to adopt VST/CompCert as the primary C-proof backend (VeriFast for contract-development comparison, AutoCorres2 as fallback, no Frama-C/Isabelle build run), which all of PH5-RELAY-* and PH5-UTIL-* downstream implement.",
+      "claim_status": "checked-predecessor-not-re-derived-in-depth-this-pass",
+      "worker": "predecessor phase2/phase3/phase4 sessions (not this catalog's own worker)",
+      "dependencies": [],
+      "affected_files": [
+        "research/libc-specs/phase2/RESULTS.md",
+        "research/libc-specs/phase2/results.json",
+        "research/libc-specs/phase3/RESULTS.md",
+        "research/libc-specs/phase3/results.json",
+        "research/libc-specs/phase4/DECISION.md",
+        "research/libc-specs/phase4/results.json"
+      ],
+      "distinctions": "This single record is a BOUNDED, pointer-level summary, not a full re-derivation to the same per-theorem depth as the PH5-* phase5 records above -- phase2/3/4 predate this catalog's 90-minute assignment window and a full re-read of their own raw receipts (not just their RESULTS.md prose) was out of scope for this pass. Phase2's Lean model is explicitly a pure buffer-view model, not yet C; phase3's refinement is Lean-to-Lean, not C; the actual C/VST work begins at phase5 (PH5-RELAY-001).",
+      "actual_times": "2026-09-07 (per each phase's own RESULTS.md dateline; exact clock windows not re-extracted this pass)"
+    },
+    {
+      "id": "PH5-RELAY-001",
+      "kind": "vst-body-proof",
+      "title": "relay.c body correctness (semax_body)",
+      "summary": "body_relay: semax_body Vprog Gprog f_relay relay_spec for the clightgen output of phase2 relay.c against frozen Specs.v contracts. Establishes that under scheduled read/write primitives, every returning execution returns Vint(Int.repr status) with derivation outcome initial status final pending; write call receives exactly the initialized suffix of the stack buffer (byte_array_split), so wrong-pointer/wrong-length mutations cannot satisfy write_spec.",
+      "claim_status": "checked",
+      "worker": "claude-resume/relay",
+      "dependencies": [],
+      "source": {
+        "pins": [
+          "research/libc-specs/phase2/relay.c (unchanged)"
+        ],
+        "hashes": {
+          "relay.c": "c5abc06f\u2026",
+          "relay.v": "ce8c381c\u2026",
+          "Specs.v": "b1c6b3bc\u2026",
+          "Body.v": "88768fc4c0128475ae44b4689d79e5f0b08f24d5f70c63f6eac15f8b39522aa2"
+        }
+      },
+      "independently_verified_hashes": {
+        "note": "Recomputed directly via sha256sum; organization-repair-6 (2026-09-08) added relay.v, which research-inventory-5's original pass omitted despite quoting its prefix in source.hashes above. All five match the authoring worker's quoted prefixes exactly.",
+        "research/libc-specs/phase2/relay.c": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+        "research/libc-specs/phase5/relay/Body.v": "88768fc4c0128475ae44b4689d79e5f0b08f24d5f70c63f6eac15f8b39522aa2",
+        "research/libc-specs/phase5/relay/Specs.v": "b1c6b3bc0aaba46a4c0a3dfee31c0cbf3948a07505a53080e196d1e1296f4359",
+        "research/libc-specs/phase5/relay/relay.v": "ce8c381c0027a227102e47605c274d8711e72fbf8d3c75d261d1e456fc0ab687"
+      },
+      "proof_statement": "semax_body Vprog Gprog f_relay relay_spec",
+      "assumptions": "Standard classical/functional-extensionality axioms already used by VST/CompCert (Classical_Prop.classic, Axioms.prop_ext, functional_extensionality_dep, Eqdep.Eq_rect_eq.eq_rect_eq, Ensembles.Extensionality_Ensembles, ClassicalDedekindReals.sig_not_dec/sig_forall_dec). No project axiom, no Admitted.",
+      "receipts": [
+        {
+          "name": "relay-body-coqc-16",
+          "exit_code": 0,
+          "seconds": 5.46,
+          "peak_kib": 641524
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/Body.v"
+      ],
+      "distinctions": "Whole-body proof of the SOURCE (relay.c), not a helper/leaf lemma; partial correctness (semax_body), not termination. The two NEGATIVE CONTROLS (PH5-RELAY-004) show that the two SPECIFIC tested mutations (a wrong-pointer argument; a retried zero-write) each fail the unchanged proof script at an identified obligation -- this is evidence against those two mutants under this one proof script, not a general impossibility theorem covering every possible wrong-pointer or wrong-length program.",
+      "model_harness": "Coq 8.20.1 / VST 2.15 / CompCert 3.15, shared phase5-vst container, run_vst.py serialized compiler lock; human-in-the-loop invariant design from RELAY-VST-DESIGN.md plus ~25 compiler-feedback repairs; no proof search beyond VST forward*/entailer!/lia.",
+      "actual_times": "2026-09-07 08:07-09:00 UTC (relay worker)"
+    },
+    {
+      "id": "PH5-RELAY-002",
+      "kind": "vst-whole-program-proof",
+      "title": "relay_main.c whole-program semax_prog for a wrapper",
+      "summary": "relay_main.c = #include relay.c + int main(void){return relay();}. Main.v proves body_main and prog_correct : semax_prog prog w0 Vprog (Gprog w0) with the external read/write obligations discharged.",
+      "claim_status": "checked",
+      "worker": "claude-resume/relay",
+      "dependencies": [
+        "PH5-RELAY-001"
+      ],
+      "source": {
+        "hashes": {
+          "relay_main.c": "3fb8a9a21991e8905907eb72b87d94408c69b5c6cae93504ccca10e1d64a0910",
+          "relay_main.v": "a3f914f5c2d655aee4c23bcd271c84c61b4be998cbb6b53fd6d00729bbaf9d9c"
+        }
+      },
+      "proof_statement": "prog_correct w0 : valid_world w0 -> semax_prog prog w0 Vprog (Gprog w0)",
+      "assumptions": "Same standard axiom set as PH5-RELAY-001.",
+      "receipts": [
+        {
+          "name": "relay-main-clightgen-1",
+          "exit_code": 0
+        },
+        {
+          "name": "relay-main-ast-coqc-1",
+          "exit_code": 0
+        },
+        {
+          "name": "relay-main-coqc-4",
+          "exit_code": 0,
+          "seconds": 14.46,
+          "peak_kib": 871452
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/Main.v",
+        "research/libc-specs/phase5/relay/relay_main.c"
+      ],
+      "distinctions": "relay_main.c is a separate wrapper artefact created for this project; the source-fidelity claim (unmodified upstream source) stays with relay.c only, not relay_main.c.",
+      "model_harness": "Coq 8.20.1 / VST 2.15 / CompCert 3.15",
+      "actual_times": "2026-09-07 08:07-09:00 UTC"
+    },
+    {
+      "id": "PH5-RELAY-003",
+      "kind": "abstract-progress-termination",
+      "title": "Abstract progress, determinism, fuel-bounded evaluator, falsifiability (relay)",
+      "summary": "Progress.v: reaches_progress / outcome_exists (every initial world reaches Halt, abstract level only). Determinism.v: outcome_unique. Evaluator.v: eval_total, a total computable reference world -> status x final x pending. Distinguish.v: falsifiability lemmas (no_false_success_a/b etc.) showing a spec-meeting implementation cannot report wrong status/drop pending bytes.",
+      "claim_status": "checked-abstract-only",
+      "worker": "claude-resume/relay",
+      "dependencies": [
+        "PH5-RELAY-001"
+      ],
+      "receipts": [
+        {
+          "name": "relay-progress-coqc-5",
+          "exit_code": 0
+        },
+        {
+          "name": "relay-determinism-coqc-4",
+          "exit_code": 0
+        },
+        {
+          "name": "relay-evaluator-coqc-3",
+          "exit_code": 0
+        },
+        {
+          "name": "relay-distinguish-coqc-1",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/Progress.v",
+        "research/libc-specs/phase5/relay/Determinism.v",
+        "research/libc-specs/phase5/relay/Evaluator.v",
+        "research/libc-specs/phase5/relay/Distinguish.v"
+      ],
+      "distinctions": "This is progress/termination of the ABSTRACT step relation over 'world', not of the compiled C/Clight execution -- superseded in that respect by PH5-RELAY-007/008 which reconnect it to concrete Clight execution.",
+      "model_harness": "Coq 8.20.1 / VST 2.15",
+      "actual_times": "2026-09-07 08:07-09:00 UTC"
+    },
+    {
+      "id": "PH5-RELAY-004",
+      "kind": "negative-control",
+      "title": "Negative controls: mutated relay AST (wrong pointer, retried zero-write)",
+      "summary": "Hand-mutated ASTs (wrong pointer buf for buf+off; zero write retried) against the unchanged Specs.v/Body.v proof script both fail as expected, at the write-call argument obligation and at apply write_data respectively.",
+      "claim_status": "checked-negative-result",
+      "worker": "claude-resume/relay",
+      "dependencies": [
+        "PH5-RELAY-001"
+      ],
+      "receipts": [
+        {
+          "name": "control-ptr-body-coqc-1",
+          "exit_code": "expected-fail",
+          "failure_point": "the write-call argument obligation v_buf vs offset_val off v_buf"
+        },
+        {
+          "name": "control-retry-body-coqc-1",
+          "exit_code": "expected-fail",
+          "failure_point": "apply write_data (reaches has no zero-write transition)"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/controls/"
+      ],
+      "distinctions": "Two specific mutants tested, each failing at a named obligation under the unchanged proof script -- evidence against those two mutants, not a general claim that no wrong-pointer/wrong-length program can ever be proved. The retry mutant is excluded by the contract for every TERMINATING execution, not solely by the abstract progress theorem; this correction is recorded in controls/README.md as an argument, not a separately checked theorem."
+    },
+    {
+      "id": "PH5-RELAY-005",
+      "kind": "vst-external-adequacy-proof",
+      "title": "Dry external adequacy + whole-program dry safety (Jsub-dependent)",
+      "summary": "Dry.v defines dry external specs over CompCert memory (Mem.storebytes/loadbytes) and proves juicy_dry_ext_spec adequacy; Safety.v applies whole_program_sequential_safety_ext to Main.prog_correct giving relay_dry_safety: dry safety of the concrete Clight execution of relay_main.prog for every step count, under one explicit library premise Jsub. Explicitly a SAFETY theorem only -- VST forces the dry exit predicate to True, so the functional 'returns status with outcome' theorem is NOT established here (see PH5-RELAY-007/008 for that).",
+      "claim_status": "checked-conditional-on-Jsub",
+      "worker": "claude-resume/external-adequacy",
+      "dependencies": [
+        "PH5-RELAY-002"
+      ],
+      "source": {
+        "hashes": {
+          "Dry.v": "370fe484c02e739dc1d8b5edf622349aa2b971beae57f7596bb81f77ba06435d",
+          "Safety.v": "62e0748b9bf06d942f1df06ec17cf15a8a2672cd914a7dda805cffc25eaf5977",
+          "dry_mem_lemmas.v (verbatim VST progs64)": "cdeeaa5ab3de6bc6bd18014af191749c0767e227fb7ca980f1759630562bf564"
+        }
+      },
+      "proof_statement": "relay_dry_safety (w0) (Hv: valid_world w0) : exists q, initial_core ... /\\ forall n, dry_safeN ... n w0 q init_mem   [premise: Hypothesis Jsub]",
+      "assumptions": "Jsub (VST's inline-external premise, an unresolved library boundary -- NOT proved vacuous; relay_main.prog declares 55 CompCert builtins with ef_inline=true even though bodies only call read/write/relay); standard classical axioms; plus CompCert parameters Events.external_functions_sem, Events.inline_assembly_sem, and VST axiom Clight_core.inline_external_call_mem_events, lib.Axioms.proof_irr.",
+      "receipts": [
+        {
+          "name": "adequacy-drymem-coqc-1",
+          "exit_code": 0,
+          "seconds": 6.3
+        },
+        {
+          "name": "adequacy-dry-coqc-20",
+          "exit_code": 0,
+          "seconds": 4.94,
+          "note": "19 failed iterations preceded this"
+        },
+        {
+          "name": "adequacy-safety-coqc-2",
+          "exit_code": 0,
+          "seconds": 10.14
+        },
+        {
+          "name": "adequacy-audit-coqc-1",
+          "exit_code": 0,
+          "seconds": 11.79
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/adequacy/Dry.v",
+        "research/libc-specs/phase5/relay/adequacy/Safety.v",
+        "research/libc-specs/phase5/relay/adequacy/AuditAdequacy.v"
+      ],
+      "distinctions": "This proof genuinely connects VST funspecs to CompCert memory (new lemmas inflate_store_VALspec_range/inflate_store_data_at_); it is safety, not a functional return-value theorem, and it carries the Jsub premise. Superseded for the return-value question by PH5-RELAY-007 (Jsub-free, existential) and PH5-RELAY-008 (Jsub-free, universal).",
+      "actual_times": "2026-09-07, started 08:52:57 UTC"
+    },
+    {
+      "id": "PH5-RELAY-006",
+      "kind": "vst-external-adequacy-proof",
+      "title": "Trace.v: dry-step consequence over finite concrete executions",
+      "summary": "Generic dry_step/dry_steps relation over a CoreSemantics + dry spec; safeN_dry_step/steps; relay_concrete_trace: every state reached by dry_steps under relay_dry_spec either meets an external call's dry precondition for some witness, or (if not external/not halted) can step.",
+      "claim_status": "checked",
+      "worker": "claude-resume/external-adequacy",
+      "dependencies": [
+        "PH5-RELAY-005"
+      ],
+      "receipts": [
+        {
+          "name": "adequacy-trace-coqc-*",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/adequacy/Trace.v"
+      ],
+      "distinctions": "Environment-model machinery reused by every later termination/universal result (PH5-RELAY-007/008)."
+    },
+    {
+      "id": "PH5-RELAY-007",
+      "kind": "concrete-termination-witness",
+      "title": "Concrete Clight execution reaches exit/return with the outcome (existential witness, Jsub-free)",
+      "summary": "Terminate.v constructs, for every valid initial world w0, an EXPLICIT finite Clight-core execution of relay_exit.prog reaching the exit(status) call in world final with outcome w0 status final pending, with no Jsub premise and no VST safety axiom -- a direct construction on the AST. TerminateMain.v repeats this for the ORIGINAL relay_main.prog, which halts at Returnstate(Vint status) Kstop with outcome (the 'original main halt' result). ShellExit.v connects the concrete status to the shell layer (relay_exit_shell_witness).",
+      "claim_status": "checked-existential",
+      "worker": "claude-resume/adequacy-resume-3",
+      "dependencies": [
+        "PH5-RELAY-006"
+      ],
+      "proof_statement": "relay_exit_termination : forall w0, valid_world w0 -> exists q0, initial_core ... /\\ exists k q m final status pending, ok_steps w0 k (q0,init_mem,w0) (q,m,final) /\\ at_external ... = Some(exit_ef,[Vint(Int.repr status)]) /\\ outcome w0 status final pending.  relay_main_termination: analogous, ending at Returnstate with q=CRet(Vint status) Kstop and halted.",
+      "assumptions": "valid_world w0 only, plus the same standard classical set; explicitly NOT present: Jsub, inline_external_call_mem_events, ef_deterministic_fun, proof_irr, eq_rect_eq, Extensionality_Ensembles.",
+      "receipts": [
+        {
+          "name": "adequacy-terminate-coqc-19",
+          "exit_code": 0,
+          "seconds": 4.54,
+          "started_utc": "2026-09-07T20:06:48Z"
+        },
+        {
+          "name": "adequacy-auditterminate-coqc-1",
+          "exit_code": 0
+        },
+        {
+          "name": "adequacy-terminatemain-coqc-3",
+          "exit_code": 0,
+          "started_utc": "2026-09-07T20:19:19Z",
+          "sha256": "2b52a82e924c205f659c482b9dce7e5b440e544108963c29fd426c5f8e0ff644"
+        },
+        {
+          "name": "adequacy-shellexit-coqc-1",
+          "exit_code": 0,
+          "started_utc": "2026-09-07T20:14:00Z"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/adequacy/exit/Terminate.v",
+        "AuditTerminate.v",
+        "ShellExit.v",
+        "TerminateMain.v"
+      ],
+      "distinctions": "WITNESS (existential: one execution per initial world), not universal over all executions -- that is PH5-RELAY-008. Does not use relay_dry_safety (PH5-RELAY-005) at all, so it is Jsub-free even though the safety-side theorems still carry Jsub.",
+      "actual_times": "2026-09-07 19:31:32-~20:15 UTC"
+    },
+    {
+      "id": "PH5-RELAY-008",
+      "kind": "universal-termination-proof",
+      "title": "Universal (all-executions) termination + returned outcome, Jsub-free",
+      "summary": "UniversalMain.relay_main_universal and UniversalExit.relay_exit_universal: for every valid initial world w0 there exist q0, a bound N and the outcome (status,final,pending) such that EVERY Trace.dry_steps execution of any length k from the initial state satisfies k<=N, is never stuck below N, and at k=N has returned/exited with exactly that status -- i.e. every maximal execution in the specified scheduled environment terminates after exactly N steps with the outcome, not just an existential witness. Proved via a generic mem_equiv transfer argument (MemEquivStep.v) plus a canonical-trajectory induction. UniversalShell.v extends this to the shell-level 'relay && mark' query.",
+      "claim_status": "checked-universal-within-stated-environment-model",
+      "worker": "claude-resume/universal-relay-4",
+      "dependencies": [
+        "PH5-RELAY-007"
+      ],
+      "proof_statement": "relay_main_universal / relay_exit_universal: forall w0, valid_world w0 -> exists q0 N status final pending, outcome w0 status final pending /\\ (forall k q m z, dry_steps k (q0,init_mem,w0) (q,m,z) -> k<=N /\\ ext_ok(q,m,z) /\\ (k<N -> exists s', dry_step (q,m,z) s') /\\ (k=N -> q=Returnstate(Vint status) Kstop /\\ z=final)).",
+      "assumptions": "valid_world w0 only; NO Jsub; NO ef_deterministic_fun (a bespoke builtin-free determinism lemma step_fun_nb was proved instead); standard classical set + CompCert Events parameters. MemEquivAssign.v (needed only for utilities with pointer stores, e.g. future case studies) additionally uses CompCert's lib.Axioms.proof_irr -- explicitly noted as not used by the relay theorems themselves.",
+      "receipts": [
+        {
+          "name": "universal-memequiv-coqc-10",
+          "exit_code": 0,
+          "seconds": 3.99
+        },
+        {
+          "name": "universal-main-coqc-21",
+          "exit_code": 0,
+          "seconds": 5.41,
+          "note": "19 failed iterations preceded acceptance at -20/-21"
+        },
+        {
+          "name": "universal-exit-coqc-4",
+          "exit_code": 0,
+          "seconds": 5.83
+        },
+        {
+          "name": "universal-audit-coqc-1",
+          "exit_code": 0,
+          "seconds": 9.48
+        },
+        {
+          "name": "universal-shell-coqc-1",
+          "exit_code": 0,
+          "seconds": 2.27
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/relay/adequacy/universal/MemEquivStep.v",
+        "UniversalMain.v",
+        "UniversalExit.v",
+        "UniversalShell.v",
+        "AuditUniversal.v",
+        "MemEquivAssign.v",
+        "MemEquivAssignFun.v"
+      ],
+      "distinctions": "This is the strongest termination result in the project: UNIVERSAL over all executions (not one witness) and Jsub-free (stronger than PH5-RELAY-005's safety theorem, which still needs Jsub). It is still bounded to the STATED scheduled-environment model (every read/write returns with the specified storebytes/loadbytes effect; nothing about host-OS/kernel/signal behaviour; C\u2192Clight translation trusted by hash identity). Read literally: 'universal' = universal over executions consistent with the dry_step environment model, not universal over arbitrary hardware/OS behaviour.",
+      "actual_times": "2026-09-07 21:27-~22:25 UTC"
+    },
+    {
+      "id": "PH5-SHELL-001",
+      "kind": "shell-parser-composition-proof",
+      "title": "Shell layer over the relay contract: composition, lexer/parser soundness, differential tests",
+      "summary": "Shell.v ports phase3 ShellObservation.Command/Exec as a generic command/exec relation with command_refines/query_transfer; the relay primitive is exactly the relay_spec POST predicate. Parse.v/Lex.v: parse_program_sound (parser not trusted) and a separately proved lexer soundness (Lex.v). Bridge.v: literal text \"relay && mark\" parses (vm_compute) to relay_then_mark and transfers the status-sensitive query. Differential tests: 29/29 directed accepted texts agree with real bash 5.2.21; 200/200 randomized fragment texts agree (RandomFixtures.v). ShellAudit.v: 44/44 theorems closed, zero axioms.",
+      "claim_status": "checked-for-a-bounded-fragment",
+      "worker": "claude-resume/shell-bridge",
+      "dependencies": [
+        "PH5-RELAY-001"
+      ],
+      "receipts": [
+        {
+          "name": "shell-bridge-final-Shell",
+          "exit_code": 0,
+          "seconds": 0.66
+        },
+        {
+          "name": "shell-bridge-lex-coqc-1",
+          "exit_code": 0
+        },
+        {
+          "name": "shell-bridge-final-ShellAudit",
+          "exit_code": 0,
+          "seconds": 4.52
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/shell-bridge/Shell.v",
+        "Parse.v",
+        "Lex.v",
+        "Bridge.v",
+        "Fixtures.v",
+        "RandomFixtures.v",
+        "ShellAudit.v"
+      ],
+      "distinctions": "Fragment excludes newline, |, &, redirections, quotes, $, #, !, braces, non-ASCII, digit-first names, assignments -- rejected explicitly, nothing silently erased. A real bug was found and fixed during differential testing: '((t))' was wrongly accepted as grouping (bash runs it as arithmetic, status 1); lexer now rejects adjacent '(('. Completeness/uniqueness of the grammar is not proved; identification of the fragment's lexer/parser relations with real Bash's own grammar remains a stated, inspected-not-proved trust boundary.",
+      "actual_times": "2026-09-07 08:35-09:05 UTC"
+    },
+    {
+      "id": "PH5-SHELL-002",
+      "kind": "shell-composition-proof",
+      "title": "Pipe (|) semantics with backpressure and modelled SIGPIPE",
+      "summary": "Pipeline.v: a new two-sided scheduler (pworld/pstep_fn/prun) over the unchanged Protocol.v primitives, finite capped buffer (PIPE_CAP=4), proved capacity invariant (pstep_fn_capacity/prun_capacity), concrete backpressure/partial-push and SIGPIPE-modelled demos, byte-conservation across both loss ledgers. Bridge2.v: PipeRR is one more atom of Shell.v's generic command/exec, so command_refines/query_transfer already cover it -- no new composition rule invented.",
+      "claim_status": "checked",
+      "worker": "claude-resume/shell-expansion-4",
+      "dependencies": [
+        "PH5-SHELL-001"
+      ],
+      "receipts": [
+        {
+          "name": "shell-expansion4-Pipeline-v23",
+          "exit_code": 0,
+          "seconds": 0.6
+        },
+        {
+          "name": "shell-expansion4-Bridge2-v3",
+          "exit_code": 0,
+          "seconds": 0.47
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/shell-expansion/Pipeline.v",
+        "Bridge2.v"
+      ],
+      "distinctions": "SIGPIPE and the pipe capacity are NAMED, STATED models (pstep_fn is one fixed deterministic scheduling priority, not a nondeterministic 'any legal interleaving' relation), not claims about the real kernel. No real fds/dup2/process model."
+    },
+    {
+      "id": "PH5-SHELL-003",
+      "kind": "shell-composition-proof",
+      "title": "Output redirection (>, >>) semantics",
+      "summary": "Redirect.v layers a NAMED file-store redirect atom on the unchanged relay_prim: actual fd retarget for the redirected atom's own run, actual restoration afterward (later atoms see the restored stream, not the file -- no leakage), actual truncate-vs-append distinction (different final content for the same pre-existing file under each flag), actual empty-filename error case.",
+      "claim_status": "checked",
+      "worker": "claude-resume/shell-expansion-4",
+      "dependencies": [
+        "PH5-SHELL-001"
+      ],
+      "receipts": [
+        {
+          "name": "shell-expansion4-Redirect-v11",
+          "exit_code": 0,
+          "seconds": 0.59
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/shell-expansion/Redirect.v"
+      ],
+      "distinctions": "One trailing redirection on a single atom only; not composed with ; / && / || / parens beyond redirect_within_seq's one worked example."
+    },
+    {
+      "id": "PH5-SHELL-004",
+      "kind": "shell-text-frontend-partial",
+      "title": "Bounded text frontend for pipe/redirect (parser only, no soundness proof)",
+      "summary": "ParseExpansion.v: a NEW lexer/parser (not a change to frozen Parse.v/Lex.v) for 'relay'/'mark', 'relay | relay', optional trailing '> IDENT'/'>> IDENT'. 4 vm_compute-checked accept cases, 4 reject cases; bash -n independently confirms the 4 rejections are this fragment's own scope limit, not something real Bash itself rejects.",
+      "claim_status": "checked-partial",
+      "worker": "claude-resume/shell-expansion-4",
+      "dependencies": [
+        "PH5-SHELL-002",
+        "PH5-SHELL-003"
+      ],
+      "receipts": [
+        {
+          "name": "shell-expansion4-ParseExpansion-v1",
+          "exit_code": 0,
+          "seconds": 0.49
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/shell-expansion/ParseExpansion.v"
+      ],
+      "distinctions": "Explicitly NOT done: no soundness proof (unlike Parse.v's parse_program_sound), no composition with ;/&&/||/parens, no actual-execution differential test against a real relay/mark binary. This is the most explicitly-flagged open slice of the shell work (see NEXT.md)."
+    },
+    {
+      "id": "PH5-UTIL-001",
+      "kind": "vst-body-proof-multi",
+      "title": "GNU/gnulib wrapper chain body proofs: safe_read, safe_write, full_write, simple_cat",
+      "summary": "Four semax_body theorems over pinned, byte-identical gnulib (safe-read.c/safe-write.c/full-write.c, commit bb5bb43a1ebb9f502b5ce38c0b8c8778d13b9f6e) and coreutils cat.c (commit 9530a14420fc1a267e90d45e8a0d710c3668382d, lines 156-182, simple_cat) sources, generalized leaf read/write funspecs (fd/count/errno-parametric, not the relay's fixed-32 buffer_prefix), plus Summary.v proving the wrapper_chain conjunction and identifier/funspec agreement across the four TUs (modular composition premise, NOT VSU linking of a runnable program -- see PH5-UTIL-002, which itself links no main and is not a whole CLI).",
+      "claim_status": "checked",
+      "worker": "claude-resume/utility-resume-2 (successor to utility-reuse, which exited 1 on quota mid-FullWriteBody)",
+      "dependencies": [
+        "PH5-RELAY-001"
+      ],
+      "source": {
+        "pins": [
+          "coreutils 9530a14420fc1a267e90d45e8a0d710c3668382d (v9.4)",
+          "gnulib bb5bb43a1ebb9f502b5ce38c0b8c8778d13b9f6e"
+        ],
+        "hashes": {
+          "full_write_theorem_statement_sha256_unchanged": "0b326945cf6a9f85dda4bf73980bcb650de81acd8efb1cbaf4334b5c5ebdc426"
+        },
+        "correction_note": "organization-repair-6 (2026-09-08): the coreutils commit above was previously transcribed as 41 hex chars (9530a144420fc1a267e90d45e8a0d710c3668382d, an extra duplicated '4') in this record and in PH5-CASE-001's pins. Corrected to the true 40-char commit 9530a14420fc1a267e90d45e8a0d710c3668382d, independently verified via `git cat-file -e`/`git log` against a local coreutils clone (/tmp/csrc/coreutils) and cross-checked against 6 independent in-repo files (case-studies/PROVENANCE.md, utility-reuse/PROVENANCE.md, case-results.json, FRAGMENT.json, extract_fragment.py, integration/COMPLETION-AUDIT.md), all of which already had the correct 40-char form. The gnulib commit bb5bb43a1ebb9f502b5ce38c0b8c8778d13b9f6e could NOT be independently re-verified this pass (the local gnulib submodule clone is a partial/promisor clone lacking this specific ref); it is cross-referenced consistent across 3 in-repo files, not git-verified."
+      },
+      "proof_statement": "body_safe_read, body_safe_write, body_full_write, body_simple_cat: semax_body Vprog Gprog f_<x> <x>_spec; wrapper_chain: conjunction; *_spec_agree: reflexivity identity of funspec instances across TUs.",
+      "assumptions": "Standard classical/functional-extensionality set only (Print Assumptions closed via Audit.v); assumed leaf read_spec/write_spec, quotearg_spec, error_spec, non-returning write_error_spec; plain errno cell; LP64; counts <= SYS_BUFSIZE_MAX.",
+      "receipts": [
+        {
+          "name": "utility-resume2-replay-SafeReadBody",
+          "exit_code": 0
+        },
+        {
+          "name": "utility-resume2-replay-SafeWriteBody",
+          "exit_code": 0
+        },
+        {
+          "name": "utility-resume2-replay-FullWriteBody",
+          "exit_code": 0
+        },
+        {
+          "name": "utility-resume2-replay-CatBody",
+          "exit_code": 0
+        },
+        {
+          "name": "utility-resume2-replay-Summary",
+          "exit_code": 0
+        },
+        {
+          "name": "utility-resume2-clightgen-replay",
+          "exit_code": 0,
+          "started_utc": "2026-09-07T19:07:53Z"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/utility-reuse/coq/SafeReadBody.v",
+        "SafeWriteBody.v",
+        "FullWriteBody.v",
+        "CatBody.v",
+        "Summary.v",
+        "Audit.v"
+      ],
+      "prior_or_superseded": "The original utility-reuse worker (job dir utility-reuse, exit 1 on account spend limit) left body_full_write unproved; Pi's own repair attempt pi-utility-direct-FullWriteBody-1 also failed at split3 (misdiagnosed as an Int64.repr injectivity issue -- it was not). utility-resume-2 fixed it correctly (see PH5-AUDIT-FULLWRITE).",
+      "model_harness": "Coq 8.20.1 / VST 2.15 / CompCert 3.15",
+      "actual_times": "utility-reuse: 2026-09-07 08:45-~10:xx UTC (quota-interrupted); utility-resume-2: 18:48:33-19:06 UTC"
+    },
+    {
+      "id": "PH5-UTIL-002",
+      "kind": "vst-vsu-link-proof",
+      "title": "Real VST VSU program-level linking of the four wrapper TUs",
+      "summary": "AllVSU: a real CompCert QPlink_progs-merged program (via VST's linkVSUs) combining SafeReadVSU * SafeWriteVSU * FullWriteVSU * CatFragmentVSU, whose only remaining imports are the five already-declared trust-boundary identifiers (quotearg_spec/error_spec/write_error_spec plus the two 'entry' export wrappers' own gaps). Print Assumptions AllVSU: only the same standard axioms, no project axioms.",
+      "claim_status": "checked",
+      "worker": "claude-resume/utility-linking-4 (successor to utility-linking-3, which stalled at a 180s wall-limit CatFragmentVSU compile and exited claiming a background-wait that had actually terminated)",
+      "dependencies": [
+        "PH5-UTIL-001"
+      ],
+      "receipts": [
+        {
+          "name": "linking4-replay-01..18",
+          "exit_code": 0,
+          "note": "18/18 exit 0, full from-scratch replay after deleting all .vo/.glob"
+        },
+        {
+          "name": "linking4-replay-16-LinkAll",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/utility-reuse/coq/CatFragmentVSU.v",
+        "LinkAll.v",
+        "SafeReadVSU.v",
+        "SafeWriteVSU.v",
+        "FullWriteVSU.v"
+      ],
+      "distinctions": "CORRECTION (organization-repair-6, 2026-09-08): earlier phrasing of this field ('whole-program-level linking') is ambiguous and must NOT be read as 'links the whole CLI' or 'links a runnable program'. What is actually linked (per utility-linking-4's own REPORT.md, `AllVSU` statement) is exactly the four library TUs (SafeRead, SafeWrite, FullWrite, CatFragment) and their exported specs (including `simple_cat`/`simple_cat_entry`); there is NO `main`/entry point anywhere in AllVSU's export list, no linked executable, and no claim about GNU cat's actual CLI (argv parsing, multi-file concatenation, option handling) -- confirmed by direct inspection of utility-linking-4/REPORT.md's own `AllVSU : ...` signature, which lists only wrapper-level exports. 'Whole-program-level' here means CompCert's QPlink_progs genuinely merges compiled Clight ASTs into one QP.program (real linking, not a conjunction-of-separate-lemmas composition) -- stronger than PH5-UTIL-001's per-TU modular composition in THAT specific sense only, not in the sense of covering a complete CLI binary. Root cause of the predecessor's hang was diagnosed (not worked around by raising a timeout): mkComponent's bullet 10 (Comp_MkInitPred) does a separation-logic-level unification that does not scale for a TU with 4 Gvars incl. a string-literal global; fixed by proving the cheap first-order fact Vardefs equality via vm_compute and rewriting instead of letting the general unifier compare mpred semantic values.",
+      "actual_times": "2026-09-07 20:10-20:41 UTC"
+    },
+    {
+      "id": "PH5-UTIL-003",
+      "kind": "prior-art-source-selection",
+      "title": "Independent GNU source-pin review for reuse target (simple_cat) and its actual constraints",
+      "summary": "Pi review pinning coreutils commit and cat.c hash, assessing whether the relay's existing read_spec/write_spec funspecs transfer unchanged (they do not -- new fd/count/errno-parametric funspecs were needed, which is what PH5-UTIL-001 built).",
+      "claim_status": "checked-review",
+      "worker": "pi-reviews/utility-reuse-target-1",
+      "dependencies": [],
+      "affected_files": [
+        "pi-reviews/utility-reuse-target-1/FINAL.md",
+        "pi-reviews/utility-reuse-target-1/REPORT.md"
+      ],
+      "actual_times": "2026-09-07 08:34 UTC (exit 0, 1535 words REPORT)"
+    },
+    {
+      "id": "PH5-CALC-001",
+      "kind": "interpreter-correspondence-observational",
+      "title": "Aaron's frontend: byte-bearing execution via the real pinned Calculus.Interp (v1)",
+      "summary": "bytes_builtin.ml/lower.ml: byte-bearing state (buffer element block(0), byte lists 0..255) executed through the ACTUAL pinned Calculus.Interp (not a reimplementation). 2006/2006 observations (20 curated cases x5 entries + 953-case phase3 standard corpus x2 entries) agree with the phase3 reference pointer machine on status/delivered/unread/lost/call-counts/block fields. 7 negative-control mutants all detected. A kernel-checked Coq oracle (BytesOracle.v) states 60 positive + 30 mutant Examples over RelayEvaluator.eval, checked Print-Assumptions-closed. A REAL PINNED-INTERPRETER DEFECT was found and fixed via a documented private patch (nested attribute writes lost the parent state) -- all post-patch claims are explicitly labelled 'pinned interpreter WITH the named state patch'.",
+      "claim_status": "checked-with-documented-private-patch",
+      "worker": "claude-resume/calculus-bytes",
+      "dependencies": [
+        "PH5-INTEG-001"
+      ],
+      "source": {
+        "hashes": {
+          "state_concrete_nested.patch": "9b735498\u2026 -> abf32195\u2026"
+        }
+      },
+      "independently_verified_hashes": {
+        "note": "organization-repair-6 (2026-09-08): the quoted prefixes refer to bash-verifier/lib/calculus/state.ml BEFORE (pristine pinned clone) and AFTER (patched build copy) applying state_concrete_nested.patch, not the patch file itself. Recomputed directly via sha256sum against the pristine clone (claude-resume/integration/src/state_based/bash-verifier/lib/calculus/state.ml) and a patched build copy (claude-resume/calculus-bytes/build/bash-verifier/lib/calculus/state.ml); a diff of the two confirms exactly the three set_attr/pos_elem/neg_elem hunks described in the authoring worker's own REPORT.md, nothing else changed.",
+        "state.ml (pre-patch, pristine)": "9b735498966f54b6f95d1f0f4d61dfadcb297679f37adabbd69826bd486bddde",
+        "state.ml (post-patch, build copy)": "abf321954db08f767b20fded54b7c1c8aa94d586e70b6d2b761da5d78d521df8"
+      },
+      "receipts": [
+        {
+          "name": "calculus-bytes-interp-positive-2",
+          "exit_code": 0
+        },
+        {
+          "name": "calculus-bytes-oracle-coqc-1",
+          "exit_code": 0,
+          "seconds": 3.71
+        },
+        {
+          "name": "calculus-bytes-oracle-audit-1",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/calculus-bytes/adapter/bytes_builtin.ml",
+        "lower.ml",
+        "coq/BytesOracle.v",
+        "coq/BytesOracleAudit.v"
+      ],
+      "distinctions": "These are FINITE OBSERVATIONS (2006 + 90 examples), not a theorem about the OCaml program; no Coq<->Lean import is claimed. A second real defect (pinned lexer crash on suffixed integer literals, e.g. 0u64) was found and fixed by a separate documented patch (lexer_suffix.patch) in the same session's addendum, raising curated agreement to 2046/2046.",
+      "actual_times": "2026-09-07 09:07:27-~09:36 UTC"
+    },
+    {
+      "id": "PH5-CALC-002",
+      "kind": "interpreter-correspondence-observational",
+      "title": "Aaron's frontend v2: real short-circuit, finite-integer, static typing, nested-state fixes",
+      "summary": "Rewritten lower.ml/bytes_builtin.ml (inherited from calculus-semantics/calculus-resume-2, inspected and confirmed by calculus-resume-3 via a from-scratch container rebuild with 0 byte-diffs against checked-in results): real short-circuit evaluation, explicit 63-bit finite-integer semantics with static range checks, static typing, lexical block scoping, a second private OCaml patch (interp_element_path.patch) for deep nested-state paths. 63 v2 checks (fixtures/v2/*), all passing.",
+      "claim_status": "checked-reproducible",
+      "worker": "claude-resume/calculus-semantics -> calculus-resume-2 (quota-interrupted) -> calculus-resume-3 (verified + extended)",
+      "dependencies": [
+        "PH5-CALC-001"
+      ],
+      "receipts": [
+        {
+          "name": "calculus-resume3-build-2",
+          "exit_code": 0,
+          "seconds": 7.6
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/calculus-bytes/adapter/state_concrete_nested.patch",
+        "interp_element_path.patch",
+        "check_v2.py"
+      ],
+      "prior_or_superseded": "Supersedes PH5-CALC-001's v1 semantics (documented in MAPPING.md's added 'v1 vs v2' section, which calculus-resume-2 had left stale -- fixed by calculus-resume-3).",
+      "distinctions": "calculus-resume-3 found and fixed real defects inherited from predecessors: one stale/inconsistent derived summary file (results/compare_summary.json had 19 spurious missing_names against current interp files -- regenerated, not hand-edited), a Lean file (CalculusNested.lean) that had silently never been built (missing from lakefile defaultTargets), 3 previously-unasserted helper test outputs, and a driver-script exit-status check that only printed non-zero exits without failing the shell (fixed by check_exit_status.py)."
+    },
+    {
+      "id": "PH5-CALC-003",
+      "kind": "lean-interpreter-correspondence",
+      "title": "Lean/OCaml execution correspondence beyond isolated theorems (nested-state)",
+      "summary": "CalculusNested.lean (repaired: 2 simp-unification defects fixed, all 11 theorems now build, axiom-audited to propext/Quot.sound only) has general frame theorems (setAttrAt_frame, addElemAt_attrs, removeElemAt_here_frame, and/or_skips_rhs). NestedMain.lean: 11 programs hand-transcribed statement-for-statement from the EXACT lowered S-expressions the OCaml adapter printed (not guessed/re-derived). compare_lean_v2.py runs the Lean executable and the actual patched pinned OCaml interpreter's real run records for the same functions and checks structural agreement (outcome, rc, raised value, every attribute, full element subtree at every depth): 11/11 agree, 0 mismatches, values predicted by hand before comparison.",
+      "claim_status": "checked-bounded",
+      "worker": "claude-resume/calculus-resume-3",
+      "dependencies": [
+        "PH5-CALC-002"
+      ],
+      "receipts": [
+        {
+          "name": "lake build CalculusNested/NestedMain/nested-json",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/integration/lean/CalculusNested.lean",
+        "NestedMain.lean"
+      ],
+      "distinctions": "Explicitly bounded: 9-11 hand-picked programs and general frame lemmas ABOUT THE TRANSCRIPTION, not a lowering-to-Lean pipeline, not a claim the transcription is machine-extracted from or checked against the OCaml source, not a theorem about the OCaml program. Byte-list builtins, Match/ForEach/ForElem/Localize/Yield, randomized state, state-references-as-element-keys remain untranscribed."
+    },
+    {
+      "id": "PH5-CALC-004",
+      "kind": "interrupted-draft-source-only",
+      "title": "calculus-correspondence-4: general mechanically-checked source-to-calculus correspondence (INTERRUPTED; draft source exists, ZERO successful build/proof evidence)",
+      "summary": "Assignment (per prompt.txt): a STRONGER general correspondence theorem (mechanically generated typed representation/lowering export + checked translation/refinement, not more hand-picked examples), owning new phase5/calculus-correspondence/ plus integration/ and calculus-bytes/. The worker ran 158 turns / ~45.4M cache-read tokens / $13.17 over 2,716,884 ms of API time and then exited on an account rate limit ('You've hit your session limit \u00b7 resets 12:30am (UTC)'), exit_code 1. Wrote NO STATUS.md/REPORT.md/NEXT.md at any point. Its real output, directly verified by this cataloging worker: research/libc-specs/phase5/integration/lean/CalculusExport.lean (733 lines, 38554 bytes, mtime 2026-09-07T23:15Z -- i.e. its very last file write before the rate-limit exit), ExportMain.lean (51 lines, mtime 22:33Z), and an edit to integration/lean/lakefile.toml adding 'CalculusExport' and 'export-run' to defaultTargets and to the [[lean_lib]]/[[lean_exe]] tables. A lake build was at least invoked against these files (a build-cache copy and a partial .lake/build/ir/CalculusExport.setup.json bookkeeping file exist under ~/.cache/bash-spec-pilot/phase5-integration-lean/) but NO .olean (compiled Lean object) exists for either file -- the build never reached a successful compile, let alone a proof check.",
+      "claim_status": "not-established-interrupted-draft-source-only",
+      "worker": "claude-resume/calculus-correspondence-4",
+      "dependencies": [
+        "PH5-CALC-003",
+        "PH5-SHELL-002"
+      ],
+      "receipts": [
+        {
+          "exit_code": 1,
+          "finished_unix": 1788822908.4410613,
+          "reason": "rate_limit / api_error 429",
+          "cost_usd": 13.17,
+          "num_turns": 158
+        },
+        {
+          "name": "lake build (CalculusExport target)",
+          "exit_code": "unknown-incomplete",
+          "evidence": "setup.json bookkeeping file present, no .olean produced"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/integration/lean/CalculusExport.lean",
+        "ExportMain.lean",
+        "lakefile.toml (edited: defaultTargets +CalculusExport +export-run)"
+      ],
+      "distinctions": "IMPORTANT for the catalog reader: draft, never-successfully-built source exists (this corrects an earlier draft of this catalog, which is why the field below records that correction). Do NOT read CalculusExport.lean's presence as any form of checked or even build-passing evidence -- there is no .olean, no lake-build exit-0 receipt, and no axiom/assumption audit for it anywhere on disk. The target repo directory research/libc-specs/phase5/calculus-correspondence/ (distinct from integration/lean/) contains only two empty subdirectories (mutants/, results/); this cataloging worker independently confirmed both are genuinely empty (no hidden .git, mtimes 2026-09-07T22:27:40Z -- squarely inside this worker's own 21:28-23:15Z run window). This directly contradicts a claim relayed by organization-audit-5's coordination note that this path was 'an unrelated, ~20h-older nested git clone' -- that specific claim does not match what this cataloging worker observed on disk and is flagged here rather than silently adopted or silently dropped. The general-correspondence requirement (REQUIREMENTS.md row 'General calculus correspondence') remains OPEN either way.",
+      "actual_times": "2026-09-07 21:28:43Z (process start) - 23:15:08Z (rate-limited exit); last file write 23:15Z"
+    },
+    {
+      "id": "PH5-INTEG-001",
+      "kind": "frontend-recovery-and-fixtures",
+      "title": "Recovery, private build, and fixture-level exercise of Aaron's actual pinned frontend (state_based)",
+      "summary": "Cloned counc009/state_based at the phase3-pinned commit (190dd8491b258d8a0ee29f79629908540236b332, independently confirmed via `git rev-parse HEAD` against the actual clone at claude-resume/integration/src/state_based by organization-repair-6, 2026-09-08), recovered missing build metadata, built it in the shared container with 5 documented private-copy deviations (dune-lang downgrade, vendored stdint, 3 OCaml>=5.4 stdlib shims, a generator.ml patch, --profile release for a non-exhaustive match). Ran the REAL pinned parser/pretty-printer on 10 fixtures (found 2 real pinned-frontend defects: suffixed-literal lexer crash, print/parse round-trip failure for integer literals) and the REAL pinned semantic analyzer (6 expected errors reported; any function body raises Failure \"TODO\" -- Semant.analyze_expr is UNIMPLEMENTED at this commit, so there is NO lowering from the spec language to the calculus here). Ran the REAL pinned Calculus.Interp on 11 hand-encoded phase3-grammar commands (4 negative controls). Lean 4.31.0 CalculusFragment.lean: run_iff_exec / encode_run, checked axiom-clean.",
+      "claim_status": "checked-with-explicit-gap",
+      "worker": "claude-resume/integration",
+      "dependencies": [],
+      "affected_files": [
+        "research/libc-specs/phase5/integration/PROOF-CHAIN.md",
+        "COMPLETION-AUDIT.md",
+        "research/libc-specs/phase5/integration/lean/CalculusFragment.lean"
+      ],
+      "distinctions": "The single most important scope boundary in the whole project: Aaron's real pinned frontend PARSES a spec language, not Bash, and its semantic analyzer does not yet lower anything to the calculus (Semant.analyze_expr unimplemented). All later calculus/frontend work (PH5-CALC-*) exercises the calculus interpreter via HAND-BUILT calculus encodings, not via Aaron's parser+lowering pipeline. No Bash text is parsed by anything in this chain (that is the separate, purpose-built shell-bridge fragment, PH5-SHELL-001).",
+      "model_harness": "OCaml/dune in the shared phase5-vst container (only host with OCaml+menhir); Lean 4.31.0",
+      "actual_times": "2026-09-07 08:06-09:00 UTC"
+    },
+    {
+      "id": "PH5-UTF8-001",
+      "kind": "calibration-negative-result",
+      "title": "UTF-8 (gnulib u8_mbtoucr) bounded calibration: differential+oracle done, C-conformance body proof and caller transfer NOT established",
+      "summary": "1,190,417-case differential test (unmodified C vs an independent table oracle, ASan/UBSan, exact SHA-256 match, 0 sanitizer reports), 51/51 line and 50/50 branch coverage, axiom-free Coq oracle lemmas (UnicodeSpecLemmas.v), a typechecking (not yet proved) frozen VST funspec. The VST body theorem and the gettext caller-transfer step were explicitly NOT attempted to completion by the 08:56:24 UTC stop-rule deadline; only bounded Abort-ended probes exist (furthest: the ASCII branch closes completely inside one Aborted lemma, 1 of 25 conditionals). Per the project's own stop rule this is recorded as a NEGATIVE RESULT for the body-proof/transfer question, preserved rather than silently re-extended.",
+      "claim_status": "checked-differential-not-established-conformance",
+      "worker": "claude-resume/calibration",
+      "dependencies": [],
+      "source": {
+        "pins": [
+          "gnulib u8_mbtoucr.c (frozen)"
+        ],
+        "hashes": {
+          "probe/Verif_u8_mbtoucr_probe2.v (ends in Abort)": "0366d402b8d00bbfbf62f65f5ac6692f5c4121908b640154a53dafc8f947a274"
+        }
+      },
+      "receipts": [
+        {
+          "name": "utf8-full-corpus-resume-1",
+          "exit_code": 0,
+          "seconds": 0.76,
+          "peak_kib": 111616,
+          "output_sha256": "9ab0ccdff1d8b9899a30426decb25b5e5cbfdb3f8faab14124135c89a782fc45"
+        },
+        {
+          "name": "utf8-gcov-nopie-1",
+          "exit_code": 0
+        },
+        {
+          "name": "utf8-oracle-lemmas-coqc-6",
+          "exit_code": 0
+        },
+        {
+          "name": "utf8-oracle-lemmas-axioms-1",
+          "exit_code": 0
+        },
+        {
+          "name": "utf8-vst-spec-coqc-1",
+          "exit_code": 0
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/calibration/UnicodeSpec.v",
+        "UnicodeSpecLemmas.v",
+        "Verif_u8_mbtoucr_spec.v",
+        "RESULTS.md"
+      ],
+      "distinctions": "Provenance caveat stated candidly: the Python oracle and the Coq table oracle share the same nine-row table construction, so agreement checks transcription/integration, not two fully independent oracles -- only the all-Unicode-scalars group (1,112,064 cases, via Python's standard encoder) has distinct provenance. Twelve proof-generation trials were explicitly NOT run because no proved baseline exists (running them would have violated the calibration protocol). Independently supplemented by Pi utf8-controls-1 (5 extra cases, NOT part of the frozen corpus) and reviewed by pi-reviews/utf8-evidence-1.",
+      "actual_times": "2026-09-07 08:06:59-08:25:58 UTC (deadline was 08:56:24 UTC; stopped ~30 min early, not a timeout)"
+    },
+    {
+      "id": "PH5-CASE-001",
+      "kind": "case-study-partial",
+      "title": "Two new pinned GNU case studies (head -c, wc -l short-branch): math relations checked, C body proofs NOT closed",
+      "summary": "head_bytes (coreutils head.c) and wc_lines short-line branch (wc.c, !long_lines only; rawmemchr/AVX2 explicitly out of scope) fragments extracted and compiled to Clight (one real off-by-one bug found and fixed in the frozen source-selection brief's own line range, corrected 774-796 -> 774-797 before any proof attempt). CaseWorld.v/CaseSpecs.v: new math relations and funspecs, REUSING IOWorld.v's SafeRead/FullWrite literally unchanged from utility-reuse -- this is the concrete cross-utility contract-reuse evidence the assignment asked for. HeadBytesBody.v (semax_body for f_head_bytes) is a substantial in-progress attempt with 3 real VST obstacles identified and partially solved (Swhile+break postcondition; a PROVED tschar/tuchar local-buffer bridge lemma; a derived loop-invariant clamp bound) but is BLOCKED on a forward_call to safe_read hanging past a 240s wall limit (an automation-performance issue, not a discovered unsoundness). WcLinesBody.v was not started.",
+      "claim_status": "checked-partial-body-proofs-open",
+      "worker": "claude-resume/nonutf8-cases-4",
+      "dependencies": [
+        "PH5-UTIL-001"
+      ],
+      "source": {
+        "pins": [
+          "coreutils 9530a14420fc1a267e90d45e8a0d710c3668382d head.c/wc.c",
+          "gnulib bb5bb43a1ebb9f502b5ce38c0b8c8778d13b9f6e safe_read (reused)"
+        ]
+      },
+      "receipts": [
+        {
+          "name": "case4-clightgen-2",
+          "exit_code": 0
+        },
+        {
+          "name": "case4-clightgen-3",
+          "exit_code": 0
+        },
+        {
+          "name": "case4-replay-1",
+          "exit_code": 0,
+          "note": "from-scratch replay of both fragments + CaseWorld.v + CaseSpecs.v"
+        },
+        {
+          "name": "case4-hbbody-15",
+          "exit_code": "timeout-124-at-240s",
+          "note": "forward_call to safe_read did not finish; not a proof-logic error"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/case-studies/coq/CaseWorld.v",
+        "CaseSpecs.v",
+        "HeadBytesBody.v (incomplete)",
+        "case-results.json"
+      ],
+      "distinctions": "MUST NOT be read as 'wc -l verified' or 'head -c verified' -- neither semax_body is closed; HeadOutcome/WcLinesShort are uninterpreted math relations until a body proof connects them to the compiled C, exactly analogous to how utility-reuse's CatOutcome was uninterpreted before CatBody.v. Source-selection brief itself was independently produced by pi-reviews/nonutf8-case-selection-4.",
+      "actual_times": "2026-09-07 22:25-23:15 UTC (~50 of 90 min budget used)"
+    },
+    {
+      "id": "PH5-EVAL-001",
+      "kind": "automation-evaluation",
+      "title": "First diagnostic: 12-cell (3 tasks x 2 conditions x 2 first-pass Grok/Pi attempts) automation evaluation",
+      "summary": "Frozen task manifest (3 Lean tasks x 2 conditions), frozen checker with 9 pre-registered controls, 12 first-pass grok-4.6 attempts (no tools, 120s cap), 7/12 accepted, all 7 re-accepted under the later-added shared compiler lock. Candid finding: the partial_error helper ablation was ineffective (no accepted submission actually used the removed helper), so that task did not test library reuse -- recorded as a design limitation, not patched after the fact.",
+      "claim_status": "checked-small-diagnostic-only",
+      "worker": "claude-resume/evaluation",
+      "dependencies": [],
+      "receipts": [
+        {
+          "name": "attempts 1-12",
+          "accepted": "7/12",
+          "window_utc": "08:34:21-08:36:54"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/evaluation/results.json",
+        "REPORT.md",
+        "DRAFT-PAPER.md"
+      ],
+      "distinctions": "Cell breakdown: shell_status helper 2/2 base 2/2; byte_relay helper 2/2 base 0/2; partial_error helper 0/2 base 1/2. This diagnostic proves no general automation-improvement capability by itself (REQUIREMENTS.md's own assessment); superseded in scale by PH5-EVAL-002.",
+      "actual_times": "2026-09-07 08:27:37-08:43 UTC"
+    },
+    {
+      "id": "PH5-EVAL-002",
+      "kind": "automation-evaluation",
+      "title": "Expanded 90-cell evaluation: 3 tasks x 2 conditions x 3 models x 5 attempts (nested-state frame theorems)",
+      "summary": "Three NEW frozen held-out Lean tasks (CalculusNested.setAttrAt_frame/.addElemAt_attrs/.removeElemAt_here_frame), never used in any prior attempt. Helper ablation independently verified EFFECTIVE this time (negative control: original proof + base condition -> reject 'build failed', all 3 tasks, BEFORE any model call -- unlike PH5-EVAL-001's ineffective ablation). Models: pi:xai/grok-4.6, claude:sonnet, claude:fable. Matrix ran as a background process (PID-tracked, resumable/idempotent) and completed 90/90 in 4424.8s AFTER the launching worker process had already exited 0 -- final tally recovered directly from matrix.log: 22 accepted, 59 'build failed', 6 'no lean code block in response (or timeout)', 3 'attempt directory already exists' (a harness cache collision from the worker's own pre-freeze smoke test, disclosed and cleared, not a model failure). Per-model accepted-of-30: pi:xai/grok-4.6=3, claude:sonnet=2, claude:fable=17.",
+      "claim_status": "checked-matrix-complete",
+      "worker": "claude-resume/evaluation-artifact-4",
+      "dependencies": [
+        "PH5-CALC-003"
+      ],
+      "receipts": [
+        {
+          "name": "run_matrix.py (background)",
+          "matrix_progress": {
+            "done": 90,
+            "total": 90,
+            "elapsed_seconds": 4424.8
+          }
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/evaluation-expanded/tasks/manifest.json",
+        "protocol.json",
+        "attempts.jsonl (job dir)",
+        "matrix.log (job dir)"
+      ],
+      "distinctions": "IMPORTANT process/logic distinction: the launching CLI worker (evaluation-artifact-4) exited with exit_code 0 while its own STATUS.md still showed '12/90 done' -- the matrix's true completion (90/90) happened later via the still-running background run_matrix.py process, confirmed here directly from matrix.log's own 'MATRIX COMPLETE: 90/90' line and an independent tally (22/59/6/3) that matches organization-audit-5's separately-reported provisional counts. No REPORT.md/NEXT.md was ever written by this worker for the completed matrix; this catalog record is the first place the final 22/90 (24.4%) figure with its per-model and per-reason breakdown is recorded from the raw log. Also NOT yet done as of the last worker snapshot: summarize.py, the planned assisted-feedback sample, and REPORT.md (a single collaborative/assisted attempt DID run -- see PH5-EVAL-003).",
+      "actual_times": "matrix window ~2026-09-07 21:52-23:06 UTC (4424.8s elapsed)"
+    },
+    {
+      "id": "PH5-EVAL-003",
+      "kind": "automation-evaluation",
+      "title": "Single collaborative/assisted-feedback attempt (nested_frame/helper)",
+      "summary": "run_collaborative.py executed exactly one collaborative attempt for cell nested_frame/helper: rejected, 'build failed'.",
+      "claim_status": "checked-single-cell-only",
+      "worker": "claude-resume/evaluation-artifact-4",
+      "dependencies": [
+        "PH5-EVAL-002"
+      ],
+      "receipts": [
+        {
+          "name": "collaborative-nested_frame-helper",
+          "accepted": false,
+          "reason": "build failed"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/evaluation-expanded (job dir)/collaborative/",
+        "collaborative-nested_frame.log"
+      ],
+      "distinctions": "REQUIREMENTS.md's 'assisted rounds' requirement asked for a meaningfully sized assisted-feedback sample; only one cell was actually run before this worker's snapshot ended. Do not read this as an assisted-mode evaluation of any statistical weight."
+    },
+    {
+      "id": "PH5-ARTIFACT-001",
+      "kind": "artifact-replay-partial",
+      "title": "Single-command artifact replay: 4/5 entries pass, VST behavioral proofs explicitly excluded",
+      "summary": "manifest.json + replay.py, single command 'python3 replay.py'. Required entries: lean_phase3_project (fresh lake build, PASS 10.0s), lean_calculus_nested_real (fresh build + #print axioms of the REAL unablated CalculusNested.lean, PASS 2.7s), c_relay_compile (direct gcc -c of relay_main.c, hash-verified, PASS 0.03s). Non-required 'current' entry coq_relay_ast_replay (read-only hash-verified coqc relay.v inside the shared container, PASS 1.0s). ocaml_state_based_pinned SKIPPED with an explicit 'missing_environment' reason (no ocaml/opam/dune toolchain and no pinned checkout on host) -- an honest gap, not fabricated as a pass.",
+      "claim_status": "checked-partial-by-design",
+      "worker": "claude-resume/evaluation-artifact-4",
+      "dependencies": [],
+      "receipts": [
+        {
+          "name": "artifact-replay/20260907T220049Z/summary.json",
+          "entries_passed": "4/5 attempted, 1 skipped"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/artifact/manifest.json",
+        "replay.py"
+      ],
+      "distinctions": "Explicitly documented as a representative cross-section, NOT full REQUIREMENTS.md coverage: the VST behavioral proofs (Body/Progress/Audit/Main.v and all of PH5-RELAY-005..008) are intentionally left out of the replay to stay fast and avoid disrupting live sibling proof workers sharing the same container -- their own individual receipts (cited throughout this catalog) remain the evidence, not this replay. Two real bugs were found and fixed while building the replay itself (a wrong module-resolution path, a malformed multi-import Check.lean), disclosed as receipts rather than silently retried."
+    },
+    {
+      "id": "PH5-EVAL-004",
+      "kind": "evaluation-accounting",
+      "title": "Accounting of 96 evaluation-attempt rows vs frozen original 90 trials",
+      "summary": "evaluation-accounting-7 ACCOUNTING.json/ANALYSIS.md: original 90 (a0-a4) remain 22 accepted / 59 build failed / 6 timeout-no-block / 3 checker collisions. Makeup a5 and assisted a6 plus collab produce additional rows to 96 attempts.jsonl lines. Denominators must not be mixed: 22/90 scheduled (collisions included); 23/90 if a5 replaces collisions. Does NOT rewrite frozen original 90 trials and does NOT claim model-proof completion.",
+      "claim_status": "checked-accounting-not-proof-completion",
+      "worker": "pi-reviews/evaluation-accounting-7",
+      "dependencies": [
+        "PH5-EVAL-002",
+        "PH5-EVAL-003"
+      ],
+      "receipts": [
+        {
+          "name": "ACCOUNTING.json"
+        },
+        {
+          "name": "attempts.jsonl",
+          "rows": 96
+        }
+      ],
+      "affected_files": [
+        "pi-reviews/evaluation-accounting-7/ACCOUNTING.json",
+        "claude-resume/evaluation-artifact-4/attempts.jsonl"
+      ],
+      "prior_or_superseded": "Does not supersede PH5-EVAL-002 frozen 90-cell matrix; versioned accounting overlay.",
+      "distinctions": "Not a claim that models completed proofs. Frozen original 90 trials unchanged. 93/96 must not be treated as one first-pass matrix.",
+      "actual_times": "job evaluation-accounting-7 finalized before 2026-09-08T06:15:27Z freeze"
+    },
+    {
+      "id": "PH5-CASE-002",
+      "kind": "differential-execution",
+      "title": "case-differential-7: harness SUMMARY passed=100 failed=0 (not a C proof)",
+      "summary": "Directed+random differential tests via run_vst.py. Seed 20260907, 40 random trials. xwrite /dev/full buffering observations recorded. Receipts under phase5/runs/case-differential7-*. Historical receipts must not be relabeled as current replay.py code.",
+      "claim_status": "checked-differential-not-proof",
+      "worker": "pi-reviews/case-differential-7",
+      "dependencies": [
+        "PH5-CASE-001"
+      ],
+      "receipts": [
+        {
+          "name": "case-differential7-run-harness",
+          "summary": "passed=100 failed=0"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/case-studies/tests/RESULTS.json"
+      ],
+      "distinctions": "Differential execution only. uintmax overflow not tested. head_bytes mock xwrite. Not semax_body.",
+      "actual_times": "finalized before freeze 2026-09-08T06:15:27Z"
+    },
+    {
+      "id": "PH5-CASE-003",
+      "kind": "differential-replay",
+      "title": "case-replay-7: one replay of 6 gcc/run receipts, 100/100 harness",
+      "summary": "replay.py produced case-replay7-* receipts. Historical hashes preserved separately from later replay.py validator follow-up.",
+      "claim_status": "checked-differential-not-proof",
+      "worker": "pi-reviews/case-replay-7",
+      "dependencies": [
+        "PH5-CASE-002"
+      ],
+      "receipts": [
+        {
+          "name": "case-replay7-run-harness"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/case-studies/tests/RESULTS.json"
+      ],
+      "distinctions": "Do not relabel historical case-replay7 receipts as current-code. Not a Coq/VST proof.",
+      "actual_times": "finalized before freeze 2026-09-08T06:15:27Z"
+    },
+    {
+      "id": "PH5-CASE-004",
+      "kind": "differential-replay",
+      "title": "case-replay-fix-8: two distinct collision-free replays, 12 receipts",
+      "summary": "Two runids 20260908T061038Z-3d6a35a6 and 20260908T061040Z-c1a83a0d, six receipts each (12). Both harness passed=100 failed=0. RESULTS.json holds current_replay_sha256 and historical receipt names. Validator follow-up 2026-09-08T06:13:14Z used actual assert_receipt for negative checks after worker ended.",
+      "claim_status": "checked-differential-not-proof",
+      "worker": "pi-reviews/case-replay-fix-8",
+      "dependencies": [
+        "PH5-CASE-003"
+      ],
+      "receipts": [
+        {
+          "name": "two-runids-12-receipts"
+        }
+      ],
+      "affected_files": [
+        "research/libc-specs/phase5/case-studies/tests/RESULTS.json"
+      ],
+      "distinctions": "Current vs historical hashes both recorded; historical replays are not current code.",
+      "actual_times": "validator_followup checked_utc 2026-09-08T06:13:14.085311+00:00"
+    }
+  ],
+  "independent_audits": [
+    {
+      "id": "PI-RELAY-CONTRACT-1",
+      "worker": "pi-reviews/relay-contract-1",
+      "reviews": "PH5-RELAY-001/002",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-07 ~08:04",
+      "note": "Earliest audit; ORCHESTRATOR-REVIEW.md records root's qualifications."
+    },
+    {
+      "id": "PI-EXTERNAL-ADEQUACY-DESIGN-1",
+      "worker": "pi-reviews/external-adequacy-design-1",
+      "reviews": "design input to PH5-RELAY-005/006",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-07 08:36",
+      "note": "Its exit-predicate/Jsub/returned-outcome shortcuts were explicitly corrected by the external-adequacy worker itself (see PH5-RELAY-005 corrections section in that REPORT.md)."
+    },
+    {
+      "id": "PI-UTF8-EVIDENCE-1",
+      "worker": "pi-reviews/utf8-evidence-1",
+      "reviews": "PH5-UTF8-001",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-07 ~08:00"
+    },
+    {
+      "id": "PI-UTF8-CONTROLS-1",
+      "worker": "pi-reviews/utf8-controls-1",
+      "reviews": "PH5-UTF8-001 (5 supplementary cases)",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-07 08:22:09-08:23:50",
+      "note": "Supplementary only; explicitly not part of the frozen 1,190,417-case corpus."
+    },
+    {
+      "id": "PI-SHELL-TEXT-AUDIT-1",
+      "worker": "pi-reviews/shell-text-audit-1",
+      "reviews": "PH5-SHELL-001",
+      "exit_code": 0,
+      "note": "Accepted with stale-Bridge/Python-replica caveats; root separately inspected Bridge.v's text-query theorems and Lex.v's lexer soundness."
+    },
+    {
+      "id": "PI-GNU-CONTRACT-AUDIT-1",
+      "worker": "pi-reviews/gnu-contract-audit-1",
+      "reviews": "design input to PH5-UTIL-001",
+      "exit_code": 0
+    },
+    {
+      "id": "PI-UTILITY-REUSE-TARGET-1",
+      "worker": "pi-reviews/utility-reuse-target-1",
+      "reviews": "PH5-UTIL-003 (this IS the source record)",
+      "exit_code": 0
+    },
+    {
+      "id": "PI-UTILITY-RECEIPT-RECOVERY-1",
+      "worker": "pi-reviews/utility-receipt-recovery-1",
+      "reviews": "read-only direct-compile verification of utility-reuse claims during a Claude account-limit window",
+      "exit_code": 0,
+      "note": "Found SafeReadBody/CatBody plus protocol/specs/generated-TUs and an accepted subset audit-consistent; FullWriteBody and the combined Audit FAILED at that point in time (later fixed by PH5-UTIL-001's utility-resume-2)."
+    },
+    {
+      "id": "PI-FULLWRITE-ARITHMETIC-1",
+      "worker": "pi-reviews/fullwrite-arithmetic-1",
+      "reviews": "attempted repair of body_full_write",
+      "exit_code": 0,
+      "claim_status": "attempt-failed-diagnosis-wrong",
+      "note": "Stopped after 5 failed attempts; misdiagnosed the blocker as an Int64.repr injectivity issue. Speculative patch archived, original repo FullWriteBody restored unmodified. Correct fix later found by utility-resume-2 (PH5-UTIL-001)."
+    },
+    {
+      "id": "PI-CALCULUS-SEMANTICS-AUDIT-1",
+      "worker": "pi-reviews/calculus-semantics-audit-1",
+      "reviews": "PH5-CALC-001/002",
+      "exit_code": 0,
+      "note": "Counterexample audit; findings (3 unasserted helper outputs, batch-exit masking risk) were fixed by calculus-resume-3, see PH5-CALC-002 distinctions."
+    },
+    {
+      "id": "PI-CALCULUS-V2-RECOVERY-1",
+      "worker": "pi-reviews/calculus-v2-recovery-1",
+      "reviews": "PH5-CALC-002",
+      "exit_code": 0,
+      "note": "Root qualification: an 'expect exit 4' negative-control claim can pass merely if asserted; flagged for care, addressed by check_exit_status.py in PH5-CALC-002."
+    },
+    {
+      "id": "PI-CALCULUS-CHECKER-HARDENING-1",
+      "worker": "pi-reviews/calculus-checker-hardening-1",
+      "reviews": "compare_bytes.py / test_compare_integrity.py checker integrity, during a Claude account-limit window",
+      "exit_code": 0
+    },
+    {
+      "id": "PI-CALCULUS-CHECKER-HARDENING-2",
+      "worker": "pi-reviews/calculus-checker-hardening-2",
+      "reviews": "replaced a tautological test with real main-in-temp tests; validated malformed names",
+      "exit_code": 0,
+      "note": "Root confirmed: 11 real tests, 2046/2046 positives, 7/7 mutants still pass, baselines unchanged."
+    },
+    {
+      "id": "PI-EVALUATION-AUDIT-1",
+      "worker": "pi-reviews/evaluation-audit-1",
+      "reviews": "PH5-EVAL-001",
+      "exit_code": 0,
+      "note": "Corrected a diagnostic-label regex and token totals; acceptance counts (7/12) unchanged; original records left intact."
+    },
+    {
+      "id": "PI-BROADER-EVALUATION-AUDIT-1",
+      "worker": "pi-reviews/broader-evaluation-audit-1",
+      "reviews": "PH5-EVAL-002/003 and PH5-CASE-001/PH5-CALC-004 in progress",
+      "exit_code": 0,
+      "note": "Its provisional 22/59/6/3 tally for the 90-cell matrix was independently re-derived in this catalog directly from matrix.log and matches exactly (see PH5-EVAL-002)."
+    },
+    {
+      "id": "PI-NONUTF8-CASE-SELECTION-4",
+      "worker": "pi-reviews/nonutf8-case-selection-4",
+      "reviews": "source selection for PH5-CASE-001",
+      "exit_code": 0,
+      "note": "CASE-BRIEF.md's own head_bytes line range had an off-by-one, caught and fixed by the downstream worker before any proof attempt (see PH5-CASE-001)."
+    },
+    {
+      "id": "PI-MANUSCRIPT-EVIDENCE-REFRESH-1",
+      "worker": "pi-reviews/manuscript-evidence-refresh-1",
+      "reviews": "evaluation/DRAFT-PAPER.md fidelity only",
+      "exit_code": 0,
+      "note": "Root corrected scope fidelity after (restored >=3 models/>=5 attempts per cell, pipes/redirection requirement, removed a blanket 'no item complete' overclaim); produced EVIDENCE-UPDATE.md crosswalk. No new proofs."
+    },
+    {
+      "id": "PI-EVALUATION-ACCOUNTING-7",
+      "worker": "pi-reviews/evaluation-accounting-7",
+      "reviews": "PH5-EVAL-004",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-08",
+      "note": "Accounting overlay; original 90 frozen."
+    },
+    {
+      "id": "PI-CASE-DIFFERENTIAL-7",
+      "worker": "pi-reviews/case-differential-7",
+      "reviews": "PH5-CASE-002",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-08"
+    },
+    {
+      "id": "PI-CASE-REPLAY-7",
+      "worker": "pi-reviews/case-replay-7",
+      "reviews": "PH5-CASE-003",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-08"
+    },
+    {
+      "id": "PI-CASE-REPLAY-FIX-8",
+      "worker": "pi-reviews/case-replay-fix-8",
+      "reviews": "PH5-CASE-004",
+      "exit_code": 0,
+      "actual_time_utc": "2026-09-08T06:13:14Z"
+    }
+  ],
+  "catalog_overlay": "organization-current-evidence-8 2026-09-08T06:15:27Z; older records preserved"
+}

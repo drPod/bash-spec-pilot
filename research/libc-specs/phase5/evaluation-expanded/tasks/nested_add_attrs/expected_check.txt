@@ -1,0 +1,4 @@
+CalculusNested.addElemAt_attrs : ∀ (p : CalculusNested.Path) (st st' : CalculusNested.St) (n : String)
+  (v : CalculusNested.Val),
+  CalculusNested.addElemAt p st n v = some st' →
+    ∀ (q : CalculusNested.Path) (b : String), CalculusNested.getAttrAt q st' b = CalculusNested.getAttrAt q st b

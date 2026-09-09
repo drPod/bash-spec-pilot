@@ -1,0 +1,9 @@
+name = "raw_wc_experiment"
+defaultTargets = ["rawwc"]
+[[lean_lib]]
+name = "WcFromC"
+[[lean_lib]]
+name = "RawWc"
+[[lean_exe]]
+name = "rawwc"
+root = "Main"

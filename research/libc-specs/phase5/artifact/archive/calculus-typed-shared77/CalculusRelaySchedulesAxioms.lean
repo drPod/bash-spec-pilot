@@ -1,0 +1,5 @@
+import CalculusRelaySchedules
+#print axioms CalculusRelaySchedules.relay_outer_schedules_step
+#print axioms CalculusRelaySchedules.relay_outer_schedules
+#print axioms CalculusRelaySchedules.relay_matches_phase3_schedules
+#print axioms CalculusRelaySchedules.OuterExactSchedules.residuals_drop

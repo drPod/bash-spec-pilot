@@ -1,10 +1,4 @@
-"""Disentangle leakage from difficulty by matching on difficulty.
-
-The clean tasks are much harder than the leaked ones (8x the pipes/redirects), so the raw
-+77.6pt gap is confounded. If DIFFICULTY explains the gap, then leaked tasks at the same
-complexity as the clean ones should also score ~22%. If LEAKAGE explains it, leaked tasks
-should stay near 99% at every complexity level.
-"""
+"""Compare leaked and clean task exit rates within command-complexity bands to control for difficulty."""
 import json, statistics as st
 
 EX = "extract/"

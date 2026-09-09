@@ -1,0 +1,163 @@
+@command_refines
+     : forall (Atom C A : Type) (concrete : primitive Atom C)
+         (abstract : primitive Atom A) (R : C -> A -> Prop),
+       primitive_refines concrete abstract R ->
+       forall (cmd : command Atom) (c c' : C) (rc : BinNums.Z),
+       exec concrete cmd c rc c' ->
+       forall a : A,
+       R c a -> exists a' : A, exec abstract cmd a rc a' /\ R c' a'
+@query_transfer
+     : forall (Atom C A : Type) (concrete : primitive Atom C)
+         (abstract : primitive Atom A) (R : C -> A -> Prop),
+       primitive_refines concrete abstract R ->
+       forall (cmd : command Atom) (c : C) (a : A),
+       R c a ->
+       forall (Q : BinNums.Z -> A -> Prop) (P : BinNums.Z -> C -> Prop),
+       (forall (rc : BinNums.Z) (a' : A),
+        exec abstract cmd a rc a' -> Q rc a') ->
+       (forall (rc : BinNums.Z) (c' : C) (a' : A),
+        R c' a' -> Q rc a' -> P rc c') ->
+       forall (rc : BinNums.Z) (c' : C), exec concrete cmd c rc c' -> P rc c'
+Closed under the global context
+Closed under the global context
+relay_prim =
+fun (a : atom) (s : shell_state) (rc : BinNums.Z) (t : shell_state) =>
+match a with
+| Relay =>
+    exists pending : list Integers.Byte.int,
+      Reach.RelayReach.outcome (os s) rc (os t) pending /\
+      lost t = (lost s ++ pending)%list
+| Mark b => rc = BinNums.Z0 /\ os t = deliver (os s) b /\ lost t = lost s
+end
+     : primitive atom shell_state
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+relay_then_mark_query
+     : forall (b : Integers.Byte.int) (s : shell_state) 
+         (rc : BinNums.Z) (t : shell_state),
+       exec relay_prim (relay_then_mark b) s rc t ->
+       rc = BinNums.Z0 /\
+       Protocol.RelayProtocol.delivered (os t) =
+       (Protocol.RelayProtocol.delivered (os s) ++
+        Protocol.RelayProtocol.unread (os s) ++ b :: nil)%list /\
+       Protocol.RelayProtocol.unread (os t) = nil /\ lost t = lost s \/
+       rc <> BinNums.Z0 /\
+       (rc = BinNums.Zpos BinNums.xH \/
+        rc = BinNums.Zpos (BinNums.xO BinNums.xH)) /\
+       (exists extra pending : list Integers.Byte.int,
+          Protocol.RelayProtocol.delivered (os t) =
+          (Protocol.RelayProtocol.delivered (os s) ++ extra)%list /\
+          lost t = (lost s ++ pending)%list /\
+          (extra ++ pending ++ Protocol.RelayProtocol.unread (os t))%list =
+          Protocol.RelayProtocol.unread (os s) /\
+          (rc = BinNums.Zpos BinNums.xH -> pending = nil) /\
+          (rc = BinNums.Zpos (BinNums.xO BinNums.xH) -> pending <> nil))
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+parse_program_sound
+     : forall (s : String.string) (c : command String.string),
+       parse_program s = Some c ->
+       exists toks : list token,
+         lex_string s = Some toks /\ body_derives toks c
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+relay_and_mark_text_query
+     : forall (c : command atom) (s : shell_state) 
+         (rc : BinNums.Z) (t : shell_state),
+       relay_command
+         (String.String
+            (Ascii.Ascii false true false false true true true false)
+            (String.String
+               (Ascii.Ascii true false true false false true true false)
+               (String.String
+                  (Ascii.Ascii false false true true false true true false)
+                  (String.String
+                     (Ascii.Ascii true false false false false true true
+                        false)
+                     (String.String
+                        (Ascii.Ascii true false false true true true true
+                           false)
+                        (String.String
+                           (Ascii.Ascii false false false false false true
+                              false false)
+                           (String.String
+                              (Ascii.Ascii false true true false false true
+                                 false false)
+                              (String.String
+                                 (Ascii.Ascii false true true false false
+                                    true false false)
+                                 (String.String
+                                    (Ascii.Ascii false false false false
+                                       false true false false)
+                                    (String.String
+                                       (Ascii.Ascii true false true true
+                                          false true true false)
+                                       (String.String
+                                          (Ascii.Ascii true false false false
+                                             false true true false)
+                                          (String.String
+                                             (Ascii.Ascii false true false
+                                                false true true true false)
+                                             (String.String
+                                                (Ascii.Ascii true true false
+                                                 true false true true false)
+                                                String.EmptyString))))))))))))) =
+       Some c ->
+       exec relay_prim c s rc t ->
+       rc = BinNums.Z0 /\
+       Protocol.RelayProtocol.delivered (os t) =
+       (Protocol.RelayProtocol.delivered (os s) ++
+        Protocol.RelayProtocol.unread (os s) ++ bang :: nil)%list /\
+       Protocol.RelayProtocol.unread (os t) = nil /\ lost t = lost s \/
+       rc <> BinNums.Z0 /\
+       (rc = BinNums.Zpos BinNums.xH \/
+        rc = BinNums.Zpos (BinNums.xO BinNums.xH)) /\
+       (exists extra pending : list Integers.Byte.int,
+          Protocol.RelayProtocol.delivered (os t) =
+          (Protocol.RelayProtocol.delivered (os s) ++ extra)%list /\
+          lost t = (lost s ++ pending)%list /\
+          (extra ++ pending ++ Protocol.RelayProtocol.unread (os t))%list =
+          Protocol.RelayProtocol.unread (os s) /\
+          (rc = BinNums.Zpos BinNums.xH -> pending = nil) /\
+          (rc = BinNums.Zpos (BinNums.xO BinNums.xH) -> pending <> nil))
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+parse_program_sound_chars
+     : forall (s : String.string) (c : command String.string),
+       parse_program s = Some c ->
+       exists toks : list token,
+         renders toks (list_of_string s) /\ body_derives toks c
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context

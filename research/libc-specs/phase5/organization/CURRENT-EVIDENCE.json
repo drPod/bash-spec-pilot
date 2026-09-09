@@ -1,0 +1,59 @@
+{
+  "utc": "2026-09-08T06:17:37Z",
+  "project": "prj_fa7ceb0639254b3dba5833834ce25366",
+  "interface": "GET/POST http://127.0.0.1:4097/provenance",
+  "not_atlas_uuid": "b64557ae-2fc9-4576-9a1c-3df774a03269",
+  "get_summary": {
+    "total": 2332,
+    "edges": 2436,
+    "kinds": {
+      "artifact": 1524,
+      "run": 698,
+      "source": 12,
+      "claim": 98
+    },
+    "reviews": {
+      "supports": 0,
+      "refutes": 0,
+      "blocking": 0,
+      "major": 0,
+      "minor": 0,
+      "info": 0
+    },
+    "orphan_edges": 0
+  },
+  "n_nodes": 2332,
+  "n_edges": 2436,
+  "freeze_utc": "2026-09-08T06:15:27Z",
+  "imported_files": 76,
+  "fullsha_get_matched": 76,
+  "fullsha_get_missing": 0,
+  "new_catalog_ids": {
+    "PH5-EVAL-004": [
+      "e6023f5f7bb9e353"
+    ],
+    "PH5-CASE-002": [
+      "b4f62e1148e75aea"
+    ],
+    "PH5-CASE-003": [
+      "c74adab6f50ee345"
+    ],
+    "PH5-CASE-004": [
+      "cbaa28ea1ac5da0e"
+    ],
+    "PI-EVALUATION-ACCOUNTING-7": [
+      "2ee20081d573260a"
+    ],
+    "PI-CASE-DIFFERENTIAL-7": [
+      "354a47d5a1fe6e1e"
+    ],
+    "PI-CASE-REPLAY-7": [
+      "4e239562b5009de7"
+    ],
+    "PI-CASE-REPLAY-FIX-8": [
+      "f34baa7eee81b90b"
+    ]
+  },
+  "post_receipts_file": "pi-reviews/organization-current-evidence-8/post-receipts.json",
+  "note": "bounded overlay; older nodes preserved; historical case-replay7/differential7 receipts not relabeled current code"
+}

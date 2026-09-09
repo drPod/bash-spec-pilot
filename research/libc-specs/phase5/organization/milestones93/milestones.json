@@ -1,0 +1,14 @@
+[
+  {
+    "marker": "PH5-MILESTONE-93/query-compiler",
+    "title": "Bounded script and query compile to actual calculus with kernel-checked agreement",
+    "summary": "Root92 accepted17 query audits and an axiom-free identity to the actual exported mark body.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-93/query-compiler\nThe bounded Lean query AST supports status, cumulative counters, lengths of five state lists, integer comparisons and Boolean operations. Compilation emits actual Nested get/assign/cond statements. script_query_run and universal variants prove the command followed by compiled query produces exact shared state, status and query value under explicit Related state, structural fuel and derived syntactic counter budget. Nonvacuous relay&&mark and relay||mark witnesses are checked. Root92 independently recompiled accepted Lowering, Query and new QueryExportLink; exportMarkBody equals actual accepted CalculusLowering.markBody by rfl with no axioms. This closes the bounded AST-to-calculus script/query link, not query text parsing, arbitrary exact-byte queries, full Bash/OS, OCaml-source verification or Coq-to-Lean import. Full tokenizer and finalartifact remainopen.\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-query-review-92/ROOT-REVIEW.json SHA256 e2c92cf7f7162c756bddeacc03f5818adc15fd3ce35fa4fee03cca9e716e4f56"
+  },
+  {
+    "marker": "PH5-MILESTONE-93/artifact-typed",
+    "title": "Typed/shared/export artifact replay independently accepted",
+    "summary": "Root84 verified20 module source/log/olean hashes; independent audit80 verified24 exact theorem audits.",
+    "content": "IMPORT-MARKER: PH5-MILESTONE-93/artifact-typed\nTargeted replay78 run20260908T191745Z passed after a retained failed attempt due audit naming. All20 fresh sequential direct Lean modules and24 exact standard-Lean axiom outputs accepted;19 prior accepted source modules plus audit wrapper. Raw AST and generator regenerate the Lean export, not a fresh OCaml parser rebuild. Manifest26 coverage is full19 plus7targeted additions, not full26. Later accepted Commands87/guards89/Query92 are not yet packaged in this snapshot. Caching remainsoff; frozenarchivesunchanged. Runner85 serialization patch is UNACCEPTED pending fixes88 (executablebuild andfailclosedaudit identified).\nEvidence: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-typed77-review-84/ROOT-REVIEW.json SHA256 a986f7298a7d8b8d4ee1cf4601ca690511fe2e1411968c5c8e7e3263a5d7dfbc"
+  }
+]

@@ -1,0 +1,8 @@
+import CalculusTokenizeReadChars
+open CalculusTokenize CalculusTokenizeReadChars
+namespace CalculusTokenizeReadCharsSuf
+set_option maxRecDepth 100000
+theorem calculustokenizereadchars_s0_tok_len :
+    tokenizeT (calculustokenizereadchars_s0.length + 1) calculustokenizereadchars_s0 = some calculustokenizereadchars_st0 :=
+  tokenizeT_sufficient 786 calculustokenizereadchars_s0 calculustokenizereadchars_st0 calculustokenizereadchars_s0_tok
+end CalculusTokenizeReadCharsSuf

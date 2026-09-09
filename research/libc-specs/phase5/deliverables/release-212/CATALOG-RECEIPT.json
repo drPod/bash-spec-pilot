@@ -1,0 +1,18 @@
+{
+  "hosted_total": 308,
+  "hosted_all_private": true,
+  "local_nodes": 2380,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "bash-spec-pilot/final-delivery-215",
+      "hosted_id": "addf6f9f-d1ba-46cc-b439-d8076a31542d",
+      "hosted_hash": "4ab7d1aba818ad865174268deca6b179d92f6a73e2a40e170fa15b2cd164a5be",
+      "private": true,
+      "local_id": "ed39eb124aa092bb",
+      "content_sha256": "0175d73d433ae0c024c917d292c28657891bb854af8d992d2406b9c66c08ab0b",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Final bounded research archive212 independently verified213; original scope and trusted boundaries retained."
+}

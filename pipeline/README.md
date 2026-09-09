@@ -47,6 +47,7 @@ spec theorems. Forbidden in generated code: `import`, `partial`, `unsafe`,
   frontier runs use `--model gpt-5.5-2026-04-23`.
 - `targets.py`: target registry of scoped slices of uniq, fold, cut, basename,
   dirname, wc, with POSIX doc sources and input generators.
+- `contracts.py`: types for theorem records, checker results, and differential mismatches.
 - `validate.py`: seeded differential runner (GNU oracle; `g`-prefixed
   binaries on macOS via brew coreutils).
 - `prompts/generate.md`: the general P↔q prompt template.

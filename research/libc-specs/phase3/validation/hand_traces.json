@@ -1,0 +1,148 @@
+{
+  "schema": "pointer-relay-trace/1",
+  "producer": "hand",
+  "capacity": 32,
+  "note": "Independently hand-derived pointer-event traces for the frozen relay.c under the phase2 adapter (Claude Fable 5.1, 2026-09-07). Each event row follows `columns`; seq = row index, block = 0. init = valid chunk length n (offset+result of the last non-negative read), defined = array prefix ever stored by a read, memory_hex = defined prefix AFTER the call (stale cells beyond the current chunk stay visible). Derivation rule per row: read -> action = next read entry or default 32, result = -1 or min(action,32,unread), store at offset 0; write -> pointer offset = bytes delivered since the read, request = n - off, action = next write entry or default request, result = action if <= 0 else min(action, request), bytes = memory[off:off+result].",
+  "columns": ["kind", "fd", "offset", "request", "action", "action_source", "result", "bytes_hex", "init_before", "init_after", "defined_before", "defined_after", "memory_hex"],
+  "traces": [
+    {
+      "name": "abc_defaults",
+      "input_hex": "616263", "reads": [], "writes": [],
+      "events": [
+        ["read", 0, 0, 32, 32, "default", 3, "616263", 0, 3, 0, 3, "616263"],
+        ["write", 1, 0, 3, 3, "default", 3, "616263", 3, 3, 3, 3, "616263"],
+        ["read", 0, 0, 32, 32, "default", 0, "", 3, 0, 3, 3, "616263"]
+      ],
+      "final": {"status": 0, "output_hex": "616263", "consumed": 3, "pending_hex": "", "unread_hex": "", "read_calls": 2, "write_calls": 1}
+    },
+    {
+      "name": "protocol_example_write_zero",
+      "note": "PROTOCOL.md example: input abcdef, reads [4], writes [2,0]",
+      "input_hex": "616263646566", "reads": [4], "writes": [2, 0],
+      "events": [
+        ["read", 0, 0, 32, 4, "schedule", 4, "61626364", 0, 4, 0, 4, "61626364"],
+        ["write", 1, 0, 4, 2, "schedule", 2, "6162", 4, 4, 4, 4, "61626364"],
+        ["write", 1, 2, 2, 0, "schedule", 0, "", 4, 4, 4, 4, "61626364"]
+      ],
+      "final": {"status": 2, "output_hex": "6162", "consumed": 4, "pending_hex": "6364", "unread_hex": "6566", "read_calls": 1, "write_calls": 2}
+    },
+    {
+      "name": "error_after_delivery",
+      "note": "PROTOCOL.md example: output equals input yet status 1",
+      "input_hex": "616263", "reads": [3, -1], "writes": [],
+      "events": [
+        ["read", 0, 0, 32, 3, "schedule", 3, "616263", 0, 3, 0, 3, "616263"],
+        ["write", 1, 0, 3, 3, "default", 3, "616263", 3, 3, 3, 3, "616263"],
+        ["read", 0, 0, 32, -1, "schedule", -1, "", 3, 3, 3, 3, "616263"]
+      ],
+      "final": {"status": 1, "output_hex": "616263", "consumed": 3, "pending_hex": "", "unread_hex": "", "read_calls": 2, "write_calls": 1}
+    },
+    {
+      "name": "boundary33_short31",
+      "note": "33 bytes 00..20; retry at offset 31 with residual 1; the 1-byte second chunk overwrites only cell 0, cells 1..31 stay stale",
+      "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20", "reads": [], "writes": [31, 1],
+      "events": [
+        ["read", 0, 0, 32, 32, "default", 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", 0, 32, 0, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 0, 32, 31, "schedule", 31, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 31, 1, 1, "schedule", 1, "1f", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["read", 0, 0, 32, 32, "default", 1, "20", 32, 1, 32, 32, "200102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 0, 1, 1, "default", 1, "20", 1, 1, 32, 32, "200102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["read", 0, 0, 32, 32, "default", 0, "", 1, 0, 32, 32, "200102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"]
+      ],
+      "final": {"status": 0, "output_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20", "consumed": 33, "pending_hex": "", "unread_hex": "", "read_calls": 3, "write_calls": 3}
+    },
+    {
+      "name": "hello_short_reads_writes",
+      "note": "input hello; reads [2,1]; writes [1,1,1,2]; each schedule entry is consumed by exactly one call",
+      "input_hex": "68656c6c6f", "reads": [2, 1], "writes": [1, 1, 1, 2],
+      "events": [
+        ["read", 0, 0, 32, 2, "schedule", 2, "6865", 0, 2, 0, 2, "6865"],
+        ["write", 1, 0, 2, 1, "schedule", 1, "68", 2, 2, 2, 2, "6865"],
+        ["write", 1, 1, 1, 1, "schedule", 1, "65", 2, 2, 2, 2, "6865"],
+        ["read", 0, 0, 32, 1, "schedule", 1, "6c", 2, 1, 2, 2, "6c65"],
+        ["write", 1, 0, 1, 1, "schedule", 1, "6c", 1, 1, 2, 2, "6c65"],
+        ["read", 0, 0, 32, 32, "default", 2, "6c6f", 1, 2, 2, 2, "6c6f"],
+        ["write", 1, 0, 2, 2, "schedule", 2, "6c6f", 2, 2, 2, 2, "6c6f"],
+        ["read", 0, 0, 32, 32, "default", 0, "", 2, 0, 2, 2, "6c6f"]
+      ],
+      "final": {"status": 0, "output_hex": "68656c6c6f", "consumed": 5, "pending_hex": "", "unread_hex": "", "read_calls": 4, "write_calls": 4}
+    },
+    {
+      "name": "empty_unused_write_error",
+      "input_hex": "", "reads": [], "writes": [-1],
+      "events": [
+        ["read", 0, 0, 32, 32, "default", 0, "", 0, 0, 0, 0, ""]
+      ],
+      "final": {"status": 0, "output_hex": "", "consumed": 0, "pending_hex": "", "unread_hex": "", "read_calls": 1, "write_calls": 0}
+    },
+    {
+      "name": "forty_write5_then_error",
+      "note": "40 bytes 00..27; error at offset 5 with residual 27 leaves pending 05..1f and unread 20..27",
+      "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f2021222324252627", "reads": [], "writes": [5, -1],
+      "events": [
+        ["read", 0, 0, 32, 32, "default", 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", 0, 32, 0, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 0, 32, 5, "schedule", 5, "0001020304", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 5, 27, -1, "schedule", -1, "", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"]
+      ],
+      "final": {"status": 2, "output_hex": "0001020304", "consumed": 32, "pending_hex": "05060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", "unread_hex": "2021222324252627", "read_calls": 1, "write_calls": 2}
+    },
+    {
+      "name": "sixtyfive_overquota",
+      "note": "65 bytes 00..40; quotas 33 clamp to 32; the final 1-byte chunk overwrites cell 0 only",
+      "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f40", "reads": [33], "writes": [33],
+      "events": [
+        ["read", 0, 0, 32, 33, "schedule", 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", 0, 32, 0, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 0, 32, 33, "schedule", 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["read", 0, 0, 32, 32, "default", 32, "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f", 32, 32, 32, 32, "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f"],
+        ["write", 1, 0, 32, 32, "default", 32, "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f", 32, 32, 32, 32, "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f"],
+        ["read", 0, 0, 32, 32, "default", 1, "40", 32, 1, 32, 32, "402122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f"],
+        ["write", 1, 0, 1, 1, "default", 1, "40", 1, 1, 32, 32, "402122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f"],
+        ["read", 0, 0, 32, 32, "default", 0, "", 1, 0, 32, 32, "402122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f"]
+      ],
+      "final": {"status": 0, "output_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f40", "consumed": 65, "pending_hex": "", "unread_hex": "", "read_calls": 4, "write_calls": 3}
+    },
+    {
+      "name": "xy_single_byte_reads",
+      "note": "phase2 stderr example: consumed=2 read_calls=3 write_calls=2",
+      "input_hex": "7879", "reads": [1], "writes": [1],
+      "events": [
+        ["read", 0, 0, 32, 1, "schedule", 1, "78", 0, 1, 0, 1, "78"],
+        ["write", 1, 0, 1, 1, "schedule", 1, "78", 1, 1, 1, 1, "78"],
+        ["read", 0, 0, 32, 32, "default", 1, "79", 1, 1, 1, 1, "79"],
+        ["write", 1, 0, 1, 1, "default", 1, "79", 1, 1, 1, 1, "79"],
+        ["read", 0, 0, 32, 32, "default", 0, "", 1, 0, 1, 1, "79"]
+      ],
+      "final": {"status": 0, "output_hex": "7879", "consumed": 2, "pending_hex": "", "unread_hex": "", "read_calls": 3, "write_calls": 2}
+    },
+    {
+      "name": "read_error_first",
+      "input_hex": "616263", "reads": [-1], "writes": [],
+      "events": [
+        ["read", 0, 0, 32, -1, "schedule", -1, "", 0, 0, 0, 0, ""]
+      ],
+      "final": {"status": 1, "output_hex": "", "consumed": 0, "pending_hex": "", "unread_hex": "616263", "read_calls": 1, "write_calls": 0}
+    },
+    {
+      "name": "zero_write_first_of_31",
+      "note": "31 bytes 00..1e; the very first write returns 0: the whole chunk stays pending, nothing unread",
+      "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e", "reads": [], "writes": [0],
+      "events": [
+        ["read", 0, 0, 32, 32, "default", 31, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e", 0, 31, 0, 31, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e"],
+        ["write", 1, 0, 31, 0, "schedule", 0, "", 31, 31, 31, 31, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e"]
+      ],
+      "final": {"status": 2, "output_hex": "", "consumed": 31, "pending_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e", "unread_hex": "", "read_calls": 1, "write_calls": 1}
+    },
+    {
+      "name": "thirtytwo_halves_then_read_error",
+      "note": "32 bytes 00..1f; two 16-byte writes (second at offset 16, residual 16), then a scheduled read error at the EOF position",
+      "input_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", "reads": [32, -1], "writes": [16, 16],
+      "events": [
+        ["read", 0, 0, 32, 32, "schedule", 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", 0, 32, 0, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 0, 32, 16, "schedule", 16, "000102030405060708090a0b0c0d0e0f", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["write", 1, 16, 16, 16, "schedule", 16, "101112131415161718191a1b1c1d1e1f", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"],
+        ["read", 0, 0, 32, -1, "schedule", -1, "", 32, 32, 32, 32, "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"]
+      ],
+      "final": {"status": 1, "output_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", "consumed": 32, "pending_hex": "", "unread_hex": "", "read_calls": 2, "write_calls": 2}
+    }
+  ]
+}

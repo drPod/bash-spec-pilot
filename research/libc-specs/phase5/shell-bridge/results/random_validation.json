@@ -1,0 +1,1208 @@
+{
+ "seed": 1,
+ "count": 200,
+ "bash_version": "5.2.21(1)-release",
+ "scope": "random texts of the fragment; bash status/stdout are the expected values that Coq must reproduce; finite evidence only",
+ "records": [
+  {
+   "text": "  (\tt||\tg;\t)||  u||( t ||g ;  (  u  &&\tt)  || g\t&&\t(g ||  t; g\t&&\tt  ;\tu ) ||  f\t;  t &&\tg\t)  ;\tf&& u;  (  t )&&  u ;  ",
+   "bash_status": 0,
+   "bash_stdout": "tftu",
+   "seconds": 0.004
+  },
+  {
+   "text": "\tf\t&&f ;  ( u\t&& (\tu )\t&&f;  ( u;f ||  u;\t);\t( t ;\tt\t||\tt  ||  t &&  u  ;\tu||  g)&& ( u  ||  f;  u\t&&f||g )  &&\t(u||  f||  t)||t\t;) && t\t;\tf  ||  (  t  )\t||  t",
+   "bash_status": 0,
+   "bash_stdout": "fuufufuttuuuufgttft",
+   "seconds": 0.0069
+  },
+  {
+   "text": "  g  || f &&  (\tg ;\tt ||  (t&& t ||f)  ;\t) &&  (  u  ) ",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0039
+  },
+  {
+   "text": "  u|| (\tu;\t)  ||\t( u\t&&\tt )\t",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0038
+  },
+  {
+   "text": "\tu&&\t( g &&  g ||  f &&f  )  ||  (\tg&&\t( f &&\tg\t; t||f&&g\t)\t|| g )",
+   "bash_status": 2,
+   "bash_stdout": "ugfgg",
+   "seconds": 0.0038
+  },
+  {
+   "text": "  f; t ;  (  u  ||\tu\t;\tu\t&&  t&&  u  ;\t)  ||(  f\t||\t( g &&  u\t;  u ||g\t;\tf|| f|| g)\t)  &&\tg;",
+   "bash_status": 2,
+   "bash_stdout": "ftuutug",
+   "seconds": 0.0028
+  },
+  {
+   "text": "\tg;\t( u||  u &&  t  ||(\tf ||\tu  ;  u &&\tf\t; f ; )\t; ( u\t||  g && f&& g\t;u;)\t||  (\tu\t) )\t",
+   "bash_status": 0,
+   "bash_stdout": "gutufu",
+   "seconds": 0.01
+  },
+  {
+   "text": "  (f&&( t  ||  u ; t\t; t\t|| t\t||t);\t( t || g  ;  f &&u  ||f\t&&\tt  ;f))||  (\tu|| g||f)  || g||u\t",
+   "bash_status": 0,
+   "bash_stdout": "ftfffu",
+   "seconds": 0.0046
+  },
+  {
+   "text": "\tg",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.002
+  },
+  {
+   "text": "\t( f ||\tf  ;\tg\t;\tt ;) ;\tt &&t  ",
+   "bash_status": 0,
+   "bash_stdout": "ffgttt",
+   "seconds": 0.0033
+  },
+  {
+   "text": "(t\t&&  u\t&& t\t&&\tg;\t(\tg &&  g  || f;f  &&\tf&&  f || u  ; g&&\tf  ||  f  )\t&&  ( u\t&&f &&  g\t||u)&&(  u  ||  t|| t  ;\t);u ;  )  ",
+   "bash_status": 0,
+   "bash_stdout": "tutggffugfu",
+   "seconds": 0.0039
+  },
+  {
+   "text": " f||(f &&  f|| f\t&&\tg ;  t&& (\tg||  f ;\tt  &&  t  || u&& g  ;  f\t;\t)&&  t )\t&&\t(g  ||\tt)  ",
+   "bash_status": 1,
+   "bash_stdout": "ffftgfttgf",
+   "seconds": 0.0027
+  },
+  {
+   "text": "  f &&f;\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.003
+  },
+  {
+   "text": "f||\tf\t; u ",
+   "bash_status": 0,
+   "bash_stdout": "ffu",
+   "seconds": 0.0029
+  },
+  {
+   "text": " g&&\tg",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0043
+  },
+  {
+   "text": " (  f ||\tu\t||\tg  && ( g\t)  ; ( t||\tu; g ;  u )&&\t(\tt && g\t&&g) ;( f  || u\t;\tu\t|| g  || f  &&f  )  ||\tg ; )\t",
+   "bash_status": 2,
+   "bash_stdout": "fugtgutgfuufg",
+   "seconds": 0.0073
+  },
+  {
+   "text": "\tu ||\tt&&( g &&g || g  && u\t;  ( f;  t  ||  t|| u;g &&\tt || f&& g  )\t)\t;\tt &&t\t&&\tf &&t ",
+   "bash_status": 1,
+   "bash_stdout": "uggftgfttf",
+   "seconds": 0.0038
+  },
+  {
+   "text": "\tu\t|| (  t||u\t)&&\t(\tf  ||\tt;\tf  ;f\t&&( t  ;  t  &&\tt\t||u  || u)  )  ;  ( (  u\t||t\t)  ; )",
+   "bash_status": 0,
+   "bash_stdout": "uftffu",
+   "seconds": 0.0051
+  },
+  {
+   "text": "  f  ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0028
+  },
+  {
+   "text": " u  ;(u|| u && t\t; f  || t\t; )&& t ;u\t",
+   "bash_status": 0,
+   "bash_stdout": "uutfttu",
+   "seconds": 0.0036
+  },
+  {
+   "text": "  f&& (\tg\t||t\t||  ( g\t;\tg  ;  g  ||  t||\tf\t;\t) ;\tt||t  ||f&&t  ;  ) ;  ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0021
+  },
+  {
+   "text": "g\t&& u&& ( u ||  (f\t&& t\t;  g||  g  ;\t)&&  u ;  ) ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0029
+  },
+  {
+   "text": " g\t&&  ( f )  ;",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0021
+  },
+  {
+   "text": "t &&u  &&(t\t;  ( t  ||  t\t||\tt;  t  )  ||\tt  ;)\t; g  || f||  u\t;\t(u;\t)\t|| g\t&&\tg  ;  ",
+   "bash_status": 2,
+   "bash_stdout": "tutttgfuug",
+   "seconds": 0.0074
+  },
+  {
+   "text": "g;\tf\t;  ",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0025
+  },
+  {
+   "text": " u\t||t\t&& g ",
+   "bash_status": 2,
+   "bash_stdout": "ug",
+   "seconds": 0.0021
+  },
+  {
+   "text": "u  &&\tf || u||u\t;\tu;(\tg ||\tt\t)  || f;",
+   "bash_status": 0,
+   "bash_stdout": "ufuugt",
+   "seconds": 0.0039
+  },
+  {
+   "text": " u  ||  t;\tg  && g\t; f ",
+   "bash_status": 1,
+   "bash_stdout": "ugf",
+   "seconds": 0.0041
+  },
+  {
+   "text": "\tu ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.003
+  },
+  {
+   "text": "\tf\t&&\tg  ;\tf ; ",
+   "bash_status": 1,
+   "bash_stdout": "ff",
+   "seconds": 0.0031
+  },
+  {
+   "text": " t  ||\tf  ||  g ;",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  t\t&&  g ",
+   "bash_status": 2,
+   "bash_stdout": "tg",
+   "seconds": 0.0025
+  },
+  {
+   "text": "  g &&\tf &&f\t&&  ( ( f ;u ||\tf  ; u ;) || f ; )\t;t\t; (f  &&\tg && t  &&  u\t)||\tu\t",
+   "bash_status": 0,
+   "bash_stdout": "gtfu",
+   "seconds": 0.0038
+  },
+  {
+   "text": "\tf &&( (  u\t||\tt&&t\t||\tu\t)|| f)\t&&u;\tg",
+   "bash_status": 2,
+   "bash_stdout": "fg",
+   "seconds": 0.0021
+  },
+  {
+   "text": "t\t; g  ||( f);u\t",
+   "bash_status": 0,
+   "bash_stdout": "tgfu",
+   "seconds": 0.0033
+  },
+  {
+   "text": "u;f\t||(t\t||  u && t  &&\tu\t;\t)\t",
+   "bash_status": 0,
+   "bash_stdout": "ufttu",
+   "seconds": 0.0034
+  },
+  {
+   "text": "\tf",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0019
+  },
+  {
+   "text": "g&& t\t; t ",
+   "bash_status": 0,
+   "bash_stdout": "gt",
+   "seconds": 0.0029
+  },
+  {
+   "text": "\tg\t&&\tu ;g&&  g  &&  u  &&g  ;t\t&&\tu\t",
+   "bash_status": 0,
+   "bash_stdout": "ggtu",
+   "seconds": 0.003
+  },
+  {
+   "text": "  u||t &&\t(  f;  );\tf ",
+   "bash_status": 1,
+   "bash_stdout": "uff",
+   "seconds": 0.0028
+  },
+  {
+   "text": "  u  ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0029
+  },
+  {
+   "text": "t\t|| (  (u\t; u  ) &&g )  ||  (  (\tu\t;u\t&& t ;  u  ||  f  ||t)) && (u||g && (\tt;  u||  f\t)  ;(g\t&& t|| u\t;g\t&&u\t||  t &&  g  ) ; (\tg  );\t) ; t\t&&(\tg  || g  ||  u; f;\tg) ||  f||  (  ( f\t&&\tg||f  &&f;\t)\t||\tt;(\tf  ; g  &&\tf &&  t ; ) ;u|| ( g\t; t\t||\tg  ||  t\t;\t) ;\t)\t;  g\t|| u  ",
+   "bash_status": 0,
+   "bash_stdout": "tutugugtggtggufgffftfgugu",
+   "seconds": 0.0059
+  },
+  {
+   "text": "\tg  ;\t( t;)",
+   "bash_status": 0,
+   "bash_stdout": "gt",
+   "seconds": 0.0055
+  },
+  {
+   "text": "  (\t(  g ||\tt  ||\tg  && g\t;\tg  && t  ||\tt ) ) &&  (g\t||t ; (\tg  ||  g;u\t&&t&& f\t;  )  ||g &&  (t\t&&  f||  t  ||g)||  (\tt\t; g  ||g\t&&  u\t|| t  )  )\t",
+   "bash_status": 0,
+   "bash_stdout": "gtggtgtggutfgtggt",
+   "seconds": 0.0046
+  },
+  {
+   "text": "f\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0029
+  },
+  {
+   "text": "g;",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0029
+  },
+  {
+   "text": "\tt\t; t ",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.003
+  },
+  {
+   "text": " (  u\t&&  t)&&f\t;\t( u &&  g  )  ",
+   "bash_status": 2,
+   "bash_stdout": "utfug",
+   "seconds": 0.0037
+  },
+  {
+   "text": "  u && g  &&\tg;  (\tf ;  )|| g;  (  ( g )  ;  f && g||u )  ",
+   "bash_status": 0,
+   "bash_stdout": "ugfggfu",
+   "seconds": 0.0044
+  },
+  {
+   "text": " g  ||  t ;\tf&&(\tg\t||(  u ||\tg|| g ||f ;  f ||  f;  )  ;  (\tf ||\tg ;\tt ;  t  &&\tt  &&f  ; )&&  (  g )\t|| (  g||  g\t)\t; t\t&& g\t) ||f&&  g  ;t || (  t  &&\tf &&( g&&\tt|| t\t; u;\tf  &&  g ||  u  ||  u) ; );\t",
+   "bash_status": 0,
+   "bash_stdout": "gtfft",
+   "seconds": 0.0034
+  },
+  {
+   "text": "u  ||u\t||  f\t|| f\t; f  ",
+   "bash_status": 1,
+   "bash_stdout": "uf",
+   "seconds": 0.0045
+  },
+  {
+   "text": " ( g||  g\t;\tg\t;\tt  )\t||g",
+   "bash_status": 0,
+   "bash_stdout": "gggt",
+   "seconds": 0.0067
+  },
+  {
+   "text": "\tg && f\t; g && u||(  u ; ( u\t|| t &&\tu\t; t &&u ; u  &&  t  || g )||\tg\t|| (\tt\t&&\tf ;\tu\t|| u ||t )\t) ",
+   "bash_status": 0,
+   "bash_stdout": "gguuutuut",
+   "seconds": 0.0072
+  },
+  {
+   "text": "  t  &&\t(f && g\t)  ;\t(g &&u; u &&  g)\t||  (  u && ( f  || u  &&t  && g)\t) ||\tt\t||f  ;(g || f) ||  t  ||u&&\tg;\t",
+   "bash_status": 2,
+   "bash_stdout": "tfgugufutgtgftg",
+   "seconds": 0.0046
+  },
+  {
+   "text": "  u\t||(  (  g ||u &&\tu  && u;  )&&(  g\t||  u\t||  g  ||\tu;  u||t||u ||\tu )  ;)&& g ",
+   "bash_status": 2,
+   "bash_stdout": "ug",
+   "seconds": 0.0035
+  },
+  {
+   "text": "\t(  (u\t&&\tg &&f  ||  f; g\t||g  ;u\t&& f )  &&t || g  ;\t) ; t  &&u|| ( g\t&& (  t &&u  &&  f &&  g;g  )  ||  g;g;\t); u  ||\tu",
+   "bash_status": 0,
+   "bash_stdout": "ugfggufgtuu",
+   "seconds": 0.0035
+  },
+  {
+   "text": "\tt\t&&  g\t",
+   "bash_status": 2,
+   "bash_stdout": "tg",
+   "seconds": 0.0036
+  },
+  {
+   "text": "g  ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0032
+  },
+  {
+   "text": " g&& g\t",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\tu ;  ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\tu\t;  f  ; g\t||  t  ;  ",
+   "bash_status": 0,
+   "bash_stdout": "ufgt",
+   "seconds": 0.0033
+  },
+  {
+   "text": "u  && ( u||\t(\tt )\t;  (  u  ;  g&&u\t||t  ;  f\t)  )  &&  f ",
+   "bash_status": 1,
+   "bash_stdout": "uuugtf",
+   "seconds": 0.0042
+  },
+  {
+   "text": "g  || f\t",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0031
+  },
+  {
+   "text": " g;t|| t\t;\tf\t",
+   "bash_status": 1,
+   "bash_stdout": "gtf",
+   "seconds": 0.0029
+  },
+  {
+   "text": "g||\tf&&\t(  u  ;f&&  (\tu&&  t\t;\tg\t&& t ;  u && u\t&&g\t||\tg ) ||f || ( g|| u\t;  u||t&&t  ); g  || u)\t||  t ",
+   "bash_status": 0,
+   "bash_stdout": "gft",
+   "seconds": 0.0031
+  },
+  {
+   "text": " u\t",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0031
+  },
+  {
+   "text": " t  || t ;t  ",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.0023
+  },
+  {
+   "text": " g && t ;\t",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0033
+  },
+  {
+   "text": "  t ;  t ||  f;",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  u\t&&g;  g &&\tu ; u  || (\tf  ;\t)\t||\tu  &&g",
+   "bash_status": 2,
+   "bash_stdout": "uggug",
+   "seconds": 0.0033
+  },
+  {
+   "text": "u ;  f  &&u  || t|| g\t;\tt",
+   "bash_status": 0,
+   "bash_stdout": "uftt",
+   "seconds": 0.0032
+  },
+  {
+   "text": "\t(\t(  u\t||  t||  f  ||  t)\t||g\t&& g  &&  ( t ||\tf &&  u ;\tg ;\t))||\tg;  f  && u  ;(\tu;\tu\t||  t ;u  || u ||(  f  ||  f\t||\tg  ||\tu  ))\t||\t(  (g  )\t;  t\t||g\t||g || (  g )\t;\tu && f\t)",
+   "bash_status": 0,
+   "bash_stdout": "uggfuuu",
+   "seconds": 0.0042
+  },
+  {
+   "text": "\t( f  &&  f  ;  (f ;f  ;\t)  ||  (  t\t;  t &&  u ;\tu  && t\t)\t;\tg  );\tg &&g  ",
+   "bash_status": 2,
+   "bash_stdout": "fffttuutgg",
+   "seconds": 0.0057
+  },
+  {
+   "text": "\tt  && t",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.0033
+  },
+  {
+   "text": "u",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.003
+  },
+  {
+   "text": "f ||  t ;",
+   "bash_status": 0,
+   "bash_stdout": "ft",
+   "seconds": 0.004
+  },
+  {
+   "text": "t  &&u\t",
+   "bash_status": 0,
+   "bash_stdout": "tu",
+   "seconds": 0.005
+  },
+  {
+   "text": " (\tf  ;  t;\tu  &&  u  ||  ( t &&  u  ;)\t)&& t ;  (g&& (\tt  ||t  &&  f&&\tu ; t|| u  ;  g&&  g ) ;  u||  t &&  f\t)  ",
+   "bash_status": 1,
+   "bash_stdout": "ftuutguf",
+   "seconds": 0.0058
+  },
+  {
+   "text": " u|| u\t",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0023
+  },
+  {
+   "text": "t|| g ",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0059
+  },
+  {
+   "text": "u\t||  t;\tg  ;\t",
+   "bash_status": 2,
+   "bash_stdout": "ug",
+   "seconds": 0.0033
+  },
+  {
+   "text": "  (  t&& g  ;  (\tg) ; )  ",
+   "bash_status": 2,
+   "bash_stdout": "tgg",
+   "seconds": 0.0031
+  },
+  {
+   "text": " g\t;( u  &&\tg  ;u||\tf\t;  t) ",
+   "bash_status": 0,
+   "bash_stdout": "gugut",
+   "seconds": 0.0038
+  },
+  {
+   "text": "f&&\tf  ;  t  ;  u &&  (\tf\t&&\t(\tu||t) )\t;",
+   "bash_status": 1,
+   "bash_stdout": "ftuf",
+   "seconds": 0.0035
+  },
+  {
+   "text": "\t( (g\t||f  ))&&  t  ;  (\tg  ;t ||t; (\tg  && g\t|| t;\t)\t;  )\t||\tt&& (  g&&f && u  )  ;\tu ",
+   "bash_status": 0,
+   "bash_stdout": "gfgtgtgu",
+   "seconds": 0.0047
+  },
+  {
+   "text": "\t(  ( t  &&\tu\t)\t&& t &&g ; (\tu|| f  ;\tu&& f ||  u\t))",
+   "bash_status": 0,
+   "bash_stdout": "tutguufu",
+   "seconds": 0.0037
+  },
+  {
+   "text": "g\t||t ; g||  f  ; g &&t  || f||  g  ",
+   "bash_status": 2,
+   "bash_stdout": "gtgfgfg",
+   "seconds": 0.0048
+  },
+  {
+   "text": "u  ;\tf  || f ; ",
+   "bash_status": 1,
+   "bash_stdout": "uff",
+   "seconds": 0.0031
+  },
+  {
+   "text": " (\tg  &&\tu; u|| ( g ;\tg&&f|| g\t; u|| g  &&\tg )  ;)  ",
+   "bash_status": 0,
+   "bash_stdout": "gu",
+   "seconds": 0.0038
+  },
+  {
+   "text": "( u  || t ||  g||(\tu  &&g  ;  f && g&&  f\t;  g )  )\t&&\tt ||  f  ",
+   "bash_status": 0,
+   "bash_stdout": "ut",
+   "seconds": 0.0039
+  },
+  {
+   "text": "\tf||\tu&&f; u  ",
+   "bash_status": 0,
+   "bash_stdout": "fufu",
+   "seconds": 0.0025
+  },
+  {
+   "text": " u\t&&t&&\tg",
+   "bash_status": 2,
+   "bash_stdout": "utg",
+   "seconds": 0.0034
+  },
+  {
+   "text": "t  ",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0034
+  },
+  {
+   "text": "u||\tg\t",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0033
+  },
+  {
+   "text": "  g  ; g&&\tu ",
+   "bash_status": 2,
+   "bash_stdout": "gg",
+   "seconds": 0.0032
+  },
+  {
+   "text": "  (f  ;  g )  ;  (  (\tu &&\tu  ; f ||u&& g  ; t  )\t||\tt  &&  (\tt ;\t) && u)\t||(\tu\t&&  (  f  &&f&& u&&t\t;t\t&&  f) &&u)  ||u",
+   "bash_status": 0,
+   "bash_stdout": "fguufugttu",
+   "seconds": 0.0045
+  },
+  {
+   "text": "  t||\tf\t||\tg",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0032
+  },
+  {
+   "text": "\tf ;\tf  &&  u\t&&\tf|| f\t;(  f\t&&\tg )",
+   "bash_status": 1,
+   "bash_stdout": "ffff",
+   "seconds": 0.0034
+  },
+  {
+   "text": "( t||\tu )  ||  f\t",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0034
+  },
+  {
+   "text": "  u;\tu  ;\tt &&f",
+   "bash_status": 1,
+   "bash_stdout": "uutf",
+   "seconds": 0.0029
+  },
+  {
+   "text": " g ;\t(  g&&\tf\t&&t\t||\tu;  g\t&& t\t;\t(  g\t;\tt&&\tg ; u\t||t\t&&\tu  ;)  ||u\t||  t) || (\tt\t);\tg",
+   "bash_status": 2,
+   "bash_stdout": "gguggtguug",
+   "seconds": 0.004
+  },
+  {
+   "text": "  g\t",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0032
+  },
+  {
+   "text": "u ;f  ;\tu  &&  ( f ;)\t|| u\t",
+   "bash_status": 0,
+   "bash_stdout": "ufufu",
+   "seconds": 0.0036
+  },
+  {
+   "text": "t\t;  u  &&\tf;  ( ( f;\tt\t)\t)  ",
+   "bash_status": 0,
+   "bash_stdout": "tufft",
+   "seconds": 0.0035
+  },
+  {
+   "text": "u && (u) ;\t",
+   "bash_status": 0,
+   "bash_stdout": "uu",
+   "seconds": 0.0038
+  },
+  {
+   "text": "\tg ||  t\t",
+   "bash_status": 0,
+   "bash_stdout": "gt",
+   "seconds": 0.0032
+  },
+  {
+   "text": " u\t; t ",
+   "bash_status": 0,
+   "bash_stdout": "ut",
+   "seconds": 0.003
+  },
+  {
+   "text": "  f\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0036
+  },
+  {
+   "text": "g  ; f\t&&\t(g&&  g  || u &&\t(u\t);u ) && t\t",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0034
+  },
+  {
+   "text": " g\t|| (u\t) ; f; u\t",
+   "bash_status": 0,
+   "bash_stdout": "gufu",
+   "seconds": 0.0039
+  },
+  {
+   "text": "\tg ||  f ",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0034
+  },
+  {
+   "text": "  f  &&(\tf  &&  f\t|| ( t &&  g\t||  f\t||g;f &&u  ||  f ;  t ||  u  &&t ||\tt);\tu );",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0037
+  },
+  {
+   "text": "  g&&\tg;t",
+   "bash_status": 0,
+   "bash_stdout": "gt",
+   "seconds": 0.0024
+  },
+  {
+   "text": "\tf ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0034
+  },
+  {
+   "text": " f ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0036
+  },
+  {
+   "text": "\t( f&&  u||  u  )  ||\tf\t&&(f  )\t",
+   "bash_status": 1,
+   "bash_stdout": "fuf",
+   "seconds": 0.0033
+  },
+  {
+   "text": "t  ||( f\t&& g ; )",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0023
+  },
+  {
+   "text": "  ( t  || t;\t)\t||  (  (  t  ||g  ;)\t)\t&&u  &&\tu ",
+   "bash_status": 0,
+   "bash_stdout": "tuu",
+   "seconds": 0.0039
+  },
+  {
+   "text": "\tf||u &&(f||\tg  ||\tf  ;\t)\t; t|| u; ",
+   "bash_status": 0,
+   "bash_stdout": "fufgft",
+   "seconds": 0.0038
+  },
+  {
+   "text": "\tf\t&&\tf ||f  || (  t&&t ;\tg;\t( f&& u)||  u)\t; (  (t&&\tg\t;\t)\t)",
+   "bash_status": 2,
+   "bash_stdout": "ffttgfutg",
+   "seconds": 0.0047
+  },
+  {
+   "text": "f\t;\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0023
+  },
+  {
+   "text": " t ||( u\t)||  u ;  ",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.003
+  },
+  {
+   "text": "  g ; f &&  t  &&\tg\t&&(\tt); u && u &&  (\tg\t&&\t( g  ||\tu  ;)\t&&\t( u  ||g; t\t&& t\t;f\t)  ||(\tg; f&&\tt||\tu||  u;g  ; )  ;  f ||(t\t&&f|| u  &&\tt;\tg\t)\t;  g\t&&\tt\t;)\t;",
+   "bash_status": 2,
+   "bash_stdout": "gfuuggfugftfutgg",
+   "seconds": 0.0051
+  },
+  {
+   "text": " t|| g&&\tg;(\tu || t)&&  u\t;  f &&f;\t",
+   "bash_status": 1,
+   "bash_stdout": "tguuf",
+   "seconds": 0.0039
+  },
+  {
+   "text": " t &&\tu||u",
+   "bash_status": 0,
+   "bash_stdout": "tu",
+   "seconds": 0.0031
+  },
+  {
+   "text": "\tg || g  ||\t(u&&\t(u)\t||f  ||\tt\t;\tu &&  (  t  && f ;t || t||\tu  &&\tg  )&& (\tt  )\t)&&(  f  ;\tt &&\tg  )",
+   "bash_status": 2,
+   "bash_stdout": "gguuutftg",
+   "seconds": 0.0048
+  },
+  {
+   "text": "\tf\t||g\t||u|| f",
+   "bash_status": 0,
+   "bash_stdout": "fgu",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  (t  ||g )\t&&\tg  || g &&\tt;f;u",
+   "bash_status": 0,
+   "bash_stdout": "tggfu",
+   "seconds": 0.0042
+  },
+  {
+   "text": "f ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0035
+  },
+  {
+   "text": " u ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.003
+  },
+  {
+   "text": "\tg\t&& u  ;  ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.002
+  },
+  {
+   "text": "f\t&& t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0029
+  },
+  {
+   "text": "  (t ; g\t)  || u ||  (  t\t&&\t( t)  ;\tg ;(u ||  g  )\t;\t)  &&\tt\t",
+   "bash_status": 0,
+   "bash_stdout": "tgut",
+   "seconds": 0.0034
+  },
+  {
+   "text": "  g  ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.003
+  },
+  {
+   "text": " f\t&&  f&&  (  f ||  f ;\t) ;t ||  t ;\t(  (  t &&g  && t  )&&  f||u ||\tf )\t",
+   "bash_status": 0,
+   "bash_stdout": "fttgu",
+   "seconds": 0.0039
+  },
+  {
+   "text": " f\t&& f  ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.003
+  },
+  {
+   "text": " t&&t ||\tt&& f ;  ",
+   "bash_status": 1,
+   "bash_stdout": "ttf",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  g  && u ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0023
+  },
+  {
+   "text": " f &&  u\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0031
+  },
+  {
+   "text": " u  ;\t",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0036
+  },
+  {
+   "text": "\tf &&(\tt  ;  (  f  ) ;\t) &&\tf  ||t  ",
+   "bash_status": 0,
+   "bash_stdout": "ft",
+   "seconds": 0.0036
+  },
+  {
+   "text": "g ;t||g ",
+   "bash_status": 0,
+   "bash_stdout": "gt",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  u  &&  g  &&\t( t\t;)\t;  ",
+   "bash_status": 2,
+   "bash_stdout": "ug",
+   "seconds": 0.0035
+  },
+  {
+   "text": "\t(  u  )  ||  u|| t  &&  f ;  f|| u\t",
+   "bash_status": 0,
+   "bash_stdout": "uffu",
+   "seconds": 0.0053
+  },
+  {
+   "text": "\tt",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0061
+  },
+  {
+   "text": " t|| g  ",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\t(\tt&&  t  &&\tt\t&&  g)\t||( f\t||\tu )&& f  ;u  &&f\t||  (\tu  &&  (u  &&t  ;g\t||\tg  ||\tt; f)\t|| (\tu  && u\t;  g\t||  t\t) ||\t(  u\t||u||g||t ;f ; );f||\tt  ;\tf )  &&\tf  ",
+   "bash_status": 1,
+   "bash_stdout": "tttgfufufuutggtfuugtftf",
+   "seconds": 0.0056
+  },
+  {
+   "text": "  ( f && t&& (  t &&  g;g\t;u );\t(t\t;u)|| f);",
+   "bash_status": 0,
+   "bash_stdout": "ftu",
+   "seconds": 0.004
+  },
+  {
+   "text": " (  u\t;u  ||  g\t; f\t||( u\t;u ||\tu)\t)  ||  g &&  f  ||  (g ;g  ||u &&  u && (\tt\t&&\tg  &&  u\t; ))",
+   "bash_status": 2,
+   "bash_stdout": "uufuufgguutg",
+   "seconds": 0.0049
+  },
+  {
+   "text": "  u||  (  g\t||\tf||  ( g\t||f; ) ||g )\t&&\tt&&\t( f&& (\tg );(  u)\t&&f ;  u  &&  t ) ",
+   "bash_status": 0,
+   "bash_stdout": "utfufut",
+   "seconds": 0.0042
+  },
+  {
+   "text": "  f&&( f ) && u\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0024
+  },
+  {
+   "text": "\t( u &&\tu ) || f|| g\t&&(\t( u\t||t\t;g\t; t; ) ||  u  ||\tt\t&&\tf) ; g&& f ",
+   "bash_status": 2,
+   "bash_stdout": "uuugtfg",
+   "seconds": 0.0038
+  },
+  {
+   "text": "(g || ( g; g\t;t )\t&&\tf\t;  g;  g|| (  t  ;\tt||  u\t; g\t)\t)\t|| (t || u&&  t )\t&&t\t",
+   "bash_status": 0,
+   "bash_stdout": "gggtfggttgttt",
+   "seconds": 0.0052
+  },
+  {
+   "text": "f &&  t &&u ",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0033
+  },
+  {
+   "text": "t&& (\tf\t||\tt\t;)\t;\t(\tu ;)  ",
+   "bash_status": 0,
+   "bash_stdout": "tftu",
+   "seconds": 0.0041
+  },
+  {
+   "text": "  u ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.003
+  },
+  {
+   "text": "f\t; f  &&  (  u || f &&\t(f  ||  u  ||t\t||  f)&& (\tt\t;\tf\t&&  g);  t  ||\tu )\t; t ",
+   "bash_status": 0,
+   "bash_stdout": "fft",
+   "seconds": 0.0029
+  },
+  {
+   "text": "(  f\t&&  t;(\tt\t&&  f  && f  &&\tf  ; f  ;\tt &&g  ||t\t)||u\t)  ||\tt\t;  u&&\tf &&\tt || t ",
+   "bash_status": 0,
+   "bash_stdout": "ftfftgtuft",
+   "seconds": 0.0038
+  },
+  {
+   "text": "  (u  ||\t(  f\t;\tt\t||  t  ; u\t)\t||  f\t) ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0033
+  },
+  {
+   "text": " u  || f;  f\t|| f\t||  u  ",
+   "bash_status": 0,
+   "bash_stdout": "uffu",
+   "seconds": 0.003
+  },
+  {
+   "text": "  t||\tu&& f  ;  f  ;  g\t&&  u  &&\tf\t",
+   "bash_status": 2,
+   "bash_stdout": "tffg",
+   "seconds": 0.0029
+  },
+  {
+   "text": "  u  ;t ||(  g ||g)  ;(\t(\tt ;\tg|| f\t)\t||( f ||\tg||t  && t  ;\tt; u\t||  g  &&t;)&&g  && (\tg\t||t ;  u  ||  t ; ) ; f||u\t;u  ||  u) ||\tg ",
+   "bash_status": 0,
+   "bash_stdout": "uttgffgtttutgfuu",
+   "seconds": 0.0043
+  },
+  {
+   "text": "\t( u &&  t|| (\tf\t) )\t; t ; ( u\t&&  u||  (  f ||  g\t||g  ; g )  ;( u\t||t  ;f &&t||  t|| f\t;  t\t&&g||f\t||u\t)\t||\tu;(\tt  && g  )  && u\t|| (  u &&g&&\tu\t&&\tf\t;\tt\t&&\tt||g\t||g\t;  g\t&&u  &&\tu&&  f\t) )\t;  ",
+   "bash_status": 2,
+   "bash_stdout": "uttuuufttgfutgugttg",
+   "seconds": 0.0052
+  },
+  {
+   "text": "u  ; t  ",
+   "bash_status": 0,
+   "bash_stdout": "ut",
+   "seconds": 0.003
+  },
+  {
+   "text": "  t\t||  ( f\t|| u  && (u\t||f;  u\t&&\tf;u  )  && f\t; f\t&&  g&& t; g ||\tg ;\t) &&(  t || u ||g  ||  u  )",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.0033
+  },
+  {
+   "text": "f ;  (  f||  f  ) ",
+   "bash_status": 1,
+   "bash_stdout": "fff",
+   "seconds": 0.0033
+  },
+  {
+   "text": "f",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0029
+  },
+  {
+   "text": "(g ;\t)  ",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0033
+  },
+  {
+   "text": "u\t&& g  ;  g&&  u\t;\tg&& t||\tf  ",
+   "bash_status": 1,
+   "bash_stdout": "ugggf",
+   "seconds": 0.003
+  },
+  {
+   "text": "  f\t&&\t( (f||g; f;t  ||f&&u  &&f ;  )\t||\tu || (  u&& g || g  ) ;t;  (u  && t ) && g\t);\t",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0035
+  },
+  {
+   "text": " f  ;\t(  (  u ) ||u&&  f\t||  t\t;f  ; t\t||  g)\t",
+   "bash_status": 0,
+   "bash_stdout": "fuftft",
+   "seconds": 0.0046
+  },
+  {
+   "text": "  t &&t\t;f  && t\t",
+   "bash_status": 1,
+   "bash_stdout": "ttf",
+   "seconds": 0.003
+  },
+  {
+   "text": "\tf\t|| u\t&&\t(g ||  t &&  g&& f ; )\t||  ( g\t&&f\t&&  f ;u;\tu) ",
+   "bash_status": 0,
+   "bash_stdout": "fugtgguu",
+   "seconds": 0.0042
+  },
+  {
+   "text": " f&&  t  ;  u\t||\tg\t",
+   "bash_status": 0,
+   "bash_stdout": "fu",
+   "seconds": 0.0033
+  },
+  {
+   "text": "g  ||  t ;u || t  &&  g&&  f",
+   "bash_status": 2,
+   "bash_stdout": "gtug",
+   "seconds": 0.003
+  },
+  {
+   "text": "f  ;",
+   "bash_status": 1,
+   "bash_stdout": "f",
+   "seconds": 0.0032
+  },
+  {
+   "text": "g&& t  ;  f\t&& (  (\tu&&t ||\tu &&  u  ; ) &&\tg; f  ||\tf||t  && u ; f&& g )\t",
+   "bash_status": 1,
+   "bash_stdout": "gf",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  (f||\t(t||\tu  ) ;  u ;t;\t)\t|| t  ||g",
+   "bash_status": 0,
+   "bash_stdout": "ftut",
+   "seconds": 0.004
+  },
+  {
+   "text": "u  || u&&  u\t;(g\t|| f  )||(u  ||  u)",
+   "bash_status": 0,
+   "bash_stdout": "uugfu",
+   "seconds": 0.004
+  },
+  {
+   "text": "  u  ||(u&& u  )&&u && g",
+   "bash_status": 2,
+   "bash_stdout": "uug",
+   "seconds": 0.0021
+  },
+  {
+   "text": "\t(  f&&\t(  t ;t;\tg;)  ; t )\t&&  t\t&&(\t(t&& g  &&  t||  g  ;\tg;  t && g &&g\t||\tf;) &&\tt||(\tu || u\t) &&\t(  g || f  &&\tu  ; f\t&&g  ;\tg\t||\tu\t&& t );  (\tg\t)&&\t( f  ||\tg  );  t  ||(  g &&  f )\t)  ;  f  ",
+   "bash_status": 1,
+   "bash_stdout": "ftttgggtgfugffgutgtf",
+   "seconds": 0.0044
+  },
+  {
+   "text": "\tt\t||u",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0032
+  },
+  {
+   "text": " ( (\tt\t)\t&& t ) ",
+   "bash_status": 0,
+   "bash_stdout": "tt",
+   "seconds": 0.004
+  },
+  {
+   "text": " g  ;  u||  t  ;  g ",
+   "bash_status": 2,
+   "bash_stdout": "gug",
+   "seconds": 0.0031
+  },
+  {
+   "text": "  t ;  u|| t &&  ( t\t&&\tf\t||  f)\t&&(g  ||u  ||  u\t&& f\t;\t) ",
+   "bash_status": 1,
+   "bash_stdout": "tutff",
+   "seconds": 0.0034
+  },
+  {
+   "text": "\tu  ||( (g && u ||\tf\t)  && t;  t &&\t( g &&f\t||f ;u\t&&\tu\t||\tg\t) ;( f\t;  u && g ;)  ||\tf\t)\t; t && u ||\tg\t&& (\tg; t  && f  ;f\t||(\tu\t&&  f  );\t)  ;\tg&&(\tf\t) ",
+   "bash_status": 2,
+   "bash_stdout": "utugtffufg",
+   "seconds": 0.0038
+  },
+  {
+   "text": "( t  || (\tu ||u;  ) )|| t;\tu && g ",
+   "bash_status": 2,
+   "bash_stdout": "tug",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\tf\t||\tg ||  f\t;\tt&& u\t;\t",
+   "bash_status": 0,
+   "bash_stdout": "fgftu",
+   "seconds": 0.0029
+  },
+  {
+   "text": "\tt\t||\tf\t||\tg  ",
+   "bash_status": 0,
+   "bash_stdout": "t",
+   "seconds": 0.0029
+  },
+  {
+   "text": "  t\t||t  ;  f\t;(f  &&\tu\t||u|| t  ; )",
+   "bash_status": 0,
+   "bash_stdout": "tffu",
+   "seconds": 0.0034
+  },
+  {
+   "text": "\tt || (u\t;( u  ||f ) ||\t(u;u\t&& g ;  )  ;f  &&  ( g || t\t)  )\t; u ;\tt &&  (  t\t||\tf\t)\t|| f",
+   "bash_status": 0,
+   "bash_stdout": "tutt",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\t(  t  && t)  ||\tt &&\tu  &&u ;\tf&&\tt\t;\tg||  g",
+   "bash_status": 2,
+   "bash_stdout": "ttuufgg",
+   "seconds": 0.0034
+  },
+  {
+   "text": "\tg\t",
+   "bash_status": 2,
+   "bash_stdout": "g",
+   "seconds": 0.0029
+  },
+  {
+   "text": "u ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.0029
+  },
+  {
+   "text": "u  || (f\t&&t; t )||\t(  u|| (  f &&g && t || t\t)  ;  u&&  (\tf\t|| u  )\t&&  t ||g\t)  || u ;  ",
+   "bash_status": 0,
+   "bash_stdout": "u",
+   "seconds": 0.003
+  },
+  {
+   "text": "  (  t ;\tg\t)  && t\t||\t(\tu &&\t(\tu  ; u  ||  u|| u;  u;)  || f )  ",
+   "bash_status": 0,
+   "bash_stdout": "tguuuu",
+   "seconds": 0.0041
+  },
+  {
+   "text": " (\tt  )||\tg  &&  g  ;\t",
+   "bash_status": 2,
+   "bash_stdout": "tg",
+   "seconds": 0.0034
+  },
+  {
+   "text": " f  ||\tt ||  u  ",
+   "bash_status": 0,
+   "bash_stdout": "ft",
+   "seconds": 0.0029
+  },
+  {
+   "text": "\tu ||\tt  ; (\tf\t|| g  )||f  ",
+   "bash_status": 1,
+   "bash_stdout": "ufgf",
+   "seconds": 0.0033
+  },
+  {
+   "text": "\tu  &&  u;\tu ;\t(\t( f\t;\tu &&\tf\t;t  &&\tu) &&( f;  t  )  && ( f  &&f;\tt\t&& f  ;\t)  )",
+   "bash_status": 1,
+   "bash_stdout": "uuufuftuftftf",
+   "seconds": 0.0045
+  }
+ ]
+}

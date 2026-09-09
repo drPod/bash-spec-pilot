@@ -1,0 +1,9 @@
+{
+ "note": "Host Lean 4.31.0 build of CalculusNested + NestedMain (nested-json exe), under the shared phase3-compiler.lock, per integration/README.md replay recipe (LEAN_NUM_THREADS=1, -DElab.async=false, -DwarningAsError=true from lakefile.toml moreLeanArgs).",
+ "build_log": "results/v2/nested_lean_build.log",
+ "build_result": "Build completed successfully (6 jobs) for target nested-json, which depends on CalculusNested and NestedMain.",
+ "axioms_log": "results/v2/nested_lean_axioms.txt",
+ "axioms_result": "11/11 theorems in CalculusNested depend only on propext/Quot.sound (or propext alone); no sorryAx, no custom axioms.",
+ "file_hashes": "results/v2/nested_lean_sha256.txt",
+ "when_utc": "2026-09-07T19:51:49Z"
+}

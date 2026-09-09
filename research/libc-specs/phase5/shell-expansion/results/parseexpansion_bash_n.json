@@ -1,0 +1,13 @@
+{
+  "note": "host bash -n (syntax-only) check for texts used in ParseExpansion.v. bash 5.2, LC_ALL=C not set for this quick check (differs from shell-bridge's own validate_text.py convention, which does set it; this file is a lighter-weight spot check, not a replacement for a validate_text.py-style script). Every text is valid bash syntax; ParseExpansion.v's own rejections (double pipe, 3-stage pipe, double redirect, unknown command name) are FRAGMENT SCOPE RESTRICTIONS of this worker's model, not things bash itself considers invalid.",
+  "checks": [
+    {"text": "relay | relay", "bash_n_exit": 0},
+    {"text": "relay > out", "bash_n_exit": 0},
+    {"text": "relay >> log", "bash_n_exit": 0},
+    {"text": "mark", "bash_n_exit": 0},
+    {"text": "relay || relay", "bash_n_exit": 0, "fragment_verdict": "rejected (out of scope: || not supported by this parser)"},
+    {"text": "relay | relay | relay", "bash_n_exit": 0, "fragment_verdict": "rejected (out of scope: PipeRR is two-stage only)"},
+    {"text": "relay > a > b", "bash_n_exit": 0, "fragment_verdict": "rejected (out of scope: one redirect only)"},
+    {"text": "cat > out", "bash_n_exit": 0, "fragment_verdict": "rejected (unknown name: only relay/mark are bound)"}
+  ]
+}

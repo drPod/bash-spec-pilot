@@ -1,0 +1,211 @@
+{
+  "task": "case-replay-fix-8",
+  "not_a_proof": true,
+  "replay": "python3 research/libc-specs/phase5/case-studies/tests/replay.py",
+  "container": "phase5-vst",
+  "wrapper": "research/libc-specs/phase5/run_vst.py",
+  "lock": "~/.cache/bash-spec-pilot/phase3-compiler.lock",
+  "seed": 20260907,
+  "random_trials": 40,
+  "harness_summary": "passed=100 failed=0",
+  "runids": [
+    "20260908T061038Z-3d6a35a6",
+    "20260908T061040Z-c1a83a0d"
+  ],
+  "container_dirs": [
+    "/home/coq/phase5/case-replay8-20260908T061038Z-3d6a35a6",
+    "/home/coq/phase5/case-replay8-20260908T061040Z-c1a83a0d"
+  ],
+  "repeatability": "two invocations in one process; unique UTC+random runids; mkdir-only workdirs; no receipt overwrite",
+  "xwrite_body": "runtime concatenation of tests/xwrite_comment_open.h + src/tu/xwrite_stdout.frag.c into container xwrite_body.c; token-checked against fragment; not a checked-in rewritten function",
+  "fragment_sha256": {
+    "head_bytes.frag.c": "ae9f42de06cf55ca1bfcc8720986b32f8c8d14b8063af8374dece0b886bbc4b7",
+    "xwrite_stdout.frag.c": "bb26b78f6b0df6e41c22497b27709f30225627f42326fa80fd85625ae8a5262c",
+    "wc_lines.frag.c": "7d22d9fdfd6f97e3f149088c597840afc90f7912eba038fdf5941b94978c26fd"
+  },
+  "source_sha256": {
+    "harness.c": "4b7681a5dc922006e92222c6203b06bc3ee0ce6642ef0fe5ec01144dbcecbcfc",
+    "xwrite_main.c": "76c5a2addb57381afb9d6fcbd46c5cc485c8280138d472b53499833ac65db90f",
+    "replay.py": "8b341640fa3811c454340f6002eef1f12ce894ab73a24d57afbace8caf4ec820"
+  },
+  "receipts_run_20260908T061038Z-3d6a35a6": {
+    "case-replay8-20260908T061038Z-3d6a35a6-gcc-harness": {
+      "command": [
+        "gcc",
+        "-O0",
+        "-std=c11",
+        "-Wall",
+        "-o",
+        "harness",
+        "harness.c"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "receipt_sha256": "76f1bc542d705b4a4e4dc03023d8ea870e83b586ab10c615a2910a61d1acef48",
+      "log_sha256": "04fbb7b2473e195b8514feea80fba8fa2aeace37d53ba1f651281a79b2b68159"
+    },
+    "case-replay8-20260908T061038Z-3d6a35a6-run-harness": {
+      "command": [
+        "./harness"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "harness_summary": "SUMMARY passed=100 failed=0",
+      "receipt_sha256": "368a5d7bdaf569994e5d59c072d0d067a79ed948f191a86ba0dc496c07b056f3",
+      "log_sha256": "8ce3c6452f7d99c34b79330e682a018230f9103a3e9da62f8341a8bb7beb217f"
+    },
+    "case-replay8-20260908T061038Z-3d6a35a6-gcc-xwrite": {
+      "command": [
+        "gcc",
+        "-O0",
+        "-std=c11",
+        "-Wall",
+        "-o",
+        "xwrite_harness",
+        "xwrite_main.c"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "receipt_sha256": "7c356136eca90842d05e361f201938cda4f2f707451e26607063eef1d0495728",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "case-replay8-20260908T061038Z-3d6a35a6-run-xwrite-ok": {
+      "command": [
+        "./xwrite_harness",
+        "ok"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "stdout": "hello\\n",
+      "receipt_sha256": "1fc945bd4d591852aeb6d1ddebdb2886916e2010acc615f9bedde4c782fce4ef",
+      "log_sha256": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03"
+    },
+    "case-replay8-20260908T061038Z-3d6a35a6-run-xwrite-zero": {
+      "command": [
+        "./xwrite_harness",
+        "zero"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "stdout": "",
+      "receipt_sha256": "9e8bbca24251ba34bec09064333a944381c01fcb9e1addc3448892148c44b4b7",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "case-replay8-20260908T061038Z-3d6a35a6-run-xwrite-full": {
+      "command": [
+        "./xwrite_harness",
+        "full"
+      ],
+      "exit_status": 1,
+      "timing_exit_status": 1,
+      "asserted_nonzero": true,
+      "log": "XWRITE_ERROR status=1 errnum=28 calls=1\\n",
+      "note": "ENOSPC errno 28 / errno.ENOSPC; receipt-checked, not a wrapper exception",
+      "receipt_sha256": "3c31150168f0a6ae287c4df1a0d45b537d329d528d88346f57a4b576297b4c67",
+      "log_sha256": "8c481e6efe0b6d419fb5c7ea5ffbcd0c51b212cab139ed496c02b6856aae4c23"
+    }
+  },
+  "receipts_run_20260908T061040Z-c1a83a0d": {
+    "case-replay8-20260908T061040Z-c1a83a0d-gcc-harness": {
+      "command": [
+        "gcc",
+        "-O0",
+        "-std=c11",
+        "-Wall",
+        "-o",
+        "harness",
+        "harness.c"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "receipt_sha256": "51b7ca2128c5d401e306f771ad665dfa6bf844a9c6ce9500705d8ed664f1613c",
+      "log_sha256": "04fbb7b2473e195b8514feea80fba8fa2aeace37d53ba1f651281a79b2b68159"
+    },
+    "case-replay8-20260908T061040Z-c1a83a0d-run-harness": {
+      "command": [
+        "./harness"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "harness_summary": "SUMMARY passed=100 failed=0",
+      "receipt_sha256": "d8e8e87eb253c1daf2e10f463518f4fa15efc5b62a1b2353b375c2c326f81caa",
+      "log_sha256": "8ce3c6452f7d99c34b79330e682a018230f9103a3e9da62f8341a8bb7beb217f"
+    },
+    "case-replay8-20260908T061040Z-c1a83a0d-gcc-xwrite": {
+      "command": [
+        "gcc",
+        "-O0",
+        "-std=c11",
+        "-Wall",
+        "-o",
+        "xwrite_harness",
+        "xwrite_main.c"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "receipt_sha256": "bd20553c511497f1ed46d46b51ac96a712c4663941953212d26b2c06b55d2c81",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "case-replay8-20260908T061040Z-c1a83a0d-run-xwrite-ok": {
+      "command": [
+        "./xwrite_harness",
+        "ok"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "stdout": "hello\\n",
+      "receipt_sha256": "ce81e94da14d27d06c29bdcd133fc17da5b90cdd9e5cc2d363c7f0490f73acfb",
+      "log_sha256": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03"
+    },
+    "case-replay8-20260908T061040Z-c1a83a0d-run-xwrite-zero": {
+      "command": [
+        "./xwrite_harness",
+        "zero"
+      ],
+      "exit_status": 0,
+      "timing_exit_status": 0,
+      "stdout": "",
+      "receipt_sha256": "016beee9ed260eec9425529e2ee2aa27ce2c5f91b28d2b3af0eb9b8c423a32f5",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "case-replay8-20260908T061040Z-c1a83a0d-run-xwrite-full": {
+      "command": [
+        "./xwrite_harness",
+        "full"
+      ],
+      "exit_status": 1,
+      "timing_exit_status": 1,
+      "asserted_nonzero": true,
+      "log": "XWRITE_ERROR status=1 errnum=28 calls=1\\n",
+      "note": "ENOSPC errno 28 / errno.ENOSPC; receipt-checked, not a wrapper exception",
+      "receipt_sha256": "0b487f3ce405fc36420bd2f9fcadb935613ca0851df1db24ca9a52f2372a0f4f",
+      "log_sha256": "8c481e6efe0b6d419fb5c7ea5ffbcd0c51b212cab139ed496c02b6856aae4c23"
+    }
+  },
+  "fail_closed_negative": "private tempfile missing receipt + mismatched command JSON; no extra C compile",
+  "historical_receipts_preserved_not_overwritten": [
+    "case-replay7-gcc-harness",
+    "case-replay7-run-harness",
+    "case-replay7-gcc-xwrite",
+    "case-replay7-run-xwrite-ok",
+    "case-replay7-run-xwrite-zero",
+    "case-replay7-run-xwrite-full",
+    "case-differential7-gcc1",
+    "case-differential7-run-harness",
+    "case-differential7-gcc-xwrite4",
+    "case-differential7-run-xwrite-ok",
+    "case-differential7-run-xwrite-zero",
+    "case-differential7-run-xwrite-full2"
+  ],
+  "missing_coverage": [
+    "head_bytes uses a mock xwrite_stdout; pinned xwrite fragment is only exercised by xwrite_main.c",
+    "uintmax overflow in wc_lines not exercised",
+    "xwrite_harness.c leftover driver not compiled by replay",
+    "no Coq/VST proof of C; differential execution only"
+  ],
+  "validator_followup": {
+    "checked_utc": "2026-09-08T06:13:14.085311+00:00",
+    "current_replay_sha256": "752c18a5d253efbacffa0f3fe3d30cc3a82de1f3ef062ec270b43af95cd96208",
+    "change": "Negative checks now invoke actual assert_receipt for missing and wrong-command receipts, both reject as intended. Original source_sha256 records script used for two C replays; execution path unchanged; no C rerun."
+  }
+}

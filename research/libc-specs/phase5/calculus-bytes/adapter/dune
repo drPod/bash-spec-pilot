@@ -1,0 +1,3 @@
+(executable
+ (name cb_main)
+ (libraries frontend calculus stdint))

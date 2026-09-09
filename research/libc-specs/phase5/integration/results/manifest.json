@@ -1,0 +1,102 @@
+{
+  "generated_by": "make_manifest.py",
+  "git_head": "2d7015fa22a28a20017ff3c862c74fa50377738c",
+  "upstream": {
+    "repository": "https://github.com/counc009/state_based",
+    "branch": "bash",
+    "commit": "190dd8491b258d8a0ee29f79629908540236b332",
+    "tree": "292a37c9848e8f9a1cc679a8c3f1e28dfcffd116",
+    "stdint_tarball_sha256": "1560198d8bc9c7af3ea952c40dabe82666694210ecc3fdf9bbfeb43211e977e6"
+  },
+  "files": {
+    "COMPLETION-AUDIT.md": "1eb206ddf9ed9e0d4732fcf97f77e8857d341c971b4d86259eb24d8d53df9c37",
+    "PROOF-CHAIN.md": "6666d035bd7a18dd73cc617bcaffc75cdccda231e7cb04abc56fc767b867a788",
+    "README.md": "19b1530c9c9e71858c743ec705c37d67cdaf869afc61d9ba6f0529838edff40b",
+    "compare_interp.py": "921699ff8feeb8402a55c03f0dc238bcf5b48fa5eac6f43e1f4e272fd10cadfa",
+    "fixtures/byte_relay.sc": "045fe670033bac2b5d1aad2178bb943fe9a44adeb4be5862026ebf8297725eeb",
+    "fixtures/byte_relay_plain.sc": "5e8ff61b6c4a1790018a8358ef75ebf6f4bb61eb66a3ef01a0b162bb6f674af4",
+    "fixtures/byte_relay_raise_semicolon.sc": "25823944192e2b90948bd89d259e9b0f6357e7b83f6cd8428d11209850028b98",
+    "fixtures/decls_errors.sc": "ca76013381180e868bbe9cff28e9476b345db04c873eaafb511077fff6163aac",
+    "fixtures/decls_only.sc": "563a80f8766ab2e417901904a5a8e1c1c2c4fa72ca483cad70b6adbadc0e2075",
+    "fixtures/dune": "0eac3e4dfcf13347e22a94449e338e9bb0a58e6123138ff1d738f39cd9f85485",
+    "fixtures/pinned_filesys.sc": "3a2cb5658fc51b9f89e7fa24eb712137b5760ca7f6452ee4aff80afa4dd0c1bb",
+    "fixtures/sc_fixtures.ml": "486b00d40f52401d2a9d3ba12422285d6f49476b3261acb4aed873f25b71300e",
+    "fixtures/shell_fragment.sc": "53df877c7c5e7d2d277c73a7ce43c23a9bd396dfb052a37afa95db8d8dd3b0d3",
+    "fixtures/shims/calculus_iarray.ml": "f2c1c6b30b602d86623e2e39e9009d86778786cb93e5878997e50fcac264caf3",
+    "fixtures/shims/calculus_map.ml": "2d2a18b124f10ec7f2b2a03cf241b1d2c7d12852cc6778cd5888160d7a21a669",
+    "fixtures/shims/dune-project.patch": "bac329c6f6ca044d782d93ae8d92adb01abb3087e0a3d18e88ea0bfcf4940f8c",
+    "fixtures/shims/frontend_iarray.ml": "f2c1c6b30b602d86623e2e39e9009d86778786cb93e5878997e50fcac264caf3",
+    "fixtures/shims/frontend_list.ml": "7906ce9da8003ccabc258a99e8ad3053da815abb6fc21b4791634332f501b65b",
+    "fixtures/shims/frontend_map.ml": "2d2a18b124f10ec7f2b2a03cf241b1d2c7d12852cc6778cd5888160d7a21a669",
+    "fixtures/shims/generator.patch": "3b90303b140ae44518126b8441b15c32da936771f33f44fae787230a8e252ecf",
+    "fixtures/shims/workspace.dune": "a94f560cbc18d65d5d5d5753f27123ee192363cadb1533452f67f8b53912f018",
+    "fixtures/shims/workspace.dune-project": "35d7725b9c1fbec6e50a573cf6cf886884fcf8cb2ec668a9de7ece8da914fb75",
+    "fixtures/unsupported_bash.sc": "aea6ffc314180c9d800e6a530c865ec7df109ba5ed5b315564ef3ffd7ad77007",
+    "fixtures/unsupported_c_for.sc": "b58e75d5d4a6caa32e72e7549309eef398f26567323cabd1c639e888c90c4d47",
+    "fixtures/unterminated_comment.sc": "56a4439bea79e49a607063bafd6ff33df6f9ca851abc1202380be64378636ce0",
+    "lean/Axioms.lean": "e9147b372c3c938decdad98399f6a7be5d30fcaab141914ebeafd441cb5c9beb",
+    "lean/CalculusFragment.lean": "6ebb0ebf4440bddc3eb79544671c229248fb1273d733fbee907103fad46cdb9b",
+    "lean/FragmentMain.lean": "3a89a3640e7f9c094ae3dd68850f32e1ad89e4c3749d2117a1d0377f9c09edcc",
+    "lean/lakefile.toml": "789fff560c18695b8535255149ded5b0422c996526e78c8d12a1b7b496a39a3f",
+    "lean/lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+    "make_manifest.py": "3ec49767f16f35f87280d852821975be5ab88e3e0acdcb86cab498119e401e5d",
+    "results/interp_lean.jsonl": "940c0d78842944289fc90273a168481369dbb6d4da3b4db048b406c4d7b1e646",
+    "results/interp_ocaml.jsonl": "f509eec778154ca2f904460342fe07fc71c44519773694d3097712d38a9fbd54",
+    "results/lean_axioms.txt": "0c1cb0648f86064d674e3180ac302c62d434eaf8771c66a3ae0176e99ada96ba",
+    "results/lean_check.json": "a4ee81b44a55d0bec9d1961b574913dfbdc52c29ad6087e180ca9fd9a1b49175",
+    "results/parse.jsonl": "60cb5e00622caa2f99d1d86c4c3984cc5ff795b0b5ec1e47bcff1d2510ec6645",
+    "results/printed/byte_relay_plain.printed.sc": "5fe24fb6e17669cd511cee84ea03bc931349ae1b311981509b765824d83054ef",
+    "results/printed/decls_errors.printed.sc": "bd36de9738036b655f56ca242967862b27b079920d0728cda2a7d6811e47622d",
+    "results/printed/decls_only.printed.sc": "27bf75172a289743d6a89265692b6cf3328208eb874933ce96c09df16ac01393",
+    "results/printed/pinned_filesys.printed.printed.sc": "8b0819939294035aceeae3ad93b4dd56a2f0fcb0296cdd4165c5c14e081b8c15",
+    "results/printed/pinned_filesys.printed.sc": "8b0819939294035aceeae3ad93b4dd56a2f0fcb0296cdd4165c5c14e081b8c15",
+    "results/printed/shell_fragment.printed.sc": "1fddc1bc2c157d10d830a1daa20c5071b8b64cd2715034807e71302986fa62af",
+    "results/reparse.jsonl": "b163e974029f97d65a331690069ad1e76f9fcad0a15ed63211e16ee9ae980971",
+    "results/semant.jsonl": "16c9bdd409e89717c405fd07c9df0f102670b873579f74984069ab24826d3465"
+  },
+  "container_receipts": {
+    "integration-dune-build-6": {
+      "receipt_sha256": "c0e0c4b3a03316d4930c5285789bbf87d7facbcaafae883c5b59a6833827a202",
+      "log_sha256": "c9cd4330337da21d0a7832e9140758b7903b0248eb970a0ffd0312468620a277",
+      "exit_status": 0,
+      "elapsed_seconds": 7.12,
+      "peak_rss_kib": 109888
+    },
+    "integration-dune-build-7": {
+      "receipt_sha256": "6a995da6ad31ecd6264ca742f5fe77700223324b68c15bb32e8262222a6a9b72",
+      "log_sha256": "4e5aff6e94f5db2a35a0a194c560880aa6f995143b23518ca65fd7be34bc294f",
+      "exit_status": 0,
+      "elapsed_seconds": 0.5,
+      "peak_rss_kib": 64960
+    },
+    "integration-fixtures-parse-2": {
+      "receipt_sha256": "1f900ad5312357a04a4ed2b3a1435b8527a5a1dc008b2901fe6bc18aeac685df",
+      "log_sha256": "60cb5e00622caa2f99d1d86c4c3984cc5ff795b0b5ec1e47bcff1d2510ec6645",
+      "exit_status": 0,
+      "elapsed_seconds": 0.0,
+      "peak_rss_kib": 4992
+    },
+    "integration-fixtures-reparse-1": {
+      "receipt_sha256": "cc1df47a3d1f242d4fbbd84d863045dff2207cda4a356d58e34efd43cb79c83a",
+      "log_sha256": "b163e974029f97d65a331690069ad1e76f9fcad0a15ed63211e16ee9ae980971",
+      "exit_status": 0,
+      "elapsed_seconds": 0.0,
+      "peak_rss_kib": 4864
+    },
+    "integration-fixtures-semant-2": {
+      "receipt_sha256": "bf9ae4e357b9e50c5aff7bcdded1b774bd52f124e36df99f8f4ff8b02e1618a9",
+      "log_sha256": "16c9bdd409e89717c405fd07c9df0f102670b873579f74984069ab24826d3465",
+      "exit_status": 0,
+      "elapsed_seconds": 0.0,
+      "peak_rss_kib": 4992
+    },
+    "integration-fixtures-interp-1": {
+      "receipt_sha256": "4ef9729d680bcbcba934b36cbc7ece4cad772713714c59dd757f3dc50ea3dab3",
+      "log_sha256": "f509eec778154ca2f904460342fe07fc71c44519773694d3097712d38a9fbd54",
+      "exit_status": 0,
+      "elapsed_seconds": 0.0,
+      "peak_rss_kib": 4480
+    }
+  },
+  "scope": "Identity and replay record only; see README.md for what each result establishes."
+}

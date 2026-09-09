@@ -1,0 +1,6 @@
+'CalculusTryCatch.funcDef_excTag' depends on axioms: [propext]
+'CalculusTryCatch.relay_caught_of_ret' depends on axioms: [propext, Quot.sound]
+'CalculusTryCatch.relay_caught_of_readError' depends on axioms: [propext, Quot.sound]
+'CalculusTryCatch.relay_caught_of_other' depends on axioms: [propext, Quot.sound]
+'CalculusTryCatch.relay_caught_of_failure' depends on axioms: [propext]
+limits: prlimit --as=3221225472 LEAN_NUM_THREADS=1 MIMALLOC_ARENA_RESERVE=65536 lean -j1 -s 16384 -DwarningAsError=true -DElab.async=false (direct toolchain binary, explicit LEAN_PATH) rss_kb=472868 wall=0.25 2026-09-08T19:31:19Z

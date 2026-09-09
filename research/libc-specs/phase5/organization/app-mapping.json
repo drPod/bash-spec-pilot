@@ -1,0 +1,63 @@
+{
+  "project": "prj_fa7ceb0639254b3dba5833834ce25366",
+  "not_atlas_uuid": "b64557ae-2fc9-4576-9a1c-3df774a03269",
+  "interface": "GET/POST http://127.0.0.1:4097/provenance",
+  "verified_utc": "2026-09-08T06:17:37Z",
+  "nodes": 2332,
+  "edges": 2436,
+  "orphan_edges": 0,
+  "kinds": {
+    "artifact": 1524,
+    "run": 698,
+    "source": 12,
+    "claim": 98
+  },
+  "catalog_record_node_ids": {
+    "PH5-RELAY-001": "2018a6c68198ad7c",
+    "PH5-RELAY-002": "40b0863e735cbae0",
+    "PH5-RELAY-003": "4bae79693f40dc21",
+    "PH5-RELAY-004": "947aa71862c12672",
+    "PH5-RELAY-005": "289520b4bf59b965",
+    "PH5-RELAY-006": "c8dc24c4ddf88cd3",
+    "PH5-RELAY-007": "28445abedad0128a",
+    "PH5-RELAY-008": "d615aa4c1d0fa562",
+    "PH5-SHELL-001": "f2a3526ecbc98fd4",
+    "PH5-SHELL-002": "a876ee5cff302ee4",
+    "PH5-SHELL-003": "9827038a41b4e019",
+    "PH5-SHELL-004": "ce133f4d241191c8",
+    "PH5-UTIL-001": "e648ad00c9b59e3a",
+    "PH5-UTIL-002": "3c9b9b31f500bf76",
+    "PH5-UTIL-003": "079b650c8192e8ca",
+    "PH5-CALC-001": "e39af59d54a2e5d4",
+    "PH5-CALC-002": "a297eb390f6ab56f",
+    "PH5-CALC-003": "a48ce7643a95b05f",
+    "PH5-CALC-004": "81b844c9e9788da2",
+    "PH5-INTEG-001": "f907972bcbbb9ede",
+    "PH5-UTF8-001": "54045e595a478e47",
+    "PH5-CASE-001": "fac64372515f6014",
+    "PH5-EVAL-001": "df159c91738f7669",
+    "PH5-EVAL-002": "328f59cdaedb9430",
+    "PH5-EVAL-003": "02a1669acad52cdb",
+    "PH5-ARTIFACT-001": "06d4925f0e506120",
+    "PH5-PRIOR-000": "13e0bc52d44f77b8"
+  },
+  "sources": {
+    "catalog_repair6": "932c5bc5bad1b6e8",
+    "artifacts_repair6": "6ce92491444980ce"
+  },
+  "intended_inventory_labels": 2178,
+  "missing_intended_labels": 0,
+  "note": "OpenScience provenance project prj_fa7ceb0639254b3dba5833834ce25366 is not Atlas project b64557ae-2fc9-4576-9a1c-3df774a03269. Atlas client missing. Mapping is GET-backed local provenance only. Overlay appends current evidence; older nodes/version history preserved.",
+  "overlay": "organization-current-evidence-8",
+  "new_catalog_record_node_ids": {
+    "PH5-EVAL-004": "e6023f5f7bb9e353",
+    "PH5-CASE-002": "b4f62e1148e75aea",
+    "PH5-CASE-003": "c74adab6f50ee345",
+    "PH5-CASE-004": "cbaa28ea1ac5da0e"
+  },
+  "sources_overlay": {
+    "catalog_current_evidence_8": "9603b452833b4a35",
+    "artifacts_current_evidence_8": "61f2ecf8928bcdd3"
+  },
+  "intended_inventory_labels_validate7": 2178
+}

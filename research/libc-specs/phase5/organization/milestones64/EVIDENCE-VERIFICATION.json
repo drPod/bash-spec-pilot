@@ -1,0 +1,25 @@
+{
+  "checked_utc": "2026-09-08T18:25:50.821434+00:00",
+  "stateful_receipt_sha256": "909ff2c91f070a413f0b9565f78d2efcb12986e5f20759e0b5a3bcac91ece5d1",
+  "stateful": {
+    "exit_status": 0,
+    "source_sha256": {
+      "ScheduleConsumption.lean": "952e3e7307457b929da8a16ec0b4fdc881b27c5a96bc0fd562b9bf3fd4e96235",
+      "StatefulFinal.lean": "c12dcf89479e7448cb8fafa1048eea1f6e35bcaa99566c556145f645bcb12180",
+      "StatefulFinalAudit.lean": "cf043f371ad34be79790c16ee82e2e471ff55a3592bbdb121ba8961afefae589"
+    },
+    "log_sha256": "85c8bbdc038eb6ac36505182c1aef6bc6df91c26fb56dc9fab0cfefffcf1bc3d",
+    "scope": "Stateful Lean reference composition consumes input and read/write schedules; not checked Coq-to-Lean/C bridge"
+  },
+  "case_receipt_audit_sha256": "7ba76d6420d2b5ad3273beae5755289f7ec3f6493f5545d311499a575801cfa2",
+  "case_summary_sha256": "8348db21a9d68508c87f802df806c223f72dff21fd721cfb721e98a14146c325",
+  "case_source_sha256": {
+    "CaseTransfer.v": "2e2ad55150411c5fe6c9bff6f90753d48e170c87bf6a5badf497147f106e8288",
+    "CaseTransferWc.v": "e6e74c1ab07da579c8b6e22f803985fe439ee6fa05af1b7c3c8374cc7375209c",
+    "CaseTransferAudit.v": "aaff0dc6fa71af5a0ebf3b50fdb8977d0667f223e67ed847e59490d283245554",
+    "CaseTransferWcAudit.v": "2a2bcefaf539805be71b31208050ef98daf668b6a97a5af89ad8747bf50545c2"
+  },
+  "case_files_verified": 19,
+  "case_assumption_audits_verified": 4,
+  "stateful_assumption_lines_verified": 18
+}

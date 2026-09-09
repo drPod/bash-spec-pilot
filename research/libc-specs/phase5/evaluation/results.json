@@ -1,0 +1,691 @@
+{
+  "schema": "phase5-evaluation-results/1",
+  "compiled_utc": "2026-09-07T08:38:30+00:00",
+  "manifest_frozen_utc": "2026-09-07T08:31:19+00:00",
+  "lean": "leanprover/lean4:v4.31.0",
+  "tasks": {
+    "shell_status": {
+      "theorem": "ShellObservation.query_transfer",
+      "source": "phase3/ShellObservation.lean",
+      "source_sha256": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+      "removed_in_base": [
+        "ShellObservation.command_refines"
+      ],
+      "templates": {
+        "helper": "85ad99f313c82f2fdc9b9f7ec4b4a6b0e5246aeaa082e7beb9d63f48f4b59366",
+        "base": "7fc12c0f2a109a01f8a0d5cae476dda13862b7daa770d4bd61f68a11d34a2c19"
+      }
+    },
+    "byte_relay": {
+      "theorem": "RelayComposition.fragment_refines",
+      "source": "phase3/RelayComposition.lean",
+      "source_sha256": "96cbd2cd68d1f7f957e9aa0e39b46e17b2ad06d67388cbe391d22b39884653de",
+      "removed_in_base": [
+        "RelayComposition.primitive_eq",
+        "RelayComposition.primitive_refines"
+      ],
+      "templates": {
+        "helper": "c4c2001f8b8e766db7490e1af2ad5d0d76bf3a89523cb4e2b0dd533991b823ff",
+        "base": "ae42c38c65a2adeac43f589201c639537abd16f88e97ca38bc2bf51c72989368"
+      }
+    },
+    "partial_error": {
+      "theorem": "BufferRelay.run_write_failure_residual",
+      "source": "phase2/BufferRelay.lean",
+      "source_sha256": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+      "removed_in_base": [
+        "BufferRelay.run_conservation"
+      ],
+      "templates": {
+        "helper": "134ebe062f73cb9ecb1af39fa9da00b955a05769abafb88b24ad022d3248dfd0",
+        "base": "6267749b6c5526ea3021856b6c47c4423d464d4c35cd3a0e671b1c197c41a2ac"
+      }
+    }
+  },
+  "summary": {
+    "shell_status/helper": {
+      "attempts": 2,
+      "accepted": 2,
+      "timed_out": 0
+    },
+    "shell_status/base": {
+      "attempts": 2,
+      "accepted": 2,
+      "timed_out": 0
+    },
+    "byte_relay/helper": {
+      "attempts": 2,
+      "accepted": 2,
+      "timed_out": 0
+    },
+    "byte_relay/base": {
+      "attempts": 2,
+      "accepted": 0,
+      "timed_out": 0
+    },
+    "partial_error/helper": {
+      "attempts": 2,
+      "accepted": 0,
+      "timed_out": 0
+    },
+    "partial_error/base": {
+      "attempts": 2,
+      "accepted": 1,
+      "timed_out": 0
+    }
+  },
+  "attempts": [
+    {
+      "name": "shell_status-helper-a1",
+      "task": "shell_status",
+      "condition": "helper",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:34:21+00:00",
+      "model_elapsed_seconds": 6.89,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1806,
+        "output": 357,
+        "cacheRead": 512,
+        "reasoning": 298,
+        "totalTokens": 2675
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "36a1922808561d109a6deff19b15c185f1c19a332def64b2c8500b1e28cd0bf6",
+      "build_log_sha256": "f5b8d27a1bb82555a303d135031b886a5cf32b684cd025e3dd2c5d9a3ea2bc29",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "shell_status-base-a1",
+      "task": "shell_status",
+      "condition": "base",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:34:29+00:00",
+      "model_elapsed_seconds": 22.99,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1374,
+        "output": 1410,
+        "cacheRead": 512,
+        "reasoning": 942,
+        "totalTokens": 3296
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "8632c4042a023a25fa029d3caa89d067f0eb69f168cbb9ae31fdc38e85f2e07b",
+      "build_log_sha256": "6e692f58c1f0365e2bf899cbdc1517abb70e718bdaa7500d491a0707c8b05443",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "byte_relay-helper-a1",
+      "task": "byte_relay",
+      "condition": "helper",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:34:53+00:00",
+      "model_elapsed_seconds": 8.29,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1464,
+        "output": 468,
+        "cacheRead": 512,
+        "reasoning": 411,
+        "totalTokens": 2444
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "cbe7156d9a96e6df317591f2db3d689fbcdbc2cb92d4e5da857517534e1065d1",
+      "build_log_sha256": "70451bc1c616a4c85e3b25d620cf857e8827bc140deb5f561978ba01bf4472ef",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "byte_relay-base-a1",
+      "task": "byte_relay",
+      "condition": "base",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:35:03+00:00",
+      "model_elapsed_seconds": 13.26,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1344,
+        "output": 770,
+        "cacheRead": 512,
+        "reasoning": 597,
+        "totalTokens": 2626
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "40cee2c614adaf16097513ab7b043632207f1c813342efa06c66f9b5db72783c",
+      "build_log_sha256": "c95eef6f28e61d457110ae3fa1554e49fda9d0048c5b9f50684b060f7d6ede67",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+        "error: RelayComposition.lean:40:6: Dependent elimination failed: Failed to solve equation",
+        "error: Lean exited with code 1",
+        "error: build failed"
+      ],
+      "axioms": null,
+      "theorem_type_matches": null
+    },
+    {
+      "name": "partial_error-helper-a1",
+      "task": "partial_error",
+      "condition": "helper",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:35:17+00:00",
+      "model_elapsed_seconds": 11.0,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 4981,
+        "output": 558,
+        "cacheRead": 512,
+        "reasoning": 436,
+        "totalTokens": 6051
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "ecb455a4fb6404bc2729b905d04ba9814d90569a8cc672ff5cc2fea8e3fc3859",
+      "build_log_sha256": "5f17a5832d76fdaee6e0bb321eca2793087a04c83b062a2c12b4eabf3db22b2b",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+        "trace: .> LEAN_PATH=/home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/.lake/build/lib/lean /home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean -j1 -s16384 -DwarningAsError=true /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/BufferRelay.lean -o /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/.lake/build/lib/lean/BufferRelay.olean -i /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/.lake/build/lib/lean/BufferRelay.ilean -c /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/.lake/build/ir/BufferRelay.c --setup /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a1/.lake/build/ir/BufferRelay.setup.json --json",
+        "error: BufferRelay.lean:343:4: omega could not prove the goal:",
+        "error: Lean exited with code 1",
+        "error: build failed"
+      ],
+      "axioms": null,
+      "theorem_type_matches": null
+    },
+    {
+      "name": "partial_error-base-a1",
+      "task": "partial_error",
+      "condition": "base",
+      "attempt": 1,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:35:30+00:00",
+      "model_elapsed_seconds": 9.04,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 4917,
+        "output": 599,
+        "cacheRead": 512,
+        "reasoning": 486,
+        "totalTokens": 6028
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "5c63e7cdc5ebb5400345a3131f80901cccf2fe7b737de5c7daae02a8860c4967",
+      "build_log_sha256": "ac7d1cdf069ed72fbc86a753dcea263890ffd856861b537c10757a8ffc2fe5cb",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+        "trace: .> LEAN_PATH=/home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/.lake/build/lib/lean /home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean -j1 -s16384 -DwarningAsError=true /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/BufferRelay.lean -o /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/.lake/build/lib/lean/BufferRelay.olean -i /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/.lake/build/lib/lean/BufferRelay.ilean -c /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/.lake/build/ir/BufferRelay.c --setup /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-base-a1/.lake/build/ir/BufferRelay.setup.json --json",
+        "error: BufferRelay.lean:338:4: omega could not prove the goal:",
+        "error: Lean exited with code 1",
+        "error: build failed"
+      ],
+      "axioms": null,
+      "theorem_type_matches": null
+    },
+    {
+      "name": "shell_status-helper-a2",
+      "task": "shell_status",
+      "condition": "helper",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:35:41+00:00",
+      "model_elapsed_seconds": 6.08,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1806,
+        "output": 322,
+        "cacheRead": 512,
+        "reasoning": 263,
+        "totalTokens": 2640
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "36a1922808561d109a6deff19b15c185f1c19a332def64b2c8500b1e28cd0bf6",
+      "build_log_sha256": "aa838a04ff56193beea9135ff41db406b4cadd1a89a1318a61b96cde7e43e12f",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "shell_status-base-a2",
+      "task": "shell_status",
+      "condition": "base",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:35:48+00:00",
+      "model_elapsed_seconds": 17.97,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1374,
+        "output": 1132,
+        "cacheRead": 512,
+        "reasoning": 687,
+        "totalTokens": 3018
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "d8965040b54197dcf3dce9b96b81482b5403e8f6bb712ea810603419389383c1",
+      "build_log_sha256": "2c88c3bde10afaaa6ce0a1c3a769381ad2fff4b3a2ad53fb12475f0dcee55465",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "byte_relay-helper-a2",
+      "task": "byte_relay",
+      "condition": "helper",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:36:07+00:00",
+      "model_elapsed_seconds": 7.44,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1464,
+        "output": 434,
+        "cacheRead": 512,
+        "reasoning": 384,
+        "totalTokens": 2410
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "86cb3ac4ecb3d22a83ede5d9af4083c568c31ca285a5a1bdf90308127892a494",
+      "build_log_sha256": "552ca6687a66c38b4b2a78a64a840f0f72361bd6312d686a4f0b92cb813ace00",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "byte_relay-base-a2",
+      "task": "byte_relay",
+      "condition": "base",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:36:16+00:00",
+      "model_elapsed_seconds": 13.76,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 1344,
+        "output": 818,
+        "cacheRead": 512,
+        "reasoning": 630,
+        "totalTokens": 2674
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "e98060ec7dfad19618632bc9057654e9f1bef65353c1fb8b10a0890b75907093",
+      "build_log_sha256": "f11477beb9dbd5b955c6f82cd85b275958e1bb8eb4ef372eed90fc82ca6fdb5a",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+        "error: RelayComposition.lean:40:6: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)",
+        "error: RelayComposition.lean:53:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+        "error: Lean exited with code 1",
+        "error: build failed"
+      ],
+      "axioms": null,
+      "theorem_type_matches": null
+    },
+    {
+      "name": "partial_error-helper-a2",
+      "task": "partial_error",
+      "condition": "helper",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:36:30+00:00",
+      "model_elapsed_seconds": 11.41,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 4981,
+        "output": 753,
+        "cacheRead": 512,
+        "reasoning": 636,
+        "totalTokens": 6246
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "5531d697b4b7dad43262a47e88692f66d54032b36969a5a9b01960f15330377b",
+      "build_log_sha256": "e76902c43420e3ebbaf6f08aeb6a8211981d26646110fc1bbc6a41f69464c87a",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+        "trace: .> LEAN_PATH=/home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/.lake/build/lib/lean /home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean -j1 -s16384 -DwarningAsError=true /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/BufferRelay.lean -o /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/.lake/build/lib/lean/BufferRelay.olean -i /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/.lake/build/lib/lean/BufferRelay.ilean -c /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/.lake/build/ir/BufferRelay.c --setup /home/coder/.cache/bash-spec-pilot/phase5-evaluation/attempts/partial_error-helper-a2/.lake/build/ir/BufferRelay.setup.json --json",
+        "error: BufferRelay.lean:343:4: omega could not prove the goal:",
+        "error: Lean exited with code 1",
+        "error: build failed"
+      ],
+      "axioms": null,
+      "theorem_type_matches": null
+    },
+    {
+      "name": "partial_error-base-a2",
+      "task": "partial_error",
+      "condition": "base",
+      "attempt": 2,
+      "model": "xai/grok-4.6",
+      "harness": "pi 0.84.2 --print --mode json --no-tools",
+      "wall_limit_seconds": 120,
+      "started_utc": "2026-09-07T08:36:44+00:00",
+      "model_elapsed_seconds": 8.24,
+      "timed_out": false,
+      "block_found": true,
+      "token_usage": {
+        "input": 5429,
+        "output": 497,
+        "cacheRead": 0,
+        "reasoning": 341,
+        "totalTokens": 5926
+      },
+      "first_pass": true,
+      "feedback_rounds": 0,
+      "interventions": "none: first-pass, fresh context, no human or agent edits to the submission",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "ed50e90828db329367e343ce6852140ecb93a9bd48dcbb84483ca6b2756b52c0",
+      "build_log_sha256": "a43dd6179e1afd11935026c976f3bebe77032c5bfbf4e6925a2bb05c30ca2a33",
+      "build_errors": [
+        "info: MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+        "info: MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+        "info: MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    }
+  ],
+  "checker_controls": [
+    {
+      "name": "control2-byte_relay-base-original",
+      "task": "byte_relay",
+      "condition": "base",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "523f7d70465635fde33800d071b85fddaf92b72982badbdba06caf0d4b3a88af"
+    },
+    {
+      "name": "control2-byte_relay-helper-original",
+      "task": "byte_relay",
+      "condition": "helper",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "523f7d70465635fde33800d071b85fddaf92b72982badbdba06caf0d4b3a88af"
+    },
+    {
+      "name": "control2-byte_relay-helper-wrong",
+      "task": "byte_relay",
+      "condition": "helper",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "01a80722a2fc6695a42e2dd4af1e76733b76a72df6a33add365f01194ec33466"
+    },
+    {
+      "name": "control2-partial_error-base-original",
+      "task": "partial_error",
+      "condition": "base",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "97cca525ee0188ba56f2ab4edc15031fbac24936d173889594c5e491a92021bd"
+    },
+    {
+      "name": "control2-partial_error-helper-native",
+      "task": "partial_error",
+      "condition": "helper",
+      "accepted": false,
+      "reject_reason": "lexical guard: 'native_decide'",
+      "submission_sha256": "d5dee0e648b389c3372ea4c6ce8db93351154afeba43e5bd415c3a100cb7162c"
+    },
+    {
+      "name": "control2-partial_error-helper-original",
+      "task": "partial_error",
+      "condition": "helper",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "97cca525ee0188ba56f2ab4edc15031fbac24936d173889594c5e491a92021bd"
+    },
+    {
+      "name": "control2-shell_status-base-original",
+      "task": "shell_status",
+      "condition": "base",
+      "accepted": false,
+      "reject_reason": "build failed",
+      "submission_sha256": "69e069971dce71808c20cc0f37d377b7f6189bcacd65afc2932e41acfb395629"
+    },
+    {
+      "name": "control2-shell_status-helper-original",
+      "task": "shell_status",
+      "condition": "helper",
+      "accepted": true,
+      "reject_reason": null,
+      "submission_sha256": "69e069971dce71808c20cc0f37d377b7f6189bcacd65afc2932e41acfb395629"
+    },
+    {
+      "name": "control2-shell_status-helper-sorry",
+      "task": "shell_status",
+      "condition": "helper",
+      "accepted": false,
+      "reject_reason": "lexical guard: 'sorry'",
+      "submission_sha256": "26f51390193316d1028961c80d7baaf642386f80da2a233c3fac01e555d0c6dd"
+    }
+  ],
+  "rechecks_under_shared_lock": [
+    {
+      "name": "recheck-byte_relay-helper-a1",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:02+00:00",
+      "submission_sha256": "cbe7156d9a96e6df317591f2db3d689fbcdbc2cb92d4e5da857517534e1065d1",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-byte_relay-helper-a2",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:06+00:00",
+      "submission_sha256": "86cb3ac4ecb3d22a83ede5d9af4083c568c31ca285a5a1bdf90308127892a494",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-partial_error-base-a2",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:07+00:00",
+      "submission_sha256": "ed50e90828db329367e343ce6852140ecb93a9bd48dcbb84483ca6b2756b52c0",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-shell_status-base-a1",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:01+00:00",
+      "submission_sha256": "8632c4042a023a25fa029d3caa89d067f0eb69f168cbb9ae31fdc38e85f2e07b",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-shell_status-base-a2",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:04+00:00",
+      "submission_sha256": "d8965040b54197dcf3dce9b96b81482b5403e8f6bb712ea810603419389383c1",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-shell_status-helper-a1",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:00+00:00",
+      "submission_sha256": "36a1922808561d109a6deff19b15c185f1c19a332def64b2c8500b1e28cd0bf6",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [],
+      "theorem_type_matches": true
+    },
+    {
+      "name": "recheck-shell_status-helper-a2",
+      "accepted": true,
+      "checked_utc": "2026-09-07T08:38:03+00:00",
+      "submission_sha256": "36a1922808561d109a6deff19b15c185f1c19a332def64b2c8500b1e28cd0bf6",
+      "compiler_lock_wait": {
+        "seconds": 0.0,
+        "retries": 0
+      },
+      "axioms": [],
+      "theorem_type_matches": true
+    }
+  ],
+  "scope": "Lean-to-Lean proof regeneration on frozen, already-checked phase2/phase3 theorems. Not C, libc, OS, Bash parser, Coq/VST or cross-assistant evidence. Unpowered: two fresh attempts per cell; no claim about model superiority or novelty."
+}

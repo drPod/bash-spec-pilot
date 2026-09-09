@@ -1,0 +1,14 @@
+[
+  {
+    "marker": "phase5/root-tokenizer117",
+    "title": "Six full-export tokenizer and AST identities independently kernel checked",
+    "summary": "All six full-string tokenizer/token-list and parsed-AST identities for write_block, relay and read_block accepted after 16 fresh module checks across root116 and root117. Total compiler time 14.68 seconds; standard Lean axioms only. Sources promoted to integration/lean. Generic accepted tokenizer unchanged. This closes the full-export kernel identity boundary; actual default CLI harness migration and saved1593 replay remain pending under Pi119. No new model trials.",
+    "content": "phase5/root-tokenizer117\nAll six full-string tokenizer/token-list and parsed-AST identities for write_block, relay and read_block accepted after 16 fresh module checks across root116 and root117. Total compiler time 14.68 seconds; standard Lean axioms only. Sources promoted to integration/lean. Generic accepted tokenizer unchanged. This closes the full-export kernel identity boundary; actual default CLI harness migration and saved1593 replay remain pending under Pi119. No new model trials.\nRoot receipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-all-tokenizer-review-117/ROOT-REVIEW.json\nSHA256: da59e11bdf9a6e1718934baaa767321debc0533ef8ffd9302d8b7471adc3c82f"
+  },
+  {
+    "marker": "phase5/root-full27-121",
+    "title": "Full frozen 27-entry artifact replay accepted with independent receipt audit",
+    "summary": "Fresh run 20260908T195509Z: 26 PASS, one experimental host OCaml skip; matching pinned container OCaml PASS. All required entries pass. Root independently rehashed 404 log records and 98 output records, no mismatches; independent Pi120 audit also found no failures. 2086 positive corpus records agree; negative mutants have recorded rejection or differences. Container source trees were not independently rehashed on host. This frozen full27 does not include tokenizer117, new Bash-text parser112 or raising118. Original research remains incomplete; final current artifact refresh follows those remaining integrations.",
+    "content": "phase5/root-full27-121\nFresh run 20260908T195509Z: 26 PASS, one experimental host OCaml skip; matching pinned container OCaml PASS. All required entries pass. Root independently rehashed 404 log records and 98 output records, no mismatches; independent Pi120 audit also found no failures. 2086 positive corpus records agree; negative mutants have recorded rejection or differences. Container source trees were not independently rehashed on host. This frozen full27 does not include tokenizer117, new Bash-text parser112 or raising118. Original research remains incomplete; final current artifact refresh follows those remaining integrations.\nRoot receipt: /home/coder/agent-jobs/astra-research/phase5/pi-reviews/root-full27-review-121/ROOT-REVIEW.json\nSHA256: 11616f185b5132efc70b1b3f10ace3bfee8a0c7b71318e6d5ac983701bae4ae0"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "marker": "PH5-MILESTONE-12/case-head",
+    "node_id": "d567f844-bea5-446b-bab4-972e119ce162",
+    "url": "https://app.syntheticsciences.ai/nodes/d567f844-bea5-446b-bab4-972e119ce162",
+    "content_sha256": "0c6bd619b170dfb2674128abbe484e489519793ad3a37a04578437c168dae541",
+    "sharing_mode": "private",
+    "kind": "insight"
+  },
+  {
+    "marker": "PH5-MILESTONE-12/case-wc",
+    "node_id": "8b6a0f21-863f-4997-a679-28b06e684fb2",
+    "url": "https://app.syntheticsciences.ai/nodes/8b6a0f21-863f-4997-a679-28b06e684fb2",
+    "content_sha256": "735d340a0e3791b61c44ee967e3c8d4b6d9c520f5c615aa34dafb2479f76ba76",
+    "sharing_mode": "private",
+    "kind": "insight"
+  },
+  {
+    "marker": "PH5-MILESTONE-12/shell-compose",
+    "node_id": "dedcde70-acd2-433f-9f08-95d02e839ed5",
+    "url": "https://app.syntheticsciences.ai/nodes/dedcde70-acd2-433f-9f08-95d02e839ed5",
+    "content_sha256": "9aa1b84ab81d284a026ccb783a4e7c7c6635f52cd1ad63601a3645d77adb4c86",
+    "sharing_mode": "private",
+    "kind": "insight"
+  },
+  {
+    "marker": "PH5-MILESTONE-12/shell-validation",
+    "node_id": "08bc516f-33c6-4ef5-a91c-ca4270456cf0",
+    "url": "https://app.syntheticsciences.ai/nodes/08bc516f-33c6-4ef5-a91c-ca4270456cf0",
+    "content_sha256": "ab532c6991349238fd1014226672bd60330dbee465bd6ae9c845ccb2c55fb336",
+    "sharing_mode": "private",
+    "kind": "insight"
+  }
+]

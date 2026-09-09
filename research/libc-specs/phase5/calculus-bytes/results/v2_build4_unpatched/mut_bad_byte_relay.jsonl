@@ -1,0 +1,1 @@
+{"mode": "lower", "file": "fixtures/mut_bad_byte.sc", "outcome": "rejected", "reason": "literal 256 is outside the declared range [0,255]", "line": 140, "column": 40}

@@ -1,0 +1,9 @@
+@ShellObservation.query_transfer : ∀ {Atom C A : Type} (concrete : ShellObservation.Primitive Atom C)
+  (abstract : ShellObservation.Primitive Atom A) (R : C → A → Prop),
+  ShellObservation.PrimitiveRefines concrete abstract R →
+    ∀ (cmd : ShellObservation.Command Atom) (c : C) (a : A),
+      R c a →
+        ∀ (Q : Nat → A → Prop) (P : Nat → C → Prop),
+          (∀ (rc : Nat) (a' : A), ShellObservation.Exec abstract cmd a rc a' → Q rc a') →
+            (∀ (rc : Nat) (c' : C) (a' : A), R c' a' → Q rc a' → P rc c') →
+              ∀ (rc : Nat) (c' : C), ShellObservation.Exec concrete cmd c rc c' → P rc c'

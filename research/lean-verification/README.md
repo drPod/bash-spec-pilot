@@ -1,5 +1,11 @@
 # Verifying LLM-generated models of Unix utilities in Lean
 
+**2026-09-07 correction:** The historical "no existing foreign-language embedding" claim below
+is too broad: C proof-assistant semantics and functional I/O specifications are established prior
+art. See [the current review](../libc-specs/03_review_and_results.md) and
+[primary-source I/O review](../libc-specs/04_io_prior_art.md). The results below remain the
+historical pipeline record, not evidence establishing that novelty claim.
+
 *The one-stop report. Everything below is grounded in the sibling docs (`00`-`03`,
 `decisions.md`) and in a runnable, CI-checked demo (`demo/`); read those for depth,
 read this to get the whole picture.*

@@ -1,0 +1,4 @@
+RelayComposition.fragment_refines : ∀ (cmd : ShellObservation.Command RelayComposition.Atom)
+  (s t : RelayComposition.Streams) (rc : Nat),
+  ShellObservation.Exec (RelayComposition.graph RelayComposition.concrete) cmd s rc t →
+    ShellObservation.Exec (RelayComposition.graph RelayComposition.abstract) cmd s rc t

@@ -1,0 +1,664 @@
+{
+  "schema": "phase3-research-results/1",
+  "checked_utc": "2026-09-07T03:51:45+00:00",
+  "passed": true,
+  "tier": "standard",
+  "environment": {
+    "host_class": "OVH x86_64 Linux,4vCPU/8GB",
+    "lean": "4.31.0",
+    "python": "3.12.3",
+    "gcc": "13.3.0",
+    "bash": "5.2.21"
+  },
+  "elapsed_seconds": 47.39832568900056,
+  "groups": {
+    "proof": {
+      "status": 0,
+      "seconds": 19.41,
+      "peak_rss_kib": 801900
+    },
+    "c_validation": {
+      "status": 0,
+      "seconds": 21.8,
+      "peak_rss_kib": 48012
+    },
+    "lean_validation": {
+      "status": 0,
+      "seconds": 5.73,
+      "peak_rss_kib": 33536
+    },
+    "shell_contexts": {
+      "status": 0,
+      "seconds": 0.33,
+      "peak_rss_kib": 29824
+    }
+  },
+  "measurement_scope": "GNU time group wall/RSS includes drivers, launches and descendants; not isolated relay memory/performance. One compiler at a time.",
+  "corpus": {
+    "tier": "standard",
+    "cases": 962,
+    "sha256": "e445805b9dff0fbbab630ac10c13ac89725d175451618329c594b5403c25644d",
+    "by_category": {
+      "exhaustive": 845,
+      "directed": 93,
+      "noflags": 3,
+      "hand": 12,
+      "reject": 9
+    }
+  },
+  "reference": {
+    "seconds": 0.006,
+    "valid_cases": 953,
+    "reject_cases": 9,
+    "total_events": 2707
+  },
+  "selftest": {
+    "ran": 32,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "ok": true
+  },
+  "checks": {
+    "selftest_ok": true,
+    "source_matches_frozen": true,
+    "symbol_checks_ok": true,
+    "reference_traces_satisfy_invariants": true,
+    "hand_traces_match_reference": true,
+    "c_originals_match_reference_events": true,
+    "unshimmed_control_isolated": true,
+    "all_mutants_distinguished": true,
+    "no_timeouts": true,
+    "corpus_complete": true
+  },
+  "lean_cases": {
+    "count": 962,
+    "valid": 953,
+    "rejected": 9,
+    "mismatches": [],
+    "corpus_sha256": "e445805b9dff0fbbab630ac10c13ac89725d175451618329c594b5403c25644d"
+  },
+  "bash_cases": 30,
+  "executables": {
+    "mut_offset_never_advances": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 679,
+        "abort": 187,
+        "final": 46,
+        "event_only": 41
+      },
+      "distinguished_cases": 274,
+      "killed": true
+    },
+    "mut_read_before_drain": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 845,
+        "final": 81,
+        "abort": 27
+      },
+      "distinguished_cases": 108,
+      "killed": true
+    },
+    "mut_read_request_31": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "event_only": 692,
+        "abort": 80,
+        "final": 181
+      },
+      "distinguished_cases": 953,
+      "killed": true
+    },
+    "mut_request_one_byte": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 621,
+        "abort": 147,
+        "event_only": 143,
+        "final": 42
+      },
+      "distinguished_cases": 332,
+      "killed": true
+    },
+    "mut_skipped_short_write_retry": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 845,
+        "final": 81,
+        "abort": 27
+      },
+      "distinguished_cases": 108,
+      "killed": true
+    },
+    "mut_wrong_pointer": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 845,
+        "final": 65,
+        "event_only": 43
+      },
+      "distinguished_cases": 108,
+      "killed": true
+    },
+    "mut_wrong_residual_request": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 845,
+        "event_only": 103,
+        "final": 5
+      },
+      "distinguished_cases": 108,
+      "killed": true
+    },
+    "mut_zero_write_retried": {
+      "role": "mutant",
+      "runs": 953,
+      "timeouts": 0,
+      "distinguished_by": {
+        "none": 771,
+        "abort": 182
+      },
+      "distinguished_cases": 182,
+      "killed": true
+    },
+    "orig_macro_O0": {
+      "role": "original",
+      "runs": 962,
+      "timeouts": 0
+    },
+    "orig_macro_O2": {
+      "role": "original",
+      "runs": 962,
+      "timeouts": 0
+    },
+    "orig_wrap_O2": {
+      "role": "original",
+      "runs": 962,
+      "timeouts": 0
+    },
+    "unshimmed_control": {
+      "role": "control",
+      "runs": 962,
+      "timeouts": 0
+    }
+  },
+  "audited_declarations": 112,
+  "axioms": {
+    "PointerRelay.Byte": [],
+    "PointerRelay.Memory": [],
+    "PointerRelay.Control": [],
+    "PointerRelay.State": [],
+    "PointerRelay.WellFormed": [],
+    "PointerRelay.slice": [],
+    "PointerRelay.pending": [],
+    "PointerRelay.slice_load": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.slice_length": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.pending_length": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.pending_take": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.pending_advance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Kind": [],
+    "PointerRelay.Event": [],
+    "PointerRelay.readEvent": [],
+    "PointerRelay.writeEvent": [],
+    "PointerRelay.readStop": [],
+    "PointerRelay.readNext": [],
+    "PointerRelay.drainDone": [],
+    "PointerRelay.writeStop": [],
+    "PointerRelay.writeNext": [],
+    "PointerRelay.Step": [],
+    "PointerRelay.Steps": [],
+    "PointerRelay.RequestSafe": [],
+    "PointerRelay.step_preserves": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.read_event_safe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.write_event_safe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.step_request_safe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.steps_preserve": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Execution": [],
+    "PointerRelay.drain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.execute": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.observe": [
+      "propext"
+    ],
+    "PointerRelay.initial": [],
+    "PointerRelay.run": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drained": [],
+    "PointerRelay.drain_refines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drain_pending": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drain_reachable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drain_wf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drain_finished": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.readNext_wf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.readNext_pending": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.drain_failed_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.observe_drain": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.accumulate": [],
+    "PointerRelay.execute_refines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Steps.trans": [
+      "propext"
+    ],
+    "PointerRelay.drain_input": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.execute_reachable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.run_detailed_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.observeOutcome": [
+      "propext"
+    ],
+    "PointerRelay.run_outcome_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.run_reachable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Event.result": [],
+    "PointerRelay.Initialized": [],
+    "PointerRelay.Ready": [],
+    "PointerRelay.Invariant": [],
+    "PointerRelay.conserved": [],
+    "PointerRelay.readNext_initialized": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.step_invariant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.step_conservation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.steps_invariant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.steps_conservation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.initial_invariant": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Reachable": [],
+    "PointerRelay.reachable_invariant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.reachable_request_safe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.initialized_write_bytes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.reachable_write_bytes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Stopped": [],
+    "PointerRelay.step_deterministic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.stopped_no_step": [
+      "propext"
+    ],
+    "PointerRelay.execute_stopped": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.terminal_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.complete_execution_refines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.terminal_execution_exists": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Steps.event_source": [
+      "propext"
+    ],
+    "PointerRelay.run_trace_safe": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.EventEffect": [],
+    "PointerRelay.store_nil": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.step_event_effect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.reachable_event_effect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.readNext_primitive": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.writeNext_primitive": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.reachable_pointer_view": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.short_then_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.retry_events": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.error_before_eof": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.reused_binary_buffer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.first_read_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PointerRelay.Examples.first_write_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ShellObservation.PrimitiveRefines": [],
+    "ShellObservation.command_refines": [],
+    "ShellObservation.query_transfer": [],
+    "ShellObservation.andMark": [],
+    "ShellObservation.success": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ShellObservation.lateError": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ShellObservation.same_bytes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ShellObservation.different_context_bytes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ShellObservation.no_stdout_only_context": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.applyOutcome": [],
+    "RelayComposition.concrete": [
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.abstract": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.graph": [],
+    "RelayComposition.primitive_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.primitive_refines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.fragment_refines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.runFragment": [],
+    "RelayComposition.runFragment_reachable": [
+      "propext"
+    ],
+    "RelayComposition.runFragment_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "RelayComposition.pending_discarded_at_exit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "source_hashes": {
+    "research/libc-specs/phase3/CompositionAxioms.lean": "ea1200273b1a92c1967cf7bab246e3b29c3c69593be1b8c64a03c16702ba138d",
+    "research/libc-specs/phase3/PointerAxioms.lean": "3b0c455441750e51773e7fceb3d907b229c3f72844eccb172f5a96d38fcca426",
+    "research/libc-specs/phase3/PointerCore.lean": "1b506dd68555b31cd926d29ec601c2c7811ce0903bba2c3f0e4c09ed64dc9116",
+    "research/libc-specs/phase3/PointerRelay.lean": "7aeffe7982582f2cf64058c68d4dfe769aec2d5709f22366cd3126dabe0524a7",
+    "research/libc-specs/phase3/RelayComposition.lean": "96cbd2cd68d1f7f957e9aa0e39b46e17b2ad06d67388cbe391d22b39884653de",
+    "research/libc-specs/phase3/ShellAxioms.lean": "6f12f66e0e35a43e6aae791eaa9832ed75ad21fd8ff435cacdeaf048c79a5544",
+    "research/libc-specs/phase3/ShellObservation.lean": "029c64d6a8f4a3b53dc6dfeb6c618e1066f1b1d55cb86e5f3a5bfa09041e19ba",
+    "research/libc-specs/phase3/TraceMain.lean": "1ab73fb52deb2b7b40a254c6419e1be709093ed10a4c3a833f29c8e42e9bfcec",
+    "research/libc-specs/phase3/check.py": "8df5215f38518d2af97dfbb5398d5a8755f2139fd22a1f2083497ba22ca352f2",
+    "research/libc-specs/phase3/compare_lean.py": "208f0f209db0bc6fd867467f2258b0bd559d7e259b3f1ffeeacc465abbd8d42d",
+    "research/libc-specs/phase3/lakefile.toml": "1cbb2d11592509486e1640d45c6cfcc33184bb53f034158233dec4910521951c",
+    "research/libc-specs/phase3/reproduce.py": "4e003adcc5da4d88e9824aafb98e3608e74116830d167c36062b1687a009c519",
+    "research/libc-specs/phase3/shell_contexts.py": "5ada33fc25c1c16f26fc426a2cfa983355dc54e9d6127f494aeb72a9331f3ae4",
+    "research/libc-specs/phase3/validation/hand_traces.json": "557750ab744276eb7daf9bf910bbc07cfb44552534470e75130b922190d1768e",
+    "research/libc-specs/phase3/validation/probe/pointer_probe.c": "e5b21e1ea0fd8bf5fa3a34541afa31503a9710ea48a795b2f398381ce892ed93",
+    "research/libc-specs/phase3/validation/ptrcheck/__init__.py": "d420f7fef2aa36f7f76774e6c71667a5a5ec89082850c5f6787d84070ee37da6",
+    "research/libc-specs/phase3/validation/ptrcheck/actions.py": "e248a87e57350e69f502f3bc946b0f0b37b8a0c2ddb0a1f4dd3194e506f76be8",
+    "research/libc-specs/phase3/validation/ptrcheck/build_probe.py": "ad1994f8432c71d22b1294eacae1fc7f3ace60db7c599db956b16cf47425ac68",
+    "research/libc-specs/phase3/validation/ptrcheck/cases.py": "1ae3bb53608641b88d8c23dcbfac948458df1d53210fbd9900ff8b9469bde5ce",
+    "research/libc-specs/phase3/validation/ptrcheck/exec_bounded.py": "00a5377d38883c8ec74389c18aa23f6fc68e627ce9c294a3e21e911d98264289",
+    "research/libc-specs/phase3/validation/ptrcheck/invariants.py": "41ca634d1ae9410f631e95b667dec0d4275aa082d2c673c720ec6150d75c4d64",
+    "research/libc-specs/phase3/validation/ptrcheck/judge.py": "d3d49f0696b25edc99039cfe7e5c8605adacbe9825bb82389496e7d7da08280c",
+    "research/libc-specs/phase3/validation/ptrcheck/mutations.py": "e4f5dcf21a32f7715b164c521d2ed101e04e609c3e8182263515342a47607901",
+    "research/libc-specs/phase3/validation/ptrcheck/pointer_model.py": "4c1eb783b1acb35e4f18deec1ceeef76ca5db953f5627a1c380ab1bbe2b04d73",
+    "research/libc-specs/phase3/validation/ptrcheck/trace_format.py": "348981bdbc517a05a8850c240b2bf46bd907e5c6a000f23bb9df7c7b5ebd75cd",
+    "research/libc-specs/phase3/validation/reference_trace.py": "2f140f6e5fedacc5e8906e14a0dc2ed977955eba0edfd5bf1f30e0eaf1fbdcfa",
+    "research/libc-specs/phase3/validation/tests/test_corpus_build_exec.py": "3cac07f81f3b7e905f65d4635f0289720f1e31a3305014624c4290a59ed09466",
+    "research/libc-specs/phase3/validation/tests/test_probe_trace_roundtrip.py": "d2d167a78762b093abc72e12a20ec3395851b3f3b4437fbb05c602e2b669c089",
+    "research/libc-specs/phase3/validation/tests/test_reference_and_hand_traces.py": "a695eadd75463dece5c2f945731f5ae018954c72c3a0ec115437ff9a8b153f31",
+    "research/libc-specs/phase3/validation/validate_pointer.py": "c607affd9714edc634f61875a8394fcad487a22b92876b70ba377178e3881d25",
+    "research/libc-specs/memory-experiment/MemoryTransfer.lean": "9f80ebc6b33b81960aada7a3967ad0455d9b086d679b55439454302dca6d1d71",
+    "research/libc-specs/phase2/BufferRelay.lean": "b07e64e4499e38f0ab0f0879a1ad54fcf1d4b1cfe5c723cad111d4eef6538877",
+    "research/libc-specs/phase3/lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee"
+  },
+  "c_source_sha256": "c5abc06f53474d90ff7927aa485a03316e267fe758593a411f70a6d22f1afe68",
+  "lean_executable_sha256": "1e58692618b584423308397870ac8f7aea5c22e271487b6d667ccbe57b065d4e",
+  "record_sha256": {
+    "result.json": "e8f1711e2c9a117f40f30bf9031c3f89540115c287ae06a61a76acf297c24884",
+    "proof/result.json": "c21473623af17d96a9f6ef5e8e948e3aebe935a48dbe0f75402f9e1b0bb941dc",
+    "c-validation/results.json": "b4d0d348284729f4dcbec613298f4f9ecdccf29052373ca7d23ce445506d8d9f",
+    "c-validation/per_case.jsonl": "4e473d22f1699872aef3e6972dfd5f08b75331f60e681cc79fc0e5baf692041e",
+    "lean-validation/results.json": "bf8a56afbf39cb41d79df574ad4eea50924e6b3584a8c5176f96e7d7952cc022",
+    "lean-validation/per_case.jsonl": "3925f2d70667b88cb1f81865d6c908671c8b3398b0d2492a963a0b08de585350",
+    "shell-contexts/results.json": "1c39d5b22b3a7f5c763e56c40ea937db2a39529f5e88e957f2b0de99ca7f2d9a"
+  },
+  "limits": {
+    "proof": {
+      "builds": 1,
+      "address_space_bytes": 3221225472,
+      "cpu_seconds": 120,
+      "wall_seconds": 120,
+      "stack_kib": 16384
+    },
+    "c_validation": {
+      "exe_address_space_bytes": 268435456,
+      "exe_cpu_seconds": 3,
+      "exe_wall_seconds": 3.0,
+      "exe_fsize_bytes": 16777216,
+      "probe_alarm_seconds": 2,
+      "per_case_call_cap": "expected read_calls + write_calls",
+      "compiler_address_space_bytes": 1073741824,
+      "compiler_wall_seconds": 60,
+      "compiler_cpu_seconds": 60,
+      "parallel_compilers": 1,
+      "parent_address_space_bytes": 2147483648,
+      "parent_cpu_seconds": 900,
+      "budget_seconds": 240.0
+    }
+  },
+  "caveats": [
+    "8 syntactic mutants include two equivalent retry-skipping variants; not8 independent behavioral classes.",
+    "Event-only classification is relative to stdout/status/stderr counters; clamped invalid mutant accesses are harness behavior.",
+    "Lean runtime projection excludes C/Python initialization/snapshot metadata.",
+    "C text/AST preservation, host libc/kernel, real Bash semantics and natural-language intent remain unverified.",
+    "Phase1/2 concurrent edits were preserved; checked imported Lean changes were comments only and final source hashes are recorded."
+  ],
+  "replay_note": "Final replay used an isolated source snapshot after concurrent workspace edits; all recorded code hashes match workspace at closure."
+}

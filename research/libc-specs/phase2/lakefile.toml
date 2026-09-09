@@ -1,0 +1,12 @@
+name = "buffer_relay_phase2"
+defaultTargets = ["relay-model"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true"]
+[[lean_lib]]
+name = "MemoryTransfer"
+[[lean_lib]]
+name = "BufferRelay"
+[[lean_lib]]
+name = "GeneratedRelay"
+[[lean_exe]]
+name = "relay-model"
+root = "Main"

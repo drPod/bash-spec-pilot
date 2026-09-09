@@ -1,0 +1,18 @@
+{
+  "hosted_total": 303,
+  "hosted_all_private": true,
+  "local_nodes": 2375,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "phase5/root183",
+      "hosted_id": "863ee0bc-e8f7-4441-a966-6df4bedb0992",
+      "hosted_hash": "af046d314fdb810c41446b1d994dcb04408e08a22ca73f516af9ad8a54dabf60",
+      "private": true,
+      "local_id": "a3cafd39e6091a75",
+      "content_sha256": "ebb6687d64a674d7829469613eed802c02d0ffec931b0516c7a94d83349ac224",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Accepted full30 artifact replay183. Original source semantic link181 and final deliverables remain open."
+}

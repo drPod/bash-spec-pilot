@@ -5,17 +5,17 @@ LLM-generated code) to Bash. Owner: Aaron Councilman (PhD). Doer: Darsh (undergr
 
 Direction (as of 2026-07, fresh start): verify LLM-generated code against a spec with a proof
 assistant (Lean 4) rather than by differential testing. State "program satisfies spec" as a Lean
-theorem; an LLM generates the proof; Lean's kernel checks it. A passing proof covers all inputs;
-the kernel is the trust anchor (an unreliable LLM cannot fake a proof). This replaces Astrogator's
+theorem; an LLM generates the proof; Lean's kernel checks it. A passing proof covers the accepted
+theorem's quantified cases under its hypotheses; the kernel is the trust anchor (an unreliable LLM cannot fake a proof). This replaces Astrogator's
 bespoke symbolic-execution verifier with an off-the-shelf proof kernel.
 
 Anchor paper: VERINA (arXiv 2505.23135) — jointly generate code + spec + proof in Lean.
 
 ## Confirmed constraints (from the literature so far)
 
-- The hard, novel part: our target programs are NOT written in Lean (Bash / real Unix binaries),
-  so their semantics must be embedded in Lean before anything can be proved about them. No prior
-  system does foreign-non-verification-language embedding this way.
+- The semantic-embedding challenge: our target programs are NOT written in Lean (Bash / real
+  Unix binaries), so their semantics need a formal representation before they can be proved about.
+  Embedding ordinary C in proof assistants is established prior art (CompCert/VST, among others). Novelty of this particular Lean/libc/Bash workflow remains to be assessed.
 - Lean's logic is total: every function must be proven terminating. Shell programs can loop
   forever, so model execution as an inductive relation (big-step / small-step `Prop`) or with
   fuel / step-indexing, not as a plain total function.
@@ -29,6 +29,8 @@ Anchor paper: VERINA (arXiv 2505.23135) — jointly generate code + spec + proof
   binary): top-level `pipeline/` (read its `README.md` first). Experimental record in
   `pipeline/runs/` (git-versioned, JSONL).
 - Active research + findings: `research/lean-verification/` (read its `README.md` first).
+- Since 2026-08-27 (meeting): C source as the utility's spec, libc as the formal trust boundary.
+  Survey, approach, and a checked C-as-spec `wc -l` example: `research/libc-specs/` (its `README.md`).
 - Prior direction (v1, archived intact): `archive/v1/`. Its `CLAUDE.md` describes the v1 pipeline
   ONLY and does not apply here. Reusable doc mirrors are at `archive/v1/docs/openai/` (OpenAI SDK,
   ground truth, do not WebFetch) and `archive/v1/docs/posix/` (POSIX standard mirror).

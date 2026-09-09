@@ -1,0 +1,15 @@
+ℹ [7/8] Replayed LeanFinalAudit
+info: LeanFinalAudit.lean:7:0: 'LeanFinal.redirect_then_mark_success' does not depend on any axioms
+info: LeanFinalAudit.lean:8:0: 'LeanFinal.redirect_then_mark_error' does not depend on any axioms
+info: LeanFinalAudit.lean:9:0: 'LeanFinal.redirect_then_direct_restored' does not depend on any axioms
+info: LeanFinalAudit.lean:10:0: 'LeanFinal.Concrete.concreteBase_H_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:11:0: 'LeanFinal.Concrete.concreteBase_H_mark' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:12:0: 'LeanFinal.Concrete.concreteBase_H_redirect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:13:0: 'LeanFinal.Concrete.concreteBase_satisfiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:14:0: 'LeanFinal.Concrete.abc_status_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:15:0: 'LeanFinal.Concrete.truncate_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:16:0: 'LeanFinal.Concrete.append_over_existing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:17:0: 'LeanFinal.Concrete.empty_path_open_failure_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:18:0: 'LeanFinal.Concrete.relay_error_nonempty_path_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:19:0: 'LeanFinal.Concrete.parameterized_success_applied' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: LeanFinalAudit.lean:20:0: 'LeanFinal.Concrete.parameterized_empty_path_error_applied' depends on axioms: [propext, Classical.choice, Quot.sound]

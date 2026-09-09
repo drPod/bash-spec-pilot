@@ -1,0 +1,237 @@
+{
+  "updated_utc": "2026-09-08T09:03:00Z",
+  "sessions": [
+    "nonutf8-cases-4 (2026-09-07)",
+    "case-proofs-6 (2026-09-08, quota cut)",
+    "case-proofs-8 (2026-09-08)",
+    "case-proofs-9 (2026-09-08)"
+  ],
+  "receipts_dir": "~/agent-jobs/astra-research/phase5/runs",
+  "container_area": "/home/coq/phase5/case-studies9 (final replay); case-studies6 (head-only replay, kept)",
+  "cases": {
+    "head_bytes": {
+      "source": "coreutils 9530a14420fc1a267e90d45e8a0d710c3668382d src/head.c lines 774-797 (brief's 774-796 corrected, PROVENANCE.md)",
+      "fragment_sha256": "ae9f42de06cf55ca1bfcc8720986b32f8c8d14b8063af8374dece0b886bbc4b7",
+      "clight_sha256": "a23c80107e2a16ada79b0bce064e4e2967b32ac015d05e913845a32117b18bc6",
+      "body_theorem": "HeadBytesBody.body_head_bytes : semax_body Vprog Gprog f_head_bytes (head_bytes_spec _errno _head_bytes)",
+      "status": "CHECKED",
+      "development_receipt": {
+        "name": "case6-s-HeadBytesBody",
+        "exit_status": 0,
+        "elapsed_seconds": 8.66
+      },
+      "replay_receipt": {
+        "name": "case6-replay1-HeadBytesBody",
+        "exit_status": 0,
+        "elapsed_seconds": 8.57
+      },
+      "audit_receipt": {
+        "name": "case6-replay1-CaseAudit",
+        "exit_status": 0,
+        "axioms": [
+          "Classical_Prop.classic",
+          "Axioms.prop_ext",
+          "FunctionalExtensionality.functional_extensionality_dep",
+          "Eqdep.Eq_rect_eq.eq_rect_eq",
+          "Ensembles.Extensionality_Ensembles",
+          "ClassicalDedekindReals.sig_not_dec",
+          "ClassicalDedekindReals.sig_forall_dec"
+        ]
+      },
+      "precondition_domain": "0 <= N <= Int64.max_unsigned (all uintmax_t), valid_world, 0 <= in_fd <= Int.max_signed",
+      "functional_summary": [
+        "CaseWorld.head_true_prefix",
+        "CaseWorld.head_false_reports"
+      ],
+      "reused_unchanged": [
+        "IOW.world",
+        "IOW.SafeRead",
+        "IOSpecs.safe_read_spec",
+        "IOSpecs.error_spec",
+        "IOSpecs.buffer_prefix_n_forget",
+        "SafeReadBody.v (body of safe_read, not re-proved)",
+        "Body.tuchar_subarray_offset"
+      ],
+      "assumed_contracts": [
+        "xwrite_stdout_spec (stdio boundary, CaseWorld.XWrite/stdout_put)",
+        "error_spec (status 0)",
+        "quoteaf_spec (pure)"
+      ],
+      "failed_attempts_kept": [
+        "case4-hbbody-1..15",
+        "case6-e,f,g,h,i,j,k,l,m,n,o,p,q,r-HeadBytesBody"
+      ],
+      "diagnostics_kept": [
+        "case6-diag1-HeadBytesDiag",
+        "case6-diag3-HeadBytesDiag3",
+        "case6-diag4-HeadBytesDiag4",
+        "case6-diag5,5b,5c-HeadBytesDiag5",
+        "case6-diag6-HeadBytesDiag6",
+        "case6-diag7-HeadBytesDiag7",
+        "case6-diag8,8b-HeadBytesDiag8",
+        "case6-diag9-HeadBytesDiag9",
+        "case6-identbench-IdentBench",
+        "case6-identbench2-IdentBench2"
+      ]
+    },
+    "wc_lines": {
+      "source": "coreutils 9530a144... src/wc.c lines 266-330 (whole function)",
+      "fragment_sha256": "7d22d9fdfd6f97e3f149088c597840afc90f7912eba038fdf5941b94978c26fd",
+      "clight_sha256": "4d4efcc671701151175246bb659f422d8ede6b3762ab87586cf0a2abca58dcee",
+      "body_theorem": "body_wc_lines : semax_body Vprog Gprog f_wc_lines (wc_lines_spec _errno _wc_lines)",
+      "status": "CHECKED",
+      "checked_receipts": {
+        "CaseWorld": "case6-replay1-CaseWorld",
+        "CaseSpecs": "case6-replay1-CaseSpecs",
+        "clight": "case6-replay1-wc_lines_fragment",
+        "WcLinesBody_lemmas": "case6-wc3-WcLinesBody",
+        "audit": "case6-audit2-CaseAudit"
+      },
+      "relation": "CaseWorld.WcLoop / WcLines (whole function; both counting branches unconditionally; branch choice long_after unobservable)",
+      "funspecs": [
+        "wc_lines_spec (both out-pointers valid; out-cells get Int64.repr of exact totals = uintmax_t modular semantics)",
+        "wc_lines_null_spec (defensive null branch)",
+        "rawmemchr_spec (glibc leaf assumption, whole-buffer footprint, sentinel discharges existence)"
+      ],
+      "functional_summary": [
+        "CaseWorld.wc_true_counts",
+        "CaseWorld.wc_false_reports"
+      ],
+      "checked_lemmas": [
+        "buf_tschar_tuchar",
+        "buf_split",
+        "buf_join",
+        "tschar_subarray_offset",
+        "buf_view"
+      ],
+      "failed_attempts_kept": [
+        "case6-wc1-WcLinesBody",
+        "case6-wc2-WcLinesBody",
+        "case9-wc1-WcLinesBody",
+        "case9-wc2-WcLinesBody",
+        "case9-wc3-WcLinesBody",
+        "case9-wc4-WcLinesBody",
+        "case9-wc5-WcLinesBody",
+        "case9-wc6-WcLinesBody",
+        "case9-wc7-WcLinesBody",
+        "case9-wc8-WcLinesBody",
+        "case9-wc9-WcLinesBody",
+        "case9-wc10-WcLinesBody",
+        "case9-wc11-WcLinesBody",
+        "case9-wc12-WcLinesBody",
+        "case9-wc13-WcLinesBody",
+        "case9-wc14-WcLinesBody",
+        "case9-wc15-WcLinesBody",
+        "case9-wc16-WcLinesBody",
+        "case9-wc17-WcLinesBody",
+        "case9-wc18-WcLinesBody",
+        "case9-wc19-WcLinesBody",
+        "case9-wc20-WcLinesBody",
+        "case9-wc21-WcLinesBody",
+        "case9-wc22-WcLinesBody",
+        "case9-wc23-WcLinesBody",
+        "case9-wc24-WcLinesBody",
+        "case9-wc25-WcLinesBody",
+        "case9-wc26-WcLinesBody",
+        "case9-wc27-WcLinesBody",
+        "case9-wc28-WcLinesBody",
+        "case9-wc29-WcLinesBody",
+        "case9-wc30-WcLinesBody",
+        "case9-wc31-WcLinesBody",
+        "case9-wc32-WcLinesBody",
+        "case9-wc33-WcLinesBody",
+        "case9-wc34-WcLinesBody",
+        "case9-wc35-WcLinesBody",
+        "case9-wc36-WcLinesBody",
+        "case9-wc37-WcLinesBody",
+        "case9-wc38-WcLinesBody",
+        "case9-wc39-WcLinesBody",
+        "case9-wc40-WcLinesBody",
+        "case9-wc41-WcLinesBody",
+        "case9-wc42-WcLinesBody",
+        "case9-wc43-WcLinesBody",
+        "case9-wc44-WcLinesBody",
+        "case9-wc45-WcLinesBody",
+        "case9-wc46-WcLinesBody",
+        "case9-wc47-WcLinesBody",
+        "case9-wc48-WcLinesBody",
+        "case9-wc49-WcLinesBody",
+        "case9-wc50-WcLinesBody",
+        "case9-wc51-WcLinesBody",
+        "case9-wc52-WcLinesBody",
+        "case9-wc53-WcLinesBody",
+        "case9-wc54-WcLinesBody"
+      ],
+      "development_receipt": {
+        "name": "case9-wc55-WcLinesBody",
+        "exit_status": 0,
+        "elapsed_seconds": 25.16
+      },
+      "replay_receipt": {
+        "name": "case9-replay1-WcLinesBody",
+        "exit_status": 0,
+        "elapsed_seconds": 24.82
+      },
+      "audit_receipt": {
+        "name": "case9-replay1-CaseAudit",
+        "exit_status": 0,
+        "axioms": "standard VST/CompCert set only (see RESULTS.md); no project axioms, no Admitted"
+      },
+      "coverage": [
+        "byte-loop arm",
+        "sentinel + rawmemchr arm (under rawmemchr_spec)",
+        "read error -> diagnostic, return false, out-cells untouched",
+        "EOF -> stores Int64.repr totals, return true",
+        "uintmax_t modular out-cells (no bound precondition)"
+      ],
+      "not_covered": [
+        "defensive null-pointer branch (wc_lines_null_spec is a checked funspec without a semax_body yet)"
+      ]
+    }
+  },
+  "differential_tests": {
+    "owner": "Pi case-differential-7 / case-replay-7 / case-replay-fix-8 (tests/)",
+    "result": "100/100 checks, replayed twice from source (case-replay8-20260908T061038Z-3d6a35a6, case-replay8-20260908T061040Z-c1a83a0d), xwrite /dev/full expected error path exit 1",
+    "scope": "finite executions of the unchanged C fragments under mocked safe_read / xwrite output / rawmemchr; no uintmax_t wrap; not a proof",
+    "record": "tests/RESULTS.json, tests/TESTS.md"
+  },
+  "static_audit": {
+    "owner": "Grok pi-reviews/case-contract-audit-6",
+    "findings_addressed": [
+      "XWrite on FullWrite misrepresents fwrite -> stdout_put stdio boundary",
+      "dense keyed to current block -> dense removed, both branches covered",
+      "uintmax_t wrap -> Int64.repr of exact totals, no bound precondition",
+      "N <= SYS_BUFSIZE_MAX -> N <= Int64.max_unsigned"
+    ]
+  },
+  "fresh_replay": {
+    "utc": "2026-09-08T08:59:37Z to 09:00:28Z",
+    "order": [
+      "head_bytes_fragment",
+      "wc_lines_fragment",
+      "CaseWorld",
+      "CaseSpecs",
+      "HeadBytesBody",
+      "WcLinesBody",
+      "CaseAudit"
+    ],
+    "receipt_prefix": "case9-replay1-",
+    "all_exit_status": 0,
+    "container_area": "/home/coq/phase5/case-studies9",
+    "previous_head_only_replay": "case6-replay1-* (07:39-07:40 UTC, kept)"
+  },
+  "source_sha256": {
+    "coq/CaseWorld.v": "3b5bdd2cc30a2293544277b07b70e19eee36c502c6cfd9642cfc7b3d4b869356",
+    "coq/CaseSpecs.v": "248c00dbb0afd5cfe9b4c6248747e297b98def169e7e585442ca2706e37ce579",
+    "coq/HeadBytesBody.v": "34a0d0062f8fe963eabb8fff435932b7b4ee4e09c9a8090ad99ecf690f65a6b6",
+    "coq/CaseAudit.v": "923448130417addd5622d33b8d9e515bcb8b82c961036096f1978f0e2b7b7e92",
+    "coq/WcLinesBody.v": "998e78e7acdb328270677a468ce760a22a4534896acca9b3255d4ab68577421f"
+  },
+  "not_claimed": [
+    "wc_lines null-pointer branch as a semax_body (funspec only)",
+    "VSU linking for either function",
+    "any claim about GNU head/wc CLI or main",
+    "fwrite/rawmemchr body correctness (assumed contracts)",
+    "safety from the differential tests"
+  ]
+}

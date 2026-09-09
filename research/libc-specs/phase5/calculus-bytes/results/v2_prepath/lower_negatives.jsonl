@@ -1,0 +1,18 @@
+{"mode": "lower", "file": "fixtures/v2/neg/neg_arg_type.sc", "outcome": "rejected", "reason": "type mismatch: expression has type bool, expected int[0,255]", "line": 2, "column": 26}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_arith_cond.sc", "outcome": "rejected", "reason": "condition has type int[carrier], expected bool", "line": 1, "column": 56}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_attr_literal_range.sc", "outcome": "rejected", "reason": "literal 256 is outside the declared range [0,255]", "line": 2, "column": 21}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_bool_and_int.sc", "outcome": "rejected", "reason": "left operand of a short-circuit operator has type int[1,1], expected bool", "line": 1, "column": 25}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_cond_int.sc", "outcome": "rejected", "reason": "condition has type int[1,1], expected bool", "line": 1, "column": 20}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_dup_alias.sc", "outcome": "rejected", "reason": "type alias 't' declared twice", "line": 2, "column": 1}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_eq_list.sc", "outcome": "rejected", "reason": "equality between list<int[0,255]> and list<int[0,255]> is outside the fragment (only int/bool/unit literals)", "line": 2, "column": 25}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_i64_literal_carrier.sc", "outcome": "rejected", "reason": "i64 literal 4611686018427387904 is outside the adapter carrier [-4611686018427387904,4611686018427387903]", "line": 1, "column": 24}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_literal_range.sc", "outcome": "rejected", "reason": "literal 300 is outside the declared range [0,255]", "line": 1, "column": 23}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_sc_rhs_int.sc", "outcome": "rejected", "reason": "right operand of a short-circuit operator has type int[1,1], expected bool", "line": 1, "column": 33}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_scope_after_block.sc", "outcome": "rejected", "reason": "undefined name 'x'", "line": 1, "column": 47}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_shadow.sc", "outcome": "rejected", "reason": "redeclaration of local 'x' (shadowing is outside the fragment)", "line": 1, "column": 38}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_uninterp_shape.sc", "outcome": "rejected", "reason": "uninterpreted 'length' declared with signature (int[carrier])->int[0,4611686018427387903], which does not match the builtin's shape", "line": 1, "column": 1}
+{"mode": "lower", "file": "fixtures/v2/neg/neg_unknown_type_int.sc", "outcome": "lowered", "globals": [{"name": "block", "category": "element(int[carrier])"}], "fns": []}
+{"mode": "lower", "file": "fixtures/neg_unknown_uninterp.sc", "outcome": "rejected", "reason": "uninterpreted 'read_chunk' has no builtin interpretation in the documented table", "line": 42, "column": 1}
+{"mode": "lower", "file": "fixtures/neg_redeclared_local.sc", "outcome": "rejected", "reason": "redeclaration of local 'off' (shadowing is outside the fragment)", "line": 92, "column": 7}
+{"mode": "lower", "file": "fixtures/neg_cast.sc", "outcome": "rejected", "reason": "casts are outside the fragment (declared widths are enforced as range assertions instead)", "line": 57, "column": 11}
+{"mode": "lower", "file": "fixtures/neg_for_loop.sc", "outcome": "rejected", "reason": "for loops are outside the fragment", "line": 139, "column": 3}

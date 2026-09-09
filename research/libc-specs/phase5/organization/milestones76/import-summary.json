@@ -1,0 +1,27 @@
+{
+  "hosted_total": 281,
+  "hosted_all_private": true,
+  "local_nodes": 2353,
+  "local_edges": 2436,
+  "mapping": [
+    {
+      "marker": "PH5-MILESTONE-76/shared-calculus",
+      "hosted_id": "9e8122b7-480c-483d-a68f-986de78be6be",
+      "hosted_hash": "fba6b99d2eff7bef1bbc05f223e21d468aff9ab39da14cc11bf11d916d4b0b8e",
+      "private": true,
+      "local_id": "d49320acaba3066f",
+      "content_sha256": "91c05b7fcbbe16c52c7cfed084af495778937b113f5ec585fbfacc795d6d12f8",
+      "local_get_verified": true
+    },
+    {
+      "marker": "PH5-MILESTONE-76/typing-lowering",
+      "hosted_id": "0cf79b60-7054-4837-8eca-c0e0b4212b17",
+      "hosted_hash": "c3a811370eb68713fec6f96587fa77f87f64558ec97dab98f44757cd942442cd",
+      "private": true,
+      "local_id": "f1a2b9e45a7153df",
+      "content_sha256": "68192ee1402f6633a74bdffd1299aea8d59705b777fdfad32eba152d5caddc39",
+      "local_get_verified": true
+    }
+  ],
+  "scope": "Two accepted bounded milestones only; original research remains open; no full25 replay."
+}

@@ -1,0 +1,92 @@
+{
+ "results/v2_prepath": {
+  "cleared_then_read": [
+   "failure",
+   null
+  ],
+  "deep3": [
+   "failure",
+   null
+  ],
+  "deep_clear": [
+   "failure",
+   null
+  ],
+  "deep_set": [
+   "failure",
+   null
+  ],
+  "deep_touch_keeps": [
+   "failure",
+   null
+  ],
+  "missing_parent": [
+   "failure",
+   null
+  ],
+  "wrong_order_probe": [
+   "continue",
+   1
+  ]
+ },
+ "results/v2_build4_unpatched": {
+  "cleared_then_read": [
+   "failure",
+   null
+  ],
+  "deep3": [
+   "failure",
+   null
+  ],
+  "deep_clear": [
+   "failure",
+   null
+  ],
+  "deep_set": [
+   "failure",
+   null
+  ],
+  "deep_touch_keeps": [
+   "failure",
+   null
+  ],
+  "missing_parent": [
+   "failure",
+   null
+  ],
+  "wrong_order_probe": [
+   "failure",
+   null
+  ]
+ },
+ "results/v2": {
+  "cleared_then_read": [
+   "failure",
+   null
+  ],
+  "deep3": [
+   "continue",
+   853460
+  ],
+  "deep_clear": [
+   "continue",
+   2101009
+  ],
+  "deep_set": [
+   "continue",
+   702101097
+  ],
+  "deep_touch_keeps": [
+   "continue",
+   10707
+  ],
+  "missing_parent": [
+   "failure",
+   null
+  ],
+  "wrong_order_probe": [
+   "continue",
+   1
+  ]
+ }
+}

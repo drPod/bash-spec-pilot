@@ -1,0 +1,231 @@
+[
+  {
+    "text": "relay",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "mark",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": " relay\t",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay;mark",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay && mark",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay||mark",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay && mark || relay",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay || mark && relay",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay; mark && relay",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay && (mark || relay)",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "(relay;mark)",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "( (relay) )",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "(relay)&&(mark)",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay\t&&\tmark",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "(relay || mark); relay",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relayx",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "markrelay",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "echo mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay | mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay > out",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay & mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay\nmark",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay #comment",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "\"relay\"",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "'relay'",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay$(echo mark)",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "! relay",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "((relay))",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "(())",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "relay;",
+    "expected_supported": true,
+    "bash_syntax_exit": 0,
+    "stderr": "",
+    "profile_correction": "Grammar permits trailing semicolon; Bash syntax agrees."
+  },
+  {
+    "text": "relay;;mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 1: syntax error near unexpected token `;;'\nbash: -c: line 1: `relay;;mark'\n"
+  },
+  {
+    "text": ";relay",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 1: syntax error near unexpected token `;'\nbash: -c: line 1: `;relay'\n"
+  },
+  {
+    "text": "relay&&",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 2: syntax error: unexpected end of file\n"
+  },
+  {
+    "text": "relay|||mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 1: syntax error near unexpected token `|'\nbash: -c: line 1: `relay|||mark'\n"
+  },
+  {
+    "text": "(relay",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 2: syntax error: unexpected end of file\n"
+  },
+  {
+    "text": "relay)",
+    "expected_supported": false,
+    "bash_syntax_exit": 2,
+    "stderr": "bash: -c: line 1: syntax error near unexpected token `)'\nbash: -c: line 1: `relay)'\n"
+  },
+  {
+    "text": "relay mark",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  },
+  {
+    "text": "",
+    "expected_supported": false,
+    "bash_syntax_exit": 0,
+    "stderr": ""
+  }
+]

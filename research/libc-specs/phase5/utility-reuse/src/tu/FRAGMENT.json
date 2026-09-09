@@ -1,0 +1,33 @@
+{
+  "source": "src/pinned/coreutils/cat.c",
+  "source_sha256": "f52880ce866aa8f95d5830851054755d9d58e0e750905632e2db0a0378726983",
+  "coreutils_commit": "9530a14420fc1a267e90d45e8a0d710c3668382d",
+  "lines_inclusive": [
+    152,
+    182
+  ],
+  "byte_range_half_open": [
+    4362,
+    5085
+  ],
+  "fragment_bytes": 723,
+  "fragment_sha256": "503c39fff31698fdf373c82ec2a1a9b8bed6874e07cb3443e3034558960984f8",
+  "token_count": 82,
+  "tokens_equal_to_source_region": true,
+  "first_tokens": [
+    "static",
+    "bool",
+    "simple_cat",
+    "(",
+    "char",
+    "*"
+  ],
+  "last_tokens": [
+    "write_error",
+    "(",
+    ")",
+    ";",
+    "}",
+    "}"
+  ]
+}

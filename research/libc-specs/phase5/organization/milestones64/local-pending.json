@@ -1,0 +1,46 @@
+{
+  "status": "imported_and_get_verified_existing_service4096",
+  "project": "prj_fa7ceb0639254b3dba5833834ce25366",
+  "nodes": [
+    {
+      "kind": "claim",
+      "label": "PH5-MILESTONE-64/stateful55-consumption: Stateful55 Lean reference composition consumes actual read/write schedules",
+      "meta": {
+        "overlay": "organization-milestones-64",
+        "marker": "PH5-MILESTONE-64/stateful55-consumption",
+        "hosted_node_id": "134e92e9-cfe8-4144-95af-a3af8019f84b",
+        "content_sha256": "fd6c1301622363188cf13bb47de33702796b360af32466a01b1acccb035a223b",
+        "content": "IMPORT-MARKER: PH5-MILESTONE-64/stateful55-consumption\nAccepted: executeI projects to BufferRelay.execute; residual read/write schedules equal original schedules dropped by actual readCalls/writeCalls. Stateful composition passes residual input and schedules through redirect_then_direct/general_redirect_then_direct. Includes read_error_then_recovers vs reset_repeats_error and consumed-vs-reset counterexamples; abc_readCalls=2 accounts for payload plus EOF.\n18 StatefulFinalAudit assumption outputs use only propext, Classical.choice, Quot.sound. The saved root-final-build.log is a cached replay of the preceding successful build, not an independent fresh build.\nScope: stateful Lean reference composition, not a checked Coq-to-Lean/C bridge, OS proof, general typing/lowering, or research completion. Stateful55 is not yet packaged in the artifact manifest.\nEvidence: pi-reviews/root-schedule-repair-55/ROOT-FINAL-RECEIPT.json sha256 909ff2c91f070a413f0b9565f78d2efcb12986e5f20759e0b5a3bcac91ece5d1\nSource SHA256: {\"ScheduleConsumption.lean\": \"952e3e7307457b929da8a16ec0b4fdc881b27c5a96bc0fd562b9bf3fd4e96235\", \"StatefulFinal.lean\": \"c12dcf89479e7448cb8fafa1048eea1f6e35bcaa99566c556145f645bcb12180\", \"StatefulFinalAudit.lean\": \"cf043f371ad34be79790c16ee82e2e471ff55a3592bbdb121ba8961afefae589\"}",
+        "not_whole_program": true
+      }
+    },
+    {
+      "kind": "claim",
+      "label": "PH5-MILESTONE-64/case-wrapper63: Head/wc bounded wrapper transfer under common Gprog with 19-file fresh targeted replay",
+      "meta": {
+        "overlay": "organization-milestones-64",
+        "marker": "PH5-MILESTONE-64/case-wrapper63",
+        "hosted_node_id": "aa9bd339-6673-4927-b356-40107a064987",
+        "content_sha256": "1182f4b662304c536928fa0982484cbf8601daffba61adc1d51126ab4e1b7fa6",
+        "content": "IMPORT-MARKER: PH5-MILESTONE-64/case-wrapper63\nAccepted: each translation unit lifts the proved callee body into Gprog extended with its entry specification, and proves its wrapper body under that same Gprog. Four audited lemmas: body_head_bytes_lifted, body_head_bytes_entry, body_wc_lines_lifted, body_wc_lines_entry. Standard VST assumptions only; eq_rect_eq appears on lifted bodies.\nTargeted case_wrapper_transfer_chain_replay 20260908T181932Z: all 19 fresh Coq files passed, four assumption audits passed, cache disabled. Source archive hashes and all compiler/wrapper log hashes independently rechecked. Scratch source staging was reviewed by root; post-run container hashes are unavailable after cleanup and are not claimed independently verified.\nScope: bounded head_bytes/wc_lines body-to-wrapper transfer, not GNU main, OS, VSU or checked Coq-to-Lean bridge. Last full artifact replay remains 19 entries (18 PASS, one experimental skip), followed by five targeted additions; no full24 replay. Not research completion.\nEvidence: pi-reviews/root-case-replay-63/ROOT-RECEIPT-AUDIT.json sha256 7ba76d6420d2b5ad3273beae5755289f7ec3f6493f5545d311499a575801cfa2\nReplay summary sha256 8348db21a9d68508c87f802df806c223f72dff21fd721cfb721e98a14146c325\nWrapper source SHA256: {\"CaseTransfer.v\": \"2e2ad55150411c5fe6c9bff6f90753d48e170c87bf6a5badf497147f106e8288\", \"CaseTransferAudit.v\": \"aaff0dc6fa71af5a0ebf3b50fdb8977d0667f223e67ed847e59490d283245554\", \"CaseTransferWc.v\": \"e6e74c1ab07da579c8b6e22f803985fe439ee6fa05af1b7c3c8374cc7375209c\", \"CaseTransferWcAudit.v\": \"2a2bcefaf539805be71b31208050ef98daf668b6a97a5af89ad8747bf50545c2\"}",
+        "not_whole_program": true
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "marker": "PH5-MILESTONE-64/stateful55-consumption",
+      "id": "24d8106e7d1f487f",
+      "created": true,
+      "get_verified": true,
+      "content_sha256": "fd6c1301622363188cf13bb47de33702796b360af32466a01b1acccb035a223b"
+    },
+    {
+      "marker": "PH5-MILESTONE-64/case-wrapper63",
+      "id": "029e3b3a75fee193",
+      "created": true,
+      "get_verified": true,
+      "content_sha256": "1182f4b662304c536928fa0982484cbf8601daffba61adc1d51126ab4e1b7fa6"
+    }
+  ]
+}

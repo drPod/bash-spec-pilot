@@ -1,0 +1,71 @@
+{
+  "worker": "shell-lean-final-24",
+  "date": "2026-09-08",
+  "checker": "Coq 8.20.1 in phase5-vst (CompCert 3.15, VST 2.15), via ../../run_vst.py",
+  "revision": "v2, second pass, same day: after the first v1-to-v2 redesign (11:53Z review, decorative fd table), a SECOND root-scope review (12:18Z) found the forward-only correspondence theorem mislabelled 'equivalent', a mis-described SAVE/BIND header, an overclaimed 'nothing else open' scope statement, and no concrete error-restoration witness. All four addressed: fd_redirect_seq_adequate (reverse direction, under the fd-3-fresh precondition), corrected header, fd_write_restore_bound_read_error_witness / fd_write_restore_bound_write_error_witness (concrete rc=1/rc=2 restoration). See FdTable.v's 'REVISION 2026-09-08, second pass' header and prior_v1_review_and_response below. Earlier receipts are superseded, not evidence for the current claims.",
+  "note": "Redirect.v is Redirect.v from ../ (shell-expansion/), read-only, freshly recompiled in this worker's own private container directory (no stale .vo reused across workers).",
+  "receipts": [
+    {
+      "name": "shelllean24-redirect-copy-1",
+      "file": "../Redirect.v (read-only dependency, recompiled fresh here)",
+      "exit_status": 0,
+      "elapsed_seconds": 0.6,
+      "log": "empty (no warnings/errors)"
+    },
+    {
+      "name": "shelllean24-fdtable-v3rev5",
+      "file": "FdTable.v (v2 second pass: + fd_redirect_seq_adequate (reverse direction), + concrete rc=1/rc=2 restoration witnesses, corrected header)",
+      "exit_status": 0,
+      "elapsed_seconds": 0.66,
+      "peak_rss_kib": 484732,
+      "log": "empty (no warnings/errors)"
+    },
+    {
+      "name": "shelllean24-fdaudit-v3rev1",
+      "file": "FdTableAudit.v",
+      "exit_status": 0,
+      "elapsed_seconds": 1.45,
+      "peak_rss_kib": 495076,
+      "log": "14/14 \"Closed under the global context\" -- no Admitted, Axiom, Parameter or Conjecture anywhere in FdTable.v (also grep-checked)"
+    }
+  ],
+  "prior_v1_review_and_response": {
+    "review_source": "/home/coder/agent-jobs/astra-research/phase5/claude-resume/shell-lean-final-24/FROM-ORCHESTRATOR.md, 2026-09-08T11:53Z ('Root'), landed mid-session",
+    "review_points": [
+      "fd_prim's FRedirect case was DEFINED to already equal the desired save/bind/restore postcondition (via redirect_prim's own atom-tag dispatch), so the fd table ran in parallel with, but did not GATE, which ledger received bytes",
+      "fd_trace had Open/Dup2/Close only, no write between bind/restore routed through a live fd lookup",
+      "FdDup2 took a passed-in option value, not a read of a source descriptor",
+      "no fd-3-fresh premise, so a pre-existing fd 3 would have been silently overwritten despite the header claiming none was ever open",
+      "asked for: writes derived from a lookup(fd1) while bound, restoration on all permitted errors, an explicit freshness premise, and a negative control showing a redirected write before bind/after restore fails to reach the file"
+    ],
+    "response": "v2 (this file) replaces the FDirect/FRedirect split with ONE write-capable atom, FdWriteRestore, whose fd_write_restore_prim definition MATCHES on the table's live fs_fds f STDOUT_FD to decide file vs terminal -- the same atom constructor, run from two different tables, provably produces two different outcomes (fd_write_restore_gated_by_table, fd_write_restore_unbound_never_touches_file, fd_write_restore_bound_never_extends_terminal). FdSaveBind requires fs_fds f OPEN_TARGET_FD = None as an explicit precondition (fd_savebind_requires_fresh_target); if violated the relation is false, not silently overwriting. FdSaveBind's SAVE half reads fs_fds f STDOUT_FD (the table's live entry) into fd 3, not a passed literal. The composed command's correspondence to Redirect.v's own redirect_prim is now a real proved theorem (fd_redirect_seq_matches_redirect_prim), derived from the actual Exec derivation of the two-step sequence, not asserted by construction."
+  },
+  "second_review_and_response": {
+    "review_source": "/home/coder/agent-jobs/astra-research/phase5/claude-resume/shell-lean-final-24/FROM-ORCHESTRATOR.md, 2026-09-08T12:18Z ('Root'), landed mid-session after the v1-to-v2 response above",
+    "review_points": [
+      "'livefdlookup+freshfd3 fixescorev1gap, 11closedauditobserved' -- v2's core fix accepted",
+      "header falsely says 'PROVED EQUIVALENT': fd_redirect_seq_matches_redirect_prim is a forward implication only",
+      "add a reverse construction for any existing redirect_prim outcome under fd-3-fresh, producing a matching fstate/execution (adequacy), or honestly say one-way refinement only",
+      "header wrongly says 'open() allocates fd 3 [as] the target'; the code actually uses fd 3 to save the OLD stdout value, not the new target -- fix the header",
+      "'fd3 free DOES NOT imply no other fds open' -- the header's 'nothing else is ever open' overclaims scope",
+      "clarify that `None` means modelled-terminal/unbound in this fragment, not an actual closed OS fd",
+      "generic error-restoration theorem is valid but include at least one concrete write/read error witness with restore, not only the general statement",
+      "continue the Lean-final concrete append/truncate instantiation (addressed separately in integration/lean-final/)"
+    ],
+    "response": "Added fd_redirect_seq_adequate: for any redirect_prim outcome and any fd table with fd 3 free beforehand, there exists a corresponding fd_prim/Exec execution of redirect_seq realizing it -- the reverse direction, under exactly FdSaveBind's own precondition (not an extra assumption). Together with fd_redirect_seq_matches_redirect_prim (forward), this is now a genuine equivalence UNDER that one condition; the header states this precisely instead of an unconditional 'equivalent'. Rewrote the header's SAVE+BIND description (fd 3 is a save slot for the OLD value; the target goes directly to fd 1) and removed the 'nothing else is ever open'/'closed OS fd' overclaims, replacing them with an explicit 'this model tracks only fd 1 and fd 3, no claim about any other descriptor' statement. Added fd_write_restore_bound_read_error_witness (rc=1, ReachExamples.read_error_outcome) and fd_write_restore_bound_write_error_witness (rc=2, ReachExamples.zero_write_outcome), both showing concrete restoration to None at both descriptors, not only the general fd_write_restore_restores_on_any_status statement."
+  },
+  "prior_failed_attempts_not_evidence": [
+    "v1 (shelllean24-fdtable-v1..v9, shelllean24-fdaudit-v1/v2): compiled cleanly and was axiom-free, but rejected by root-scope review as not actually gating writes by fd-table state; fully superseded.",
+    "v2 first-pass development (shelllean24-fdtable-v10..v16, shelllean24-fdtable-debug1..5): compile errors while iterating (Unit vs unit, whole-fdtable-equality syntactic mismatches, repeat-split goal-count mismatches, Ltac match-goal patterns not unifying against un-simplified Definition applications, a stray rewrite target). Superseded by shelllean24-fdtable-final (exit 0), itself then superseded by the second-pass revision below.",
+    "v2 second-pass development (shelllean24-fdtable-v3rev1..v3rev4): compile errors while adding the reverse direction and error witnesses (a stray unnecessary rewrite after simpl already resolved the match; a repeat-split goal-count mismatch reused from the same recurring pattern; a hand-guessed byte value for `delivered final_a` that was wrong, replaced by the safer relay_prim_delivered_extra existential-extraction pattern already used elsewhere in this file). Superseded by shelllean24-fdtable-v3rev5. Logs retained under ~/agent-jobs/astra-research/phase5/runs/."
+  ],
+  "replay": [
+    "docker exec phase5-vst mkdir -p /home/coq/phase5/shell-lean-final-24-fd",
+    "docker cp research/libc-specs/phase5/shell-expansion/Redirect.v phase5-vst:/home/coq/phase5/shell-lean-final-24-fd/Redirect.v",
+    "docker cp research/libc-specs/phase5/shell-expansion/fd/FdTable.v phase5-vst:/home/coq/phase5/shell-lean-final-24-fd/FdTable.v",
+    "docker cp research/libc-specs/phase5/shell-expansion/fd/FdTableAudit.v phase5-vst:/home/coq/phase5/shell-lean-final-24-fd/FdTableAudit.v",
+    "uv run --no-project python research/libc-specs/phase5/run_vst.py --name <fresh> --seconds 180 --workdir /home/coq/phase5/shell-lean-final-24-fd -- coqc -Q /home/coq/phase5/relay \"\" -Q /home/coq/phase5/shell-bridge \"\" Redirect.v",
+    "uv run --no-project python research/libc-specs/phase5/run_vst.py --name <fresh> --seconds 180 --workdir /home/coq/phase5/shell-lean-final-24-fd -- coqc -Q /home/coq/phase5/relay \"\" -Q /home/coq/phase5/shell-bridge \"\" FdTable.v",
+    "uv run --no-project python research/libc-specs/phase5/run_vst.py --name <fresh> --seconds 180 --workdir /home/coq/phase5/shell-lean-final-24-fd -- coqc -Q /home/coq/phase5/relay \"\" -Q /home/coq/phase5/shell-bridge \"\" FdTableAudit.v"
+  ]
+}

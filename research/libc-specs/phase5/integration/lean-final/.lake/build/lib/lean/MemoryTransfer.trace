@@ -1,0 +1,105 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["ef32d5f7d84f3f44.olean"],
+  "m": false,
+  "i": "fbf94ad117c90094.ilean",
+  "c": "6de15aed2e916b8b.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean /home/coder/.elan/toolchains/leanprover--lean4---v4.31.0/bin/lean -j1 -s16384 -DwarningAsError=true /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/MemoryTransfer.lean -o /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/MemoryTransfer.olean -i /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/lib/lean/MemoryTransfer.ilean -c /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/ir/MemoryTransfer.c --setup /home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/.lake/build/ir/MemoryTransfer.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "MemoryTransfer.lean:289:0: 'MemoryTransfer.load_store' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:290:0: 'MemoryTransfer.load_store_disjoint' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:291:0: 'MemoryTransfer.success_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:292:0: 'MemoryTransfer.success_contract' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:293:0: 'MemoryTransfer.read_emit_observation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:295:0: 'MemoryTransfer.relay_contract' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:296:0: 'MemoryTransfer.relays_observation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:297:0: 'MemoryTransfer.relays_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:298:0: 'MemoryTransfer.ready_relay_exists' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:299:0: 'MemoryTransfer.store_frame' depends on axioms: [propext, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:300:0: 'MemoryTransfer.invalid_is_ub' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:301:0: 'MemoryTransfer.error_preserves_state' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:302:0: 'MemoryTransfer.Examples.short_binary_read' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:303:0: 'MemoryTransfer.Examples.exhausted_input_read' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:304:0: 'MemoryTransfer.Examples.foreign_pointer_ub' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:305:0: 'MemoryTransfer.Examples.overrun_ub_even_when_short' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:306:0: 'MemoryTransfer.Examples.one_past_zero' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:307:0: 'MemoryTransfer.Examples.one_past_nonzero_ub' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:308:0: 'MemoryTransfer.Examples.error_has_no_effect' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:309:0: 'MemoryTransfer.Examples.invalid_error_path_is_ub' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:310:0: 'MemoryTransfer.store_at' depends on axioms: [propext]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:311:0: 'MemoryTransfer.amount_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:312:0: 'MemoryTransfer.read' does not depend on any axioms",
+   "level": "info"},
+  {"message":
+   "MemoryTransfer.lean:313:0: 'MemoryTransfer.emit' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["MemoryTransfer:deps",
+   [["deps",
+     [["shell_lean_final/MemoryTransfer:extraDep",
+       [["@shell_lean_final:extraDep", "00000000000006bb"]]],
+      ["imports", "00000000000006bb"]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.31.0, commit 68218e876d2a38b1985b8590fff244a83c321783",
+   "fc45ac412f28501c"],
+  ["/home/coder/Coding/bash-spec-pilot/research/libc-specs/phase5/integration/lean-final/MemoryTransfer.lean",
+   "bd7c83c42a533061"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: MemoryTransfer", "8825491b388c7a8d"],
+  ["Package.id?: (some shell_lean_final)", "933a4a5fbe43413a"],
+  ["Module.leanArgs: #[-j1, -s16384, -DwarningAsError=true]",
+   "7aee8e280d509a4e"]],
+ "depHash": "17550da247f0a652"}

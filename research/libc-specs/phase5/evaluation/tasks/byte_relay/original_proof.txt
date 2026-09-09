@@ -1,0 +1,5 @@
+Original proof body (held out from prompts; used only as the helper-condition positive control).
+by
+  obtain ⟨t', he, hr⟩ := ShellObservation.command_refines (graph concrete) (graph abstract)
+    Eq primitive_refines cmd s t rc h s rfl
+  simpa only [← hr] using he

@@ -1,0 +1,20 @@
+[
+  {
+    "marker": "PH5-MILESTONE-91/command-encoding",
+    "hosted_id": "a04c1025-4f97-461b-b2bd-523bfb177847",
+    "hosted_hash": "c0a27c8c7db53cf6cbd599b5ee98cf81e64b5b87861daf8de6966aece748708b",
+    "private": true,
+    "local_id": "9df439f5d51900cd",
+    "content_sha256": "2551ef942fbfa30c7423958af3ae44ac59a7aff138da08913d2b1464823d02bf",
+    "local_get_verified": true
+  },
+  {
+    "marker": "PH5-MILESTONE-91/guard-integration",
+    "hosted_id": "2e6215ae-b24b-40cf-a727-49678d9ef97a",
+    "hosted_hash": "4c372eda07b465dc94f74fa801ded5e731302c3c79df86db2507ffe07af46fb1",
+    "private": true,
+    "local_id": "41d9707bc2ed7b09",
+    "content_sha256": "53d3b88be9d2bfc4a2d20ad46567b905fc7eef188155242978ef947677347684",
+    "local_get_verified": true
+  }
+]

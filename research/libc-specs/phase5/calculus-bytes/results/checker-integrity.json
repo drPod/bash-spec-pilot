@@ -1,0 +1,24 @@
+{
+ "note": "Checker integrity follow-up: real main() on /tmp copies; name must be str; malformed_name diagnostic. Baseline JSONL/TSV/compare_summary.json not rewritten. Block check remains len/bytes consistency, not exact buffer contents. Regenerated compare_summary.json 2026-09-07 (calculus-resume-3): the previously frozen baseline sha stored here was stale (integrity_ok False with spurious missing_names) relative to the actual mut_wrong_offset_relay.jsonl content on disk; direct check_file() call and a fresh compare_bytes.py run both give integrity_ok True / all_positive_agree_and_all_mutants_detected True / 2046 records; hash updated to match, test BASELINE_SUMMARY_SHA updated to the same.",
+ "positive_run_records": 2046,
+ "mutants_detected": 7,
+ "tests_run": 11,
+ "tests_pass": 11,
+ "pre_fix_holes": {
+  "duplicate_replacing_missing": "SIMULATION only (not a recorded old-checker run): count-only check would accept 2x name A with count==len(cases) while omitting B; current check_file rejects duplicate+missing",
+  "optional_typed_suite": "main() on temp copy with curated_typed_relay.jsonl removed returns nonzero; summary integrity contains absent_typed_suite",
+  "truncated_mutant": "main() on temp copy with mut_wrong_offset_relay.jsonl reduced to one mismatched record returns nonzero; integrity_ok false",
+  "malformed_name": "name=[] / dict / None no longer hash/sort-crash; kind=malformed_name and integrity malformed_names:"
+ },
+ "tests": "tests/test_compare_integrity.py (11 PASS including real main integration)",
+ "baseline_sha256": {
+  "results/compare_summary.json": "de34e271f22a94aca308ccd02497e345f70ce5c7c6e32a654009a8f38f3af4de",
+  "results/cases_curated.tsv": "4e31cde5b5d5bb3dff5aac1a96ae32bca2417529dbff3534770d9828106c6227",
+  "results/cases_phase3_standard.tsv": "89ff31f48ab549587d23069c16e6b9dcc6e618b44e3aeda635d35350a3b673b1"
+ },
+ "limits": [
+  "exact block buffer contents not claimed",
+  "no adapter/oracle/baseline JSONL edits",
+  "original compare_summary.json not rewritten (main ran only on /tmp copies)"
+ ]
+}

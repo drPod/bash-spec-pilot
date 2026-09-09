@@ -1,14 +1,8 @@
 import Pipeline
 
-/-
-Trusted IO shim, NOT LLM-generated. It calls the *same* total function
-(`Pipeline.Generated.run`) the spec theorems are about, so the binary that the
-differential layer tests is the function the kernel verified. Adapted verbatim
-from demo/Main.lean's line-level abstraction.
--/
+/- Trusted runtime shim; host IO is outside the pure model proof. -/
 
-/-- Read stdin as lines, dropping the single trailing empty element that a final
-    newline produces, so `"a\nb\n"` and `"a\nb"` both parse to `["a", "b"]`. -/
+/-- Drops a final empty split, so terminated and unterminated last lines are indistinguishable. -/
 def readLines : IO (List String) := do
   let s ← (← IO.getStdin).readToEnd
   let parts := s.splitOn "\n"

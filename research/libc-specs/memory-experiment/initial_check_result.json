@@ -1,0 +1,89 @@
+{
+  "source": "MemoryTransfer.lean",
+  "source_sha256": "015e775cdd77680bea9c6fba1c0defefe46b914ce2befc1b3a862eb33ecf341a",
+  "lean_version": "Lean (version 4.31.0, x86_64-unknown-linux-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)",
+  "compile_exit_code": 0,
+  "axiom_check_passed": true,
+  "timing": {
+    "elapsed_seconds": 0.75,
+    "peak_rss_kb": 789820
+  },
+  "audited_declarations": {
+    "MemoryTransfer.load_store": [
+      "propext",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.load_store_disjoint": [
+      "propext",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.success_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.success_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.read_emit_observation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.relay_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.relays_observation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.relays_conservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.ready_relay_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.store_frame": [
+      "propext",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.invalid_is_ub": [
+      "propext"
+    ],
+    "MemoryTransfer.error_preserves_state": [
+      "propext"
+    ],
+    "MemoryTransfer.Examples.short_binary_read": [],
+    "MemoryTransfer.Examples.exhausted_input_read": [],
+    "MemoryTransfer.Examples.foreign_pointer_ub": [],
+    "MemoryTransfer.Examples.overrun_ub_even_when_short": [],
+    "MemoryTransfer.Examples.one_past_zero": [],
+    "MemoryTransfer.Examples.one_past_nonzero_ub": [],
+    "MemoryTransfer.Examples.error_has_no_effect": [],
+    "MemoryTransfer.Examples.invalid_error_path_is_ub": [],
+    "MemoryTransfer.store_at": [
+      "propext"
+    ],
+    "MemoryTransfer.amount_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "MemoryTransfer.read": [],
+    "MemoryTransfer.emit": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Mathematical single-object byte memory and prefix-transfer model; not C/POSIX semantics",
+  "differential_testing": "not performed"
+}

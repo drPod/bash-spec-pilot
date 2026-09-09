@@ -39,8 +39,7 @@ jobs:
         working-directory: pipeline
         run: python3 targets.py
 
-      # The committed Generated.lean is a stub, so mismatches are expected;
-      # this only proves the differential harness runs end to end on Linux.
+      # The committed stub intentionally mismatches; this checks harness execution.
       - name: Differential harness smoke (stub, mismatch OK)
         working-directory: pipeline
         run: python3 validate.py uniq 20 || true

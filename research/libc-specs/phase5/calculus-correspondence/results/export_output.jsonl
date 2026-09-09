@@ -1,0 +1,46 @@
+{"export_entry": "deep_set", "outcome": "continue", "rc": 702101097, "state": {"attrs": {"v": 100}, "elements": [{"element": "a", "arg": "1", "attrs": {"v": 10}, "elements": [{"element": "b", "arg": "2", "attrs": {"v": 7, "w": 70}, "elements": []}, {"element": "b", "arg": "3", "attrs": {"v": 9}, "elements": []}]}, {"element": "a", "arg": "2", "attrs": {"v": 20}, "elements": []}]}}
+{"export_entry": "deep_clear", "outcome": "continue", "rc": 2101009, "state": {"attrs": {"v": 100}, "elements": [{"element": "a", "arg": "1", "attrs": {"v": 10}, "elements": [{"element": "b", "arg": "3", "attrs": {"v": 9}, "elements": []}]}, {"element": "a", "arg": "2", "attrs": {"v": 20}, "elements": []}]}}
+{"export_entry": "deep_touch_keeps", "outcome": "continue", "rc": 10707, "state": {"attrs": {"v": 100}, "elements": [{"element": "a", "arg": "1", "attrs": {"v": 10}, "elements": [{"element": "b", "arg": "2", "attrs": {"v": 7, "w": 70}, "elements": []}, {"element": "b", "arg": "3", "attrs": {"v": 9}, "elements": []}]}, {"element": "a", "arg": "2", "attrs": {"v": 20}, "elements": []}]}}
+{"export_entry": "deep3", "outcome": "continue", "rc": 853460, "state": {"attrs": {"v": 3}, "elements": [{"element": "a", "arg": "1", "attrs": {"v": 4}, "elements": [{"element": "b", "arg": "2", "attrs": {"v": 6}, "elements": [{"element": "a", "arg": "3", "attrs": {}, "elements": []}]}]}]}}
+{"export_entry": "missing_parent", "outcome": "failure"}
+{"export_entry": "cleared_then_read", "outcome": "failure"}
+{"export_entry": "wrong_order_probe", "outcome": "continue", "rc": 1, "state": {"attrs": {}, "elements": [{"element": "a", "arg": "1", "attrs": {}, "elements": [{"element": "b", "arg": "2", "attrs": {}, "elements": [{"element": "a", "arg": "3", "attrs": {}, "elements": []}]}]}]}}
+{"export_entry": "carrier_max", "outcome": "continue", "rc": 4611686018427387903, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "overflow_add", "outcome": "failure"}
+{"export_entry": "overflow_sub", "outcome": "failure"}
+{"export_entry": "overflow_mul", "outcome": "failure"}
+{"export_entry": "overflow_neg", "outcome": "failure"}
+{"export_entry": "div_trunc", "outcome": "continue", "rc": -3, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "mod_sign", "outcome": "continue", "rc": -1, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "div_zero", "outcome": "failure"}
+{"export_entry": "u8_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {"small": 255}, "elements": []}}
+{"export_entry": "u8_overflow_runtime", "outcome": "failure"}
+{"export_entry": "u8_local_annot", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "u8_local_annot_trap", "outcome": "failure"}
+{"export_entry": "u8_param", "outcome": "failure"}
+{"export_entry": "u8_param_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "u8_param_trap", "outcome": "failure"}
+{"export_entry": "u64_negative_trap", "outcome": "failure"}
+{"export_entry": "ret_u8_trap", "outcome": "failure"}
+{"export_entry": "ret_u8_ok", "outcome": "continue", "rc": 255, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "typed_literal_widths", "outcome": "continue", "rc": 65662, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "big_attr", "outcome": "continue", "rc": -4611686018427387904, "state": {"attrs": {"big": -4611686018427387904}, "elements": []}}
+{"export_entry": "char_lit", "outcome": "continue", "rc": 33, "state": {"attrs": {}, "elements": []}}
+{"export_entry": "read_block", "outcome": "failure"}
+{"export_entry": "write_block", "outcome": "failure"}
+{"export_entry": "relay", "outcome": "failure"}
+{"export_entry": "relay_raising", "outcome": "failure"}
+{"export_entry": "relay_caught", "outcome": "failure"}
+{"export_entry": "mark", "outcome": "failure"}
+{"export_entry": "relay_seq_relay", "outcome": "failure"}
+{"export_entry": "relay_and_mark", "outcome": "failure"}
+{"export_entry": "relay_or_mark", "outcome": "failure"}
+{"export_entry": "read_block", "outcome": "failure"}
+{"export_entry": "write_block", "outcome": "failure"}
+{"export_entry": "relay", "outcome": "failure"}
+{"export_entry": "relay_raising", "outcome": "failure"}
+{"export_entry": "relay_caught", "outcome": "failure"}
+{"export_entry": "mark", "outcome": "failure"}
+{"export_entry": "relay_seq_relay", "outcome": "failure"}
+{"export_entry": "relay_and_mark", "outcome": "failure"}
+{"export_entry": "relay_or_mark", "outcome": "failure"}

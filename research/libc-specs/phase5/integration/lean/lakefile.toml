@@ -1,0 +1,194 @@
+name = "phase5_integration"
+defaultTargets = ["CalculusFragment", "fragment-json", "CalculusNested", "CalculusExport", "CalculusBody", "CalculusRelayLoop", "CalculusSimulation", "CalculusRelayOuter", "CalculusRelaySpec", "CalculusTokenize", "CalculusFragmentRules", "export-run", "compare-run"]
+moreLeanArgs = ["-j1", "-s16384", "-DwarningAsError=true", "-DElab.async=false"]
+[[lean_lib]]
+name = "MemoryTransfer"
+[[lean_lib]]
+name = "BufferRelay"
+[[lean_lib]]
+name = "ShellObservation"
+[[lean_lib]]
+name = "CalculusFragment"
+[[lean_lib]]
+name = "CalculusNested"
+[[lean_lib]]
+name = "CalculusExport"
+[[lean_lib]]
+name = "CalculusBody"
+[[lean_lib]]
+name = "CalculusRelayLoop"
+[[lean_lib]]
+name = "CalculusSimulation"
+[[lean_lib]]
+name = "CalculusRelayOuter"
+[[lean_lib]]
+name = "CompareMain"
+[[lean_lib]]
+name = "CalculusRelaySpec"
+[[lean_lib]]
+name = "CalculusTokenize"
+[[lean_lib]]
+name = "CalculusTokenizeTotal"
+[[lean_lib]]
+name = "CalculusTokenizeChunks"
+[[lean_lib]]
+name = "CalculusFragmentRules"
+[[lean_exe]]
+name = "fragment-json"
+root = "FragmentMain"
+[[lean_exe]]
+name = "nested-json"
+root = "NestedMain"
+[[lean_exe]]
+name = "export-run"
+root = "ExportTotalMain"
+[[lean_exe]]
+name = "compare-run"
+root = "CompareTotalMain"
+
+[[lean_lib]]
+name = "ScheduleConsumption"
+
+[[lean_lib]]
+name = "CalculusRelaySchedules"
+
+[[lean_lib]]
+name = "CalculusRelayShared"
+
+[[lean_lib]]
+name = "CalculusTyping"
+
+[[lean_lib]]
+name = "CalculusLowering"
+
+[[lean_lib]]
+name = "CalculusTypeCheck"
+
+[[lean_lib]]
+name = "CalculusTypingAxioms"
+
+[[lean_lib]]
+name = "SpecAstExport"
+
+[[lean_lib]]
+name = "SpecAstExportAxioms"
+
+[[lean_lib]]
+name = "CalculusGuards"
+
+[[lean_lib]]
+name = "CalculusGuardsAxioms"
+
+[[lean_lib]]
+name = "CalculusCommands"
+
+[[lean_lib]]
+name = "CalculusGuardsRelay"
+
+[[lean_lib]]
+name = "CalculusGuardsRead"
+
+[[lean_lib]]
+name = "CalculusGuardsRelayAxioms"
+
+[[lean_lib]]
+name = "CalculusTryCatch"
+
+[[lean_lib]]
+name = "CalculusTryCatchAxioms"
+
+[[lean_lib]]
+name = "CalculusQuery"
+
+[[lean_lib]]
+name = "CalculusQueryExportLink"
+
+[[lean_lib]]
+name = "CalculusTokenizeFull"
+
+[[lean_lib]]
+name = "CalculusTextLiteralAxioms"
+
+[[lean_lib]]
+name = "CalculusTokenizeChars"
+
+[[lean_lib]]
+name = "CalculusTokenizeCharsJoin"
+
+[[lean_lib]]
+name = "CalculusTokenizeCharsSuf"
+
+[[lean_lib]]
+name = "CalculusTokenizeCharsIdent"
+
+[[lean_lib]]
+name = "CalculusTokenizeCharsAst"
+
+[[lean_lib]]
+name = "CalculusTokenizeRelayChars"
+
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsJoin"
+
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsSuf"
+
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsIdent"
+
+[[lean_lib]]
+name = "CalculusTokenizeRelayCharsAst"
+
+[[lean_lib]]
+name = "CalculusTokenizeReadChars"
+
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsJoin"
+
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsSuf"
+
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsIdent"
+
+[[lean_lib]]
+name = "CalculusTokenizeReadCharsAst"
+
+[[lean_lib]]
+name = "CalculusTokenizeSixAudit"
+
+[[lean_lib]]
+name = "CalculusTokenizeCopyEq"
+
+[[lean_lib]]
+name = "CalculusTokenizeCopyAudit"
+
+[[lean_lib]]
+name = "CalculusShellText"
+
+[[lean_lib]]
+name = "CalculusShellTextSound"
+
+[[lean_lib]]
+name = "CalculusShellTextQuery"
+
+[[lean_lib]]
+name = "CalculusShellTextRootFixtures"
+
+[[lean_lib]]
+name = "CalculusRelayRaising"
+
+[[lean_lib]]
+name = "CalculusRelayRaisingAxioms"
+
+[[lean_lib]]
+name = "CalculusShellTextExport"
+
+[[lean_lib]]
+name = "ClightSubset"
+
+[[lean_lib]]
+name = "RelayClightDump"
+
+[[lean_lib]]
+name = "ClightRelayLink"
