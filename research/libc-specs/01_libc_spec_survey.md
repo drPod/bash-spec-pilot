@@ -1,22 +1,10 @@
 # Survey: existing formal specifications of libc and adjacent semantics
 
-*Action item from the 2026-08-27 meeting: "survey existing formal libc specifications; confirm no
-usable existing source, or understand why existing ones don't fit." Written 2026-09-07.*
+Survey conducted 7 September 2026. **Reusable memory and I/O specifications exist, but this search did not establish a complete Lean-native libc library suitable for the project.** The practical question is the cost of adapting existing contracts, memory models and environment assumptions.
 
-**Review correction (2026-09-07):** The initial survey overgeneralized from default stdio
-headers. [The primary-source I/O review](04_io_prior_art.md) adds VeriFast `stdio_simple.h`,
-ESOP 2015 I/O verification, DeepWeb and interaction trees. Functional and executable formal I/O
-models exist. No complete Lean-native libc corpus meeting this project's selected scope was
-established by this search; this is not a proof of absence. Numerical inventories below are
-preliminary source scans, not coverage or quality estimates. Frama-C 30.0 is the **inspected
-release**, not a claim about the current release.
+Evidence depth varies: some rows inspect source or papers, while others use abstracts or search results only. The last column records that distinction. Numerical inventories are preliminary source counts, not coverage or quality estimates. Version statements refer to the inspected release. The [I/O review](04_io_prior_art.md) examines the most relevant functional I/O work in more detail.
 
-Method. Evidence depth varies by row: a downloaded release
-tarball, a fetched header file, a PDF in `literature/`, or an arXiv abstract page. The last column
-says which. Rows marked **abstract only** or **search only** were not verified beyond that and
-should be re-checked before being cited in a paper. Nothing here is paraphrased from memory.
-
-## 1. The question, made precise
+## 1. Required specification
 
 The meeting's plan needs, for each libc function `f` a utility calls, a formal object that says
 what `f` does to the program state (memory, streams, file system, environment) and what it
@@ -25,14 +13,28 @@ Lean, and (c) is *executable* so the differential layer can check it against the
 complaint recorded in the notes ("fputs described only as 'updates the file pointer'") is a
 complaint about depth: a footprint (`assigns`) clause without a functional postcondition.
 
-## 2. Evidence matrix
+## 2. Sources by role
+
+| Need | Candidates identified | Main adaptation issue |
+|---|---|---|
+| Memory and string contracts | Frama-C, VST, VeriFast, VerKer | Preconditions and memory representations differ between systems. |
+| Content-sensitive I/O | VeriFast I/O protocols, DeepWeb and interaction trees | Preserve external-operation assumptions and failure behavior. See the [I/O review](04_io_prior_art.md). |
+| Filesystem behavior | SibylFS, FSCQ | Filesystem and crash models have different scopes; neither is a ready-made Lean libc. |
+| C representation | CompCert/Clight, Cerberus; Lean IR work | A translation into Lean still needs a correctness argument. |
+| Shell behavior | Smoosh, the project's State Calculus | Utility behavior and OS operations remain separate dependencies. |
+| Executable library models | KLEE's libc/runtime, angr summaries | Executability alone does not establish contract correctness. |
+
+The detailed inventory below preserves the original counts, source locations and inspection depth. Entries based only on abstracts or search results need further source review before supporting a paper claim.
+
+<details>
+<summary>Detailed inventory of 19 systems and libraries</summary>
 
 | # | Artifact | What is specified | State modelled | Formalism / host | Depth | Machine-checked? | Reusable for us? | Verified how |
 |---|---|---|---|---|---|---|---|---|
-| 1 | **Frama-C libc** (`share/libc`, Frama-C 30.0 Zinc) | 1,111 `extern` function declarations across 155 headers; `ensures` clauses: string.h 88, stdlib.h 83, unistd.h 42, stdio.h 33 (of 78 externs), fcntl.h 6 | Memory: yes (ACSL `\valid`, `\initialized`, `assigns ... \from`). Streams: **no contents**. `FILE` is `struct __fc_FILE { unsigned int __fc_FILE_id; unsigned int __fc_FILE_data; }`. File descriptors: ghost array `__fc_fds[fd]`, no contents | ACSL (first-order contracts over C memory), consumed by Frama-C WP/Eva | **string/memory: functional** (e.g. `strcpy`: `ensures strcmp(dest,src) == 0`; `memcpy`: `ensures memcmp{Post,Pre}(dest,src,n) == 0`). **stdio/fd I/O: footprint only** (see §3) | Contracts are checked when a client is verified with WP; the headers themselves are trusted axioms | Not directly (ACSL is not Lean); but the `assigns` footprints are an independent oracle for "which state component does `f` touch", and the string.h postconditions are a ready-made list of properties to prove of a Lean model | Release tarball `frama-c-30.0-Zinc.tar.gz` from frama-c.com, files `share/libc/stdio.h` (lines 289–304, 323–334), `__fc_define_file.h` (33–37), `string.h` (158–160, 420–426), `unistd.h` (1026–1035, 1160–1166); counts by `grep -c` |
+| 1 | **Frama-C libc** (`share/libc`, Frama-C 30.0 Zinc) | 1,111 `extern` function declarations across 155 headers; `ensures` clauses: string.h 88, stdlib.h 83, unistd.h 42, stdio.h 33 (of 78 externs), fcntl.h 6 | Memory: yes (ACSL `\valid`, `\initialized`, `assigns ... \from`). Streams: **no contents**. `FILE` is `struct __fc_FILE { unsigned int __fc_FILE_id; unsigned int __fc_FILE_data; }`. File descriptors: ghost array `__fc_fds[fd]`, no contents | ACSL (first-order contracts over C memory), consumed by Frama-C WP/Eva | **string/memory: functional** (e.g. `strcpy`: `ensures strcmp(dest,src) == 0`; `memcpy`: `ensures memcmp{Post,Pre}(dest,src,n) == 0`). **stdio/fd I/O: footprint only** (see §3) | Contracts are checked when a client is verified with WP; the headers themselves are trusted axioms | Not directly (ACSL is not Lean); but the `assigns` footprints are an independent reference for "which state component does `f` touch", and the string.h postconditions are a ready-made list of properties to prove of a Lean model | Release tarball `frama-c-30.0-Zinc.tar.gz` from frama-c.com, files `share/libc/stdio.h` (lines 289–304, 323–334), `__fc_define_file.h` (33–37), `string.h` (158–160, 420–426), `unistd.h` (1026–1035, 1160–1166); counts by `grep -c` |
 | 2 | **VeriFast** prelude (`bin/stdio.h`, GitHub master) | stdio declarations with separation-logic contracts | Streams as an abstract `file(fp)` predicate, **no contents** | VeriFast separation logic (symbolic execution) | Footprint/ownership only: `fputs`: `requires [?fs]string(s, ?cs) &*& [?ff]file(fp); ensures [fs]string(s, cs) &*& [ff]file(fp)`; `getchar`: `requires true; ensures true`; `putchar`: `ensures c == result \|\| EOF == result` | Prelude is trusted | The inspected default header is shallow; alternative `stdio_simple.h` and I/O examples have functional protocols (see `04_io_prior_art.md`) | Fetched `raw.githubusercontent.com/verifast/verifast/master/bin/stdio.h` 2026-09-07 |
 | 3 | **VST / Verifiable C**, "Verif_strlib" (Software Foundations vol. 5) | `strlen`, `strcpy`, `strcmp` (the latter "underspecified" per the chapter) | C memory via separation logic; C strings as `cstring sh s str` (byte list, no embedded zeros, terminating zero) | Coq (Rocq), VST funspecs over CompCert Clight | Functional: `strlen` returns `Zlength s`; `strcpy` postcondition `cstringn wsh s n dest` | Yes (Coq proofs of the implementations) | Model of specs, not code: the `cstring` representation is exactly the kind of heap predicate a Lean heap model needs; Coq is not Lean | Fetched softwarefoundations.cis.upenn.edu/vc-current/Verif_strlib.html 2026-09-07 |
-| 4 | **VerKer** (Efremov & Mandrykin; arXiv 1809.00626; GitHub `evdenis/verker`) | Linux kernel `lib/string.c`-style functions: paper: 26 functions; repo README today lists 38 (`memchr, memcmp, memcpy, memmove, memset, strcat, strchr, strcmp, strcpy, strlen, strncpy, strnlen, strsep, strstr, ...`) | C memory (AstraVer/Jessie memory model) | ACSL + AstraVer (Frama-C plugin, Why3 backend) | Functional correctness contracts "extracted from their source code"; paper: 23/26 completely proved, 11 needing two new spec constructs, 2 after minor source changes, 1 unprovable in the existing memory model | Yes (deductive proofs) | Best existing *functional* contract corpus for the string/memory family; ACSL, so manual port | `literature/efremov_2018_verker_linux_libc.pdf` (abstract read); GitHub README fetched 2026-09-07 |
+| 4 | **VerKer** (Efremov & Mandrykin; arXiv 1809.00626; GitHub `evdenis/verker`) | Linux kernel `lib/string.c`-style functions: paper: 26 functions; repo README today lists 38 (`memchr, memcmp, memcpy, memmove, memset, strcat, strchr, strcmp, strcpy, strlen, strncpy, strnlen, strsep, strstr, ...`) | C memory (AstraVer/Jessie memory model) | ACSL + AstraVer (Frama-C plugin, Why3 backend) | Functional correctness contracts "extracted from their source code"; paper: 23/26 completely proved, 11 needing two new spec constructs, 2 after minor source changes, 1 unprovable in the existing memory model | Yes (deductive proofs) | A candidate functional contract corpus for the string/memory family; ACSL, so manual port | `literature/efremov_2018_verker_linux_libc.pdf` (abstract read); GitHub README fetched 2026-09-07 |
 | 5 | **ACSL by Example** (Fraunhofer FOKUS, v33.0.1 for Frama-C 33.0) | C re-implementations of standard *algorithms* (STL-like: find, count, copy, sort, ...), not libc stdio | C arrays | ACSL/WP with Alt-Ergo, CVC5, Z3, Coq | Functional | Yes | Specification idioms only | GitHub README fetched 2026-09-07 (function list not confirmed) |
 | 6 | **CN** (Pulte et al., POPL 2023, DOI 10.1145/3571194) + **Fulminate** (POPL 2025) | Verifier for systems C (pKVM buddy allocator); Fulminate tests CN specs at runtime | C memory via separation-logic refinement types over Cerberus semantics | Cerberus/Core, SMT | Functional for user code; no libc corpus found | Yes (SMT-checked) | Idea-level: Fulminate's "test the spec against the implementation" is the same move as our differential layer | **search only** (abstract pages) |
 | 7 | **Cerberus** (Memarian et al., PLDI 2016; UCAM-CL-TR-981) | Executable semantics of a large C11 fragment via elaboration to Core | C memory object model (provenance) | Lem/OCaml | Language semantics, libc external | n/a | The C-side reference if a C→calculus compiler is built; Lem has no Lean backend | **search only** |
@@ -49,7 +51,9 @@ complaint about depth: a footprint (`assigns`) clause without a functional postc
 | 18 | **lean-mlir** (Bhat et al., ITP 2024, arXiv 2407.03685) | SSA IR calculus generic over dialects, MLIR frontend, LLVM bitvector rewrites verified | SSA values, regions | Lean 4 | Language semantics | Yes | Evidence that Lean 4 can host a production IR semantics with tactic support; LLVM-dialect subset could be a target for compiled C | `literature/bhat_2024_lean_mlir.pdf` abstract read |
 | 19 | **CSLib** (arXiv 2602.04846, "The Lean Computer Science Library") | Lean 4 library for CS formalisation | unknown | Lean 4 | unknown | unknown | Check for reusable operational-semantics infrastructure | **search only** |
 
-### LLM-based specification generation (the "how would we generate them" half)
+</details>
+
+### LLM-based specification generation
 
 | Work | Target | What is generated | Checked against | Headline | Verified how |
 |---|---|---|---|---|---|
@@ -72,7 +76,7 @@ specification-discovery pattern, but its utility-level scope differs from libc m
 
 ## 3. Findings
 
-### 3.1 The inspected default stdio contracts are shallow
+### 3.1 Default stdio contracts omit stream contents
 
 Frama-C 30.0, `share/libc/stdio.h`:
 
@@ -110,12 +114,11 @@ These inspected contracts do not state a stream-content relation. That does not 
 functional postconditions through ghost state or trace predicates in other specifications. Where Frama-C does give `ensures` on I/O they are range or initialization facts:
 `fgetc`: `0 <= \result <= __FC_UCHAR_MAX || \result == EOF`; `read`: bounds on the result and
 `\initialized(((char*)buf)+(0..\result-1))`; `write`: `\result == -1 || 0 <= \result <= count`.
-This reads as a design choice rather than an omission (my interpretation): Frama-C's libc exists
-to make *client* code analysable, above all for memory safety, not to define what I/O means.
+These clauses support client-code analysis but do not supply the stream-content relation needed here.
 VeriFast's default `bin/stdio.h` is similarly shallow; its alternative `stdio_simple.h`
 and I/O examples have content-bearing contracts, as detailed in `04_io_prior_art.md`.
 
-### 3.2 The string/memory family is in much better shape than I/O
+### 3.2 String and memory contracts provide reusable content
 
 Frama-C `string.h` carries 88 `ensures` clauses with real content (`strcpy`, `strncpy` with two
 behaviours, `memcpy`, `strcat`, `strchr` found/not-found), VerKer proves functional contracts of
@@ -125,27 +128,26 @@ substantial contract content can be reused. Their scope, memory models and preco
 must still be reconciled. A Lean port needs a representation/refinement argument; the three
 tool families are useful evidence, not mutually interchangeable trusted oracles.
 
-### 3.3 The syscall layer beneath stdio has a serious spec (SibylFS), in the wrong host
+### 3.3 SibylFS models filesystem behavior outside Lean
 
 SibylFS gives an executable, nondeterministic model of file-system syscalls with contents and uses
 it as a test oracle, in Lem with HOL4/Isabelle backends. There is no Lean backend for Lem (already
-established for Smoosh in `research/lean-verification/03_*.md`). SibylFS is nonetheless the right
+established for Smoosh in `research/lean-verification/03_*.md`). SibylFS is a relevant
 reference when writing `open/read/write/close/stat/unlink/rename` in Lean: it fixes the scope and
-the allowed nondeterminism. Its 21,000-test suite is also a ready-made differential corpus for a
-Lean fs model.
+the allowed nondeterminism. Its reported 21,000-test suite is a candidate corpus for comparison after adapting the model interface.
 
-### 3.4 Executable libc models exist, but as symbolic-execution engineering, not specifications
+### 3.4 Symbolic execution provides another class of library models
 
 KLEE links a modified real libc (uClibc) as bitcode plus a hand-written POSIX runtime; angr
 replaces libc with Python "SimProcedures" that the docs themselves call "far from perfect". These are two engineering approaches. They do not characterize the entire field;
 functional trace contracts and executable formal effect models also exist (see `04`).
 
-### 3.5 Lean-native C is thin
+### 3.5 Lean-native C infrastructure was not established by this search
 
 No mature Lean 4 C semantics with a libc was found. LeanCP (April 2026) claims a C memory model
 in Lean 4 but I could only read its abstract. lean-mlir shows Lean 4 can host an LLVM-dialect
 semantics with usable automation. This means a "C → calculus in Lean" step would either be written
-by the group (as the meeting already assumes: "parser written but untested") or bolted onto an
+by the group (as the meeting already assumes: "parser written but untested") or connected to an
 existing verified front-end (Clight/Cerberus Core) with an unverified printer to Lean.
 
 ## 4. Answer to the meeting's question
@@ -159,4 +161,4 @@ is relevant filesystem/syscall prior art, not the sole substantive I/O model.
 
 The checked example in `example/` shows the shape that *does* fit: an idealized libc call as a total state
 transformer over explicit stream contents, composed with a manually authored MiniC semantics, proved about, and
-diffed against GNU. `02_spec_generation_approach.md` is about producing such transformers at scale.
+diffed against GNU. The [historical proposal](02_spec_generation_approach.md) describes the next experiments; scalability was not established.

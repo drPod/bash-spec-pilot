@@ -1,17 +1,17 @@
 # Finite byte memory and bounded prefix-transfer experiment
 
-This private, independent experiment supplies the memory step absent from the existing
-`WcFromC.lean`: a finite allocated buffer, pointer range checks, a bounded input transfer,
-and observable output obtained by loading the bytes back from memory. It uses Lean 4.31.0
-and `import Std`, with no Mathlib, custom axioms, `sorry`, or native proof evaluation.
-It does not modify or build the shared pipeline.
+Supply the memory step absent from `WcFromC.lean`: a finite allocated buffer, pointer range checks, a bounded input transfer, and observable output obtained by loading bytes back from memory.
+
+Kernel-checked theorems relate store/load framing, error/UB distinction, and finite successful relay traces to exact consumed prefixes. A modular-counter companion composes newline counting with those traces.
+
+This is a local-stage Lean model of one allocated byte object (2026-09-07), not C semantics, a C frontend, verified translation, libc/POSIX conformance, or the later whole-program script connection in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md). Lean 4.31.0, `import Std`; no Mathlib, custom axioms, `sorry`, or native proof evaluation. It does not modify the shared pipeline.
 
 ## Model
 
-`Memory size = Fin size → UInt8` represents the bytes in one finite allocated object.
+`Memory size = Fin size → UInt8` is the bytes in one finite allocated object.
 Pointers carry an abstract block identity and a natural-number byte offset.
 `Valid block size p n` requires the right block and `p.offset + n ≤ size`.
-The checked `read` operation validates the *whole requested range*, then returns one of:
+The checked `read` validates the *whole requested range*, then returns one of:
 
 * `.ub`, for invalid ranges or foreign block identities;
 * `.error e s`, preserving state under the chosen no-effect error model;
@@ -43,7 +43,7 @@ Same-block one-past pointers are accepted for zero bytes; other one-past accesse
 | `relays_observation` | **Any finite successful relay trace**, with arbitrary pointers, quotas, short reads, and buffer reuse, appends exactly the original input prefix whose length is the sum of returned counts, leaves precisely the suffix, and cannot consume beyond the input. |
 | `relays_conservation` | The sum of returned counts equals bytes appended and bytes consumed; occurrence counts compose for every UInt8, including NUL, newline, and non-ASCII bytes. |
 
-These are general propositions, not finite tests or definitional equalities. The memory
+These are general propositions, not finite tests or definitional equalities. Memory
 proofs reason about arbitrary indices/ranges; the trace theorem uses induction and
 prefix/drop composition. Eight additional concrete kernel-checked regression witnesses
 cover binary short reads, input exhaustion, foreign pointers, requested overruns even
@@ -51,7 +51,7 @@ when a short transfer would fit, zero/nonzero one-past accesses, and error/UB di
 
 ## Reproduce and audit
 
-From the repository root, run:
+From the repository root:
 
 ```sh
 uv run --no-project python research/libc-specs/check_experiments.py --only memory
@@ -59,16 +59,15 @@ uv run --no-project python research/libc-specs/check_experiments.py --only memor
 
 This sequentially stages source and compiled dependencies outside the repository, checks all
 printed axiom declarations, and records source hashes, toolchain, elapsed time and peak RSS.
-See `../data/phase1_results.json` for the integrated run record. The eight concrete memory
+See [`../data/phase1_results.json`](../data/phase1_results.json) for the integrated run record. The eight concrete memory
 regression theorems depend on no axioms.
 
 The proof's trusted boundary is the Lean kernel and definitions supplied here. No
-differential test against C or an OS has been performed. There is no C companion yet.
+differential test against C or an OS has been performed. There is no C companion in this experiment.
 
-## Boundaries and next experiments
+## Semantic boundaries
 
-This is a mathematical model of one allocated byte object, **not C semantics**, a C
-frontend, a verified translation, or a libc/POSIX conformance proof. The frame is within
+This is a mathematical model of one allocated byte object, **not C semantics**. The frame is within
 one allocation, not a general separation-logic heap frame. Block identities detect
 foreign pointers but do not model allocation, deallocation, dangling pointers, alias
 provenance, permissions, multiple live objects, or object representations. Natural
@@ -81,14 +80,10 @@ The trace theorem applies only to finite successful traces. It proves neither pr
 termination, recovery from errors, nor that a C utility cannot reach UB. The quota-zero
 case is intentionally visible rather than hidden in a termination assumption.
 
-Next useful steps: (1) bind `read` and `emit` to an explicitly interpreted buffer-using C
-subset and prove the utility maintains buffer validity; (2) add a finite multi-block
-heap and prove disjoint-allocation framing; (3) replace natural counts with a stated
-machine-width overflow policy; (4) build a C differential companion for concrete byte
-states and controlled short reads, while preserving the distinction between that
-evidence and the kernel-checked model theorems; (5) give output transfers their own
-partial-count/error behavior and prove a retry-loop invariant under an explicit progress
-assumption.
+Open modeling extensions (not claimed completed here): bind `read`/`emit` to an interpreted buffer-using C
+subset; a finite multi-block heap with disjoint-allocation framing; a stated
+machine-width overflow policy; a C differential companion distinguished from kernel theorems;
+partial output transfers and a retry-loop invariant under an explicit progress assumption.
 
 ## Modular-counter refinement companion
 
@@ -122,7 +117,7 @@ The same replay command checks the counter and composition modules after the mem
 The arithmetic proofs use at most `propext`; concrete wrap witnesses additionally use
 `Quot.sound`; composition inherits the memory model's permitted standard axioms.
 
-The refinement exposes a remaining condition for relating the earlier unbounded
+The refinement exposes a remaining condition for relating an unbounded
 Int/Nat utility model to an actual unsigned C counter: either a no-overflow precondition
 must be proved, or the specification must retain modular behavior. It does not by
 itself supply a verified C frontend, prove an ABI width, or verify the semantics of

@@ -1,1 +1,7 @@
-Accepted command and guard-integration milestones, privately imported and read back from Atlas and the existing OpenScience service. Earlier catalogs are historical snapshots. See import-summary and mapping.
+# Catalog checkpoint 91
+
+Historical import record: Command proofs and guard integration.
+
+The import wrote private Atlas records and local OpenScience entries, then checked them by reading them back. See `mapping.json` and `import-summary.json` for the recorded identities and verification.
+
+This checkpoint covers only the results listed here. The [final delivery](../../FINAL-DELIVERY.md) records subsequent completion and the remaining research limitations.

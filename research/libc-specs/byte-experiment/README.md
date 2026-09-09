@@ -1,10 +1,10 @@
 # Byte-preserving execution of the MiniC newline counter
 
-`RawWc.lean` imports the unchanged `example/WcFromC.lean` definitions and generalizes its
-whole-program proof from encoded line lists to arbitrary input. `runBytes` receives `List UInt8`,
-injects each byte separately into a `Char` with the same numeric value, and executes the original
-MiniC AST. This is **not UTF-8 decoding**. A representation lemma proves preservation of newline
-counts. `Main.lean` reads raw bytes and calls precisely that function.
+Generalize `example/WcFromC.lean` from encoded line lists to arbitrary input bytes.
+
+`runBytes` receives `List UInt8`, injects each byte separately into a `Char` with the same numeric value, and executes the original MiniC AST. Kernel-checked theorems give exact modeled output/status for every finite UInt8 list. A 1,000-entry corpus matched a compiled C companion, GNU `wc -l` 9.4, and an independent byte-count expectation.
+
+This is **not UTF-8 decoding**. Local-stage 2026-09-07; not the later whole-program script connection in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md). `RawWc.lean` imports the unchanged `example/WcFromC.lean` definitions. `Main.lean` reads raw bytes and calls precisely that function.
 
 Kernel-checked results (Lean 4.31.0):
 
@@ -17,7 +17,7 @@ Kernel-checked results (Lean 4.31.0):
   recover newline counts for every string. Its kernel-checked witness is `x` versus `x\n`.
   This is a small information-loss theorem, not a claim that all line encodings are inadequate.
 
-The new executable matched a minimal compiled C companion, GNU `wc -l` 9.4 and an independent
+The executable matched a minimal compiled C companion, GNU `wc -l` 9.4 and an independent
 byte-count expectation on **1,000 corpus entries**: 38 directed, 596 exhaustive within two small
 alphabets/bounds, and 366 seeded random. Compare exact stdout bytes, stderr bytes and exit status;
 there is no normalization. Corpus entries may overlap between categories. Seed: 20260907.
@@ -25,8 +25,7 @@ Corpus SHA-256: `60ea637e14f0e0547ee4106a49819abfc0d8d7d106e88d2c4bee6e5a8458e82
 The old shim agrees on 192, adds one on 221 unterminated valid-UTF-8 entries, and rejects 587
 invalid-UTF-8 entries. These proportions characterize this corpus, not typical user inputs.
 
-The independent Claude worker tested the private prototype; Astra rebuilt the integrated sources
-and reran the same corpus. `../data/phase1_results.json` records the integrated source hashes,
+[`../data/phase1_results.json`](../data/phase1_results.json) records the integrated source hashes,
 tool versions and measurements. Raw per-case runtime logs stay in the local cache.
 
 ## Replay
@@ -42,7 +41,7 @@ Builds go to `~/.cache/bash-spec-pilot/libc-experiments`; C binaries, per-case r
 logs go to `~/.cache/bash-spec-pilot/raw-wc-validation`. `--cache`/`--out` can select another path
 outside the repository. The Lean replay requires GNU time (`gtime` on macOS) and installed Lean
 4.31.0. Differential validation requires `cc` and GNU `wc` (`gwc` on macOS). Mac code paths have
-not been tested in this phase; no remote Mac execution occurred.
+not been tested in this phase.
 
 To reproduce the old-shim comparison, pass `--old-model PATH` to a separately built original
 pipeline executable. Passing that executable as `--model` instead is a negative control, expected

@@ -1,11 +1,14 @@
 # Integration with the located State Calculus implementation
 
-Source inspection: 2026-09-07, public repository `counc009/state_based`, branch `bash`,
-commit `190dd8491b258d8a0ee29f79629908540236b332`. This is a pinned source review;
-we did **not** build or run the OCaml project and do not claim this branch is necessarily
-the exact unpublished working tree discussed in the meeting. The older `main` branch
+Pin and inspect a public State Calculus source tree as a future integration target.
+
+Source inspection 2026-09-07, public repository `counc009/state_based`, branch `bash`,
+commit `190dd8491b258d8a0ee29f79629908540236b332`.
+
+Pinned source review only: we did **not** build or run the OCaml project and do not claim this branch is necessarily
+the unpublished working tree discussed in meetings. The older `main` branch
 at `7c62afa51986d87033af5112cdccd3b104b1c120` contains earlier whole-string utility sketches.
-No private meeting or Slack transcript is included here.
+This is not the later Lean script fragment in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md).
 
 ## What is present
 
@@ -22,7 +25,7 @@ No private meeting or Slack transcript is included here.
 
 The interpreter's action case restores the caller environment while retaining the
 callee's resulting state for Return and Raise. TryCatch uses the state carried by
-Raise. These are promising exact locations for a partial-effects simulation. While
+Raise. These are exact locations for a partial-effects simulation. While
 recurses directly; a language constructor is not a proof of termination or a strategy
 for verifying arbitrary loops. Parametric builtins and user-defined actions still need
 an explicit interpretation and assumptions. No C memory model is supplied by merely
@@ -37,13 +40,13 @@ having state references.
    Establish separately whether parsing, semantic analysis, lowering and interpretation
    are connected; the current CLI connects only the first and printing.
 3. Represent the single allocation as a state element indexed by block identity, with
-   capacity32, initialized length, and byte contents. Choose an explicit byte encoding
+   capacity 32, initialized length, and byte contents. Choose an explicit byte encoding
    (`list<u8>` or indexed byte elements) and test NUL/255 round trips. Strings in the old
    examples do not establish that byte semantics is adequate.
 4. Represent routine syscall outcomes by typed data/status. Use Return/Raise only with a
    documented shell-status mapping; retain delivered and consumed state on failure.
    Exercise input `abcdef`, reads `[4]`, writes `[2,0]`: output `ab`, unread `ef`, private
-   pending `cd`, status2. At process exit discard private pending without restoring input.
+   pending `cd`, status 2. At process exit discard private pending without restoring input.
 5. Formalize the chosen calculus fragment and its representation relation to the Lean
    pointer machine. Prove each primitive and sequence/conditional lifting; compare the
    concrete OCaml interpreter empirically until its own preservation theorem exists.

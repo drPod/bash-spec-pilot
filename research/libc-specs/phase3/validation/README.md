@@ -1,12 +1,10 @@
 # Phase3 pointer-event validation of the frozen relay.c (`ptrcheck`)
 
-Independent implementation/validation artifact (Claude Fable 5.1 worker, 2026-09-07) for
-the phase3 pointer-machine direction. It checks that the **real compiled loop** of the
-frozen phase2 `relay.c` (sha256 `c5abc06f…afe68`, never edited) performs exactly the
-pointer/range/byte events that an independent pointer-machine reference predicts, on every
-intercepted `read`/`write` call, not only in its final stdout/status. It is separate from
-phase2's `validation/` (different filenames, symbols `probe_read`/`probe_write`, package
-`ptrcheck`) and does **not** model C as a copy of `BufferRelay.lean`.
+Check that the **real compiled loop** of the frozen phase2 `relay.c` (sha256 `c5abc06f…afe68`, never edited) performs exactly the pointer/range/byte events that an independent pointer-machine reference predicts, on every intercepted `read`/`write` call, not only in its final stdout/status.
+
+Independent C/Python traces, hand cases, invariants and mutations. The standard replay (see [phase3 results](../RESULTS.md)) passed all 962 cases against three C variants and the shared Lean event projection.
+
+Separate from phase2's `validation/` (different filenames, symbols `probe_read`/`probe_write`, package `ptrcheck`). It does **not** model C as a copy of `BufferRelay.lean`. Local-stage 2026-09-07 executable evidence; not a C semantics theorem, libc/kernel claim, or the later whole-program result in [`../../phase5/evaluation/DRAFT-PAPER.md`](../../phase5/evaluation/DRAFT-PAPER.md).
 
 | Artifact | Role |
 |---|---|
@@ -26,17 +24,11 @@ phase2's `validation/` (different filenames, symbols `probe_read`/`probe_write`,
 ## Invocation (from this directory; `uv` + Python 3.12 stdlib only)
 
 ```sh
-# 1. Python-only self-test; no compiler, no tested program (safe while another worker owns the compiler slot)
 uv run --no-project python -B validate_pointer.py --mode selftest --out ~/.cache/bash-spec-pilot/phase3-ptrcheck
-
-# 2. Plan: corpus + reference traces + the exact bounded compiler commands, nothing compiled/executed
 uv run --no-project python -B validate_pointer.py --mode dry-run --tier standard --out ~/.cache/bash-spec-pilot/phase3-ptrcheck
-
-# 3. Full run (needs the compiler slot): serial build, 962-case corpus, ~12 bounded processes per case
 uv run --no-project python -B validate_pointer.py --mode full --tier quick    --out ~/.cache/bash-spec-pilot/phase3-ptrcheck
 uv run --no-project python -B validate_pointer.py --mode full --tier standard --out ~/.cache/bash-spec-pilot/phase3-ptrcheck --budget-seconds 600
 
-# One reference document for the Lean trace adapter, or validation of any producer's document
 uv run --no-project python -B reference_trace.py --input-hex 616263646566 --reads 4 --writes 2,0
 uv run --no-project python -B reference_trace.py --check-doc /path/to/lean_or_c_trace.json
 ```
@@ -62,12 +54,7 @@ and the external 3 s kill.
 | each tested program | 256 MiB | 3 s | 3 s (process-group SIGKILL) | core 0, fsize 16 MiB, capture 8 MiB, regular files only |
 | parent validator | 2 GiB | 900 s | `--budget-seconds` | fsize 256 MiB |
 
-## Validation and integration
-
-Main executed the independent harness after the authoring worker finished. The standard
-replay passed all 962 cases against three C variants and the shared Lean event projection;
-see [phase3 results](../RESULTS.md) for the final measured run and exact source hashes.
-The authoring worker did not run compilers; the main orchestrator owns the serial build slot.
+## Validation notes
 
 Review fixed an exit-record lifetime bug before any C evidence was reported: intercepted
 calls copy the live defined prefix into a static shadow, and the exit record reads only
@@ -101,6 +88,5 @@ fails as predicted (fd isolation works); every mutant is distinguished, with the
 stating whether by abort, by wire-visible output, or **only by the event trace**
 (`request_one_byte`, `wrong_residual_request` and `read_request_31` are expected to be
 event-only on many cases: identical stdout/status/counters, different pointer events).
-This is executable evidence about the compiled relay under a deterministic adapter; it is
-not a C semantics theorem, not a libc/kernel claim, and does not exhaust byte strings or
-schedules beyond the listed products.
+This is executable evidence about the compiled relay under a deterministic adapter; it
+does not exhaust byte strings or schedules beyond the listed products.

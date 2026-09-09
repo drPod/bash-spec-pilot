@@ -1,17 +1,17 @@
 # Supported source and frontend boundary
 
-`frontend.py` recognizes one complete C translation-unit schema and selects the reviewed
-`BufferRelay.run` model. **C-to-AST parsing and AST-to-model correspondence are unverified.**
-The emitted `GeneratedRelay.binding_is_reference` is an alias equality proved by `rfl`.
-It is a provenance aid, not a C semantic preservation theorem.
+Document the pattern frontend that recognizes one complete C translation-unit schema and selects the reviewed `BufferRelay.run` model.
+
+C-to-AST parsing and AST-to-model correspondence are unverified. The emitted `GeneratedRelay.binding_is_reference` is an alias equality proved by `rfl`: a provenance aid, not a C semantic preservation theorem.
+
+This is a pattern frontend for `relay.c`, not a compiler for a general C subset. Local-stage 2026-09-07; later Clight/Lean translation in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md) is a separate trusted path.
 
 The accepted schema is the complete AST of `relay.c`, independently constructed in
 `EXPECTED_AST`. It fixes the two includes (in order), `int relay(void)`, local declarations,
 32-byte unsigned-char array, descriptor numbers, sign checks, explicit `size_t` casts,
 loop conditions, pointer/residual expressions, assignments and return statuses. Changed
 capacity, renamed variables, alternative control flow and additional code are rejected,
-even when a programmer could prove them equivalent. This is a pattern frontend, not a
-compiler for a general supported subset of C.
+even when a programmer could prove them equivalent.
 
 The parser recognizes enough declarations, blocks, while/if/return statements, assignments,
 integer literals, calls, casts and precedence-ranked expressions to compare this whole
@@ -26,7 +26,7 @@ trigraph sequences, lone CR, NUL, non-ASCII source, literal suffixes, alternate 
 spellings, strings, extra functions/globals, trailing tokens, shadow declarations and
 unsupported operators are rejected. Comments are replaced by spaces to preserve tokens.
 
-Independent review found a material bug: a lone CR inside a `//` comment could hide an
+A material lexer bug: a lone CR inside a `//` comment could hide an
 early return from the recognizer while GCC treated it as a new line. The lexer now
 normalizes CRLF and rejects remaining CR before stripping comments. Regressions cover
 hidden statements/directives and retain accepted CRLF. This correction matters because
@@ -54,5 +54,5 @@ WG14's [C11 committee draft N1570](https://www.open-std.org/jtc1/sc22/wg14/www/d
 conversion and pointer arithmetic. The Lean model uses mathematical integers and bounded
 memory indices. The source checks signs before casts and all successful counts are at most
 32, but this experiment has no theorem connecting those C operations to the Lean operations.
-A next refinement phase must supply that semantic relation rather than strengthen the
+A later refinement must supply that semantic relation rather than strengthen the
 wording attached to this alias.

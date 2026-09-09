@@ -1,13 +1,10 @@
 # Paper contribution and evidence criteria
 
-Working research question: can reusable, observation-aware library contracts and
-checked utility summaries make verification of generated shell fragments more
-reliable and less repetitive than hand-specifying each utility?
+State a falsifiable working question and gates that would be needed before a submission claim. This is criteria, not established novelty or acceptance.
 
-This is a falsifiable hypothesis, not established novelty or an acceptance claim.
-The relay pilot is too small to support a prestigious-conference systems claim by
-itself. The purpose of this phase is to remove a real proof gap and make the next
-evaluation capable of rejecting the hypothesis.
+**Working question.** Can reusable, observation-aware library contracts and checked utility summaries make verification of generated shell fragments more reliable and less repetitive than hand-specifying each utility?
+
+The relay pilot is too small to support a systems-conference claim by itself. Later whole-program Lean results and the UTF-8 negative calibration are recorded in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md); they do not automatically satisfy every gate below.
 
 ## Candidate contribution
 
@@ -52,10 +49,10 @@ as the input to formal reasoning.
 No fixed task count can guarantee acceptance. Begin an evaluation with at least
 three structurally different utilities and several contexts per utility, then
 expand until the scope claimed by the paper is represented. State exactly which
-implementations and options are included. Candidate next slices are a byte counter,
-a newline counter with a real buffer loop, a prefix-limited copier, and a buffered
-delimiter transform; select actual source only after checking the frontend surface.
-These are proposed tasks, not completed utility-verification results.
+implementations and options are included. Candidate next slices (proposed, not
+completed here): a byte counter, a newline counter with a real buffer loop, a
+prefix-limited copier, and a buffered delimiter transform; select actual source
+only after checking the frontend surface.
 
 ## Separate the three LLM problems
 
@@ -66,10 +63,10 @@ These are proposed tasks, not completed utility-verification results.
 2. Proof generation: give each worker the same frozen semantics, contracts,
    program and theorem types. Permit only proof-region edits. Record each initial
    attempt and each feedback round, model identity, command limits, elapsed time,
-   and expert repairs. The current collaborative development is not this study.
+   and expert repairs. Collaborative development of this repository is not that study.
 3. Intent-to-query generation: keep the human task description, accepted query,
    assumptions and alternative readings separate. Evaluate this independently;
-   it remains outside the current checked relay experiment.
+   it remains outside the checked relay experiment.
 
 Use a hand-authored/existing-contract baseline, a description-based utility
 summary baseline, and a C-derived summary condition where supported. Compare the

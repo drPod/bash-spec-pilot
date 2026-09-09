@@ -1,10 +1,10 @@
 # Common pointer-event trace schema (`pointer-relay-trace/1`)
 
-One JSON document per execution of the frozen `relay.c` under the phase2 deterministic
-adapter. The same shape is produced by the C probe (`producer: "c:<exe>"`), the Python
-pointer-machine reference (`"model"`) and the hand-derived vectors (`"hand"`). The
-Lean adapter uses the smaller projection documented below. Field values
-are plain JSON integers and lowercase hex strings; no floats, no nulls in core fields.
+One JSON document per execution of the frozen `relay.c` under the phase2 deterministic adapter.
+
+The same shape is produced by the C probe (`producer: "c:<exe>"`), the Python pointer-machine reference (`"model"`) and the hand-derived vectors (`"hand"`). The Lean adapter uses the smaller projection documented below.
+
+Field values are plain JSON integers and lowercase hex strings; no floats, no nulls in core fields. A digest alone is not a semantics proof. Local-stage schema for phase3 validation, not a claim about later whole-program compilation.
 
 ```json
 {
@@ -59,7 +59,7 @@ original relay traces. Mutant executions may violate it.
 `trace_sha256(doc)` = SHA-256 of the canonical JSON (`sort_keys`, separators `,`/`:`,
 ASCII) of `{"case": …, "events": [core fields only], "final": [FINAL fields only]}`. Extra
 keys never enter the hash, so identical canonical documents from different producers have the same hash.
-The checker also compares fields; a digest alone is not a semantics proof. `reference_trace.py --check-doc FILE` validates any
+The checker also compares fields. `reference_trace.py --check-doc FILE` validates any
 document, runs the model-free invariants, compares it with the reference and prints its hash.
 
 ## Probe wire format (raw JSONL, one object per line)
@@ -86,7 +86,7 @@ positive transfer; a positive scheduled read quota can still return EOF.
 
 Descriptor arguments, schedule-source tags, initialization metadata and physical memory
 snapshots remain C/Python checks. Lean does not emit them. In particular, after EOF the
-C probe/Python reports valid chunk length0, while Lean retains the initialized length
+C probe/Python reports valid chunk length 0, while Lean retains the initialized length
 from the last successful read. We compare terminal pending bytes without asserting
 identity of these different metadata meanings. Lean's JSON `status` is the modeled relay
-status; the trace-producing host executable exits0 whenever serialization succeeds.
+status; the trace-producing host executable exits 0 whenever serialization succeeds.

@@ -1,14 +1,8 @@
 # Phase 1: checked models and explicit gaps
 
-2026-09-07. Astra orchestration; two bounded Astra workers plus two sequentially introduced
-Claude Fable 5.1 CLI contributions. At most three workers were active; the first Claude's files
-were reviewed read-only until it exited. No controlled model comparison was performed.
+Initial experiments, 7 September 2026. These results establish small memory, byte and counter models and identify errors in the original input representation and checker. Later utility and script proofs are described in the [paper](phase5/evaluation/paper.pdf).
 
-The substantive result is a small set of checked refinement ingredients, together with concrete
-counterexamples to overly strong claims about the original pipeline. **This is not a paper-ready
-verification of C utilities or Bash.** Source and reusable replay commands are in this directory;
-`data/phase1_results.json` records hashes, tool versions, measured results and the axiom manifests.
-Private worker conversations and runtime logs are not part of the source tree.
+The experiments were developed with agent assistance and compiler feedback. They were not a controlled model comparison. [phase1_results.json](data/phase1_results.json) records source hashes, tool versions, measurements and assumption audits.
 
 ## What the Lean kernel checked
 
@@ -35,8 +29,7 @@ satisfies their preconditions.
 
 ## Independent byte validation
 
-A second Claude worker wrote a C companion and raw subprocess validator independently. Astra
-reviewed the driver, staged/rebuilt the final sources, and reran the fixed corpus. Linux x86_64,
+An independently written C companion and raw-subprocess validator checked the fixed corpus against the rebuilt sources. Linux x86_64,
 glibc 2.39, GCC 13.3.0, Lean 4.31.0, GNU coreutils 9.4; C compiled with `-std=c11 -O2 -Wall -Wextra`.
 Every comparison uses exact stdout bytes, exact empty stderr and exit status 0.
 
@@ -73,8 +66,7 @@ Sequential integrated checks on OVH (single observed runs; no statistical speed 
 These are GNU time process-tree high-water measurements, **not simultaneous total host RAM**.
 Lean4.31 and core/Std caches were already installed; the executable measurement includes a fresh
 small project build, not downloading/building the toolchain. Build concurrency was limited, and
-all generated build files stayed outside the source/sync tree. The small proof workload does not
-justify a Mac runner or remote setup. No Mac execution occurred. Interpreter runtime RSS on the
+all generated build files stayed outside the source/sync tree. Interpreter runtime RSS on the
 prototype's approximately 1 MiB cases reached roughly 58–140 MiB; larger workloads need separate
 measurement and likely a better environment representation.
 
@@ -99,8 +91,7 @@ axiom inspection alone does not verify their correspondence to logical definitio
 
 ## Survey corrections and paper positioning
 
-The first Claude survey usefully collected default headers and sources, but several conclusions
-were too broad. They have been revised:
+The initial survey required the following corrections:
 
 - VeriFast `bin/stdio_simple.h` carries content-bearing I/O protocols and failure branches;
   `examples/abstract_io` demonstrates buffering/flush layering. ESOP 2015 is direct relevant work.
@@ -116,10 +107,9 @@ were too broad. They have been revised:
 
 Primary citations and version-specific caveats are in [the I/O review](04_io_prior_art.md);
 the [revised approach](02_spec_generation_approach.md) fixes semantic/theorem obligations before
-measuring generation. These corrections strengthen the research question by grounding it in actual
-reuse and refinement work instead of an unsupported claim that I/O specifications do not exist.
+measuring generation.
 
-## A defensible next phase
+## Proposed next phase (historical)
 
 Freeze one small buffer-using C program, supported syntax, ABI/overflow policy, primitive I/O
 contracts and exact observation theorem. Build a frontend mapping that exposes rather than erases
@@ -130,4 +120,4 @@ query to the chosen trace/state semantics, with a proved representation into Sta
 Only after these boundaries are fixed should a repeated generation study compare proof-only,
 contract-discovery and translation tasks. Preserve failures and independent runs. Candidate paper
 claims are about semantic adequacy and the value/cost of reusable contracts; they remain hypotheses.
-No publication, outreach, purchase, remote execution or fabricated proof/benchmark claim occurred.
+The [current paper](phase5/evaluation/paper.pdf) reports which of these steps were subsequently completed.

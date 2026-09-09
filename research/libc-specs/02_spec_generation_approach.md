@@ -1,11 +1,8 @@
-# Spec generation with explicit refinement boundaries
+# Research design: using C behavior in script verification
 
-Revised 2026-09-07 after independent Astra review of the first Claude survey and examples.
-This is a research proposal informed by checked experiments, not an implemented C/Bash verifier.
-See `03_review_and_results.md` for the evidence and claim limits.
+Historical proposal, 7 September 2026. This document records the design after the initial experiments. See the [paper](phase5/evaluation/paper.pdf) for the subsequent implementation and findings, and [initial results](03_review_and_results.md) for the evidence available when this proposal was written.
 
-The useful hypothesis is that **reusable library contracts, a fixed C semantics, and checked
-utility-specific refinement proofs can reduce repeated utility-specification work**. Using C as a
+The hypothesis is that reusable library contracts and proofs connecting utility implementations to a common execution model can reduce repeated specification work. Using C as a
 specification does not remove the need to define C execution, memory, environmental behavior, the
 translation, and the observation boundary. The implementation can also contain bugs or deliberate
 choices that differ from the user's query. A successful proof must connect these distinct objects.
@@ -53,8 +50,7 @@ not a proof of a C frontend's type conversion or integer instruction semantics.
 
 Reuse functional memory predicates and I/O trace specifications from prior work, including VST,
 VeriFast's **stdio_simple.h** and I/O examples, and interaction trees. Porting between their logics
-and Lean must preserve their assumptions; it is not merely a syntax translation. The initial
-survey's inference from default stdio headers to absence of functional I/O specifications was wrong.
+and Lean must preserve their assumptions; it is not merely a syntax translation. The [I/O review](04_io_prior_art.md) documents existing functional specifications.
 
 ## 3. Order the library work by observable effects
 
@@ -86,8 +82,7 @@ configuration, callsites, and manual validation of a sample; gnulib dependencies
   equivalent, irrelevant to the intended property, or expose a weak contract. Do not label all
   survivors vacuous.
 - For a later measured study, preregister task selection, repetitions, feedback budget and success
-  criteria. Include proof-only, contract-discovery and translation conditions separately. CLI
-  subscription workers can run these tasks; an OpenAI API key or OpenScience OAuth is not required.
+  criteria. Include proof-only, contract-discovery and translation conditions separately.
 
 ## 5. Translation and shell composition remain proof obligations
 
@@ -102,10 +97,9 @@ A subsequent utility proof should connect a buffer-using C program to the memory
 establish buffer validity, progress and error handling. Then prove a bounded shell composition,
 such as successful byte-stream concatenation feeding a fixed newline counter, against a trace
 query. Existing append/relay theorems supply ingredients, **not Bash parsing, pipe, scheduling,
-redirection or process semantics**. The mapping into Aaron's State Calculus must specify heap,
-stream and process observations and prove a simulation; no such translation exists in this phase.
+redirection or process semantics**. The mapping into State Calculus must specify heap, stream and process observations and prove a simulation. That translation had not been implemented at this stage.
 
-## 6. Next milestones and falsifiable outcomes
+## 6. Planned sequence (historical)
 
 1. **Completed here:** arbitrary-byte MiniC execution; information-loss impossibility theorem;
    finite-buffer frame/relay proofs; modular arithmetic and no-overflow refinement; independent

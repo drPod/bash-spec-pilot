@@ -1,9 +1,10 @@
 # Buffer relay protocol and proof boundary
 
-The example is a 32-byte relay loop with two explicit failures: status 1 on read error,
-status 2 on a nonpositive write result. It retries positive short writes until the current
-read chunk is drained, then reads again. Status 0 means it observed EOF after draining all
-previous chunks. `relay.c` is intentionally a small experiment, not GNU cat or a full utility.
+Define the scheduled I/O protocol and Lean proof boundary for a 32-byte relay loop.
+
+The model retries positive short writes until the current read chunk is drained, then reads again. Status 1 is read error; status 2 is a nonpositive write; status 0 is EOF after draining previous chunks.
+
+`relay.c` is a small local-stage experiment, not GNU cat. C translation, native runtime, and later script composition (see [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md)) are outside this protocol.
 
 ## Deterministic primitive environment
 
@@ -52,8 +53,8 @@ The inner drain operates on that loaded immutable byte list. Theorems establish:
   positive-read, memory readback/frame, local slice-to-pointer-load and range/progress lemmas.
 
 The pointer bridge is **local**. There is no execution-indexed trace refinement proving that
-every list-drain step implements a pointer-machine write step. There is no C memory, cast,
-compiler or runtime preservation theorem. The full array request is checked locally, and
+every list-drain step implements a pointer-machine write step (that is a later phase3 obligation).
+There is no C memory, cast, compiler or runtime preservation theorem. The full array request is checked locally, and
 untouched cells are preserved; uninitialized-cell tags, allocation lifetime/provenance,
 shared memory and a full descriptor table are absent. A reader must not infer these missing
 properties from an axiom audit of the model's theorems.
@@ -83,18 +84,18 @@ stop after at most cap+1 bytes, but a host read can still block. The Lean driver
 pure outcome then performs actual stdout IO; real stdout delivery failure is outside its
 pure proof and diagnostic protocol. Process deadlines supply operational test bounds.
 
-For input `abc`, reads `[3,-1]` and default writes give output `abc`, status 1, consumed 3,
-2 reads and 1 write. Thus output=input does not imply success. For input `abcdef`, reads `[4]`
-and writes `[2,0]` give output `ab`, pending `cd`, unread `ef`, status 2, consumed 4, 1 read
-and 2 writes. These are independent hand-calculated test vectors as well as useful distinctions
-for a future shell observation model.
+| Input | Reads | Writes | Output | Status | consumed | reads | writes | Notes |
+|---|---|---|---|---:|---:|---:|---:|---|
+| `abc` | `[3,-1]` | default | `abc` | 1 | 3 | 2 | 1 | output=input does not imply success |
+| `abcdef` | `[4]` | `[2,0]` | `ab` | 2 | 4 | 1 | 2 | pending `cd`, unread `ef` |
+
+These are independent hand-calculated test vectors.
 
 ## Research interpretation
 
-The phase1 [I/O prior-art review](../04_io_prior_art.md) already identifies compositional I/O
+The phase1 [I/O prior-art review](../04_io_prior_art.md) identifies compositional I/O
 verification, buffered VeriFast examples, DeepWeb's C/ITree refinement and Interaction Trees.
 This phase adopts their general lesson of separating memory, protocol and observation.
-It does not claim novelty or reproduce their historical builds. Delphi's local indexed PDFs
-were queried for navigation; primary papers and pinned sources remain the citation authority.
-The remaining paper question is which translation and composition obligations this workflow
-can actually discharge. No State Calculus or Bash composition theorem is present yet.
+It does not claim novelty or reproduce their historical builds. Primary papers and pinned sources remain the citation authority.
+
+This protocol does not itself contain a State Calculus or Bash composition theorem.

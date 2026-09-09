@@ -1,8 +1,10 @@
 # From utility C to a defensible script theorem
 
-This is a research architecture and obligation ledger, not a claim of a completed
-Bash verifier. The running experiment is the frozen 32-byte relay from phase2.
-Checked phase3 results are reported in [RESULTS.md](RESULTS.md).
+Research architecture and obligation ledger for connecting a fixed utility source to a script-level theorem.
+
+The running experiment is the frozen 32-byte relay from phase2. Checked phase3 results are in [RESULTS.md](RESULTS.md). This document does not claim a completed Bash verifier.
+
+Local-stage architecture (2026-09-07). Later Lean script compilation and Coq/VST case studies are in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md); they do not discharge every obligation listed here.
 
 ## What the source-as-specification proposal buys
 
@@ -40,8 +42,7 @@ Pure function composition over completed stdout strings is not that model.
 
 The final query theorem is conditional on all these bridges, plus the meaning of
 the accepted formal query. A proof against an LLM-generated query proves that query;
-it does not prove the query faithfully represents an English request. Keep human
-review of the formal intent visible in the research protocol.
+it does not prove the query faithfully represents an English request.
 
 | Boundary | Evidence available before phase3 | Required next evidence |
 |---|---|---|
@@ -61,14 +62,11 @@ the selected model does not prove either of the first two boundaries.
 The local Astrogator draft, `POPL_2027_Astrogator.pdf`, §5.2.1/Fig.4 defines state
 with attributes and nested elements, stateful function calls, return/failure,
 conditionals, and foreach. §7.2/Fig.6 uses a hand-translated Bash example and
-handwritten utility definitions. These are the actual interfaces to examine;
-this phase does not assume an unseen current parser implements a richer language.
-The public `bash` branch has now been inspected at commit
+handwritten utility definitions. The public `bash` branch was inspected at commit
 `190dd8491b258d8a0ee29f79629908540236b332`: its newer frontend and calculus include
 while loops and state references; Return/Raise retain resulting state, unlike the
 separate interpreter Failure result. See the [pinned implementation review](STATE-CALCULUS-INTEGRATION.md)
-for exact files and a concrete integration handoff. No OCaml build or source-preservation
-proof is claimed. Private conversation text remains outside this repository.
+for exact files. No OCaml build or source-preservation proof is claimed.
 
 For the relay, a candidate representation is:
 
@@ -94,8 +92,7 @@ The critical question is whether the calculus can preserve **partial effects wit
 failure**. A relay delivering `ab` then failing with `cd` pending and `ef` unread
 cannot be modeled as an atomic rollback or an unconditional copy. A relay that
 delivers `abc` then receives a read error cannot be modeled as success merely
-because its output equals the input. The accompanying command-context experiment
-makes this loss observable.
+because its output equals the input.
 
 `RelayComposition` makes a deliberate process-exit projection: contexts retain
 the unread stream, delivered stream and exit status, while relay-private pending
@@ -108,7 +105,7 @@ traces, or another shared resource needs a richer state and a new simulation.
 It does not describe running two eager-ingestion validation drivers on shared
 host stdin: those drivers pre-read the host input before modeled execution.
 
-Likewise, the pointer machine's `n` means the initialized prefix from the last
+The pointer machine's `n` means the initialized prefix from the last
 nonempty successful read. It remains three after the EOF following `abc`, while
 the C variable `n` becomes zero. No scalar-state identity with C is claimed.
 The `pointer-trace` runtime emits the modeled status in JSON and exits zero when
@@ -127,11 +124,10 @@ tests. The separate Bash tests execute the controlled C relay driver.
 | [Fulminate, POPL 2025](https://www.cl.cam.ac.uk/~pes20/cn-testing-popl2025.pdf), §§2–5 | Reified ownership checks and the same contract used for runtime testing and proof | CN/Cerberus infrastructure and ownership fragment, not this Lean I/O interface |
 | [Smoosh, POPL 2020](https://mgree.github.io/papers/popl2020_smoosh.pdf), §§3–6 | Executable shell semantics parameterized by OS operations; explicit expansion and command structure | POSIX-shell interpretation and implementation boundary; porting or refinement to our chosen Bash fragment is not automatic |
 
-The reuse recommendation is to borrow and precisely adapt these semantic patterns,
-then prove their bridges. Do not pursue a complete replacement libc corpus first.
+Borrow and adapt these semantic patterns, then prove their bridges.
+Do not pursue a complete replacement libc corpus first.
 Functional I/O specifications, source lifting, and testing contracts are established
-prior art; their mere presence in our system cannot be the novelty claim. The
-phase1 [pinned I/O review](../04_io_prior_art.md) records detailed artifact caveats.
+prior art. The phase1 [pinned I/O review](../04_io_prior_art.md) records detailed artifact caveats.
 
 ## The bounded next C frontend decision
 
@@ -142,10 +138,9 @@ tests, conversion to `size_t` after guards, short-circuiting, and while executio
 Reject every other construct explicitly. State the semantics origin and prove
 the typed AST's relation to the pointer machine; keep raw C parsing as a named
 trusted boundary until independently verified. This is a feasible next proof
-target and a useful diagnostic slice, not a plan to claim general C support.
+target, not a plan to claim general C support.
 
-In parallel with that future implementation, compare the cost of reusing an
-existing verified lifting path. A parser and attractive generated Lean do not
+A parser and attractive generated Lean do not
 justify rebuilding decades of C semantics. Adopt another ecosystem if it offers
-a smaller defensible trust boundary for the intended paper; Lean-only novelty
+a smaller defensible trust boundary; Lean-only novelty
 is not a sufficient research reason to reject reuse.

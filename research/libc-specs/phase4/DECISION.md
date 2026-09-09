@@ -1,27 +1,24 @@
 # Backend decision: reuse VST/CompCert for the C proof
 
-Decision date: 2026-09-07. **Choose VST/CompCert as the primary C proof backend.**
-Use VeriFast for fast contract-development experiments and as an automation comparator.
-Keep AutoCorres2 as the fallback if the VST semantic-adequacy experiment exposes a
-substantially worse proof boundary. Do not build a general C semantics or frontend in Lean.
+Record the 2026-09-07 adoption decision and the checked VeriFast feasibility experiment.
 
-This is a reasoned adoption decision with a checked VeriFast feasibility experiment.
-It is not a claim that a VST relay proof has already been completed, or an experimental
-performance ranking of all four systems. No VST/Coq/Isabelle/Frama-C build ran in this phase.
+**Choose VST/CompCert as the primary C proof backend.** Use VeriFast for fast contract-development experiments and as an automation comparator. Keep AutoCorres2 as the fallback if the VST semantic-adequacy experiment exposes a substantially worse proof boundary. Do not build a general C semantics or frontend in Lean.
+
+Not a claim that a VST relay proof was completed in this phase, or an experimental performance ranking of all four systems. No VST/Coq/Isabelle/Frama-C build ran here. Later Coq/VST work in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md) is subsequent.
 
 ## Why this choice
 
-The missing research result is a connection from actual utility C behavior to the
+The missing research result (at this date) is a connection from actual utility C behavior to the
 observations a shell query needs. VST's Verifiable C logic has an established soundness
 connection to CompCert C semantics. It offers existing memory ownership, C types/casts,
-loop reasoning and external-function contracts. Those are exactly the components we
-should reuse instead of expanding our own small Lean model into a C verifier.
+loop reasoning and external-function contracts. Those are the components to
+reuse instead of expanding the small Lean model into a C verifier.
 [Primary VST description](https://vst.cs.princeton.edu/).
 
-The I/O precedent is particularly relevant. VST's existing I/O assertions and DeepWeb's
+VST's existing I/O assertions and DeepWeb's
 C-to-effect-model development supply patterns for connecting concrete buffers to effect
 protocols. They still need adaptation for block reads, short writes, distinct EOF/errors
-and our chosen observations. Borrow the relevant pieces; importing all of DeepWeb is not
+and the chosen observations. Borrow the relevant pieces; importing all of DeepWeb is not
 a prerequisite. See [the earlier pinned artifact review](../04_io_prior_art.md).
 
 | Option | Role chosen | Reason and remaining cost |
@@ -46,18 +43,18 @@ Existing `chars`, `chars_`, split/join and signed/unsigned byte-ownership conver
 handle the buffer. We wrote no replacement heap model or new memory lemma.
 
 The check covers allocated/initialized request ranges, guarded casts, bounded pointer
-advance, stack ownership and result0..2 on return. Read/write are assumed modular
+advance, stack ownership and result 0..2 on return. Read/write are assumed modular
 contracts. There is no input stream or output log in this small contract, so neither EOF,
 byte delivery nor termination is established by it.
 
 | Experiment | Actual outcome |
 |---|---|
-| Original annotated relay | VeriFast accepts;25 statements checked |
-| Read request33 into32-byte buffer | Rejected at the declared read precondition |
+| Original annotated relay | VeriFast accepts; 25 statements checked |
+| Read request 33 into 32-byte buffer | Rejected at the declared read precondition |
 | Retry requests n instead of n-off | Rejected for insufficient initialized suffix ownership |
 | Retry after zero write | Accepted: partial correctness permits divergence |
 | Retry writes from buffer base | Accepted after adjusting ghost partition to that actual range: memory safety does not imply correct bytes |
-| Upstream buffered-I/O implementation | Accepted;60 statements checked |
+| Upstream buffered-I/O implementation | Accepted; 60 statements checked |
 
 For the zero-retry and wrong-pointer controls, annotations are adjusted to the changed
 control flow/range while the same external and public function contracts remain fixed.
@@ -72,7 +69,7 @@ successful functional verification in the VST pilot either.
 
 ## Version and assumption discipline
 
-Use the released **VST2.15 / Coq8.20.0 / CompCert3.15** combination, with VST pinned at
+Use the released **VST 2.15 / Coq 8.20.0 / CompCert 3.15** combination, with VST pinned at
 `5736832b383a4e882e82a4925b335dfc401e39c2`. The release description, Makefile and actual
 released opam package metadata support this choice. The VST repository's own opam file
 at that tag has stale constraints; use the released package metadata, not a naive pin
@@ -89,7 +86,7 @@ for our restricted protocol or state those assumptions explicitly, and distingui
 source/Clight, compiler and host-OS claims. A body proof alone is not the final adequacy
 result. No verified host-libc claim follows from assumed external contracts.
 
-## Lean and Aaron's State Calculus
+## Lean and the located State Calculus
 
 VST proofs live in Rocq/Coq. **No automatic checked import into Lean has been established.**
 Preserve the existing Lean reference/proofs and record the requested Lean-final-checker
@@ -97,12 +94,12 @@ connection as unresolved; do not silently declare that requirement satisfied or 
 A Lean theorem assuming a utility simulation remains conditional on that assumption.
 
 For the smallest end-to-end research experiment, backend-native command composition is
-an attractive alternative: prove the small sequencing/conditional observation grammar
-in the same assistant as the C theorem. Treat that as an explicit architectural option,
-not an already approved replacement for a mandatory Lean trust anchor. A certified
-cross-assistant bridge is a separate project and is not the default near-term implementation.
+an architectural option: prove the small sequencing/conditional observation grammar
+in the same assistant as the C theorem. Treat that as explicit, not an already approved
+replacement for a mandatory Lean trust anchor. A certified
+cross-assistant bridge is a separate project.
 
-Reuse Aaron's located frontend rather than writing a new spec-language parser. Its
+Reuse the located frontend rather than writing a new spec-language parser. Its
 OCaml interpreter and an imported contract/proof bundle still need a representation and
 soundness connection. Package the observable contract, assumptions, source identity and
 proof together; exporting JSON is not exporting a proof.

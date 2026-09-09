@@ -1,3 +1,7 @@
-# Shared artifact milestones 180
+# Catalog checkpoint 180
 
-Targeted acceptances170 and173 only. Full replay and source-link scope audit remain open. See import-summary.json for verified catalog readback.
+Historical import record: Shared-integration acceptances (170 and 173).
+
+The import wrote private Atlas records and local OpenScience entries, then checked them by reading them back. See `mapping.json` and `import-summary.json` for the recorded identities and verification.
+
+This checkpoint covers only the results listed here. The [final delivery](../../FINAL-DELIVERY.md) records subsequent completion and the remaining research limitations.

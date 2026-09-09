@@ -2,12 +2,7 @@
 
 > Historical catalog crosswalk. This file records the earlier inventory and does not describe current completion status. See [the current requirements ledger](../REQUIREMENTS.md) and [completion audit](../COMPLETION-AUDIT.md).
 
-Built by research-inventory-5. Left column rows are copied verbatim (workstream/requirement
-names only) from `research/libc-specs/phase5/REQUIREMENTS.md` as of this catalog's generation;
-that file is owned by the orchestrator/root, not by this worker. Right column links to
-`catalog.json` record IDs. This crosswalk does not change any completion status; it only
-locates the evidence REQUIREMENTS.md already cites (plus evidence produced after its last
-edit) inside the machine-readable catalog.
+The table maps requirement names at the initial catalog checkpoint to `catalog.json` record IDs. Its outstanding-work column describes that checkpoint; later results are recorded in the current ledger linked above.
 
 | REQUIREMENTS.md row | Catalog evidence | Still open (per REQUIREMENTS.md / this catalog) |
 |---|---|---|

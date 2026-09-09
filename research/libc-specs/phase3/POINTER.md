@@ -1,9 +1,10 @@
 # Pointer execution refinement
 
-`PointerCore.lean` and `PointerRelay.lean` give the frozen phase2 relay a separate, executable pointer
-machine and proves agreement for every terminal execution of its small-step
-relation. It does not translate C. `BufferRelay.lean`, `MemoryTransfer.lean`, and
-all frozen phase1/phase2 artifacts are unchanged.
+Give the frozen phase2 relay a separate, executable pointer machine and prove agreement for every terminal execution of its small-step relation.
+
+`PointerCore.lean` and `PointerRelay.lean` establish Lean-to-Lean execution refinement, reachable request safety, and nonvacuous termination. `BufferRelay.lean`, `MemoryTransfer.lean`, and frozen phase1/phase2 artifacts are unchanged. The development does not translate C.
+
+Local-stage 2026-09-07 pointer refinement, not the later generated-Clight/script connection in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md).
 
 ## State and operations
 
@@ -113,42 +114,34 @@ allocations, descriptor table, actual POSIX syscall semantics, or runtime/OS
 preservation theorem. Initialization is tracked by the current prefix and its
 read history; no general uninitialized-value semantics is claimed. The C parser,
 source-to-model mapping, compilation, and driver/host I/O remain unverified.
-The present theorem cannot establish those absent translation obligations.
 
 ## Proof replay and audit
 
 The modules import only frozen `BufferRelay` and its frozen `MemoryTransfer`/Std
-closure. Development used Lean 4.31.0 and copied existing phase2 dependency
-artifacts into a private cache. Every Lean compiler command used one thread,
+closure. Development used Lean 4.31.0. Every Lean compiler command used one thread,
 `-j1 -s16384 -DwarningAsError=true`, `LEAN_NUM_THREADS=1`,
 `LEAN_STACK_SIZE_KB=16384`, a 120-second timeout/CPU bound, and a 3 GiB address-space
-limit. Compiler invocations were serialized. Private GNU-time logs retain wall
-time, peak RSS, return codes, and all unsuccessful elaboration attempts.
+limit. Compiler invocations were serialized.
 
 `PointerAxioms.lean` explicitly names every source declaration for axiom auditing,
 including the operational definitions, relations, refinement theorems, and
 examples. The final exact dependency output is recorded in `results.json`. Only `propext`, `Classical.choice`, and `Quot.sound` are
 permitted; no admitted proof, native-decision proof, or custom axiom is used.
-The main phase3 replay tooling rebuilds the frozen imports and new modules
-serially and checks the audit output separately from source selection.
 
-The successful development export used two source modules to stay within the
-address-space bound: `PointerCore` (state, steps, evaluators, drain proofs), then
-`PointerRelay` (whole-execution refinement, reachability, effects, and examples).
+| Build | Wall s / peak RSS KiB | Exit |
+|---|---|---:|
+| `PointerCore` export | 3.79 / 794624 | 0 |
+| `PointerRelay` export | 4.55 / 803044 | 0 |
+| 92-declaration axiom audit | 0.34 / 726760 | 0 |
+
+Two source modules were required to stay within the address-space bound:
+`PointerCore` (state, steps, evaluators, drain proofs), then `PointerRelay`
+(whole-execution refinement, reachability, effects, and examples).
 The public namespace and `import PointerRelay` API remain unchanged. A monolithic
 version elaborated successfully without `-o` but repeatedly crashed during
 export. Bounded `/proc` sampling measured 3,141,784 KiB virtual size against the
-3,145,728 KiB cap, leaving about 4 MiB headroom. Splitting solved the export
-failure under the original limit, with every universal theorem and all six
-examples retained. This is a tooling/resource failure, not a successful proof
-export, and is recorded separately in the private development logs.
-
-Final development measurements (GNU time, wall seconds / peak RSS KiB):
-`PointerCore` export 3.79 / 794624; `PointerRelay` export 4.55 / 803044;
-92-declaration axiom audit 0.34 / 726760. All three exited 0. The audit found only
-the three permitted standard axioms; each declaration's exact dependency subset
-is retained in the private development manifest and final `results.json`. These measurements reuse
-cached frozen imports; the integrated replay has its own independent build
-measurements. Failed elaborations, the monolithic no-output check, and four
-monolithic export diagnostics are retained rather than counted as successful
-builds.
+3,145,728 KiB cap (~4 MiB headroom). Splitting solved the export
+failure under the original limit. This is a tooling/resource failure, not a successful
+monolithic proof export. Measurements reuse cached frozen imports; the integrated
+replay has independent build measurements. Failed elaborations are retained rather
+than counted as successful builds.

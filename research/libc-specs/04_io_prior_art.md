@@ -1,11 +1,8 @@
 # I/O prior-art review — 2026-09-07
 
-The survey's categorical absence claims are incorrect. Functional I/O specifications, compositional verification of I/O-using C, and executable formal I/O models all have directly relevant prior art. The defensible remaining question is which **scoped contracts, representations, and proof boundaries can be reused in Lean**, not whether substantive I/O specifications exist.
+Existing work provides content-sensitive I/O contracts, compositional C verification and executable effect models. This review asks which contracts and representations can be reused in the project, and which assumptions would need to be preserved when moving between proof systems.
 
-This review inspected primary papers and pinned code; it did not reproduce historical builds.
-The initial survey has been corrected. Local literature filenames and hashes are recorded in
-`literature/README.md`. Delphi now indexes the retrieved PDFs locally for navigation; citations
-and claims remain grounded in the primary papers and source files.
+The review inspected primary papers and pinned code without reproducing their historical builds. Literature filenames and hashes are recorded in `literature/README.md`; Delphi provides a local index. The source and version qualifications below are part of each finding.
 
 ## Penninckx, Jacobs, Piessens — ESOP 2015
 
@@ -13,7 +10,7 @@ and claims remain grounded in the primary papers and source files.
 
 Read §2, §3.1, §4/Theorem 1 (PDF p.15), §5.1/tee, §5.5 (p.20), and limitations. The development uses separation logic over Petri nets to constrain allowed I/O values and order, composing higher-level actions from basic actions. It covers terminating and nonterminating executions but proves no liveness; required output is guaranteed upon termination. The soundness theorem concerns a small language, not all C. Basic actions may be unverified library calls or syscalls. The paper reports VeriFast verification of C examples, including tee with buffering flexibility. Therefore it is direct prior art for content-sensitive modular I/O verification, not a complete verified libc.
 
-The [author's artifact page](https://www.willemp.be/cw/input-output-verification/) separately links a 2016 Coq soundness development and explicitly says its proof rules do not support verifying nonterminating executions, despite the step semantics supporting such runs. Do not silently attribute identical coverage to every artifact/version.
+The [author's artifact page](https://www.willemp.be/cw/input-output-verification/) separately links a 2016 Coq soundness development and explicitly says its proof rules do not support verifying nonterminating executions, despite the step semantics supporting such runs. The paper and later artifact therefore have different stated coverage.
 
 ## VeriFast artifacts: concrete reuse and restrictions
 
@@ -36,7 +33,7 @@ The theorem is conditional on axiomatized OS/library operations. The paper expli
 
 The accessible [DeepSpec/dsss18 repository](https://github.com/DeepSpec/dsss18/tree/1d472606b89f93912497b64e3ee15ddf798aa48a) is pinned at `1d472606b89f93912497b64e3ee15ddf798aa48a`. It is a summer-school demo snapshot, not established here as the final CPP 2019 artifact.
 
-- [`charIO/IO/io_specs.v`](https://github.com/DeepSpec/dsss18/blob/1d472606b89f93912497b64e3ee15ddf798aa48a/charIO/IO/io_specs.v): `putchar_spec` consumes `ITREE (write c ;; k)` and returns `ITREE k`; `getchar_spec` advances the continuation using the returned integer. These are formal behavior contracts, not just footprints. But `putchar` always succeeds and `getchar` constrains signed results to −128…127, so it is not an adequate full libc getchar contract for arbitrary unsigned-byte input. Borrow the protocol structure, review the values/errors.
+- [`charIO/IO/io_specs.v`](https://github.com/DeepSpec/dsss18/blob/1d472606b89f93912497b64e3ee15ddf798aa48a/charIO/IO/io_specs.v): `putchar_spec` consumes `ITREE (write c ;; k)` and returns `ITREE k`; `getchar_spec` advances the continuation using the returned integer. These are formal behavior contracts, not just footprints. But `putchar` always succeeds and `getchar` constrains signed results to −128…127, so it is not an adequate full libc getchar contract for arbitrary unsigned-byte input. Reusing the protocol requires reviewing its value and error assumptions.
 - [`dw/DeepWeb/Spec/Vst/SocketSpecs.v`](https://github.com/DeepSpec/dsss18/blob/1d472606b89f93912497b64e3ee15ddf798aa48a/dw/DeepWeb/Spec/Vst/SocketSpecs.v#L524): `send_spec` allows prefixes; `recv_spec` relates result length to actual buffer contents and branches for positive/zero/error results. `SOCKAPI` is abstract; the file also has explicit representation axioms.
 - [`dw/DeepWeb/Proofs/TopLevelProof.v`](https://github.com/DeepSpec/dsss18/blob/1d472606b89f93912497b64e3ee15ddf798aa48a/dw/DeepWeb/Proofs/TopLevelProof.v): top-level results contain `admit`/`Admitted`. This inspection does **not** independently reproduce the published completion claim, nor refute a later completed artifact.
 
@@ -44,12 +41,12 @@ The accessible [DeepSpec/dsss18 repository](https://github.com/DeepSpec/dsss18/t
 
 **Primary citation:** [Interaction Trees: Representing Recursive and Impure Programs in Coq](https://arxiv.org/pdf/1906.00046), POPL 2020, article 51, DOI 10.1145/3371119. Read §§2–3, 6–7, 9.
 
-`Ret`, `Tau`, and visible events with continuations support effectful and potentially divergent computations. Handlers interpret events compositionally. §6/PDF pp.20–21 demonstrates executable extraction and external handlers; this directly defeats a general claim that formal executable effect models do not exist. The paper also identifies an external-driver boundary and warns about extracted continuation typing; its simple example maps naturals to OCaml integers. Execution is not automatically preservation of every source-level semantic guarantee.
+`Ret`, `Tau`, and visible events with continuations support effectful and potentially divergent computations. Handlers interpret events compositionally. §6/PDF pp.20–21 demonstrates executable extraction and external handlers; this provides an existing executable formal effect model. The paper also identifies an external-driver boundary and warns about extracted continuation typing; its simple example maps naturals to OCaml integers. Execution is not automatically preservation of every source-level semantic guarantee.
 
 §9/PDF p.28 identifies nontrivial portability work and notes Lean's then-lack of built-in coinductive types. Treat this as the paper's 2020 observation, not a checked claim about every present Lean library. ITrees supplies semantic infrastructure, not the whole libc corpus.
 
-## Bounded reusable lesson and experiment
+## Reuse implications and proposed experiment
 
 The relevant decomposition is: fixed program semantics; allowed external-action protocol; concrete heap/buffer relation; refinement between abstraction layers; and an implementation-dependent boundary validated separately. “Executable deterministic transformer” is one possible instantiation, not a prerequisite imposed by prior art or by nondeterministic I/O.
 
-A useful next experiment is one byte-output operation plus buffering: specify a byte-bearing write event with explicit success/failure, define a one-slot buffered writer and flush, and prove that successful flush yields the same ordered byte trace as an unbuffered writer. Keep pending buffer ownership distinct from bytes already delivered. Freeze both specifications before asking an LLM for proof. Test empty flush, one byte, two bytes crossing the flush boundary, and injected write failure against a small controlled adapter. Report separately (1) the kernel theorem between formal layers and (2) evidence that the adapter realizes the primitive contract. This is a bounded exercise in adapting the discovered specification patterns; it is not evidence of novelty or verification of host libc.
+The review proposed one byte-output operation plus buffering: specify a byte-bearing write event with explicit success/failure, define a one-slot buffered writer and flush, and prove that successful flush yields the same ordered byte trace as an unbuffered writer. Keep pending buffer ownership distinct from bytes already delivered. Freeze both specifications before asking an LLM for proof. Test empty flush, one byte, two bytes crossing the flush boundary, and injected write failure against a small controlled adapter. Report separately (1) the kernel theorem between formal layers and (2) evidence that the adapter realizes the primitive contract. This is a bounded exercise in adapting the discovered specification patterns; it is not evidence of novelty or verification of host libc.

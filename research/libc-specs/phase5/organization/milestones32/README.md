@@ -1,7 +1,8 @@
-# organization/milestones32 — sanitized mapping (2026-09-08T13:02:00Z preflight)
+# Catalog checkpoint 32
 
-Versioned pointers only. Not whole-program CLI. Not a Bash OS proof. No full-research
-completion claim. GET-first dedup; originals unmodified; at most three new private hosted
+Historical import snapshot. Counts, accepted results and outstanding items below refer to this checkpoint. See the [final delivery](../../FINAL-DELIVERY.md) for the completed artifact.
+
+The records concern bounded results, not whole-program or host-OS correctness. GET-first dedup; originals unmodified; at most three new private hosted
 nodes (`commit-new` then GET title/summary/content SHA + privacy). Kernel compile ≠ complete.
 
 ## Scope / sources / time

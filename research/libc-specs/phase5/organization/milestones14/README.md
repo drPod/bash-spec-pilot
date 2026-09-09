@@ -1,8 +1,9 @@
-# organization/milestones14 — sanitized mapping (2026-09-08T09:54:50Z preflight)
+# Catalog checkpoint 14
 
-Versioned pointers only. Not whole-program CLI. Not a Bash OS proof. No full-research
-completion claim. Live calculus13 / utility11 files were excluded; calc12 and utility10
-records are **historicalversion** (terminal runtime evidence), not snapshots of current
+Historical import snapshot. Counts, accepted results and outstanding items below refer to this checkpoint. See the [final delivery](../../FINAL-DELIVERY.md) for the completed artifact.
+
+The records concern bounded results, not whole-program or host-OS correctness. Live calculus13 / utility11 files were excluded; calc12 and utility10
+records are **historical versions** (terminal runtime evidence), not snapshots of current
 mutable sources.
 
 ## Scope / sources / time
@@ -39,7 +40,7 @@ After 2340 nodes / 2436 edges / 106 claims (4 claim POSTs; old nodes preserved).
 
 ## Checked vs finite vs still missing
 
-- **Checked (historicalversion):** calc12 six Lean theorems (standard Lean axioms subset, no sorryAx at terminal audit); utility10 `errno_at_address_mapsto` only.
+- **Checked (historical versions):** calc12 six Lean theorems (standard Lean axioms subset, no sorryAx at terminal audit); utility10 `errno_at_address_mapsto` only.
 - **Finite / replay:** artifact 16+1 skip full17; Pi targeted 63/0 as 18th entry, not a fresh full-18.
 - **Docs only:** consolidation-9 four-file factual corrections + ROOT-POST-REVIEW wc_lines/noFullWrite.
 - **Still missing:** full 18-entry fresh artifact; juicy PRE/POST; write_block remaining asserts / relay while / Stmt.WF / lowering; GNU CLI; VSU linking; no requirement newly closed.

@@ -1,4 +1,6 @@
-# Accepted shared-state and typing milestones
+# Catalog checkpoint 76
+
+Historical import snapshot. Counts, accepted results and outstanding items below refer to this checkpoint. See the [final delivery](../../FINAL-DELIVERY.md) for the completed artifact.
 
 Two private Atlas insights and corresponding local OpenScience claims were written idempotently and verified by GET. See mapping.json and import-summary.json. Hosted graph:281 nodes, all private; local project:2353 nodes and2436 edges.
 

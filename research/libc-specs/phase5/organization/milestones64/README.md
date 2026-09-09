@@ -1,4 +1,6 @@
-# Accepted milestones 64
+# Catalog checkpoint 64
+
+Historical import snapshot. Counts, accepted results and outstanding items below refer to this checkpoint. See the [final delivery](../../FINAL-DELIVERY.md) for the completed artifact.
 
 Two private Atlas insight nodes were created and individually fetched back with exact title/summary/content SHA256 verification. A final paginated GET returned **279 nodes, all private**. Mapping and content are saved here; full before/after exports and request receipts are in the runtime directory `pi-reviews/root-milestones-64` with mode 0600.
 

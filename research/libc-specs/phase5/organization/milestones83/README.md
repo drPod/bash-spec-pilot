@@ -1,1 +1,7 @@
-Two accepted milestones, imported privately to Atlas and into the existing local OpenScience provenance service. See mapping and import-summary for independently fetched identities. Prior milestone76 remains a historical snapshot; machine AST identity is now accepted. No full research completion is claimed.
+# Catalog checkpoint 83
+
+Historical import record: Linkage from the pinned parser AST to nine Lean utility bodies, and five facts established by the actual write_block guards.
+
+The import wrote private Atlas records and local OpenScience entries, then checked them by reading them back. See `mapping.json` and `import-summary.json` for the recorded identities and verification.
+
+This checkpoint covers only the results listed here. The [final delivery](../../FINAL-DELIVERY.md) records subsequent completion and the remaining research limitations.

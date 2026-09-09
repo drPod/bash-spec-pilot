@@ -1,20 +1,16 @@
 # Checked example: a C program as the specification of `wc -l`
 
-*Status: checked model (kernel + restricted differential), 2026-09-07. Everything in this directory is reproducible
-with the commands at the end. What it does **not** show is listed under Limitations.*
+Smallest complete instance, checkable by `pipeline/`, of treating a utility's C source as its specification, with libc as the formal boundary.
 
-**Independent review:** This is a manually authored MiniC model, not checked C-source or binary
-refinement. See [raw-byte extension](../byte-experiment/README.md),
-[memory/counter proofs](../memory-experiment/README.md), and [review](../03_review_and_results.md).
-All code/proofs here were authored by Claude through compiler feedback; this was not a controlled
-proof-generation experiment. The initial "hand-written/no LLM" wording below has been corrected.
+Kernel-checked theorems: loop invariant; stdout is the decimal newline-byte count for every input; harness line-count under a no-embedded-newline hypothesis; exit 0; args-independence; additivity. Restricted differential: 200/200 vs GNU coreutils 9.4 `wc`. The pipeline line decoder cannot preserve newline counts (`x` vs `x\n`).
+
+Manually authored MiniC model, not checked C-source or binary refinement (2026-09-07). Not the later whole-program script connection in [`../phase5/evaluation/DRAFT-PAPER.md`](../phase5/evaluation/DRAFT-PAPER.md). See [raw-byte extension](../byte-experiment/README.md), [memory/counter proofs](../memory-experiment/README.md), and [review](../03_review_and_results.md). Proofs were produced with compiler feedback; this was not a controlled proof-generation experiment.
 
 ## What this is
 
 The 2026-08-27 meeting proposed treating the C source of a utility as its specification, so that
 only libc needs a formal spec, with the utility's C code and the user's query both compiled into a
-calculus that Lean reasons about. This directory is the smallest complete instance of that chain
-that the existing `pipeline/` can check:
+calculus that Lean reasons about.
 
 | Layer | Here |
 |---|---|
@@ -69,14 +65,12 @@ It is in the pipeline's trusted `Main.lean` shim, which parses stdin into lines 
 `"a\nb"` and `"a\nb\n"` to the same `["a", "b"]`; `bytesOf` then has to re-add a newline it cannot
 know was absent. Every kernel-accepted `wc` artifact in `pipeline/runs/wc/` (`toString stdin.length`)
 has the same divergence, and `validate.py` cannot see it because its case generator always appends
-`"\n"`. Two consequences worth recording for the paper:
+`"\n"`. Consequences:
 
 1. This specific lossy line decoder cannot preserve newline counts. A byte-level contract (`List UInt8`
    or `ByteArray`), or a richer line encoding retaining final-newline information, is needed for any utility whose semantics depends on the final
-   newline (`wc`, `tail`, `paste`, `nl`, ...). This is the first concrete case where the pipeline's
-   abstraction choice, not the model, is the fidelity gap.
-2. Fidelity numbers are relative to the input distribution. The README already flags this
-   (pipeline README "Needed for a paper" item 3); this is a specific witness: 100% on 200 trials,
+   newline (`wc`, `tail`, `paste`, `nl`, ...).
+2. Fidelity numbers are relative to the input distribution: 100% on 200 trials,
    wrong on `printf x`.
 
 ## How this connects to the meeting's plan
@@ -85,20 +79,16 @@ has the same divergence, and `validate.py` cannot see it because its case genera
   meaning of the program comes from outside Lean. Both are total state transformers over explicit
   stream contents. Compare Frama-C 30.0's `stdio.h`, where `getchar`'s entire contract is
   `assigns \result, *__fc_stdin \from *__fc_stdin;` and `FILE` is a struct of two `unsigned int`s
-  (`__fc_FILE_id`, `__fc_FILE_data`): that is exactly the "fputs only updates the file pointer"
-  problem raised in the meeting, seen in a primary source. See `../01_libc_spec_survey.md`.
+  (`__fc_FILE_id`, `__fc_FILE_data`). See [`../01_libc_spec_survey.md`](../01_libc_spec_survey.md).
 - **"C code compiles into a formal language for reasoning."** Here the formal language is MiniC
-  with a fuel-indexed interpreter, not the State Calculus. The point of the example is the
-  proof-shape: one loop-invariant theorem about the interpreted program, discharged by induction on
-  the input bytes, then composed with trivial per-statement steps. That shape is what an LLM would
-  have to produce, and it is the part that VERINA-style results say is hard.
+  with a fuel-indexed interpreter, not the State Calculus. The proof shape is one loop-invariant theorem about the interpreted program, discharged by induction on
+  the input bytes, then composed with trivial per-statement steps.
 - **"Memory modelling is the new hard part."** Deliberately absent here: the program has no
   pointers. The next program up (`sbase` `wc.c`, 145 lines, uses `fopen`/`strcmp`/`printf` and a
   UTF-8 decoder over a buffer) needs a heap component in `State` and pointer-carrying libc
-  contracts (`fgets`, `strlen`, `memcpy`). The approach document (`../02_spec_generation_approach.md`)
-  is about that step.
+  contracts (`fgets`, `strlen`, `memcpy`). See [`../02_spec_generation_approach.md`](../02_spec_generation_approach.md).
 
-## Limitations (all deliberate, all documented in the Lean source header)
+## Limitations (documented in the Lean source header)
 
 - **Harness abstraction.** stdin/stdout cross the harness as lines; `bytesOf`/`linesOf` convert.
   The finding above is the cost.
@@ -111,10 +101,10 @@ has the same divergence, and `validate.py` cannot see it because its case genera
   it is done by hand, not by a verified translation.
 - **Not the GNU program.** The C program is a textbook `wc -l`, not `coreutils/src/wc.c` (1047
   lines, 28 distinct libc/POSIX calls including `read`, `fstat`, `lseek`, `mbrtoc32`, and an
-  AVX2 path). The GNU binary is the *oracle*, not the *spec*, in this example. The
+  AVX2 path). The GNU binary is the *oracle*, not the *spec*. The
   differential layer is what connects the two.
-- **Agent-authored proofs.** Claude produced these proofs through several compiler iterations (the main obstacle was `set`, a Mathlib tactic, which core Lean lacks). Whether a model
-  can produce `wcLoop_counts_newlines` from the C source is the open experiment.
+- **Not a controlled LLM experiment.** Whether a model
+  can produce `wcLoop_counts_newlines` from the C source remains a separate question.
 
 ## Reproduce
 
