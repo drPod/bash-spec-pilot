@@ -22,7 +22,7 @@
 set -euo pipefail
 
 CONTAINER="${1:-phase5-vst}"
-REPO_ROOT="${2:-/home/coder/Coding/bash-spec-pilot}"
+REPO_ROOT="${2:-/home/ubuntu/Coding/bash-spec-pilot}"
 ADAPTER="$REPO_ROOT/research/libc-specs/phase5/calculus-bytes/adapter"
 STAGE="calculus-correspondence11-$(date -u +%Y%m%dT%H%M%SZ)-$$"
 STAGE_PATH="/home/coq/phase5/$STAGE"

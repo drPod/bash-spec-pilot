@@ -25,3 +25,31 @@ Inspected `@synsci/atlas` 0.14.1 via `npm pack --ignore-scripts` (postinstall no
 Sanitized ID/URL/content hash table: `id-url-hash-mapping.json`. Narrative: `IMPORT-REPORT.md`.
 
 Catalog pointers are not Coq/VST/Lean kernel receipts. Limitations kept: finite tests are not C proofs; model/spec compiled with bodies open; universal relay under explicit assumptions; generalized GNU imports; old paper prose is not missing PDF/source.
+
+
+## Recovery archive — 24 September 2026
+
+The retired global Atlas CLI was removed after a read-only export using the official
+0.14.1 client. Hosted research was not changed or deleted.
+
+- All 308 private hosted records: full content, relationships, and 333 available audit events.
+- No missing linked records, export errors, uploaded files, or attached artifacts.
+- All 227 records from the historical hosted backup remain present; 81 were added later.
+- All 3,052 old VPS Atlas job files are present. Four scripts only change the home path.
+- Historical exports, import receipts, bundled client, project contract and private credential are preserved.
+- The separate OpenScience graph snapshot contains 2,380 nodes and 2,436 edges.
+
+Private recovery locations:
+
+- VPS: `~/.local/share/atlas-recovery/20260924/` — README, JSON exports, verification and SHA-256 manifest.
+- VPS backup root: `~/.local/share/vps-workspaces/recovery/atlas-20260924.tar.gz`.
+- Mac: `~/Backups/atlas-recovery/atlas-20260924.tar.gz` — copied and SHA-256 verified.
+
+Archives are unencrypted and contain credentials: keep them outside Git and shared links.
+The VPS archive is within an existing scheduled-backup root. The standard credential
+profile remains in `~/.config/atlas-cli/config.json` for recovery; no CLI runs in the background.
+
+This preserves currently accessible Atlas data and historical local exports. Audit events
+are not full historical body versions; external URLs remain references, and deleted or
+inaccessible server data cannot be certified by this export. `atlas.json` alone does not
+activate automatic uploads. OpenScience remains installed and separate.

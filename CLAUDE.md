@@ -31,6 +31,9 @@ Anchor paper: VERINA (arXiv 2505.23135) — jointly generate code + spec + proof
 - Active research + findings: `research/lean-verification/` (read its `README.md` first).
 - Since 2026-08-27 (meeting): C source as the utility's spec, libc as the formal trust boundary.
   Survey, approach, and a checked C-as-spec `wc -l` example: `research/libc-specs/` (its `README.md`).
+- Hosted Atlas access: `research/libc-specs/phase5/organization/hosted-atlas/README.md`.
+  Private Atlas recovery data is archived on both machines; the retired CLI is removed.
+  `atlas.json` does not enable background sync.
 - Prior direction (v1, archived intact): `archive/v1/`. Its `CLAUDE.md` describes the v1 pipeline
   ONLY and does not apply here. Reusable doc mirrors are at `archive/v1/docs/openai/` (OpenAI SDK,
   ground truth, do not WebFetch) and `archive/v1/docs/posix/` (POSIX standard mirror).
