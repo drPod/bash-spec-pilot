@@ -1,0 +1,11 @@
+{
+  "cache_key": "1c7305561185b8154c5afd5597b486494e47144d04e4d79e295456e035fdd169",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "1f14a124ae96f92762b3c71e02bcc295fc4abf847c071362617646be2e6c0cf3",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.command\n",
+  "stderr": "",
+  "seconds": 0.0474,
+  "status": "ansible_lowering_error"
+}

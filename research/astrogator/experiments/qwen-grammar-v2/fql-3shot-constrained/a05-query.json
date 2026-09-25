@@ -1,0 +1,94 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+      },
+      {
+        "role": "assistant",
+        "content": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https"
+      },
+      {
+        "role": "user",
+        "content": "Move the file at /scratch/file.txt to /home/user/data.txt"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 1.73,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "move file at \"/scratch/file.txt\" into /home/user/data."
+        }
+      }
+    ],
+    "created": 1790291980,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 15,
+      "prompt_tokens": 410,
+      "total_tokens": 425,
+      "prompt_tokens_details": {
+        "cached_tokens": 391
+      }
+    },
+    "id": "chatcmpl-wLHIImYmmeiEgE4uhEaStw6gWuU6SECB",
+    "timings": {
+      "cache_n": 391,
+      "prompt_n": 19,
+      "prompt_ms": 610.921,
+      "prompt_per_token_ms": 32.15373684210527,
+      "prompt_per_second": 31.1005841999211,
+      "predicted_n": 15,
+      "predicted_ms": 1024.787,
+      "predicted_per_token_ms": 73.19907142857143,
+      "predicted_per_second": 13.661375485832664
+    }
+  },
+  "text": "move file at \"/scratch/file.txt\" into /home/user/data.",
+  "finish_reason": "stop",
+  "task_id": "a05",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a01",
+    "a06",
+    "a09"
+  ],
+  "constrained": true,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "150df509334e1835700123c7c1713f2d957ed34305cdd6bbc151f4f132c5f519"
+}

@@ -1,0 +1,1 @@
+copy from remote "controller" at "/backup" to remote "remote" at "/tmp" with the extension ".war"

@@ -1,0 +1,21 @@
+{
+  "id": "a47",
+  "title": "Secure existing home",
+  "family": "identity",
+  "natural_language": "Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.",
+  "formal_query": "create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "leaves root ownership",
+  "tags": [
+    "ownership",
+    "permissions"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

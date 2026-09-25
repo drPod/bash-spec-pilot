@@ -1,0 +1,26 @@
+{
+  "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+  "query": "create directory at /srv/www",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t7ec461bac2282602b7bc2c33d41b501f\nsemantic\tok\t49964858e2458aa25f25fbc7275e2e5b\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0031,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "7ec461bac2282602b7bc2c33d41b501f"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "49964858e2458aa25f25fbc7275e2e5b"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

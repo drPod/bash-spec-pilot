@@ -1,0 +1,11 @@
+{
+  "cache_key": "ebcba4ded5b40878fef3b19cc9e59d62be74b35fdbafd58403f9b15a3d49071a",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "79d86d7b69af021c83284dddf7d4de5441e091f8f4f284d6c1acd6ef2beaa7ba",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module openssh_keypair\n",
+  "stderr": "",
+  "seconds": 0.0714,
+  "status": "ansible_lowering_error"
+}

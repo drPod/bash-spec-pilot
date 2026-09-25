@@ -1,0 +1,11 @@
+{
+  "cache_key": "997b60e61d91f02f81a8243fa2d566bb404df8cc0a70c7091617cbfeaf03d230",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+  "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.user\n",
+  "stderr": "",
+  "seconds": 0.0923,
+  "status": "ansible_lowering_error"
+}

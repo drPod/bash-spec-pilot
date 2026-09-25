@@ -1,0 +1,43 @@
+{
+  "ansible_version": "2.19.11",
+  "normalizer_cases": 36879,
+  "accepted_cases": 36864,
+  "declined_boundary_cases": 15,
+  "normalizer_input_sha256": "d5885569f12a7bd1e77017138255c21061de743cddfaa8ef01e80bb29d7b7fd3",
+  "normalizer_output_sha256": "c2fbc58f327682c6835e480b9ada40d009896f265770b6ff3817b09eefc5efbe",
+  "ansible_semantic_comparisons": 557056,
+  "full_cartesian_product_tested": false,
+  "coverage": "Every4096 target mode \u00d76 clauseorders \u00d72 objecttypes \u00d78 initialstates; directoryX every4096target\u00d78initials; every4096initial\u00d716boundarytargets\u00d72types. Not all4096\u00d74096 pairs.",
+  "state_dependence_witnesses": [
+    {
+      "symbolic": "u=rwx",
+      "regular_file_observations": {
+        "0000": "0700",
+        "0600": "0700",
+        "0010": "0710",
+        "0777": "0777"
+      }
+    },
+    {
+      "symbolic": "u=rwX,g=,o=",
+      "regular_file_observations": {
+        "0000": "0600",
+        "0600": "0600",
+        "0010": "0700",
+        "0777": "0700"
+      }
+    },
+    {
+      "symbolic": "u=g,g=,o=",
+      "regular_file_observations": {
+        "0000": "0000",
+        "0600": "0000",
+        "0010": "0100",
+        "0777": "0700"
+      }
+    }
+  ],
+  "ansible_source_sha256": "18cc46ad88dedac7c472668730ae7302a802244502bed085786e577c6ef2617f",
+  "seconds": 22.989,
+  "status": "passed"
+}

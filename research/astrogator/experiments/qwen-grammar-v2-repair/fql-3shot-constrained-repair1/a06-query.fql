@@ -1,0 +1,1 @@
+write file at /etc/file. if file "/etc/file.txt" not exists then write "beginning"; write "end"; write "end"

@@ -1,0 +1,20 @@
+{
+  "id": "a51",
+  "title": "Hold installed package",
+  "family": "packages",
+  "natural_language": "Mark the installed astro-demo Debian package as held, preserving version 1.0.",
+  "formal_query": "set package selection for astro-demo to hold",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "installed does not imply held",
+  "tags": [
+    "package-policy"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

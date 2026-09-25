@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "efd654bee23238fd3283988892c22069fc1ef13f2cb10d1ee20bdff5831e03d4",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model granite, Problem p13, Response 8] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Check if file exists] ****************************************************\nok: [localhost]\n\nTASK [Create file if it does not exist] ****************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: create. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/granite/p13/response8.yml:10:5\n\n 8       path: /etc/file.txt\n 9     register: file_stat\n10   - name: Create file if it does not exist\n       ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: create. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 5.359,
+  "sample_id": "granite/p13/8"
+}

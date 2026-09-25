@@ -1,0 +1,47 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "variant": "candidate",
+  "status": "passed",
+  "executions": [
+    {
+      "iteration": 1,
+      "returncode": 0,
+      "stdout": "\nPLAY [Disable password for 'service' user] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for 'service' user] *************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+      "stderr": ""
+    }
+  ],
+  "iterations_requested": 1,
+  "input_sha256": {
+    "candidate": "010c193ff0d228d1dcd82a2d3f3831dac1294d4ab36f18a5394ba0af2673a312",
+    "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+    "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+  },
+  "generated_test": {
+    "status": "evaluated",
+    "passed": false,
+    "outcomes": [
+      {
+        "check": {
+          "kind": "member",
+          "scenario": "both",
+          "user": "service",
+          "group": "*"
+        },
+        "passed": false,
+        "error": "KeyError(\"getgrnam(): name not found: '*'\")"
+      },
+      {
+        "check": {
+          "kind": "password_locked",
+          "scenario": "both",
+          "user": "service"
+        },
+        "passed": true
+      }
+    ]
+  },
+  "seconds": 3.613,
+  "sample_id": "reference/a17",
+  "test_sha256": "88158e87d62922ebd713550bc79e0521fa4d5f909f89f14e3ebace09effeb425"
+}

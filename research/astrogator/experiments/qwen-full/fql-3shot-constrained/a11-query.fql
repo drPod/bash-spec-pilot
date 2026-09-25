@@ -1,0 +1,1 @@
+set environment variable at remote "remoteuser@remotehost" with key_path to "/home/user/.bashrc" with contents to include at the to end with "module load gcc"

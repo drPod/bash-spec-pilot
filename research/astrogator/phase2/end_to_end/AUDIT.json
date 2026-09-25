@@ -1,0 +1,40 @@
+{
+  "arms": {
+    "compact": {
+      "logical_attempts": 2640,
+      "processed_cells": 2532,
+      "queries": 24,
+      "query_byte_matches_to_supplied": 24,
+      "distinct_verifier_cache_entries": 422,
+      "frozen_sha256": "77f304b822372b52ea181d4149a2c0997089cc3a33dc8b4bf03fb79636abe486",
+      "source_hash_checks": 12,
+      "record_and_candidate_hashes_verified": true
+    },
+    "handbook": {
+      "logical_attempts": 2640,
+      "processed_cells": 2532,
+      "queries": 24,
+      "query_byte_matches_to_supplied": 7,
+      "distinct_verifier_cache_entries": 528,
+      "frozen_sha256": "b29b4ba84a189500f0351dace54c9af61fa80b9975d68a4f0491b733d9dc9183",
+      "source_hash_checks": 12,
+      "record_and_candidate_hashes_verified": true
+    }
+  },
+  "source_hashes": {
+    "phase2/end_to_end/freeze.py": "b39e27e98dd6c4ca2f59bb117671f15d85c91360aa68543e6643a2da2087d059",
+    "phase2/end_to_end/run.py": "4a0d355b792103012e0988703685329ed463cb764ac0aae202aef26ab485a54f",
+    "phase2/end_to_end/summarize.py": "4aef1207b8022fb902d90e0a5754a273e64c29f6cae74a8d6d6a90ddd8743de3",
+    "phase2/end_to_end/effects.py": "ec52ce096e65f266576a6bbcfa7833e89f7fb1b30d872138ff393e490a079171",
+    "phase2/end_to_end/traces.py": "f238d54527e744db5fc5b02d59111f80982e087e6c67cdc0bae1a9fa9fceccf4",
+    "scripts/evaluate_effects.py": "083ac3bb03d6b63127ae33bd1e445725dfa9fdaae2cfd432da7c6566ad522892",
+    "scripts/upstream_eval.py": "d42755b0f4f4771cba08d257882de48fd18dfdeb39a331cb6123984c414ac2f4",
+    "scripts/fql_probe.ml": "aae1f06fcf036eabdb146468673ed75828a5cfad9b5778993724a328962c0788",
+    "benchmarks/original.json": "fe8fb05106da4e857fe4dc458909307831f622712e3918a365a22457f7ba94eb",
+    "experiments/four-task-full-v1/summary.json": "0221a2d5b398e690b9da42e18207835275d06987b36f44d38e28a9959b4d9231",
+    "phase2/evaluation/revised-summary.json": "7c664b149c4039298125d7b197cbf04b7be4db2e9b950f5b91ca4b7297ddedd5",
+    "reports/corpus-verifier.jsonl": "81bf83b826020bcb322c6a78cd506472afc4943fc29a0993bd3e3669e71dd18f",
+    "phase2/end_to_end/freeze_handbook.py": "283085e9079919cc5a4e5eac5e48ce8b4a647d322817167e46c7a7bdd7ca542e"
+  },
+  "complete": true
+}

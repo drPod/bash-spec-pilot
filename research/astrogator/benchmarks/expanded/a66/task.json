@@ -1,0 +1,21 @@
+{
+  "id": "a66",
+  "title": "Prepend managed header",
+  "family": "configuration",
+  "natural_language": "Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.",
+  "formal_query": "write \"# managed\" to /work/header at position=start",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "appends header",
+  "tags": [
+    "ordering",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

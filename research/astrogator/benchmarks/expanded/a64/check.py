@@ -1,0 +1,1 @@
+s=os.stat('/work/data'); assert s.st_uid == pwd.getpwnam('app').pw_uid; assert s.st_gid == grp.getgrnam('app').gr_gid; assert os.stat('/work/data/keep').st_uid == 0; assert read('/work/data/keep') == 'keep'

@@ -1,0 +1,11 @@
+{
+  "cache_key": "4e9d860571607197367c5f898a320a013aece2e7ac97c9909b6a50109d30d527",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4",
+  "code_sha256": "26beba2032a822e93adc9579827067f3c8c17cf078d4f2c70cf3f64f62153568",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable ansible\n",
+  "stderr": "",
+  "seconds": 0.0795,
+  "status": "ansible_lowering_error"
+}

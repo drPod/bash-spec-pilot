@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "password_locked",
+      "scenario": "baseline",
+      "user": "service"
+    },
+    {
+      "kind": "password_locked",
+      "scenario": "adversarial",
+      "user": "service"
+    }
+  ]
+}

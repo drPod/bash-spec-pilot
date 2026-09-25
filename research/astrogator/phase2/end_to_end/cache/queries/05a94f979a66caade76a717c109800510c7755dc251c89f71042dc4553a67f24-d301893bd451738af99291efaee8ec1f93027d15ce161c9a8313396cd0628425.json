@@ -1,0 +1,18 @@
+{
+  "query_sha256": "d301893bd451738af99291efaee8ec1f93027d15ce161c9a8313396cd0628425",
+  "query": "if os is Debian then reboot system if needed",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_parse_error",
+  "diagnostics": {
+    "returncode": 13,
+    "stdout": "exception\terror\tStdlib.Parsing.Parse_error\n",
+    "stderr": "",
+    "seconds": 0.0034,
+    "stages": {
+      "exception": {
+        "status": "error",
+        "detail": "Stdlib.Parsing.Parse_error"
+      }
+    }
+  }
+}

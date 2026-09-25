@@ -1,0 +1,11 @@
+{
+  "cache_key": "3dd20f9882832878ca4907be6e68a70b1602cb52d3e7102b8382e0bb7144afb5",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "8487de25c72976bdd6c6c27726508cb305690f5fefe6d70c67135931dd84e958",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.module\n",
+  "stderr": "",
+  "seconds": 0.0798,
+  "status": "ansible_lowering_error"
+}

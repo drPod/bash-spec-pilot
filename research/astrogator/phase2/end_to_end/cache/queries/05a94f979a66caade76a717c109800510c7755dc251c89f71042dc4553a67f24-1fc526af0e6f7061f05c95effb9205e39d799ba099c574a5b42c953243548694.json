@@ -1,0 +1,26 @@
+{
+  "query_sha256": "1fc526af0e6f7061f05c95effb9205e39d799ba099c574a5b42c953243548694",
+  "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t0b39eaf22369de09328281e7cb3b7307\nsemantic\tok\t5e7b87d855ca9d3bb92149008868505a\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.013,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "0b39eaf22369de09328281e7cb3b7307"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "5e7b87d855ca9d3bb92149008868505a"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

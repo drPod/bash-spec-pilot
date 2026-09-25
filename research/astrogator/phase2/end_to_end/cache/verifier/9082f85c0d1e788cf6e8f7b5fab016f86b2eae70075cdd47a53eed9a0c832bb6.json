@@ -1,0 +1,11 @@
+{
+  "cache_key": "9082f85c0d1e788cf6e8f7b5fab016f86b2eae70075cdd47a53eed9a0c832bb6",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "2ac076f28fe46b46811f4b7e76c9e489a4bf1958086379bead53e103b04ea4c5",
+  "code_sha256": "2e273c057d8341e49bd91b3d43ef1e3d3f670e8c965294653d3869aea7c54dbf",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument filter for module copy\n",
+  "stderr": "",
+  "seconds": 0.1085,
+  "status": "ansible_lowering_error"
+}

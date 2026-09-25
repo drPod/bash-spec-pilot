@@ -1,0 +1,20 @@
+{
+  "id": "a40",
+  "title": "Create group before account",
+  "family": "identity",
+  "natural_language": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.",
+  "formal_query": "create group with name=deploy; create user with name=app in primary group=deploy",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "uses missing prerequisite group",
+  "tags": [
+    "dependency"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

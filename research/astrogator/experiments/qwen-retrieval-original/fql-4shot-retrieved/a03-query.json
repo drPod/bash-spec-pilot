@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Delete the directory /home/mydata/web"
+      },
+      {
+        "role": "assistant",
+        "content": "delete directory at /home/mydata/web"
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      },
+      {
+        "role": "assistant",
+        "content": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv"
+      },
+      {
+        "role": "user",
+        "content": "Delete the contents of the /home/mydata/web directory"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 4.543,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "delete directory at /home/mydata/web"
+        }
+      }
+    ],
+    "created": 1790293201,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 9,
+      "prompt_tokens": 441,
+      "total_tokens": 450,
+      "prompt_tokens_details": {
+        "cached_tokens": 263
+      }
+    },
+    "id": "chatcmpl-10jIFynzWAkrKgjZ4TNPQlSroWf5fICe",
+    "timings": {
+      "cache_n": 263,
+      "prompt_n": 178,
+      "prompt_ms": 3503.74,
+      "prompt_per_token_ms": 19.683932584269662,
+      "prompt_per_second": 50.802856376329295,
+      "predicted_n": 9,
+      "predicted_ms": 825.717,
+      "predicted_per_token_ms": 103.214625,
+      "predicted_per_second": 9.688549466705906
+    }
+  },
+  "text": "delete directory at /home/mydata/web",
+  "finish_reason": "stop",
+  "task_id": "a03",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a02",
+    "a01",
+    "a06",
+    "a14"
+  ],
+  "retrieval_scores": [
+    0.8992187839308601,
+    0.19526034198234635,
+    0.13399185664988023,
+    0.0757284187658567
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "644b9ba348ea614bd1c97b8586915b759d9750f4c30b0061d67981f2f4b47923",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

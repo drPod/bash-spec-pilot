@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "candidate_sha256": "0a14a5185bedb834aded8e34d710d0031508d48985ff997100af8074293f384a",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-oss, Problem p05, Response 3] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Remove web directory] ****************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.601,
+  "sample_id": "gpt-oss/p05/3"
+}

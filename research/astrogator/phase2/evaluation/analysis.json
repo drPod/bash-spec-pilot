@@ -1,0 +1,2023 @@
+{
+  "generated_at": "2026-09-25T14:59:56.422361+00:00",
+  "verifier_mode": "Pinned upstream default permission semantics; heuristic flags are a separate named arm.",
+  "input_sha256": "4aa6c45ab7e196c7bc69502a145388b339e5835d12c7f78b98c7b435a7c312c2",
+  "script_sha256": "9bd573506d7653a2e40df99d1d4452fcb6c3de9d611f6b3443dad3da2017e617",
+  "processed_programs": 422,
+  "raw_attempts": 440,
+  "missing_processed": 18,
+  "methods": {
+    "astrogator": {
+      "n": 422,
+      "accepted_pass": 282,
+      "accepted_fail": 9,
+      "rejected_pass": 1,
+      "rejected_fail": 56,
+      "unavailable_pass": 0,
+      "unavailable_fail": 74,
+      "coverage": 0.8246445497630331,
+      "acceptance_rate": 0.6895734597156398,
+      "accepted_failure_risk": 0.030927835051546393,
+      "decided_error_rate": 0.028735632183908046,
+      "failure_detection_recall": 0.4028776978417266,
+      "passing_program_rejection_rate": 0.0035335689045936395,
+      "failure_abstention_rate": 0.5323741007194245,
+      "deployment_block_rate_if_abstentions_block": 0.3104265402843602,
+      "failures_blocked_if_abstentions_block": 0.935251798561151,
+      "pass_programs_blocked_if_abstentions_block": 0.0035335689045936395
+    },
+    "astrogator_configured_heuristics": {
+      "n": 422,
+      "accepted_pass": 277,
+      "accepted_fail": 0,
+      "rejected_pass": 6,
+      "rejected_fail": 65,
+      "unavailable_pass": 0,
+      "unavailable_fail": 74,
+      "coverage": 0.8246445497630331,
+      "acceptance_rate": 0.6563981042654028,
+      "accepted_failure_risk": 0.0,
+      "decided_error_rate": 0.017241379310344827,
+      "failure_detection_recall": 0.4676258992805755,
+      "passing_program_rejection_rate": 0.02120141342756184,
+      "failure_abstention_rate": 0.5323741007194245,
+      "deployment_block_rate_if_abstentions_block": 0.34360189573459715,
+      "failures_blocked_if_abstentions_block": 1.0,
+      "pass_programs_blocked_if_abstentions_block": 0.02120141342756184
+    },
+    "judge": {
+      "n": 422,
+      "accepted_pass": 270,
+      "accepted_fail": 129,
+      "rejected_pass": 13,
+      "rejected_fail": 10,
+      "unavailable_pass": 0,
+      "unavailable_fail": 0,
+      "coverage": 1.0,
+      "acceptance_rate": 0.9454976303317536,
+      "accepted_failure_risk": 0.3233082706766917,
+      "decided_error_rate": 0.33649289099526064,
+      "failure_detection_recall": 0.07194244604316546,
+      "passing_program_rejection_rate": 0.045936395759717315,
+      "failure_abstention_rate": 0.0,
+      "deployment_block_rate_if_abstentions_block": 0.054502369668246446,
+      "failures_blocked_if_abstentions_block": 0.07194244604316546,
+      "pass_programs_blocked_if_abstentions_block": 0.045936395759717315
+    },
+    "generated_checks_gated": {
+      "n": 422,
+      "accepted_pass": 0,
+      "accepted_fail": 0,
+      "rejected_pass": 0,
+      "rejected_fail": 0,
+      "unavailable_pass": 283,
+      "unavailable_fail": 139,
+      "coverage": 0.0,
+      "acceptance_rate": 0.0,
+      "accepted_failure_risk": null,
+      "decided_error_rate": null,
+      "failure_detection_recall": 0.0,
+      "passing_program_rejection_rate": 0.0,
+      "failure_abstention_rate": 1.0,
+      "deployment_block_rate_if_abstentions_block": 1.0,
+      "failures_blocked_if_abstentions_block": 1.0,
+      "pass_programs_blocked_if_abstentions_block": 1.0
+    },
+    "always_accept": {
+      "n": 422,
+      "accepted_pass": 283,
+      "accepted_fail": 139,
+      "rejected_pass": 0,
+      "rejected_fail": 0,
+      "unavailable_pass": 0,
+      "unavailable_fail": 0,
+      "coverage": 1.0,
+      "acceptance_rate": 1.0,
+      "accepted_failure_risk": 0.3293838862559242,
+      "decided_error_rate": 0.3293838862559242,
+      "failure_detection_recall": 0.0,
+      "passing_program_rejection_rate": 0.0,
+      "failure_abstention_rate": 0.0,
+      "deployment_block_rate_if_abstentions_block": 0.0,
+      "failures_blocked_if_abstentions_block": 0.0,
+      "pass_programs_blocked_if_abstentions_block": 0.0
+    },
+    "base_then_judge_on_abstention": {
+      "n": 422,
+      "accepted_pass": 282,
+      "accepted_fail": 77,
+      "rejected_pass": 1,
+      "rejected_fail": 62,
+      "unavailable_pass": 0,
+      "unavailable_fail": 0,
+      "coverage": 1.0,
+      "acceptance_rate": 0.8507109004739336,
+      "accepted_failure_risk": 0.21448467966573817,
+      "decided_error_rate": 0.1848341232227488,
+      "failure_detection_recall": 0.4460431654676259,
+      "passing_program_rejection_rate": 0.0035335689045936395,
+      "failure_abstention_rate": 0.0,
+      "deployment_block_rate_if_abstentions_block": 0.14928909952606634,
+      "failures_blocked_if_abstentions_block": 0.4460431654676259,
+      "pass_programs_blocked_if_abstentions_block": 0.0035335689045936395
+    },
+    "heuristics_then_judge_on_abstention": {
+      "n": 422,
+      "accepted_pass": 277,
+      "accepted_fail": 68,
+      "rejected_pass": 6,
+      "rejected_fail": 71,
+      "unavailable_pass": 0,
+      "unavailable_fail": 0,
+      "coverage": 1.0,
+      "acceptance_rate": 0.8175355450236966,
+      "accepted_failure_risk": 0.19710144927536233,
+      "decided_error_rate": 0.17535545023696683,
+      "failure_detection_recall": 0.5107913669064749,
+      "passing_program_rejection_rate": 0.02120141342756184,
+      "failure_abstention_rate": 0.0,
+      "deployment_block_rate_if_abstentions_block": 0.18246445497630331,
+      "failures_blocked_if_abstentions_block": 0.5107913669064749,
+      "pass_programs_blocked_if_abstentions_block": 0.02120141342756184
+    }
+  },
+  "by_task": {
+    "a01": {
+      "astrogator": {
+        "n": 110,
+        "accepted_pass": 110,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "astrogator_configured_heuristics": {
+        "n": 110,
+        "accepted_pass": 105,
+        "accepted_fail": 0,
+        "rejected_pass": 5,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9545454545454546,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.045454545454545456,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.045454545454545456,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.045454545454545456,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.045454545454545456
+      },
+      "judge": {
+        "n": 110,
+        "accepted_pass": 110,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "generated_checks_gated": {
+        "n": 110,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 110,
+        "unavailable_fail": 0,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 110,
+        "accepted_pass": 110,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 110,
+        "accepted_pass": 110,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 110,
+        "accepted_pass": 105,
+        "accepted_fail": 0,
+        "rejected_pass": 5,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9545454545454546,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.045454545454545456,
+        "failure_detection_recall": null,
+        "passing_program_rejection_rate": 0.045454545454545456,
+        "failure_abstention_rate": null,
+        "deployment_block_rate_if_abstentions_block": 0.045454545454545456,
+        "failures_blocked_if_abstentions_block": null,
+        "pass_programs_blocked_if_abstentions_block": 0.045454545454545456
+      }
+    },
+    "a02": {
+      "astrogator": {
+        "n": 107,
+        "accepted_pass": 96,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.897196261682243,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.102803738317757,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "astrogator_configured_heuristics": {
+        "n": 107,
+        "accepted_pass": 96,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.897196261682243,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.102803738317757,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "judge": {
+        "n": 107,
+        "accepted_pass": 92,
+        "accepted_fail": 10,
+        "rejected_pass": 4,
+        "rejected_fail": 1,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9532710280373832,
+        "accepted_failure_risk": 0.09803921568627451,
+        "decided_error_rate": 0.1308411214953271,
+        "failure_detection_recall": 0.09090909090909091,
+        "passing_program_rejection_rate": 0.041666666666666664,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.04672897196261682,
+        "failures_blocked_if_abstentions_block": 0.09090909090909091,
+        "pass_programs_blocked_if_abstentions_block": 0.041666666666666664
+      },
+      "generated_checks_gated": {
+        "n": 107,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 96,
+        "unavailable_fail": 11,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 107,
+        "accepted_pass": 96,
+        "accepted_fail": 11,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.102803738317757,
+        "decided_error_rate": 0.102803738317757,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 107,
+        "accepted_pass": 96,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.897196261682243,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.102803738317757,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 107,
+        "accepted_pass": 96,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.897196261682243,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.102803738317757,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      }
+    },
+    "a06": {
+      "astrogator": {
+        "n": 99,
+        "accepted_pass": 18,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 20,
+        "unavailable_pass": 0,
+        "unavailable_fail": 57,
+        "coverage": 0.42424242424242425,
+        "acceptance_rate": 0.2222222222222222,
+        "accepted_failure_risk": 0.18181818181818182,
+        "decided_error_rate": 0.09523809523809523,
+        "failure_detection_recall": 0.24691358024691357,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.7037037037037037,
+        "deployment_block_rate_if_abstentions_block": 0.7777777777777778,
+        "failures_blocked_if_abstentions_block": 0.9506172839506173,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "astrogator_configured_heuristics": {
+        "n": 99,
+        "accepted_pass": 18,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 24,
+        "unavailable_pass": 0,
+        "unavailable_fail": 57,
+        "coverage": 0.42424242424242425,
+        "acceptance_rate": 0.18181818181818182,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.2962962962962963,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.7037037037037037,
+        "deployment_block_rate_if_abstentions_block": 0.8181818181818182,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "judge": {
+        "n": 99,
+        "accepted_pass": 17,
+        "accepted_fail": 77,
+        "rejected_pass": 1,
+        "rejected_fail": 4,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9494949494949495,
+        "accepted_failure_risk": 0.8191489361702128,
+        "decided_error_rate": 0.7878787878787878,
+        "failure_detection_recall": 0.04938271604938271,
+        "passing_program_rejection_rate": 0.05555555555555555,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.050505050505050504,
+        "failures_blocked_if_abstentions_block": 0.04938271604938271,
+        "pass_programs_blocked_if_abstentions_block": 0.05555555555555555
+      },
+      "generated_checks_gated": {
+        "n": 99,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 18,
+        "unavailable_fail": 81,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 99,
+        "accepted_pass": 18,
+        "accepted_fail": 81,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.8181818181818182,
+        "decided_error_rate": 0.8181818181818182,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 99,
+        "accepted_pass": 18,
+        "accepted_fail": 58,
+        "rejected_pass": 0,
+        "rejected_fail": 23,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7676767676767676,
+        "accepted_failure_risk": 0.7631578947368421,
+        "decided_error_rate": 0.5858585858585859,
+        "failure_detection_recall": 0.2839506172839506,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.23232323232323232,
+        "failures_blocked_if_abstentions_block": 0.2839506172839506,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 99,
+        "accepted_pass": 18,
+        "accepted_fail": 54,
+        "rejected_pass": 0,
+        "rejected_fail": 27,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7272727272727273,
+        "accepted_failure_risk": 0.75,
+        "decided_error_rate": 0.5454545454545454,
+        "failure_detection_recall": 0.3333333333333333,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.2727272727272727,
+        "failures_blocked_if_abstentions_block": 0.3333333333333333,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      }
+    },
+    "a17": {
+      "astrogator": {
+        "n": 106,
+        "accepted_pass": 58,
+        "accepted_fail": 5,
+        "rejected_pass": 1,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 17,
+        "coverage": 0.839622641509434,
+        "acceptance_rate": 0.5943396226415094,
+        "accepted_failure_risk": 0.07936507936507936,
+        "decided_error_rate": 0.06741573033707865,
+        "failure_detection_recall": 0.5319148936170213,
+        "passing_program_rejection_rate": 0.01694915254237288,
+        "failure_abstention_rate": 0.3617021276595745,
+        "deployment_block_rate_if_abstentions_block": 0.4056603773584906,
+        "failures_blocked_if_abstentions_block": 0.8936170212765957,
+        "pass_programs_blocked_if_abstentions_block": 0.01694915254237288
+      },
+      "astrogator_configured_heuristics": {
+        "n": 106,
+        "accepted_pass": 58,
+        "accepted_fail": 0,
+        "rejected_pass": 1,
+        "rejected_fail": 30,
+        "unavailable_pass": 0,
+        "unavailable_fail": 17,
+        "coverage": 0.839622641509434,
+        "acceptance_rate": 0.5471698113207547,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.011235955056179775,
+        "failure_detection_recall": 0.6382978723404256,
+        "passing_program_rejection_rate": 0.01694915254237288,
+        "failure_abstention_rate": 0.3617021276595745,
+        "deployment_block_rate_if_abstentions_block": 0.4528301886792453,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.01694915254237288
+      },
+      "judge": {
+        "n": 106,
+        "accepted_pass": 51,
+        "accepted_fail": 42,
+        "rejected_pass": 8,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8773584905660378,
+        "accepted_failure_risk": 0.45161290322580644,
+        "decided_error_rate": 0.4716981132075472,
+        "failure_detection_recall": 0.10638297872340426,
+        "passing_program_rejection_rate": 0.13559322033898305,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.12264150943396226,
+        "failures_blocked_if_abstentions_block": 0.10638297872340426,
+        "pass_programs_blocked_if_abstentions_block": 0.13559322033898305
+      },
+      "generated_checks_gated": {
+        "n": 106,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 59,
+        "unavailable_fail": 47,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 106,
+        "accepted_pass": 59,
+        "accepted_fail": 47,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.44339622641509435,
+        "decided_error_rate": 0.44339622641509435,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 106,
+        "accepted_pass": 58,
+        "accepted_fail": 19,
+        "rejected_pass": 1,
+        "rejected_fail": 28,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7264150943396226,
+        "accepted_failure_risk": 0.24675324675324675,
+        "decided_error_rate": 0.18867924528301888,
+        "failure_detection_recall": 0.5957446808510638,
+        "passing_program_rejection_rate": 0.01694915254237288,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.27358490566037735,
+        "failures_blocked_if_abstentions_block": 0.5957446808510638,
+        "pass_programs_blocked_if_abstentions_block": 0.01694915254237288
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 106,
+        "accepted_pass": 58,
+        "accepted_fail": 14,
+        "rejected_pass": 1,
+        "rejected_fail": 33,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6792452830188679,
+        "accepted_failure_risk": 0.19444444444444445,
+        "decided_error_rate": 0.14150943396226415,
+        "failure_detection_recall": 0.7021276595744681,
+        "passing_program_rejection_rate": 0.01694915254237288,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.32075471698113206,
+        "failures_blocked_if_abstentions_block": 0.7021276595744681,
+        "pass_programs_blocked_if_abstentions_block": 0.01694915254237288
+      }
+    }
+  },
+  "task_macro": {
+    "astrogator": {
+      "coverage": {
+        "mean": 0.8159662664379645,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.0652958152958153,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.5929428246213116,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.00423728813559322,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "astrogator_configured_heuristics": {
+      "coverage": {
+        "mean": 0.8159662664379645,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.6448647228789073,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.015600924499229583,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "judge": {
+      "coverage": {
+        "mean": 1.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.34220026377057344,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.08222492856062597,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.058203860640301315,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "generated_checks_gated": {
+      "coverage": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": null,
+        "defined_tasks": []
+      },
+      "failure_detection_recall": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "always_accept": {
+      "coverage": {
+        "mean": 1.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.3410954457286674,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "base_then_judge_on_abstention": {
+      "coverage": {
+        "mean": 1.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.25247778537252225,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.6265650993783382,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.00423728813559322,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    },
+    "heuristics_then_judge_on_abstention": {
+      "coverage": {
+        "mean": 1.0,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "accepted_failure_risk": {
+        "mean": 0.2361111111111111,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "failure_detection_recall": {
+        "mean": 0.6784869976359338,
+        "defined_tasks": [
+          "a02",
+          "a06",
+          "a17"
+        ]
+      },
+      "passing_program_rejection_rate": {
+        "mean": 0.015600924499229583,
+        "defined_tasks": [
+          "a01",
+          "a02",
+          "a06",
+          "a17"
+        ]
+      }
+    }
+  },
+  "leave_one_task_out": {
+    "a01": {
+      "astrogator": {
+        "n": 312,
+        "accepted_pass": 172,
+        "accepted_fail": 9,
+        "rejected_pass": 1,
+        "rejected_fail": 56,
+        "unavailable_pass": 0,
+        "unavailable_fail": 74,
+        "coverage": 0.7628205128205128,
+        "acceptance_rate": 0.5801282051282052,
+        "accepted_failure_risk": 0.049723756906077346,
+        "decided_error_rate": 0.04201680672268908,
+        "failure_detection_recall": 0.4028776978417266,
+        "passing_program_rejection_rate": 0.005780346820809248,
+        "failure_abstention_rate": 0.5323741007194245,
+        "deployment_block_rate_if_abstentions_block": 0.4198717948717949,
+        "failures_blocked_if_abstentions_block": 0.935251798561151,
+        "pass_programs_blocked_if_abstentions_block": 0.005780346820809248
+      },
+      "astrogator_configured_heuristics": {
+        "n": 312,
+        "accepted_pass": 172,
+        "accepted_fail": 0,
+        "rejected_pass": 1,
+        "rejected_fail": 65,
+        "unavailable_pass": 0,
+        "unavailable_fail": 74,
+        "coverage": 0.7628205128205128,
+        "acceptance_rate": 0.5512820512820513,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.004201680672268907,
+        "failure_detection_recall": 0.4676258992805755,
+        "passing_program_rejection_rate": 0.005780346820809248,
+        "failure_abstention_rate": 0.5323741007194245,
+        "deployment_block_rate_if_abstentions_block": 0.44871794871794873,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.005780346820809248
+      },
+      "judge": {
+        "n": 312,
+        "accepted_pass": 160,
+        "accepted_fail": 129,
+        "rejected_pass": 13,
+        "rejected_fail": 10,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9262820512820513,
+        "accepted_failure_risk": 0.4463667820069204,
+        "decided_error_rate": 0.4551282051282051,
+        "failure_detection_recall": 0.07194244604316546,
+        "passing_program_rejection_rate": 0.07514450867052024,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.07371794871794872,
+        "failures_blocked_if_abstentions_block": 0.07194244604316546,
+        "pass_programs_blocked_if_abstentions_block": 0.07514450867052024
+      },
+      "generated_checks_gated": {
+        "n": 312,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 173,
+        "unavailable_fail": 139,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 312,
+        "accepted_pass": 173,
+        "accepted_fail": 139,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.44551282051282054,
+        "decided_error_rate": 0.44551282051282054,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 312,
+        "accepted_pass": 172,
+        "accepted_fail": 77,
+        "rejected_pass": 1,
+        "rejected_fail": 62,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7980769230769231,
+        "accepted_failure_risk": 0.3092369477911647,
+        "decided_error_rate": 0.25,
+        "failure_detection_recall": 0.4460431654676259,
+        "passing_program_rejection_rate": 0.005780346820809248,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.20192307692307693,
+        "failures_blocked_if_abstentions_block": 0.4460431654676259,
+        "pass_programs_blocked_if_abstentions_block": 0.005780346820809248
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 312,
+        "accepted_pass": 172,
+        "accepted_fail": 68,
+        "rejected_pass": 1,
+        "rejected_fail": 71,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7692307692307693,
+        "accepted_failure_risk": 0.2833333333333333,
+        "decided_error_rate": 0.22115384615384615,
+        "failure_detection_recall": 0.5107913669064749,
+        "passing_program_rejection_rate": 0.005780346820809248,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.23076923076923078,
+        "failures_blocked_if_abstentions_block": 0.5107913669064749,
+        "pass_programs_blocked_if_abstentions_block": 0.005780346820809248
+      }
+    },
+    "a02": {
+      "astrogator": {
+        "n": 315,
+        "accepted_pass": 186,
+        "accepted_fail": 9,
+        "rejected_pass": 1,
+        "rejected_fail": 45,
+        "unavailable_pass": 0,
+        "unavailable_fail": 74,
+        "coverage": 0.765079365079365,
+        "acceptance_rate": 0.6190476190476191,
+        "accepted_failure_risk": 0.046153846153846156,
+        "decided_error_rate": 0.04149377593360996,
+        "failure_detection_recall": 0.3515625,
+        "passing_program_rejection_rate": 0.0053475935828877,
+        "failure_abstention_rate": 0.578125,
+        "deployment_block_rate_if_abstentions_block": 0.38095238095238093,
+        "failures_blocked_if_abstentions_block": 0.9296875,
+        "pass_programs_blocked_if_abstentions_block": 0.0053475935828877
+      },
+      "astrogator_configured_heuristics": {
+        "n": 315,
+        "accepted_pass": 181,
+        "accepted_fail": 0,
+        "rejected_pass": 6,
+        "rejected_fail": 54,
+        "unavailable_pass": 0,
+        "unavailable_fail": 74,
+        "coverage": 0.765079365079365,
+        "acceptance_rate": 0.5746031746031746,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.024896265560165973,
+        "failure_detection_recall": 0.421875,
+        "passing_program_rejection_rate": 0.03208556149732621,
+        "failure_abstention_rate": 0.578125,
+        "deployment_block_rate_if_abstentions_block": 0.4253968253968254,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.03208556149732621
+      },
+      "judge": {
+        "n": 315,
+        "accepted_pass": 178,
+        "accepted_fail": 119,
+        "rejected_pass": 9,
+        "rejected_fail": 9,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9428571428571428,
+        "accepted_failure_risk": 0.4006734006734007,
+        "decided_error_rate": 0.40634920634920635,
+        "failure_detection_recall": 0.0703125,
+        "passing_program_rejection_rate": 0.0481283422459893,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.05714285714285714,
+        "failures_blocked_if_abstentions_block": 0.0703125,
+        "pass_programs_blocked_if_abstentions_block": 0.0481283422459893
+      },
+      "generated_checks_gated": {
+        "n": 315,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 187,
+        "unavailable_fail": 128,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 315,
+        "accepted_pass": 187,
+        "accepted_fail": 128,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.40634920634920635,
+        "decided_error_rate": 0.40634920634920635,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 315,
+        "accepted_pass": 186,
+        "accepted_fail": 77,
+        "rejected_pass": 1,
+        "rejected_fail": 51,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.834920634920635,
+        "accepted_failure_risk": 0.29277566539923955,
+        "decided_error_rate": 0.24761904761904763,
+        "failure_detection_recall": 0.3984375,
+        "passing_program_rejection_rate": 0.0053475935828877,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.16507936507936508,
+        "failures_blocked_if_abstentions_block": 0.3984375,
+        "pass_programs_blocked_if_abstentions_block": 0.0053475935828877
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 315,
+        "accepted_pass": 181,
+        "accepted_fail": 68,
+        "rejected_pass": 6,
+        "rejected_fail": 60,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7904761904761904,
+        "accepted_failure_risk": 0.27309236947791166,
+        "decided_error_rate": 0.23492063492063492,
+        "failure_detection_recall": 0.46875,
+        "passing_program_rejection_rate": 0.03208556149732621,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.20952380952380953,
+        "failures_blocked_if_abstentions_block": 0.46875,
+        "pass_programs_blocked_if_abstentions_block": 0.03208556149732621
+      }
+    },
+    "a06": {
+      "astrogator": {
+        "n": 323,
+        "accepted_pass": 264,
+        "accepted_fail": 5,
+        "rejected_pass": 1,
+        "rejected_fail": 36,
+        "unavailable_pass": 0,
+        "unavailable_fail": 17,
+        "coverage": 0.9473684210526315,
+        "acceptance_rate": 0.8328173374613003,
+        "accepted_failure_risk": 0.01858736059479554,
+        "decided_error_rate": 0.0196078431372549,
+        "failure_detection_recall": 0.6206896551724138,
+        "passing_program_rejection_rate": 0.0037735849056603774,
+        "failure_abstention_rate": 0.29310344827586204,
+        "deployment_block_rate_if_abstentions_block": 0.16718266253869968,
+        "failures_blocked_if_abstentions_block": 0.9137931034482759,
+        "pass_programs_blocked_if_abstentions_block": 0.0037735849056603774
+      },
+      "astrogator_configured_heuristics": {
+        "n": 323,
+        "accepted_pass": 259,
+        "accepted_fail": 0,
+        "rejected_pass": 6,
+        "rejected_fail": 41,
+        "unavailable_pass": 0,
+        "unavailable_fail": 17,
+        "coverage": 0.9473684210526315,
+        "acceptance_rate": 0.8018575851393189,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0196078431372549,
+        "failure_detection_recall": 0.7068965517241379,
+        "passing_program_rejection_rate": 0.022641509433962263,
+        "failure_abstention_rate": 0.29310344827586204,
+        "deployment_block_rate_if_abstentions_block": 0.19814241486068113,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.022641509433962263
+      },
+      "judge": {
+        "n": 323,
+        "accepted_pass": 253,
+        "accepted_fail": 52,
+        "rejected_pass": 12,
+        "rejected_fail": 6,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9442724458204335,
+        "accepted_failure_risk": 0.17049180327868851,
+        "decided_error_rate": 0.19814241486068113,
+        "failure_detection_recall": 0.10344827586206896,
+        "passing_program_rejection_rate": 0.045283018867924525,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.05572755417956656,
+        "failures_blocked_if_abstentions_block": 0.10344827586206896,
+        "pass_programs_blocked_if_abstentions_block": 0.045283018867924525
+      },
+      "generated_checks_gated": {
+        "n": 323,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 265,
+        "unavailable_fail": 58,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 323,
+        "accepted_pass": 265,
+        "accepted_fail": 58,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.17956656346749225,
+        "decided_error_rate": 0.17956656346749225,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 323,
+        "accepted_pass": 264,
+        "accepted_fail": 19,
+        "rejected_pass": 1,
+        "rejected_fail": 39,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8761609907120743,
+        "accepted_failure_risk": 0.06713780918727916,
+        "decided_error_rate": 0.06191950464396285,
+        "failure_detection_recall": 0.6724137931034483,
+        "passing_program_rejection_rate": 0.0037735849056603774,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.1238390092879257,
+        "failures_blocked_if_abstentions_block": 0.6724137931034483,
+        "pass_programs_blocked_if_abstentions_block": 0.0037735849056603774
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 323,
+        "accepted_pass": 259,
+        "accepted_fail": 14,
+        "rejected_pass": 6,
+        "rejected_fail": 44,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8452012383900929,
+        "accepted_failure_risk": 0.05128205128205128,
+        "decided_error_rate": 0.06191950464396285,
+        "failure_detection_recall": 0.7586206896551724,
+        "passing_program_rejection_rate": 0.022641509433962263,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.15479876160990713,
+        "failures_blocked_if_abstentions_block": 0.7586206896551724,
+        "pass_programs_blocked_if_abstentions_block": 0.022641509433962263
+      }
+    },
+    "a17": {
+      "astrogator": {
+        "n": 316,
+        "accepted_pass": 224,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 31,
+        "unavailable_pass": 0,
+        "unavailable_fail": 57,
+        "coverage": 0.819620253164557,
+        "acceptance_rate": 0.7215189873417721,
+        "accepted_failure_risk": 0.017543859649122806,
+        "decided_error_rate": 0.015444015444015444,
+        "failure_detection_recall": 0.33695652173913043,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.6195652173913043,
+        "deployment_block_rate_if_abstentions_block": 0.27848101265822783,
+        "failures_blocked_if_abstentions_block": 0.9565217391304348,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "astrogator_configured_heuristics": {
+        "n": 316,
+        "accepted_pass": 219,
+        "accepted_fail": 0,
+        "rejected_pass": 5,
+        "rejected_fail": 35,
+        "unavailable_pass": 0,
+        "unavailable_fail": 57,
+        "coverage": 0.819620253164557,
+        "acceptance_rate": 0.6930379746835443,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.019305019305019305,
+        "failure_detection_recall": 0.3804347826086957,
+        "passing_program_rejection_rate": 0.022321428571428572,
+        "failure_abstention_rate": 0.6195652173913043,
+        "deployment_block_rate_if_abstentions_block": 0.3069620253164557,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.022321428571428572
+      },
+      "judge": {
+        "n": 316,
+        "accepted_pass": 219,
+        "accepted_fail": 87,
+        "rejected_pass": 5,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9683544303797469,
+        "accepted_failure_risk": 0.28431372549019607,
+        "decided_error_rate": 0.2911392405063291,
+        "failure_detection_recall": 0.05434782608695652,
+        "passing_program_rejection_rate": 0.022321428571428572,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.03164556962025317,
+        "failures_blocked_if_abstentions_block": 0.05434782608695652,
+        "pass_programs_blocked_if_abstentions_block": 0.022321428571428572
+      },
+      "generated_checks_gated": {
+        "n": 316,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 224,
+        "unavailable_fail": 92,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 1.0
+      },
+      "always_accept": {
+        "n": 316,
+        "accepted_pass": 224,
+        "accepted_fail": 92,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 0.2911392405063291,
+        "decided_error_rate": 0.2911392405063291,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "base_then_judge_on_abstention": {
+        "n": 316,
+        "accepted_pass": 224,
+        "accepted_fail": 58,
+        "rejected_pass": 0,
+        "rejected_fail": 34,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8924050632911392,
+        "accepted_failure_risk": 0.20567375886524822,
+        "decided_error_rate": 0.18354430379746836,
+        "failure_detection_recall": 0.3695652173913043,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.10759493670886076,
+        "failures_blocked_if_abstentions_block": 0.3695652173913043,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 316,
+        "accepted_pass": 219,
+        "accepted_fail": 54,
+        "rejected_pass": 5,
+        "rejected_fail": 38,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8639240506329114,
+        "accepted_failure_risk": 0.1978021978021978,
+        "decided_error_rate": 0.18670886075949367,
+        "failure_detection_recall": 0.41304347826086957,
+        "passing_program_rejection_rate": 0.022321428571428572,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.1360759493670886,
+        "failures_blocked_if_abstentions_block": 0.41304347826086957,
+        "pass_programs_blocked_if_abstentions_block": 0.022321428571428572
+      }
+    }
+  },
+  "failure_mechanisms": {
+    "execution_failure": 75,
+    "behavioral_only": 64,
+    "execution_failure_method_stats": {
+      "astrogator": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 70,
+        "coverage": 0.06666666666666667,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.06666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.9333333333333333,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "astrogator_configured_heuristics": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 70,
+        "coverage": 0.06666666666666667,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.06666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.9333333333333333,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "judge": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 69,
+        "rejected_pass": 0,
+        "rejected_fail": 6,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.92,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.92,
+        "failure_detection_recall": 0.08,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.08,
+        "failures_blocked_if_abstentions_block": 0.08,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "generated_checks_gated": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 75,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "always_accept": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 75,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 1.0,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "base_then_judge_on_abstention": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 64,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8533333333333334,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.8533333333333334,
+        "failure_detection_recall": 0.14666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.14666666666666667,
+        "failures_blocked_if_abstentions_block": 0.14666666666666667,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 64,
+        "rejected_pass": 0,
+        "rejected_fail": 11,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.8533333333333334,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.8533333333333334,
+        "failure_detection_recall": 0.14666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.14666666666666667,
+        "failures_blocked_if_abstentions_block": 0.14666666666666667,
+        "pass_programs_blocked_if_abstentions_block": null
+      }
+    },
+    "behavioral_only_method_stats": {
+      "astrogator": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 9,
+        "rejected_pass": 0,
+        "rejected_fail": 51,
+        "unavailable_pass": 0,
+        "unavailable_fail": 4,
+        "coverage": 0.9375,
+        "acceptance_rate": 0.140625,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.15,
+        "failure_detection_recall": 0.796875,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0625,
+        "deployment_block_rate_if_abstentions_block": 0.859375,
+        "failures_blocked_if_abstentions_block": 0.859375,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "astrogator_configured_heuristics": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 60,
+        "unavailable_pass": 0,
+        "unavailable_fail": 4,
+        "coverage": 0.9375,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.9375,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0625,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "judge": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 60,
+        "rejected_pass": 0,
+        "rejected_fail": 4,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.9375,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.9375,
+        "failure_detection_recall": 0.0625,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0625,
+        "failures_blocked_if_abstentions_block": 0.0625,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "generated_checks_gated": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 64,
+        "coverage": 0.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": null,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 1.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "always_accept": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 64,
+        "rejected_pass": 0,
+        "rejected_fail": 0,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 1.0,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 1.0,
+        "failure_detection_recall": 0.0,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.0,
+        "failures_blocked_if_abstentions_block": 0.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "base_then_judge_on_abstention": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 13,
+        "rejected_pass": 0,
+        "rejected_fail": 51,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.203125,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.203125,
+        "failure_detection_recall": 0.796875,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.796875,
+        "failures_blocked_if_abstentions_block": 0.796875,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "heuristics_then_judge_on_abstention": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 60,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.0625,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.0625,
+        "failure_detection_recall": 0.9375,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.9375,
+        "failures_blocked_if_abstentions_block": 0.9375,
+        "pass_programs_blocked_if_abstentions_block": null
+      }
+    }
+  },
+  "uncertainty": {
+    "seed": 251025,
+    "replicates": 2000,
+    "clusters": [
+      "deepseek",
+      "gpt-4o",
+      "gpt-5-mini",
+      "gpt-oss",
+      "granite",
+      "llama",
+      "ministral",
+      "qwen2.5-coder",
+      "qwen3-coder",
+      "qwen3.5",
+      "starcoder"
+    ],
+    "resampling_unit": "Generator model: all its observed tasks and samples move together.",
+    "scope": "Descriptive stability within four selected tasks and eleven observed generator models. Not a task-generalization confidence interval. A degenerate zero-error interval is an empirical bootstrap artifact, not an upper bound on unseen failure risk.",
+    "intervals": {
+      "astrogator": {
+        "coverage": {
+          "percentile_2_5": 0.7463624752372016,
+          "percentile_97_5": 0.8976477072310405,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.012861736334405145,
+          "percentile_97_5": 0.050505050505050504,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.23032577812217486,
+          "percentile_97_5": 0.5894850435441119,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.011237011066993319,
+          "defined_resamples": 2000
+        }
+      },
+      "astrogator_configured_heuristics": {
+        "coverage": {
+          "percentile_2_5": 0.7463624752372016,
+          "percentile_97_5": 0.8976477072310405,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.303023352793995,
+          "percentile_97_5": 0.6515316205533596,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.047623424369747876,
+          "defined_resamples": 2000
+        }
+      },
+      "judge": {
+        "coverage": {
+          "percentile_2_5": 1.0,
+          "percentile_97_5": 1.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.24180060027319322,
+          "percentile_97_5": 0.3943490336807212,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.043859649122807015,
+          "percentile_97_5": 0.10191407773300402,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.029163641078838176,
+          "percentile_97_5": 0.05901667805100182,
+          "defined_resamples": 2000
+        }
+      },
+      "generated_checks_gated": {
+        "coverage": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": null,
+          "percentile_97_5": null,
+          "defined_resamples": 0
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        }
+      },
+      "always_accept": {
+        "coverage": {
+          "percentile_2_5": 1.0,
+          "percentile_97_5": 1.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.24371713537564133,
+          "percentile_97_5": 0.4048819556845454,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        }
+      },
+      "base_then_judge_on_abstention": {
+        "coverage": {
+          "percentile_2_5": 1.0,
+          "percentile_97_5": 1.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.13352149023629592,
+          "percentile_97_5": 0.2958184650033636,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.279993006993007,
+          "percentile_97_5": 0.6153846153846154,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.011237011066993319,
+          "defined_resamples": 2000
+        }
+      },
+      "heuristics_then_judge_on_abstention": {
+        "coverage": {
+          "percentile_2_5": 1.0,
+          "percentile_97_5": 1.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": 0.11794934788623547,
+          "percentile_97_5": 0.28012416907061327,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.3555424063116371,
+          "percentile_97_5": 0.6748558020030412,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.047623424369747876,
+          "defined_resamples": 2000
+        }
+      }
+    },
+    "paired_differences": {
+      "astrogator minus judge": {
+        "coverage": {
+          "percentile_2_5": -0.2536375247627985,
+          "percentile_97_5": -0.10235229276895956,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": -0.35633084138977916,
+          "percentile_97_5": -0.21855995945801773,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.16311558689935454,
+          "percentile_97_5": 0.5238348530901721,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": -0.057432432432432436,
+          "percentile_97_5": -0.02390438247011952,
+          "defined_resamples": 2000
+        }
+      },
+      "astrogator_configured_heuristics minus judge": {
+        "coverage": {
+          "percentile_2_5": -0.2536375247627985,
+          "percentile_97_5": -0.10235229276895956,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": -0.39434903368072133,
+          "percentile_97_5": -0.24180060027319328,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.22972043144061494,
+          "percentile_97_5": 0.5801709137853613,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": -0.053156146179401995,
+          "percentile_97_5": 0.01181219071924309,
+          "defined_resamples": 2000
+        }
+      },
+      "astrogator_configured_heuristics minus astrogator": {
+        "coverage": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.0,
+          "defined_resamples": 2000
+        },
+        "accepted_failure_risk": {
+          "percentile_2_5": -0.050505050505050504,
+          "percentile_97_5": -0.012861736334405145,
+          "defined_resamples": 2000
+        },
+        "failure_detection_recall": {
+          "percentile_2_5": 0.028358875167385736,
+          "percentile_97_5": 0.10236725217040175,
+          "defined_resamples": 2000
+        },
+        "passing_program_rejection_rate": {
+          "percentile_2_5": 0.0,
+          "percentile_97_5": 0.04151336477987419,
+          "defined_resamples": 2000
+        }
+      }
+    }
+  },
+  "residual_audit": {
+    "accepted_programs": 909,
+    "parser_found_blocks": 909,
+    "has_nonempty_printed_initial": 909,
+    "has_nonempty_printed_constraints": 909,
+    "has_nonempty_printed_final": 552,
+    "interpretation": "These fields expose the upstream printed unification differences. Nonempty does not by itself imply unsafe or unresolved; no discharge decision is inferred.",
+    "upstream_source": {
+      "commit": "7c62afa51986d87033af5112cdccd3b104b1c120",
+      "printer": "bin/verify.ml:258-270",
+      "empty_diff": "lib/fql/verifier.ml:string_of_merged_diff"
+    }
+  },
+  "limitations": [
+    "Only four selected tasks; a01 contains zero local failures.",
+    "Local labels include exact-byte and password-marker choices; revised oracle sensitivity is separate.",
+    "Verifier ranges over OS contexts not matched by the Debian execution; disagreement is not automatically verifier error.",
+    "A verifier accept is conditional and may include printed differences; this report does not discharge them.",
+    "The judge is one small local model. Always-accept and fallback policies are analyses, not new model experiments.",
+    "Generated tests abstained after reference controls. No accuracy can be assigned.",
+    "Generator-cluster bootstrap avoids treating all programs as independent but cannot repair task selection or label validity."
+  ]
+}

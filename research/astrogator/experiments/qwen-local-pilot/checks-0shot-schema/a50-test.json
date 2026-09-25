@@ -1,0 +1,354 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.\nInitial states: baseline: astro-demo 2.0 installed. adversarial: astro-demo 1.0 installed. Offline version 2.0 package is available."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "checks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 12,
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "directory"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "absent"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "mode"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "content"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "contains"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "not_contains"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "member"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "group": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "user",
+                    "group"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "package"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "name",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "running"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "name",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "password_locked"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "user"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "checks"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "seconds": 19.579,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"checks\": [\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo 2.0\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"mode\",\n      \"scenario\": \"baseline\",\n      \"path\": \"/var/lib/dpkg/status\",\n      \"value\": \"Installed, 2.0, 1001\"\n    },\n    {\n      \"kind\": \"package\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo\",\n      \"version\": \"2.0\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1790291081,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 164,
+      "prompt_tokens": 230,
+      "total_tokens": 394,
+      "prompt_tokens_details": {
+        "cached_tokens": 229
+      }
+    },
+    "id": "chatcmpl-Cnb0UlgWvgSPhIblBI1tXlD3nTHgYcyi",
+    "timings": {
+      "cache_n": 229,
+      "prompt_n": 1,
+      "prompt_ms": 121.772,
+      "prompt_per_token_ms": 121.772,
+      "prompt_per_second": 8.212068455802648,
+      "predicted_n": 164,
+      "predicted_ms": 19297.311,
+      "predicted_per_token_ms": 118.3884110429448,
+      "predicted_per_second": 8.446772713566155
+    }
+  },
+  "text": "{\n  \"checks\": [\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo 2.0\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"mode\",\n      \"scenario\": \"baseline\",\n      \"path\": \"/var/lib/dpkg/status\",\n      \"value\": \"Installed, 2.0, 1001\"\n    },\n    {\n      \"kind\": \"package\",\n      \"scenario\": \"baseline\",\n      \"name\": \"astro-demo\",\n      \"version\": \"2.0\"\n    }\n  ]\n}",
+  "finish_reason": "stop",
+  "task_id": "a50",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "constrained": false,
+  "diverse_demos": false,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "e91723a4110bf4136fc721cc7c720a2a5298404e7a666cf39d0a04002c3778e6"
+}

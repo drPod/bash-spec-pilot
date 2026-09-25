@@ -1,0 +1,22 @@
+{
+  "arms": {
+    "compact-all": {
+      "unique_attempt_cells": 13860,
+      "processed_cells": 13428,
+      "queries": 126,
+      "unique_verifier_evidence_files": 1613,
+      "source_and_candidate_hashes_verified": true,
+      "frozen_sha256": "f551f51d0c8dab138125149ef840a43bd012452b7b9b8c495d099f3323a62b74"
+    },
+    "handbook-all": {
+      "unique_attempt_cells": 13860,
+      "processed_cells": 13428,
+      "queries": 126,
+      "unique_verifier_evidence_files": 2777,
+      "source_and_candidate_hashes_verified": true,
+      "frozen_sha256": "5759f0ea2644683992310f479a7fb34522ffc0ad1f9de0b355e6f8c1a76245ba"
+    }
+  },
+  "unique_evidence_files_across_arms": 3968,
+  "complete": true
+}

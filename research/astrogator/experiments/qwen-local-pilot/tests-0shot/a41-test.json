@@ -1,0 +1,63 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for an Ansible task on Debian. Output Python only. The test runs after the playbook, with standard library only, as root. Exit 0 iff checked requirements hold; use assertions. Do not modify system state, execute the playbook, install packages, or assume success. Check observable state; do not read playbook source. You do not receive a reference solution. Environment variable ASTRO_SCENARIO is baseline or adversarial."
+      },
+      {
+        "role": "user",
+        "content": "Task: Add the existing app user to deploy while retaining its existing supplemental group memberships.\nInitial states: Both: app exists; deploy and audit groups exist. adversarial: app belongs to audit. baseline: no supplemental group.\nWrite a test valid in both initial states."
+      }
+    ],
+    "max_tokens": 650,
+    "stream": false
+  },
+  "seconds": 62.909,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport ansible.runner\nimport ansible.warntrack\n\ndef test_add_user_to_deploy(adversarial):\n    # Check baseline scenario\n    if not adversarial:\n        ansible_runner.run(\n            module=\"command\",\n            args=[\"cat\", \"/etc/group\"],\n            forks=1,\n            run_once=True,\n        )\n\n    # Define user to be added\n    user_name = \"app\"\n    user_group = \"deploy\"\n    supplemental_groups = [\"audit\"]\n\n    # Run ansible task to add user to deploy group while retaining supplemental group memberships\n    task = ansible.runner.Runner(\n        module=\"user\",\n        args=[\"add\", \"--system\", \"--force\"],\n        forks=1,\n        inventory=\"localhost\",\n        module_args=\"\"\"\n        user={{user_name}}\n        group={{user_group}}\n        \"\"\"\n    )\n    result = task.run()\n\n    # Check that the user was added to the deploy group\n    assert \"user added\" in result._display.get_output_when_hung_up()\n\n    # Check that the user retained its supplemental group memberships\n    for group in supplemental_groups:\n        group_entry = ansible.warntrack.WarnTrack.get_warning_group(user_name, group)\n        assert \"user has group\" in group_entry.message\n\n    # Check that the user is no longer in the audit group\n    user_entry = ansible.warntrack.WarnTrack.get_warning_user(user_name)\n    assert \"user no longer has group\" in user_entry.message\n\n    # Exit with success\n    return 0\n```"
+        }
+      }
+    ],
+    "created": 1790290277,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 308,
+      "prompt_tokens": 162,
+      "total_tokens": 470,
+      "prompt_tokens_details": {
+        "cached_tokens": 105
+      }
+    },
+    "id": "chatcmpl-BOwFCOKbBETpk0qZ8rFk8lrDe7Omg5Qk",
+    "timings": {
+      "cache_n": 105,
+      "prompt_n": 57,
+      "prompt_ms": 1595.655,
+      "prompt_per_token_ms": 27.99394736842105,
+      "prompt_per_second": 35.72200757682582,
+      "predicted_n": 308,
+      "predicted_ms": 61110.41,
+      "predicted_per_token_ms": 199.05671009771987,
+      "predicted_per_second": 5.023693999107517
+    }
+  },
+  "text": "```python\nimport ansible.runner\nimport ansible.warntrack\n\ndef test_add_user_to_deploy(adversarial):\n    # Check baseline scenario\n    if not adversarial:\n        ansible_runner.run(\n            module=\"command\",\n            args=[\"cat\", \"/etc/group\"],\n            forks=1,\n            run_once=True,\n        )\n\n    # Define user to be added\n    user_name = \"app\"\n    user_group = \"deploy\"\n    supplemental_groups = [\"audit\"]\n\n    # Run ansible task to add user to deploy group while retaining supplemental group memberships\n    task = ansible.runner.Runner(\n        module=\"user\",\n        args=[\"add\", \"--system\", \"--force\"],\n        forks=1,\n        inventory=\"localhost\",\n        module_args=\"\"\"\n        user={{user_name}}\n        group={{user_group}}\n        \"\"\"\n    )\n    result = task.run()\n\n    # Check that the user was added to the deploy group\n    assert \"user added\" in result._display.get_output_when_hung_up()\n\n    # Check that the user retained its supplemental group memberships\n    for group in supplemental_groups:\n        group_entry = ansible.warntrack.WarnTrack.get_warning_group(user_name, group)\n        assert \"user has group\" in group_entry.message\n\n    # Check that the user is no longer in the audit group\n    user_entry = ansible.warntrack.WarnTrack.get_warning_user(user_name)\n    assert \"user no longer has group\" in user_entry.message\n\n    # Exit with success\n    return 0\n```",
+  "finish_reason": "stop",
+  "task_id": "a41",
+  "variant": "test",
+  "mode": "tests",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "d338e79c0da9f051fb253e627b18ebe53bbfb38eb0d0a4b232ae542f24088c5b"
+}

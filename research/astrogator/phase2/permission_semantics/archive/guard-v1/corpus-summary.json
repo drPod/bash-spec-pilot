@@ -1,0 +1,1344 @@
+{
+  "records": 2310,
+  "processed": 2238,
+  "missing": 72,
+  "before": {
+    "accepted_with_possible_residuals": 909,
+    "verification_rejected": 619,
+    "ansible_lowering_error": 710,
+    "missing_processed": 72
+  },
+  "after": {
+    "accepted_with_possible_residuals": 883,
+    "verification_rejected": 589,
+    "ansible_lowering_error": 766,
+    "missing_processed": 72
+  },
+  "transitions": [
+    {
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "count": 26
+    },
+    {
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "count": 30
+    }
+  ],
+  "changed_count": 56,
+  "explicit_unsupported_count": 69,
+  "unsupported_categories": {
+    "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported": 56,
+    "dynamic_expression": 2,
+    "partial_or_other_unsupported_spelling": 8,
+    "conditional_X_without_supported_directory_context": 3
+  },
+  "changed_local_labels": {
+    "not_executed_in_four_task_slice": 48,
+    "passed_local_checks": 7,
+    "failed_local_checks_or_execution": 1
+  },
+  "changes": [
+    {
+      "sample_id": "deepseek/p02/3",
+      "task_id": "a10",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "deepseek/p04/4",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "deepseek/p04/7",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "deepseek/p18/7",
+      "task_id": "a19",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "deepseek/p19/4",
+      "task_id": "a20",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "gpt-4o/p11a/7",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "gpt-oss/p12/3",
+      "task_id": "a05",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p01/1",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "granite/p01/2",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "granite/p01/8",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "granite/p04/4",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p04/5",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p11a/0",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p11a/4",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p11b/0",
+      "task_id": "a08",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p11b/7",
+      "task_id": "a08",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p11b/9",
+      "task_id": "a08",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p16/1",
+      "task_id": "a16",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p16/5",
+      "task_id": "a16",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p16/8",
+      "task_id": "a16",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p18/1",
+      "task_id": "a19",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p18/7",
+      "task_id": "a19",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "granite/p18/8",
+      "task_id": "a19",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "llama/p04/0",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "llama/p12/3",
+      "task_id": "a05",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/0",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/6",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/7",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/0",
+      "task_id": "a04",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/2",
+      "task_id": "a04",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/7",
+      "task_id": "a04",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/9",
+      "task_id": "a04",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/1",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/3",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/5",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/2",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/3",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/6",
+      "task_id": "a07",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11b/4",
+      "task_id": "a08",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p12/9",
+      "task_id": "a05",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/2",
+      "task_id": "a06",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p15/6",
+      "task_id": "a03",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/1",
+      "task_id": "a16",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/6",
+      "task_id": "a16",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/9",
+      "task_id": "a16",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "qwen2.5-coder/p19/3",
+      "task_id": "a20",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p01/2",
+      "task_id": "a01",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": "passed_local_checks"
+    },
+    {
+      "sample_id": "starcoder/p03/1",
+      "task_id": "a04",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p04/3",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p04/4",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p04/6",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p04/7",
+      "task_id": "a13",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p09/9",
+      "task_id": "a11",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p12/6",
+      "task_id": "a05",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p17/9",
+      "task_id": "a18",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    },
+    {
+      "sample_id": "starcoder/p18/7",
+      "task_id": "a19",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error",
+      "local_label_if_available": null
+    }
+  ],
+  "unsupported_programs": [
+    {
+      "sample_id": "deepseek/p02/3",
+      "task_id": "a10",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/deepseek/p02/response3.yml"
+    },
+    {
+      "sample_id": "deepseek/p04/4",
+      "task_id": "a13",
+      "raw_modes": [
+        "{{ item.mode }}"
+      ],
+      "categories": [
+        "dynamic_expression"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/deepseek/p04/response4.yml"
+    },
+    {
+      "sample_id": "deepseek/p04/7",
+      "task_id": "a13",
+      "raw_modes": [
+        "{{ item.mode }}"
+      ],
+      "categories": [
+        "dynamic_expression"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/deepseek/p04/response7.yml"
+    },
+    {
+      "sample_id": "deepseek/p18/7",
+      "task_id": "a19",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/deepseek/p18/response7.yml"
+    },
+    {
+      "sample_id": "deepseek/p19/4",
+      "task_id": "a20",
+      "raw_modes": [
+        288
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/deepseek/p19/response4.yml"
+    },
+    {
+      "sample_id": "gpt-4o/p11a/7",
+      "task_id": "a07",
+      "raw_modes": [
+        "preserve"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/gpt-4o/p11a/response7.yml"
+    },
+    {
+      "sample_id": "gpt-oss/p12/3",
+      "task_id": "a05",
+      "raw_modes": [
+        "preserve"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/gpt-oss/p12/response3.yml"
+    },
+    {
+      "sample_id": "granite/p01/1",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/granite/p01/response1.yml"
+    },
+    {
+      "sample_id": "granite/p01/2",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/granite/p01/response2.yml"
+    },
+    {
+      "sample_id": "granite/p01/8",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/granite/p01/response8.yml"
+    },
+    {
+      "sample_id": "granite/p04/4",
+      "task_id": "a13",
+      "raw_modes": [
+        "u=rwX,g=rX,o=rX"
+      ],
+      "categories": [
+        "conditional_X_without_supported_directory_context"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p04/response4.yml"
+    },
+    {
+      "sample_id": "granite/p04/5",
+      "task_id": "a13",
+      "raw_modes": [
+        "o+rx,o+w"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p04/response5.yml"
+    },
+    {
+      "sample_id": "granite/p11a/0",
+      "task_id": "a07",
+      "raw_modes": [
+        "preserve"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p11a/response0.yml"
+    },
+    {
+      "sample_id": "granite/p11a/4",
+      "task_id": "a07",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p11a/response4.yml"
+    },
+    {
+      "sample_id": "granite/p11b/0",
+      "task_id": "a08",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p11b/response0.yml"
+    },
+    {
+      "sample_id": "granite/p11b/7",
+      "task_id": "a08",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p11b/response7.yml"
+    },
+    {
+      "sample_id": "granite/p11b/9",
+      "task_id": "a08",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p11b/response9.yml"
+    },
+    {
+      "sample_id": "granite/p13/8",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/granite/p13/response8.yml"
+    },
+    {
+      "sample_id": "granite/p16/1",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p16/response1.yml"
+    },
+    {
+      "sample_id": "granite/p16/5",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p16/response5.yml"
+    },
+    {
+      "sample_id": "granite/p16/8",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p16/response8.yml"
+    },
+    {
+      "sample_id": "granite/p18/1",
+      "task_id": "a19",
+      "raw_modes": [
+        420,
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p18/response1.yml"
+    },
+    {
+      "sample_id": "granite/p18/7",
+      "task_id": "a19",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p18/response7.yml"
+    },
+    {
+      "sample_id": "granite/p18/8",
+      "task_id": "a19",
+      "raw_modes": [
+        493,
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/granite/p18/response8.yml"
+    },
+    {
+      "sample_id": "llama/p04/0",
+      "task_id": "a13",
+      "raw_modes": [
+        "g+r",
+        "u+w,g-w,o-w"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/llama/p04/response0.yml"
+    },
+    {
+      "sample_id": "llama/p12/3",
+      "task_id": "a05",
+      "raw_modes": [
+        "u+rw"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/llama/p12/response3.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/0",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/qwen2.5-coder/p01/response0.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/6",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/qwen2.5-coder/p01/response6.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/7",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/qwen2.5-coder/p01/response7.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/0",
+      "task_id": "a04",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p03/response0.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/2",
+      "task_id": "a04",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p03/response2.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/7",
+      "task_id": "a04",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p03/response7.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p03/9",
+      "task_id": "a04",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p03/response9.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/1",
+      "task_id": "a13",
+      "raw_modes": [
+        493,
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p04/response1.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/3",
+      "task_id": "a13",
+      "raw_modes": [
+        493,
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p04/response3.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/5",
+      "task_id": "a13",
+      "raw_modes": [
+        2775,
+        2775,
+        644
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p04/response5.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p04/6",
+      "task_id": "a13",
+      "raw_modes": [
+        755
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p04/response6.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/2",
+      "task_id": "a07",
+      "raw_modes": [
+        644
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p11a/response2.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/3",
+      "task_id": "a07",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p11a/response3.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11a/6",
+      "task_id": "a07",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p11a/response6.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11b/4",
+      "task_id": "a08",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p11b/response4.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p11b/7",
+      "task_id": "a08",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p11b/response7.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p12/9",
+      "task_id": "a05",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p12/response9.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/0",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response0.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/1",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response1.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/2",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response2.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/5",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response5.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/7",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response7.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/9",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/qwen2.5-coder/p13/response9.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p15/6",
+      "task_id": "a03",
+      "raw_modes": [
+        511
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p15/response6.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/1",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p16/response1.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/6",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p16/response6.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p16/9",
+      "task_id": "a16",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p16/response9.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p18/1",
+      "task_id": "a19",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p18/response1.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p18/5",
+      "task_id": "a19",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p18/response5.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p19/3",
+      "task_id": "a20",
+      "raw_modes": [
+        288
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p19/response3.yml"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p20/6",
+      "task_id": "a21",
+      "raw_modes": [
+        700,
+        600
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/qwen2.5-coder/p20/response6.yml"
+    },
+    {
+      "sample_id": "starcoder/p01/2",
+      "task_id": "a01",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": "passed_local_checks",
+      "source_path": "data/corpus/starcoder/p01/response2.yml"
+    },
+    {
+      "sample_id": "starcoder/p03/1",
+      "task_id": "a04",
+      "raw_modes": [
+        448
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p03/response1.yml"
+    },
+    {
+      "sample_id": "starcoder/p04/3",
+      "task_id": "a13",
+      "raw_modes": [
+        "g=r,o=r"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p04/response3.yml"
+    },
+    {
+      "sample_id": "starcoder/p04/4",
+      "task_id": "a13",
+      "raw_modes": [
+        "u+rwX,g+rX,o+rX"
+      ],
+      "categories": [
+        "conditional_X_without_supported_directory_context"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p04/response4.yml"
+    },
+    {
+      "sample_id": "starcoder/p04/6",
+      "task_id": "a13",
+      "raw_modes": [
+        493
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p04/response6.yml"
+    },
+    {
+      "sample_id": "starcoder/p04/7",
+      "task_id": "a13",
+      "raw_modes": [
+        "u=rwX,go=rX"
+      ],
+      "categories": [
+        "conditional_X_without_supported_directory_context"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p04/response7.yml"
+    },
+    {
+      "sample_id": "starcoder/p09/9",
+      "task_id": "a11",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p09/response9.yml"
+    },
+    {
+      "sample_id": "starcoder/p11a/7",
+      "task_id": "a07",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p11a/response7.yml"
+    },
+    {
+      "sample_id": "starcoder/p12/6",
+      "task_id": "a05",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "verification_rejected",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p12/response6.yml"
+    },
+    {
+      "sample_id": "starcoder/p13/3",
+      "task_id": "a06",
+      "raw_modes": [
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "ansible_lowering_error",
+      "local_label_if_available": "failed_local_checks_or_execution",
+      "source_path": "data/corpus/starcoder/p13/response3.yml"
+    },
+    {
+      "sample_id": "starcoder/p17/9",
+      "task_id": "a18",
+      "raw_modes": [
+        420,
+        420
+      ],
+      "categories": [
+        "unquoted_integer_in_PyYAML_upstream_numeric_typing_unsupported"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p17/response9.yml"
+    },
+    {
+      "sample_id": "starcoder/p18/7",
+      "task_id": "a19",
+      "raw_modes": [
+        "u+rw,g+r,o+r"
+      ],
+      "categories": [
+        "partial_or_other_unsupported_spelling"
+      ],
+      "old_status": "accepted_with_possible_residuals",
+      "local_label_if_available": null,
+      "source_path": "data/corpus/starcoder/p18/response7.yml"
+    }
+  ]
+}

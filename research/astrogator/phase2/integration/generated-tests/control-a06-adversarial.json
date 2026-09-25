@@ -1,0 +1,82 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Create /etc/file.txt if it does not exist] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create the file if it does not exist] ************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "6578697374696e6720636f6e74656e74",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "seconds": 4.501,
+  "sample_id": "reference/a06"
+}

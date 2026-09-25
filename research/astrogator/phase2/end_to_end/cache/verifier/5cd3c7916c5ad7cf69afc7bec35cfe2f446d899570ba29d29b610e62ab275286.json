@@ -1,0 +1,11 @@
+{
+  "cache_key": "5cd3c7916c5ad7cf69afc7bec35cfe2f446d899570ba29d29b610e62ab275286",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "742a5dd80069b30c6f5264e95f4b78875054b3fe77e0ff15edf3c5c0ac13f9e8",
+  "code_sha256": "33635663a5cd8072dedfa4c7658dc4bbba496f1252f8cb0fdfcd15623a012399",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument dist_upgrade for module package\n",
+  "stderr": "",
+  "seconds": 0.1245,
+  "status": "ansible_lowering_error"
+}

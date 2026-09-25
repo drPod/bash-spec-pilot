@@ -1,0 +1,11 @@
+{
+  "cache_key": "c0347eaadc7e41fd1694e119a53f9016b6c30fdc84127fccda10aa4a078ae683",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "14e18b1ee05bd248d09b2429812868ae92984056974942f4a0d1ad29babd9912",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module systemd\n",
+  "stderr": "",
+  "seconds": 0.0902,
+  "status": "ansible_lowering_error"
+}

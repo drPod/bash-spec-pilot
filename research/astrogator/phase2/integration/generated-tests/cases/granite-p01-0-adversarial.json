@@ -1,0 +1,72 @@
+{
+  "task_id": "a01",
+  "scenario": "adversarial",
+  "candidate_sha256": "8685fc0657abbf06792dd81e3552fe568577e53ee2297cbf9058ae131438d43f",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model granite, Problem p01, Response 10] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create directory /srv/www] ***********************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.366,
+  "sample_id": "granite/p01/0"
+}

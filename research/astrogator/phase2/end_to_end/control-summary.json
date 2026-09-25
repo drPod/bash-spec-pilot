@@ -1,0 +1,24 @@
+{
+  "original": {
+    "accept_pass": 282,
+    "reject_fail": 56,
+    "unavailable_fail": 74,
+    "accept_fail": 9,
+    "reject_pass": 1,
+    "unavailable_pass": 0,
+    "processed": 422,
+    "decisions": 348,
+    "decision_coverage": 0.8246445497630331
+  },
+  "strict_integrity": {
+    "accept_pass": 282,
+    "reject_fail": 57,
+    "unavailable_fail": 74,
+    "accept_fail": 9,
+    "reject_pass": 0,
+    "unavailable_pass": 0,
+    "processed": 422,
+    "decisions": 348,
+    "decision_coverage": 0.8246445497630331
+  }
+}

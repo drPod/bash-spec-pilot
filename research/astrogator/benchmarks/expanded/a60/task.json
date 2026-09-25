@@ -1,0 +1,21 @@
+{
+  "id": "a60",
+  "title": "Skip initialized extraction",
+  "family": "archives",
+  "natural_language": "Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.",
+  "formal_query": "if file \"/work/unpacked/app/data\" not exists then extract archive from remote \"/fixtures/bundle.tar\" to /work/unpacked",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "overwrites customized extraction",
+  "tags": [
+    "conditional",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

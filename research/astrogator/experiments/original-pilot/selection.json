@@ -1,0 +1,202 @@
+[
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 204,
+        "path": "data/corpus/gpt-5-mini/p01/raw0.yml",
+        "sha256": "3e402ebaa1a2d9d3c6c3db01dec04c7840dfa79011b1b5f360c75b5f98f0c8ee",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 220,
+        "path": "data/corpus/gpt-5-mini/p01/response0.yml",
+        "sha256": "717ea8660f2c46dbbea17a803f6cacb3264f28617b633673adae98823bb1c97a",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p01",
+    "model": "gpt-5-mini",
+    "preprocessing_status": "available",
+    "sample_id": "gpt-5-mini/p01/0",
+    "sample_index": 0,
+    "task_id": "a01",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 208,
+        "path": "data/corpus/gpt-5-mini/p05/raw0.yml",
+        "sha256": "e999be5e2c784dd2f48c9c8f6f2e74f472e85aeec8974a773bb767ac563b1fd0",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 220,
+        "path": "data/corpus/gpt-5-mini/p05/response0.yml",
+        "sha256": "88fa0d80d405817410d3d6b590e21bacf77cb3384d762829c840a78c1ef70a4b",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p05",
+    "model": "gpt-5-mini",
+    "preprocessing_status": "available",
+    "sample_id": "gpt-5-mini/p05/0",
+    "sample_index": 0,
+    "task_id": "a02",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 212,
+        "path": "data/corpus/gpt-5-mini/p10/raw0.yml",
+        "sha256": "da905d1ba5bd1b42dc5339677ea6d0f9e79a0f9dc15c13096cbb72daf38ea146",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 209,
+        "path": "data/corpus/gpt-5-mini/p10/response0.yml",
+        "sha256": "23a4efc635037b96c1084288ca61640ee6e447b7d2cdd6208c7860f71fd21bbf",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p10",
+    "model": "gpt-5-mini",
+    "preprocessing_status": "available",
+    "sample_id": "gpt-5-mini/p10/0",
+    "sample_index": 0,
+    "task_id": "a17",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 266,
+        "path": "data/corpus/gpt-5-mini/p13/raw0.yml",
+        "sha256": "15db26316c4a3b79d802039eb7b48488b922d4d9d8afb3d00e56674ac748fba5",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 321,
+        "path": "data/corpus/gpt-5-mini/p13/response0.yml",
+        "sha256": "8e92f3894fdf7ef3d98abac8e7a136dcb494e800e1bda93d460682a180484055",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p13",
+    "model": "gpt-5-mini",
+    "preprocessing_status": "available",
+    "sample_id": "gpt-5-mini/p13/0",
+    "sample_index": 0,
+    "task_id": "a06",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 98,
+        "path": "data/corpus/starcoder/p01/raw0.yml",
+        "sha256": "5923f72e821723e937b783019a65246405db4a856dc6109d0a43ecd0c06694ef",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 201,
+        "path": "data/corpus/starcoder/p01/response0.yml",
+        "sha256": "039e9e5bce194e4f2dd80303c0603ece399da7a33bd4a601447d922089368071",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p01",
+    "model": "starcoder",
+    "preprocessing_status": "available",
+    "sample_id": "starcoder/p01/0",
+    "sample_index": 0,
+    "task_id": "a01",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 156,
+        "path": "data/corpus/starcoder/p05/raw0.yml",
+        "sha256": "43a44829cfd342bbc4c565e1bdb094a83ef96d386fbd396ff52984e90f6f23de",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 220,
+        "path": "data/corpus/starcoder/p05/response0.yml",
+        "sha256": "a5b64e0d2f73d2a329e925638bf4125612e56746911fdb389d87b2862dd4efe5",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p05",
+    "model": "starcoder",
+    "preprocessing_status": "available",
+    "sample_id": "starcoder/p05/0",
+    "sample_index": 0,
+    "task_id": "a02",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 102,
+        "path": "data/corpus/starcoder/p10/raw0.yml",
+        "sha256": "9342e7a273bf06e7c884a20026dc99989f52b2751bee576a36f9a2b844d11226",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 204,
+        "path": "data/corpus/starcoder/p10/response0.yml",
+        "sha256": "50fab63f42e6bea8d3ac64727050802495ad851929b6a4424faa4def82f6d532",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p10",
+    "model": "starcoder",
+    "preprocessing_status": "available",
+    "sample_id": "starcoder/p10/0",
+    "sample_index": 0,
+    "task_id": "a17",
+    "upstream_response_number": 10
+  },
+  {
+    "artifacts": {
+      "raw": {
+        "bytes": 127,
+        "path": "data/corpus/starcoder/p13/raw0.yml",
+        "sha256": "5eedd60f6b3b14c930ffcca48d74f3fab99abce7b8cd3a76e3a02cce34d7b593",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      },
+      "response": {
+        "bytes": 177,
+        "path": "data/corpus/starcoder/p13/response0.yml",
+        "sha256": "5acb4424b296645ee80c14f78bfc00f03158abdd4c122fe68faccab0be331f5e",
+        "yaml_root": "list",
+        "yaml_status": "parsed"
+      }
+    },
+    "legacy_id": "p13",
+    "model": "starcoder",
+    "preprocessing_status": "available",
+    "sample_id": "starcoder/p13/0",
+    "sample_index": 0,
+    "task_id": "a06",
+    "upstream_response_number": 10
+  }
+]

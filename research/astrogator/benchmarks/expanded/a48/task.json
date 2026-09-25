@@ -1,0 +1,21 @@
+{
+  "id": "a48",
+  "title": "Install offline package",
+  "family": "packages",
+  "natural_language": "On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.",
+  "formal_query": "if os is Debian then install astro-demo with version=\"1.0\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "claims installation without installing",
+  "tags": [
+    "offline",
+    "package-state"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

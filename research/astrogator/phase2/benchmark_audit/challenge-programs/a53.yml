@@ -1,0 +1,16 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: main
+      update: false
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import subprocess; subprocess.run(['git','-C','/work/checkout','-c','user.name=Audit','-c','user.email=audit@example.invalid','commit','--allow-empty','-m','unwanted
+        new commit'],check=True)

@@ -1,0 +1,120 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+      },
+      {
+        "role": "assistant",
+        "content": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https"
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "create file at /etc/file. if file \"/etc/file.txt\" not exists then write file at /etc/file. write \"beginning\"; write \"end\""
+      },
+      {
+        "role": "user",
+        "content": "Your FQL query failed machine validation:\nparse\tok\t969474c7d0f3df09465eb53a0e683df2\nsemantic\terror\tArgument 'to' required for write\n\nReturn one corrected FQL query only. Preserve all actions and conditions in the original request; do not drop requirements just to make the query valid."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 8.704,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "write file at /etc/file. if file \"/etc/file.txt\" not exists then write \"beginning\"; write \"end\"; write \"end\""
+        }
+      }
+    ],
+    "created": 1790292445,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 524,
+      "total_tokens": 555,
+      "prompt_tokens_details": {
+        "cached_tokens": 282
+      }
+    },
+    "id": "chatcmpl-WoGmrFFNVz2xePn4OWr6dTQp9ZHQKveH",
+    "timings": {
+      "cache_n": 282,
+      "prompt_n": 242,
+      "prompt_ms": 4262.213,
+      "prompt_per_token_ms": 17.61245041322314,
+      "prompt_per_second": 56.778016490494494,
+      "predicted_n": 31,
+      "predicted_ms": 4288.803,
+      "predicted_per_token_ms": 142.96009999999998,
+      "predicted_per_second": 6.994958733240953
+    }
+  },
+  "text": "write file at /etc/file. if file \"/etc/file.txt\" not exists then write \"beginning\"; write \"end\"; write \"end\"",
+  "finish_reason": "stop",
+  "task_id": "a06",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a01",
+    "a04",
+    "a09"
+  ],
+  "constrained": true,
+  "diverse_demos": true,
+  "repair_attempted": true,
+  "request_reused": false,
+  "source_record": "experiments/qwen-grammar-v2/fql-3shot-constrained/a06-query.json",
+  "feedback": {
+    "returncode": 11,
+    "stdout": "parse\tok\t969474c7d0f3df09465eb53a0e683df2\nsemantic\terror\tArgument 'to' required for write\n",
+    "stderr": "",
+    "seconds": 0.0056,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "969474c7d0f3df09465eb53a0e683df2"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Argument 'to' required for write"
+      }
+    }
+  },
+  "condition": "one diagnostic retry if parsing/semantic analysis/codegen failed; no reference query supplied"
+}

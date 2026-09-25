@@ -1,0 +1,15 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/spool
+      state: directory
+      mode: '1777'
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import shutil, pathlib, os; shutil.rmtree('/work/spool'); pathlib.Path('/work/spool').write_text('wrong
+        type'); os.chmod('/work/spool',0o1777)

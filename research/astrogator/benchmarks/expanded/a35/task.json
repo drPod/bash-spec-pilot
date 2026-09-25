@@ -1,0 +1,21 @@
+{
+  "id": "a35",
+  "title": "Replace existing directive",
+  "family": "configuration",
+  "natural_language": "In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.",
+  "formal_query": "write \"port=8080\" to file at \"/work/app.conf\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "appends without replacing old directive",
+  "tags": [
+    "regex",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

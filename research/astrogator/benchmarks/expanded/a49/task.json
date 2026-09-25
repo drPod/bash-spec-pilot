@@ -1,0 +1,21 @@
+{
+  "id": "a49",
+  "title": "Remove installed package",
+  "family": "packages",
+  "natural_language": "Remove astro-demo from this Debian host if installed; leave astro-keep installed.",
+  "formal_query": "if os is Debian then uninstall astro-demo",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "leaves installed package",
+  "tags": [
+    "package-state",
+    "negative-scope"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

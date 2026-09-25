@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "candidate_sha256": "a0bec18e1482c45142446f7df0198b36628b6e28e9a3a93f511d5bde7bede5ea",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model starcoder, Problem p05, Response 2] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [file] ********************************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.24,
+  "sample_id": "starcoder/p05/2"
+}

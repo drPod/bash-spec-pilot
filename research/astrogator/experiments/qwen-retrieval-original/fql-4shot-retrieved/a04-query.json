@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Move the file at /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+      },
+      {
+        "role": "assistant",
+        "content": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\""
+      },
+      {
+        "role": "user",
+        "content": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\""
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 7.784,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+        }
+      }
+    ],
+    "created": 1790293209,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 569,
+      "total_tokens": 585,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-mRunJJsQznlpUl02eCKrHSUz0covoP8f",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 308,
+      "prompt_ms": 5716.539,
+      "prompt_per_token_ms": 18.56019155844156,
+      "prompt_per_second": 53.87875426022634,
+      "predicted_n": 16,
+      "predicted_ms": 1877.679,
+      "predicted_per_token_ms": 125.1786,
+      "predicted_per_second": 7.9885859084540005
+    }
+  },
+  "text": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+  "finish_reason": "stop",
+  "task_id": "a04",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a05",
+    "a06",
+    "a16",
+    "a18"
+  ],
+  "retrieval_scores": [
+    0.8710695069549486,
+    0.3733170412638124,
+    0.14992292340017355,
+    0.10966210021165425
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "d3a60a2aba27d98364517cb8a6d1f17480377c0cc94873953db340cf00f3392f",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

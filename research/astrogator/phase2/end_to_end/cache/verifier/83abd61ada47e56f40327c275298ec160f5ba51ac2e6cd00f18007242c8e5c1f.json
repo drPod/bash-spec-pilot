@@ -1,0 +1,11 @@
+{
+  "cache_key": "83abd61ada47e56f40327c275298ec160f5ba51ac2e6cd00f18007242c8e5c1f",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4",
+  "code_sha256": "d7757eae280e1b237ea5250e2d778acde637ab619b76b148b0c0928543522880",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported Jinja form\n",
+  "stderr": "",
+  "seconds": 0.0944,
+  "status": "ansible_lowering_error"
+}

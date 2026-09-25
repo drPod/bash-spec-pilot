@@ -1,0 +1,1 @@
+if os is RedHat then install apache server; if file "/var/www/html/index.html" not exists then create file at "/var/www/html/index.html" with content="Welcome to Apache!"; set user with name="webdev"

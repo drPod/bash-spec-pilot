@@ -1,0 +1,42 @@
+{
+  "purpose": "Retrospective integrity check against the already-delivered phase1 ZIP; this is not a prospective amendment to the active phase2 declarative-test protocol.",
+  "phase1_zip": "astrogator-research-review-final-2026-09-25.zip",
+  "phase1_zip_sha256": "124d50ed06f45ef78fa9c1c73a616ab6acc2e88cc673480e4bfd812d879d8387",
+  "files": [
+    {
+      "path": "data/manifest.jsonl",
+      "current_sha256": "6e4cdc03d8d09be63f276974e73181b00dafa983de4c3ed14136b11b13752410",
+      "phase1_package_sha256": "6e4cdc03d8d09be63f276974e73181b00dafa983de4c3ed14136b11b13752410",
+      "matches_phase1_package": true,
+      "phase1_frozen_sha256": null
+    },
+    {
+      "path": "benchmarks/original-pilot/a01/reference.yml",
+      "current_sha256": "decde8d52806384674d45c6de9bb98e9c58322806d1327eb2f1de3aee8be6ba8",
+      "phase1_package_sha256": "decde8d52806384674d45c6de9bb98e9c58322806d1327eb2f1de3aee8be6ba8",
+      "matches_phase1_package": true,
+      "phase1_frozen_sha256": "decde8d52806384674d45c6de9bb98e9c58322806d1327eb2f1de3aee8be6ba8"
+    },
+    {
+      "path": "benchmarks/original-pilot/a02/reference.yml",
+      "current_sha256": "65cfe5ad8a1f35f49d67be7abf23785f4d6b7ae45c5c263723097c7b0bb4a4e8",
+      "phase1_package_sha256": "65cfe5ad8a1f35f49d67be7abf23785f4d6b7ae45c5c263723097c7b0bb4a4e8",
+      "matches_phase1_package": true,
+      "phase1_frozen_sha256": "65cfe5ad8a1f35f49d67be7abf23785f4d6b7ae45c5c263723097c7b0bb4a4e8"
+    },
+    {
+      "path": "benchmarks/original-pilot/a06/reference.yml",
+      "current_sha256": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb",
+      "phase1_package_sha256": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb",
+      "matches_phase1_package": true,
+      "phase1_frozen_sha256": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb"
+    },
+    {
+      "path": "benchmarks/original-pilot/a17/reference.yml",
+      "current_sha256": "010c193ff0d228d1dcd82a2d3f3831dac1294d4ab36f18a5394ba0af2673a312",
+      "phase1_package_sha256": "010c193ff0d228d1dcd82a2d3f3831dac1294d4ab36f18a5394ba0af2673a312",
+      "matches_phase1_package": true,
+      "phase1_frozen_sha256": "010c193ff0d228d1dcd82a2d3f3831dac1294d4ab36f18a5394ba0af2673a312"
+    }
+  ]
+}

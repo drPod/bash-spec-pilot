@@ -1,0 +1,22 @@
+{
+  "query_sha256": "c82339ccc0c07ffd8774f772510113f5bf9376ffe75950147f3ba25520c48977",
+  "query": "if os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file. if os is RedHat then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t6e201715b00754f1f5f8f70824293ffd\nsemantic\terror\tunhandled path specifier 'postfix configuration file'\n",
+    "stderr": "",
+    "seconds": 0.0175,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "6e201715b00754f1f5f8f70824293ffd"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "unhandled path specifier 'postfix configuration file'"
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "f86962ebf2c51e98905724c4c26f80e6fe7a15a595d1dba4eb2c0b8f47eaa6a7",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r0.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r1.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "test_contents (__main__.TestFileCreation.test_contents) ... FAIL\ntest_file_exists_and_is_regular (__main__.TestFileCreation.test_file_exists_and_is_regular) ... ok\n\n======================================================================\nFAIL: test_contents (__main__.TestFileCreation.test_contents)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a06-r1.py\", line 34, in test_contents\n    self.assertIn(\n    ~~~~~~~~~~~~~^\n        data, EXPECTED_VARIANTS,\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n        \"%s has unexpected contents: %r\" % (PATH, data))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: b'# BEGIN ANSIBLE MANAGED BLOCK\\nbeginning\\n# END ANSIBLE MANAGED BLOCK\\n' not found in (b'beginning', b'beginning\\n') : /etc/file.txt has unexpected contents: b'# BEGIN ANSIBLE MANAGED BLOCK\\nbeginning\\n# END ANSIBLE MANAGED BLOCK\\n'\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model deepseek, Problem p13, Response 4] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create a file] ***********************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "2320424547494e20414e5349424c45204d414e4147454420424c4f434b0a626567696e6e696e670a2320454e4420414e5349424c45204d414e4147454420424c4f434b0a",
+    "old_oracle": false,
+    "single_final_newline_tolerant": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/etc/file.txt": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985491,
+      "mtime_ns": 1790348180489136803,
+      "ctime_ns": 1790348180496136993,
+      "sha256": "164e6213ccd1f7fcea1dd6fa4447e27d2ad733dc4823a2d0c595fedd5b3cd2fd"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.772,
+  "sample_id": "deepseek/p13/4"
+}

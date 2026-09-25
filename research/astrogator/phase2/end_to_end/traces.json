@@ -1,0 +1,2198 @@
+{
+  "selection": "Descriptive post-hoc traces, firstsample perdistinctquery/transition/strictlabel; prioritizeschanges. No effect on inference,queryselection,or scoring.",
+  "traces": [
+    {
+      "category": "program_lowering_unavailable",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "deepseek/p10/9",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3.json",
+        "status": "ansible_lowering_error",
+        "verifier_status": "ansible_lowering_error",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/997b60e61d91f02f81a8243fa2d566bb404df8cc0a70c7091617cbfeaf03d230.json",
+        "supplied_query_status": "ansible_lowering_error",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=service",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p10/response9.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p10, Response 9\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Disable password for service user\n    ansible.posix.user:\n      name: service\n      password: ''\n\n",
+      "generated_verifier": {
+        "cache_key": "997b60e61d91f02f81a8243fa2d566bb404df8cc0a70c7091617cbfeaf03d230",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.user\n",
+        "stderr": "",
+        "seconds": 0.0923,
+        "status": "ansible_lowering_error"
+      },
+      "supplied_verifier": {
+        "cache_key": "997b60e61d91f02f81a8243fa2d566bb404df8cc0a70c7091617cbfeaf03d230",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.user\n",
+        "stderr": "",
+        "seconds": 0.0923,
+        "status": "ansible_lowering_error"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 59,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 60,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 19,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "returncode": 4
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 20,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 4
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "program_lowering_unavailable",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a06",
+        "sample_id": "deepseek/p13/0",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f.json",
+        "status": "ansible_lowering_error",
+        "verifier_status": "ansible_lowering_error",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/25d20ae86db43f508f319e0320a4608bd925e6cc9fba67c93b9b820d25061f09.json",
+        "supplied_query_status": "ansible_lowering_error",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist",
+      "generated_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "supplied_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p13/response0.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p13, Response 10\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Create /etc/file.txt if not exist\n    ansible.builtin.file:\n      path: /etc/file.txt\n      state: touch\n      mode: '0644'\n      owner: root\n      group: root\n      content: \"beginning\"\n    become: yes\n\n",
+      "generated_verifier": {
+        "cache_key": "25d20ae86db43f508f319e0320a4608bd925e6cc9fba67c93b9b820d25061f09",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument content for module ansible.builtin.file\n",
+        "stderr": "",
+        "seconds": 0.0388,
+        "status": "ansible_lowering_error"
+      },
+      "supplied_verifier": {
+        "cache_key": "25d20ae86db43f508f319e0320a4608bd925e6cc9fba67c93b9b820d25061f09",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument content for module ansible.builtin.file\n",
+        "stderr": "",
+        "seconds": 0.0388,
+        "status": "ansible_lowering_error"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 61,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        },
+        {
+          "line": 62,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 21,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "before": null,
+          "after": {
+            "file_exists": false,
+            "content_hex": null,
+            "old_oracle": false,
+            "single_final_newline_tolerant": false
+          },
+          "returncode": 2
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 22,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "before": null,
+          "after": {
+            "file_exists": true,
+            "content_hex": "6578697374696e6720636f6e74656e74",
+            "old_oracle": true,
+            "single_final_newline_tolerant": true
+          },
+          "returncode": 2
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a06/check.py",
+      "original_checks": "assert read('/etc/file.txt') == ('existing content' if adversarial else 'beginning')\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "program_lowering_unavailable",
+      "cell": {
+        "arm": "handbook",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "deepseek/p10/9",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8.json",
+        "status": "ansible_lowering_error",
+        "verifier_status": "ansible_lowering_error",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/aaee01863dc19335b69699aa3d709200181751234f99383c63f05115301466d7.json",
+        "supplied_query_status": "ansible_lowering_error",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=\"service\"",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=\"service\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p10/response9.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p10, Response 9\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Disable password for service user\n    ansible.posix.user:\n      name: service\n      password: ''\n\n",
+      "generated_verifier": {
+        "cache_key": "aaee01863dc19335b69699aa3d709200181751234f99383c63f05115301466d7",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.user\n",
+        "stderr": "",
+        "seconds": 0.0591,
+        "status": "ansible_lowering_error"
+      },
+      "supplied_verifier": {
+        "cache_key": "997b60e61d91f02f81a8243fa2d566bb404df8cc0a70c7091617cbfeaf03d230",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.user\n",
+        "stderr": "",
+        "seconds": 0.0923,
+        "status": "ansible_lowering_error"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 59,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 60,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 19,
+          "scenario": "baseline",
+          "status": "execution_error",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "returncode": 4
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 20,
+          "scenario": "adversarial",
+          "status": "execution_error",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 4
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "deepseek/p10/2",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/d3ec10b80f15e4912b6ab5909c81f03ac0bf10ad92867469d367ed975319ff0e.json",
+        "supplied_query_status": "verification_rejected",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=service",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p10/response2.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p10, Response 2\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Disable password for 'service' user\n    ansible.builtin.user:\n      name: service\n      password: \"\"\n\n",
+      "generated_verifier": {
+        "cache_key": "d3ec10b80f15e4912b6ab5909c81f03ac0bf10ad92867469d367ed975319ff0e",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0358,
+        "status": "verification_rejected"
+      },
+      "supplied_verifier": {
+        "cache_key": "d3ec10b80f15e4912b6ab5909c81f03ac0bf10ad92867469d367ed975319ff0e",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0358,
+        "status": "verification_rejected"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 45,
+          "scenario": "baseline",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 46,
+          "scenario": "adversarial",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 5,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 6,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a06",
+        "sample_id": "deepseek/p13/2",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "e4efc53b88986b8736b0d5eee150c74a6ee5d13ef355843c16595d310cc8aafb",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/0f48608dc560768d01f281455c740e7c73c6f2e7d65c0c4ed4150fd212adcf71.json",
+        "supplied_query_status": "verification_rejected",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist",
+      "generated_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "supplied_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p13/response2.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p13, Response 2\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Create /etc/file.txt if it doesn't exist\n    blockinfile:\n      path: /etc/file.txt\n      create: yes\n      block: \"beginning\"\n    tags: file\n\n",
+      "generated_verifier": {
+        "cache_key": "0f48608dc560768d01f281455c740e7c73c6f2e7d65c0c4ed4150fd212adcf71",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "e4efc53b88986b8736b0d5eee150c74a6ee5d13ef355843c16595d310cc8aafb",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0901,
+        "status": "verification_rejected"
+      },
+      "supplied_verifier": {
+        "cache_key": "0f48608dc560768d01f281455c740e7c73c6f2e7d65c0c4ed4150fd212adcf71",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "e4efc53b88986b8736b0d5eee150c74a6ee5d13ef355843c16595d310cc8aafb",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0901,
+        "status": "verification_rejected"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 65,
+          "scenario": "baseline",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "e4efc53b88986b8736b0d5eee150c74a6ee5d13ef355843c16595d310cc8aafb",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        },
+        {
+          "line": 66,
+          "scenario": "adversarial",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "e4efc53b88986b8736b0d5eee150c74a6ee5d13ef355843c16595d310cc8aafb",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 25,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": null,
+          "after": {
+            "file_exists": true,
+            "content_hex": "2320424547494e20414e5349424c45204d414e4147454420424c4f434b0a626567696e6e696e670a2320454e4420414e5349424c45204d414e4147454420424c4f434b0a",
+            "old_oracle": false,
+            "single_final_newline_tolerant": false
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 26,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": null,
+          "after": {
+            "file_exists": true,
+            "content_hex": "6578697374696e6720636f6e74656e740a2320424547494e20414e5349424c45204d414e4147454420424c4f434b0a626567696e6e696e670a2320454e4420414e5349424c45204d414e4147454420424c4f434b0a",
+            "old_oracle": false,
+            "single_final_newline_tolerant": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a06/check.py",
+      "original_checks": "assert read('/etc/file.txt') == ('existing content' if adversarial else 'beginning')\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "gpt-5-mini/p10/7",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3.json",
+        "status": "accepted_with_possible_residuals",
+        "verifier_status": "accepted_with_possible_residuals",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/b541281e50f6b6254ef050c2280110097cec1fdf2dfc8572ef69fb4d0e361ff1.json",
+        "supplied_query_status": "accepted_with_possible_residuals",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=service",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/gpt-5-mini/p10/response7.yml",
+      "program": "---\n- name: \"Model gpt-5-mini, Problem p10, Response 7\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Set password for the service user to an unusable state\n    ansible.builtin.user:\n      name: service\n      password: '*'\n      update_password: on_create\n\n",
+      "generated_verifier": {
+        "cache_key": "b541281e50f6b6254ef050c2280110097cec1fdf2dfc8572ef69fb4d0e361ff1",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.0899,
+        "status": "accepted_with_possible_residuals"
+      },
+      "supplied_verifier": {
+        "cache_key": "b541281e50f6b6254ef050c2280110097cec1fdf2dfc8572ef69fb4d0e361ff1",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.0899,
+        "status": "accepted_with_possible_residuals"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 215,
+          "scenario": "baseline",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 216,
+          "scenario": "adversarial",
+          "status": "passed",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 95,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 96,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a06",
+        "sample_id": "granite/p13/7",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "325233032a4853239cff6be22d8115f2313c7c71413eb0b5c193ed0ca4193809",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f.json",
+        "status": "accepted_with_possible_residuals",
+        "verifier_status": "accepted_with_possible_residuals",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/dbcaebfd4829d914917571633e1fe2301b0925805d69de824876ec04f90d3ef6.json",
+        "supplied_query_status": "accepted_with_possible_residuals",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist",
+      "generated_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "supplied_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "conditional",
+            "condition": {
+              "kind": "file_exists",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/file.txt"
+                }
+              }
+            },
+            "then": [],
+            "else": [
+              {
+                "kind": "create_file",
+                "destination": {
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/file.txt"
+                    }
+                  },
+                  "owner": null,
+                  "group": null,
+                  "permissions": {
+                    "read": null,
+                    "write": null,
+                    "execute": null,
+                    "list_directory": null,
+                    "setuid": null,
+                    "setgid": null,
+                    "sticky": null
+                  }
+                },
+                "content": "beginning"
+              }
+            ]
+          }
+        ]
+      },
+      "program_path": "data/corpus/granite/p13/response7.yml",
+      "program": "---\n- name: \"Model granite, Problem p13, Response 7\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Create file if not exists\n    ansible.builtin.copy:\n      dest: /etc/file.txt\n      content: beginning\n    tags: create_file\n\n",
+      "generated_verifier": {
+        "cache_key": "dbcaebfd4829d914917571633e1fe2301b0925805d69de824876ec04f90d3ef6",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "325233032a4853239cff6be22d8115f2313c7c71413eb0b5c193ed0ca4193809",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220013) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220021) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220029) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.084,
+        "status": "accepted_with_possible_residuals"
+      },
+      "supplied_verifier": {
+        "cache_key": "dbcaebfd4829d914917571633e1fe2301b0925805d69de824876ec04f90d3ef6",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+        "code_sha256": "325233032a4853239cff6be22d8115f2313c7c71413eb0b5c193ed0ca4193809",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220013) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220021) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, fs(('/etc/file.txt', file_system::remote(()))): <fs_type = file_type::file(\u220029) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ] >, fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: \u220044 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::file(\"beginning\") ], mode = [ 0: \u220044 ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, not fs(('/etc/file.txt', file_system::remote(()))) >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220040 ], umask = [ 0: \u220042 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/etc/file.txt', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220042) ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.084,
+        "status": "accepted_with_possible_residuals"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 395,
+          "scenario": "baseline",
+          "status": "passed",
+          "error": null,
+          "input_sha256": {
+            "candidate": "325233032a4853239cff6be22d8115f2313c7c71413eb0b5c193ed0ca4193809",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        },
+        {
+          "line": 396,
+          "scenario": "adversarial",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "325233032a4853239cff6be22d8115f2313c7c71413eb0b5c193ed0ca4193809",
+            "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+            "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 195,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": null,
+          "after": {
+            "file_exists": true,
+            "content_hex": "626567696e6e696e67",
+            "old_oracle": true,
+            "single_final_newline_tolerant": true
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 196,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": null,
+          "after": {
+            "file_exists": true,
+            "content_hex": "626567696e6e696e67",
+            "old_oracle": false,
+            "single_final_newline_tolerant": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a06/check.py",
+      "original_checks": "assert read('/etc/file.txt') == ('existing content' if adversarial else 'beginning')\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "compact",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a02",
+        "sample_id": "qwen3.5/p05/0",
+        "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/36acd5bb9fecb31d4f8ad4f6aea63cff69bd7489cb705d4722ea7a7e7121013c.json",
+        "supplied_query_status": "verification_rejected",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Delete the directory /home/mydata/web",
+      "generated_query": "delete directory at /home/mydata/web",
+      "supplied_query": "delete directory at /home/mydata/web",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "delete directory at /home/mydata/web",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_directory",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/mydata/web"
+              }
+            }
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "delete directory at /home/mydata/web",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_directory",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/mydata/web"
+              }
+            }
+          }
+        ]
+      },
+      "program_path": "data/corpus/qwen3.5/p05/response0.yml",
+      "program": "---\n- name: \"Model qwen3, Problem p05, Response 10\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Delete the directory\n    file:\n      path: /home/mystate/web/\n      state: absent\n\n",
+      "generated_verifier": {
+        "cache_key": "36acd5bb9fecb31d4f8ad4f6aea63cff69bd7489cb705d4722ea7a7e7121013c",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+        "code_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0546,
+        "status": "verification_rejected"
+      },
+      "supplied_verifier": {
+        "cache_key": "36acd5bb9fecb31d4f8ad4f6aea63cff69bd7489cb705d4722ea7a7e7121013c",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+        "code_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0546,
+        "status": "verification_rejected"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 729,
+          "scenario": "baseline",
+          "status": "passed",
+          "error": null,
+          "input_sha256": {
+            "candidate": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+            "setup": "34a25e81fc50d30458946129c0a4463273b1ee8b17657289b7432e7585b5c643",
+            "oracle": "deab7142cf06a65b75794a304c4188e5a39c1a312d2a640e2c023600ab97d4f3"
+          }
+        },
+        {
+          "line": 730,
+          "scenario": "adversarial",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+            "setup": "34a25e81fc50d30458946129c0a4463273b1ee8b17657289b7432e7585b5c643",
+            "oracle": "deab7142cf06a65b75794a304c4188e5a39c1a312d2a640e2c023600ab97d4f3"
+          }
+        }
+      ],
+      "revised_runtime_cases": [],
+      "original_check_path": "benchmarks/original-pilot/a02/check.py",
+      "original_checks": "assert not P('/home/mydata/web').exists()\n",
+      "revised_check_source": null
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "handbook",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "deepseek/p10/2",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/af6a92ea883242b4bb591a3d248ef0f7fa2357f55c473fb6b6eddb8794b7b487.json",
+        "supplied_query_status": "verification_rejected",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=\"service\"",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=\"service\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/deepseek/p10/response2.yml",
+      "program": "---\n- name: \"Model deepseek, Problem p10, Response 2\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Disable password for 'service' user\n    ansible.builtin.user:\n      name: service\n      password: \"\"\n\n",
+      "generated_verifier": {
+        "cache_key": "af6a92ea883242b4bb591a3d248ef0f7fa2357f55c473fb6b6eddb8794b7b487",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.1031,
+        "status": "verification_rejected"
+      },
+      "supplied_verifier": {
+        "cache_key": "d3ec10b80f15e4912b6ab5909c81f03ac0bf10ad92867469d367ed975319ff0e",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0358,
+        "status": "verification_rejected"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 45,
+          "scenario": "baseline",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 46,
+          "scenario": "adversarial",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 5,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 6,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    },
+    {
+      "category": "unchanged_status",
+      "cell": {
+        "arm": "handbook",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a17",
+        "sample_id": "gpt-5-mini/p10/7",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8.json",
+        "status": "accepted_with_possible_residuals",
+        "verifier_status": "accepted_with_possible_residuals",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/880737d73694ea01d755550f0d71efd96939aa81d6b0a9c35ce9273fdbe38afe.json",
+        "supplied_query_status": "accepted_with_possible_residuals",
+        "labels": {
+          "original": "failed_local_checks_or_execution",
+          "strict_integrity": "failed_local_checks_or_execution",
+          "newline_sensitivity": "failed_local_checks_or_execution"
+        }
+      },
+      "natural_language": "Disable the password for the `service' user",
+      "generated_query": "disable password for user=\"service\"",
+      "supplied_query": "disable password for user=service",
+      "semantic_effect_proxy_match": true,
+      "generated_effects": {
+        "query": "disable password for user=\"service\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "supplied_effects": {
+        "query": "disable password for user=service",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "disable_password",
+            "user": "service"
+          }
+        ]
+      },
+      "program_path": "data/corpus/gpt-5-mini/p10/response7.yml",
+      "program": "---\n- name: \"Model gpt-5-mini, Problem p10, Response 7\"\n  hosts: all\n  become: true\n  tasks:\n  - name: Set password for the service user to an unusable state\n    ansible.builtin.user:\n      name: service\n      password: '*'\n      update_password: on_create\n\n",
+      "generated_verifier": {
+        "cache_key": "880737d73694ea01d755550f0d71efd96939aa81d6b0a9c35ce9273fdbe38afe",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.08,
+        "status": "accepted_with_possible_residuals"
+      },
+      "supplied_verifier": {
+        "cache_key": "b541281e50f6b6254ef050c2280110097cec1fdf2dfc8572ef69fb4d0e361ff1",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+        "code_sha256": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_user(\"service\") [ 1, 0 : neg ] , env(()) : < hostname = [ 1, 0: \u220016 ] >, fs(('/home/service', file_system::remote(()))) [ 1 : pos | 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_group(\"service\") [ 1, 0 : pos ] , e_user(\"service\") : < default_shell = [ 0: \u220318 | 1: \u220319 ], homedir = [ 1, 0: '/home/service' ], primary_group = [ 1, 0: \"service\" ], supplemental_groups = [ 1, 0: nil::<string>() ], system = [ 1, 0: false ] >, fs(('/home/service', file_system::remote(()))) [ 0 : pos ] : < fs_type = [ 0: file_type::directory(nil::<path>()) ], owner = [ 0: \"service\" ] > >\n",
+        "stderr": "",
+        "seconds": 0.0899,
+        "status": "accepted_with_possible_residuals"
+      },
+      "original_runtime_cases": [
+        {
+          "line": 215,
+          "scenario": "baseline",
+          "status": "oracle_rejected",
+          "error": "AssertionError()",
+          "input_sha256": {
+            "candidate": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        },
+        {
+          "line": 216,
+          "scenario": "adversarial",
+          "status": "passed",
+          "error": null,
+          "input_sha256": {
+            "candidate": "d3b76982eec68a4dc7c0e294ae9e4630050ffa797f284ea4521bc42e594662b9",
+            "setup": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+            "oracle": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f"
+          }
+        }
+      ],
+      "revised_runtime_cases": [
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 95,
+          "scenario": "baseline",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": false,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": false,
+            "strict_oracle": false,
+            "fixture_password_still_matches": true
+          },
+          "returncode": 0
+        },
+        {
+          "source": "phase2/evaluation/revised-execution.jsonl",
+          "line": 96,
+          "scenario": "adversarial",
+          "status": "observed",
+          "before": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "after": {
+            "user_exists": true,
+            "service_shadow_entries": [
+              [
+                "service",
+                "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+                "20721",
+                "0",
+                "99999",
+                "7",
+                "",
+                "",
+                ""
+              ]
+            ],
+            "service_passwd_entries": [
+              [
+                "service",
+                "x",
+                "1000",
+                "1000",
+                "",
+                "/home/service",
+                "/bin/sh"
+              ]
+            ],
+            "password_locked_marker": true,
+            "shadow_and_passwd_integrity": true,
+            "old_oracle": true,
+            "strict_oracle": true,
+            "fixture_password_still_matches": false
+          },
+          "returncode": 0
+        }
+      ],
+      "original_check_path": "benchmarks/original-pilot/a17/check.py",
+      "original_checks": "assert user_exists('service'); h=next(x.split(':')[1] for x in read('/etc/shadow').splitlines() if x.startswith('service:')); assert h.startswith(('!','*'))\n",
+      "revised_check_source": "phase2/evaluation/revised_case.py"
+    }
+  ]
+}

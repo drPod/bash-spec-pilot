@@ -1,0 +1,21 @@
+{
+  "id": "a29",
+  "title": "Unlink without deleting target",
+  "family": "filesystem",
+  "natural_language": "Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",
+  "formal_query": "delete file at /work/link",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "deletes link target",
+  "tags": [
+    "symlink",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

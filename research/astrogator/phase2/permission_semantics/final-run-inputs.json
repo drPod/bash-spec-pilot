@@ -1,0 +1,16 @@
+{
+  "option": "--constant-modes",
+  "revision": "guard-v2: covers copy.directory_mode",
+  "binary_default": "ordinary-permission patch only; supported-mode boundary disabled",
+  "files": {
+    "source/test/mode_regression.ml": "95785cc8460f358737fb21b1615ff76fb4d3cf02e1719c4aeb4d5389273c5ea2",
+    "source/bin/verify.ml": "1a637bd69a2f4e1c0c7dbd58978c18b74b9acc9ebf33116cb320659bc2b5f618",
+    "source/lib/ansible/semant.ml": "911a4b689e6d18c97a3344b74159e8086a8fa36e20be8c57f57a184b97698941",
+    "source/lib/modules/permission_mode.ml": "a9d59e7348d43bb89bfd52f35daa50368082a367e5927ffee3e030e4748e77dc",
+    "source/lib/fql/codegen.ml": "8020d14d98a247ee0a7ac63cc4a0ebe643e06c5fc49a2e3d8c4ffaecfa5d6602",
+    "verify_integration.py": "dd2f139287da9a8a694fa8b65515c5b03b2ad3f150a1aa372e821fa49a6c5dbf",
+    "review_run.py": "de767caf877afcfe0dabe6e0149ddbfcd0d42654ce5a06840c2511a331c56e2d",
+    ".cache/bin/verify.exe": "3d719ee5a61c18f4dcdde5458e02ba5d6652b0fc0c69fac605f2568fafb88a4d",
+    ".cache/bin/mode_probe.exe": "dc0f0c3cf160326dc1262b1f05a7d4b1e3ed920c84b6460b43047b43a179cc9f"
+  }
+}

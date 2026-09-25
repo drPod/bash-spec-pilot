@@ -1,0 +1,510 @@
+{
+  "observed": 2310,
+  "expected": 2310,
+  "complete": true,
+  "counts": {
+    "accepted_with_possible_residuals": 235,
+    "generated_query_invalid": 1590,
+    "verification_rejected": 220,
+    "ansible_lowering_error": 193,
+    "missing_processed": 72
+  },
+  "tasks": {
+    "a01": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "accepted_with_possible_residuals",
+          "count": 110
+        }
+      ]
+    },
+    "a02": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 96
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 3
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 11
+        }
+      ]
+    },
+    "a03": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 13
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 31
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 66
+        }
+      ]
+    },
+    "a04": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "verification_rejected",
+          "count": 99
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "ansible_lowering_error",
+          "count": 8
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "verification_rejected",
+          "count": 1
+        }
+      ]
+    },
+    "a05": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 14
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 24
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 1
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 71
+        }
+      ]
+    },
+    "a06": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 22
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 57
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 11
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 20
+        }
+      ]
+    },
+    "a07": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "accepted_with_possible_residuals",
+          "count": 27
+        },
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "verification_rejected",
+          "count": 17
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "ansible_lowering_error",
+          "count": 57
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 3
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "verification_rejected",
+          "count": 6
+        }
+      ]
+    },
+    "a08": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 24
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 43
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 5
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 38
+        }
+      ]
+    },
+    "a09": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 91
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 11
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 1
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 7
+        }
+      ]
+    },
+    "a10": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 56
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 39
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 13
+        }
+      ]
+    },
+    "a11": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 93
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 7
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 8
+        }
+      ]
+    },
+    "a12": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "accepted_with_possible_residuals",
+          "count": 33
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "ansible_lowering_error",
+          "count": 69
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "verification_rejected",
+          "count": 6
+        }
+      ]
+    },
+    "a13": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 19
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 91
+        }
+      ]
+    },
+    "a14": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 92
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 13
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 5
+        }
+      ]
+    },
+    "a15": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "accepted_with_possible_residuals",
+          "count": 62
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "ansible_lowering_error",
+          "count": 8
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 3
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "accepted_with_possible_residuals",
+          "count": 3
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "verification_rejected",
+          "count": 34
+        }
+      ]
+    },
+    "a16": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 59
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 15
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 11
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 25
+        }
+      ]
+    },
+    "a17": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 63
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 17
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 4
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 26
+        }
+      ]
+    },
+    "a18": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "verification_rejected",
+          "count": 9
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "ansible_lowering_error",
+          "count": 51
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "verification_rejected",
+          "count": 48
+        }
+      ]
+    },
+    "a19": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 20
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 42
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 46
+        }
+      ]
+    },
+    "a20": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "accepted_with_possible_residuals",
+          "generated": "generated_query_invalid",
+          "count": 1
+        },
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 22
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 3
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 84
+        }
+      ]
+    },
+    "a21": {
+      "n": 110,
+      "transitions": [
+        {
+          "supplied": "ansible_lowering_error",
+          "generated": "generated_query_invalid",
+          "count": 98
+        },
+        {
+          "supplied": "missing_processed",
+          "generated": "missing_processed",
+          "count": 2
+        },
+        {
+          "supplied": "verification_rejected",
+          "generated": "generated_query_invalid",
+          "count": 10
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Outcome changes are not correctness measurements.",
+    "Generated-query invalidity is pipeline failure, not code rejection.",
+    "Supplied p17 query uses declared acc240 domain substitution; generated queries are unmodified.",
+    "Repair arm has one final query per task, including retained seed outputs."
+  ]
+}

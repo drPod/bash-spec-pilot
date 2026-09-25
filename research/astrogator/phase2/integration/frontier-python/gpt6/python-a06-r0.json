@@ -1,0 +1,78 @@
+{
+  "task": {
+    "id": "python-a06-r0",
+    "mode": "python",
+    "task_id": "a06",
+    "repeat": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+      },
+      {
+        "role": "user",
+        "content": "Request: Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist\nInitial states: baseline: file absent; adversarial: file contains exactly existing content."
+      }
+    ]
+  },
+  "model": "gpt-6-astra",
+  "model_alias": "gpt6",
+  "argv": [
+    "/home/ubuntu/.npm-global/bin/codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--model",
+    "gpt-6-astra",
+    "--sandbox",
+    "read-only",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "-c",
+    "features.shell_tool=false",
+    "-c",
+    "features.multi_agent=false",
+    "--json",
+    "-"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nWrite a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request.\n\nUSER:\nRequest: Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist\nInitial states: baseline: file absent; adversarial: file contains exactly existing content.",
+  "prompt_sha256": "c4d27b6164aa108765ed2d3322419163cacf7ebf5ebf49a651beb179300728d5",
+  "created_at": "2026-09-25T14:51:10.350518+00:00",
+  "frozen_input_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "returncode": 0,
+  "stdout": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d90c-87d2-7c62-b767-01c9bcbc510b\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"agent_message\",\"text\":\"import os\\nfrom pathlib import Path\\n\\nscenario = os.environ.get(\\\"ASTRO_SCENARIO\\\", \\\"baseline\\\")\\nassert scenario in (\\\"baseline\\\", \\\"adversarial\\\"), \\\"Unknown ASTRO_SCENARIO\\\"\\n\\npath = Path(\\\"/etc/file.txt\\\")\\nassert path.is_file(), \\\"/etc/file.txt must exist as a file\\\"\\n\\nexpected = b\\\"beginning\\\" if scenario == \\\"baseline\\\" else b\\\"existing content\\\"\\nassert path.read_bytes() == expected, \\\"Unexpected file contents\\\"\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":13903,\"cached_input_tokens\":11520,\"cache_write_input_tokens\":0,\"output_tokens\":197,\"reasoning_output_tokens\":94}}\n",
+  "stderr": "",
+  "events": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a0d90c-87d2-7c62-b767-01c9bcbc510b"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "import os\nfrom pathlib import Path\n\nscenario = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\nassert scenario in (\"baseline\", \"adversarial\"), \"Unknown ASTRO_SCENARIO\"\n\npath = Path(\"/etc/file.txt\")\nassert path.is_file(), \"/etc/file.txt must exist as a file\"\n\nexpected = b\"beginning\" if scenario == \"baseline\" else b\"existing content\"\nassert path.read_bytes() == expected, \"Unexpected file contents\""
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 13903,
+        "cached_input_tokens": 11520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 197,
+        "reasoning_output_tokens": 94
+      }
+    }
+  ],
+  "tool_use_detected": false,
+  "text": "import os\nfrom pathlib import Path\n\nscenario = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\nassert scenario in (\"baseline\", \"adversarial\"), \"Unknown ASTRO_SCENARIO\"\n\npath = Path(\"/etc/file.txt\")\nassert path.is_file(), \"/etc/file.txt must exist as a file\"\n\nexpected = b\"beginning\" if scenario == \"baseline\" else b\"existing content\"\nassert path.read_bytes() == expected, \"Unexpected file contents\"",
+  "status": "ok",
+  "extracted": "import os\nfrom pathlib import Path\n\nscenario = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\nassert scenario in (\"baseline\", \"adversarial\"), \"Unknown ASTRO_SCENARIO\"\n\npath = Path(\"/etc/file.txt\")\nassert path.is_file(), \"/etc/file.txt must exist as a file\"\n\nexpected = b\"beginning\" if scenario == \"baseline\" else b\"existing content\"\nassert path.read_bytes() == expected, \"Unexpected file contents\"",
+  "seconds": 15.696
+}

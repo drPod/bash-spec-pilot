@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-09-24T23:59:58.056755+00:00",
+  "task_records": 70,
+  "new_executable_references": 49,
+  "selected_mutants_caught": 49,
+  "queries_lowered": 52,
+  "translation_records": 192,
+  "fresh_translation_calls": 188,
+  "translation_stage_and_effect_coverage": true,
+  "full_corpus_stage_sweeps": [
+    "base",
+    "configured heuristics",
+    "repaired-query transfer"
+  ],
+  "independent_local_candidate_state_executions": 844,
+  "judge_complete": true,
+  "generated_check_gates": {
+    "a01": "invalid",
+    "a02": "reference_control_failed",
+    "a06": "reference_control_failed",
+    "a17": "reference_control_failed"
+  },
+  "required_before_final_snapshot": [],
+  "not_established": [
+    "Publication-ready independent specification review",
+    "Universal correctness from local checks",
+    "Multi-OS execution accuracy",
+    "Frontier-model performance or repeated-sample statistical gains"
+  ]
+}

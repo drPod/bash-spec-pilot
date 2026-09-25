@@ -1,0 +1,1 @@
+set permissions for files and directories under "/srv/path" so that owner, group, and other can list and read, but only owner can write

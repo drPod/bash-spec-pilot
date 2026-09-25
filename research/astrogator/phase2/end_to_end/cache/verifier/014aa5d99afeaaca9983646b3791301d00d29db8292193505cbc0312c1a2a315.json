@@ -1,0 +1,11 @@
+{
+  "cache_key": "014aa5d99afeaaca9983646b3791301d00d29db8292193505cbc0312c1a2a315",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d68f33bad46db6c95bc51226afc3362a219ec8e4f905005bd547d9e10efcd81",
+  "code_sha256": "6f5c78ec94adb96fd7d434725c0bb4d0e22e8adf160c5cf6b29be84f075fb34a",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument recurse for module ansible.builtin.copy\n",
+  "stderr": "",
+  "seconds": 0.0775,
+  "status": "ansible_lowering_error"
+}

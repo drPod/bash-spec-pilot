@@ -1,0 +1,951 @@
+{
+  "protocol": "Candidate queries and existing mutants were previously observed. Two new challenge implementations per selected task frozen before outcomes. No post-selection or repair. Heldout means unused for screening, not independent external data; some share discovery fault classes. All local execution oracles remain author-written and imperfect.",
+  "selected_tasks": [
+    "a22",
+    "a23",
+    "a24",
+    "a26",
+    "a47",
+    "a63",
+    "a64",
+    "a67",
+    "a27",
+    "a45"
+  ],
+  "image": "astrogator-lab:20260924-v2",
+  "script_sha256": "da80ee7885bcfdd3effe7353cc9b3bf39f608d3f8ebe268a7919a5bf028a5a4a",
+  "cases": [
+    {
+      "task_id": "a22",
+      "natural_language": "Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.",
+      "queries": {
+        "candidate": "create directory at /work/private with read=owner, write=owner, list directory=owner",
+        "omission_control": "create directory at /work/private"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a22/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a22/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a22/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a22/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a22/task.json": "75937e074c2b3a9bde3ee7f27c18c670d8f9753da6e6b7f1ef3301e86eb0e555",
+        "benchmarks/expanded/a22/setup.py": "011d19ee8c2e8b0ecd93301366e5471d0d4e3a945f7ae0e7d989a139cdc0eeab",
+        "benchmarks/expanded/a22/check.py": "8e2838f816d130ce261470386f9bacfe296a28a623059bc80ad5e5b302fd8b8d",
+        "benchmarks/expanded/a22/reference.yml": "26625f991111682d51ad3ccb7aa74bfc6c837b8b647c5ef19142761018c0d98a",
+        "benchmarks/expanded/a22/mutant.yml": "d78e3ee2a98d4eaa4320b67a225c8d90018609f625ed848adc02954a3cc752b6",
+        "phase2/adequacy/cases/a22/heldout_1.yml": "d78e3ee2a98d4eaa4320b67a225c8d90018609f625ed848adc02954a3cc752b6",
+        "phase2/adequacy/cases/a22/heldout_2.yml": "fdb4a49f9d0d96b498a722845728a2e9d816830bebdca4a49d0828341b6db509"
+      }
+    },
+    {
+      "task_id": "a23",
+      "natural_language": "Ensure /work/shared has mode 2770, including setgid, without removing existing files.",
+      "queries": {
+        "candidate": "create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true",
+        "omission_control": "create directory at /work/shared"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a23/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a23/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a23/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a23/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a23/task.json": "324958185744539313515739f0ceb0c4777692bc7957407ff2aa20bdaa0e959e",
+        "benchmarks/expanded/a23/setup.py": "7cde7be51a295dc255c6456ab548a9140fc03175beb3fc5da2b69ebbf79853c9",
+        "benchmarks/expanded/a23/check.py": "967688508845fe8cd1d3604e4a890cb16ff1cb09d6bab41651749e7f6cf98fd4",
+        "benchmarks/expanded/a23/reference.yml": "e62778a8259d0ab9fcf698efee0611ebc6ab6191b2bffd99a74fbf25dd3412ab",
+        "benchmarks/expanded/a23/mutant.yml": "70b8805d35c63a087b247ef16a147fa386de84a88930fef7ecdd2ffd8c02a8ef",
+        "phase2/adequacy/cases/a23/heldout_1.yml": "70b8805d35c63a087b247ef16a147fa386de84a88930fef7ecdd2ffd8c02a8ef",
+        "phase2/adequacy/cases/a23/heldout_2.yml": "6a673c4e9d3b32eea2a317c8c19dae109c146e7306395db5c5174fa7a2e2613a"
+      }
+    },
+    {
+      "task_id": "a24",
+      "natural_language": "Ensure /work/spool is a directory with mode 1777, including the sticky bit.",
+      "queries": {
+        "candidate": "create directory at /work/spool with read=all, write=all, list directory=all, sticky=true",
+        "omission_control": "create directory at /work/spool"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a24/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a24/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a24/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a24/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a24/task.json": "6b558e16f0791cda3954656c33e219b97804f94126f82ac7e5b2c0ab9917ff09",
+        "benchmarks/expanded/a24/setup.py": "a6db1777115c32783a9df4307d7909f5c7f68ec8a753641d1b8fd937d6845683",
+        "benchmarks/expanded/a24/check.py": "82899ec42375909e32c885cbecaf4a1f05cba2313b0c53c099ea6c54a9da7adf",
+        "benchmarks/expanded/a24/reference.yml": "93390e88503ad24d8aa422f00d817f960ce59a15d7982a3e1d5ff52aa85184ea",
+        "benchmarks/expanded/a24/mutant.yml": "c4ffc4e3ba7b9bd8b51e21aea26a930424ab9bc472426791f2fa0290cc87bdd1",
+        "phase2/adequacy/cases/a24/heldout_1.yml": "c4ffc4e3ba7b9bd8b51e21aea26a930424ab9bc472426791f2fa0290cc87bdd1",
+        "phase2/adequacy/cases/a24/heldout_2.yml": "b17988ba12616aa1cc1e8ddf0e1af687561e570401cd7293264c83809727d554"
+      }
+    },
+    {
+      "task_id": "a25",
+      "natural_language": "If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.",
+      "queries": {
+        "candidate": "if file \"/work/app.conf\" not exists then create file at \"/work/app.conf\" with content=\"port=8080\n\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a25/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a25/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a25/task.json": "32895f7140ab1328bf54e47446242f4a39c3dc7695a0bcf8f6f33ead09959503",
+        "benchmarks/expanded/a25/setup.py": "06e0b0e9276e4d9a2b51e70609b4b728a46d622b6dcc33b3efcf03e911ece2cc",
+        "benchmarks/expanded/a25/check.py": "c32c2b10e9943807557ab6744bb806603ab4302a9dcb11a6960c5a5e46b9098d",
+        "benchmarks/expanded/a25/reference.yml": "d55c9f5809cfb679ba6ab01a25acbd2dfae868e21689175a4ce9fa7164f79374",
+        "benchmarks/expanded/a25/mutant.yml": "e0de75365ca718a1c769eefeef9d999cc602fd2e7ada1256630da457c4188875"
+      }
+    },
+    {
+      "task_id": "a26",
+      "natural_language": "Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.",
+      "queries": {
+        "candidate": "create file at /work/banner with content=\"Authorized users only\n\", read=all, write=owner",
+        "omission_control": "create file at /work/banner"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a26/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a26/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a26/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a26/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a26/task.json": "38163f2b83ce9629ee8f3e81557db3abbf685794b283235d544210a7062d9304",
+        "benchmarks/expanded/a26/setup.py": "c8acc85c3de1bce53b0c49c6a03ae78fae4651fda58e12e1257d7493645ac9e7",
+        "benchmarks/expanded/a26/check.py": "92dba577e9de357050b53fcec852f325cf930bb90e88a806e20d00b0017066aa",
+        "benchmarks/expanded/a26/reference.yml": "94999050b6bb59cd0172806c64426e962ce44d575b8c259501effd08cf6ccabb",
+        "benchmarks/expanded/a26/mutant.yml": "3d7a81b7b57ae2ba2b3b8cb1fd0c6e2eb888ab2bb0e74f3d1db6fd9a3a19ea6c",
+        "phase2/adequacy/cases/a26/heldout_1.yml": "2cb7ad834b9ee0a8d45c008066832b4535f579b50ba5849d7ccc4410b4ce0667",
+        "phase2/adequacy/cases/a26/heldout_2.yml": "cf716d0ddc516f6fa84d4c5214de2b1fadbc255a0c1cb02cfa31eb37248e703f"
+      }
+    },
+    {
+      "task_id": "a27",
+      "natural_language": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",
+      "queries": {
+        "candidate": "create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data",
+        "omission_control": "create directory at /work/dest"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a27/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a27/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a27/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a27/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a27/task.json": "a67754efcb0e85162604913a2812436fbb1c47e64e85b019818adcdd01c35c6f",
+        "benchmarks/expanded/a27/setup.py": "d94c7bd5a918745bee635eb05393cf03258398663e1137743a0f20a4bd59892e",
+        "benchmarks/expanded/a27/check.py": "3d13a086bda8c10792a38029190fe11b38a7a51329efef23f1e9ad73077eec10",
+        "benchmarks/expanded/a27/reference.yml": "c4acf86deffebe30e9a2c7add34efea78cb2f46232042a74babbab31d70b31fb",
+        "benchmarks/expanded/a27/mutant.yml": "b44705b971d108d7871d3b6e19e12df2fb9c2852893e4eaa7dbe35dc623a2ddc",
+        "phase2/adequacy/cases/a27/heldout_1.yml": "131c92059ad8fdec0b2a881fd7228cf5f67f5a0b96d6d257fe8a88cef9cab060",
+        "phase2/adequacy/cases/a27/heldout_2.yml": "64fd2c47699ed5d9873597cd7cda2a9e29b3702c6de378970b06c0307f818d45"
+      }
+    },
+    {
+      "task_id": "a28",
+      "natural_language": "Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",
+      "queries": {
+        "candidate": "move file from remote /work/source to remote /work/moved"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a28/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a28/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a28/task.json": "8aea116e08f8561e4b47e33336c77bb2bc208002e0ff14a97ede076062276e4c",
+        "benchmarks/expanded/a28/setup.py": "ab870000061a7b197f9449d448e546b27f5decfe8f18c864b0452647868f1e00",
+        "benchmarks/expanded/a28/check.py": "1a7c9dcbe589c731c39518affb12616c11c17623ddae784bfa2be8b9b5618987",
+        "benchmarks/expanded/a28/reference.yml": "add61f6b3e96bb3efbe707ec781ecc52b94ccd078294de63dd37e8fbf7ea8cf2",
+        "benchmarks/expanded/a28/mutant.yml": "51feb351151c39bf85cc2d44fa043c02326e3bcfc9add97d61a158898c127a1b"
+      }
+    },
+    {
+      "task_id": "a29",
+      "natural_language": "Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",
+      "queries": {
+        "candidate": "delete file at /work/link"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a29/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a29/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a29/task.json": "b97c83d45a18dc00cb407e36a7633ee8a698fa50930b3f7e81a76d87f8ad3360",
+        "benchmarks/expanded/a29/setup.py": "b4d4beb26431c0dcae8733b1d0f68a5de75d3481150da9cfc8da1237c9644473",
+        "benchmarks/expanded/a29/check.py": "2028141c80e1d8fcd667a538edb2bc0759e70c735e51774a1d6940a0acb58c06",
+        "benchmarks/expanded/a29/reference.yml": "2aae1858846ad1718d748e25be2848cdbe4e7ecd5c6f0aac13c329982e88413b",
+        "benchmarks/expanded/a29/mutant.yml": "a12b207a7e4b96dd2d44513dfb9c735736bef8cc5d6bf606e6d815e7e1bd7e50"
+      }
+    },
+    {
+      "task_id": "a30",
+      "natural_language": "Remove /work/obsolete and all its contents, preserving its sibling /work/current.",
+      "queries": {
+        "candidate": "delete directory at /work/obsolete"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a30/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a30/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a30/task.json": "2a2fc853191e4c2960cf86767799dfdc1f572cca0d207559a27a731678e91685",
+        "benchmarks/expanded/a30/setup.py": "49998f35a316f640f1b8665a46b2d51bf7228fd70f3a42c6c7a0a2b194fcf209",
+        "benchmarks/expanded/a30/check.py": "f70d56f0568c920142280c4aa4ab345a0f593ed5f6bee8cb5ee5192bca97c7c0",
+        "benchmarks/expanded/a30/reference.yml": "17313fe4b29849d4e826b9e06db0a24b85d67f640c0c8c80a525b12b2fc783e1",
+        "benchmarks/expanded/a30/mutant.yml": "7e165c0ada6b9e8d1cce56f9d999d715e90ba56989e190bbdcd348e57748fa5b"
+      }
+    },
+    {
+      "task_id": "a31",
+      "natural_language": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.",
+      "queries": {
+        "candidate": "delete files in /work/cache with glob=\"*.tmp\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a31/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a31/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a31/task.json": "0b4a68e946ad845ffb282c7cb8bdee8a35d689c388bc0f519ab7eb384e3aff04",
+        "benchmarks/expanded/a31/setup.py": "1fbaf9f2cd067a6c044ecd2bd098b26da4c030a83722805b3146a7790e82388c",
+        "benchmarks/expanded/a31/check.py": "00e3daf5c7f8b2cf1529b726862652a8627f1e36cae725670ebf6c829487a321",
+        "benchmarks/expanded/a31/reference.yml": "dc656fcfbaf4539540e90d8cd20424acb3ea6f10e9c7c9d93b0f838345f398aa",
+        "benchmarks/expanded/a31/mutant.yml": "ecf3be5b96db5bd77f07e277f6e77fa1108a5c9e5fc0ab6e936457ccc4c3cf7c"
+      }
+    },
+    {
+      "task_id": "a32",
+      "natural_language": "For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.",
+      "queries": {
+        "candidate": "set file permissions in /work/tree to read=all, write=owner, list directory=all"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a32/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a32/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a32/task.json": "8fc880ad46af6fac25c3f491b7442c10e6283008b8727c5046cadd217c217be7",
+        "benchmarks/expanded/a32/setup.py": "77886243678a5454c924180ba52fea4dcf0a2ffa55d4a43a0eb0b73cde55f800",
+        "benchmarks/expanded/a32/check.py": "7fdbabf0935a889b6e0d5d436662e2c072c1e0626c814213ec2c559ac99eadd3",
+        "benchmarks/expanded/a32/reference.yml": "d616c434390c93cbdfc77d2634b4dcdd069426d51db28247dcfb47899c989171",
+        "benchmarks/expanded/a32/mutant.yml": "5319d16f11638853628578f5d967ed3de7b93e7389b8e27dd07effb0041f5b20"
+      }
+    },
+    {
+      "task_id": "a33",
+      "natural_language": "Point /work/current to /work/releases/v2, replacing an existing symlink to v1, and preserve both release directories.",
+      "queries": {
+        "candidate": "create symbolic link at /work/current to /work/releases/v2"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a33/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a33/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a33/task.json": "ba77c02e8b65aa79080e3917a672017772dc4e6b6929f948485f478013ad3b4d",
+        "benchmarks/expanded/a33/setup.py": "2ca3bc7e72ff05854351bf52c2166880288de9921a23e991c424bdade2f0b5bc",
+        "benchmarks/expanded/a33/check.py": "990cf9b6806155e7eff0a0b5cd71981a5cfb81d5cad5486e3710b1a2cc9bccb2",
+        "benchmarks/expanded/a33/reference.yml": "58e52f6b6d0fb41d6bab5d08216a54b86b5acf8c6644b008c4c359d2a5e33077",
+        "benchmarks/expanded/a33/mutant.yml": "ef473596667854cfccb0ff517abed2f08f468af08b8e5f42d10abb58f2636a76"
+      }
+    },
+    {
+      "task_id": "a34",
+      "natural_language": "Ensure /work/alias is a hard link to /work/source, replacing a stale ordinary file at /work/alias if present.",
+      "queries": {
+        "candidate": "create hard link at /work/alias to /work/source"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a34/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a34/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a34/task.json": "5ab58b7b14443ba4b8bb852cf64de9dc8cf00bdb14dec2aa95960a1428517371",
+        "benchmarks/expanded/a34/setup.py": "76977289fadcd4e7fbd50a723c9a5f71b7af3e774dc9e14d620f17e690791eba",
+        "benchmarks/expanded/a34/check.py": "08ecdc9e4b5b35929606250ccd020b68365e9da74494645686414d340297cf9e",
+        "benchmarks/expanded/a34/reference.yml": "58cf9e6e48042964fa4c98774ef344f397e46e32ed0362b9bc929e07d15c9df0",
+        "benchmarks/expanded/a34/mutant.yml": "e77b37b245fe78c82f3ef153dc6e7a76cf0b65f173a2824e8c8b271da40d0e9c"
+      }
+    },
+    {
+      "task_id": "a35",
+      "natural_language": "In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.",
+      "queries": {
+        "candidate": "write \"port=8080\" to file at \"/work/app.conf\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a35/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a35/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a35/task.json": "5bf1f21f1ab00544159e7790300a72b68df92470a16b8492547b51c1f207bd3b",
+        "benchmarks/expanded/a35/setup.py": "9160abc8a941a5a65dc5aa5c8faace6cda0051ef4f20628a5f46fa8ad12e7cef",
+        "benchmarks/expanded/a35/check.py": "e5f20d518754ae8bf94fe4354e460f16fd4184143e5b67523c688a9639219e47",
+        "benchmarks/expanded/a35/reference.yml": "722b76cb8e72b4a6856895e31e5cb57a9518552e99aa7bc95cc28aebfaa21945",
+        "benchmarks/expanded/a35/mutant.yml": "2216a95a39447a13becdfd1b91ebbc64d460c02788d59312a1efd099fec3421a"
+      }
+    },
+    {
+      "task_id": "a36",
+      "natural_language": "Remove every line beginning legacy= from /work/app.conf while preserving unrelated lines, including commented legacy examples.",
+      "queries": {
+        "candidate": "delete lines from file at \"/work/app.conf\" with pattern=\"^legacy=\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a36/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a36/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a36/task.json": "5452141a790b81d30f22882eb6995232a7f9d7f3e18f69ba37335a770409f58f",
+        "benchmarks/expanded/a36/setup.py": "42d40a0027c65072dcbba48391ad6c68632e080b85b4b4e011963d4b3d836133",
+        "benchmarks/expanded/a36/check.py": "c5d075cb216c9094f55878078d74f97eaae921a85b3d5585d178bdfdab603ac7",
+        "benchmarks/expanded/a36/reference.yml": "83913cf84dda88697e4ca38437dcee3e73bb297d02cc254c6d1043a9cb0421ea",
+        "benchmarks/expanded/a36/mutant.yml": "f807ca1b248a585c97bc3b37027fc144e16a34002a14db0b6e33f02cc13d7e67"
+      }
+    },
+    {
+      "task_id": "a37",
+      "natural_language": "Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.",
+      "queries": {
+        "candidate": "write \"alpha=1\nbeta=2\" to file at \"/work/app.conf\" with block=ASTRO"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a37/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a37/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a37/task.json": "1be443590cfecc6f1193a1a3d27f69dcabfbf767dad0545a6db9c8f780577ade",
+        "benchmarks/expanded/a37/setup.py": "16e5607c0a72782ccd2ef87e28ec159df8bece3360a08df6dc6068df3d78949d",
+        "benchmarks/expanded/a37/check.py": "5dc92b41647266d53d0fa397f31c61ff68d558e14d1de1306a8389da0b5cb410",
+        "benchmarks/expanded/a37/reference.yml": "4c78ed54ac466da49d78a813ccb6f88ef3edf5a1c805dc6ad6fd859259edcbb2",
+        "benchmarks/expanded/a37/mutant.yml": "8c33f56ebe9716f967d62b06a050b36747d10f343c151c4e7eea08e20f374da3"
+      }
+    },
+    {
+      "task_id": "a38",
+      "natural_language": "Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.",
+      "queries": {
+        "candidate": "write \"allow local\" to file at /work/rules at position=beginning"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a38/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a38/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a38/task.json": "77b5f6d55a4832544a4ea0329393c8675a9576af325c14d5ef11df105a984a94",
+        "benchmarks/expanded/a38/setup.py": "2e387c80d2d6f091cffcf57265335af1f7f58868577c5756827cb86801d7cf4e",
+        "benchmarks/expanded/a38/check.py": "070bf541261755d9833047edffa793ad45f0ac0253fa0013495d90c2edab9f5c",
+        "benchmarks/expanded/a38/reference.yml": "befc448cbd7f293a4e21f41b8df0fb2fd84fea5b02258e77a05ba22aacea65f7",
+        "benchmarks/expanded/a38/mutant.yml": "0e906910cf4256b59d5475e29df983e6615fd6f8f282a44dd9b967e83095cae6"
+      }
+    },
+    {
+      "task_id": "a39",
+      "natural_language": "Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.",
+      "queries": {
+        "candidate": "replace text in file at \"/work/app.conf\" with pattern=\"^endpoint=http://\", replacement=\"endpoint=https://\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a39/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a39/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a39/task.json": "68ed055d0ea66c9e14030dd633d6004205a1bcfc993c73231b9d695512e12796",
+        "benchmarks/expanded/a39/setup.py": "1f7efd4ef1e0f64ffd2c869f02e4b0270295afa35ef38ea9487ce6bd86ad8f60",
+        "benchmarks/expanded/a39/check.py": "eac1e3dc09fa0a25b98574e93766fcf963e4a36ad79152898c7ac141432b0c57",
+        "benchmarks/expanded/a39/reference.yml": "30b59a576b4faf415e6c25b9d45b555486e975d739b83a709063e39623e58007",
+        "benchmarks/expanded/a39/mutant.yml": "9b99ba4202e701b352093fed465fab3a9a34c8cf006585a18045077301755135"
+      }
+    },
+    {
+      "task_id": "a40",
+      "natural_language": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.",
+      "queries": {
+        "candidate": "create group with name=deploy; create user with name=app in primary group=deploy"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a40/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a40/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a40/task.json": "9132f071755fd33c60531ac4ae7aa63a1440679c7d7ced7c64732d257f5f584b",
+        "benchmarks/expanded/a40/setup.py": "763cbfa57fec2e89de8cc4ca0202a3fd19201394ac2b4aaafe76b0d1a1addf1e",
+        "benchmarks/expanded/a40/check.py": "98ba6ef72ee5cd6ddcc67fa041bc74ee6c082d8394b09add701f0a27405e47ab",
+        "benchmarks/expanded/a40/reference.yml": "b23efe47ada345c031a61628668cbbebbd80b09b13d63da806c3002ba4a3e2ec",
+        "benchmarks/expanded/a40/mutant.yml": "349fd572efa2c36ec5c438ea48868d404ba9183f5bbb169b866ec608a82ebc6b"
+      }
+    },
+    {
+      "task_id": "a41",
+      "natural_language": "Add the existing app user to deploy while retaining its existing supplemental group memberships.",
+      "queries": {
+        "candidate": "set supplemental groups for user=app to deploy with append=true"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a41/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a41/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a41/task.json": "fa080a94d41a13b62b5b39c2b5861e8aee5f2a6aa328c8eeaf08244c0b2c3eb9",
+        "benchmarks/expanded/a41/setup.py": "56f5363f9d2970aa2a04ff9d728da1eac5feeaec3e269eb1bd10ba2a7e724c07",
+        "benchmarks/expanded/a41/check.py": "a6ee75c6cb0f86516c84a7b476ffb445928628b87ec8d1b2746ceb29ac2ab514",
+        "benchmarks/expanded/a41/reference.yml": "56f7a1e333de8ac1b17083f40e4addc1c92a974282db64868b3e780601b804f4",
+        "benchmarks/expanded/a41/mutant.yml": "a9b4fe935d8c22abcf25127ea8c729905bf62e0ab85392e7b5fa050f28150fb2"
+      }
+    },
+    {
+      "task_id": "a42",
+      "natural_language": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",
+      "queries": {
+        "candidate": "create user with name=app in primary group=deploy"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a42/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a42/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a42/task.json": "f4c93792d08b4dd3e7c685d011827bb0c2bd3d68cec0fc26df79e49149894b15",
+        "benchmarks/expanded/a42/setup.py": "1c1f06e9a4d6e1088f1edb3f928a395030891ff765e3eca0b2f43a3e4cb0ac64",
+        "benchmarks/expanded/a42/check.py": "f68788faae689cd550c8f96931fba6503ad4a3c53d448fec90d7ed9e9c98a467",
+        "benchmarks/expanded/a42/reference.yml": "59848ca673ca007aa009f2d938c16af3a39cffaa95c5fbca918cdb00e20e6163",
+        "benchmarks/expanded/a42/mutant.yml": "56f7a1e333de8ac1b17083f40e4addc1c92a974282db64868b3e780601b804f4"
+      }
+    },
+    {
+      "task_id": "a43",
+      "natural_language": "Set the existing app user login shell to /bin/bash without changing its UID or home contents.",
+      "queries": {
+        "candidate": "set default shell for user=app to bash"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a43/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a43/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a43/task.json": "8a57183955bd65a6a86f558ac1c1c57d753022e99004a123162e7f4cc59cbeda",
+        "benchmarks/expanded/a43/setup.py": "386234b2bb3d7cf930069d4138aa84ea78e6794c780856a02370167cd2cf870c",
+        "benchmarks/expanded/a43/check.py": "eda7093b8d3d1412d9a46bbeefafd2fdff0df27731a80b52f7e397d45c3445ba",
+        "benchmarks/expanded/a43/reference.yml": "63564696cfcbc07663f4fb172a2286a40ec3f5f1dc8fd977f6862e04817656dd",
+        "benchmarks/expanded/a43/mutant.yml": "38ad70d3c94b15073ed6b41d1365cbe6194386dde7f5c3dd001fc9abab558ce9"
+      }
+    },
+    {
+      "task_id": "a44",
+      "natural_language": "Remove the retired user account, retaining /home/retired and all its contents.",
+      "queries": {
+        "candidate": "delete user with name=retired"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a44/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a44/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a44/task.json": "f082dc3484846497f652bd25e18f1107f16e38f689aea7e06247beb6ddb18f4a",
+        "benchmarks/expanded/a44/setup.py": "437773800fe115d9d3bd18a736c5e6c3602132686b5c8e597c367b2cfa7fb125",
+        "benchmarks/expanded/a44/check.py": "e9648f4b683c9e2569af2a7253c666daee0958caeb5b7206756bc3a4b59e0270",
+        "benchmarks/expanded/a44/reference.yml": "6dd67fa6013db83c17d71adb87e06bada017bf1cee95079cd9e015b1a707cd14",
+        "benchmarks/expanded/a44/mutant.yml": "b502e1d6bf37c04b33be86e13c5167cfb33ccdc98f83c0086792f2cd6c018884"
+      }
+    },
+    {
+      "task_id": "a45",
+      "natural_language": "Remove the retired user and its home directory /home/retired while preserving /home/active.",
+      "queries": {
+        "candidate": "delete user with name=retired; delete directory at /home/retired",
+        "omission_control": "delete user with name=retired"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a45/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a45/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a45/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a45/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a45/task.json": "a206ff9dadb7dceef6d4b249f0410fd1d47f19b3811cc83e0da9c4f556ae894d",
+        "benchmarks/expanded/a45/setup.py": "5e2faab071d43ad07edf16094003036c9933fd2d82a61f355e1e1bb92941f447",
+        "benchmarks/expanded/a45/check.py": "25fea16314eb4de74e251cac2e704ea95727e8dcfaff27a78354e1671fcaeca8",
+        "benchmarks/expanded/a45/reference.yml": "b502e1d6bf37c04b33be86e13c5167cfb33ccdc98f83c0086792f2cd6c018884",
+        "benchmarks/expanded/a45/mutant.yml": "6dd67fa6013db83c17d71adb87e06bada017bf1cee95079cd9e015b1a707cd14",
+        "phase2/adequacy/cases/a45/heldout_1.yml": "b502e1d6bf37c04b33be86e13c5167cfb33ccdc98f83c0086792f2cd6c018884",
+        "phase2/adequacy/cases/a45/heldout_2.yml": "183c142e85cd516bc8fea2256310efcbc07a6fab33defe78c8ef350151acdb6d"
+      }
+    },
+    {
+      "task_id": "a46",
+      "natural_language": "Lock password authentication for the existing app user without replacing its stored password hash; retain the account.",
+      "queries": {
+        "candidate": "disable password for user=app"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a46/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a46/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a46/task.json": "3810a759dee919ecaef0f3bb97189389091304c19760de3ea91414de7a2ce1f6",
+        "benchmarks/expanded/a46/setup.py": "777776a37558ddc01470a77d8676876fb09d3792d3ce989b791eccafa59a6886",
+        "benchmarks/expanded/a46/check.py": "5a86ae5ce0d0fe8ba0d6abd26cfac87909d4006441115c04943b050079490ee5",
+        "benchmarks/expanded/a46/reference.yml": "6d321771a184a8bb2c52dca8e695fdc491546db594ce3ee47fb1778e69454104",
+        "benchmarks/expanded/a46/mutant.yml": "9a39f4a86b45326ed7870b999286114e138534d9c917b81d478e946a6dccbadd"
+      }
+    },
+    {
+      "task_id": "a47",
+      "natural_language": "Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.",
+      "queries": {
+        "candidate": "create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner",
+        "omission_control": "create directory at /home/app"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a47/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a47/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a47/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a47/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a47/task.json": "c9aa41c707c347a73aa76b3cd3705ceb61b00793089660ef8d32ceccc76d68f8",
+        "benchmarks/expanded/a47/setup.py": "0858c716e50bb6016981b2646c7d2b432ed4855dff4d0a7cebec33fe4007b668",
+        "benchmarks/expanded/a47/check.py": "0628cf070cbc60555e19f6a439bba3d26e31e1887f897594662d033b6ce8e1d7",
+        "benchmarks/expanded/a47/reference.yml": "cd0e649a3c3730203e5bee23f42f2cf2542376d014cb4e30e336166d802d054b",
+        "benchmarks/expanded/a47/mutant.yml": "a4e956893b297f3b72e7acbb84cd449191336f0ecce9110d004282184d6d6a85",
+        "phase2/adequacy/cases/a47/heldout_1.yml": "a4e956893b297f3b72e7acbb84cd449191336f0ecce9110d004282184d6d6a85",
+        "phase2/adequacy/cases/a47/heldout_2.yml": "cf0a5ad37b9939941fd03c868ada59497c3fdcade30a4d06f96049130755cbd8"
+      }
+    },
+    {
+      "task_id": "a48",
+      "natural_language": "On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.",
+      "queries": {
+        "candidate": "if os is Debian then install astro-demo with version=\"1.0\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a48/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a48/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a48/task.json": "9015f95247eacbedec0a0fc50c35641fe8e2037b048ef740e3021241e51a4f25",
+        "benchmarks/expanded/a48/setup.py": "360bf23c84bf983f05b87941e2604976978b33b1986fcfe71f6b341e29a7680b",
+        "benchmarks/expanded/a48/check.py": "eebec7f64a0857d0e3f4da53e6dbffea9f6366087277e6ed99c7ccab74182f83",
+        "benchmarks/expanded/a48/reference.yml": "7e5b6501c1a0596f6be450bef829c3a611b943b03df83b43d1958aabc413ac94",
+        "benchmarks/expanded/a48/mutant.yml": "ec292404e0b167f9f16b540a2e3c9fa8d4a890ae50bd71e984cab2f871712689"
+      }
+    },
+    {
+      "task_id": "a49",
+      "natural_language": "Remove astro-demo from this Debian host if installed; leave astro-keep installed.",
+      "queries": {
+        "candidate": "if os is Debian then uninstall astro-demo"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a49/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a49/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a49/task.json": "7a90c5987b55f20d8e14b4454c3af013a735a4d11ce90d44a77defb54d413a92",
+        "benchmarks/expanded/a49/setup.py": "0e8c3453437232908094f8b7e7f15f59ab1ecadf92cdcddbc86cbde519934364",
+        "benchmarks/expanded/a49/check.py": "c054c6ca2781a2dd8e5751a8c70b6979bd0383632a41e62d098319e079ca1a62",
+        "benchmarks/expanded/a49/reference.yml": "d01295bd31629941b33dbadf542f4eb338f330910515a3a07e2202daaa5df357",
+        "benchmarks/expanded/a49/mutant.yml": "ec292404e0b167f9f16b540a2e3c9fa8d4a890ae50bd71e984cab2f871712689"
+      }
+    },
+    {
+      "task_id": "a50",
+      "natural_language": "Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.",
+      "queries": {
+        "candidate": "if os is Debian then install astro-demo with version=\"2.0\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a50/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a50/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a50/task.json": "3c481f732e4f488a2f8a6cd33c6694f32c0793a9906810eaa940bd42bd1ec65e",
+        "benchmarks/expanded/a50/setup.py": "2994ce57d1a91cf5b69ec405e372d03c276c294d8b4c37a06db7bec2e89d9fa9",
+        "benchmarks/expanded/a50/check.py": "6c57f6bec09f25bbd969ca95ea7e2ee7726d01065cc55a49d6b2e57293d66315",
+        "benchmarks/expanded/a50/reference.yml": "f37edece5a938b1d2180c86a1283d1dddeafd43ad8b49a2ebe4e074a1183e301",
+        "benchmarks/expanded/a50/mutant.yml": "7b929d041caa0ad541911b0d0c643f87406c1e9c466f4c709a606bb8c5179726"
+      }
+    },
+    {
+      "task_id": "a51",
+      "natural_language": "Mark the installed astro-demo Debian package as held, preserving version 1.0.",
+      "queries": {
+        "candidate": "set package selection for astro-demo to hold"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a51/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a51/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a51/task.json": "56ad7873a18994c867d22632a54dc9fe8157547bacaf3a2fd8f8e9cc6229fb0c",
+        "benchmarks/expanded/a51/setup.py": "6bad50ade412ec0d0d332f3f27a436e2b30bd894cf72f4a30b5cfd67f6ba42ac",
+        "benchmarks/expanded/a51/check.py": "b267fb5b13d13d7d4a470b5e36df2205c14d51368d7fbbd0c15721a7dd78850c",
+        "benchmarks/expanded/a51/reference.yml": "0ecdd17aceb793bcf15c94afa000ff5c79c9b5c4a6db3e89e91674455cc4d9d3",
+        "benchmarks/expanded/a51/mutant.yml": "7b929d041caa0ad541911b0d0c643f87406c1e9c466f4c709a606bb8c5179726"
+      }
+    },
+    {
+      "task_id": "a52",
+      "natural_language": "Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.",
+      "queries": {
+        "candidate": "clone git repository from /fixtures/repo with branch=release into /work/checkout"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a52/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a52/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a52/task.json": "8e4bb0e04545bf3519cd50d1fb02165f8a6cbba399a89683c325db8dec99c0f8",
+        "benchmarks/expanded/a52/setup.py": "06ce39beadab42c506ab762f647506e449950ff123dcc1e577b13fa1ce1a0986",
+        "benchmarks/expanded/a52/check.py": "629e1c50225b3c577300b3b79bb84566788eeaede1ed1d67eae877a195d962f2",
+        "benchmarks/expanded/a52/reference.yml": "80fd1269fd45795e5b019ecdf91571e239e502efa46e518ab5e65de32611c340",
+        "benchmarks/expanded/a52/mutant.yml": "0a008decf2dc695782789c66a75c08c41f9897aa06b4add5e8da73875edf117b"
+      }
+    },
+    {
+      "task_id": "a53",
+      "natural_language": "Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.",
+      "queries": {
+        "candidate": "if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a53/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a53/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a53/task.json": "c110d307782dcadbb05b9380d3f1e47f32acee9e93c48eb2c28eaac8a01e3268",
+        "benchmarks/expanded/a53/setup.py": "86b7ed49342bafe8f386c28b0f7d2901005415ae5436214291192d91c7c4dc57",
+        "benchmarks/expanded/a53/check.py": "212dd994f40826c14bf9817a9025be5f53683521ef4c8114fef3c1e20da51795",
+        "benchmarks/expanded/a53/reference.yml": "49be37278a044887172c3f481cfca6c20b7dc26527c4bf268dab7d28953c3bdb",
+        "benchmarks/expanded/a53/mutant.yml": "0a008decf2dc695782789c66a75c08c41f9897aa06b4add5e8da73875edf117b"
+      }
+    },
+    {
+      "task_id": "a54",
+      "natural_language": "Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",
+      "queries": {
+        "candidate": "clone git repository from /fixtures/repo with tag=v1 into /work/checkout"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a54/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a54/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a54/task.json": "d64744c3f09a17ca8ddf4156d7eac61fbd0b35d83b0b3be91bca87590f5ca60c",
+        "benchmarks/expanded/a54/setup.py": "06ce39beadab42c506ab762f647506e449950ff123dcc1e577b13fa1ce1a0986",
+        "benchmarks/expanded/a54/check.py": "2f0bfb979691e9934cec573b86bbf6fb64f367e0cb2fe315a7bac4cb56e704ba",
+        "benchmarks/expanded/a54/reference.yml": "64a154df3f8fd1b4fc696b1b09be3bad8e66980ba4e8507188f25515865a04df",
+        "benchmarks/expanded/a54/mutant.yml": "0a008decf2dc695782789c66a75c08c41f9897aa06b4add5e8da73875edf117b"
+      }
+    },
+    {
+      "task_id": "a55",
+      "natural_language": "Ensure the installed cron service is running. It may initially be stopped or already running.",
+      "queries": {
+        "candidate": "start cron service"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a55/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a55/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a55/task.json": "e093119cac472fb22e0c81f793711b33381d26cd5460506105b4d95c4ae19aeb",
+        "benchmarks/expanded/a55/setup.py": "44d713d0ab32a2968344f9e022b64184d7dac6a3109622ceff0a7112c9380717",
+        "benchmarks/expanded/a55/check.py": "db378954b94207a34903874f34edc303210877936047dc4df96f3ae1ed2f31b6",
+        "benchmarks/expanded/a55/reference.yml": "621da1bdd5e57d180328ed1a17cd30eeda6c77b813207d7a61573adfde8eafc1",
+        "benchmarks/expanded/a55/mutant.yml": "893916f4661c481c59b7036cf5c822f9f304989c516f08ec07b0edf2f7463f6f"
+      }
+    },
+    {
+      "task_id": "a56",
+      "natural_language": "Ensure cron is stopped, including when it is initially running.",
+      "queries": {
+        "candidate": "stop cron service"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a56/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a56/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a56/task.json": "e538d1385c35e57b78a905f631991872e21390fbfe15db6590afa8d8b0966386",
+        "benchmarks/expanded/a56/setup.py": "44d713d0ab32a2968344f9e022b64184d7dac6a3109622ceff0a7112c9380717",
+        "benchmarks/expanded/a56/check.py": "e7047d9922ac175f89635ae1f4c99e85f0e66feb16669e4ff62c68f1cbd63f39",
+        "benchmarks/expanded/a56/reference.yml": "005f45d600e56c21d38952ec2d92021bad6969260a0349addf64c44352826df1",
+        "benchmarks/expanded/a56/mutant.yml": "1db785d2f8090dd2e06d10835941df9537877f431250063b55ae3ae0f6eab7be"
+      }
+    },
+    {
+      "task_id": "a57",
+      "natural_language": "Enable cron at boot without starting it now. It is initially stopped, and may already be enabled.",
+      "queries": {
+        "candidate": "enable cron service"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a57/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a57/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a57/task.json": "2ec68e6cb29562d829fde4ed690e1c73052efb790c165ee3a3881ad2b37c196e",
+        "benchmarks/expanded/a57/setup.py": "4ad100138d91a838996a2ec7e09d2750e7729da7e262c3869908072a97240cbc",
+        "benchmarks/expanded/a57/check.py": "005898f954db528b478df12181913bea7c217a2300441ba6383bc7a75dd09e64",
+        "benchmarks/expanded/a57/reference.yml": "893916f4661c481c59b7036cf5c822f9f304989c516f08ec07b0edf2f7463f6f",
+        "benchmarks/expanded/a57/mutant.yml": "8040600692cd33cb12ee4b1aebf2d8d595febc2b6e9b0c754b26a5487337b3b8"
+      }
+    },
+    {
+      "task_id": "a58",
+      "natural_language": "Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.",
+      "queries": {
+        "candidate": "create cron job with name=\"astro cleanup\", minute=\"15\", hour=\"2\", command=\"/usr/bin/true\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a58/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a58/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a58/task.json": "48a0c4977a90af4249be31fd9f3fcae3742b70eb7a31f30ee893ef705c7e1ae5",
+        "benchmarks/expanded/a58/setup.py": "82e2268b5422cbb6e4d0913835df9e84384b6b89b6de3050085bb1c67777f7ef",
+        "benchmarks/expanded/a58/check.py": "a5adb5da54d48bfe47777505a1ee64eed7578e7f616952be6ee0b288b4c00258",
+        "benchmarks/expanded/a58/reference.yml": "eff68baed9fb2a9d140e90276aeb125504a04df04d9f2567e49cc9925ec0e108",
+        "benchmarks/expanded/a58/mutant.yml": "28d727999a5206691e94d0b1a3f7cf61e6e3fdd975b412f6f90a1b9399c16c26"
+      }
+    },
+    {
+      "task_id": "a59",
+      "natural_language": "Extract the remote /fixtures/bundle.tar into /work/unpacked, creating that directory if absent and preserving unrelated existing files.",
+      "queries": {
+        "candidate": "create directory at /work/unpacked; extract archive from remote \"/fixtures/bundle.tar\" to /work/unpacked"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a59/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a59/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a59/task.json": "7881bb5175cde409caaa6af2680617af7a456a5917d0aa2754691563742ecf2d",
+        "benchmarks/expanded/a59/setup.py": "95946372434a9542de920aaa0fe8e788baa2b7ae70cc8687c92d4edffdd0133a",
+        "benchmarks/expanded/a59/check.py": "e42f03cbefdaf252a3f38ad8e14c8763a8e1c3730a5d974af4684602dd1e3b52",
+        "benchmarks/expanded/a59/reference.yml": "62628467e201d5eb03dd2868bc6517e62e6fe54acd8f9edd666b2b1e4e482416",
+        "benchmarks/expanded/a59/mutant.yml": "8c50616ae76e42663668c374aee70a23984445994dd9384856de0403263208c2"
+      }
+    },
+    {
+      "task_id": "a60",
+      "natural_language": "Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.",
+      "queries": {
+        "candidate": "if file \"/work/unpacked/app/data\" not exists then extract archive from remote \"/fixtures/bundle.tar\" to /work/unpacked"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a60/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a60/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a60/task.json": "ca5a285ef1e8757f986fbc1a3abace560a3a702fd043791fde2093905e0691e9",
+        "benchmarks/expanded/a60/setup.py": "32d8aa4c55d2f8772dec5f285f224c198b2e24d251dbac74c218e4203fd7478e",
+        "benchmarks/expanded/a60/check.py": "06d0c12e073963776a2aa796364e015de63ecc7de01c526437403edd247f46f7",
+        "benchmarks/expanded/a60/reference.yml": "1fa06fcd661de94fb2e738230c66e5a394193655cec322b1c98ee1a650e9fe62",
+        "benchmarks/expanded/a60/mutant.yml": "62628467e201d5eb03dd2868bc6517e62e6fe54acd8f9edd666b2b1e4e482416"
+      }
+    },
+    {
+      "task_id": "a61",
+      "natural_language": "Ensure the analytics group exists, preserving its GID if it already exists.",
+      "queries": {
+        "candidate": "create group with name=analytics"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a61/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a61/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a61/task.json": "1366ecd5294a636297306598228d1a38a7773f6ea97d3de68c92687bac711363",
+        "benchmarks/expanded/a61/setup.py": "1b7d69da23834425d22be85a80f08bc4d45a57868e4d6ed7176fe36ce1cedcc5",
+        "benchmarks/expanded/a61/check.py": "34e38896757d72251925a84bf3344ea69879c9f437543a4766cf0191524e8f80",
+        "benchmarks/expanded/a61/reference.yml": "1f5b40414d99d4fa22dfe5799cb9dcb97ab3eab7b93219cabaef62dcf7f55ea9",
+        "benchmarks/expanded/a61/mutant.yml": "72ced754fd755835f1dac9758f1da723ff2715a11acac39a8f95cb117fa86379"
+      }
+    },
+    {
+      "task_id": "a62",
+      "natural_language": "Remove the unused obsolete group if it exists, preserving the active group and its GID.",
+      "queries": {
+        "candidate": "delete group with name=obsolete"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a62/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a62/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a62/task.json": "6acf9cb250f062601f5720487de886b29a987e31ca823cf85617e0cbfe0eba69",
+        "benchmarks/expanded/a62/setup.py": "023d4fc1cea96288e8659541ffa58802af488068594964ea4d8731bf39ccbcca",
+        "benchmarks/expanded/a62/check.py": "067e4e9f4c074dedd1549035508824d38ffafd9e4a524d17adefb12d29b7d71c",
+        "benchmarks/expanded/a62/reference.yml": "6d82d7a47a212f742a6c046bbb339f6e14ab2aba8c3313e80a8e266d955c923e",
+        "benchmarks/expanded/a62/mutant.yml": "fcc9ea2b6707f7977a217d4f3199d67379fb19fe9f29fa3a93a2d327547e8067"
+      }
+    },
+    {
+      "task_id": "a63",
+      "natural_language": "Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.",
+      "queries": {
+        "candidate": "create user with name=app in primary group=primary, supplemental groups=deploy audit",
+        "omission_control": "create user with name=app"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a63/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a63/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a63/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a63/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a63/task.json": "ea8fd81e7701e1b8e47d372d6ee4dff57b29d4d06db4fe335fc90571af26c508",
+        "benchmarks/expanded/a63/setup.py": "5230dd92838cc79f4c76b548a8c2252317ceeaf7bf71747b6f41ac0b25c27ac4",
+        "benchmarks/expanded/a63/check.py": "6db475af972293abb93674445cbdc098fdb6457d272fd7c80ef12bf901a8eb79",
+        "benchmarks/expanded/a63/reference.yml": "43720ae99966ccc0d4c652220d68a08070ed50493d62e2363bfc025cf8412d7a",
+        "benchmarks/expanded/a63/mutant.yml": "e330685b9958958d35a585a8dfe662ac330074d25c54dd6958b1d61e553e8445",
+        "phase2/adequacy/cases/a63/heldout_1.yml": "af2fbdee97e28f31178218c2b44d973871842c108278e40788c5a2987e7ed94e",
+        "phase2/adequacy/cases/a63/heldout_2.yml": "b0119a7f557fa04b18774e85496b20c4992431ac3b1343873231ed3841b2fc54"
+      }
+    },
+    {
+      "task_id": "a64",
+      "natural_language": "Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.",
+      "queries": {
+        "candidate": "create directory at /work/data with owner=app, group=app",
+        "omission_control": "create directory at /work/data"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a64/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a64/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a64/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a64/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a64/task.json": "65ae53c8bd0b6685c2d445466a47bafe96be71a894501909f99a2319658312bc",
+        "benchmarks/expanded/a64/setup.py": "48d9fe632b4698d46a285573cc376fc0b3845eb52e08d8eb40fa9b922ecd6a16",
+        "benchmarks/expanded/a64/check.py": "59fc0355d51359c4bf088420f35eb8e090f5d024f572c2e31309bbee86d09f02",
+        "benchmarks/expanded/a64/reference.yml": "02ee407193e00feb2f78993c8d6fc3ef9048f2a40a36ce506bc78f7984912ff4",
+        "benchmarks/expanded/a64/mutant.yml": "ba1e38e02d52148dc22c117cb99e30c176f50af7ef816c521437bba9ba7e3492",
+        "phase2/adequacy/cases/a64/heldout_1.yml": "ca68dbba72b1fbd06129016422490828452f48f153ad79c690b0a0e2caad4725",
+        "phase2/adequacy/cases/a64/heldout_2.yml": "935055c137e218bd9f35cba0759f392afbfcbee738bd1584384f5cb3e304630d"
+      }
+    },
+    {
+      "task_id": "a65",
+      "natural_language": "Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.",
+      "queries": {
+        "candidate": "write \"export ASTRO=1\" to /work/profile at position=end"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a65/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a65/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a65/task.json": "c2230554b462031374ea25b54d7487886608d47ef3511f70f4a9c742e7db1112",
+        "benchmarks/expanded/a65/setup.py": "e56cb9aa97a778be22c89adf21cd76044dc9bfce32624f0447f3c121281e2a0d",
+        "benchmarks/expanded/a65/check.py": "0fe48c6d21929580e58dddf362baaf2748af547b14becf002da0547c226e473d",
+        "benchmarks/expanded/a65/reference.yml": "4415f6850d96adb88301a419c968dcffe4ab45eb4af3f0532f0d35216d71e6d9",
+        "benchmarks/expanded/a65/mutant.yml": "ae365df97f4dc3ace71f6954ff7c40f0099825a1e81c05e3fde132988c13fbe0"
+      }
+    },
+    {
+      "task_id": "a66",
+      "natural_language": "Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.",
+      "queries": {
+        "candidate": "write \"# managed\" to /work/header at position=start"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a66/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a66/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a66/task.json": "6a1f4427b3e8d13a4efbe3d40a1f6f2fbb7d29e326be374e3b2349fa000e4954",
+        "benchmarks/expanded/a66/setup.py": "c61914a36fe661f455c06e83bf7a37bee30d8a5f8b4354de9574524789dcfe43",
+        "benchmarks/expanded/a66/check.py": "6c62c7d589abe6d2f21e2961e7d564e42585439bb3a2de7a4383ae2b116ef826",
+        "benchmarks/expanded/a66/reference.yml": "6885a78207b4b2699098c74a4cec1bc35666b80b0cef3e6b73913fc00f99fe70",
+        "benchmarks/expanded/a66/mutant.yml": "ae0e808b61b1b3bf8b668ad26901ea2ee5ddd4e523c20ff4f4032b5c0f3f7e80"
+      }
+    },
+    {
+      "task_id": "a67",
+      "natural_language": "Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.",
+      "queries": {
+        "candidate": "set file permissions for \"/work/run.sh\" to read=owner, write=owner, execute=owner",
+        "omission_control": "set file permissions for \"/work/run.sh\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a67/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a67/mutant.yml",
+        "heldout_1": "phase2/adequacy/cases/a67/heldout_1.yml",
+        "heldout_2": "phase2/adequacy/cases/a67/heldout_2.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a67/task.json": "16cb49d1e0537131028c87657f8e5b2dbc93fa28ddf8509b18bf9ca286077e51",
+        "benchmarks/expanded/a67/setup.py": "5c6143fc81d67add90788c9357dd10b30eaec4d0cd76259548dc64c71a3017ca",
+        "benchmarks/expanded/a67/check.py": "e871de9c1c66368ad565ad11eb8feb08df6b8ba9c62935ad1e82744f30b49d6a",
+        "benchmarks/expanded/a67/reference.yml": "8d671285e116973a621f35aaaf3b76934ddfe435532b138785c1e6fc98ea0491",
+        "benchmarks/expanded/a67/mutant.yml": "7f51b4a1451719efd432a5561592fe7227cba983b7feac69e3c2772d359658bb",
+        "phase2/adequacy/cases/a67/heldout_1.yml": "7f51b4a1451719efd432a5561592fe7227cba983b7feac69e3c2772d359658bb",
+        "phase2/adequacy/cases/a67/heldout_2.yml": "b2ec9fd9ce835051421c8bec9f031197b6f1e7b4a10ed6c1dd4433c659a6a2ae"
+      }
+    },
+    {
+      "task_id": "a68",
+      "natural_language": "Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.",
+      "queries": {
+        "candidate": "if file /work/enabled exists then create directory at /work/cache"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a68/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a68/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a68/task.json": "2312c9b0bb99503f9ff36a1a5d7fcade45f1e43ab987eaa562a0903fbf2ecb7a",
+        "benchmarks/expanded/a68/setup.py": "8d2c10f24bb0a56bf3239203c012ce9b6b5ad9f6e8abbcd6651b7e4f573f75d8",
+        "benchmarks/expanded/a68/check.py": "2f74f76897a7b2145363cc3f0c7cff3b9a19bb0f25d539cc66536830ce2ffb84",
+        "benchmarks/expanded/a68/reference.yml": "e7e1516e614f96fd483a6947989e5746bd58098eae6ec907a8c8982bd2de1e95",
+        "benchmarks/expanded/a68/mutant.yml": "7a848b2c291a2e1072b3cb5be7e7922032172beaeaa999990297ccee37d0e88d"
+      }
+    },
+    {
+      "task_id": "a69",
+      "natural_language": "Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.",
+      "queries": {
+        "candidate": "if file /work/maintenance exists then create file at /work/status with content=\"offline\" otherwise create file at /work/status with content=\"online\""
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a69/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a69/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a69/task.json": "ffb08114143b98459f9f61dce8dae217046c463d3a0715e6ccd6d4771cb6f3ae",
+        "benchmarks/expanded/a69/setup.py": "df752ac341d0b3a8aa42f72c86774874f99907f12e6e3adf1f27b846cd249fe6",
+        "benchmarks/expanded/a69/check.py": "810d483eff395c7e5371ee2bad15995693db518e182acfe5176d7c342811b6c4",
+        "benchmarks/expanded/a69/reference.yml": "b7c1779198ec36928517a959efed0e4ebb7fc8b15493e5a4fd05e87627733ef4",
+        "benchmarks/expanded/a69/mutant.yml": "ac1ce7e7d8fc6edf19bb050acdd263dce0dfa5899009defda066b02e3bfe5349"
+      }
+    },
+    {
+      "task_id": "a70",
+      "natural_language": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",
+      "queries": {
+        "candidate": "copy directory from remote /work/source to remote /work/dest"
+      },
+      "programs": {
+        "reference": "benchmarks/expanded/a70/reference.yml",
+        "discovery_mutant": "benchmarks/expanded/a70/mutant.yml"
+      },
+      "inputs_sha256": {
+        "benchmarks/expanded/a70/task.json": "4fb63ac5c88fc29e1dbfc9a448027995f731d6a96c193caef7ccacc359e298a1",
+        "benchmarks/expanded/a70/setup.py": "ec4d462fe870da85c9f61dfd92cf8b566db584bd510c22b887e4d8e4983777c0",
+        "benchmarks/expanded/a70/check.py": "7dec3db23a6f95e09172fb2e8aa038ca05ebfd25383db215afb61686d8bee84c",
+        "benchmarks/expanded/a70/reference.yml": "bd86e0c47c0c239e68dd2d6e2eb74b7adaceeb3835188296ba1bfa96705e28a1",
+        "benchmarks/expanded/a70/mutant.yml": "bbe00c2d45426330adc915eb4d0b8d5c1cd7c52a6c1946ed31b068971bcc4de9"
+      }
+    }
+  ]
+}

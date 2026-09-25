@@ -1,0 +1,11 @@
+{
+  "cache_key": "1aea14d9b8c918ca8d6642b8286db00b4f5926eacc25d6e505312577fd03a84d",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6f8e5c4f69f7d3ecbd81115177c15728e7f1109c997eda634858fa80ddeb3556",
+  "code_sha256": "07510525932273abc20d1466b529b66230d006bae5e6ff019d7a62a08e0fbdbe",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument include for module copy\n",
+  "stderr": "",
+  "seconds": 0.0961,
+  "status": "ansible_lowering_error"
+}

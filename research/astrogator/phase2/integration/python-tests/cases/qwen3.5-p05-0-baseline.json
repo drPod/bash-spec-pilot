@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "baseline",
+  "candidate_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_no_contents_remain (__main__.TestWebDirectoryDeleted.test_no_contents_remain) ... ok\ntest_target_does_not_exist (__main__.TestWebDirectoryDeleted.test_target_does_not_exist) ... ok\ntest_target_not_any_filesystem_object (__main__.TestWebDirectoryDeleted.test_target_not_any_filesystem_object) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_no_leftover_children_listed_in_parent (__main__.TestDirectoryDeleted.test_no_leftover_children_listed_in_parent) ... ok\ntest_parent_preserved_in_adversarial (__main__.TestDirectoryDeleted.test_parent_preserved_in_adversarial) ... skipped 'adversarial scenario only'\ntest_target_absent (__main__.TestDirectoryDeleted.test_target_absent) ... ok\ntest_target_not_replaced_by_any_entry (__main__.TestDirectoryDeleted.test_target_not_replaced_by_any_entry) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK (skipped=1)\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen3, Problem p05, Response 10] ***********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete the directory] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/home/mydata/web": {
+      "exists": false
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.447,
+  "sample_id": "qwen3.5/p05/0"
+}

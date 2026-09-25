@@ -1,0 +1,152 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "3c80a78adbeb9aa92685ddeeebfaa21011c5a0772f006b6fc35f392a91e85cdd",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a17-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a17-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model starcoder, Problem p10, Response 5] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable 'service' user's password] ***************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985572,
+      "mtime_ns": 1790349797615060813,
+      "ctime_ns": 1790349797618060847,
+      "sha256": "2e92c0043db988c75994c19778fc972407928de65d3d691ab773bbd845c7fdf8"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 985584,
+      "mtime_ns": 1790349797621060881,
+      "ctime_ns": 1790349797623060904,
+      "sha256": "8642bac8df4eadab7b4626d6d67ef0255cf3936a22b7ccecf6dfe65cf27c572d"
+    },
+    "/home/service": {
+      "mode": 16832,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985499,
+      "mtime_ns": 1790349797595060585,
+      "ctime_ns": 1790349797595060585
+    },
+    "/home/service/.bash_logout": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985512,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349797594060574,
+      "sha256": "26882b79471c25f945c970f8233d8ce29d54e9d5eedcd2884f88affa84a18f56"
+    },
+    "/home/service/.bashrc": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985551,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349797595060585,
+      "sha256": "afae8986f549c6403410e029f9cce7983311512d04b1f02af02e4ce0af0dd2bf"
+    },
+    "/home/service/.profile": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985531,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349797595060585,
+      "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.705,
+  "sample_id": "starcoder/p10/5"
+}

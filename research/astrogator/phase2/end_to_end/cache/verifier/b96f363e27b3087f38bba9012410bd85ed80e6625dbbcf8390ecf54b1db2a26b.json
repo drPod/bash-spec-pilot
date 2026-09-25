@@ -1,0 +1,11 @@
+{
+  "cache_key": "b96f363e27b3087f38bba9012410bd85ed80e6625dbbcf8390ecf54b1db2a26b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "c4191eb05a37eacd93ec5aaa1185dca60fc2edb4bec3b4404279d6c0262830ab",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument pattern for module copy\n",
+  "stderr": "",
+  "seconds": 0.0436,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,153 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "81ef41a33a657dcc4ea38366238a8ea3f0852c34d26f60603e1f80fc1b901ab7",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a17-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a17-r0.py\", line 13, in <module>\n    assert entries[0][1].startswith((\"!\", \"*\")), (\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Password authentication for service is not disabled\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a17-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a17-r1.py\", line 13, in <module>\n    assert entries[0][1].startswith((\"!\", \"*\")), (\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Password authentication for service is not disabled\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-oss, Problem p10, Response 2] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Set the shell for the service user to /sbin/nologin] *********************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/sbin/nologin"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985537,
+      "mtime_ns": 1790348630432680642,
+      "ctime_ns": 1790348630436680756,
+      "sha256": "e0ef21a34bb8bcbeeb81bb20492df097e53ba1ca4c0287eeee3248083eae05b6"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 985565,
+      "mtime_ns": 1790348625584542853,
+      "ctime_ns": 1790348625586542910,
+      "sha256": "b57e6e3ef7b114707a63c9ba4d660ccd6083ca898ed0f43294a97d53a2739c78"
+    },
+    "/home/service": {
+      "mode": 16832,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985532,
+      "mtime_ns": 1790348625566542342,
+      "ctime_ns": 1790348625566542342
+    },
+    "/home/service/.bash_logout": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985550,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348625566542342,
+      "sha256": "26882b79471c25f945c970f8233d8ce29d54e9d5eedcd2884f88affa84a18f56"
+    },
+    "/home/service/.bashrc": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985558,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348625566542342,
+      "sha256": "afae8986f549c6403410e029f9cce7983311512d04b1f02af02e4ce0af0dd2bf"
+    },
+    "/home/service/.profile": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985556,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348625566542342,
+      "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 5.477,
+  "sample_id": "gpt-oss/p10/2"
+}

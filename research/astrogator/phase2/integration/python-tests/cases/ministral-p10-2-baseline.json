@@ -1,0 +1,152 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "8623406a0586ff768fcd80822964b64dd768f86ac1b8610fa83a2fb425cadc21",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a17-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a17-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model ministral, Problem p10, Response 2] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure the 'service' user exists] ****************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985659,
+      "mtime_ns": 1790349039413421521,
+      "ctime_ns": 1790349039416421608,
+      "sha256": "2e92c0043db988c75994c19778fc972407928de65d3d691ab773bbd845c7fdf8"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 985647,
+      "mtime_ns": 1790349039419421695,
+      "ctime_ns": 1790349039421421753,
+      "sha256": "8642bac8df4eadab7b4626d6d67ef0255cf3936a22b7ccecf6dfe65cf27c572d"
+    },
+    "/home/service": {
+      "mode": 16832,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985580,
+      "mtime_ns": 1790349034911291309,
+      "ctime_ns": 1790349034911291309
+    },
+    "/home/service/.bash_logout": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985582,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349034911291309,
+      "sha256": "26882b79471c25f945c970f8233d8ce29d54e9d5eedcd2884f88affa84a18f56"
+    },
+    "/home/service/.bashrc": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985584,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349034911291309,
+      "sha256": "afae8986f549c6403410e029f9cce7983311512d04b1f02af02e4ce0af0dd2bf"
+    },
+    "/home/service/.profile": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985583,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349034911291309,
+      "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 5.083,
+  "sample_id": "ministral/p10/2"
+}

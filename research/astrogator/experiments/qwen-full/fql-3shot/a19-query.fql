@@ -1,0 +1,1 @@
+if os is RedHat then install action at "apache-server" if apache is not installed; ensure action at "/var/www/html/index.html" exists; create action at "/etc/apache2/users/webdev.conf" if it does not exist with contents="User webdev;"

@@ -1,0 +1,22 @@
+{
+  "query_sha256": "0e777416e3e58771167d29b858f676d276efaf98fe2f0c28b7a7cf58bb875819",
+  "query": "set system-wide environment variable LC_ALL to C with permanent=true",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t5263597c000c9b16d2f245c76b1d641e\nsemantic\terror\tUnhandled set of: system-wide environment variable LC_ALL\n",
+    "stderr": "",
+    "seconds": 0.0029,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "5263597c000c9b16d2f245c76b1d641e"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled set of: system-wide environment variable LC_ALL"
+      }
+    }
+  }
+}

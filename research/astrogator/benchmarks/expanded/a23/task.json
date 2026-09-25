@@ -1,0 +1,20 @@
+{
+  "id": "a23",
+  "title": "Shared setgid directory",
+  "family": "filesystem",
+  "natural_language": "Ensure /work/shared has mode 2770, including setgid, without removing existing files.",
+  "formal_query": "create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "omitted setgid",
+  "tags": [
+    "special-permissions"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

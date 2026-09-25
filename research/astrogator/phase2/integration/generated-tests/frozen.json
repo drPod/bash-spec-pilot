@@ -1,0 +1,122 @@
+{
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "specifications": {
+    "gpt6-checks-a01-r0": {
+      "task_id": "a01",
+      "source_sha256": "6b9c67b021f033e11438de2bbd02712697df2f3848a1205df1140c725faac76d",
+      "status": "valid"
+    },
+    "gpt6-checks-a01-r1": {
+      "task_id": "a01",
+      "source_sha256": "e9e322509ff7a9535859c3f0f3cba0125c44015d7fad14a8bdfd65fb5ae9438f",
+      "status": "valid"
+    },
+    "gpt6-checks-a02-r0": {
+      "task_id": "a02",
+      "source_sha256": "a4914d5efe8c69a7681c8de882c08df02ae52db4c2de7a5d7ac6eecfc05ebc1e",
+      "status": "valid"
+    },
+    "gpt6-checks-a02-r1": {
+      "task_id": "a02",
+      "source_sha256": "2dbf8d1994b83dbd1f3e88bb5e675b79cda533b37a4d2d25069095ce5b12f040",
+      "status": "valid"
+    },
+    "gpt6-checks-a06-r0": {
+      "task_id": "a06",
+      "source_sha256": "bff2204defa65afb96b876548ceb8fcac80ce099eaaf3ddd8d4a40f9f1f66755",
+      "status": "valid"
+    },
+    "gpt6-checks-a06-r1": {
+      "task_id": "a06",
+      "source_sha256": "b52cf07208c46ec557142285658cd191df08d57f066d5510092400b84e0e1a55",
+      "status": "valid"
+    },
+    "gpt6-checks-a17-r0": {
+      "task_id": "a17",
+      "source_sha256": "d572732f186a844be920575c1b82d1f7da1d2feb308e6951388bb01616a7183c",
+      "status": "valid"
+    },
+    "gpt6-checks-a17-r1": {
+      "task_id": "a17",
+      "source_sha256": "dc04cbb6bc65d8c7094806577cd59505799eeea36bc5029fa6a417d35fe11bb2",
+      "status": "valid"
+    },
+    "opus55-checks-a01-r0": {
+      "task_id": "a01",
+      "source_sha256": "3d71217688f0dd984d00cc82500345cb31707daf13f0a88ed8a6c7f8f59aaa4e",
+      "status": "valid"
+    },
+    "opus55-checks-a01-r1": {
+      "task_id": "a01",
+      "source_sha256": "19d3d0fb0ae1805082a84f6e4f38f6cf6259d5ece02b397855904c0f12ef2121",
+      "status": "valid"
+    },
+    "opus55-checks-a02-r0": {
+      "task_id": "a02",
+      "source_sha256": "e0eb1086fd7769534f08825caa12205f80e704ff3026b481bb7b928be3982edb",
+      "status": "valid"
+    },
+    "opus55-checks-a02-r1": {
+      "task_id": "a02",
+      "source_sha256": "e57932a23b68a29d46dc3c8a04a149aaed7e54d7c33976ef4cb4fe8b7b7eac06",
+      "status": "valid"
+    },
+    "opus55-checks-a06-r0": {
+      "task_id": "a06",
+      "source_sha256": "05ac390684e0a51058129df4465864e1b13b0cab8ec380231c0cb6fb2d0a5753",
+      "status": "valid"
+    },
+    "opus55-checks-a06-r1": {
+      "task_id": "a06",
+      "source_sha256": "ee36c590ed49e09375fa914ce4bfc0102698c9277c92c0c9f4667ebb294d9db0",
+      "status": "valid"
+    },
+    "opus55-checks-a17-r0": {
+      "task_id": "a17",
+      "source_sha256": "493df0a502c6cda6db669707cf16ad59444a84e2d8bf8d1ab2f1f06941325f95",
+      "status": "valid"
+    },
+    "opus55-checks-a17-r1": {
+      "task_id": "a17",
+      "source_sha256": "62372c69781919a2bfcc038710521a79d3dd32e011bd9d65fa7eb792b36f3493",
+      "status": "valid"
+    }
+  },
+  "selection_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "source_sha256": {
+    "phase2/integration/run_tests.py": "107a8dbf5ead9a10354a82bb3fc467ba71ee9720e608d6ae6ad0d0d036912038",
+    "phase2/integration/test_case.py": "44fcb853175a1e40403c232ceb7b97c89e2d34695ad2b56f2b30bcc25ef5e3b9",
+    "scripts/generated_checks.py": "af3550a94d3dadc0f80825b64bcb4cd7a795df6b2f3ac27dd27cb9a44d494b9a",
+    "scripts/container_case.py": "bfabf384a9da0ea414b8d86046a7b5d9f7eca5f0fd6a9472948352eb22905910",
+    "phase2/evaluation/revised_case.py": "47aa840cac38e0bb61290cdff39ca392bba4865883dc9df2f92142a8d90c71c6",
+    "benchmarks/original-pilot/a01/check.py": "593fe0cb336b8c472585bda9df12aef232c05fbbfaca38350e921d8115f9f66a",
+    "benchmarks/original-pilot/a01/setup.py": "8ee70f33a655b8c05bc12b90cc7dcff12935b0b7cfcc9f668a3e388a8d59a9cb",
+    "benchmarks/original-pilot/a02/check.py": "deab7142cf06a65b75794a304c4188e5a39c1a312d2a640e2c023600ab97d4f3",
+    "benchmarks/original-pilot/a02/setup.py": "34a25e81fc50d30458946129c0a4463273b1ee8b17657289b7432e7585b5c643",
+    "benchmarks/original-pilot/a06/check.py": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df",
+    "benchmarks/original-pilot/a06/setup.py": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+    "benchmarks/original-pilot/a17/check.py": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f",
+    "benchmarks/original-pilot/a17/setup.py": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c"
+  },
+  "check_sha256": {
+    "gpt6-checks-a01-r0.json": "ebf3b8a27b26c0ca3fe84f8af1ca50c3972f920af6e5afbe27171357616e279a",
+    "gpt6-checks-a01-r1.json": "ebf3b8a27b26c0ca3fe84f8af1ca50c3972f920af6e5afbe27171357616e279a",
+    "gpt6-checks-a02-r0.json": "8015d564e989a5d4b78a032165f1aa3424770e9d58cd1d6ed3bf0c26bc88e3eb",
+    "gpt6-checks-a02-r1.json": "8015d564e989a5d4b78a032165f1aa3424770e9d58cd1d6ed3bf0c26bc88e3eb",
+    "gpt6-checks-a06-r0.json": "c0dbb1583841362de0eebede41c74f92aff1824945a6f9d3d636cd9311bf538d",
+    "gpt6-checks-a06-r1.json": "c0dbb1583841362de0eebede41c74f92aff1824945a6f9d3d636cd9311bf538d",
+    "gpt6-checks-a17-r0.json": "79921ff553ef50366434f4f5b331988e4d3bba758c0087d92499c8600fe267a3",
+    "gpt6-checks-a17-r1.json": "79921ff553ef50366434f4f5b331988e4d3bba758c0087d92499c8600fe267a3",
+    "opus55-checks-a01-r0.json": "ebf3b8a27b26c0ca3fe84f8af1ca50c3972f920af6e5afbe27171357616e279a",
+    "opus55-checks-a01-r1.json": "ebf3b8a27b26c0ca3fe84f8af1ca50c3972f920af6e5afbe27171357616e279a",
+    "opus55-checks-a02-r0.json": "8015d564e989a5d4b78a032165f1aa3424770e9d58cd1d6ed3bf0c26bc88e3eb",
+    "opus55-checks-a02-r1.json": "8015d564e989a5d4b78a032165f1aa3424770e9d58cd1d6ed3bf0c26bc88e3eb",
+    "opus55-checks-a06-r0.json": "c52c32b00ae428e87f369d9d76d471368f3b16db574070183e72d77a9a8b07de",
+    "opus55-checks-a06-r1.json": "f4fd7bd72802b18ff939c546bed4110030999000f60413566c3bfc502119a8f9",
+    "opus55-checks-a17-r0.json": "79921ff553ef50366434f4f5b331988e4d3bba758c0087d92499c8600fe267a3",
+    "opus55-checks-a17-r1.json": "79921ff553ef50366434f4f5b331988e4d3bba758c0087d92499c8600fe267a3"
+  },
+  "selection": "full422",
+  "password_fixture": "real crypt hash; original and structural-integrity checks separately",
+  "failure_policy": "execution_error counts as program rejection; timeout/infrastructure invalid or missing generated tests abstain; no oracle used to manufacture test verdicts"
+}

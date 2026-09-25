@@ -1,0 +1,1593 @@
+{
+  "arms": {
+    "compact": {
+      "complete": true,
+      "attempt_cells": 2640,
+      "processed_cells": 2532,
+      "control": {
+        "original": {
+          "accept_pass": 282,
+          "reject_fail": 56,
+          "unavailable_fail": 74,
+          "accept_fail": 9,
+          "reject_pass": 1,
+          "unavailable_pass": 0,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        },
+        "strict_integrity": {
+          "accept_pass": 282,
+          "reject_fail": 57,
+          "unavailable_fail": 74,
+          "accept_fail": 9,
+          "reject_pass": 0,
+          "unavailable_pass": 0,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        },
+        "newline_sensitivity": {
+          "accept_pass": 282,
+          "reject_fail": 50,
+          "unavailable_fail": 73,
+          "reject_pass": 7,
+          "accept_fail": 9,
+          "unavailable_pass": 1,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        }
+      },
+      "models": {
+        "gpt6": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          }
+        },
+        "opus55": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          }
+        }
+      },
+      "query_outputs": [
+        {
+          "id": "fql-a01-r0",
+          "task_id": "a01",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a01-r0.json",
+          "source_sha256": "8e0a4e1334bafbcb86a26cf2cd51a69042105b6ee3e4a5f2d651bedf5273f9ea",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a01-r0.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r1",
+          "task_id": "a01",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a01-r1.json",
+          "source_sha256": "1d4dfb671f9cc2f6b8034724559cf5099ba8462c33a363ba0e9bf84352ff3bde",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a01-r1.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r2",
+          "task_id": "a01",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a01-r2.json",
+          "source_sha256": "c6d92dcf72fc84db9d556a5205d41f3a2061a16b9b69d03a0d42c3bba16ce9a2",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a01-r2.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r0",
+          "task_id": "a02",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a02-r0.json",
+          "source_sha256": "220e69be638d3ad1462784dc0b4533fe8b5ab720112b16b55aee5d50815538b1",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a02-r0.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r1",
+          "task_id": "a02",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a02-r1.json",
+          "source_sha256": "ec1df83cd51ba18e3d8950db69c69cc661bb5cdae08b4137f42163c99226967f",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a02-r1.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r2",
+          "task_id": "a02",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a02-r2.json",
+          "source_sha256": "1b6ad10c4b4e211a93b93cc168360fac6797b4ca41df76c5ac4f709df653516b",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a02-r2.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r0",
+          "task_id": "a06",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a06-r0.json",
+          "source_sha256": "b2720466091672d8203acae90926419ec4af527a68db7f5926cd0fcb979f2453",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a06-r0.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r1",
+          "task_id": "a06",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a06-r1.json",
+          "source_sha256": "4149936668fb2e3b8321164d972203425a0c1ed73a28630f21ec257e1dc2692c",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a06-r1.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r2",
+          "task_id": "a06",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a06-r2.json",
+          "source_sha256": "4d55eb427c2ac85faa617bbf8ec24a18885e3397c9e8c2dd3fb5986b04012cfc",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a06-r2.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r0",
+          "task_id": "a17",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a17-r0.json",
+          "source_sha256": "dc7c9e361791530fc1eb1d7c5b1185b65a8c93fe4cdb7aea8c9b41a19229582f",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a17-r0.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r1",
+          "task_id": "a17",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a17-r1.json",
+          "source_sha256": "85f1b2efb41abdf7a5d6ea92059719794573b7acd9717a5ff7e66c6dafcab6e5",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a17-r1.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r2",
+          "task_id": "a17",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/gpt6/fql-a17-r2.json",
+          "source_sha256": "a0f3e54f35aefffb00b0aabcc470d1e0258f99a07b33eb438dffe718179e0c5c",
+          "snapshot": "phase2/end_to_end/inputs/compact/gpt6/fql-a17-r2.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r0",
+          "task_id": "a01",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/opus55/fql-a01-r0.json",
+          "source_sha256": "6c9ec1ce81fcc94327c6425d134dcfed669e7fbad0c45a793ed8bcdd9a6724e9",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a01-r0.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a01-r1",
+          "task_id": "a01",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/opus55/fql-a01-r1.json",
+          "source_sha256": "e5268ca684c5ac329318c7e9fbf8b32ac075b0fd4024f5d5a9fc6eb5614d8a38",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a01-r1.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a01-r2",
+          "task_id": "a01",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at /srv/www",
+          "query_sha256": "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7",
+          "source_record": "phase2/integration/frontier/opus55/fql-a01-r2.json",
+          "source_sha256": "56c40640272f36fea928bab5be256e909101e831c5e2a5e3687a201e5fa6ab04",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a01-r2.json",
+          "prompt_sha256": "92f7ed99e174a673b0dabf7597d97159aa0f048152619ef02469893efd739646",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r0",
+          "task_id": "a02",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/opus55/fql-a02-r0.json",
+          "source_sha256": "c4585572225528e08a421d9bfebc102931e8bfefffe7ddb62bc8a57c725f718b",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a02-r0.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r1",
+          "task_id": "a02",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/opus55/fql-a02-r1.json",
+          "source_sha256": "548486c8ba095ed3168bd4fc1000049b1bdfdfb20f59cfa8d31ae8c7064f6cb6",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a02-r1.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r2",
+          "task_id": "a02",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at /home/mydata/web",
+          "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+          "source_record": "phase2/integration/frontier/opus55/fql-a02-r2.json",
+          "source_sha256": "a0a63ccba6fc02b8448ffdac6db5faa88a5a39c19dfadc6e547c9213695a3ffb",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a02-r2.json",
+          "prompt_sha256": "7aaf278921080080964c288b877290336bfb5ac236ed0be669f8752522de5611",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r0",
+          "task_id": "a06",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/opus55/fql-a06-r0.json",
+          "source_sha256": "60cc1101e76d9e23b81e89f8505e6ab88969a6f9b48f08e9b9268c3128ce651c",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a06-r0.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r1",
+          "task_id": "a06",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/opus55/fql-a06-r1.json",
+          "source_sha256": "85e16bc0cf1d726fe377014c92ef46d3108023385c0e527b291e08a376e93dff",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a06-r1.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r2",
+          "task_id": "a06",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/integration/frontier/opus55/fql-a06-r2.json",
+          "source_sha256": "f60fa1e265de93172291d53b01b7cb721db78ac7370680f308185bbcbddc2d45",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a06-r2.json",
+          "prompt_sha256": "6e6ba75b6845abb9eec71e8374695cf873caf60a77b6ca0f8a9a00fe6ee84a77",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r0",
+          "task_id": "a17",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/opus55/fql-a17-r0.json",
+          "source_sha256": "01c41784997fba2ae68a5ab579dfaf6ab374601f8ed211ce47cee9ac4142b59a",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a17-r0.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r1",
+          "task_id": "a17",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/opus55/fql-a17-r1.json",
+          "source_sha256": "5f55c19abe1095344e8fd0ca3c91a3b5d84f85eb302aceed710e1720bf9b716c",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a17-r1.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r2",
+          "task_id": "a17",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/integration/frontier/opus55/fql-a17-r2.json",
+          "source_sha256": "06a7434adfeb839982b90b8359f4064d80ae5099d43bb27fce54739c78d89042",
+          "snapshot": "phase2/end_to_end/inputs/compact/opus55/fql-a17-r2.json",
+          "prompt_sha256": "a49f5609fd955166749da44e4d4996ca71a9a2a5940107bb40c97a739db13a73",
+          "tool_use_detected": null
+        }
+      ],
+      "deduplication": {
+        "complete": true,
+        "arm": "compact",
+        "frozen_sha256": "77f304b822372b52ea181d4149a2c0997089cc3a33dc8b4bf03fb79636abe486",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "new_queries": 0,
+        "new_verifications": 0,
+        "reused_verifications": 2954
+      }
+    },
+    "handbook": {
+      "complete": true,
+      "attempt_cells": 2640,
+      "processed_cells": 2532,
+      "control": {
+        "original": {
+          "accept_pass": 282,
+          "reject_fail": 56,
+          "unavailable_fail": 74,
+          "accept_fail": 9,
+          "reject_pass": 1,
+          "unavailable_pass": 0,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        },
+        "strict_integrity": {
+          "accept_pass": 282,
+          "reject_fail": 57,
+          "unavailable_fail": 74,
+          "accept_fail": 9,
+          "reject_pass": 0,
+          "unavailable_pass": 0,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        },
+        "newline_sensitivity": {
+          "accept_pass": 282,
+          "reject_fail": 50,
+          "unavailable_fail": 73,
+          "reject_pass": 7,
+          "accept_fail": 9,
+          "unavailable_pass": 1,
+          "processed": 422,
+          "decisions": 348,
+          "decision_coverage": 0.8246445497630331
+        }
+      },
+      "models": {
+        "gpt6": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          }
+        },
+        "opus55": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 291,
+              "missing_processed": 18,
+              "verification_rejected": 57,
+              "ansible_lowering_error": 74
+            },
+            "labels": {
+              "original": {
+                "accept_pass": 282,
+                "reject_fail": 56,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 1,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "strict_integrity": {
+                "accept_pass": 282,
+                "reject_fail": 57,
+                "unavailable_fail": 74,
+                "accept_fail": 9,
+                "reject_pass": 0,
+                "unavailable_pass": 0,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              },
+              "newline_sensitivity": {
+                "accept_pass": 282,
+                "reject_fail": 50,
+                "unavailable_fail": 73,
+                "reject_pass": 7,
+                "accept_fail": 9,
+                "unavailable_pass": 1,
+                "processed": 422,
+                "decisions": 348,
+                "decision_coverage": 0.8246445497630331
+              }
+            },
+            "transitions_from_supplied_query": [
+              {
+                "from": "accept",
+                "to": "accept",
+                "count": 291
+              },
+              {
+                "from": "reject",
+                "to": "reject",
+                "count": 57
+              },
+              {
+                "from": "unavailable",
+                "to": "unavailable",
+                "count": 74
+              }
+            ],
+            "exact_status_agreement": 422
+          }
+        }
+      },
+      "query_outputs": [
+        {
+          "id": "fql-a01-r0",
+          "task_id": "a01",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a01-r0.json",
+          "source_sha256": "77808c10887e7078e68d5fc3dbcd2947c2bac257ae4e8fbb1531f2a7b48ea835",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a01-r0.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r1",
+          "task_id": "a01",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a01-r1.json",
+          "source_sha256": "cc5884b259b206faeadaf60df2c6a1602849df3aa72391fda99bfe0ef53e0740",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a01-r1.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r2",
+          "task_id": "a01",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a01-r2.json",
+          "source_sha256": "c574ad8f64543becd7472e6deed9ea55cdde4ff9b861a1b6a2f9b04bfb3f9538",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a01-r2.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r0",
+          "task_id": "a02",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a02-r0.json",
+          "source_sha256": "9da29f1fd7e0bee4bd801e922c384e7c5106f37f114d9ee8826400d303659538",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a02-r0.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r1",
+          "task_id": "a02",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a02-r1.json",
+          "source_sha256": "7ec3f5a00a8609d3e59603a9dc50af67577b761dc014c6eb9000bd57351c8cfe",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a02-r1.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a02-r2",
+          "task_id": "a02",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a02-r2.json",
+          "source_sha256": "db5d064f3c513fb64f85d95349a136b111deddca6e2d9ea83b15ad59b7522e8c",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a02-r2.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r0",
+          "task_id": "a06",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a06-r0.json",
+          "source_sha256": "841f522e7e7e5976fce921f399631dc46ebec7602c1f5e720a4bf10d23f83118",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a06-r0.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r1",
+          "task_id": "a06",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a06-r1.json",
+          "source_sha256": "c2ac3c4aa4501af455dc0addb22ab4db5f1a6fb631b62d83011c1f5e3cc5057f",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a06-r1.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a06-r2",
+          "task_id": "a06",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a06-r2.json",
+          "source_sha256": "608e901ed0ce48b07cf59ac037b1e9b399cfe50e14d7131d226a0cf3f0e184df",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a06-r2.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r0",
+          "task_id": "a17",
+          "repeat": 0,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=\"service\"",
+          "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a17-r0.json",
+          "source_sha256": "122cfbe424e4b4d1f16c7b6074165c4d14753a345384073285d420c8ecf10618",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a17-r0.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r1",
+          "task_id": "a17",
+          "repeat": 1,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=\"service\"",
+          "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a17-r1.json",
+          "source_sha256": "a3cb5204ca23592a92c8fca099434f7405aea83e7dfcbcdcf900db60ed75f531",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a17-r1.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a17-r2",
+          "task_id": "a17",
+          "repeat": 2,
+          "model_alias": "gpt6",
+          "model": "gpt-6-astra",
+          "generation_status": "ok",
+          "query": "disable password for user=\"service\"",
+          "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+          "source_record": "phase2/translation_method/runs/gpt6/fql-a17-r2.json",
+          "source_sha256": "48f9cc077c9c42a7bfbb20f008f160b43605658ea1a1607e116bf929add57c52",
+          "snapshot": "phase2/end_to_end/inputs/handbook/gpt6/fql-a17-r2.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": false
+        },
+        {
+          "id": "fql-a01-r0",
+          "task_id": "a01",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a01-r0.json",
+          "source_sha256": "f62abe2a31f128bea16a914483dbc81b73ed985c9707a5ff0a349f034bb0b65a",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a01-r0.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a01-r1",
+          "task_id": "a01",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a01-r1.json",
+          "source_sha256": "b3b72a147e443838f2d46aa2edcef62467f3ddecbbe60bbd092f2f3568525302",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a01-r1.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a01-r2",
+          "task_id": "a01",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "create directory at \"/srv/www\"",
+          "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a01-r2.json",
+          "source_sha256": "000533140aec4934578976eafa9d538b41e55f15fa1aacd78e22812cc076cede",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a01-r2.json",
+          "prompt_sha256": "be98ae8931d1987c359fbf3c6239c4e151a5f6e3325b82be2969af2e342b4669",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r0",
+          "task_id": "a02",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a02-r0.json",
+          "source_sha256": "f5332f185c129a116b2f6ba920ad1ab8a437237871c70a93f3c31cd3b1fa6361",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a02-r0.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r1",
+          "task_id": "a02",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a02-r1.json",
+          "source_sha256": "5b93f291f6857384411b5b76ced28539108a843de30fb9da6162fafc1d7b5192",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a02-r1.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a02-r2",
+          "task_id": "a02",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "delete directory at \"/home/mydata/web\"",
+          "query_sha256": "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a02-r2.json",
+          "source_sha256": "20fc06237a834984e543b0266de54fdf6d95b6518c595d76819742509395d69a",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a02-r2.json",
+          "prompt_sha256": "0d6e2028867f6daf77bb4b07090c83285e892f06b08c79328d93e34e1719f861",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r0",
+          "task_id": "a06",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a06-r0.json",
+          "source_sha256": "ff3e4b83b8960d558bc7de000fd2ca808763b86dc3f42fb3b5d96bd023ee0127",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a06-r0.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r1",
+          "task_id": "a06",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a06-r1.json",
+          "source_sha256": "946d98135bec3d26a27dd519524aea42dca364bbda84ed6e904ae9ba6fb9b02f",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a06-r1.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a06-r2",
+          "task_id": "a06",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+          "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a06-r2.json",
+          "source_sha256": "683a9be0d66c3a9edb8d2f47a4d25e30e3fc317285209112645170753cb8efeb",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a06-r2.json",
+          "prompt_sha256": "fa7e9526663fb9936dc84d97093d5f6b17cdb263fd7544dbf8672cce4a7ea103",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r0",
+          "task_id": "a17",
+          "repeat": 0,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=service",
+          "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a17-r0.json",
+          "source_sha256": "39f6102e7f867c42ad4bfaa00cbd797478b694d30b6c39163360cb5ea7a4658f",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a17-r0.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r1",
+          "task_id": "a17",
+          "repeat": 1,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=\"service\"",
+          "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a17-r1.json",
+          "source_sha256": "3f7ae910544e47d8c19b02ae30665cc7750038cf90809c8f2f62872dcb421938",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a17-r1.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": null
+        },
+        {
+          "id": "fql-a17-r2",
+          "task_id": "a17",
+          "repeat": 2,
+          "model_alias": "opus55",
+          "model": "claude-opus-5-5",
+          "generation_status": "ok",
+          "query": "disable password for user=\"service\"",
+          "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+          "source_record": "phase2/translation_method/runs/opus55/fql-a17-r2.json",
+          "source_sha256": "5211a611754d1f6bd9b98fc555cd7ce154f2e9c937df26bd712f8f2443155c77",
+          "snapshot": "phase2/end_to_end/inputs/handbook/opus55/fql-a17-r2.json",
+          "prompt_sha256": "5922ef056d5ac020851886be822cec61b8dac91255876e544a6261b5d53dccc4",
+          "tool_use_detected": null
+        }
+      ],
+      "deduplication": {
+        "complete": true,
+        "arm": "handbook",
+        "frozen_sha256": "b29b4ba84a189500f0351dace54c9af61fa80b9975d68a4f0491b733d9dc9183",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "new_queries": 3,
+        "new_verifications": 323,
+        "reused_verifications": 2631
+      }
+    }
+  },
+  "label_counts": {
+    "original": {
+      "passed_local_checks": 283,
+      "failed_local_checks_or_execution": 139
+    },
+    "strict_integrity": {
+      "passed_local_checks": 282,
+      "failed_local_checks_or_execution": 140
+    },
+    "newline_sensitivity": {
+      "passed_local_checks": 290,
+      "failed_local_checks_or_execution": 132
+    }
+  },
+  "unit": "422 fixed programs nested within4 tasks;3 shared task-level translations permodel/guide. Repetitions andprogram-query cells are not independent problems.",
+  "permission_semantics": "Original pinned Astrogator default; no permission patches/flags",
+  "limitations": [
+    "Local behavioral labels are bounded fixture checks, not universal program correctness.",
+    "Supplied-query control is not independently validated gold.",
+    "No oracle-based selection among repeats and no query repair.",
+    "Translation and judge inference budgets differ; no equal-compute claim.",
+    "Fourtaskcohort omits broaderbenchmarktasks and generalization is not established."
+  ]
+}

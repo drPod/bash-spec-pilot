@@ -1,0 +1,11 @@
+{
+  "cache_key": "65159d942e499f52c65ca2dce908fcfd62bab6ec297cb72847823aea9cf06552",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+  "code_sha256": "efd654bee23238fd3283988892c22069fc1ef13f2cb10d1ee20bdff5831e03d4",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument create for module file\n",
+  "stderr": "",
+  "seconds": 0.0371,
+  "status": "ansible_lowering_error"
+}

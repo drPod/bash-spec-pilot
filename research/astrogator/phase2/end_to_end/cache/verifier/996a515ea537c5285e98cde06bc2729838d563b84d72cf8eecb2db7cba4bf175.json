@@ -1,0 +1,11 @@
+{
+  "cache_key": "996a515ea537c5285e98cde06bc2729838d563b84d72cf8eecb2db7cba4bf175",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+  "code_sha256": "9590c9d63ab09fb3d5dab33b90fb16769d7c0f94a8a253d3933d6708398e6c32",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo such constructor: locked\n",
+  "stderr": "",
+  "seconds": 0.0412,
+  "status": "ansible_lowering_error"
+}

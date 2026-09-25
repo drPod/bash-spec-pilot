@@ -1,0 +1,3 @@
+action install zsh
+action set shell dev
+action ensure config-file exists

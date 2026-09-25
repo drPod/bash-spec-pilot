@@ -1,0 +1,11 @@
+{
+  "cache_key": "d97679a2d1b6a0d68ca42aa91b0c17ab900451f66cba5583dfc9a560222e604b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+  "code_sha256": "61123a7d0b31464933a89781539ffb107c3322ad0dbea0ea331ab587e01b0c3b",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nArgument state appears multiple times\n",
+  "stderr": "",
+  "seconds": 0.0956,
+  "status": "ansible_lowering_error"
+}

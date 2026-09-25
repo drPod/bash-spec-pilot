@@ -1,0 +1,1 @@
+append line `module load gcc' to /home/foo/.bashrc at position=end

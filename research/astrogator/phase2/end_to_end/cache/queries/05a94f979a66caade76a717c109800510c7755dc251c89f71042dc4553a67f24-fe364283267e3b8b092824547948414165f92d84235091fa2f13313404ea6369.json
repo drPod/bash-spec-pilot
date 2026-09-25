@@ -1,0 +1,22 @@
+{
+  "query_sha256": "fe364283267e3b8b092824547948414165f92d84235091fa2f13313404ea6369",
+  "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t3d195e2c8cdd0834d54520573bdddd97\nsemantic\terror\tUnhandled start of: ssh server\n",
+    "stderr": "",
+    "seconds": 0.0053,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "3d195e2c8cdd0834d54520573bdddd97"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled start of: ssh server"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "b46c3f6d716a3d29ccbde05f922f6d776d83fa1a3611cd64fbb054b8e727726c",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d68f33bad46db6c95bc51226afc3362a219ec8e4f905005bd547d9e10efcd81",
+  "code_sha256": "e7e3c32484e6716c9e1fba7b7f97a00bbeef3cb48689974424e3d59972554663",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument flat for module copy\n",
+  "stderr": "",
+  "seconds": 0.0768,
+  "status": "ansible_lowering_error"
+}

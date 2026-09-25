@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "mode",
+      "path": "/work/private",
+      "value": "0700"
+    },
+    {
+      "kind": "contents",
+      "path": "/work/private",
+      "value": "keep"
+    }
+  ]
+}

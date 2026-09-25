@@ -1,0 +1,12 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/unpacked
+      state: directory
+  - ansible.builtin.unarchive:
+      src: /fixtures/bundle.tar
+      dest: /work/unpacked
+      remote_src: true
+      creates: /work/unpacked/app/data

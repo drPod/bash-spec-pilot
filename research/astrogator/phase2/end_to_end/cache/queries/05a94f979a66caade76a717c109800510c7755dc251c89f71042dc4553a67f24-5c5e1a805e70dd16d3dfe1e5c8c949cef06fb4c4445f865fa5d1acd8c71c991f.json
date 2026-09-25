@@ -1,0 +1,26 @@
+{
+  "query_sha256": "5c5e1a805e70dd16d3dfe1e5c8c949cef06fb4c4445f865fa5d1acd8c71c991f",
+  "query": "if os is Debian or os is RedHat then install numpy",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tc505b0ea40f43336093ff4f2c38ec906\nsemantic\tok\t52a09397ddc1b428fbc1f50f23cc2fdd\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0048,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "c505b0ea40f43336093ff4f2c38ec906"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "52a09397ddc1b428fbc1f50f23cc2fdd"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

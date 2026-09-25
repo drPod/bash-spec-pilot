@@ -1,0 +1,77 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "f86962ebf2c51e98905724c4c26f80e6fe7a15a595d1dba4eb2c0b8f47eaa6a7",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r0.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r1.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_contents (__main__.TestFileCreation.test_contents) ... ok\ntest_file_exists_and_is_regular (__main__.TestFileCreation.test_file_exists_and_is_regular) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model deepseek, Problem p13, Response 4] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create a file] ***********************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "6578697374696e6720636f6e74656e740a2320424547494e20414e5349424c45204d414e4147454420424c4f434b0a626567696e6e696e670a2320454e4420414e5349424c45204d414e4147454420424c4f434b0a",
+    "old_oracle": false,
+    "single_final_newline_tolerant": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/etc/file.txt": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985531,
+      "mtime_ns": 1790348185413883447,
+      "ctime_ns": 1790348185413270531,
+      "sha256": "00ace9d8c1fba7ce3c2015c4fbd89a6d145f1b4a578b7baa96618f71b60ba713"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.562,
+  "sample_id": "deepseek/p13/4"
+}

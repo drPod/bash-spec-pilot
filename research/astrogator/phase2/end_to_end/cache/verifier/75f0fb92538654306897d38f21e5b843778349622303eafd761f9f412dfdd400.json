@@ -1,0 +1,11 @@
+{
+  "cache_key": "75f0fb92538654306897d38f21e5b843778349622303eafd761f9f412dfdd400",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "5c5e1a805e70dd16d3dfe1e5c8c949cef06fb4c4445f865fa5d1acd8c71c991f",
+  "code_sha256": "9dd866d14224a8dfd28fb12ef55f54f60a130140cc12f221899492bc8bf5b6fc",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_package(\"numpy\") [ 0 : pos ] : < e_dnf(()) [ 0 : pos ]  > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_package(\"python3-numpy\") [ 0 : pos ] : < e_dnf(()) [ 0 : pos ]  > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< e_package(\"numpy\") [ 0 : pos ] : < e_apt(()) [ 0 : pos ]  > >\n",
+  "stderr": "",
+  "seconds": 0.0972,
+  "status": "accepted_with_possible_residuals"
+}

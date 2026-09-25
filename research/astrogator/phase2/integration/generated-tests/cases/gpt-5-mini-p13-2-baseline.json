@@ -1,0 +1,82 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "2d7d5f07551e708c2c293e023f67fb1060228e2970757db4db64360a6ff61ac7",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "contains",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-5-mini, Problem p13, Response 2] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file with contents if it does not exist] **************************\nchanged: [localhost]\n\nTASK [Check if the file exists] ************************************************\nok: [localhost]\n\nTASK [Create file with contents if it does not exist] **************************\nskipping: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e67",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "seconds": 6.109,
+  "sample_id": "gpt-5-mini/p13/2"
+}

@@ -1,0 +1,556 @@
+Sep 25 14:32:02 vps-1e56a9e4 systemd[1032]: Started astro-normalization-v2-corpus.service - /bin/bash -c "docker run --rm --init --network=none --memory=384m --cpus=.5 --pids-limit=96 -v /home/ubuntu/Coding/bash-spec-pilot/research/astrogator:/suite:ro astrogator-lab:20260924-v2 python3 /suite/phase2/permission_semantics/verify_integration.py corpus > /home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/permission_semantics/corpus.jsonl".
+Sep 25 14:32:02 vps-1e56a9e4 systemd[1032]: Started astro-normalization-v2-integration.service - /bin/bash -c "docker run --rm --init --network=none --memory=384m --cpus=.5 --pids-limit=96 -v /home/ubuntu/Coding/bash-spec-pilot/research/astrogator:/suite:ro astrogator-lab:20260924-v2 python3 /suite/phase2/permission_semantics/verify_integration.py > /home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/permission_semantics/integration.jsonl".
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime/cgo: pthread_create failed: Resource temporarily unavailable
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: SIGABRT: abort
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: PC=0x7931b649ec0c m=3 sigcode=18446744073709551610
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 0 gp=0xc000003180 m=3 mp=0xc000075008 [idle]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime: g 0 gp=0xc000003180: unknown pc 0x7931b649ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: stack: frame={sp:0x79316f1fd8e0, fp:0x0} stack=[0x79316e9fe250,0x79316f1fde50)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd7e0:  0xf9e2f255f9e2f255  0xf9e2f255f9e2f255
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd7f0:  0x26b76c6c26b76c6c  0x26b76c6c26b76c6c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd800:  0x9adfcc339adfcc33  0x9adfcc339adfcc33
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd810:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd820:  0x00007931b66054e0  0x00007931b6602ee0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd830:  0x0000000000000037  0x000079316f1fd940
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd840:  0x000079316f1fd890  0x00007931b6493cba
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd850:  0xb17cae72b17cae72  0x0000000000000037
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd860:  0xe17fad92692e1970  0x000079316f1fd910
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd870:  0x0000000000000037  0x00007931b6603030
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd880:  0x0000000000000002  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd890:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8c0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8d0:  0x0000000000000000  0x00007931b649ebfe
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8e0: <0x0000000000000000  0x46cbe0bf08322400
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8f0:  0x0000000000000000  0x0000000000000006
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd900:  0x000079316f1fe6c0  0x0000000000000011
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd910:  0x000000c000003180  0x000000c000003c00
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd920:  0x000079316f1fd940  0x00007931b644527e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd930:  0x0000000000000000  0x00007931b6605b50
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd940:  0x000079316f1fda00  0x00007931b64288ff
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd950:  0x0000000000000020  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd960:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd970:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd980:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd990:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9c0:  0x000079316f1fda00  0x00007931b648ec22
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9d0:  0x0000000b00000000  0x00007931b66056a0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime: g 0 gp=0xc000003180: unknown pc 0x7931b649ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: stack: frame={sp:0x79316f1fd8e0, fp:0x0} stack=[0x79316e9fe250,0x79316f1fde50)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd7e0:  0xf9e2f255f9e2f255  0xf9e2f255f9e2f255
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd7f0:  0x26b76c6c26b76c6c  0x26b76c6c26b76c6c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd800:  0x9adfcc339adfcc33  0x9adfcc339adfcc33
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd810:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd820:  0x00007931b66054e0  0x00007931b6602ee0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd830:  0x0000000000000037  0x000079316f1fd940
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd840:  0x000079316f1fd890  0x00007931b6493cba
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd850:  0xb17cae72b17cae72  0x0000000000000037
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd860:  0xe17fad92692e1970  0x000079316f1fd910
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd870:  0x0000000000000037  0x00007931b6603030
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd880:  0x0000000000000002  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd890:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8c0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8d0:  0x0000000000000000  0x00007931b649ebfe
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8e0: <0x0000000000000000  0x46cbe0bf08322400
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd8f0:  0x0000000000000000  0x0000000000000006
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd900:  0x000079316f1fe6c0  0x0000000000000011
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd910:  0x000000c000003180  0x000000c000003c00
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd920:  0x000079316f1fd940  0x00007931b644527e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd930:  0x0000000000000000  0x00007931b6605b50
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd940:  0x000079316f1fda00  0x00007931b64288ff
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime/cgo: pthread_create failed: Resource temporarily unavailable
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd950:  0x0000000000000020  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd960:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd970:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd980:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd990:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: SIGABRT: abort
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: PC=0x766d3dc9ec0c m=3 sigcode=18446744073709551610
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 0 gp=0xc000003180 m=3 mp=0xc000077008 [idle]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime: g 0 gp=0xc000003180: unknown pc 0x766d3dc9ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: stack: frame={sp:0x766cf69fd8e0, fp:0x0} stack=[0x766cf61fe250,0x766cf69fde50)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd7e0:  0x35d3e48635d3e486  0x35d3e48635d3e486
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd7f0:  0x5f111da95f111da9  0x5f111da95f111da9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd800:  0xdcc6f112dcc6f112  0xdcc6f112dcc6f112
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd810:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd820:  0x0000766d3de054e0  0x0000766d3de02ee0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd830:  0x0000000000000037  0x0000766cf69fd940
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd840:  0x0000766cf69fd890  0x0000766d3dc93cba
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd850:  0xce037261ce037261  0x0000000000000037
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd860:  0x372e52e89ba11c96  0x0000766cf69fd910
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd870:  0x0000000000000037  0x0000766d3de03030
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd880:  0x0000000000000002  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd890:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8c0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8d0:  0x0000000000000000  0x0000766d3dc9ebfe
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8e0: <0x0000000000000000  0xa5776574de6e5600
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8f0:  0x0000000000000000  0x0000000000000006
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd900:  0x0000766cf69fe6c0  0x0000033320200404
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd910:  0x000000c000003180  0x000000c0003821c0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd920:  0x0000766cf69fd940  0x0000766d3dc4527e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd930:  0x0000000000000000  0x0000766d3de05b50
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd940:  0x0000766cf69fda00  0x0000766d3dc288ff
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd950:  0x0000000000000020  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd960:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd970:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd980:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd990:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9c0:  0x0000766cf69fda00  0x0000766d3dc8ec22
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9d0:  0x0000000b00000000  0x0000766d3de056a0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime: g 0 gp=0xc000003180: unknown pc 0x766d3dc9ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: stack: frame={sp:0x766cf69fd8e0, fp:0x0} stack=[0x766cf61fe250,0x766cf69fde50)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd7e0:  0x35d3e48635d3e486  0x35d3e48635d3e486
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd7f0:  0x5f111da95f111da9  0x5f111da95f111da9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9c0:  0x000079316f1fda00  0x00007931b648ec22
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: 0x000079316f1fd9d0:  0x0000000b00000000  0x00007931b66056a0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 1 gp=0xc000002380 m=nil [select]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0xc0002e4470?, 0x5?, 0xac?, 0x2c?, 0xc0002e42fe?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc0002e4188 sp=0xc0002e4168 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.selectgo(0xc0002e4470, 0xc0002e42f4, 0xc0001831f0?, 0x0, 0x5b3e50309ba0?, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/select.go:351 +0x837 fp=0xc0002e42c0 sp=0xc0002e4188 pc=0x5b3e4ff86d77
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*persistConn).roundTrip(0xc000495440, 0xc0003b8e60)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:2826 +0x785 fp=0xc0002e44e0 sp=0xc0002e42c0 pc=0x5b3e50312c65
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Transport).roundTrip(0xc00042eea0, 0xc0004e2f00)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:696 +0xb9a fp=0xc0002e46d8 sp=0xc0002e44e0 pc=0x5b3e50306e5a
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Transport).RoundTrip(0xc0004ca1e0?, 0x5b3e5134d1e8?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/roundtrip.go:30 +0x13 fp=0xc0002e46f8 sp=0xc0002e46d8 pc=0x5b3e50315593
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp.(*Transport).RoundTrip(0xc0004c20a0, 0xc0004e2dc0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp/transport.go:131 +0x734 fp=0xc0002e49c8 sp=0xc0002e46f8 pc=0x5b3e503894b4
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.send(0xc0004e2dc0, {0x5b3e5133ce00, 0xc0004c20a0}, {0x5b3e4ff4ac01?, 0xc0002e4c30?, 0x0?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/client.go:259 +0x5e2 fp=0xc0002e4bb8 sp=0xc0002e49c8 pc=0x5b3e502c84a2
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Client).send(0xc0004be2a0, 0xc0004e2dc0, {0x5b3e511cc140?, 0x1a5f?, 0x0?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/client.go:180 +0x91 fp=0xc0002e4c30 sp=0xc0002e4bb8 pc=0x5b3e502c7d51
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Client).do(0xc0004be2a0, 0xc0004e2dc0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/client.go:728 +0x989 fp=0xc0002e4e20 sp=0xc0002e4c30 pc=0x5b3e502ca369
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Client).Do(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd800:  0xdcc6f112dcc6f112  0xdcc6f112dcc6f112
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd810:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd820:  0x0000766d3de054e0  0x0000766d3de02ee0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd830:  0x0000000000000037  0x0000766cf69fd940
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd840:  0x0000766cf69fd890  0x0000766d3dc93cba
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd850:  0xce037261ce037261  0x0000000000000037
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd860:  0x372e52e89ba11c96  0x0000766cf69fd910
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd870:  0x0000000000000037  0x0000766d3de03030
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd880:  0x0000000000000002  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd890:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8c0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8d0:  0x0000000000000000  0x0000766d3dc9ebfe
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8e0: <0x0000000000000000  0xa5776574de6e5600
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd8f0:  0x0000000000000000  0x0000000000000006
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd900:  0x0000766cf69fe6c0  0x0000033320200404
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd910:  0x000000c000003180  0x000000c0003821c0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd920:  0x0000766cf69fd940  0x0000766d3dc4527e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd930:  0x0000000000000000  0x0000766d3de05b50
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd940:  0x0000766cf69fda00  0x0000766d3dc288ff
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd950:  0x0000000000000020  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd960:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd970:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd980:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd990:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9a0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9b0:  0x0000000000000000  0x0000000000000000
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9c0:  0x0000766cf69fda00  0x0000766d3dc8ec22
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: 0x0000766cf69fd9d0:  0x0000000b00000000  0x0000766d3de056a0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 1 gp=0xc000002380 m=nil [chan receive, locked to thread]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/client.go:587
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/moby/moby/client.(*Client).doRequest(0xc0004b64e0, 0xc0004b64e0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/moby/moby/client/request.go:131 +0x2b fp=0xc0002e4ec8 sp=0xc0002e4e20 pc=0x5b3e503c04cb
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/moby/moby/client.(*Client).sendRequest(0xc0004b64e0, {0x5b3e5134d220, 0xc0003b8640}, {0x5b3e50b4c849, 0x4}, {0x5b3e50b5e4d1?, 0x5b3e5123c1e0?}, 0xc000075801?, {0x5b3e5133cb20, 0xc0004ee0c0}, ...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/moby/moby/client/request.go:113 +0xb2 fp=0xc0002e4f30 sp=0xc0002e4ec8 pc=0x5b3e503c03f2
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/moby/moby/client.(*Client).post(0xc0004b64e0, {0x5b3e5134d220, 0xc0003b8640}, {0x5b3e50b5e4d1, 0x12}, 0xc0002e5200, {0x5b3e5123c1e0?, 0xc0003fdcc8?}, 0xc000075808?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/moby/moby/client/request.go:36 +0xae fp=0xc0002e4f98 sp=0xc0002e4f30 pc=0x5b3e503bfaee
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/moby/moby/client.(*Client).ContainerCreate(0xc0004b64e0, {0x5b3e5134d220, 0xc0003b8640}, {0xc000495680, 0xc000478d88, 0xc0001a4fd0, 0x0, {0x0, 0x0}, {0x0, ...}})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/moby/moby/client/container_create.go:62 +0x685 fp=0xc0002e52c8 sp=0xc0002e4f98 pc=0x5b3e503a58e5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/cli/command/container.createContainer({0x5b3e5134d220, 0xc0003b8640}, {0x5b3e5135a290, 0xc000375a40}, 0xc0003fdcb0, 0xc0003b86e0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cli/command/container/create.go:337 +0x98c fp=0xc0002e5540 sp=0xc0002e52c8 pc=0x5b3e5069a8ac
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/cli/command/container.runContainer({0x5b3e5134d220, 0xc0003b8640}, {0x5b3e5135a290, 0xc000375a40}, 0xc0003b86e0, 0xc0003d4588, 0xc0003fdcb0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0x766d3df0a108?, 0x400000000000050?, 0x78?, 0xc2?, 0x766d3df0a108?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc0001e59e8 sp=0xc0001e59c8 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.chanrecv(0xc00030a070, 0xc0001e5ba0, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/chan.go:664 +0x445 fp=0xc0001e5a60 sp=0xc0001e59e8 pc=0x5ac3047036a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.chanrecv2(0x0?, 0xa?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/chan.go:511 +0x12 fp=0xc0001e5a88 sp=0xc0001e5a60 pc=0x5ac304703252
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.(*Registry).Register(0x5ac3064e1880, {0x5ac305b05c68, 0xc00030a000})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:290 +0x249 fp=0xc0001e5db0 sp=0xc0001e5a88 pc=0x5ac304ec5829
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.(*Registry).MustRegister(0x5ac3064e1880, {0xc00026c450?, 0x1?, 0x1?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:405 +0x4e fp=0xc0001e5de8 sp=0xc0001e5db0 pc=0x5ac304ec65ae
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.MustRegister(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:177
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.init.0()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:61 +0x82 fp=0xc0001e5e28 sp=0xc0001e5de8 pc=0x5ac304ec5202
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.doInit1(0x5ac306440d40)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:7353 +0xda fp=0xc0001e5f50 sp=0xc0001e5e28 pc=0x5ac3047434da
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.doInit(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:7320
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.main()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:254 +0x357 fp=0xc0001e5fe0 sp=0xc0001e5f50 pc=0x5ac304734957
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cli/command/container/run.go:143 +0x21a fp=0xc0002e5818 sp=0xc0002e5540 pc=0x5b3e506b711a
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/cli/command/container.runRun({0x5b3e5134d220, 0xc0003b8640}, {0x5b3e5135a290, 0xc000375a40}, 0xc00021fe00, 0xc0003b86e0, 0xc0003d4588)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cli/command/container/run.go:117 +0x645 fp=0xc0002e59c8 sp=0xc0002e5818 pc=0x5b3e506b6e85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/cli/command/container.newRunCommand.func1(0x0?, {0xc000420480?, 0x0?, 0x97673dacd58b6137?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cli/command/container/run.go:46 +0x10e fp=0xc0002e5a40 sp=0xc0002e59c8 pc=0x5b3e506b63ae
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.runDocker.(*DockerCli).InstrumentCobraCommands.func5.2(0xc0003dc308, {0xc000420480, 0x4, 0xc})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cli/command/telemetry_utils.go:58 +0x64 fp=0xc0002e5a90 sp=0xc0002e5a40 pc=0x5b3e50addca4
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/spf13/cobra.(*Command).execute(0xc0003dc308, {0xc0004a6420, 0xc, 0xc})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/spf13/cobra/command.go:1015 +0xaaa fp=0xc0002e5c10 sp=0xc0002e5a90 pc=0x5b3e501810aa
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0xc0003b4308)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/spf13/cobra/command.go:1148 +0x46f fp=0xc0002e5d00 sp=0xc0002e5c10 pc=0x5b3e501819ef
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/spf13/cobra.(*Command).Execute(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/spf13/cobra/command.go:1071
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: github.com/docker/cli/vendor/github.com/spf13/cobra.(*Command).ExecuteContext(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0001e5fe8 sp=0xc0001e5fe0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 2 gp=0xc000002e00 m=nil [force gc (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000070fa8 sp=0xc000070f88 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.forcegchelper()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:348 +0xb8 fp=0xc000070fe0 sp=0xc000070fa8 pc=0x5ac304734bd8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000070fe8 sp=0xc000070fe0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by runtime.init.7 in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:336 +0x1a
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 3 gp=0xc000003340 m=nil [GC sweep wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000071780 sp=0xc000071760 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.bgsweep(0xc00004e080)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgcsweep.go:276 +0x94 fp=0xc0000717c8 sp=0xc000071780 pc=0x5ac30471e394
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gcenable.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:204 +0x25 fp=0xc0000717e0 sp=0xc0000717c8 pc=0x5ac3047127e5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000717e8 sp=0xc0000717e0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by runtime.gcenable in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:204 +0x66
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 4 gp=0xc000003500 m=nil [GC scavenge wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0xc00004e080?, 0x5ac30550db28?, 0x1?, 0x0?, 0xc000003500?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000071f78 sp=0xc000071f58 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.(*scavengerState).park(0x5ac3064e20a0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgcscavenge.go:425 +0x49 fp=0xc000071fa8 sp=0xc000071f78 pc=0x5ac30471be49
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.bgscavenge(0xc00004e080)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgcscavenge.go:653 +0x3c fp=0xc000071fc8 sp=0xc000071fa8 pc=0x5ac30471c3bc
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gcenable.gowrap2()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/spf13/cobra/command.go:1064
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.runDocker({0x5b3e5134d220, 0xc0003b8640}, 0xc000375a40)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:501 +0x99f fp=0xc0002e5e78 sp=0xc0002e5d00 pc=0x5b3e50add81f
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.dockerMain({0x5b3e5134cf50?, 0x5b3e51d462c0?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:89 +0x147 fp=0xc0002e5ef8 sp=0xc0002e5e78 pc=0x5b3e50adabe7
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.main()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:39 +0x25 fp=0xc0002e5f50 sp=0xc0002e5ef8 pc=0x5b3e50ada6c5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.main()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:283 +0x29d fp=0xc0002e5fe0 sp=0xc0002e5f50 pc=0x5b3e4ff7489d
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0002e5fe8 sp=0xc0002e5fe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 2 gp=0xc000002e00 m=nil [force gc (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006efa8 sp=0xc00006ef88 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.forcegchelper()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:348 +0xb8 fp=0xc00006efe0 sp=0xc00006efa8 pc=0x5b3e4ff74bd8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006efe8 sp=0xc00006efe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.init.7 in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:336 +0x1a
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 3 gp=0xc000003340 m=nil [GC sweep wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006f780 sp=0xc00006f760 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.bgsweep(0xc00004c080)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgcsweep.go:276 +0x94 fp=0xc00006f7c8 sp=0xc00006f780 pc=0x5b3e4ff5e394
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcenable.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:205 +0x25 fp=0xc000071fe0 sp=0xc000071fc8 pc=0x5ac304712785
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000071fe8 sp=0xc000071fe0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by runtime.gcenable in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:205 +0xa5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 5 gp=0xc000003dc0 m=nil [finalizer wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0x1b8?, 0xc000002380?, 0x1?, 0x23?, 0xc000070688?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000070630 sp=0xc000070610 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.runfinq()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mfinal.go:196 +0x107 fp=0xc0000707e0 sp=0xc000070630 pc=0x5ac3047117a7
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000707e8 sp=0xc0000707e0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by runtime.createfing in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mfinal.go:166 +0x3d
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 6 gp=0xc000240540 m=nil [chan receive]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000072718 sp=0xc0000726f8 pc=0x5ac304767d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.chanrecv(0xc0000a8380, 0x0, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/chan.go:664 +0x445 fp=0xc000072790 sp=0xc000072718 pc=0x5ac3047036a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.chanrecv1(0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/chan.go:506 +0x12 fp=0xc0000727b8 sp=0xc000072790 pc=0x5ac304703232
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.unique_runtime_registerUniqueMapCleanup.func2(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:1796
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.unique_runtime_registerUniqueMapCleanup.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:1799 +0x2f fp=0xc0000727e0 sp=0xc0000727b8 pc=0x5ac30471598f
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0000727e8 sp=0xc0000727e0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by unique.runtime_registerUniqueMapCleanup in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/mgc.go:1794 +0x85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: goroutine 7 gp=0xc0002408c0 m=nil [runnable]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.(*Registry).Register.func1()
+Sep 25 14:32:03 vps-1e56a9e4 systemd[1032]: astro-normalization-v2-integration.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:204 +0x25 fp=0xc00006f7e0 sp=0xc00006f7c8 pc=0x5b3e4ff527e5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006f7e8 sp=0xc00006f7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcenable in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:204 +0x66
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 4 gp=0xc000003500 m=nil [GC scavenge wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0xc00004c080?, 0x5b3e50d4db28?, 0x1?, 0x0?, 0xc000003500?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006ff78 sp=0xc00006ff58 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goparkunlock(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:441
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.(*scavengerState).park(0x5b3e51d220a0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgcscavenge.go:425 +0x49 fp=0xc00006ffa8 sp=0xc00006ff78 pc=0x5b3e4ff5be49
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.bgscavenge(0xc00004c080)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgcscavenge.go:653 +0x3c fp=0xc00006ffc8 sp=0xc00006ffa8 pc=0x5b3e4ff5c3bc
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcenable.gowrap2()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:205 +0x25 fp=0xc00006ffe0 sp=0xc00006ffc8 pc=0x5b3e4ff52785
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006ffe8 sp=0xc00006ffe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcenable in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:205 +0xa5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 18 gp=0xc000186380 m=nil [finalizer wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x1b8?, 0xc000002380?, 0x1?, 0x23?, 0xc00006e688?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006e630 sp=0xc00006e610 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.runfinq()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mfinal.go:196 +0x107 fp=0xc00006e7e0 sp=0xc00006e630 pc=0x5b3e4ff517a7
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006e7e8 sp=0xc00006e7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.createfing in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mfinal.go:166 +0x3d
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 19 gp=0xc000186a80 m=nil [chan receive]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006a718 sp=0xc00006a6f8 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chanrecv(0xc000182380, 0x0, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:278 fp=0xc000072fe0 sp=0xc000072fd8 pc=0x5ac304ec60e0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000072fe8 sp=0xc000072fe0 pc=0x5ac30476fda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: created by github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus.(*Registry).Register in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/vendor/github.com/prometheus/client_golang/prometheus/registry.go:278 +0x1a9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rax    0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rbx    0x7aad3
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rcx    0x766d3dc9ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rdx    0x6
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rdi    0x7aaca
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rsi    0x7aad3
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rbp    0x766cf69fd920
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rsp    0x766cf69fd8e0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r8     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r9     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r10    0x8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r11    0x246
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r12    0x6
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r13    0x33320200404
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r14    0x16
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: r15    0xc0003821c0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rip    0x766d3dc9ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: rflags 0x246
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: cs     0x33
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: fs     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502474]: gs     0x0
+Sep 25 14:32:03 vps-1e56a9e4 systemd[1032]: astro-normalization-v2-integration.service: Failed with result 'exit-code'.
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:664 +0x445 fp=0xc00006a790 sp=0xc00006a718 pc=0x5b3e4ff436a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chanrecv1(0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:506 +0x12 fp=0xc00006a7b8 sp=0xc00006a790 pc=0x5b3e4ff43232
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.unique_runtime_registerUniqueMapCleanup.func2(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1796
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.unique_runtime_registerUniqueMapCleanup.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1799 +0x2f fp=0xc00006a7e0 sp=0xc00006a7b8 pc=0x5b3e4ff5598f
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006a7e8 sp=0xc00006a7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by unique.runtime_registerUniqueMapCleanup in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1794 +0x85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 22 gp=0xc000186e00 m=nil [runnable, locked to thread]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0xc000353020?, 0xc00009c000?, 0x94?, 0xaf?, 0xc00006af08?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006aeb8 sp=0xc00006ae98 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chansend(0xc000182460, 0xc00006af90, 0x1, 0x2?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:283 +0x3a5 fp=0xc00006af28 sp=0xc00006aeb8 pc=0x5b3e4ff42765
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chansend1(0xc000000002?, 0xc00006af98?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:161 +0x17 fp=0xc00006af58 sp=0xc00006af28 pc=0x5b3e4ff423b7
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.ensureSigM.func1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/signal_unix.go:1096 +0x145 fp=0xc00006afe0 sp=0xc00006af58 pc=0x5b3e4ffa27a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006afe8 sp=0xc00006afe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.ensureSigM in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/signal_unix.go:1068 +0xc8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 23 gp=0xc000187180 m=5 mp=0xc000100008 [syscall]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.notetsleepg(0x5b3e51d47560, 0xffffffffffffffff)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/lock_futex.go:123 +0x29 fp=0xc00006b7a0 sp=0xc00006b778 pc=0x5b3e4ff48c89
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: os/signal.signal_recv()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/sigqueue.go:152 +0x29 fp=0xc00006b7c0 sp=0xc00006b7a0 pc=0x5b3e4ffa9f49
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: os/signal.loop()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/os/signal/signal_unix.go:23 +0x13 fp=0xc00006b7e0 sp=0xc00006b7c0 pc=0x5b3e50615253
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006b7e8 sp=0xc00006b7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by os/signal.Notify.func1.1 in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/os/signal/signal.go:152 +0x1f
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 24 gp=0xc000187340 m=nil [select]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0xc00006bf90?, 0x2?, 0x0?, 0x0?, 0xc00006bf7c?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006be10 sp=0xc00006bdf0 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.selectgo(0xc00006bf90, 0xc00006bf78, 0x0?, 0x0, 0x0?, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/select.go:351 +0x837 fp=0xc00006bf48 sp=0xc00006be10 pc=0x5b3e4ff86d77
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.notifyContext.func1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:59 +0x85 fp=0xc00006bfe0 sp=0xc00006bf48 pc=0x5b3e50adaa25
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006bfe8 sp=0xc00006bfe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by main.notifyContext in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:58 +0xe5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 25 gp=0xc000187500 m=nil [chan receive]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006c6b8 sp=0xc00006c698 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chanrecv(0xc000182c40, 0x0, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:664 +0x445 fp=0xc00006c730 sp=0xc00006c6b8 pc=0x5b3e4ff436a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.chanrecv1(0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/chan.go:506 +0x12 fp=0xc00006c758 sp=0xc00006c730 pc=0x5b3e4ff43232
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.forceExitAfter3TerminationSignals({0x5b3e5134d220?, 0xc0003b8640?}, {0x5b3e51345d58, 0xc000375a40})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:407 +0x36 fp=0xc00006c7b0 sp=0xc00006c758 pc=0x5b3e50adcd16
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: main.runDocker.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:496 +0x2c fp=0xc00006c7e0 sp=0xc00006c7b0 pc=0x5b3e50adda8c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006c7e8 sp=0xc00006c7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by main.runDocker in goroutine 1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /build/docker.io-app-XXSm0S/docker.io-app-29.1.3/.gopath/src/github.com/docker/cli/cmd/docker/docker.go:496 +0x8f8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 29 gp=0xc0001876c0 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x90?, 0x2d?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006d738 sp=0xc00006d718 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc00006d7c8 sp=0xc00006d738 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc00006d7e0 sp=0xc00006d7c8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006d7e8 sp=0xc00006d7e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 27 gp=0xc000187880 m=nil [IO wait]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x900000008?, 0xb0000000a?, 0x58?, 0xb?, 0xb?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000080b20 sp=0xc000080b00 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.netpollblock(0x5b3e50007d98?, 0x4ff40ac6?, 0x3e?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/netpoll.go:575 +0xf7 fp=0xc000080b58 sp=0xc000080b20 pc=0x5b3e4ff6d277
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: internal/poll.runtime_pollWait(0x79316d984de0, 0x72)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/netpoll.go:351 +0x85 fp=0xc000080b78 sp=0xc000080b58 pc=0x5b3e4ffa6f65
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: internal/poll.(*pollDesc).wait(0xc0003bb900?, 0xc0004a9000?, 0x0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/internal/poll/fd_poll_runtime.go:84 +0x27 fp=0xc000080ba0 sp=0xc000080b78 pc=0x5b3e50029367
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: internal/poll.(*pollDesc).waitRead(...)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/internal/poll/fd_poll_runtime.go:89
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: internal/poll.(*FD).Read(0xc0003bb900, {0xc0004a9000, 0x1000, 0x1000})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/internal/poll/fd_unix.go:165 +0x27a fp=0xc000080c38 sp=0xc000080ba0 pc=0x5b3e5002a65a
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net.(*netFD).Read(0xc0003bb900, {0xc0004a9000?, 0x5b3e4ff38ef4?, 0x0?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/fd_posix.go:55 +0x25 fp=0xc000080c80 sp=0xc000080c38 pc=0x5b3e500c0a25
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net.(*conn).Read(0xc0001a4f98, {0xc0004a9000?, 0x5b3e4ff38cef?, 0xc0004be4b0?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/net.go:194 +0x45 fp=0xc000080cc8 sp=0xc000080c80 pc=0x5b3e500d05e5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*persistConn).Read(0xc000495440, {0xc0004a9000?, 0x5b3e50308465?, 0x5b3e5133bb28?})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:2122 +0x47 fp=0xc000080d28 sp=0xc000080cc8 pc=0x5b3e5030f967
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: bufio.(*Reader).fill(0xc000353aa0)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/bufio/bufio.go:113 +0x103 fp=0xc000080d60 sp=0xc000080d28 pc=0x5b3e500f0043
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: bufio.(*Reader).Peek(0xc000353aa0, 0x1)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/bufio/bufio.go:152 +0x53 fp=0xc000080d80 sp=0xc000080d60 pc=0x5b3e500f0173
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*persistConn).readLoop(0xc000495440)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:2275 +0x172 fp=0xc000080fc8 sp=0xc000080d80 pc=0x5b3e50310472
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: net/http.(*Transport).dialConn.gowrap2()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:1944 +0x25 fp=0xc000080fe0 sp=0xc000080fc8 pc=0x5b3e5030eea5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000080fe8 sp=0xc000080fe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by net/http.(*Transport).dialConn in goroutine 26
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:1944 +0x174f
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 28 gp=0xc000187a40 m=4 mp=0xc000075808 [running]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         goroutine running on other thread; stack unavailable
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by net/http.(*Transport).dialConn in goroutine 26
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/net/http/transport.go:1945 +0x17a5
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 30 gp=0xc000187c00 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x21?, 0xc8?, 0x4?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006cf38 sp=0xc00006cf18 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc00006cfc8 sp=0xc00006cf38 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc00006cfe0 sp=0xc00006cfc8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006cfe8 sp=0xc00006cfe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 31 gp=0xc000187dc0 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc00006df38 sp=0xc00006df18 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc00006dfc8 sp=0xc00006df38 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc00006dfe0 sp=0xc00006dfc8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc00006dfe8 sp=0xc00006dfe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 32 gp=0xc0004fe000 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000504738 sp=0xc000504718 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc0005047c8 sp=0xc000504738 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc0005047e0 sp=0xc0005047c8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0005047e8 sp=0xc0005047e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 33 gp=0xc0004fe1c0 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000504f38 sp=0xc000504f18 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc000504fc8 sp=0xc000504f38 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc000504fe0 sp=0xc000504fc8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc000504fe8 sp=0xc000504fe0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: goroutine 34 gp=0xc0004fe380 m=nil [GC worker (idle)]:
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/proc.go:435 +0xce fp=0xc000505738 sp=0xc000505718 pc=0x5b3e4ffa7d4e
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkWorker(0xc000183340)
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1423 +0xe9 fp=0xc0005057c8 sp=0xc000505738 pc=0x5b3e4ff54ca9
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.gcBgMarkStartWorkers.gowrap1()
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x25 fp=0xc0005057e0 sp=0xc0005057c8 pc=0x5b3e4ff54b85
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: runtime.goexit({})
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/asm_amd64.s:1700 +0x1 fp=0xc0005057e8 sp=0xc0005057e0 pc=0x5b3e4ffafda1
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: created by runtime.gcBgMarkStartWorkers in goroutine 28
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]:         /usr/lib/go-1.24/src/runtime/mgc.go:1339 +0x105
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rax    0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rbx    0x7aacc
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rcx    0x7931b649ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rdx    0x6
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rdi    0x7aac0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rsi    0x7aacc
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rbp    0x79316f1fd920
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rsp    0x79316f1fd8e0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r8     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r9     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r10    0x8
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r11    0x246
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r12    0x6
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r13    0x11
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r14    0x16
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: r15    0xc000003c00
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rip    0x7931b649ec0c
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: rflags 0x246
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: cs     0x33
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: fs     0x0
+Sep 25 14:32:03 vps-1e56a9e4 bash[502464]: gs     0x0
+Sep 25 14:32:03 vps-1e56a9e4 systemd[1032]: astro-normalization-v2-corpus.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 25 14:32:03 vps-1e56a9e4 systemd[1032]: astro-normalization-v2-corpus.service: Failed with result 'exit-code'.

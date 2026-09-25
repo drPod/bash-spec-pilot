@@ -1,0 +1,20 @@
+{
+  "id": "a62",
+  "title": "Remove unused group",
+  "family": "identity",
+  "natural_language": "Remove the unused obsolete group if it exists, preserving the active group and its GID.",
+  "formal_query": "delete group with name=obsolete",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "removes wrong group",
+  "tags": [
+    "negative-scope"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

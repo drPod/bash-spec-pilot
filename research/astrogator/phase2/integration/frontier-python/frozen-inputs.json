@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "models": {
+    "gpt6": "gpt-6-astra",
+    "opus55": "claude-opus-5-5"
+  },
+  "tasks": [
+    {
+      "id": "python-a01-r0",
+      "mode": "python",
+      "task_id": "a01",
+      "repeat": 0,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep."
+        }
+      ]
+    },
+    {
+      "id": "python-a01-r1",
+      "mode": "python",
+      "task_id": "a01",
+      "repeat": 1,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep."
+        }
+      ]
+    },
+    {
+      "id": "python-a02-r0",
+      "mode": "python",
+      "task_id": "a02",
+      "repeat": 0,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files."
+        }
+      ]
+    },
+    {
+      "id": "python-a02-r1",
+      "mode": "python",
+      "task_id": "a02",
+      "repeat": 1,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files."
+        }
+      ]
+    },
+    {
+      "id": "python-a06-r0",
+      "mode": "python",
+      "task_id": "a06",
+      "repeat": 0,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist\nInitial states: baseline: file absent; adversarial: file contains exactly existing content."
+        }
+      ]
+    },
+    {
+      "id": "python-a06-r1",
+      "mode": "python",
+      "task_id": "a06",
+      "repeat": 1,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist\nInitial states: baseline: file absent; adversarial: file contains exactly existing content."
+        }
+      ]
+    },
+    {
+      "id": "python-a17-r0",
+      "mode": "python",
+      "task_id": "a17",
+      "repeat": 0,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Disable the password for the `service' user\nInitial states: Both: service user exists. baseline: unlocked password hash; adversarial: locked password hash."
+        }
+      ]
+    },
+    {
+      "id": "python-a17-r1",
+      "mode": "python",
+      "task_id": "a17",
+      "repeat": 1,
+      "messages": [
+        {
+          "role": "system",
+          "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+        },
+        {
+          "role": "user",
+          "content": "Request: Disable the password for the `service' user\nInitial states: Both: service user exists. baseline: unlocked password hash; adversarial: locked password hash."
+        }
+      ]
+    }
+  ],
+  "base_frozen_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "source_sha256": {
+    "python_generation.py": "017d750b01dac611d797ddb502156de1cf295793c42557f1da2cb092fb90b24e",
+    "frontier.py": "2463c80b54c652212aeac00fc12cca67e6de204aaf77fe8bf883e3bb85a39648"
+  },
+  "design": "Two task-level Python tests/model/task; read-only contract screen and known-good reference gate; no candidate, reference, oracle or outcome supplied. Separate from restricted declarative-check baseline."
+}

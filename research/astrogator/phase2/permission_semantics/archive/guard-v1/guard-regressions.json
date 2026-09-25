@@ -1,0 +1,351 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "module": "file",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0764,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"u+x\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"u+x\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"u+x\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.0617,
+        "status": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "module": "file",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.0409,
+        "status": "accepted_with_possible_residuals"
+      },
+      "disabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ], umask = [ 0: \u220020 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: mode_of_umask(\u220020) ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.1402,
+        "status": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "module": "copy",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0623,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0849,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "copy",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0668,
+        "status": "verification_rejected"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0467,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "lineinfile",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0699,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0877,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "lineinfile",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0985,
+        "status": "verification_rejected"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0738,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "blockinfile",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0482,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.047,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "blockinfile",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0851,
+        "status": "verification_rejected"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.076,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "get_url",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0428,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0413,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "get_url",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.081,
+        "status": "verification_rejected"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0928,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "uri",
+      "mode_kind": "partial",
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0827,
+        "status": "ansible_lowering_error"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0627,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "module": "uri",
+      "mode_kind": "absent",
+      "enabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.1058,
+        "status": "verification_rejected"
+      },
+      "disabled": {
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0437,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "case": "directory_X",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": "u=rwX,g=,o="
+      },
+      "within_supported_subset": true,
+      "enabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.088,
+        "status": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "case": "unknown_X",
+      "args": {
+        "path": "/work/guard",
+        "mode": "u=rwX,g=,o="
+      },
+      "within_supported_subset": false,
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.1048,
+        "status": "ansible_lowering_error"
+      }
+    },
+    {
+      "case": "recursive_X",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "recurse": true,
+        "mode": "u=rwX,g=,o="
+      },
+      "within_supported_subset": false,
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0461,
+        "status": "ansible_lowering_error"
+      }
+    },
+    {
+      "case": "dynamic_mode",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": "{{ mymode }}"
+      },
+      "within_supported_subset": false,
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0774,
+        "status": "ansible_lowering_error"
+      }
+    },
+    {
+      "case": "integer_mode",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": 448
+      },
+      "within_supported_subset": false,
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.079,
+        "status": "ansible_lowering_error"
+      }
+    },
+    {
+      "case": "float_mode",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": 448.0
+      },
+      "within_supported_subset": false,
+      "enabled": {
+        "returncode": 4,
+        "stdout": "\nERROR: While lowering Ansible, encountered\nUnsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory\n",
+        "stderr": "",
+        "seconds": 0.0768,
+        "status": "ansible_lowering_error"
+      }
+    },
+    {
+      "case": "quoted_constant",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": "0700"
+      },
+      "within_supported_subset": true,
+      "enabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.0567,
+        "status": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "case": "complete_symbolic",
+      "args": {
+        "path": "/work/guard",
+        "state": "directory",
+        "mode": "u=rwx,g=,o="
+      },
+      "within_supported_subset": true,
+      "enabled": {
+        "returncode": 0,
+        "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< #local(()) : < active_group = [ 0: \u220018 ] >, env(()) : < hostname = [ 0: \u220016 ] >, fs(('/work/guard', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0m\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/work/guard', file_system::remote(()))) : < mode = [ 0: \"0700\" ], owner = [ 0: \"#local_user\" ], owner_group = [ 0: \u220018 ] > >\n",
+        "stderr": "",
+        "seconds": 0.0613,
+        "status": "accepted_with_possible_residuals"
+      }
+    }
+  ],
+  "case_count": 20,
+  "verifier_calls": 32
+}

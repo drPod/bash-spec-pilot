@@ -1,0 +1,11 @@
+{
+  "cache_key": "08f508cccc72803eea2af014ff6c5daefe8407a54fe59dc818218690254aeb7b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4",
+  "code_sha256": "73767c2a85ac12a7de8ab4ba22640d88829d97996363696e524581aa1ca3b6c1",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nMultiple modules specified: yum and apt\n",
+  "stderr": "",
+  "seconds": 0.0419,
+  "status": "ansible_lowering_error"
+}

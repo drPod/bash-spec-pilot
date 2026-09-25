@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/etc/group",
+      "value": "deploy:x:1000"
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/etc/group",
+      "value": "audit:x:1001"
+    },
+    {
+      "kind": "mode",
+      "scenario": "adversarial",
+      "path": "/etc/group",
+      "value": "deploy:x:1000"
+    },
+    {
+      "kind": "member",
+      "scenario": "baseline",
+      "user": "app",
+      "group": "deploy"
+    },
+    {
+      "kind": "member",
+      "scenario": "baseline",
+      "user": "app",
+      "group": "audit"
+    },
+    {
+      "kind": "mode",
+      "scenario": "adversarial",
+      "path": "/etc/group",
+      "value": "deploy:x:1000"
+    },
+    {
+      "kind": "member",
+      "scenario": "adversarial",
+      "user": "app",
+      "group": "audit"
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/etc/gshadow",
+      "value": "deploy:x:1000"
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/etc/gshadow",
+      "value": "audit:x:1001"
+    }
+  ]
+}

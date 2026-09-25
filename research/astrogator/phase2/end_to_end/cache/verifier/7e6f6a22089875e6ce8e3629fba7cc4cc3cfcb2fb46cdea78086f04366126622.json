@@ -1,0 +1,11 @@
+{
+  "cache_key": "7e6f6a22089875e6ce8e3629fba7cc4cc3cfcb2fb46cdea78086f04366126622",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "b8b39c0f8f7e468c6de46582aa568d64fa530e85b06ed400ae9055c77af74b3b",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module local_action\n",
+  "stderr": "",
+  "seconds": 0.067,
+  "status": "ansible_lowering_error"
+}

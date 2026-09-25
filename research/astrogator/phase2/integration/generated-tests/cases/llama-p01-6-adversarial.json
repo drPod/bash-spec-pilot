@@ -1,0 +1,72 @@
+{
+  "task_id": "a01",
+  "scenario": "adversarial",
+  "candidate_sha256": "7be7ac330774c697d966dff9cdda0f3dd45d67eca921c0376e7bb58b1390e250",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model llama, Problem p01, Response 6] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create /srv/www directory] ***********************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.289,
+  "sample_id": "llama/p01/6"
+}

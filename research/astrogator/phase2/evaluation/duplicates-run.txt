@@ -1,0 +1,94 @@
+{
+  "normalization": "YAML representation-node canonicalization; remove top-level play name only; preserve tags; sort unique-key mapping entries; preserve duplicate-key map order and sequence order.",
+  "programs": 422,
+  "unique_structures": 233,
+  "unique_by_task": {
+    "a01": 36,
+    "a02": 45,
+    "a17": 72,
+    "a06": 80
+  },
+  "mixed_label_clusters": [],
+  "cluster_weighted_metrics": {
+    "astrogator": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 130.00000000000003,
+      "weighted_accept_fail": 9.0,
+      "weighted_reject_pass": 1.0,
+      "weighted_reject_fail": 36.00000000000003,
+      "coverage": 0.7553648068669531,
+      "accepted_failure_risk": 0.0647482014388489,
+      "failure_detection_recall": 0.35294117647058826
+    },
+    "astrogator_configured_heuristics": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 125.00000000000004,
+      "weighted_accept_fail": 0,
+      "weighted_reject_pass": 6.0,
+      "weighted_reject_fail": 45.00000000000003,
+      "coverage": 0.7553648068669532,
+      "accepted_failure_risk": 0.0,
+      "failure_detection_recall": 0.4411764705882353
+    },
+    "judge": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 122.23103448275866,
+      "weighted_accept_fail": 96.4777777777777,
+      "weighted_reject_pass": 8.768965517241378,
+      "weighted_reject_fail": 5.52222222222222,
+      "coverage": 0.9999999999999999,
+      "accepted_failure_risk": 0.44112432773330035,
+      "failure_detection_recall": 0.054139433551198275
+    },
+    "generated_checks_gated": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 0,
+      "weighted_accept_fail": 0,
+      "weighted_reject_pass": 0,
+      "weighted_reject_fail": 0,
+      "coverage": 0.0,
+      "accepted_failure_risk": null,
+      "failure_detection_recall": 0.0
+    },
+    "always_accept": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 131.00000000000003,
+      "weighted_accept_fail": 101.99999999999986,
+      "weighted_reject_pass": 0,
+      "weighted_reject_fail": 0,
+      "coverage": 0.9999999999999996,
+      "accepted_failure_risk": 0.43776824034334727,
+      "failure_detection_recall": 0.0
+    },
+    "base_then_judge_on_abstention": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 130.00000000000003,
+      "weighted_accept_fail": 62.67777777777781,
+      "weighted_reject_pass": 1.0,
+      "weighted_reject_fail": 39.32222222222226,
+      "coverage": 1.0000000000000004,
+      "accepted_failure_risk": 0.3252984256963267,
+      "failure_detection_recall": 0.3855119825708062
+    },
+    "heuristics_then_judge_on_abstention": {
+      "effective_program_weight": 233,
+      "weighted_accept_pass": 125.00000000000004,
+      "weighted_accept_fail": 53.67777777777781,
+      "weighted_reject_pass": 6.0,
+      "weighted_reject_fail": 48.32222222222226,
+      "coverage": 1.0000000000000004,
+      "accepted_failure_risk": 0.3004166407561719,
+      "failure_detection_recall": 0.4737472766884532
+    }
+  },
+  "limitations": [
+    "Descriptive sensitivity, not semantic deduplication. Different task names remain separate.",
+    "Each structural cluster has total weight 1; within-cluster decisions are averaged, not selectively chosen.",
+    "Canonicalization ignores presentation and mapping order; mixed judge verdicts within a cluster are not necessarily repeated identical prompts.",
+    "Task mix still reflects four selected tasks; duplicate weighting does not make them representative."
+  ],
+  "source_sha256": {
+    "comparison": "4aa6c45ab7e196c7bc69502a145388b339e5835d12c7f78b98c7b435a7c312c2",
+    "script": "8c3a8c3a7287d23413472559b424f2efb26179c2584b36669f1333c7cacd27b6"
+  }
+}

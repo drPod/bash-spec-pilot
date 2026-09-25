@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Remove the unused obsolete group if it exists, preserving the active group and its GID."
+      },
+      {
+        "role": "assistant",
+        "content": "delete group with name=obsolete"
+      },
+      {
+        "role": "user",
+        "content": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory."
+      },
+      {
+        "role": "assistant",
+        "content": "create group with name=deploy; create user with name=app in primary group=deploy"
+      },
+      {
+        "role": "user",
+        "content": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+      },
+      {
+        "role": "assistant",
+        "content": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https"
+      },
+      {
+        "role": "user",
+        "content": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents."
+      },
+      {
+        "role": "assistant",
+        "content": "create user with name=app in primary group=deploy"
+      },
+      {
+        "role": "user",
+        "content": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 6.513,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "enable sudo for group=wheel, create user with name=ansible in group=wheel"
+        }
+      }
+    ],
+    "created": 1790293497,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 18,
+      "prompt_tokens": 464,
+      "total_tokens": 482,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-gzD4yfqyHuRs845UxNSymKsRnirkUN78",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 203,
+      "prompt_ms": 4059.186,
+      "prompt_per_token_ms": 19.995990147783253,
+      "prompt_per_second": 50.010026640809265,
+      "predicted_n": 18,
+      "predicted_ms": 1705.272,
+      "predicted_per_token_ms": 100.31011764705882,
+      "predicted_per_second": 9.969084110921894
+    }
+  },
+  "text": "enable sudo for group=wheel, create user with name=ansible in group=wheel",
+  "finish_reason": "stop",
+  "task_id": "a20",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a62",
+    "a40",
+    "a09",
+    "a42"
+  ],
+  "retrieval_scores": [
+    0.2486567221914219,
+    0.24832422734977566,
+    0.23672523699075215,
+    0.1685269226937779
+  ],
+  "demo_pool_size": 51,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "expanded",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "fdbea3831f3814c62857295dc108eb5d291166538037056c7a3515a2cbebff58",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

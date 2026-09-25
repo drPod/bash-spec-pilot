@@ -1,0 +1,11 @@
+{
+  "cache_key": "55274d6d35aa0354a77274540130783084911fd7f892ece71014cf81eb24ebe7",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "957d6dacf6d7afcf323c99f40b9dc10244dc5e974c52b2c9d89dd313325f1ad1",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument when for module ansible.builtin.reboot\n",
+  "stderr": "",
+  "seconds": 0.0561,
+  "status": "ansible_lowering_error"
+}

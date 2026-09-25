@@ -1,0 +1,4 @@
+{
+  "verdict": "accept",
+  "reason": "The playbook specifies the installation of the astro-demo package version 2.0 and upgrades it from the specified version 1.0, which is acceptable given the requirements of Debian 13 and the use of offline fixtures."
+}

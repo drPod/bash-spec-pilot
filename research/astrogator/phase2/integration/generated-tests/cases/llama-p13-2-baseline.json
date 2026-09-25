@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "6239d44740c0615cef9971d95ac9afcc1d27e61c8cd05e13eca1560a52183d2b",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p13, Response 2] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [ansible.builtin.file] ****************************************************\nchanged: [localhost]\n\nTASK [ansible.builtin.file] ****************************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/llama/p13/response2.yml:10:7\n\n 8         state: touch\n 9         path: /etc/file.txt\n10     - ansible.builtin.file:\n         ^ column 7\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 5.052,
+  "sample_id": "llama/p13/2"
+}

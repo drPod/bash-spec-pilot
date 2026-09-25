@@ -1,0 +1,136 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "6006b7f384a8a7d77b047aafff53d69984f4231b554113aff669666eea5fb779",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a17-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "adversarial",
+            "user": "service"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a17-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "adversarial",
+            "user": "service"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a17-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "adversarial",
+            "user": "service"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a17-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "adversarial",
+            "user": "service"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen3, Problem p10, Response 10] ***********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for 'service' user] *************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "seconds": 4.759,
+  "sample_id": "qwen3.5/p10/0"
+}

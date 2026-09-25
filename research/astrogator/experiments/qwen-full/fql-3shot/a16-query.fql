@@ -1,0 +1,3 @@
+install with name=zsh;
+set shell "dev";
+if file "/home/dev/.zshrc" not exists then create file at "/home/dev/.zshrc" with content=""; endif;

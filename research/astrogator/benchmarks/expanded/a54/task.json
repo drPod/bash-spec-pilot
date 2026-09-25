@@ -1,0 +1,20 @@
+{
+  "id": "a54",
+  "title": "Pin deployment tag",
+  "family": "version-control",
+  "natural_language": "Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",
+  "formal_query": "clone git repository from /fixtures/repo with tag=v1 into /work/checkout",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "tracks branch instead of pinning tag",
+  "tags": [
+    "version"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "4f06b2d3ff957f31d68ac7a2b2de9213ca77b161bb6d9acb0bd94b8626d4cb45",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "93910ebd4c4d7270372fdc797f0f9a4dea87490cb238e97420ba772185d19f66",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument regexp for module blockinfile\n",
+  "stderr": "",
+  "seconds": 0.0884,
+  "status": "ansible_lowering_error"
+}

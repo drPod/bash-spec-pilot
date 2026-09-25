@@ -1,0 +1,11 @@
+{
+  "cache_key": "1d2b8967063501ee42ca4223a406f5b4460cffe9793048824e57a3727855b55f",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "810ade2d2afa62f313af61dd7ffaaa78e948f67c9069756228d83ade5b83c9f1",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module system_info\n",
+  "stderr": "",
+  "seconds": 0.0865,
+  "status": "ansible_lowering_error"
+}

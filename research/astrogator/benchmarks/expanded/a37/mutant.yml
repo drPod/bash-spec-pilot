@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.blockinfile:
+      path: /work/app.conf
+      marker: '# {mark} WRONG'
+      block: 'alpha=1
+
+        beta=2'

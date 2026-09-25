@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "baseline",
+  "candidate_sha256": "066cc06711aa1a4a13173018e48409fe27f32318948b3b8efb26e2b27de7b4a7",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-5-mini, Problem p05, Response 8] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure /home/mydata/web/ is absent] **************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.415,
+  "sample_id": "gpt-5-mini/p05/8"
+}

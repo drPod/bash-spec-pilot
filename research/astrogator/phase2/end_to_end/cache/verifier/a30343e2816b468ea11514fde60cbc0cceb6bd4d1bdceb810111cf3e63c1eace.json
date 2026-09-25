@@ -1,0 +1,11 @@
+{
+  "cache_key": "a30343e2816b468ea11514fde60cbc0cceb6bd4d1bdceb810111cf3e63c1eace",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "678163713bc495f24c99a7a8ee401c6afb0f4b8942d8e69ecf0f79613f3b1ea4",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module debug\n",
+  "stderr": "",
+  "seconds": 0.0481,
+  "status": "ansible_lowering_error"
+}

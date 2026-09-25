@@ -1,0 +1,72 @@
+{
+  "task_id": "a01",
+  "scenario": "adversarial",
+  "candidate_sha256": "c21c51652a1ed5f144db1cd79de01697d5697275d105d6227c2bc7e735f9d210",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model deepseek, Problem p01, Response 6] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create www directory] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.694,
+  "sample_id": "deepseek/p01/6"
+}

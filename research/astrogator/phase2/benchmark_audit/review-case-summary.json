@@ -1,0 +1,17 @@
+{
+  "cases": 14,
+  "successful_ansible_executions": 23,
+  "case_level_confusion": {
+    "v1": {
+      "valid_accept": 7,
+      "invalid_accept": 5,
+      "valid_reject": 2
+    },
+    "v2": {
+      "valid_accept": 9,
+      "invalid_reject": 5
+    }
+  },
+  "oracle_v2_all_expected_outcomes_match": true,
+  "scope": "Targeted review-response panel under declared fixture contracts; not prevalence or gold correctness estimates."
+}

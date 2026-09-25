@@ -1,0 +1,11 @@
+{
+  "cache_key": "0551aff6829dca6654abc1b5cc64c8fe3a1c85cb91b07553bb0642e35f17b479",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+  "code_sha256": "c26bbfcdb59c479050be6845ca58abfd1f07a562f00100861a4913c8f9301d1f",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument content for module ansible.builtin.file\n",
+  "stderr": "",
+  "seconds": 0.038,
+  "status": "ansible_lowering_error"
+}

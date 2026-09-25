@@ -1,0 +1,21 @@
+{
+  "id": "a30",
+  "title": "Remove only obsolete tree",
+  "family": "filesystem",
+  "natural_language": "Remove /work/obsolete and all its contents, preserving its sibling /work/current.",
+  "formal_query": "delete directory at /work/obsolete",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "deletes parent and sibling",
+  "tags": [
+    "scope",
+    "recursive"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

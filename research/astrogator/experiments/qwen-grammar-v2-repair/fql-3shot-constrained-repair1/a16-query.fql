@@ -1,0 +1,1 @@
+install "zsh" with action from user="dev" to shell from "zsh"; set default shell to "zsh"; if file "/home/dev/.zshrc" not exists then create file at "/home/dev/.zshrc"

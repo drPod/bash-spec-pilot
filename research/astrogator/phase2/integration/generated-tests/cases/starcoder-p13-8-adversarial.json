@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "2868a53c6ad53f469c8651213191907f0d154c7d3019b862db8c5a8b60ecc66b",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 8] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [ensure beginning is present in file.txt] *********************************\nok: [localhost]\n\nTASK [assert beginning is present in /etc/file.txt] ****************************\n[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'\n\nTask failed.\nOrigin: /suite/data/corpus/starcoder/p13/response8.yml:12:5\n\n10       force: no\n11     register: result\n12   - name: \"assert beginning is present in /etc/file.txt\"\n       ^ column 5\n\n<<< caused by >>>\n\nError while evaluating conditional: object of type 'dict' has no attribute 'content'\nOrigin: /suite/data/corpus/starcoder/p13/response8.yml:15:9\n\n13     assert:\n14       that:\n15       - '\"beginning\" in result.content'\n           ^ column 9\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.107,
+  "sample_id": "starcoder/p13/8"
+}

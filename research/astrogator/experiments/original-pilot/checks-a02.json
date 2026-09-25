@@ -1,0 +1,60 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, both). Kinds and required string fields: directory:path; absent:path; content:path,value (exact complete text); password_locked:user. Generate checks for both scenarios. No other fields. Example: {\"checks\":[{\"kind\":\"directory\",\"path\":\"/tmp/example\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 10.494,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"directory\",\n      \"path\": \"/home/mydata/web\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"scenario\": \"baseline\",\n      \"path\": \"/home/mydata/web\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"scenario\": \"adversarial\",\n      \"path\": \"/home/mydata/web\"\n    }\n  ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290765,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 95,
+      "prompt_tokens": 124,
+      "total_tokens": 219,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "id": "chatcmpl-8xkK04WuXWXcQ84HhoHyC4QOrJTx60uo",
+    "timings": {
+      "cache_n": 91,
+      "prompt_n": 33,
+      "prompt_ms": 1133.518,
+      "prompt_per_token_ms": 34.349030303030304,
+      "prompt_per_second": 29.112903368098255,
+      "predicted_n": 95,
+      "predicted_ms": 9255.985,
+      "predicted_per_token_ms": 98.4679255319149,
+      "predicted_per_second": 10.155591220167276
+    }
+  },
+  "text": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"directory\",\n      \"path\": \"/home/mydata/web\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"scenario\": \"baseline\",\n      \"path\": \"/home/mydata/web\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"scenario\": \"adversarial\",\n      \"path\": \"/home/mydata/web\"\n    }\n  ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a02"
+}

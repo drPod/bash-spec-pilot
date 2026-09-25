@@ -1,0 +1,6 @@
+for os in RedHat Ubuntu; do
+  install package postfix from remote "http://example.com/cfg" if file "/etc/postfix/main.cf" not exists; 
+  backup file "/etc/postfix/main.cf" with name="main.cf.bak"; 
+  download file from remote "http://example.com/cfg" with name="main.cf";
+  end;
+end;

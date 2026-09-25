@@ -1,0 +1,11 @@
+{
+  "cache_key": "69790069b11ceaea23935c8df8e54bb216ae2503a37fd928134beeb14fdabe93",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "2ac076f28fe46b46811f4b7e76c9e489a4bf1958086379bead53e103b04ea4c5",
+  "code_sha256": "159af35f43ece21b91abfe3525e64c3ecb002b8450103a696a275a773d517a1f",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nValue does not have field name\n",
+  "stderr": "",
+  "seconds": 0.0864,
+  "status": "ansible_lowering_error"
+}

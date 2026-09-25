@@ -1,0 +1,93 @@
+{
+  "scope": "Saved stderr of current primary Claude records in original and full-judge arms; successful hooks need not log diagnostics. Absence of a line is not evidence hooks were disabled.",
+  "diagnostic_kinds": {
+    "SessionEnd": 12
+  },
+  "records": [
+    {
+      "path": "phase2/integration/frontier/opus55/judge-qwen3-coder-p05-1.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Error occurred while executing hook command: EAGAIN: resource temporarily unavailable, posix_spawn '/bin/sh'"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier/opus55/judge-deepseek-p05-0.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Error occurred while executing hook command: EAGAIN: resource temporarily unavailable, posix_spawn '/bin/sh'"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-starcoder-p05-4.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: /bin/sh: 1: Cannot fork"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-starcoder-p13-4.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Error occurred while executing hook command: EAGAIN: resource temporarily unavailable, posix_spawn '/bin/sh'"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-qwen2.5-coder-p13-6.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: /bin/sh: 1: Cannot fork"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-granite-p01-6.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Error occurred while executing hook command: EAGAIN: resource temporarily unavailable, posix_spawn '/bin/sh'"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-gpt-5-mini-p01-5.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Error occurred while executing hook command: EAGAIN: resource temporarily unavailable, posix_spawn '/bin/sh'"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-granite-p01-5.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Hook cancelled"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-deepseek-p05-9.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Hook cancelled"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-starcoder-p05-3.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: "
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-qwen3-coder-p13-8.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Hook cancelled"
+      ]
+    },
+    {
+      "path": "phase2/integration/frontier-full-judge/opus55/judge-qwen3-coder-p01-8.json",
+      "status": "ok",
+      "hook_diagnostics": [
+        "SessionEnd hook [node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-end-cleanup.mjs\"] failed: Hook cancelled"
+      ]
+    }
+  ],
+  "conclusion": "Claude user plugin hooks remained active despite model tools and MCP being disabled. CLI working directory was external, but fully empty client context is not established. These diagnostics show SessionEnd failures; they do not establish candidate/oracle file access by the model."
+}

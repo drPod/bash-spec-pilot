@@ -1,0 +1,11 @@
+{
+  "cache_key": "ded9ad76164eb2362847cc40d9478851180090cb2e9739f90fcd8affc3056981",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "70cce71f17324d156504adbb413349c35f0e7b80ce152361342558fa0f5e02db",
+  "code_sha256": "ba61e47b90fc703693999b2ef3741f4447f59ab6ff46d3c009a3c2446fc94ecb",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument append_shell for module ansible.builtin.user\n",
+  "stderr": "",
+  "seconds": 0.089,
+  "status": "ansible_lowering_error"
+}

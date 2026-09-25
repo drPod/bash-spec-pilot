@@ -1,0 +1,11 @@
+{
+  "cache_key": "3413a3ed6dfd20d9d16865a3a787877149fc1f753a689a94f6c76bddeb762778",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4",
+  "code_sha256": "2f875a5661b5b535d547282eae63a2f61dc8095de36e5238e31a28de882e3442",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable ansible_date_time\n",
+  "stderr": "",
+  "seconds": 0.0771,
+  "status": "ansible_lowering_error"
+}

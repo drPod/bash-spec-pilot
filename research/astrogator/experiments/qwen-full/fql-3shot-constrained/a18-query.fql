@@ -1,0 +1,1 @@
+if os is RedHat or os is Ubuntu then install "postfix" with latest_version; if file "/etc/postfix/main.cf" exists then copy file from http to remote "/etc/postfix/main.cf" with content="backup" via controller; download file from http to remote "/etc/postfix/main.cf" with content="backup"

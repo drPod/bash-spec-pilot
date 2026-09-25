@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "baseline",
+  "candidate_sha256": "c33608f88a949221a1e54fecf2dc755b9bf387fd8545154f4094c4a68e89cf2e",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen3, Problem p05, Response 7] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete the directory] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.386,
+  "sample_id": "qwen3.5/p05/7"
+}

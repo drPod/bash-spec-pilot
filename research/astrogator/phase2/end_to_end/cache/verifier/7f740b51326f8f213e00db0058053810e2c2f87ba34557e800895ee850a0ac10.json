@@ -1,0 +1,11 @@
+{
+  "cache_key": "7f740b51326f8f213e00db0058053810e2c2f87ba34557e800895ee850a0ac10",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e01fed966489a539b84771efd00bd020542995f0fe720cc1c04597cab0385955",
+  "code_sha256": "bb11bce7faab4462bf32c321f73ab2710a719442fa25bcfef2c50b1e877095a2",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo such constructor: replaced\n",
+  "stderr": "",
+  "seconds": 0.0477,
+  "status": "ansible_lowering_error"
+}

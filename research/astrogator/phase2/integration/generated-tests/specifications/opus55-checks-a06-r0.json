@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "kind": "content",
+      "scenario": "baseline",
+      "path": "/etc/file.txt",
+      "value": "beginning"
+    },
+    {
+      "kind": "not_contains",
+      "scenario": "adversarial",
+      "path": "/etc/file.txt",
+      "value": "beginning"
+    }
+  ]
+}

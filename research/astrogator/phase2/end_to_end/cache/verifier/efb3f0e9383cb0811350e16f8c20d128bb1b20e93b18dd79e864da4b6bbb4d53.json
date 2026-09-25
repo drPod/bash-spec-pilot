@@ -1,0 +1,11 @@
+{
+  "cache_key": "efb3f0e9383cb0811350e16f8c20d128bb1b20e93b18dd79e864da4b6bbb4d53",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d3739352bfa2623a54c0869c44d9b7ce3be3f573c4239bebffdb9165826df038",
+  "code_sha256": "de911fc67728743d3949555556f67f171cd53630070fe72401c206c26b36ef40",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nFree-form arguments not supported\n",
+  "stderr": "",
+  "seconds": 0.0602,
+  "status": "ansible_lowering_error"
+}

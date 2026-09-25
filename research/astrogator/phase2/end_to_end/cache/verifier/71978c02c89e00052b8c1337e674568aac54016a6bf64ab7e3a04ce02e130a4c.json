@@ -1,0 +1,11 @@
+{
+  "cache_key": "71978c02c89e00052b8c1337e674568aac54016a6bf64ab7e3a04ce02e130a4c",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "33627435acb3dc040eb6532e582df1d90476fc5a5cc34654e05fa0dae904b549",
+  "code_sha256": "adbd9ec8401053a84de6b131cd7d319294c4012eb1d5e87b2437dd1a898e14b6",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.template\n",
+  "stderr": "",
+  "seconds": 0.052,
+  "status": "ansible_lowering_error"
+}

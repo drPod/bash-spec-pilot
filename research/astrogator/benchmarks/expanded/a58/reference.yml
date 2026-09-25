@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.cron:
+      name: astro cleanup
+      minute: '15'
+      hour: '2'
+      user: root
+      job: /usr/bin/true

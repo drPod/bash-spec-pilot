@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "cff5a9bdd6fba0191754b45d2511c404e56eef90b35e5d01dd3257bb9b02a5fd",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p10, Response 7] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure service user exists] **********************************************\nchanged: [localhost]\n\nTASK [Ensure service user authentication password state is disabled] ***********\n[ERROR]: Task failed: Module failed: value of state must be one of: absent, present, got: disabled\nOrigin: /suite/data/corpus/llama/p10/response7.yml:14:5\n\n12       password: \"\"\n13       state: present\n14   - name: Ensure service user authentication password state is disabled\n       ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, present, got: disabled\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 5.519,
+  "sample_id": "llama/p10/7"
+}

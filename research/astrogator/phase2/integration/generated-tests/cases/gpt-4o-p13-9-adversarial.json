@@ -1,0 +1,82 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "f84ba9596f22cc65b7ca762cca1f851331f454b9332304abeedffee40c2e922f",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt, Problem p13, Response 9] **************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Check if /etc/file.txt exists] *******************************************\nok: [localhost]\n\nTASK [Create /etc/file.txt with contents \"beginning\" if it does not exist] *****\nskipping: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "6578697374696e6720636f6e74656e74",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "seconds": 4.46,
+  "sample_id": "gpt-4o/p13/9"
+}

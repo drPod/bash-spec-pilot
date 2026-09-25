@@ -1,0 +1,1 @@
+clone from remote "/tmp" to remote "/backup" with path="." as "*.war"; with name="war"; with content="."; with owner="root"; with group="root"; with other="root";

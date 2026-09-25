@@ -1,0 +1,22 @@
+{
+  "query_sha256": "876fba69592d7725dd8556ac2984b24c61d050df93144abf9af3231618b4d2dc",
+  "query": "if os is RedHat then install apache server; create home page; create user with name=webdev",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\td4baaa1c7ad4ac79e38fe62c971abb19\nsemantic\terror\tUnhandled creation of: home page\n",
+    "stderr": "",
+    "seconds": 0.0111,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "d4baaa1c7ad4ac79e38fe62c971abb19"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled creation of: home page"
+      }
+    }
+  }
+}

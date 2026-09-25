@@ -1,0 +1,1 @@
+if file /work/enabled exists then create directory at /work/cache

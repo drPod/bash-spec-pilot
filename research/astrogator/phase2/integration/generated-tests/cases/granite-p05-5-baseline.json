@@ -1,0 +1,72 @@
+{
+  "task_id": "a02",
+  "scenario": "baseline",
+  "candidate_sha256": "2061c1a698c0b83e106afe0ad92e75d8176454ecbe6f8a02689357d415111b7c",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "baseline",
+            "path": "/home/mydata/web"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model granite, Problem p05, Response 5] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete the directory /home/mydata/web/] **********************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.498,
+  "sample_id": "granite/p05/5"
+}

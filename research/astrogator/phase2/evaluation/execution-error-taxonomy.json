@@ -1,0 +1,1997 @@
+{
+  "execution_error_cases": 149,
+  "programs_with_execution_error": 75,
+  "case_category_counts": {
+    "module_resolution": 6,
+    "unsupported_module_parameter": 65,
+    "undefined_variable_or_attribute": 20,
+    "invalid_argument_value": 14,
+    "missing_target_file": 2,
+    "yaml_or_playbook_structure": 6,
+    "missing_filter": 20,
+    "missing_controller_template_or_file": 6,
+    "other_execution_error": 10
+  },
+  "program_category_counts": {
+    "module_resolution": 3,
+    "unsupported_module_parameter": 33,
+    "undefined_variable_or_attribute": 10,
+    "invalid_argument_value": 7,
+    "missing_target_file": 1,
+    "yaml_or_playbook_structure": 3,
+    "missing_filter": 10,
+    "missing_controller_template_or_file": 3,
+    "other_execution_error": 5
+  },
+  "patterns": [
+    [
+      "unsupported_module_parameter",
+      "Unsupported parameters for"
+    ],
+    [
+      "invalid_argument_value",
+      "value of .+ must be one of:"
+    ],
+    [
+      "missing_filter",
+      "No filter named"
+    ],
+    [
+      "undefined_variable_or_attribute",
+      "is undefined|has no attribute"
+    ],
+    [
+      "module_resolution",
+      "couldn't resolve module/action|Error loading plugin"
+    ],
+    [
+      "missing_controller_template_or_file",
+      "Could not find or access"
+    ],
+    [
+      "missing_target_file",
+      "Destination .+ does not exist"
+    ],
+    [
+      "untrusted_conditional",
+      "Conditional result|conditional.*untrusted|untrusted.*conditional"
+    ],
+    [
+      "yaml_or_playbook_structure",
+      "YAML parsing|conflicting action statements|not a valid attribute"
+    ]
+  ],
+  "cases": [
+    {
+      "sample_id": "deepseek/p10/9",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'ansible.posix.user'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1"
+    },
+    {
+      "sample_id": "deepseek/p10/9",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'ansible.posix.user'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1"
+    },
+    {
+      "sample_id": "deepseek/p13/0",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd"
+    },
+    {
+      "sample_id": "deepseek/p13/0",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "77689649cd7fefb7762911409281e5a7ab18c69c96debd3ab5130456204ca9cd"
+    },
+    {
+      "sample_id": "deepseek/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_remote_user. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_remote_user. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "d36069dab1da11681206dabd95701bc87dd7e01d10a78a9366298f8c27739894"
+    },
+    {
+      "sample_id": "deepseek/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_remote_user. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_remote_user. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "d36069dab1da11681206dabd95701bc87dd7e01d10a78a9366298f8c27739894"
+    },
+    {
+      "sample_id": "deepseek/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "45cf15ed6cba0a29be56a95411f1a3f98c698805a8ee5aa67939d54a6b583c70"
+    },
+    {
+      "sample_id": "deepseek/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "45cf15ed6cba0a29be56a95411f1a3f98c698805a8ee5aa67939d54a6b583c70"
+    },
+    {
+      "sample_id": "deepseek/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_parent. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_parent. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "2795cb7b1693c22697bac6e3b7ad1e82d183d429c45beb9d72ef3ecce7a3f295"
+    },
+    {
+      "sample_id": "deepseek/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_parent. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_parent. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "2795cb7b1693c22697bac6e3b7ad1e82d183d429c45beb9d72ef3ecce7a3f295"
+    },
+    {
+      "sample_id": "deepseek/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: lineinfile. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: lineinfile. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "6b64c6c733c801dabc33ee0fdb279a75f6df851352e3a4254a6d5728a11f0f8d"
+    },
+    {
+      "sample_id": "deepseek/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: lineinfile. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: lineinfile. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "6b64c6c733c801dabc33ee0fdb279a75f6df851352e3a4254a6d5728a11f0f8d"
+    },
+    {
+      "sample_id": "gpt-4o/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'\"}"
+      ],
+      "candidate_sha256": "db58faa9eda1c4f07e8c35a835a279d347b29e2b4535e3245ab0c9517a457790"
+    },
+    {
+      "sample_id": "gpt-4o/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'\"}"
+      ],
+      "candidate_sha256": "db58faa9eda1c4f07e8c35a835a279d347b29e2b4535e3245ab0c9517a457790"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/5",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "14a32c010dee7a9cbdb3ed7fb7a28e226765d972e85f87dfc6b9d9dd673fa25c"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/5",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "14a32c010dee7a9cbdb3ed7fb7a28e226765d972e85f87dfc6b9d9dd673fa25c"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "e18ce9153da28e9e8dcac2dcd9d726252c4d3890c1ef965097a57bd907bc0782"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "e18ce9153da28e9e8dcac2dcd9d726252c4d3890c1ef965097a57bd907bc0782"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "d9642e1f2a8bc2c868ae43f2d7551ccb8f8af8f6d85ad156021a21ae50e28f68"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "d9642e1f2a8bc2c868ae43f2d7551ccb8f8af8f6d85ad156021a21ae50e28f68"
+    },
+    {
+      "sample_id": "gpt-oss/p10/0",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, present, got: locked",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, present, got: locked\"}"
+      ],
+      "candidate_sha256": "9590c9d63ab09fb3d5dab33b90fb16769d7c0f94a8a253d3933d6708398e6c32"
+    },
+    {
+      "sample_id": "gpt-oss/p10/0",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, present, got: locked",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, present, got: locked\"}"
+      ],
+      "candidate_sha256": "9590c9d63ab09fb3d5dab33b90fb16769d7c0f94a8a253d3933d6708398e6c32"
+    },
+    {
+      "sample_id": "gpt-oss/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "f0ad28f090eaab979e0f9805dfbf6f335a169ea21a90f5be32358c4add3717e2"
+    },
+    {
+      "sample_id": "gpt-oss/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "f0ad28f090eaab979e0f9805dfbf6f335a169ea21a90f5be32358c4add3717e2"
+    },
+    {
+      "sample_id": "gpt-oss/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "491ed2cea92fb419bcded2033e03f9e3b2d8a04ce4db5083f31630c12af6b591"
+    },
+    {
+      "sample_id": "gpt-oss/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "491ed2cea92fb419bcded2033e03f9e3b2d8a04ce4db5083f31630c12af6b591"
+    },
+    {
+      "sample_id": "gpt-oss/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "226735b531c5fd47592b9da4b85ee868ed75eae57df81e1bf046519b995b47c3"
+    },
+    {
+      "sample_id": "gpt-oss/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "226735b531c5fd47592b9da4b85ee868ed75eae57df81e1bf046519b995b47c3"
+    },
+    {
+      "sample_id": "granite/p10/8",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "missing_target_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Destination /etc/security/pwquality.conf does not exist !",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Destination /etc/security/pwquality.conf does not exist !\", \"rc\": 257}"
+      ],
+      "candidate_sha256": "cd2a30bb4fda62c544b8be9669e9a4911fda0ac85c658bc71ea25af449c7a49a"
+    },
+    {
+      "sample_id": "granite/p10/8",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_target_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Destination /etc/security/pwquality.conf does not exist !",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Destination /etc/security/pwquality.conf does not exist !\", \"rc\": 257}"
+      ],
+      "candidate_sha256": "cd2a30bb4fda62c544b8be9669e9a4911fda0ac85c658bc71ea25af449c7a49a"
+    },
+    {
+      "sample_id": "granite/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: create. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: create. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "efd654bee23238fd3283988892c22069fc1ef13f2cb10d1ee20bdff5831e03d4"
+    },
+    {
+      "sample_id": "llama/p10/0",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: True",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: True\"}"
+      ],
+      "candidate_sha256": "76f8b738de17ca47c6260009153cc76c5f24b71ce370bac0c1e915cb48f6fc78"
+    },
+    {
+      "sample_id": "llama/p10/0",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: True",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: True\"}"
+      ],
+      "candidate_sha256": "76f8b738de17ca47c6260009153cc76c5f24b71ce370bac0c1e915cb48f6fc78"
+    },
+    {
+      "sample_id": "llama/p10/1",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!secret'."
+      ],
+      "candidate_sha256": "77c9369d43d40365a903dfab21d1e4b8a783d8071a4f45ce3d4d94df4016f20d"
+    },
+    {
+      "sample_id": "llama/p10/1",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!secret'."
+      ],
+      "candidate_sha256": "77c9369d43d40365a903dfab21d1e4b8a783d8071a4f45ce3d4d94df4016f20d"
+    },
+    {
+      "sample_id": "llama/p10/4",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: never",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: never\"}"
+      ],
+      "candidate_sha256": "458d39d352f82ed84c5c9550d4bee48e74c15324af80926609987554da135dcf"
+    },
+    {
+      "sample_id": "llama/p10/4",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: never",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: never\"}"
+      ],
+      "candidate_sha256": "458d39d352f82ed84c5c9550d4bee48e74c15324af80926609987554da135dcf"
+    },
+    {
+      "sample_id": "llama/p10/5",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: on_success",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: on_success\"}"
+      ],
+      "candidate_sha256": "332d24076fb678e4fcd4eaca37fccead62a437b0f689163842fb523522ef2e54"
+    },
+    {
+      "sample_id": "llama/p10/5",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: on_success",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: on_success\"}"
+      ],
+      "candidate_sha256": "332d24076fb678e4fcd4eaca37fccead62a437b0f689163842fb523522ef2e54"
+    },
+    {
+      "sample_id": "llama/p10/6",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!no_change'."
+      ],
+      "candidate_sha256": "e4c534fe6db707758eca8d1081535ed730938f146c2763bdd58da15d05a6d919"
+    },
+    {
+      "sample_id": "llama/p10/6",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!no_change'."
+      ],
+      "candidate_sha256": "e4c534fe6db707758eca8d1081535ed730938f146c2763bdd58da15d05a6d919"
+    },
+    {
+      "sample_id": "llama/p10/7",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, present, got: disabled",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, present, got: disabled\"}"
+      ],
+      "candidate_sha256": "cff5a9bdd6fba0191754b45d2511c404e56eef90b35e5d01dd3257bb9b02a5fd"
+    },
+    {
+      "sample_id": "llama/p10/7",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, present, got: disabled",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, present, got: disabled\"}"
+      ],
+      "candidate_sha256": "cff5a9bdd6fba0191754b45d2511c404e56eef90b35e5d01dd3257bb9b02a5fd"
+    },
+    {
+      "sample_id": "llama/p10/8",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.\"}"
+      ],
+      "candidate_sha256": "7c69e12432573fbbbf254e24b1d10398d80cf2be64cd35d240d7287a28273883"
+    },
+    {
+      "sample_id": "llama/p10/8",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.\"}"
+      ],
+      "candidate_sha256": "7c69e12432573fbbbf254e24b1d10398d80cf2be64cd35d240d7287a28273883"
+    },
+    {
+      "sample_id": "llama/p13/0",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "26c4bd1b76cd05d659e964d0557c35bdce17462249042bdff887a63bb7798671"
+    },
+    {
+      "sample_id": "llama/p13/0",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "26c4bd1b76cd05d659e964d0557c35bdce17462249042bdff887a63bb7798671"
+    },
+    {
+      "sample_id": "llama/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "f14a333a54a6456755a0769b553338baf19d0ea018f4edb04e3ab95c78e4ab3e"
+    },
+    {
+      "sample_id": "llama/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "f14a333a54a6456755a0769b553338baf19d0ea018f4edb04e3ab95c78e4ab3e"
+    },
+    {
+      "sample_id": "llama/p13/2",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "6239d44740c0615cef9971d95ac9afcc1d27e61c8cd05e13eca1560a52183d2b"
+    },
+    {
+      "sample_id": "llama/p13/2",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "6239d44740c0615cef9971d95ac9afcc1d27e61c8cd05e13eca1560a52183d2b"
+    },
+    {
+      "sample_id": "llama/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'file.txt.j2'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'file.txt.j2'\\nSearched in:\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "275c725b644cf1da584b7e4d5e7fd111f7d2e8645c54291ddf7f3a39c86c8f86"
+    },
+    {
+      "sample_id": "llama/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'file.txt.j2'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'file.txt.j2'\\nSearched in:\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "275c725b644cf1da584b7e4d5e7fd111f7d2e8645c54291ddf7f3a39c86c8f86"
+    },
+    {
+      "sample_id": "llama/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'file.txt.j2'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'file.txt.j2'\\nSearched in:\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "018ee38d3e8e557bc8fb78ac49861c54a94880de432d63dcd9ec16f4ab27d152"
+    },
+    {
+      "sample_id": "llama/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'file.txt.j2'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'file.txt.j2'\\nSearched in:\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "018ee38d3e8e557bc8fb78ac49861c54a94880de432d63dcd9ec16f4ab27d152"
+    },
+    {
+      "sample_id": "llama/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e09479f3c1974b16e96beca1980b427c3a26890c75333347c37fdf327e755feb"
+    },
+    {
+      "sample_id": "llama/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e09479f3c1974b16e96beca1980b427c3a26890c75333347c37fdf327e755feb"
+    },
+    {
+      "sample_id": "llama/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: backup, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: backup, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "d14fd4bfd4612703e3a5ff7f725638a9c5f4aa0d97678c00788281c725db4f68"
+    },
+    {
+      "sample_id": "llama/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: backup, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: backup, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "d14fd4bfd4612703e3a5ff7f725638a9c5f4aa0d97678c00788281c725db4f68"
+    },
+    {
+      "sample_id": "llama/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "c26bbfcdb59c479050be6845ca58abfd1f07a562f00100861a4913c8f9301d1f"
+    },
+    {
+      "sample_id": "llama/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "c26bbfcdb59c479050be6845ca58abfd1f07a562f00100861a4913c8f9301d1f"
+    },
+    {
+      "sample_id": "llama/p13/9",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "9e3c249c88f7d44e09b33e04e8cb8f2c2f229ee25e2708123cb7742bfa70b0fe"
+    },
+    {
+      "sample_id": "llama/p13/9",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "9e3c249c88f7d44e09b33e04e8cb8f2c2f229ee25e2708123cb7742bfa70b0fe"
+    },
+    {
+      "sample_id": "ministral/p13/0",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "59f27be6e9578d78e01a8ece95691d1b95408126c8794995144218fbfa081b85"
+    },
+    {
+      "sample_id": "ministral/p13/0",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "59f27be6e9578d78e01a8ece95691d1b95408126c8794995144218fbfa081b85"
+    },
+    {
+      "sample_id": "ministral/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0963433f89694548e0fbad4dde0381fb1008c07643971defad6d3604c185b460"
+    },
+    {
+      "sample_id": "ministral/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0963433f89694548e0fbad4dde0381fb1008c07643971defad6d3604c185b460"
+    },
+    {
+      "sample_id": "ministral/p13/2",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "30991a894fa2ca6a647dad39e018863766ec5fc529574bd067c5f68d6408eb02"
+    },
+    {
+      "sample_id": "ministral/p13/2",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "30991a894fa2ca6a647dad39e018863766ec5fc529574bd067c5f68d6408eb02"
+    },
+    {
+      "sample_id": "ministral/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "4f654948a1a12c211cb02d5d4532178dcadcd845470a3b49dff45bfaa7555fcf"
+    },
+    {
+      "sample_id": "ministral/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "4f654948a1a12c211cb02d5d4532178dcadcd845470a3b49dff45bfaa7555fcf"
+    },
+    {
+      "sample_id": "ministral/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0ff4dd1d3b22e2208adb2bc1836457292587fc092050bc46ddf488d63b49174a"
+    },
+    {
+      "sample_id": "ministral/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0ff4dd1d3b22e2208adb2bc1836457292587fc092050bc46ddf488d63b49174a"
+    },
+    {
+      "sample_id": "ministral/p13/5",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e65eb7381b2852eac7308353365dcde3dba325a879f3dfc63ad9a103732efecb"
+    },
+    {
+      "sample_id": "ministral/p13/5",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e65eb7381b2852eac7308353365dcde3dba325a879f3dfc63ad9a103732efecb"
+    },
+    {
+      "sample_id": "ministral/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "fcc4db7fe05a2821ae1fe3a198efb56e81e111cc23acdac85c4bc720df48ecd5"
+    },
+    {
+      "sample_id": "ministral/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "fcc4db7fe05a2821ae1fe3a198efb56e81e111cc23acdac85c4bc720df48ecd5"
+    },
+    {
+      "sample_id": "ministral/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "337ff0bfbf1f6db5b3f0e4424c0a908551f0995274572d04d37fb193f53baffd"
+    },
+    {
+      "sample_id": "ministral/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "337ff0bfbf1f6db5b3f0e4424c0a908551f0995274572d04d37fb193f53baffd"
+    },
+    {
+      "sample_id": "ministral/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "a486def3b4ad71a876935c6ea1687e8f93128bd93366bf55f94eacf2d3deeca0"
+    },
+    {
+      "sample_id": "ministral/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "a486def3b4ad71a876935c6ea1687e8f93128bd93366bf55f94eacf2d3deeca0"
+    },
+    {
+      "sample_id": "ministral/p13/9",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e53dd5577b01fbab5e689afc74b117fc4d0f0e42e0f70111bf30596a6a1dc382"
+    },
+    {
+      "sample_id": "ministral/p13/9",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e53dd5577b01fbab5e689afc74b117fc4d0f0e42e0f70111bf30596a6a1dc382"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/0",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'\"}"
+      ],
+      "candidate_sha256": "d8c0596d791f0d886b5f673c332bf87998ab2c1499231d085f13294abd7d600c"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/0",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'\"}"
+      ],
+      "candidate_sha256": "d8c0596d791f0d886b5f673c332bf87998ab2c1499231d085f13294abd7d600c"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/1",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!ansible.builtin.sha256sum'."
+      ],
+      "candidate_sha256": "dc46096cfa622ccd0f0176f0237f07a7e1387aa2559654cca08a4efe10dedc79"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/1",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "yaml_or_playbook_structure"
+      ],
+      "evidence_lines": [
+        "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!ansible.builtin.sha256sum'."
+      ],
+      "candidate_sha256": "dc46096cfa622ccd0f0176f0237f07a7e1387aa2559654cca08a4efe10dedc79"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/2",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "ce0d9142a81ece4f55f8cb0dc5f6ba44894dc9b157d0a2fc1a4a61ed86589964"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/2",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': 'ansible' is undefined",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': 'ansible' is undefined\"}"
+      ],
+      "candidate_sha256": "ce0d9142a81ece4f55f8cb0dc5f6ba44894dc9b157d0a2fc1a4a61ed86589964"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/4",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/c8a5b2894cb87600163e3a9207aa30a1bc335e36.ansible_lockfile'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/c8a5b2894cb87600163e3a9207aa30a1bc335e36.ansible_lockfile'\"}"
+      ],
+      "candidate_sha256": "a6318da521f5e19294c43039e2b59daa528ff5d8ebecccba2f5b08a1e2972f42"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/4",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/c8a5b2894cb87600163e3a9207aa30a1bc335e36.ansible_lockfile'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/c8a5b2894cb87600163e3a9207aa30a1bc335e36.ansible_lockfile'\"}"
+      ],
+      "candidate_sha256": "a6318da521f5e19294c43039e2b59daa528ff5d8ebecccba2f5b08a1e2972f42"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/5",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.\"}"
+      ],
+      "candidate_sha256": "9d6133b643b96f5b274dabecd5034ed50c4559c26d58869307a27fc781c406a8"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/5",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.\"}"
+      ],
+      "candidate_sha256": "9d6133b643b96f5b274dabecd5034ed50c4559c26d58869307a27fc781c406a8"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/6",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).\"}"
+      ],
+      "candidate_sha256": "3fc605584482eb57938389d2a9b75c77dfec41ba2d94bc71214ee8c0bd65d892"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/6",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).\"}"
+      ],
+      "candidate_sha256": "3fc605584482eb57938389d2a9b75c77dfec41ba2d94bc71214ee8c0bd65d892"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/7",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.\"}"
+      ],
+      "candidate_sha256": "04a225c074489137b8e822be0b196233b5a9f13a8c9682a1a40ddd5d47f4bc27"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/7",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.\"}"
+      ],
+      "candidate_sha256": "04a225c074489137b8e822be0b196233b5a9f13a8c9682a1a40ddd5d47f4bc27"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/8",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'community.general.passwd'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "7a301e97b49fd0a2ef71d1249194394a5c62858b44f125792e272e71aa174370"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/8",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'community.general.passwd'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "7a301e97b49fd0a2ef71d1249194394a5c62858b44f125792e272e71aa174370"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/0",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "213d5da138f43a66ddbbd49b0e8c50f9bff8339300f62b9e2e6286cedace22a9"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/0",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "213d5da138f43a66ddbbd49b0e8c50f9bff8339300f62b9e2e6286cedace22a9"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "664a984f9a0fc587ba70b566563b2330a87c47895ccb59f22927dd8ce4ef14b4"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "664a984f9a0fc587ba70b566563b2330a87c47895ccb59f22927dd8ce4ef14b4"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, directory, file, hard, link, touch, got: present",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, directory, file, hard, link, touch, got: present\"}"
+      ],
+      "candidate_sha256": "216011893aaa10dd0b499438294ef3508e5459bed552d81d591052b45111445d"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, directory, file, hard, link, touch, got: present",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, directory, file, hard, link, touch, got: present\"}"
+      ],
+      "candidate_sha256": "216011893aaa10dd0b499438294ef3508e5459bed552d81d591052b45111445d"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "da5103b08b9a36dc5dd81b8474855cbcb778ec4a20a226ad2639ba78cda273d8"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "da5103b08b9a36dc5dd81b8474855cbcb778ec4a20a226ad2639ba78cda273d8"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/5",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "a096074c179ea2b6626c0588c216d1191c25663557695e36e609de73297ea76e"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/5",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "a096074c179ea2b6626c0588c216d1191c25663557695e36e609de73297ea76e"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: append, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: append, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0f0bada21c285e80d41411709ccac5e953bce52f3101cb15f1c010ac43ca9fbc"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: append, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: append, content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "0f0bada21c285e80d41411709ccac5e953bce52f3101cb15f1c010ac43ca9fbc"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "ddfb5d81f0c3eb1054ea5b2aed3b661353c83e8964d5ac472d4447ebe367deb5"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "ddfb5d81f0c3eb1054ea5b2aed3b661353c83e8964d5ac472d4447ebe367deb5"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, directory, file, hard, link, touch, got: present",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, directory, file, hard, link, touch, got: present\"}"
+      ],
+      "candidate_sha256": "c452355e670de17fd395c7618586be82372e9a76a7e3de8296c985cbf4df88a5"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "invalid_argument_value"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: value of state must be one of: absent, directory, file, hard, link, touch, got: present",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, directory, file, hard, link, touch, got: present\"}"
+      ],
+      "candidate_sha256": "c452355e670de17fd395c7618586be82372e9a76a7e3de8296c985cbf4df88a5"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/9",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e635179d660e8f72cf6a7234346b0225dee7c1a52849c87e0bbf84e970e9a0ad"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/9",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e635179d660e8f72cf6a7234346b0225dee7c1a52849c87e0bbf84e970e9a0ad"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "3db28ad2e02513023852678b01396097509155a2255a3a095972351c153cf187"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "3db28ad2e02513023852678b01396097509155a2255a3a095972351c153cf187"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/2",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "1c02e7d8fe7881dcd1aaab3237f4979309d046101f96e562fb692afdfa544b49"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/2",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "1c02e7d8fe7881dcd1aaab3237f4979309d046101f96e562fb692afdfa544b49"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "e34562929117e3668778f4a817fe5eadcc980a2160e280cc56576de9d0566110"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "e34562929117e3668778f4a817fe5eadcc980a2160e280cc56576de9d0566110"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "a106e2694bf7718553933ede0063dbf6968b327bdfaa988d78a516e343cb57c3"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "a106e2694bf7718553933ede0063dbf6968b327bdfaa988d78a516e343cb57c3"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/5",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "b10e2875193562c968bf9d46f997f5812308e3d76ec5830a4a6011a316180517"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/5",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "b10e2875193562c968bf9d46f997f5812308e3d76ec5830a4a6011a316180517"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/6",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "873c4516f6eca29ca207fcf9495d7b20ea24f4ef9771a889b4884ff03a38fb7c"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/6",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "873c4516f6eca29ca207fcf9495d7b20ea24f4ef9771a889b4884ff03a38fb7c"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/7",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "8ef8f4355f873b8bcf765861792f9c290d5ffcc50434b1bf490744736f154783"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/7",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "8ef8f4355f873b8bcf765861792f9c290d5ffcc50434b1bf490744736f154783"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "701dce796e5369d7420967615b95366092298c076a9e02e6ec8895c9571863c2"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "701dce796e5369d7420967615b95366092298c076a9e02e6ec8895c9571863c2"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/9",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "3932c14f4decade88f4ae46c69e110ea6dcb789fa13ad1ceda785f97630fa760"
+    },
+    {
+      "sample_id": "qwen3-coder/p13/9",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_filter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}"
+      ],
+      "candidate_sha256": "3932c14f4decade88f4ae46c69e110ea6dcb789fa13ad1ceda785f97630fa760"
+    },
+    {
+      "sample_id": "starcoder/p05/1",
+      "task_id": "a02",
+      "scenario": "baseline",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: recurse option requires state to be 'directory'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"recurse option requires state to be 'directory'\", \"path\": \"/home/mydata/web/\"}"
+      ],
+      "candidate_sha256": "a30fb4722893208b83a7451f2f83f85ea5071862913b1fecb0d1619d5a966f5e"
+    },
+    {
+      "sample_id": "starcoder/p05/1",
+      "task_id": "a02",
+      "scenario": "adversarial",
+      "categories": [
+        "other_execution_error"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: recurse option requires state to be 'directory'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"gid\": 0, \"group\": \"root\", \"mode\": \"0755\", \"msg\": \"recurse option requires state to be 'directory'\", \"owner\": \"root\", \"path\": \"/home/mydata/web/\", \"size\": 4096, \"state\": \"directory\", \"uid\": 0}"
+      ],
+      "candidate_sha256": "a30fb4722893208b83a7451f2f83f85ea5071862913b1fecb0d1619d5a966f5e"
+    },
+    {
+      "sample_id": "starcoder/p10/3",
+      "task_id": "a17",
+      "scenario": "baseline",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'hosts'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "76ceaf6b9b7f1ede760bca621a47b7b2330ea0e23fda85ce0ddce3244b6116c2"
+    },
+    {
+      "sample_id": "starcoder/p10/3",
+      "task_id": "a17",
+      "scenario": "adversarial",
+      "categories": [
+        "module_resolution"
+      ],
+      "evidence_lines": [
+        "[ERROR]: couldn't resolve module/action 'hosts'. This often indicates a misspelling, missing collection, or incorrect module path."
+      ],
+      "candidate_sha256": "76ceaf6b9b7f1ede760bca621a47b7b2330ea0e23fda85ce0ddce3244b6116c2"
+    },
+    {
+      "sample_id": "starcoder/p13/1",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"checksum\": \"336edf81860bdfc5e56a603ab1759d4ec3c587d2\", \"msg\": \"Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).\"}"
+      ],
+      "candidate_sha256": "330da2501e8d89b7566b659daf4eda31a2ec7319e97ebc144d419ffc32e445ce"
+    },
+    {
+      "sample_id": "starcoder/p13/1",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"checksum\": \"336edf81860bdfc5e56a603ab1759d4ec3c587d2\", \"msg\": \"Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).\"}"
+      ],
+      "candidate_sha256": "330da2501e8d89b7566b659daf4eda31a2ec7319e97ebc144d419ffc32e445ce"
+    },
+    {
+      "sample_id": "starcoder/p13/2",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'template.txt'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'template.txt'\\nSearched in:\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "958f0d67185007d4324836e36d0a3a9ac0e68a0bb9f9b4eae2856849c7dd2d1f"
+    },
+    {
+      "sample_id": "starcoder/p13/2",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "missing_controller_template_or_file"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Could not find or access 'template.txt'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'template.txt'\\nSearched in:\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}"
+      ],
+      "candidate_sha256": "958f0d67185007d4324836e36d0a3a9ac0e68a0bb9f9b4eae2856849c7dd2d1f"
+    },
+    {
+      "sample_id": "starcoder/p13/3",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e7e09ef0e638e03177ad325550cd5bf2049ee2d5f444ba95414a7ca385e78b29"
+    },
+    {
+      "sample_id": "starcoder/p13/3",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "e7e09ef0e638e03177ad325550cd5bf2049ee2d5f444ba95414a7ca385e78b29"
+    },
+    {
+      "sample_id": "starcoder/p13/4",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "607c082de0c97cf2f12dbe0ecc6350e964db44fdbbeca0b7b9c313a9d56923a3"
+    },
+    {
+      "sample_id": "starcoder/p13/4",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "unsupported_module_parameter"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}"
+      ],
+      "candidate_sha256": "607c082de0c97cf2f12dbe0ecc6350e964db44fdbbeca0b7b9c313a9d56923a3"
+    },
+    {
+      "sample_id": "starcoder/p13/8",
+      "task_id": "a06",
+      "scenario": "baseline",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'\"}"
+      ],
+      "candidate_sha256": "2868a53c6ad53f469c8651213191907f0d154c7d3019b862db8c5a8b60ecc66b"
+    },
+    {
+      "sample_id": "starcoder/p13/8",
+      "task_id": "a06",
+      "scenario": "adversarial",
+      "categories": [
+        "undefined_variable_or_attribute"
+      ],
+      "evidence_lines": [
+        "[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'",
+        "fatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'content'\"}"
+      ],
+      "candidate_sha256": "2868a53c6ad53f469c8651213191907f0d154c7d3019b862db8c5a8b60ecc66b"
+    }
+  ],
+  "source_sha256": "996e64d83a9c99ef5e8c691f29047e8fbd765c7800f83a7c304242be300323a2",
+  "limitations": [
+    "Categories summarize emitted diagnostics, not proof of a unique root cause.",
+    "A program may have multiple categories; category counts need not sum to program count.",
+    "Module resolution, missing files and version-dependent diagnostics require environment review before claiming portable program defects."
+  ]
+}

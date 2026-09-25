@@ -1,0 +1,22 @@
+{
+  "query_sha256": "7cc80ff537e7e114938ece3abc0a477f83f83c1b9a98229a3a01f97927be658c",
+  "query": "delete directory contents at /home/mydata/web",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t0793c686675a2c59e49e6d2a47085e90\nsemantic\terror\tUnhandled deletion of: directory contents\n",
+    "stderr": "",
+    "seconds": 0.0028,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "0793c686675a2c59e49e6d2a47085e90"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled deletion of: directory contents"
+      }
+    }
+  }
+}

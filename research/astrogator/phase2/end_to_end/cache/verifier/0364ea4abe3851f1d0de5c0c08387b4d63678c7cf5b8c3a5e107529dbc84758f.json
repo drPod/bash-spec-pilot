@@ -1,0 +1,11 @@
+{
+  "cache_key": "0364ea4abe3851f1d0de5c0c08387b4d63678c7cf5b8c3a5e107529dbc84758f",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e01fed966489a539b84771efd00bd020542995f0fe720cc1c04597cab0385955",
+  "code_sha256": "0d43b1279bb09fe86e9a1f10bb62a87dd77fc10071fc2bf3981c62e3d8af31e9",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo such constructor: present\n",
+  "stderr": "",
+  "seconds": 0.1439,
+  "status": "ansible_lowering_error"
+}

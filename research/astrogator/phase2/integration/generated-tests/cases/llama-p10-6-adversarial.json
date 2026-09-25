@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "e4c534fe6db707758eca8d1081535ed730938f146c2763bdd58da15d05a6d919",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 4,
+    "stdout": "",
+    "stderr": "[ERROR]: YAML parsing failed: Could not determine a constructor for the tag '!no_change'.\nOrigin: /suite/data/corpus/llama/p10/response6.yml:9:17\n\n7     user:\n8       name: service\n9       password: !no_change\n                  ^ column 17\n\n"
+  },
+  "seconds": 1.412,
+  "sample_id": "llama/p10/6"
+}

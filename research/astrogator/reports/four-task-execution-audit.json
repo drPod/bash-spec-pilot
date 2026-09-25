@@ -1,0 +1,38 @@
+{
+  "complete": true,
+  "unique_cases": 844,
+  "reference_controls_passed": 8,
+  "candidate_fixture_oracle_hashes_match": true,
+  "frozen_source_hashes_match": true,
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "labels": {
+    "passed_local_checks": 283,
+    "failed_local_checks_or_execution": 139,
+    "missing_processed": 18
+  },
+  "by_task": {
+    "a01": {
+      "passed_local_checks": 110
+    },
+    "a02": {
+      "passed_local_checks": 96,
+      "missing_processed": 3,
+      "failed_local_checks_or_execution": 11
+    },
+    "a06": {
+      "failed_local_checks_or_execution": 81,
+      "passed_local_checks": 18,
+      "missing_processed": 11
+    },
+    "a17": {
+      "passed_local_checks": 59,
+      "failed_local_checks_or_execution": 47,
+      "missing_processed": 4
+    }
+  },
+  "case_statuses": {
+    "passed": 599,
+    "oracle_rejected": 96,
+    "execution_error": 149
+  }
+}

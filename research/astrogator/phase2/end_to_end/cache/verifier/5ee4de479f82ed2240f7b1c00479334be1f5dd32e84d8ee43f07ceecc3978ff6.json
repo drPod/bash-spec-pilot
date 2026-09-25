@@ -1,0 +1,11 @@
+{
+  "cache_key": "5ee4de479f82ed2240f7b1c00479334be1f5dd32e84d8ee43f07ceecc3978ff6",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "b734b47f4740d1b496bbd0feb362535967960784fe4975f16849ec4ba733362f",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable ansible_builtin_reboot_required\n",
+  "stderr": "",
+  "seconds": 0.0866,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "programs": 422,
+  "label_variant": "original",
+  "duplicate_weighting": {
+    "astrogator": {
+      "structural_weight": 233,
+      "accepted_pass": 129.99999999999972,
+      "accepted_fail": 9.0,
+      "rejected_pass": 1.0,
+      "rejected_fail": 36.000000000000014,
+      "coverage": 0.7553648068669516,
+      "accepted_failure_risk": 0.06474820143884906
+    },
+    "astrogator_configured_heuristics": {
+      "structural_weight": 233,
+      "accepted_pass": 124.9999999999997,
+      "accepted_fail": 0,
+      "rejected_pass": 6.0,
+      "rejected_fail": 45.000000000000014,
+      "coverage": 0.7553648068669516,
+      "accepted_failure_risk": 0.0
+    },
+    "gpt6": {
+      "structural_weight": 233,
+      "accepted_pass": 130.99999999999972,
+      "accepted_fail": 3.0,
+      "rejected_pass": 0,
+      "rejected_fail": 98.99999999999996,
+      "coverage": 0.9999999999999986,
+      "accepted_failure_risk": 0.022388059701492585
+    },
+    "opus55": {
+      "structural_weight": 233,
+      "accepted_pass": 128.99999999999972,
+      "accepted_fail": 8.1,
+      "rejected_pass": 2.0,
+      "rejected_fail": 93.89999999999996,
+      "coverage": 0.9999999999999986,
+      "accepted_failure_risk": 0.059080962800875395
+    }
+  },
+  "failure_mechanisms": {
+    "execution_error": {
+      "astrogator": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 70,
+        "coverage": 0.06666666666666667,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.06666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.9333333333333333,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "astrogator_configured_heuristics": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 5,
+        "unavailable_pass": 0,
+        "unavailable_fail": 70,
+        "coverage": 0.06666666666666667,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.06666666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.9333333333333333,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "gpt6": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 1,
+        "rejected_pass": 0,
+        "rejected_fail": 74,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.013333333333333334,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.013333333333333334,
+        "failure_detection_recall": 0.9866666666666667,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.9866666666666667,
+        "failures_blocked_if_abstentions_block": 0.9866666666666667,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "opus55": {
+        "n": 75,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 75,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      }
+    },
+    "behavioral_only": {
+      "astrogator": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 9,
+        "rejected_pass": 0,
+        "rejected_fail": 51,
+        "unavailable_pass": 0,
+        "unavailable_fail": 4,
+        "coverage": 0.9375,
+        "acceptance_rate": 0.140625,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.15,
+        "failure_detection_recall": 0.796875,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0625,
+        "deployment_block_rate_if_abstentions_block": 0.859375,
+        "failures_blocked_if_abstentions_block": 0.859375,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "astrogator_configured_heuristics": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 60,
+        "unavailable_pass": 0,
+        "unavailable_fail": 4,
+        "coverage": 0.9375,
+        "acceptance_rate": 0.0,
+        "accepted_failure_risk": null,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.9375,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0625,
+        "deployment_block_rate_if_abstentions_block": 1.0,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "gpt6": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 2,
+        "rejected_pass": 0,
+        "rejected_fail": 62,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.03125,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.03125,
+        "failure_detection_recall": 0.96875,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.96875,
+        "failures_blocked_if_abstentions_block": 0.96875,
+        "pass_programs_blocked_if_abstentions_block": null
+      },
+      "opus55": {
+        "n": 64,
+        "accepted_pass": 0,
+        "accepted_fail": 9,
+        "rejected_pass": 0,
+        "rejected_fail": 55,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.140625,
+        "accepted_failure_risk": 1.0,
+        "decided_error_rate": 0.140625,
+        "failure_detection_recall": 0.859375,
+        "passing_program_rejection_rate": null,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.859375,
+        "failures_blocked_if_abstentions_block": 0.859375,
+        "pass_programs_blocked_if_abstentions_block": null
+      }
+    }
+  },
+  "mixed_structure_decisions": {
+    "astrogator": [],
+    "astrogator_configured_heuristics": [],
+    "gpt6": [],
+    "opus55": [
+      {
+        "canonical_sha256": "341ef771c2520a2af78f370d44cd4baffa7659a2c67f47f1f9bf45e4aa816614",
+        "samples": [
+          "qwen3-coder/p10/0",
+          "qwen3-coder/p10/1",
+          "qwen3-coder/p10/2",
+          "qwen3-coder/p10/3",
+          "qwen3-coder/p10/4",
+          "qwen3-coder/p10/5",
+          "qwen3-coder/p10/6",
+          "qwen3-coder/p10/7",
+          "qwen3-coder/p10/8",
+          "qwen3-coder/p10/9"
+        ],
+        "decisions": {
+          "reject": 9,
+          "accept": 1
+        }
+      }
+    ]
+  },
+  "input_sha256": {
+    "frontier-full-comparison.json": "c78d034ab484a864a24806a49aa29fda19126812153ec2ca8279765585fb4041",
+    "duplicates.json": "04ea8f55d1883ce837fb2622c0b92bd8b0b5b5dd21e1608351c5fde103ff20fd"
+  },
+  "limitations": [
+    "Descriptive weighting within four selected tasks, not independence or semantic equivalence.",
+    "Execution errors are observed under one pinned environment.",
+    "No significance or unseen-task generalization claim."
+  ]
+}

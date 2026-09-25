@@ -1,0 +1,1 @@
+if os is Debian based or os is RedHat based then install latest version of postfix; backup default configuration file for postfix; if postfix configuration file not exists then download configuration file for postfix from http://example.com/cfg.ubuntu for Ubuntu or http://example.com/cfg.redhat for RedHat

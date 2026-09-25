@@ -1,0 +1,11 @@
+{
+  "cache_key": "403efa9d0848607cf623afd46d69b76b2eba33cecc3cd03d76b4532f19df0666",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1fc526af0e6f7061f05c95effb9205e39d799ba099c574a5b42c953243548694",
+  "code_sha256": "5d4312cc4642bdc21294303a6cc1658b35a91f6732391e2313cc0c52f5410251",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument path for module user\n",
+  "stderr": "",
+  "seconds": 0.0413,
+  "status": "ansible_lowering_error"
+}

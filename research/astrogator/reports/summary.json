@@ -1,0 +1,1664 @@
+{
+  "generated_at": "2026-09-24T23:59:57.594710+00:00",
+  "original_tasks": 21,
+  "new_tasks": 49,
+  "runtime": {
+    "tasks": {
+      "a22": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a23": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a24": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a25": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a26": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a27": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a28": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a29": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a30": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a31": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a32": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a33": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a34": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a35": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a36": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a37": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a38": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a39": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a40": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a41": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a42": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a43": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a44": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a45": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a46": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a47": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a48": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a49": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a50": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a51": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "execution_error"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a52": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a53": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a54": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a55": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a56": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a57": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a58": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a59": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a60": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a61": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a62": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a63": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a64": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a65": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "execution_error"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a66": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a67": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a68": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a69": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      },
+      "a70": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    "reference_validated": 49,
+    "mutants_killed": 49,
+    "case_count": 196
+  },
+  "query_counts": {
+    "supplied_normalized": {
+      "0": 21
+    },
+    "authored_candidate": {
+      "0": 31,
+      "11": 15,
+      "13": 3
+    },
+    "upstream": {
+      "0": 21
+    }
+  },
+  "fql_arms": {
+    "qwen-diverse-pilot/fql-3shot": {
+      "n": 6,
+      "parse": 5,
+      "semantic_codegen": 3,
+      "exact_parse_AST": 1,
+      "exact_semantic_AST": 1,
+      "semantic_fingerprint_available": 4,
+      "truncated": 0,
+      "canonical_effect_tree_match": 1
+    },
+    "qwen-diverse-pilot/fql-3shot-constrained": {
+      "n": 6,
+      "parse": 6,
+      "semantic_codegen": 3,
+      "exact_parse_AST": 1,
+      "exact_semantic_AST": 1,
+      "semantic_fingerprint_available": 4,
+      "truncated": 0,
+      "canonical_effect_tree_match": 1
+    },
+    "qwen-full/fql-0shot": {
+      "n": 21,
+      "parse": 3,
+      "semantic_codegen": 0,
+      "exact_parse_AST": 0,
+      "exact_semantic_AST": 0,
+      "semantic_fingerprint_available": 17,
+      "truncated": 0,
+      "canonical_effect_tree_match": 0
+    },
+    "qwen-full/fql-3shot": {
+      "n": 21,
+      "parse": 8,
+      "semantic_codegen": 4,
+      "exact_parse_AST": 2,
+      "exact_semantic_AST": 2,
+      "semantic_fingerprint_available": 17,
+      "truncated": 0,
+      "canonical_effect_tree_match": 2
+    },
+    "qwen-full/fql-3shot-constrained": {
+      "n": 21,
+      "parse": 20,
+      "semantic_codegen": 5,
+      "exact_parse_AST": 2,
+      "exact_semantic_AST": 2,
+      "semantic_fingerprint_available": 17,
+      "truncated": 1,
+      "canonical_effect_tree_match": 2
+    },
+    "qwen-grammar-v2/fql-3shot-constrained": {
+      "n": 21,
+      "parse": 18,
+      "semantic_codegen": 4,
+      "exact_parse_AST": 1,
+      "exact_semantic_AST": 1,
+      "semantic_fingerprint_available": 17,
+      "truncated": 2,
+      "canonical_effect_tree_match": 1
+    },
+    "qwen-grammar-v2-repair/fql-3shot-constrained-repair1": {
+      "n": 21,
+      "parse": 19,
+      "semantic_codegen": 6,
+      "exact_parse_AST": 1,
+      "exact_semantic_AST": 1,
+      "semantic_fingerprint_available": 17,
+      "truncated": 1,
+      "canonical_effect_tree_match": 1
+    },
+    "qwen-local-pilot/fql-0shot": {
+      "n": 6,
+      "parse": 0,
+      "semantic_codegen": 0,
+      "exact_parse_AST": 0,
+      "exact_semantic_AST": 0,
+      "semantic_fingerprint_available": 4,
+      "truncated": 0,
+      "canonical_effect_tree_match": 0
+    },
+    "qwen-local-pilot/fql-3shot": {
+      "n": 6,
+      "parse": 4,
+      "semantic_codegen": 2,
+      "exact_parse_AST": 1,
+      "exact_semantic_AST": 1,
+      "semantic_fingerprint_available": 4,
+      "truncated": 0,
+      "canonical_effect_tree_match": 1
+    },
+    "qwen-retrieval-expanded/fql-4shot-retrieved": {
+      "n": 21,
+      "parse": 13,
+      "semantic_codegen": 9,
+      "exact_parse_AST": 7,
+      "exact_semantic_AST": 7,
+      "semantic_fingerprint_available": 17,
+      "truncated": 0,
+      "canonical_effect_tree_match": 7
+    },
+    "qwen-retrieval-expanded-constrained/fql-4shot-retrieved-constrained": {
+      "n": 21,
+      "parse": 21,
+      "semantic_codegen": 9,
+      "exact_parse_AST": 7,
+      "exact_semantic_AST": 7,
+      "semantic_fingerprint_available": 17,
+      "truncated": 0,
+      "canonical_effect_tree_match": 7
+    },
+    "qwen-retrieval-original/fql-4shot-retrieved": {
+      "n": 21,
+      "parse": 14,
+      "semantic_codegen": 9,
+      "exact_parse_AST": 6,
+      "exact_semantic_AST": 6,
+      "semantic_fingerprint_available": 17,
+      "truncated": 0,
+      "canonical_effect_tree_match": 6
+    }
+  },
+  "corpus_verifier": {
+    "accepted_with_possible_residuals": 909,
+    "verification_rejected": 619,
+    "ansible_lowering_error": 710,
+    "missing_processed": 72
+  },
+  "original_comparison": [
+    {
+      "sample_id": "gpt-5-mini/p01/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "reject"
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "reject"
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "accept"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "invalid_or_unavailable"
+    },
+    {
+      "sample_id": "starcoder/p01/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "reject"
+    },
+    {
+      "sample_id": "starcoder/p05/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "reject"
+    },
+    {
+      "sample_id": "starcoder/p10/0",
+      "truth": "correct",
+      "astrogator": "accept",
+      "astrogator_stage": "accepted_with_possible_residuals",
+      "judge": "accept",
+      "generated_checks": "accept"
+    },
+    {
+      "sample_id": "starcoder/p13/0",
+      "truth": "incorrect",
+      "astrogator": "unsupported_or_error",
+      "astrogator_stage": "ansible_lowering_error",
+      "judge": "invalid",
+      "generated_checks": "invalid_or_unavailable"
+    }
+  ],
+  "original_metrics": {
+    "astrogator": {
+      "n": 8,
+      "correct": 7,
+      "incorrect": 1,
+      "true_accept": 7,
+      "false_reject": 0,
+      "false_accept": 0,
+      "true_reject": 0,
+      "unresolved": 1
+    },
+    "judge": {
+      "n": 8,
+      "correct": 7,
+      "incorrect": 1,
+      "true_accept": 7,
+      "false_reject": 0,
+      "false_accept": 0,
+      "true_reject": 0,
+      "unresolved": 1
+    },
+    "generated_checks": {
+      "n": 8,
+      "correct": 7,
+      "incorrect": 1,
+      "true_accept": 2,
+      "false_reject": 4,
+      "false_accept": 0,
+      "true_reject": 0,
+      "unresolved": 2
+    }
+  },
+  "synthetic_comparison": [
+    {
+      "task_id": "a22",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "reject",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a22",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "reject",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a25",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "accept",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a25",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "accept",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a35",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "reject",
+      "checks-0shot-schema": "reject",
+      "tests": "reject"
+    },
+    {
+      "task_id": "a35",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "reject",
+      "checks-0shot-schema": "reject",
+      "tests": "reject"
+    },
+    {
+      "task_id": "a41",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "reject",
+      "checks-0shot-schema": "invalid_or_unavailable",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a41",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "reject",
+      "checks-0shot-schema": "invalid_or_unavailable",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a50",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "invalid_or_unavailable",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a50",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "invalid_or_unavailable",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a55",
+      "variant": "reference",
+      "truth": "correct",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    },
+    {
+      "task_id": "a55",
+      "variant": "mutant",
+      "truth": "incorrect",
+      "astrogator": "unsupported_or_error",
+      "judge": "accept",
+      "checks": "invalid_or_unavailable",
+      "checks-0shot-schema": "reject",
+      "tests": "invalid_or_unavailable"
+    }
+  ],
+  "synthetic_metrics": {
+    "astrogator": {
+      "n": 12,
+      "correct": 6,
+      "incorrect": 6,
+      "true_accept": 1,
+      "false_reject": 1,
+      "false_accept": 1,
+      "true_reject": 1,
+      "unresolved": 8
+    },
+    "judge": {
+      "n": 12,
+      "correct": 6,
+      "incorrect": 6,
+      "true_accept": 6,
+      "false_reject": 0,
+      "false_accept": 6,
+      "true_reject": 0,
+      "unresolved": 0
+    },
+    "checks": {
+      "n": 12,
+      "correct": 6,
+      "incorrect": 6,
+      "true_accept": 0,
+      "false_reject": 2,
+      "false_accept": 0,
+      "true_reject": 2,
+      "unresolved": 8
+    },
+    "checks-0shot-schema": {
+      "n": 12,
+      "correct": 6,
+      "incorrect": 6,
+      "true_accept": 0,
+      "false_reject": 4,
+      "false_accept": 0,
+      "true_reject": 4,
+      "unresolved": 4
+    },
+    "tests": {
+      "n": 12,
+      "correct": 6,
+      "incorrect": 6,
+      "true_accept": 0,
+      "false_reject": 1,
+      "false_accept": 0,
+      "true_reject": 1,
+      "unresolved": 10
+    }
+  },
+  "four_task_metrics": {
+    "astrogator": {
+      "execution_labeled": 422,
+      "decided": 348,
+      "decision_coverage": 0.8246445497630331,
+      "agreement_on_decided": 0.9712643678160919,
+      "accepted_local_pass": 282,
+      "rejected_local_pass": 1,
+      "accepted_local_fail": 9,
+      "rejected_local_fail": 56,
+      "other_decisions": {
+        "unsupported_or_error": 74
+      }
+    },
+    "astrogator_configured_heuristics": {
+      "execution_labeled": 422,
+      "decided": 348,
+      "decision_coverage": 0.8246445497630331,
+      "agreement_on_decided": 0.9827586206896551,
+      "accepted_local_pass": 277,
+      "rejected_local_pass": 6,
+      "accepted_local_fail": 0,
+      "rejected_local_fail": 65,
+      "other_decisions": {
+        "unsupported_or_error": 74
+      }
+    },
+    "judge": {
+      "execution_labeled": 422,
+      "decided": 422,
+      "decision_coverage": 1.0,
+      "agreement_on_decided": 0.6635071090047393,
+      "accepted_local_pass": 270,
+      "rejected_local_pass": 13,
+      "accepted_local_fail": 129,
+      "rejected_local_fail": 10,
+      "other_decisions": {}
+    },
+    "generated_checks_gated": {
+      "execution_labeled": 422,
+      "decided": 0,
+      "decision_coverage": 0.0,
+      "agreement_on_decided": null,
+      "accepted_local_pass": 0,
+      "rejected_local_pass": 0,
+      "accepted_local_fail": 0,
+      "rejected_local_fail": 0,
+      "other_decisions": {
+        "test_invalid": 110,
+        "test_reference_control_failed": 312
+      }
+    }
+  },
+  "four_task_complete": true,
+  "heuristic_corpus": {
+    "complete": true,
+    "n": 2310,
+    "counts": {
+      "accepted_with_possible_residuals": 726,
+      "heuristic_rejected": 183,
+      "verification_rejected": 619,
+      "ansible_lowering_error": 710,
+      "missing_processed": 72
+    },
+    "transitions": [
+      {
+        "base": "accepted_with_possible_residuals",
+        "configured": "accepted_with_possible_residuals",
+        "n": 726
+      },
+      {
+        "base": "accepted_with_possible_residuals",
+        "configured": "heuristic_rejected",
+        "n": 183
+      },
+      {
+        "base": "ansible_lowering_error",
+        "configured": "ansible_lowering_error",
+        "n": 710
+      },
+      {
+        "base": "missing_processed",
+        "configured": "missing_processed",
+        "n": 72
+      },
+      {
+        "base": "verification_rejected",
+        "configured": "verification_rejected",
+        "n": 619
+      }
+    ]
+  },
+  "query_transfer": {
+    "observed": 2310,
+    "expected": 2310,
+    "complete": true,
+    "counts": {
+      "accepted_with_possible_residuals": 235,
+      "generated_query_invalid": 1590,
+      "verification_rejected": 220,
+      "ansible_lowering_error": 193,
+      "missing_processed": 72
+    },
+    "tasks": {
+      "a01": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "accepted_with_possible_residuals",
+            "count": 110
+          }
+        ]
+      },
+      "a02": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 96
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 3
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 11
+          }
+        ]
+      },
+      "a03": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 13
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 31
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 66
+          }
+        ]
+      },
+      "a04": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "verification_rejected",
+            "count": 99
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "ansible_lowering_error",
+            "count": 8
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "verification_rejected",
+            "count": 1
+          }
+        ]
+      },
+      "a05": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 14
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 24
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 1
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 71
+          }
+        ]
+      },
+      "a06": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 22
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 57
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 11
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 20
+          }
+        ]
+      },
+      "a07": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "accepted_with_possible_residuals",
+            "count": 27
+          },
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "verification_rejected",
+            "count": 17
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "ansible_lowering_error",
+            "count": 57
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 3
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "verification_rejected",
+            "count": 6
+          }
+        ]
+      },
+      "a08": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 24
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 43
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 5
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 38
+          }
+        ]
+      },
+      "a09": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 91
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 11
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 1
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 7
+          }
+        ]
+      },
+      "a10": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 56
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 39
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 13
+          }
+        ]
+      },
+      "a11": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 93
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 7
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 8
+          }
+        ]
+      },
+      "a12": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "accepted_with_possible_residuals",
+            "count": 33
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "ansible_lowering_error",
+            "count": 69
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "verification_rejected",
+            "count": 6
+          }
+        ]
+      },
+      "a13": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 19
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 91
+          }
+        ]
+      },
+      "a14": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 92
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 13
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 5
+          }
+        ]
+      },
+      "a15": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "accepted_with_possible_residuals",
+            "count": 62
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "ansible_lowering_error",
+            "count": 8
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 3
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "accepted_with_possible_residuals",
+            "count": 3
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "verification_rejected",
+            "count": 34
+          }
+        ]
+      },
+      "a16": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 59
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 15
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 11
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 25
+          }
+        ]
+      },
+      "a17": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 63
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 17
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 4
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 26
+          }
+        ]
+      },
+      "a18": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "verification_rejected",
+            "count": 9
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "ansible_lowering_error",
+            "count": 51
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "verification_rejected",
+            "count": 48
+          }
+        ]
+      },
+      "a19": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 20
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 42
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 46
+          }
+        ]
+      },
+      "a20": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "accepted_with_possible_residuals",
+            "generated": "generated_query_invalid",
+            "count": 1
+          },
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 22
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 3
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 84
+          }
+        ]
+      },
+      "a21": {
+        "n": 110,
+        "transitions": [
+          {
+            "supplied": "ansible_lowering_error",
+            "generated": "generated_query_invalid",
+            "count": 98
+          },
+          {
+            "supplied": "missing_processed",
+            "generated": "missing_processed",
+            "count": 2
+          },
+          {
+            "supplied": "verification_rejected",
+            "generated": "generated_query_invalid",
+            "count": 10
+          }
+        ]
+      }
+    },
+    "limitations": [
+      "Outcome changes are not correctness measurements.",
+      "Generated-query invalidity is pipeline failure, not code rejection.",
+      "Supplied p17 query uses declared acc240 domain substitution; generated queries are unmodified.",
+      "Repair arm has one final query per task, including retained seed outputs."
+    ]
+  }
+}

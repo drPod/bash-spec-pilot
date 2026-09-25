@@ -1,0 +1,21 @@
+{
+  "id": "a52",
+  "title": "Checkout release branch",
+  "family": "version-control",
+  "natural_language": "Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.",
+  "formal_query": "clone git repository from /fixtures/repo with branch=release into /work/checkout",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "wrong branch",
+  "tags": [
+    "version",
+    "existing-checkout"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

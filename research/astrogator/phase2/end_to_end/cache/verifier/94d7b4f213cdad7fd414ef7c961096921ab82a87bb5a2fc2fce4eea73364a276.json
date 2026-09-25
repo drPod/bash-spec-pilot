@@ -1,0 +1,11 @@
+{
+  "cache_key": "94d7b4f213cdad7fd414ef7c961096921ab82a87bb5a2fc2fce4eea73364a276",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "67cc05052a26091b92392c898a8f85a3666722beba4e3b83d4af969212356450",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.systemd\n",
+  "stderr": "",
+  "seconds": 0.0666,
+  "status": "ansible_lowering_error"
+}

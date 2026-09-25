@@ -1,0 +1,9 @@
+{
+  "task_id": "a02",
+  "scenario": "baseline",
+  "candidate_sha256": "f56a19745c0c803675bc452329d89e6c5ae40f8ed174c9a02b03deeb8f8019a8",
+  "status": "execution_timeout",
+  "generated_tests": {},
+  "seconds": 47.087,
+  "sample_id": "qwen2.5-coder/p05/4"
+}

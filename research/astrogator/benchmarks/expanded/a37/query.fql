@@ -1,0 +1,2 @@
+write "alpha=1
+beta=2" to file at "/work/app.conf" with block=ASTRO

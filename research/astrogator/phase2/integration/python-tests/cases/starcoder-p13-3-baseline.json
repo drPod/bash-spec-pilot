@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "e7e09ef0e638e03177ad325550cd5bf2049ee2d5f444ba95414a7ca385e78b29",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 3] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [file] ********************************************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/starcoder/p13/response3.yml:6:5\n\n4   become: true\n5   tasks:\n6   - file:\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.351,
+  "sample_id": "starcoder/p13/3"
+}

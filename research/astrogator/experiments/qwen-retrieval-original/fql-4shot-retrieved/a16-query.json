@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file"
+      },
+      {
+        "role": "user",
+        "content": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\""
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Move the file at /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 10.335,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "if os is Debian then install zsh; set zsh as user with name=dev's default shell; if zsh configuration file not exists then create zsh configuration file."
+        }
+      }
+    ],
+    "created": 1790293289,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 37,
+      "prompt_tokens": 558,
+      "total_tokens": 595,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-6JwyJQ3xiSTzyABQNxDWph4uhHkiPz7B",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 297,
+      "prompt_ms": 5829.503,
+      "prompt_per_token_ms": 19.62795622895623,
+      "prompt_per_second": 50.947739455662,
+      "predicted_n": 37,
+      "predicted_ms": 4062.466,
+      "predicted_per_token_ms": 112.84627777777777,
+      "predicted_per_second": 8.86161262641952
+    }
+  },
+  "text": "if os is Debian then install zsh; set zsh as user with name=dev's default shell; if zsh configuration file not exists then create zsh configuration file.",
+  "finish_reason": "stop",
+  "task_id": "a16",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a19",
+    "a18",
+    "a04",
+    "a05"
+  ],
+  "retrieval_scores": [
+    0.2692078912880331,
+    0.22349292591289752,
+    0.14064694208344547,
+    0.132203959422119
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "6cf640b856f0bfa8028ce791593e2d3337d6b0637f2777ee30e8542799c0d8d3",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

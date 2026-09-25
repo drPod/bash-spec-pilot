@@ -1,0 +1,26 @@
+{
+  "query_sha256": "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831",
+  "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t348546e7a689bbd51c9b628a010a80a6\nsemantic\tok\t445d956fde2b6c0e4e11799448708fb5\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0255,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "348546e7a689bbd51c9b628a010a80a6"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "445d956fde2b6c0e4e11799448708fb5"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

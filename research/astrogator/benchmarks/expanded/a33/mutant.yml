@@ -1,0 +1,9 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/releases/v1
+      dest: /work/current
+      state: link
+      force: true

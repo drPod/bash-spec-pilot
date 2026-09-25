@@ -1,0 +1,11 @@
+{
+  "cache_key": "0982568fa0eeaff61ef3ad0a76a5ecf9e0c4f4585e9853881c56dcfc940630df",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "94c960c258a0e588198b66d9bdc519574b437a634d06e9dae25616031fac470c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable ansible_distribution_major_version\n",
+  "stderr": "",
+  "seconds": 0.1189,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "2ddbd7b4b92147db3dafa7d7f993debac8eaf95e15f7d176b449e5f2c1a21a49",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "fd12dadd847a473ce043cd269857a183806fa2086192231ed57f206f17ef71aa",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module Certainly! To permanently set the environment variable `LC_ALL` to `\"C\"` system-wide, you can modify the appropriate file. On most Unix-like systems, this is typically done by updating the `/etc/environment` file. Here's how you can achieve this using an Ansible playbook\n",
+  "stderr": "",
+  "seconds": 0.0662,
+  "status": "ansible_lowering_error"
+}

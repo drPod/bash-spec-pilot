@@ -1,0 +1,11 @@
+{
+  "cache_key": "4ef1ec5fc9b50b03e0aca347d595a110c6d2b84b1eb1f7dffd669f3cd48dd480",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "0d98754790e110dc2cec8f388bb41c150980912cc367d7470007094ec69bd6aa",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nValue does not have field json\n",
+  "stderr": "",
+  "seconds": 0.0408,
+  "status": "ansible_lowering_error"
+}

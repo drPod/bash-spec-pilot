@@ -1,0 +1,11 @@
+{
+  "cache_key": "8a7026066d76f619de9f985cdf1849e50f15e7d7d067096ac688a90b7ef3f302",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+  "code_sha256": "ccff65aec4347719d3b8284c5ff0bf6e01c13c6bd1214c13fb7a90b8a8467a9c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo such constructor: empty\n",
+  "stderr": "",
+  "seconds": 0.0775,
+  "status": "ansible_lowering_error"
+}

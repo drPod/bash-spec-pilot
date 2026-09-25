@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "python-a01-r0",
+    "mode": "python",
+    "task_id": "a01",
+    "repeat": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+      },
+      {
+        "role": "user",
+        "content": "Request: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep."
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nWrite a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request.\n\nUSER:\nRequest: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep.",
+  "prompt_sha256": "a45a9cb253be56d2ff2893a9d40116f58df89719d1eb7031fa6ceaa4ce867766",
+  "created_at": "2026-09-25T14:51:31.566217+00:00",
+  "frozen_input_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":9003,\"stop_reason\":\"end_turn\",\"session_id\":\"9774e496-f162-44d3-8e28-f1783a2033c0\",\"total_cost_usd\":0.0181056,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":6088,\"output_tokens\":844,\"output_tokens_details\":{\"thinking_tokens\":280},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":844,\"cache_read_input_tokens\":6088,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":844,\"cacheReadInputTokens\":6088,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0181056,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":280,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"```python\\n#!/usr/bin/env python3\\nimport os\\nimport stat\\nimport sys\\nimport unittest\\n\\nTARGET = \\\"/srv/www\\\"\\nKEEP = os.path.join(TARGET, \\\"keep\\\")\\nSCENARIO = os.environ.get(\\\"ASTRO_SCENARIO\\\", \\\"baseline\\\").strip().lower()\\n\\n\\nclass TestCreateSrvWww(unittest.TestCase):\\n    def test_target_is_directory(self):\\n        self.assertTrue(os.path.lexists(TARGET), f\\\"{TARGET} does not exist\\\")\\n        st = os.lstat(TARGET)\\n        self.assertFalse(stat.S_ISLNK(st.st_mode), f\\\"{TARGET} is a symlink, expected a directory\\\")\\n        self.assertTrue(stat.S_ISDIR(st.st_mode), f\\\"{TARGET} is not a directory\\\")\\n\\n    def test_parent_is_directory(self):\\n        st = os.stat(\\\"/srv\\\")\\n        self.assertTrue(stat.S_ISDIR(st.st_mode), \\\"/srv is not a directory\\\")\\n\\n    def test_existing_content_preserved(self):\\n        if SCENARIO != \\\"adversarial\\\":\\n            self.skipTest(\\\"only applies to adversarial scenario\\\")\\n        self.assertTrue(os.path.lexists(KEEP), f\\\"pre-existing file {KEEP} was removed\\\")\\n        st = os.lstat(KEEP)\\n        self.assertTrue(stat.S_ISREG(st.st_mode), f\\\"{KEEP} is no longer a regular file\\\")\\n\\n\\nif __name__ == \\\"__main__\\\":\\n    result = unittest.main(exit=False, verbosity=2).result\\n    sys.exit(0 if result.wasSuccessful() else 1)\\n```\",\"ttft_ms\":5202,\"type\":\"result\",\"duration_ms\":9456,\"uuid\":\"920f54b4-3b36-4f5c-a0af-8d895b951430\",\"ttft_stream_ms\":2220,\"time_to_request_ms\":535,\"first_content_frame_ms\":2221,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 9003,
+    "stop_reason": "end_turn",
+    "session_id": "9774e496-f162-44d3-8e28-f1783a2033c0",
+    "total_cost_usd": 0.0181056,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6088,
+      "output_tokens": 844,
+      "output_tokens_details": {
+        "thinking_tokens": 280
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 844,
+          "cache_read_input_tokens": 6088,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 844,
+        "cacheReadInputTokens": 6088,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0181056,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 280,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "```python\n#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\n\nTARGET = \"/srv/www\"\nKEEP = os.path.join(TARGET, \"keep\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestCreateSrvWww(unittest.TestCase):\n    def test_target_is_directory(self):\n        self.assertTrue(os.path.lexists(TARGET), f\"{TARGET} does not exist\")\n        st = os.lstat(TARGET)\n        self.assertFalse(stat.S_ISLNK(st.st_mode), f\"{TARGET} is a symlink, expected a directory\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), f\"{TARGET} is not a directory\")\n\n    def test_parent_is_directory(self):\n        st = os.stat(\"/srv\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), \"/srv is not a directory\")\n\n    def test_existing_content_preserved(self):\n        if SCENARIO != \"adversarial\":\n            self.skipTest(\"only applies to adversarial scenario\")\n        self.assertTrue(os.path.lexists(KEEP), f\"pre-existing file {KEEP} was removed\")\n        st = os.lstat(KEEP)\n        self.assertTrue(stat.S_ISREG(st.st_mode), f\"{KEEP} is no longer a regular file\")\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+    "ttft_ms": 5202,
+    "type": "result",
+    "duration_ms": 9456,
+    "uuid": "920f54b4-3b36-4f5c-a0af-8d895b951430",
+    "ttft_stream_ms": 2220,
+    "time_to_request_ms": 535,
+    "first_content_frame_ms": 2221,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "```python\n#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\n\nTARGET = \"/srv/www\"\nKEEP = os.path.join(TARGET, \"keep\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestCreateSrvWww(unittest.TestCase):\n    def test_target_is_directory(self):\n        self.assertTrue(os.path.lexists(TARGET), f\"{TARGET} does not exist\")\n        st = os.lstat(TARGET)\n        self.assertFalse(stat.S_ISLNK(st.st_mode), f\"{TARGET} is a symlink, expected a directory\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), f\"{TARGET} is not a directory\")\n\n    def test_parent_is_directory(self):\n        st = os.stat(\"/srv\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), \"/srv is not a directory\")\n\n    def test_existing_content_preserved(self):\n        if SCENARIO != \"adversarial\":\n            self.skipTest(\"only applies to adversarial scenario\")\n        self.assertTrue(os.path.lexists(KEEP), f\"pre-existing file {KEEP} was removed\")\n        st = os.lstat(KEEP)\n        self.assertTrue(stat.S_ISREG(st.st_mode), f\"{KEEP} is no longer a regular file\")\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+  "status": "ok",
+  "extracted": "#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\n\nTARGET = \"/srv/www\"\nKEEP = os.path.join(TARGET, \"keep\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestCreateSrvWww(unittest.TestCase):\n    def test_target_is_directory(self):\n        self.assertTrue(os.path.lexists(TARGET), f\"{TARGET} does not exist\")\n        st = os.lstat(TARGET)\n        self.assertFalse(stat.S_ISLNK(st.st_mode), f\"{TARGET} is a symlink, expected a directory\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), f\"{TARGET} is not a directory\")\n\n    def test_parent_is_directory(self):\n        st = os.stat(\"/srv\")\n        self.assertTrue(stat.S_ISDIR(st.st_mode), \"/srv is not a directory\")\n\n    def test_existing_content_preserved(self):\n        if SCENARIO != \"adversarial\":\n            self.skipTest(\"only applies to adversarial scenario\")\n        self.assertTrue(os.path.lexists(KEEP), f\"pre-existing file {KEEP} was removed\")\n        st = os.lstat(KEEP)\n        self.assertTrue(stat.S_ISREG(st.st_mode), f\"{KEEP} is no longer a regular file\")\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)",
+  "seconds": 12.758
+}

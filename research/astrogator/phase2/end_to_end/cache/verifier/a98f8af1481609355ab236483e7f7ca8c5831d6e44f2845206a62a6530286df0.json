@@ -1,0 +1,11 @@
+{
+  "cache_key": "a98f8af1481609355ab236483e7f7ca8c5831d6e44f2845206a62a6530286df0",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "db54e46c4606286e8461c2a6e325e900e0a8ac6ffaa8f239f83797381bd63a04",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUnhandled Jinja expression form\n",
+  "stderr": "",
+  "seconds": 0.0924,
+  "status": "ansible_lowering_error"
+}

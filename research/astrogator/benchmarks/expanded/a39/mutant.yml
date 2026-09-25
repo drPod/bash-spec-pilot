@@ -1,0 +1,8 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.replace:
+      path: /work/app.conf
+      regexp: http://
+      replace: https://

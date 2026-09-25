@@ -1,0 +1,21 @@
+{
+  "id": "a39",
+  "title": "Targeted protocol migration",
+  "family": "configuration",
+  "natural_language": "Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.",
+  "formal_query": "replace text in file at \"/work/app.conf\" with pattern=\"^endpoint=http://\", replacement=\"endpoint=https://\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "rewrites unrelated URLs",
+  "tags": [
+    "regex",
+    "negative-scope"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

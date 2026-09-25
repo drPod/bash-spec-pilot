@@ -1,0 +1,11 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/dest
+      state: directory
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/dest/data
+      remote_src: true

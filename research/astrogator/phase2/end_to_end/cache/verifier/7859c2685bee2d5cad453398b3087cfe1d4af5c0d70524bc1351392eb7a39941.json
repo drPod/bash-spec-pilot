@@ -1,0 +1,11 @@
+{
+  "cache_key": "7859c2685bee2d5cad453398b3087cfe1d4af5c0d70524bc1351392eb7a39941",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "33627435acb3dc040eb6532e582df1d90476fc5a5cc34654e05fa0dae904b549",
+  "code_sha256": "999feb5e81670531de1c80c79e3756ebea8f66120709806668b862f75ba9c17b",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nnon-string key is not supported\n",
+  "stderr": "",
+  "seconds": 0.0827,
+  "status": "ansible_lowering_error"
+}

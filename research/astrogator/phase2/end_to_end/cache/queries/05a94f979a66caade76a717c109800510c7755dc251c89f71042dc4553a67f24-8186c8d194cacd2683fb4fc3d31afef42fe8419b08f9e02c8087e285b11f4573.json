@@ -1,0 +1,22 @@
+{
+  "query_sha256": "8186c8d194cacd2683fb4fc3d31afef42fe8419b08f9e02c8087e285b11f4573",
+  "query": "create virtual environment at \"/user/home/venv\" with python=\"3.10\"; install numpy in \"/user/home/venv\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\td653c2c44d8ecd9479f83fd193bb2776\nsemantic\terror\tArgument 'in' is required to create virtual environment\n",
+    "stderr": "",
+    "seconds": 0.0027,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "d653c2c44d8ecd9479f83fd193bb2776"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Argument 'in' is required to create virtual environment"
+      }
+    }
+  }
+}

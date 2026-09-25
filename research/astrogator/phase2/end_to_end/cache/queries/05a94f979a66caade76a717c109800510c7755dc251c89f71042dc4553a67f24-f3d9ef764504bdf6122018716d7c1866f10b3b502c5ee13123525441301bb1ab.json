@@ -1,0 +1,26 @@
+{
+  "query_sha256": "f3d9ef764504bdf6122018716d7c1866f10b3b502c5ee13123525441301bb1ab",
+  "query": "enable passwordless sudo for group=wheel; create user with name=ansible in supplemental groups=wheel",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t9175513b06adec81765ea8599ab61f08\nsemantic\tok\t422ed6166a0971849d8be96809ac4a0b\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0549,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "9175513b06adec81765ea8599ab61f08"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "422ed6166a0971849d8be96809ac4a0b"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+test_abstention_is_not_failure_detection (__main__.EvaluationTests.test_abstention_is_not_failure_detection) ... ok
+test_canonicalization_keeps_module_name (__main__.EvaluationTests.test_canonicalization_keeps_module_name) ... ok
+test_canonicalization_preserves_custom_tags_and_duplicate_keys (__main__.EvaluationTests.test_canonicalization_preserves_custom_tags_and_duplicate_keys) ... ok
+test_duplicate_shadow_records_cannot_pass_strict_integrity (__main__.EvaluationTests.test_duplicate_shadow_records_cannot_pass_strict_integrity) ... ok
+test_empty_acceptance_risk_is_undefined (__main__.EvaluationTests.test_empty_acceptance_risk_is_undefined) ... ok
+test_execution_failure_cannot_be_saved_by_poststate (__main__.EvaluationTests.test_execution_failure_cannot_be_saved_by_poststate) ... ok
+test_failed_call_is_abstention_even_with_valid_json (__main__.EvaluationTests.test_failed_call_is_abstention_even_with_valid_json) ... ok
+test_malformed_shadow_cannot_pass_strict_integrity (__main__.EvaluationTests.test_malformed_shadow_cannot_pass_strict_integrity) ... ok
+test_real_hash_matches_fixture_password (__main__.EvaluationTests.test_real_hash_matches_fixture_password) ... ok
+test_tool_use_invalidates_prediction (__main__.EvaluationTests.test_tool_use_invalidates_prediction) ... ok
+test_unresolved_execution_is_not_rejection (__main__.EvaluationTests.test_unresolved_execution_is_not_rejection) ... ok
+test_unresolved_label_cannot_be_scored_as_failure (__main__.EvaluationTests.test_unresolved_label_cannot_be_scored_as_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.010s
+
+OK

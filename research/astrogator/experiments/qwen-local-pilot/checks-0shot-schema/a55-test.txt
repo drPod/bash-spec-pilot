@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "cron is stopped",
+      "value": true
+    },
+    {
+      "kind": "running",
+      "scenario": "adversarial",
+      "name": "cron is running",
+      "value": false
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.\nInitial states: baseline: directory absent. adversarial: mode 0777 directory with a file keep containing keep."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 7.039,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"checks\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/private\",\n      \"value\": \"0700\"\n    },\n    {\n      \"kind\": \"contents\",\n      \"path\": \"/work/private\",\n      \"value\": \"keep\"\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1790290376,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 65,
+      "prompt_tokens": 214,
+      "total_tokens": 279,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      }
+    },
+    "id": "chatcmpl-Zr7jz5hAh8B6f7Dtm0oYIdBLllEWkydt",
+    "timings": {
+      "cache_n": 3,
+      "prompt_n": 211,
+      "prompt_ms": 3408.587,
+      "prompt_per_token_ms": 16.154440758293838,
+      "prompt_per_second": 61.902483345738275,
+      "predicted_n": 65,
+      "predicted_ms": 3510.818,
+      "predicted_per_token_ms": 54.85653125,
+      "predicted_per_second": 18.22936990752582
+    }
+  },
+  "text": "{\n  \"checks\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/private\",\n      \"value\": \"0700\"\n    },\n    {\n      \"kind\": \"contents\",\n      \"path\": \"/work/private\",\n      \"value\": \"keep\"\n    }\n  ]\n}",
+  "finish_reason": "stop",
+  "task_id": "a22",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "d8e88f8e2fef9ffc7953ae0b1b9ec99f8d20957c0eb5328bdb738aceddae7d79"
+}

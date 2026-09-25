@@ -1,0 +1,72 @@
+{
+  "task_id": "a01",
+  "scenario": "adversarial",
+  "candidate_sha256": "43c80dc34be6ad13cb5ea1ac873a7addc0d3024dd8d40e51d2baa4dc20260536",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "directory",
+            "scenario": "adversarial",
+            "path": "/srv/www"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-5-mini, Problem p01, Response 7] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure /srv/www directory exists] ****************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "seconds": 4.546,
+  "sample_id": "gpt-5-mini/p01/7"
+}

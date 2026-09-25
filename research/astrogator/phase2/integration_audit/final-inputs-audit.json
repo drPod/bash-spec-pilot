@@ -1,0 +1,190 @@
+{
+  "checked_at": "2026-09-25T15:27:41.738723+00:00",
+  "issues": [],
+  "figures_and_mechanism": {
+    "figures-paper": {
+      "inputs": {
+        "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/integration/translation-summary.json": "593ea2ecbb0c60684f0c28b5037cdef4766638aac5198284d7e221cd17e633ee",
+        "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/end_to_end/all-summary.json": "4deaaead1ec60c38d4b31f6865f45d9aac3f0464615a915ab9eefc2dcaad2344"
+      },
+      "artifacts": 4
+    },
+    "figures-pipeline": {
+      "inputs": {
+        "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/end_to_end/all-summary.json": "4deaaead1ec60c38d4b31f6865f45d9aac3f0464615a915ab9eefc2dcaad2344"
+      },
+      "artifacts": 4
+    },
+    "figures-all-checks": {
+      "inputs": {
+        "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/evaluation/common-all-checks.json": "40247bbe4ee52185ae48d0877d2488ee8effefdcd44742f3dfaf7995abb95b79"
+      },
+      "artifacts": 4
+    },
+    "figures-dsl-checks": {
+      "inputs": {
+        "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/evaluation/common-dsl-checks.json": "702df853d651bbc553db116da67383cddde8458c30eb3bb5b5a781c0f300a5ff"
+      },
+      "artifacts": 4
+    },
+    "figures": {
+      "inputs": {
+        "frontier-full-comparison.json": "c78d034ab484a864a24806a49aa29fda19126812153ec2ca8279765585fb4041",
+        "additional-baselines.json": "eddd50b84805352d4a812ee9bb58c2c910dd3fbebe63311249f8487a97eda720",
+        "revised-summary.json": "7c664b149c4039298125d7b197cbf04b7be4db2e9b950f5b91ca4b7297ddedd5"
+      },
+      "artifacts": 8
+    },
+    "a03": {
+      "runtime_cases": 2,
+      "selected_after_disagreement": true,
+      "compact_acceptance_is_conditional": true
+    },
+    "python_concurrency": {
+      "workers": 3,
+      "per_container_cpu": 0.5,
+      "per_container_memory": "320m",
+      "interrupted_uncommitted_containers": 1
+    },
+    "description_guard": {
+      "compiled_regressions": 9,
+      "paired_queries": 273,
+      "changes_to_unavailable": 3,
+      "main_verifier_results_unchanged": true
+    },
+    "common_check_cohort": {
+      "programs": 416,
+      "dsl_resolved": 420,
+      "python_resolved": 418,
+      "identities_and_all_generated_verdicts_verified": true
+    }
+  },
+  "local_manifests": {
+    "phase2/permission_semantics/MANIFEST-SHA256.json": {
+      "files": 75,
+      "missing": [],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": false
+    },
+    "phase2/description_guard/MANIFEST-SHA256.json": {
+      "files": 13,
+      "missing": [],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": false
+    },
+    "phase2/adequacy/MANIFEST-SHA256.json": {
+      "files": 62,
+      "missing": [],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": false
+    },
+    "phase2/end_to_end/MANIFEST-SHA256.json": {
+      "files": 5367,
+      "missing": [],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": false
+    },
+    "phase2/permission_semantics/archive/guard-v1/MANIFEST-SHA256.json": {
+      "files": 49,
+      "missing": [
+        ".gitignore",
+        "ansible-symbolic-source.txt",
+        "archive/passive-v1/corpus.jsonl",
+        "archive/passive-v1/integration.jsonl",
+        "archive/passive-v1/make_patch.py",
+        "archive/passive-v1/permission-normalization.patch",
+        "archive/passive-v1/review-verifier.jsonl",
+        "archive/passive-v1/source-provenance.json",
+        "base-regression.txt",
+        "build.sh",
+        "build_review_cases.py",
+        "check_semantics.py",
+        "guard-regressions.log",
+        "mode-regression.txt",
+        "mode_probe.ml",
+        "mode_regression.ml",
+        "patch-application.json",
+        "review-cases/a23/case0.yml",
+        "review-cases/a23/case1.yml",
+        "review-cases/a32/history.yml",
+        "review-cases/a47/case0.yml",
+        "review-cases/a47/case1.yml",
+        "review-design.json",
+        "review-execution.jsonl",
+        "review_run.py",
+        "semantic-checks.json",
+        "semantic-checks.log",
+        "source/bin/verify.ml",
+        "source/lib/ansible/semant.ml",
+        "source/lib/fql/codegen.ml",
+        "source/lib/modules/permission_mode.ml",
+        "source/test/dune",
+        "source/test/mode_regression.ml",
+        "summarize.py",
+        "verify_integration.py"
+      ],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": true
+    },
+    "phase2/adequacy/archive/v1/MANIFEST-SHA256.json": {
+      "files": 54,
+      "missing": [
+        ".gitignore",
+        "build.py",
+        "build_patch.sh",
+        "cases/a22/heldout_1.yml",
+        "cases/a22/heldout_2.yml",
+        "cases/a23/heldout_1.yml",
+        "cases/a23/heldout_2.yml",
+        "cases/a24/heldout_1.yml",
+        "cases/a24/heldout_2.yml",
+        "cases/a26/heldout_1.yml",
+        "cases/a26/heldout_2.yml",
+        "cases/a27/heldout_1.yml",
+        "cases/a27/heldout_2.yml",
+        "cases/a45/heldout_1.yml",
+        "cases/a45/heldout_2.yml",
+        "cases/a47/heldout_1.yml",
+        "cases/a47/heldout_2.yml",
+        "cases/a63/heldout_1.yml",
+        "cases/a63/heldout_2.yml",
+        "cases/a64/heldout_1.yml",
+        "cases/a64/heldout_2.yml",
+        "cases/a67/heldout_1.yml",
+        "cases/a67/heldout_2.yml",
+        "execution.jsonl",
+        "frozen-design.json",
+        "mode-cases/a22/mode0.yml",
+        "mode-cases/a22/mode1.yml",
+        "mode-cases/a22/mode2.yml",
+        "mode-cases/a22/mode3.yml",
+        "mode-cases/a67/mode0.yml",
+        "mode-cases/a67/mode1.yml",
+        "mode-cases/a67/mode2.yml",
+        "mode-design.json",
+        "mode-execution.jsonl",
+        "mode-summary.json",
+        "mode-verifier.jsonl",
+        "mode_panel.py",
+        "patch-summary.json",
+        "patched-source/lib/fql/codegen.ml",
+        "patched-source/test/dune",
+        "patched-source/test/permission_regression.ml",
+        "run_execution.py",
+        "run_verifier.py",
+        "summarize.py",
+        "summary.json",
+        "verifier.jsonl",
+        "verify_patch.py"
+      ],
+      "packaging_excluded": [],
+      "mismatched": [],
+      "historical_snapshot_manifest": true
+    }
+  }
+}

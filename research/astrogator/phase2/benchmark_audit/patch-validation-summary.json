@@ -1,0 +1,13 @@
+{
+  "container_cases": 48,
+  "reference_scenario_cases_passed_twice": 16,
+  "original_mutant_scenarios": {
+    "oracle_rejected": 14,
+    "passed": 2
+  },
+  "original_mutant_tasks_killed_at_least_one_state": 8,
+  "new_challenge_scenarios_rejected": 16,
+  "new_challenge_tasks_killed": 8,
+  "successful_ansible_executions": 66,
+  "original_files_modified": false
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "909a92a552082b6a759993496eb3415e6418193b18edec8758c501fbc120cd8b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+  "code_sha256": "24daa145a30bfb3233df56a0f2496bb448d56eaa78e1bae215a4ae77879d6c6f",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module files\n",
+  "stderr": "",
+  "seconds": 0.0612,
+  "status": "ansible_lowering_error"
+}

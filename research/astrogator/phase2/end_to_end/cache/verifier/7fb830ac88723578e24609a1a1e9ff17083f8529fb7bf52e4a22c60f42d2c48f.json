@@ -1,0 +1,11 @@
+{
+  "cache_key": "7fb830ac88723578e24609a1a1e9ff17083f8529fb7bf52e4a22c60f42d2c48f",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "a17c49346b2fac659d02e4a650a8c0a5ab868ada137a85673a2fd495b423e8cc",
+  "code_sha256": "24fe882f884489d7f85a17284ce1f62a7c158f04432889c5499dcd12464337f0",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument state for module git\n",
+  "stderr": "",
+  "seconds": 0.0843,
+  "status": "ansible_lowering_error"
+}

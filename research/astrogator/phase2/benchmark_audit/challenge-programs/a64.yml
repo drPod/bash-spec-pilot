@@ -1,0 +1,16 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/data
+      state: directory
+      owner: app
+      group: app
+      recurse: false
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import os; os.chown('/work/data/keep',0,1)

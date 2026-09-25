@@ -1,0 +1,22 @@
+{
+  "query_sha256": "185c9cdfd0002c3e2e911d339b2f4927e668953d32b241ae9e8ca15c4a31fc83",
+  "query": "enable passwordless sudo for group wheel; create user with name=ansible in group=wheel",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t03b89f6b74ce3b5705bf1e24696d84ae\nsemantic\terror\tExpected exactly one of 'user' and 'group' arguments for enable sudo\n",
+    "stderr": "",
+    "seconds": 0.0033,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "03b89f6b74ce3b5705bf1e24696d84ae"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Expected exactly one of 'user' and 'group' arguments for enable sudo"
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "policy": "Recover each container harness failure once, retaining primary attempts.\n\nNo execution_error, oracle rejection, generated-test rejection or in-container\nexecution timeout is retried. A second harness failure stays unresolved.\n",
+  "attempts": [
+    {
+      "sample_id": "deepseek/p05/5",
+      "scenario": "adversarial",
+      "original_sha256": "58f26c7ede46fec4794891f2e0451aee470ea0af5fcc530ebf41e522fc35135d",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "gpt-4o/p10/9",
+      "scenario": "adversarial",
+      "original_sha256": "892046db3bb9c9466e04af953d23888a393642714e567fdc015bcd285aac14b0",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/4",
+      "scenario": "adversarial",
+      "original_sha256": "0bde3d89313358790b6a0b8eeaf1d272c27d1bdc5d2179bfdb349790e134bfcc",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/5",
+      "scenario": "adversarial",
+      "original_sha256": "b3817731dd40f769bac157a0552e0a2c46d14436b0c9855ff1e7c2c05fa7fc76",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/6",
+      "scenario": "adversarial",
+      "original_sha256": "f9e9e20265ffca84eb556971cbbd9a0f7819de4ca48e569d6fe2d014fd785f1a",
+      "retry_status": "harness_error"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/6",
+      "scenario": "baseline",
+      "original_sha256": "c732f68bc35a45a68a3e78ff9a6a05e64fc0417c7d64c5b6bf17c1d1d67fdadb",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/7",
+      "scenario": "adversarial",
+      "original_sha256": "dd0afdf74c54c47229e50da5371374909ad7acad9b0806c05fbf2d3633829961",
+      "retry_status": "harness_error"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/7",
+      "scenario": "baseline",
+      "original_sha256": "151adced1ee955eb8de525e946f14ee3e3e1eb7724a72c6508d220b8b882eb32",
+      "retry_status": "harness_error"
+    },
+    {
+      "sample_id": "qwen3-coder/p05/8",
+      "scenario": "baseline",
+      "original_sha256": "d1cbfd175e58523dc43883d451ec311ccf17d9544f45b05bd8507edcae2516a2",
+      "retry_status": "observed"
+    },
+    {
+      "sample_id": "starcoder/p10/5",
+      "scenario": "baseline",
+      "original_sha256": "6eb5f00d37e6ed20229263030a400881439692a91dfab1c432dfe3a9c72222be",
+      "retry_status": "observed"
+    }
+  ],
+  "source_sha256": "b8d0f6c760fa65d8b7822c4198c8d21765635fef3b6a7d20e667f88e8cefa70c"
+}

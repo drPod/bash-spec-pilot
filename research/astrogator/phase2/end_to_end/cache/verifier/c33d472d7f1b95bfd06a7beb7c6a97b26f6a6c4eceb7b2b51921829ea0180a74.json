@@ -1,0 +1,11 @@
+{
+  "cache_key": "c33d472d7f1b95bfd06a7beb7c6a97b26f6a6c4eceb7b2b51921829ea0180a74",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+  "code_sha256": "0caaf22b00df6d8cc04aa75dde03ccbecd39d8e40c96ef1244e8d7d6f8ed890c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument recursive for module ansible.builtin.file\n",
+  "stderr": "",
+  "seconds": 0.0904,
+  "status": "ansible_lowering_error"
+}

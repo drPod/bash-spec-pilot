@@ -1,0 +1,7 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "status": "harness_error",
+  "error": "RuntimeError('runtime/cgo: pthread_create failed: Resource temporarily unavailable\\n')",
+  "sample_id": "gpt-4o/p10/9"
+}

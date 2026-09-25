@@ -1,0 +1,11 @@
+{
+  "cache_key": "d9b4e5b4b378acd52f4e3e2d41217458bdb21ac541a86d0f77d6e5473ac955be",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831",
+  "code_sha256": "16c9168938adb79145abb2a36e7370bacf0f8b12df90485517ba09e691370dc7",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument virtualenv_site_packages for module pip\n",
+  "stderr": "",
+  "seconds": 0.0858,
+  "status": "ansible_lowering_error"
+}

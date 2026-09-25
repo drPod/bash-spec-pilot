@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "kind": "mode",
+      "path": "/work/app.conf",
+      "value": "0600"
+    },
+    {
+      "kind": "content",
+      "path": "/work/app.conf",
+      "value": "port=8080\n"
+    }
+  ],
+  "checks_adversarial": [
+    {
+      "kind": "mode",
+      "path": "/work/app.conf",
+      "value": "0600"
+    },
+    {
+      "kind": "content",
+      "path": "/work/app.conf",
+      "value": "port=9090\n"
+    }
+  ]
+}

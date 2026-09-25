@@ -1,0 +1,3 @@
+set permissions for all users on /srv/path so that:
+- they can list and read all files;
+- the owner can write.

@@ -1,0 +1,301 @@
+{
+  "controls": [
+    {
+      "name": "implicit_remote",
+      "expected_equal": true,
+      "actual_equal": true,
+      "passed": true,
+      "differences": []
+    },
+    {
+      "name": "literal_quoting",
+      "expected_equal": true,
+      "actual_equal": true,
+      "passed": true,
+      "differences": []
+    },
+    {
+      "name": "straightline_sentence",
+      "expected_equal": true,
+      "actual_equal": true,
+      "passed": true,
+      "differences": []
+    },
+    {
+      "name": "unknown_alpha_rename",
+      "expected_equal": true,
+      "actual_equal": true,
+      "passed": true,
+      "differences": []
+    },
+    {
+      "name": "group_set_order",
+      "expected_equal": true,
+      "actual_equal": true,
+      "passed": true,
+      "differences": []
+    },
+    {
+      "name": "drop_reboot_guard",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$[0].then[0].condition",
+          "expected": {
+            "kind": "file_exists",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": {
+                  "kind": "existential",
+                  "type": "path",
+                  "binder": "__kb_bound_0",
+                  "predicate": {
+                    "kind": "or",
+                    "left": {
+                      "kind": "eq",
+                      "left": {
+                        "kind": "id",
+                        "name": "__kb_bound_0"
+                      },
+                      "right": {
+                        "kind": "path",
+                        "value": "/run/reboot-required"
+                      }
+                    },
+                    "right": {
+                      "kind": "or",
+                      "left": {
+                        "kind": "eq",
+                        "left": {
+                          "kind": "id",
+                          "name": "__kb_bound_0"
+                        },
+                        "right": {
+                          "kind": "path",
+                          "value": "/var/run/reboot-required"
+                        }
+                      },
+                      "right": {
+                        "kind": "bool",
+                        "value": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "actual": null,
+          "missing_in": "generated"
+        },
+        {
+          "path": "$[0].then[0].else",
+          "expected": [],
+          "actual": null,
+          "missing_in": "generated"
+        },
+        {
+          "path": "$[0].then[0].kind",
+          "expected": "conditional",
+          "actual": "reboot"
+        },
+        {
+          "path": "$[0].then[0].then",
+          "expected": [
+            {
+              "kind": "reboot"
+            }
+          ],
+          "actual": null,
+          "missing_in": "generated"
+        }
+      ]
+    },
+    {
+      "name": "controller_remote",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$[0].source.kind",
+          "expected": "controller",
+          "actual": "remote"
+        }
+      ]
+    },
+    {
+      "name": "condition_scope",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$",
+          "expected": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "Debian"
+              },
+              "then": [
+                {
+                  "kind": "create_directory",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/one"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                },
+                {
+                  "kind": "create_directory",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/two"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                }
+              ],
+              "else": []
+            }
+          ],
+          "actual": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "Debian"
+              },
+              "then": [
+                {
+                  "kind": "create_directory",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/one"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                }
+              ],
+              "else": []
+            },
+            {
+              "kind": "create_directory",
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/two"
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              }
+            }
+          ],
+          "reason": "different action/list count"
+        }
+      ]
+    },
+    {
+      "name": "move_copy",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$[0].kind",
+          "expected": "move_file",
+          "actual": "copy_file"
+        }
+      ]
+    },
+    {
+      "name": "changed_content",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$[0].content",
+          "expected": "old",
+          "actual": "new"
+        }
+      ]
+    },
+    {
+      "name": "unknown_aliasing",
+      "expected_equal": false,
+      "actual_equal": false,
+      "passed": true,
+      "differences": [
+        {
+          "path": "$[1].destination.path.destination.value.unknown",
+          "expected": 0,
+          "actual": 1
+        }
+      ]
+    }
+  ],
+  "empty_query_rejected": true,
+  "passed": true
+}

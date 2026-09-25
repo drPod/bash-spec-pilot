@@ -1,0 +1,83 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "ec392d58b339eb243e54df87aeda45f948dfbddf8d2c5b458aebdd38b2edd367",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 7] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file] *************************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e67",
+    "old_oracle": false,
+    "single_final_newline_tolerant": false
+  },
+  "seconds": 5.114,
+  "sample_id": "starcoder/p13/7"
+}

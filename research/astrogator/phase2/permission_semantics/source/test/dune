@@ -1,0 +1,13 @@
+(test
+ (name test_state_based)
+ (modules test_state_based))
+
+(test
+ (name permission_regression)
+ (modules permission_regression)
+ (libraries fql modules))
+
+(test
+ (name mode_regression)
+ (modules mode_regression)
+ (libraries modules))

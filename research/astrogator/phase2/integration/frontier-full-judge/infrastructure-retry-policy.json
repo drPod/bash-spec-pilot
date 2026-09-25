@@ -1,0 +1,233 @@
+{
+  "policy": "Exactly one retry for transport/startup failure with no answer. Original errors retained. No retry of predictions, uncertain answers, syntax errors or tool use.",
+  "attempts": [
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-4o-p13-4",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "206a49a507af8cc79a55dda768f7bdbe6ba0ceb348326dbd045b5535b1a16476"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-4o-p13-5",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "da4b8b83db7087246b9e569b58a570b94fc4916f73c37350ff7bb647720f6ec5"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-5-mini-p01-5",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "ebd532501f295ec997521b21db597bba83143680bc5587a7edb44ecee2a8ed73"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-5-mini-p01-9",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "7045b87d2d197123b675f621281c07bb54a63a6a9ad4135c2b73a26dee9926e7"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-5-mini-p05-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "25190ec09ac8d9ab54f6db0716b603ebfa77a2c9195badb569e929587dea5a4b"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-5-mini-p05-3",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "718ddc222f55391fb3bee16858e7d0aaea7cc94341f30344a5ae15a1f8a3e20d"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-5-mini-p13-8",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "7a9b71d5c30d6c48e7b5a31e6b922646eb91e1d5454bb65eee9292590ca03d4a"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-granite-p05-5",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "231c4dff3ff277ad59c5fe49e336e759ff6c83b8f3141400b9fcc193c8def7e0"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-llama-p01-6",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "a6e91ff95b69d762712085dfefb8a1e330737e31e610dbf606824ae7bfc5cb84"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-llama-p10-6",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "46203ccc4d2b11738c7ef245894a7ff70127b3abd3bd2d67c9fc7368b4d80020"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-llama-p13-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "aafcd7b6d670feb77a224fe820b9cfe4866a6948cbeae353f781083231bbbf63"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-llama-p13-7",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "b4a2457d4ff07726923f91d2349502272dc3c9b7baad55200a0fae93057a6630"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-ministral-p13-3",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "a8831657db96943a33534bf8d7b4f660a9870b6034d8c34b1ddf8ca6c8ff61ff"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-qwen2.5-coder-p10-8",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "3047c23e58ac0cdb19469d71ea651ac0eecdfc8fa42cf69f914fe8f9bff7a78b"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-qwen3-coder-p05-5",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "57277ce136fb7517e2c825062906a250723b81e3a1ffdefec894d20ed5313559"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-qwen3-coder-p13-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "5c7b9367565db2194affc58e842f3dff27c283a434b8bdb496005ea292364872"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-deepseek-p01-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "3d544ee37f3b30c93b2c6cf4375ed70e1340dae178f02e73066f8f5774c6664b"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-4o-p01-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "ee55c8264996a84283d22fb2e2b23f770c4dedf68de7c5b70919056b8116103a"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-4o-p13-5",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "0831d5f5846e62984dd913d02acd47e6f17003a12b35eb863585bf4ffa92ae3a"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-5-mini-p05-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "4d5823675a17d3ea0c8cf65473574ece7e33efd874c978e7c4dd9bcab6fa5be7"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-5-mini-p13-6",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "5d916b70419772fbd1250aa75bdc4c27d5d879a0065713d7e8278eb91ead8992"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-oss-p05-9",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "beb9102c6d16700d60d2e5c29b1c3c8222989dfb7c95c2f70808465369639e0e"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-gpt-oss-p10-5",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "f3ff0d122e37d87a61a1c8ba9c4c8f600b158fb4ee3cfcbb466d6bf130a95b4b"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-granite-p05-5",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "07110f721dd74afa903ad6b716c5faa4890c231aba07662b3c8f9e78e95de4c9"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-granite-p13-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "3d26a6b2dbe3d3859b9b55d9565e3c3178dd1650f01b53b8ea0da6ce70b4ee36"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-granite-p13-9",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "836b8634e50dea8e3645b5e1ed6ed728bdb48c323658f5a6b35e0a3113429fa7"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p01-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "0cb0196fb88e6527260fa03684414b15715b9b0ced335e8fb218727000c26e82"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p01-7",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "95976fe9e94e63f56191baee411c65d7371b5b0b8f4c7059c882a9c85c083e62"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p01-8",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "c80673e3f21595268b2c2b0e53f07ac42235f893eee00fb58932a8eedbf5ea90"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p05-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "da314c7b5a10b91741d56ab8c3a09974307fa4cea2b0dbd98d4446ff5cc7a581"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p05-3",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "b93a153ab2f7a40f5c7e793b83c53993e425ffff46d9489b5fe9240566e49414"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-llama-p10-6",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "f19e7fd9c50f2c3be38d48566bf5df43f4a430f893998d886ecb9199799ccbf8"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-ministral-p13-7",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "0640c08698588bf42c4e1290c29926e9678915cfd027e1b7590b594b797da006"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-qwen2.5-coder-p05-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "87843eb5073b3a6fa85f5d236d2fba329ba929e8620057c84fb2f7989d5ed7a4"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-qwen2.5-coder-p10-8",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "b26766208416a462fe8f82f8277174084e836b7ec2010ff519109ad573fa88af"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-qwen3-coder-p05-5",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "b3665b4ac691337e8ccf2453627b747f57f888227dcf9b0746af4312fb33ca3d"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-qwen3.5-p05-4",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "f734df6a9eadefe3e61c6c5f7c7ecfb00520f8b0778a6a1a81a8da1eb7ded399"
+    },
+    {
+      "model": "opus55",
+      "task": "judge-starcoder-p10-2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "4cb7642da241d6af5341ca079ac35f52ba86534b621d2ce416f2ae6c95ef4dbf"
+    }
+  ]
+}

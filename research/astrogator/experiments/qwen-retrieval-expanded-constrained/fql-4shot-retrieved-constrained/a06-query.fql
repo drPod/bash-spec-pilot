@@ -1,0 +1,1 @@
+create file at /etc/file. if file "/etc/file.txt" not exists then write file at /etc/file. install file with content="beginning"; set file permissions to "644"

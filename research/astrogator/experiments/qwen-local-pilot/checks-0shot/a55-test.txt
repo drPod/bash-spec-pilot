@@ -1,0 +1,14 @@
+{
+    "checks": [
+        {
+            "kind": "running",
+            "value": "cron",
+            "baseline": "stopped"
+        },
+        {
+            "kind": "running",
+            "value": "cron",
+            "adversarial": "running"
+        }
+    ]
+}

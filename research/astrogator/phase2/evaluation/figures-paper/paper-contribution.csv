@@ -1,0 +1,13 @@
+guide,model,repeat,tasks,parsed,lowered,effect_match,denominator,same_decision,became_unavailable,accept_to_reject,reject_to_accept
+compact,gpt6,0,21,20,12,9,1528,872,516,97,43
+compact,gpt6,1,21,20,12,9,1528,872,516,97,43
+compact,gpt6,2,21,20,12,9,1528,949,516,20,43
+compact,opus55,0,21,20,11,9,1528,926,595,7,0
+compact,opus55,1,21,20,11,9,1528,926,595,7,0
+compact,opus55,2,21,20,11,9,1528,926,595,7,0
+handbook,gpt6,0,21,21,21,17,1528,1525,0,1,2
+handbook,gpt6,1,21,21,21,18,1528,1525,0,1,2
+handbook,gpt6,2,21,21,21,18,1528,1525,0,1,2
+handbook,opus55,0,21,21,20,19,1528,1469,57,0,2
+handbook,opus55,1,21,21,20,19,1528,1469,57,0,2
+handbook,opus55,2,21,21,20,19,1528,1469,57,0,2

@@ -1,0 +1,1 @@
+if file /work/maintenance exists then create file at /work/status with content="offline" otherwise create file at /work/status with content="online"

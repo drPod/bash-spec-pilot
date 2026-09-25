@@ -1,0 +1,11 @@
+{
+  "cache_key": "575b050726dd69d6c25ce924e0858d85a7e427e6f820020bfb2dc18b7a3971de",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "3cfc057aa7546e1374b447ace85d7b3ba32a60d452741bd766e3b458fb03091a",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.sysctl\n",
+  "stderr": "",
+  "seconds": 0.0753,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,26 @@
+{
+  "query_sha256": "9d7e613dd8fb86755ed87dd8d2a1ba0173ae334dda86a0dbb2df7e2d9aa90e8d",
+  "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t620a0566c2979bd2a07199f0ef917b51\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0032,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "620a0566c2979bd2a07199f0ef917b51"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "unavailable:functional_value"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

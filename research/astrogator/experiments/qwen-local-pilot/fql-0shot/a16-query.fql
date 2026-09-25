@@ -1,0 +1,7 @@
+action install zsh
+action set user 'dev' shell=/bin/zsh
+action create file 'dev' home/.zshrc
+action ensure file 'dev' home/.zshrc exists
+action set file 'dev' home/.zshrc content='''#!/bin/zsh
+# Your Zsh configuration here
+'''

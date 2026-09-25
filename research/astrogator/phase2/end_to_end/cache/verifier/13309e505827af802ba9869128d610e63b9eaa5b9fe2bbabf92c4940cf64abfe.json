@@ -1,0 +1,11 @@
+{
+  "cache_key": "13309e505827af802ba9869128d610e63b9eaa5b9fe2bbabf92c4940cf64abfe",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e",
+  "code_sha256": "5dae8cbe9c5fbfb33b5b37cca873bb03fad3b7502b13498a2f8583d751e47374",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220016 ] >, fs(('/srv/www', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/srv/www', file_system::remote(()))) : < mode = [ 0: \"0755\" ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220016 ] >, fs(('/srv/www', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/srv/www', file_system::remote(()))) : < mode = [ 0: \"0755\" ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220016 ] >, fs(('/srv/www', file_system::remote(()))) [ 0 : neg ]  >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m< fs(('/srv/www', file_system::remote(()))) : < mode = [ 0: \"0755\" ], owner = [ 0: \"root\" ], owner_group = [ 0: \"root\" ] > >\n",
+  "stderr": "",
+  "seconds": 0.0829,
+  "status": "accepted_with_possible_residuals"
+}

@@ -1,0 +1,1 @@
+set system-wide variable at owner=root, group=, path=/etc/environment with name=LC_ALL and value="C"

@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "kind": "directory",
+      "scenario": "baseline",
+      "path": "/home/mydata/web"
+    },
+    {
+      "kind": "directory",
+      "scenario": "baseline",
+      "path": "/home/mydata/web/*"
+    },
+    {
+      "kind": "directory",
+      "scenario": "adversarial",
+      "path": "/home/mydata/web"
+    },
+    {
+      "kind": "directory",
+      "scenario": "adversarial",
+      "path": "/home/mydata/web/*"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "benchmark_count": 21,
+  "missing_processed": [
+    "gpt-4o/p11b/9",
+    "gpt-4o/p18/1",
+    "llama/p02/5",
+    "llama/p03/0",
+    "llama/p03/8",
+    "llama/p05/4",
+    "llama/p05/9",
+    "llama/p06/4",
+    "llama/p06/5",
+    "llama/p09/6",
+    "llama/p09/8",
+    "llama/p10/2",
+    "llama/p10/3",
+    "llama/p11a/5",
+    "llama/p11b/5",
+    "llama/p11b/7",
+    "llama/p12/2",
+    "llama/p13/5",
+    "llama/p14/1",
+    "llama/p16/5",
+    "llama/p18/2",
+    "llama/p19/0",
+    "llama/p19/6",
+    "llama/p20/4",
+    "qwen2.5-coder/p08/4",
+    "qwen2.5-coder/p10/9",
+    "qwen2.5-coder/p14/3",
+    "qwen2.5-coder/p17/1",
+    "qwen3.5/p06/0",
+    "qwen3.5/p06/1",
+    "qwen3.5/p06/2",
+    "qwen3.5/p06/3",
+    "qwen3.5/p06/4",
+    "qwen3.5/p06/5",
+    "qwen3.5/p06/6",
+    "qwen3.5/p06/7",
+    "qwen3.5/p06/8",
+    "qwen3.5/p06/9",
+    "qwen3.5/p13/0",
+    "qwen3.5/p13/1",
+    "qwen3.5/p13/2",
+    "qwen3.5/p13/3",
+    "qwen3.5/p13/4",
+    "qwen3.5/p13/5",
+    "qwen3.5/p13/6",
+    "qwen3.5/p13/7",
+    "qwen3.5/p13/8",
+    "qwen3.5/p13/9",
+    "qwen3.5/p16/0",
+    "qwen3.5/p16/1",
+    "qwen3.5/p16/2",
+    "qwen3.5/p16/3",
+    "qwen3.5/p16/4",
+    "qwen3.5/p16/5",
+    "qwen3.5/p16/6",
+    "qwen3.5/p16/7",
+    "qwen3.5/p16/8",
+    "qwen3.5/p16/9",
+    "starcoder/p02/4",
+    "starcoder/p05/7",
+    "starcoder/p06/5",
+    "starcoder/p07/4",
+    "starcoder/p08/0",
+    "starcoder/p08/3",
+    "starcoder/p10/8",
+    "starcoder/p11a/3",
+    "starcoder/p11a/5",
+    "starcoder/p11b/0",
+    "starcoder/p11b/8",
+    "starcoder/p17/1",
+    "starcoder/p19/1",
+    "starcoder/p20/8"
+  ],
+  "models": {
+    "deepseek": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "gpt-4o": {
+      "original": 10,
+      "raw": 210,
+      "response": 208
+    },
+    "gpt-5-mini": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "gpt-oss": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "granite": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "llama": {
+      "original": 10,
+      "raw": 210,
+      "response": 188
+    },
+    "ministral": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "qwen2.5-coder": {
+      "original": 9,
+      "raw": 210,
+      "response": 206
+    },
+    "qwen3-coder": {
+      "original": 10,
+      "raw": 210,
+      "response": 210
+    },
+    "qwen3.5": {
+      "original": 10,
+      "raw": 210,
+      "response": 180
+    },
+    "starcoder": {
+      "original": 9,
+      "raw": 210,
+      "response": 196
+    }
+  },
+  "postfix_only_domain_replacement": true,
+  "postfix_original_pairs": 108,
+  "sample_count": 2310,
+  "source_sha256": {
+    "astrogator_data.tgz": "071b7a6af1b991f0d330d7562269d44aa14a5ee9e07842484534c728f4d4ba79",
+    "benchmarks.csv": "39ac16b76c7cd6d672dbd984ea6d70d62d20f97f206f5e2d99caecf13c91257c",
+    "upstream-7c62afa.tar.gz": "e31fa009ef814fd01abfd3e3cde6b6d74ef0e442d5c48be2cf6d45353fdd5663"
+  },
+  "yaml_status_by_kind": {
+    "original": {
+      "parsed": 108
+    },
+    "raw": {
+      "empty": 2,
+      "load_error": 78,
+      "parsed": 2230
+    },
+    "response": {
+      "load_error": 8,
+      "parsed": 2230
+    }
+  }
+}

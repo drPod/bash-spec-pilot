@@ -1,0 +1,11 @@
+{
+  "cache_key": "c6d889200c737ba2942f61131ca513bcd4bea95a85e1a49ccccc054c743f9f4e",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1334d5b1d633fdf613b994b619234e0878430206e0f5231e21ff4f83129b9322",
+  "code_sha256": "f3318fa896b60ecd6bd91303080e076dbbb44efb9ca57a50ad9935fb63060c85",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument systemuser for module ansible.builtin.user\n",
+  "stderr": "",
+  "seconds": 0.0739,
+  "status": "ansible_lowering_error"
+}

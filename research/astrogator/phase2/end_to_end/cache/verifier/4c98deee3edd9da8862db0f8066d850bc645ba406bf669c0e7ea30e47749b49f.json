@@ -1,0 +1,11 @@
+{
+  "cache_key": "4c98deee3edd9da8862db0f8066d850bc645ba406bf669c0e7ea30e47749b49f",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1fc526af0e6f7061f05c95effb9205e39d799ba099c574a5b42c953243548694",
+  "code_sha256": "a7893ba26dc17466abf4076190bbd5d7a7d19e512effded5c358b5771d0b36b1",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nMultiple modules specified: file and file\n",
+  "stderr": "",
+  "seconds": 0.1128,
+  "status": "ansible_lowering_error"
+}

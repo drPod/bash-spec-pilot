@@ -1,0 +1,21 @@
+{
+  "id": "a46",
+  "title": "Lock existing password",
+  "family": "identity",
+  "natural_language": "Lock password authentication for the existing app user without replacing its stored password hash; retain the account.",
+  "formal_query": "disable password for user=app",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "destroys stored hash",
+  "tags": [
+    "preservation",
+    "password-lock"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

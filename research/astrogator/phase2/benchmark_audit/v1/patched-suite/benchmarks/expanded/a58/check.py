@@ -1,0 +1,1 @@
+lines=output('crontab','-l').splitlines(); assert lines.count('#Ansible: astro cleanup') == 1; i=lines.index('#Ansible: astro cleanup'); assert lines[i+1] == '15 2 * * * /usr/bin/true'; assert '0 0 * * * /bin/echo keep' in lines; assert '/bin/false' not in '\n'.join(lines)

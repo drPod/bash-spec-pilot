@@ -1,0 +1,2 @@
+action enable_passwordless_sudo for wheel group
+action create ansible user with group=wheel

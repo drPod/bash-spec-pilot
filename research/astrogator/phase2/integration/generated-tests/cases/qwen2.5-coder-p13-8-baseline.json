@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "c452355e670de17fd395c7618586be82372e9a76a7e3de8296c985cbf4df88a5",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p13, Response 8] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file.txt if it does not already exist] ****************************\n[ERROR]: Task failed: Module failed: value of state must be one of: absent, directory, file, hard, link, touch, got: present\nOrigin: /suite/data/corpus/qwen2.5-coder/p13/response8.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create file.txt if it does not already exist\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of state must be one of: absent, directory, file, hard, link, touch, got: present\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.215,
+  "sample_id": "qwen2.5-coder/p13/8"
+}

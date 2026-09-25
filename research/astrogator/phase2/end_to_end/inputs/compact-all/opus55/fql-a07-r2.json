@@ -1,0 +1,182 @@
+{
+  "task": {
+    "id": "fql-a07-r2",
+    "mode": "fql",
+    "task_id": "a07",
+    "repeat": 2,
+    "demonstration_ids": [
+      "a08",
+      "a70",
+      "a31",
+      "a13"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+      },
+      {
+        "role": "assistant",
+        "content": "copy files with glob=\"*.war\" from remote /tmp to controller /backup"
+      },
+      {
+        "role": "user",
+        "content": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist."
+      },
+      {
+        "role": "assistant",
+        "content": "copy directory from remote /work/source to remote /work/dest"
+      },
+      {
+        "role": "user",
+        "content": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches."
+      },
+      {
+        "role": "assistant",
+        "content": "delete files in /work/cache with glob=\"*.tmp\""
+      },
+      {
+        "role": "user",
+        "content": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write"
+      },
+      {
+        "role": "assistant",
+        "content": "set file permissions in /srv/path to read=all, write=owner, list directory=all"
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /backup on the controller into /tmp on the remote"
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nTranslate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements.\n\nUSER:\nCopy all .war files from /tmp on the remote machine into /backup on the controller\n\nASSISTANT:\ncopy files with glob=\"*.war\" from remote /tmp to controller /backup\n\nUSER:\nCopy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.\n\nASSISTANT:\ncopy directory from remote /work/source to remote /work/dest\n\nUSER:\nDelete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.\n\nASSISTANT:\ndelete files in /work/cache with glob=\"*.tmp\"\n\nUSER:\nSet permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write\n\nASSISTANT:\nset file permissions in /srv/path to read=all, write=owner, list directory=all\n\nUSER:\nCopy all .war files from /backup on the controller into /tmp on the remote",
+  "prompt_sha256": "3ee3dd712a4afc32e800ae3251814ed6e4d362282f249f93547ed5cccc76fcae",
+  "created_at": "2026-09-25T13:58:59.651512+00:00",
+  "frozen_input_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":2362,\"stop_reason\":\"end_turn\",\"session_id\":\"20c44417-161f-4a99-8fe7-6d692a2177c2\",\"total_cost_usd\":0.0017791999999999999,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":6256,\"output_tokens\":26,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":26,\"cache_read_input_tokens\":6256,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":26,\"cacheReadInputTokens\":6256,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0017791999999999999,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":0,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"copy files with glob=\\\"*.war\\\" from controller /backup to remote /tmp\",\"ttft_ms\":2609,\"type\":\"result\",\"duration_ms\":2890,\"uuid\":\"903560d6-a228-43e3-8894-5a20e14a33c6\",\"ttft_stream_ms\":2403,\"time_to_request_ms\":494,\"first_content_frame_ms\":2404,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 2362,
+    "stop_reason": "end_turn",
+    "session_id": "20c44417-161f-4a99-8fe7-6d692a2177c2",
+    "total_cost_usd": 0.0017791999999999999,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6256,
+      "output_tokens": 26,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 26,
+          "cache_read_input_tokens": 6256,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 26,
+        "cacheReadInputTokens": 6256,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0017791999999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+    "ttft_ms": 2609,
+    "type": "result",
+    "duration_ms": 2890,
+    "uuid": "903560d6-a228-43e3-8894-5a20e14a33c6",
+    "ttft_stream_ms": 2403,
+    "time_to_request_ms": 494,
+    "first_content_frame_ms": 2404,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+  "status": "ok",
+  "extracted": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+  "seconds": 7.193
+}

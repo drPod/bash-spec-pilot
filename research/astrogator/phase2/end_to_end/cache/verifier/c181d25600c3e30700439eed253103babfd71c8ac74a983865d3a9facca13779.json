@@ -1,0 +1,11 @@
+{
+  "cache_key": "c181d25600c3e30700439eed253103babfd71c8ac74a983865d3a9facca13779",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d68f33bad46db6c95bc51226afc3362a219ec8e4f905005bd547d9e10efcd81",
+  "code_sha256": "a9ffa2a4e32cc440048634f3f6e8e7706ce29ad496ef2a32af04ec659a341606",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument recursive for module copy\n",
+  "stderr": "",
+  "seconds": 0.0862,
+  "status": "ansible_lowering_error"
+}

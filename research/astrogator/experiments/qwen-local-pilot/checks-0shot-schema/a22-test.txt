@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/work/private",
+      "value": "0700"
+    },
+    {
+      "kind": "mode",
+      "scenario": "adversarial",
+      "path": "/work/private",
+      "value": "0777"
+    },
+    {
+      "kind": "content",
+      "scenario": "baseline",
+      "path": "/work/private",
+      "value": "keep"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+install zsh; set user with name="dev" to default-shell; enable zsh; write file with path to user with name="dev" with contents at "/home/dev/.zshrc" with content="zsh"

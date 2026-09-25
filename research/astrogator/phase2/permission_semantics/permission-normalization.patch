@@ -1,0 +1,185 @@
+--- a/lib/fql/codegen.ml
++++ b/lib/fql/codegen.ml
+@@ -108,7 +108,7 @@
+   FuncExp (Id "fs", [p; s])
+ 
+ (* Given a file permissions object, codegen setting the fs object's mode *)
+-let codegen_file_perms (fs : Target.expr) (p : Ast.file_perms)
++let codegen_file_perms ?(directory=false) (fs : Target.expr) (p : Ast.file_perms)
+   : Target.stmt list =
+   let { Ast.read; write; exec; file_list; setuid; setgid; sticky } = p
+   in let mode =
+@@ -170,7 +170,7 @@
+       then [owner; group; other]
+       else List.filter (fun part -> String.length part > 2) [owner; group; other]
+     in let str = String.concat "," all
+-    in if str = "" then None else Some str
++    in if str = "" then None else Some (if !Modules.Permission_mode.enabled then Option.value (Modules.Permission_mode.normalize ~directory str) ~default:str else str)
+   in match mode with
+   | None -> []
+   | Some m -> Target.Assign (Field (fs, "mode"), StringLit m) :: []
+@@ -187,10 +187,10 @@
+       in Ok (Target.IfThenElse (cond, [c], [cs]))
+ 
+ (* Given a file description code-gen setting the fs-object information *)
+-let codegen_file_info (fs : Target.expr) (owner : ParseTree.value option)
++let codegen_file_info ?(directory=false) (fs : Target.expr) (owner : ParseTree.value option)
+   (group : ParseTree.value option) (perms : Ast.file_perms) (env : env)
+   : (Target.stmt list * env, string) result =
+-  let config_mode = codegen_file_perms fs perms
++  let config_mode = codegen_file_perms ~directory fs perms
+   in let^ (config_group, env) =
+     match group with
+     | None -> Ok (config_mode, env)
+@@ -206,10 +206,10 @@
+         codegen_value u Target.String env (fun s -> StringLit s)
+       in Ok (Target.Assign (Field (fs, "owner"), user) :: config_group, env)
+ 
+-let codegen_file_desc (fs : Target.expr) (p : Ast.file_desc) (env : env)
++let codegen_file_desc ?(directory=false) (fs : Target.expr) (p : Ast.file_desc) (env : env)
+   : (Target.stmt list * env, string) result =
+   let { Ast.path = _; owner; group; perms } = p
+-  in codegen_file_info fs owner group perms env
++  in codegen_file_info ~directory fs owner group perms env
+ 
+ let codegen_files_desc (fs : Target.expr) (p : Ast.files_desc) (env : env)
+   : (Target.stmt list * env, string) result =
+@@ -425,7 +425,7 @@
+       end
+   | CreateDir { dest } ->
+       let^ (path, sys, env) = codegen_path dest.path env
+-      in let^ (config, env) = codegen_file_desc (fs (Id "^dst") sys) dest env
++      in let^ (config, env) = codegen_file_desc ~directory:true (fs (Id "^dst") sys) dest env
+       in Ok (
+         Target.LetStmt ("^dst", path)
+         :: Assign (
+--- a/lib/ansible/semant.ml
++++ b/lib/ansible/semant.ml
+@@ -1125,6 +1125,33 @@
+ let process_mod_use (m : Parsed.mod_use) (ctx : Context.context)
+   (env : play_env) : (Typed.mod_use * itype, string) result =
+   let { Parsed.mod_info = mod_name; args } = m
++  (* The current model stores modes as values, not state transformers. Restrict
++   * it to literal state-independent assignments; do not silently verify
++   * relative chmod operations by equality of their source strings. *)
++  in let^ args =
++    let mode_modules = ["file"; "copy"; "get_url"; "uri"; "lineinfile"; "blockinfile"] in
++    let eligible = List.exists (fun name ->
++      mod_name = name || mod_name = "ansible.builtin." ^ name) mode_modules in
++    if !Modules.Permission_mode.enabled && eligible then
++      let directory = List.mem mod_name ["file"; "ansible.builtin.file"] &&
++        List.assoc_opt "state" args = Some (Parsed.String "directory") &&
++        (match List.assoc_opt "recurse" args with
++         | None | Some (Parsed.Bool false) -> true
++         | _ -> false)
++      in map_res (fun (key, value) ->
++        let directory_mode = key = "directory_mode" &&
++          List.mem mod_name ["copy"; "ansible.builtin.copy"] in
++        if key <> "mode" && not directory_mode then Ok (key, value)
++        else
++          let normalized = match value with
++            | Parsed.String s -> Modules.Permission_mode.normalize
++                ~directory:(directory || directory_mode) s
++            | _ -> None
++          in match normalized with
++            | Some s -> Ok (key, Parsed.String s)
++            | None -> Error ("Unsupported permission mode: the current model requires a quoted constant octal mode or complete u=/g=/o= assignments; X requires an explicit nonrecursive directory")
++      ) args
++    else Ok args
+   in let module_name = String.split_on_char '.' mod_name
+   in match Context.find_module_def module_name ctx with
+   | None -> Error (Printf.sprintf "Could not find module %s" mod_name)
+--- a/bin/verify.ml
++++ b/bin/verify.ml
+@@ -26,7 +26,8 @@
+ module StringSet = Fql.Heuristics.StringSet
+ 
+ let arglist =
+-  [("--", Arg.Rest_all (fun fs -> module_defs := fs), "Ansible Module Definitions");
++  [("--constant-modes", Arg.Set Modules.Permission_mode.enabled, "Opt in to constant permission-mode normalization; unsupported state-dependent modes fail lowering");
++   ("--", Arg.Rest_all (fun fs -> module_defs := fs), "Ansible Module Definitions");
+    ("--users", Arg.Set_string users_src, "Validate users from a source file which is a comma-separated list of names or has lines of the form <distribution>:<comma-separated names>");
+    ("--groups", Arg.Set_string groups_src, "Validate groups from a source file which is a comma-separated list of names or has lines of the form <distribution>:<comma-separated names>");
+    ("--pkgs", Arg.Set_string packages_src, "Validate packages from a source file which is a comma-separated list of names or has lines of the form <distribution>:<package manager>:<comma-separated names>");
+--- /dev/null
++++ b/lib/modules/permission_mode.ml
+@@ -0,0 +1,47 @@
++(* Opt-in integration switch; the normalizer itself is a pure function. *)
++let enabled = ref false
++
++(* A deliberately partial normalizer for constant, state-independent modes.
++   None means retain the original representation, not that the input is invalid.
++   X is constant only when every affected object is known to be a directory. *)
++let normalize ?(directory=false) (s : string) : string option =
++  let len=String.length s in
++  let octal = len >= 3 && len <= 4 &&
++    String.for_all (fun c -> c >= '0' && c <= '7') s in
++  if octal then Some (Printf.sprintf "%04o" (int_of_string ("0o" ^ s)))
++  else
++    let parts=String.split_on_char ',' s in
++    if List.length parts <> 3 then None
++    else
++      let seen=Hashtbl.create 3 in
++      let bits=ref 0 in
++      let valid=List.for_all (fun part ->
++        if String.length part < 2 || part.[1] <> '=' then false
++        else
++          let who=part.[0] in
++          if not (List.mem who ['u';'g';'o']) || Hashtbl.mem seen who
++          then false
++          else begin
++            Hashtbl.add seen who ();
++            let shift=if who='u' then 6 else if who='g' then 3 else 0 in
++            let perms=String.sub part 2 (String.length part-2) in
++            String.for_all (fun c ->
++              let mask=match c with
++                | 'r' -> Some (4 lsl shift)
++                | 'w' -> Some (2 lsl shift)
++                | 'x' -> Some (1 lsl shift)
++                | 'X' when directory -> Some (1 lsl shift)
++                | 's' when who='u' -> Some 0o4000
++                | 's' when who='g' -> Some 0o2000
++                | 't' when who='o' -> Some 0o1000
++                | _ -> None
++              in match mask with
++              | None -> false
++              | Some n -> bits := !bits lor n; true
++            ) perms
++          end
++      ) parts in
++      if valid then Some (Printf.sprintf "%04o" !bits) else None
++
++let integer (n : int) : string option =
++  if n < 0 || n > 0o7777 then None else Some (Printf.sprintf "%04o" n)
+--- a/test/dune
++++ b/test/dune
+@@ -6,3 +6,8 @@
+  (name permission_regression)
+  (modules permission_regression)
+  (libraries fql modules))
++
++(test
++ (name mode_regression)
++ (modules mode_regression)
++ (libraries modules))
+--- /dev/null
++++ b/test/mode_regression.ml
+@@ -0,0 +1,18 @@
++let expect label actual expected =
++  if actual <> expected then failwith label else Printf.printf "PASS %s\n" label
++let () =
++  let norm=Modules.Permission_mode.normalize in
++  expect "quoted octal" (norm "0700") (Some "0700");
++  expect "complete symbolic" (norm "u=rwx,g=,o=") (Some "0700");
++  expect "reordered complete classes" (norm "o=,u=rwx,g=") (Some "0700");
++  expect "special bits" (norm "u=rws,g=rs,o=t") (Some "7640");
++  expect "directory conditional X" (norm ~directory:true "u=rwX,g=,o=") (Some "0700");
++  expect "unknown kind X declined" (norm "u=rwX,g=,o=") None;
++  expect "partial chmod declined" (norm "u=rwx") None;
++  expect "relative chmod declined" (norm "u+rwx,g=,o=") None;
++  expect "permission copying declined" (norm "u=g,g=,o=") None;
++  expect "duplicate classes declined" (norm "u=rwx,u=,o=") None;
++  expect "invalid octal declined" (norm "0888") None;
++  expect "float spelling declined" (norm "700.0") None;
++  expect "dynamic mode declined" (norm "{{ mode }}") None;
++  expect "no permission integration by default" !Modules.Permission_mode.enabled false

@@ -1,0 +1,11 @@
+{
+  "cache_key": "ff438255409dcc0c85ac3e3e414014c631db59abcf9ff8cd373332537764ee32",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "b1e2b26c4b5762be126ea3635b50ccb4144921e9684b8724bec4d095aa53f73c",
+  "code_sha256": "f44eb1ab9e6e09f3f6874f1b2a9c7236c7058a190eb0e72de6b99d3e8fd941f3",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.move\n",
+  "stderr": "",
+  "seconds": 0.0648,
+  "status": "ansible_lowering_error"
+}

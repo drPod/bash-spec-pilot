@@ -1,0 +1,11 @@
+{
+  "cache_key": "f9d1c29234c10748fe711f3788153e5d3138c01f78e4d083865c78a07098c72b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "209ef4d62b2d9f7c4138b6ab32e03d6eaea4953cb0995de7e31465f3a0d52c39",
+  "code_sha256": "09debd5173ae13015221cfa9edb280fa9c646ae45cf4115a16e6767207a29722",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), e_user(\"foo\"): <homedir = '/home/foo' >, env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, fs(('/home/foo/.bashrc', file_system::remote(()))): <fs_type = file_type::file(\u220030) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220059 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), e_user(\"foo\"): <homedir = '/home/foo' >, env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/foo/.bashrc', file_system::remote(()))): <fs_type = file_type::file(\u220039) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220059 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), e_user(\"foo\"): <homedir = '/home/foo' >, env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/foo/.bashrc', file_system::remote(()))): <fs_type = file_type::file(\u220048) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220059 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n",
+  "stderr": "",
+  "seconds": 0.0896,
+  "status": "accepted_with_possible_residuals"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "f9d5956476b8697ce8f100c2f67170007683876c38b23abf494806a31954b39b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "a8792abd05867840cc90d2450b2eead82bc1cc743652bd65333552fa7d6196fb",
+  "code_sha256": "5b306981446539ec9688db67752cdc24b0e0af92c690b182dee9ef06aeb56807",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument rev for module ansible.builtin.git\n",
+  "stderr": "",
+  "seconds": 0.0961,
+  "status": "ansible_lowering_error"
+}

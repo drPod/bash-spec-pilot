@@ -1,0 +1,11 @@
+{
+  "cache_key": "1512dbe5b729271eed8d2334c6ad9b2676daccc99d8eb1bc441d81c99046837d",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+  "code_sha256": "6e756150e90fb55dbca59b4ec5cd7792eccfb6d8a6c5f569d87546c87404b8f9",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nMultiple modules specified: ansible.builtin.find and ansible.builtin.file\n",
+  "stderr": "",
+  "seconds": 0.0655,
+  "status": "ansible_lowering_error"
+}

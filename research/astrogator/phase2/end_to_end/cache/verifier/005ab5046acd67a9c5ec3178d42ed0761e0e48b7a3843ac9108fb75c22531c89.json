@@ -1,0 +1,11 @@
+{
+  "cache_key": "005ab5046acd67a9c5ec3178d42ed0761e0e48b7a3843ac9108fb75c22531c89",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831",
+  "code_sha256": "8a1024265fb92625875e30150f9ecc223f814165d9845a113e86b03869f418e2",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nMultiple modules specified: ansible.builtin.command and args\n",
+  "stderr": "",
+  "seconds": 0.0746,
+  "status": "ansible_lowering_error"
+}

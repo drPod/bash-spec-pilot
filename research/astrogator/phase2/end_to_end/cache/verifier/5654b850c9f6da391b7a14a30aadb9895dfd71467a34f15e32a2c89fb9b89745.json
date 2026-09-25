@@ -1,0 +1,11 @@
+{
+  "cache_key": "5654b850c9f6da391b7a14a30aadb9895dfd71467a34f15e32a2c89fb9b89745",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "b1e2b26c4b5762be126ea3635b50ccb4144921e9684b8724bec4d095aa53f73c",
+  "code_sha256": "bc62e6108b8a2d39a8ecf5622a749265e751de8d604caa91aaa3d56e580d3085",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.rename\n",
+  "stderr": "",
+  "seconds": 0.0898,
+  "status": "ansible_lowering_error"
+}

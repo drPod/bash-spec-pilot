@@ -1,0 +1,296 @@
+[
+  {
+    "formal_query": "create directory at /srv/www",
+    "id": "a01",
+    "legacy_id": "p01",
+    "natural_language": "Create directory /srv/www",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 1,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Create directory at /srv/www\n  hosts: all\n  become: true\n  tasks:\n    - name: Create directory\n      ansible.builtin.file:\n        path: /srv/www\n        state: directory\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "delete directory at /home/mydata/web",
+    "id": "a02",
+    "legacy_id": "p05",
+    "natural_language": "Delete the directory /home/mydata/web",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 2,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Delete directory /home/mydata/web\n  hosts: all\n  become: true\n  tasks:\n    - name: Delete directory and content\n      ansible.builtin.file:\n        state: absent\n        path: /home/mydata/web\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "delete files in /home/mydata/web",
+    "id": "a03",
+    "legacy_id": "p15",
+    "natural_language": "Delete the contents of the /home/mydata/web directory",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 3,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Delete contents of directory /home/mydata/web\n  hosts: all\n  become: true\n  tasks:\n    - name: Delete contets of directory\n      ansible.builtin.file:\n        state: \"{{ item }}\"\n        path: /home/mydata/web\n      with_items:\n        - absent\n        - directory\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+    "id": "a04",
+    "legacy_id": "p03",
+    "natural_language": "Copy the file /scratch/file.txt to /home/user/data.txt",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 4,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Copy the file /scratch/file.txt to /home/user/data.txt\n  hosts: all\n  become: true\n  tasks:\n    - name: Copy file\n      ansible.builtin.copy:\n        remote_src: True\n        src: /scratch/file.txt\n        dest: /home/user/data.txt\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+    "id": "a05",
+    "legacy_id": "p12",
+    "natural_language": "Move the file at /scratch/file.txt to /home/user/data.txt",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 5,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Move the file /scratch/file.txt to /home/user/data.txt\n  hosts: all\n  become: true\n  tasks:\n    - name: Copy file from /scratch/file.txt to /home/user/data.txt\n      ansible.builtin.copy:\n        remote_src: True\n        src: /scratch/file.txt\n        dest: /home/user/data.txt\n    - name: Remove old file /scratch/file.txt\n      ansible.builtin.file:\n        path: /scratch/file.txt\n        state: absent\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+    "id": "a06",
+    "legacy_id": "p13",
+    "natural_language": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 6,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Create /etc/file.txt if it does not exist\n  hosts: all\n  become: true\n  tasks:\n    - name: Create the file if it does not exist\n      ansible.builtin.copy:\n        content: \"beginning\"\n        dest: /etc/file.txt\n        force: false\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+    "id": "a07",
+    "legacy_id": "p11a",
+    "natural_language": "Copy all .war files from /backup on the controller into /tmp on the remote",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 7,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Copy .war files from controller to remote\n  hosts: all\n  become: true\n  tasks:\n    - name: Copy war files from controller\n      ansible.builtin.copy:\n        src: \"{{ item }}\"\n        dest: \"/tmp/\"\n      with_fileglob:\n        - \"/backup/*.war\"\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+    "id": "a08",
+    "legacy_id": "p11b",
+    "natural_language": "Copy all .war files from /tmp on the remote machine into /backup on the controller",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 8,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Copy .war files from remote to controller\n  hosts: debian\n  become: true\n  tasks:\n    - name: Find .war files under /tmp on the remote server\n      ansible.builtin.find:\n        paths: /tmp\n        patterns: '*.war'\n      register: found\n    - name: Copy war files from remote server\n      ansible.builtin.fetch:\n        src: \"{{ item.path }}\"\n        dest: \"/backup/\"\n        flat: true\n      with_items: \"{{ found.files }}\"\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https",
+    "id": "a09",
+    "legacy_id": "p07",
+    "natural_language": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 9,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Clone ansible git repo\n  hosts: all\n  become: true\n  tasks:\n    - name: Clone repo\n      ansible.builtin.git:\n        repo: https://github.com/ansible/ansible.git\n        dest: /ansible\n        version: release1.8.4\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "set environment variable LC_ALL to \"C\"",
+    "id": "a10",
+    "legacy_id": "p02",
+    "natural_language": "Permanently set the environment variable LC_ALL to ``C'' system-wide",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 10,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Permanently set the environment variable LC_ALL to C\n  hosts: all\n  become: true\n  tasks:\n    - name: Set variable LC_ALL to C\n      ansible.builtin.lineinfile:\n        path: /etc/environment\n        state: present\n        regexp: \"^LC_ALL=\"\n        line: \"LC_ALL=C\"\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "write \"module load gcc\" to bashrc file for user = foo at position=end",
+    "id": "a11",
+    "legacy_id": "p09",
+    "natural_language": "Add the line `module load gcc' to the end of foo's bashrc",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 11,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Add the line 'module load gcc' to foo's bashrc\n  hosts: all\n  become: true\n  tasks:\n    - name: Update bashrc for foo user\n      ansible.builtin.lineinfile:\n        dest: /home/foo/.bashrc\n        line: \"module load gcc\"\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if os is Debian and reboot required then reboot",
+    "id": "a12",
+    "legacy_id": "p14",
+    "natural_language": "For Debian, restart the system if it is needed",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 12,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Restart the (Debian) system if needed\n  hosts: debian\n  become: true\n  tasks:\n    - name: Check whether /run/reboot-required exists\n      ansible.builtin.stat:\n        path: /run/reboot-required\n      register: st\n    - name: Reboot if required\n      ansible.builtin.reboot:\n      when: st.stat.exists\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+    "id": "a13",
+    "legacy_id": "p04",
+    "natural_language": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 13,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Set permissions under /srv/path\n  hosts: all\n  become: true\n  tasks:\n    - name: Make directory tree readable\n      ansible.builtin.file:\n        path: /srv/path\n        mode: u=rwX,g=rX,o=rX\n        recurse: yes\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv",
+    "id": "a14",
+    "legacy_id": "p06",
+    "natural_language": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 14,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Create virtual environment and install numpy\n  hosts: all\n  become: true\n  tasks:\n    - name: Install numpy in virtual environment\n      ansible.builtin.pip:\n        name: numpy\n        virtualenv: /user/home/venv\n        virtualenv_python: python3.10\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if os is Debian based or os is RedHat based then install numpy",
+    "id": "a15",
+    "legacy_id": "p08",
+    "natural_language": "For Debian and RedHat based systems, install numpy",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 15,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Install numpy on Debian and RedHat systems\n  hosts: all\n  become: true\n  tasks:\n    - name: Install numpy (Debian)\n      ansible.builtin.apt:\n        name: python3-numpy\n      when: ansible_os_family == \"Debian\"\n    - name: Install numpy (RedHat)\n      ansible.builtin.pip:\n        name: numpy\n      when: ansible_os_family == \"RedHat\"\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+    "id": "a16",
+    "legacy_id": "p16",
+    "natural_language": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 16,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Install zsh, set it as dev's shell, and ensure its config file exists\n  hosts: all\n  become: true\n  tasks:\n    - name: Install zsh\n      ansible.builtin.package:\n        name: 'zsh'\n        state: 'present'\n    - name: Set default shell\n      ansible.builtin.user:\n        name: 'dev'\n        shell: '/bin/zsh'\n    - name: Ensure zshrc created\n      ansible.builtin.file:\n        dest: '/home/dev/.zshrc'\n        state: 'touch'\n        owner: 'dev'\n        group: 'dev'\n        mode: '700'\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "disable password for user=service",
+    "id": "a17",
+    "legacy_id": "p10",
+    "natural_language": "Disable the password for the `service' user",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 17,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Disable password for 'service' user\n  hosts: all\n  become: true\n  tasks:\n    - name: Disable password for 'service' user\n      ansible.builtin.user:\n        name: service\n        password: '!'\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+    "id": "a18",
+    "legacy_id": "p17",
+    "natural_language": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 18,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Various postfix configuration tasks\n  hosts: redhat,ubuntu\n  become: true\n  tasks:\n    - name: Install postfix\n      ansible.builtin.package:\n        name: postfix\n        state: latest\n    - name: Backup original main.cf\n      ansible.builtin.copy:\n        src: /etc/postfix/main.cf\n        dest: /etc/postfix/main.bak\n        force: false\n        remote_src: true\n    - name: Download main.cf\n      ansible.builtin.get_url:\n        url: \"http://example.com/cfg.{{ ansible_distribution | lower }}\"\n        dest: /etc/postfix/main.cf\n        #validate_certs: false\n        mode: '644'\n        owner: root\n        group: root\n        force: true\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file",
+    "id": "a19",
+    "legacy_id": "p18",
+    "natural_language": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 19,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Install apache server, ensure its home page exists, and create a webdev user\n  hosts: redhat\n  become: true\n  tasks:\n    - name: Install apache\n      ansible.builtin.package:\n        name: 'httpd'\n        state: 'present'\n    - name: Ensure home page exists\n      ansible.builtin.file:\n        path: /var/www/html/index.html\n        state: touch\n    - name: Create webdev user\n      ansible.builtin.user:\n        name: webdev\n        state: present\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "enable passwordless sudo for group=wheel; create user with name=ansible in supplemental groups=wheel",
+    "id": "a20",
+    "legacy_id": "p19",
+    "natural_language": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 20,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Enable passwordless sudo for wheel and create an ansible user in that group\n  hosts: all\n  become: true\n  tasks:\n    - name: Install sudo\n      ansible.builtin.package:\n        name: sudo\n        state: present\n    - name: Wheel group\n      ansible.builtin.group:\n        name: wheel\n        system: true\n        state: present\n    - name: Ansible user\n      ansible.builtin.user:\n        name: ansible\n        comment: Ansible User\n        groups:\n          - wheel\n        state: present\n    - name: Allow group wheel to sudo\n      ansible.builtin.lineinfile:\n        path: \"/etc/sudoers\"\n        line: \"%wheel        ALL=(ALL:ALL) NOPASSWD:ALL\"\n        regexp: \"^%wheel\"\n        owner: root\n        group: root\n        mode: \"640\"\n        state: present\n",
+    "review_status": "supplied_not_independently_validated"
+  },
+  {
+    "formal_query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\"",
+    "id": "a21",
+    "legacy_id": "p20",
+    "natural_language": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa",
+    "normalizations": [
+      "decode literal backslash-n in reference",
+      "remove publication backslash before underscore in NL/FQL"
+    ],
+    "paper_id": 21,
+    "provenance": "Aaron-supplied CSV",
+    "reference_solution": "---\n- name: Install and start ssh client and server and generate an ssh key for fizbaz\n  hosts: debian,redhat\n  become: true\n  tasks:\n    - name: Install SSH (Debian)\n      ansible.builtin.package:\n        name:\n          - openssh-client\n          - openssh-server\n        state: present\n      when: ansible_os_family == \"Debian\"\n    - name: Install SSH (RedHat)\n      ansible.builtin.package:\n        name:\n          - openssh-server\n          - openssh-clients\n        state: present\n      when: ansible_os_family == \"RedHat\"\n    - name: Create SSH key\n      ansible.builtin.user:\n        name: \"fizbaz\"\n        generate_ssh_key: true\n        ssh_key_file: \".ssh/fizbaz_rsa\"\n    - name: Enable SSH server\n      ansible.builtin.service:\n        name: sshd\n        state: started\n",
+    "review_status": "supplied_not_independently_validated"
+  }
+]

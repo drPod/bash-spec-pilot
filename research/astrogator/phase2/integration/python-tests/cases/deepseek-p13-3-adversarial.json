@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "45cf15ed6cba0a29be56a95411f1a3f98c698805a8ee5aa67939d54a6b583c70",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model deepseek, Problem p13, Response 3] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file if it does not exist] ****************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/deepseek/p13/response3.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create file if it does not exist\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: create_home. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.339,
+  "sample_id": "deepseek/p13/3"
+}

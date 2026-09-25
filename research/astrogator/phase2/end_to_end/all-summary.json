@@ -1,0 +1,3325 @@
+{
+  "scope": "21 tasks,2238 processed programs,72 missing attempts. Paired decisions versus supplied-query control; no correctness claim. Repeated queries and cells are not independent tasks.",
+  "arms": {
+    "compact-all": {
+      "complete": true,
+      "processed_cells": 13428,
+      "attempt_cells": 13860,
+      "queries": 126,
+      "exact_query_matches": 45,
+      "control_statuses": {
+        "accepted_with_possible_residuals": 900,
+        "missing_processed": 72,
+        "verification_rejected": 628,
+        "ansible_lowering_error": 710
+      },
+      "prior_normalized_domain_sweep_differences": [
+        {
+          "sample_id": "qwen3-coder/p17/1",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/2",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/3",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/5",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/6",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/7",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/8",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/9",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "starcoder/p17/9",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        }
+      ],
+      "models": {
+        "gpt6": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 584,
+              "verification_rejected": 428,
+              "ansible_lowering_error": 275,
+              "query_semantic_error": 843,
+              "query_parse_error": 108
+            },
+            "decisions": 1012,
+            "changed_status": 1091,
+            "transitions": {
+              "accept->accept": 541,
+              "reject->reject": 331,
+              "reject->accept": 43,
+              "accept->reject": 97,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 254,
+              "accept->unavailable": 262
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 872,
+              "became_unavailable": 516,
+              "accept_to_reject": 97,
+              "reject_to_accept": 43
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete contents of directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 43,
+                  "verification_rejected": 36,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 56,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 11,
+                  "accepted_with_possible_residuals": 7
+                },
+                "changed_status": 84,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set permanent system-wide environment variable LC_ALL to C",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if needed",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create Python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; create backup of postfix default configuration file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create home page; create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for wheel group; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 584,
+              "verification_rejected": 428,
+              "ansible_lowering_error": 275,
+              "query_semantic_error": 843,
+              "query_parse_error": 108
+            },
+            "decisions": 1012,
+            "changed_status": 1091,
+            "transitions": {
+              "accept->accept": 541,
+              "reject->reject": 331,
+              "reject->accept": 43,
+              "accept->reject": 97,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 254,
+              "accept->unavailable": 262
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 872,
+              "became_unavailable": 516,
+              "accept_to_reject": 97,
+              "reject_to_accept": 43
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete contents of directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 43,
+                  "verification_rejected": 36,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 56,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 11,
+                  "accepted_with_possible_residuals": 7
+                },
+                "changed_status": 84,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set system-wide environment variable LC_ALL to C with permanent=true",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if needed",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create Python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; if apache server home page not exists then create apache server home page. if os is RedHat then create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group wheel; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client and server; start ssh client and server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 661,
+              "verification_rejected": 351,
+              "ansible_lowering_error": 275,
+              "query_semantic_error": 843,
+              "query_parse_error": 108
+            },
+            "decisions": 1012,
+            "changed_status": 1014,
+            "transitions": {
+              "accept->accept": 618,
+              "reject->reject": 331,
+              "reject->accept": 43,
+              "accept->reject": 20,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 254,
+              "accept->unavailable": 262
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 949,
+              "became_unavailable": 516,
+              "accept_to_reject": 20,
+              "reject_to_accept": 43
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete contents of directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 43,
+                  "verification_rejected": 36,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 56,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible.git\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 84,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 14
+                },
+                "changed_status": 7,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to C with scope=system-wide, permanent=true",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if needed",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create Python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; create backup of postfix default configuration file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; if home page not exists then create home page. if os is RedHat then create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group with name=wheel; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          }
+        },
+        "opus55": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 618,
+              "verification_rejected": 315,
+              "query_semantic_error": 953,
+              "ansible_lowering_error": 244,
+              "query_parse_error": 108
+            },
+            "decisions": 933,
+            "changed_status": 1068,
+            "transitions": {
+              "accept->accept": 618,
+              "reject->reject": 308,
+              "reject->unavailable": 320,
+              "accept->unavailable": 275,
+              "unavailable->unavailable": 710,
+              "accept->reject": 7
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 926,
+              "became_unavailable": 595,
+              "accept_to_reject": 7,
+              "reject_to_accept": 0
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete directory contents at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 110
+                },
+                "changed_status": 110,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible.git\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 84,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 14
+                },
+                "changed_status": 7,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to C with scope=system-wide, permanent=true",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if needed",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment at \"/user/home/venv\" with python=\"3.10\"; install numpy in \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration file backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create home page for apache server; create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group with name=wheel; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 618,
+              "verification_rejected": 315,
+              "query_semantic_error": 953,
+              "ansible_lowering_error": 244,
+              "query_parse_error": 108
+            },
+            "decisions": 933,
+            "changed_status": 1068,
+            "transitions": {
+              "accept->accept": 618,
+              "reject->reject": 308,
+              "reject->unavailable": 320,
+              "accept->unavailable": 275,
+              "unavailable->unavailable": 710,
+              "accept->reject": 7
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 926,
+              "became_unavailable": 595,
+              "accept_to_reject": 7,
+              "reject_to_accept": 0
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete directory contents at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 110
+                },
+                "changed_status": 110,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible.git\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 84,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 14
+                },
+                "changed_status": 7,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set permanent system-wide environment variable LC_ALL to C",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if required",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create home page for apache server; create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group with name=wheel; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 618,
+              "verification_rejected": 315,
+              "query_semantic_error": 953,
+              "ansible_lowering_error": 244,
+              "query_parse_error": 108
+            },
+            "decisions": 933,
+            "changed_status": 1068,
+            "transitions": {
+              "accept->accept": 618,
+              "reject->reject": 308,
+              "reject->unavailable": 320,
+              "accept->unavailable": 275,
+              "unavailable->unavailable": 710,
+              "accept->reject": 7
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 926,
+              "became_unavailable": 595,
+              "accept_to_reject": 7,
+              "reject_to_accept": 0
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at /srv/www",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete directory contents at /home/mydata/web",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 110
+                },
+                "changed_status": 110,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone git repository from \"https://github.com/ansible/ansible.git\" with branch=\"release1.8.4\" into /ansible",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 84,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 14
+                },
+                "changed_status": 7,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to C with scope=system-wide, permanent=true",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then reboot system if required",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_parse_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 97
+                },
+                "changed_status": 97,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian or os is RedHat then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 99
+                },
+                "changed_status": 99,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; create backup for postfix default configuration file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create apache server home page; create user with name=webdev",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group with name=wheel; create user with name=ansible in group=wheel",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 107
+                },
+                "changed_status": 107,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              }
+            }
+          }
+        }
+      },
+      "changed_cells_file": "changed-cells-compact-all.jsonl",
+      "run": {
+        "complete": true,
+        "arm": "compact-all",
+        "frozen_sha256": "f551f51d0c8dab138125149ef840a43bd012452b7b9b8c495d099f3323a62b74",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "new_queries": 34,
+        "new_verifications": 652,
+        "reused_verifications": 8978
+      }
+    },
+    "handbook-all": {
+      "complete": true,
+      "processed_cells": 13428,
+      "attempt_cells": 13860,
+      "queries": 126,
+      "exact_query_matches": 37,
+      "control_statuses": {
+        "accepted_with_possible_residuals": 900,
+        "missing_processed": 72,
+        "verification_rejected": 628,
+        "ansible_lowering_error": 710
+      },
+      "prior_normalized_domain_sweep_differences": [
+        {
+          "sample_id": "qwen3-coder/p17/1",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/2",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/3",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/5",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/6",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/7",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/8",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "qwen3-coder/p17/9",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        },
+        {
+          "sample_id": "starcoder/p17/9",
+          "old_normalized_domain_status": "accepted_with_possible_residuals",
+          "current_verbatim_query_status": "verification_rejected"
+        }
+      ],
+      "models": {
+        "gpt6": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 901,
+              "verification_rejected": 627,
+              "ansible_lowering_error": 710
+            },
+            "decisions": 1528,
+            "changed_status": 3,
+            "transitions": {
+              "accept->accept": 899,
+              "reject->reject": 626,
+              "unavailable->unavailable": 710,
+              "accept->reject": 1,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1525,
+              "became_unavailable": 0,
+              "accept_to_reject": 1,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\", branch=\"release1.8.4\" into \"/ansible\" via https",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=\"service\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix; copy postfix configuration file to ?path; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to \"/etc/postfix/main.cf\" otherwise download file from \"http://example.com/cfg.redhat\" to \"/etc/postfix/main.cf\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 57,
+                  "ansible_lowering_error": 51
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; if apache server html home page file not exists then create apache server html home page file. if os is RedHat then create user with name=\"webdev\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", primary group=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 85,
+                  "ansible_lowering_error": 22
+                },
+                "changed_status": 1,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 901,
+              "verification_rejected": 627,
+              "ansible_lowering_error": 710
+            },
+            "decisions": 1528,
+            "changed_status": 3,
+            "transitions": {
+              "accept->accept": 899,
+              "reject->reject": 626,
+              "unavailable->unavailable": 710,
+              "accept->reject": 1,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1525,
+              "became_unavailable": 0,
+              "accept_to_reject": 1,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\" into \"/ansible\" via https with branch=\"release1.8.4\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=\"service\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix; copy postfix configuration file to ?path; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to \"/etc/postfix/main.cf\" otherwise download file from \"http://example.com/cfg.redhat\" to \"/etc/postfix/main.cf\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 57,
+                  "ansible_lowering_error": 51
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", primary group=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 85,
+                  "ansible_lowering_error": 22
+                },
+                "changed_status": 1,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 901,
+              "verification_rejected": 627,
+              "ansible_lowering_error": 710
+            },
+            "decisions": 1528,
+            "changed_status": 3,
+            "transitions": {
+              "accept->accept": 899,
+              "reject->reject": 626,
+              "unavailable->unavailable": 710,
+              "accept->reject": 1,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1525,
+              "became_unavailable": 0,
+              "accept_to_reject": 1,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\" into \"/ansible\" via https with branch=\"release1.8.4\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=\"service\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix; copy postfix configuration file to ?path; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to \"/etc/postfix/main.cf\" otherwise download file from \"http://example.com/cfg.redhat\" to \"/etc/postfix/main.cf\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 57,
+                  "ansible_lowering_error": 51
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", primary group=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 85,
+                  "ansible_lowering_error": 22
+                },
+                "changed_status": 1,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          }
+        },
+        "opus55": {
+          "0": {
+            "statuses": {
+              "accepted_with_possible_residuals": 902,
+              "verification_rejected": 569,
+              "ansible_lowering_error": 659,
+              "query_semantic_error": 108
+            },
+            "decisions": 1471,
+            "changed_status": 110,
+            "transitions": {
+              "accept->accept": 900,
+              "reject->reject": 569,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 57,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1469,
+              "became_unavailable": 57,
+              "accept_to_reject": 0,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\", branch=\"release1.8.4\" into \"/ansible\" via https",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=service",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file. if os is RedHat then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", supplemental groups=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 84,
+                  "ansible_lowering_error": 22,
+                  "accepted_with_possible_residuals": 1
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          },
+          "1": {
+            "statuses": {
+              "accepted_with_possible_residuals": 902,
+              "verification_rejected": 569,
+              "ansible_lowering_error": 659,
+              "query_semantic_error": 108
+            },
+            "decisions": 1471,
+            "changed_status": 110,
+            "transitions": {
+              "accept->accept": 900,
+              "reject->reject": 569,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 57,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1469,
+              "became_unavailable": 57,
+              "accept_to_reject": 0,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\", branch=\"release1.8.4\" into \"/ansible\" via https",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=\"service\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file. if os is RedHat then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", supplemental groups=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 84,
+                  "ansible_lowering_error": 22,
+                  "accepted_with_possible_residuals": 1
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          },
+          "2": {
+            "statuses": {
+              "accepted_with_possible_residuals": 902,
+              "verification_rejected": 569,
+              "ansible_lowering_error": 659,
+              "query_semantic_error": 108
+            },
+            "decisions": 1471,
+            "changed_status": 110,
+            "transitions": {
+              "accept->accept": 900,
+              "reject->reject": 569,
+              "unavailable->unavailable": 710,
+              "reject->unavailable": 57,
+              "reject->accept": 2
+            },
+            "reference_decided": {
+              "denominator": 1528,
+              "same_decision": 1469,
+              "became_unavailable": 57,
+              "accept_to_reject": 0,
+              "reject_to_accept": 2
+            },
+            "tasks": {
+              "a01": {
+                "query": "create directory at \"/srv/www\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 110
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a02": {
+                "query": "delete directory at \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 96,
+                  "verification_rejected": 11
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a03": {
+                "query": "delete files in \"/home/mydata/web\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 66,
+                  "accepted_with_possible_residuals": 13,
+                  "ansible_lowering_error": 31
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a04": {
+                "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "accepted_with_possible_residuals": 99,
+                  "ansible_lowering_error": 8,
+                  "verification_rejected": 1
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a05": {
+                "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 71,
+                  "ansible_lowering_error": 24,
+                  "accepted_with_possible_residuals": 14
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a06": {
+                "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "verification_rejected": 20,
+                  "accepted_with_possible_residuals": 22
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a07": {
+                "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 57,
+                  "accepted_with_possible_residuals": 44,
+                  "verification_rejected": 6
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a08": {
+                "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 38,
+                  "ansible_lowering_error": 43,
+                  "accepted_with_possible_residuals": 24
+                },
+                "changed_status": 0,
+                "processed": 105
+              },
+              "a09": {
+                "query": "clone github repository with name=\"ansible/ansible\" via https with branch=\"release1.8.4\" into \"/ansible\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 91,
+                  "ansible_lowering_error": 11,
+                  "verification_rejected": 7
+                },
+                "changed_status": 0,
+                "processed": 109
+              },
+              "a10": {
+                "query": "set environment variable LC_ALL to \"C\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 13,
+                  "ansible_lowering_error": 39,
+                  "accepted_with_possible_residuals": 56
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a11": {
+                "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 7,
+                  "verification_rejected": 8,
+                  "accepted_with_possible_residuals": 93
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a12": {
+                "query": "if os is Debian then if reboot required then reboot",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 69,
+                  "verification_rejected": 6,
+                  "accepted_with_possible_residuals": 33
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a13": {
+                "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 91,
+                  "ansible_lowering_error": 19
+                },
+                "changed_status": 0,
+                "processed": 110
+              },
+              "a14": {
+                "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "ansible_lowering_error": 92,
+                  "verification_rejected": 5
+                },
+                "changed_status": 0,
+                "processed": 97
+              },
+              "a15": {
+                "query": "if os is Debian based or os is RedHat based then install numpy",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "verification_rejected": 37,
+                  "accepted_with_possible_residuals": 62,
+                  "ansible_lowering_error": 8
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a16": {
+                "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+                "generation_status": "ok",
+                "exact_query_match": true,
+                "statuses": {
+                  "ansible_lowering_error": 15,
+                  "accepted_with_possible_residuals": 59,
+                  "verification_rejected": 25
+                },
+                "changed_status": 0,
+                "processed": 99
+              },
+              "a17": {
+                "query": "disable password for user=\"service\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 63,
+                  "verification_rejected": 26,
+                  "ansible_lowering_error": 17
+                },
+                "changed_status": 0,
+                "processed": 106
+              },
+              "a18": {
+                "query": "if os is RedHat or os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file otherwise download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "query_semantic_error": 108
+                },
+                "changed_status": 108,
+                "processed": 108
+              },
+              "a19": {
+                "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "accepted_with_possible_residuals": 20,
+                  "verification_rejected": 46,
+                  "ansible_lowering_error": 42
+                },
+                "changed_status": 0,
+                "processed": 108
+              },
+              "a20": {
+                "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", supplemental groups=\"wheel\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 84,
+                  "ansible_lowering_error": 22,
+                  "accepted_with_possible_residuals": 1
+                },
+                "changed_status": 0,
+                "processed": 107
+              },
+              "a21": {
+                "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+                "generation_status": "ok",
+                "exact_query_match": false,
+                "statuses": {
+                  "verification_rejected": 8,
+                  "ansible_lowering_error": 98,
+                  "accepted_with_possible_residuals": 2
+                },
+                "changed_status": 2,
+                "processed": 108
+              }
+            }
+          }
+        }
+      },
+      "changed_cells_file": "changed-cells-handbook-all.jsonl",
+      "run": {
+        "complete": true,
+        "arm": "handbook-all",
+        "frozen_sha256": "5759f0ea2644683992310f479a7fb34522ffc0ad1f9de0b355e6f8c1a76245ba",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "new_queries": 18,
+        "new_verifications": 1718,
+        "reused_verifications": 13624
+      }
+    }
+  }
+}

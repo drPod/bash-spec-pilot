@@ -1,0 +1,11 @@
+{
+  "cache_key": "dd9ca46ed8d0c0755b5e93928571ed6228d259ab0f5b687a57a501185ff83fbe",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226",
+  "code_sha256": "5b246fb4641059aeecb87c8d2437c8d3e3a6f83decc23ae5ba0d01d34b6777f6",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module template\n",
+  "stderr": "",
+  "seconds": 0.0998,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,2 @@
+if file "/work/app.conf" not exists then create file at "/work/app.conf" with content="port=8080
+"

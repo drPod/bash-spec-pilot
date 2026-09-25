@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "astro-demo 2.0",
+      "value": true
+    },
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "astro-demo",
+      "value": true
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/var/lib/dpkg/status",
+      "value": "Installed, 2.0, 1001"
+    },
+    {
+      "kind": "package",
+      "scenario": "baseline",
+      "name": "astro-demo",
+      "version": "2.0"
+    }
+  ]
+}

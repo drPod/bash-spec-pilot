@@ -1,0 +1,66 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Ensure the installed cron service is running. It may initially be stopped or already running.\nInitial states: baseline: installed cron is stopped. adversarial: cron is running."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 5.335,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n    \"checks\": [\n        {\n            \"kind\": \"running\",\n            \"value\": \"cron\",\n            \"baseline\": \"stopped\"\n        },\n        {\n            \"kind\": \"running\",\n            \"value\": \"cron\",\n            \"adversarial\": \"running\"\n        }\n    ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290428,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 66,
+      "prompt_tokens": 198,
+      "total_tokens": 264,
+      "prompt_tokens_details": {
+        "cached_tokens": 160
+      }
+    },
+    "id": "chatcmpl-zBtdPP6Q1pjbLR1w63sX5UByl0gQXk5f",
+    "timings": {
+      "cache_n": 160,
+      "prompt_n": 38,
+      "prompt_ms": 1165.735,
+      "prompt_per_token_ms": 30.67723684210526,
+      "prompt_per_second": 32.5974599716059,
+      "predicted_n": 66,
+      "predicted_ms": 3967.178,
+      "predicted_per_token_ms": 61.033507692307694,
+      "predicted_per_second": 16.38444254328896
+    }
+  },
+  "text": "```json\n{\n    \"checks\": [\n        {\n            \"kind\": \"running\",\n            \"value\": \"cron\",\n            \"baseline\": \"stopped\"\n        },\n        {\n            \"kind\": \"running\",\n            \"value\": \"cron\",\n            \"adversarial\": \"running\"\n        }\n    ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a55",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "8cf6d67f29f785a655e37528ade5374751f625b0f7ef1fdad3f2a1a7d74dac6c"
+}

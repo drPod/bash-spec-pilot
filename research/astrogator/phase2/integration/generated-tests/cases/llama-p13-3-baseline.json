@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "275c725b644cf1da584b7e4d5e7fd111f7d2e8645c54291ddf7f3a39c86c8f86",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p13, Response 3] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file if not present] **********************************************\n[ERROR]: Task failed: Could not find or access 'file.txt.j2'\nSearched in:\n\t/suite/data/corpus/llama/p13/templates/file.txt.j2\n\t/suite/data/corpus/llama/p13/file.txt.j2\n\t/suite/data/corpus/llama/p13/templates/file.txt.j2\n\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n\nTask failed.\nOrigin: /suite/data/corpus/llama/p13/response3.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create file if not present\n      ^ column 5\n\n<<< caused by >>>\n\nCould not find or access 'file.txt.j2'\nSearched in:\n\t/suite/data/corpus/llama/p13/templates/file.txt.j2\n\t/suite/data/corpus/llama/p13/file.txt.j2\n\t/suite/data/corpus/llama/p13/templates/file.txt.j2\n\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'file.txt.j2'\\nSearched in:\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/templates/file.txt.j2\\n\\t/suite/data/corpus/llama/p13/file.txt.j2 on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.296,
+  "sample_id": "llama/p13/3"
+}

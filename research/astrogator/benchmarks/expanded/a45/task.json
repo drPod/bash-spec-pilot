@@ -1,0 +1,21 @@
+{
+  "id": "a45",
+  "title": "Delete account and home",
+  "family": "identity",
+  "natural_language": "Remove the retired user and its home directory /home/retired while preserving /home/active.",
+  "formal_query": "delete user with name=retired; delete directory at /home/retired",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "leaves retired home",
+  "tags": [
+    "deletion",
+    "scope"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

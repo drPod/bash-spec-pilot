@@ -1,0 +1,11 @@
+{
+  "cache_key": "96408dd7f974f721185fa9f7bb57120cf8f6299c64773a4cc0fc3fee826040df",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "0d05518b6c40b33dca05d2582d9d8e7eac30d7591da9b38fa5e8a7df2155d470",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument mode for module fetch\n",
+  "stderr": "",
+  "seconds": 0.0727,
+  "status": "ansible_lowering_error"
+}

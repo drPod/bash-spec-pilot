@@ -1,0 +1,78 @@
+{
+  "task": {
+    "id": "python-a01-r1",
+    "mode": "python",
+    "task_id": "a01",
+    "repeat": 1,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+      },
+      {
+        "role": "user",
+        "content": "Request: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep."
+      }
+    ]
+  },
+  "model": "gpt-6-astra",
+  "model_alias": "gpt6",
+  "argv": [
+    "/home/ubuntu/.npm-global/bin/codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--model",
+    "gpt-6-astra",
+    "--sandbox",
+    "read-only",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "-c",
+    "features.shell_tool=false",
+    "-c",
+    "features.multi_agent=false",
+    "--json",
+    "-"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nWrite a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request.\n\nUSER:\nRequest: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep.",
+  "prompt_sha256": "a45a9cb253be56d2ff2893a9d40116f58df89719d1eb7031fa6ceaa4ce867766",
+  "created_at": "2026-09-25T14:51:23.061403+00:00",
+  "frozen_input_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "returncode": 0,
+  "stdout": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d90c-b3aa-74e3-b38a-7c3035a70d06\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"agent_message\",\"text\":\"import os\\nfrom pathlib import Path\\n\\ndirectory = Path(\\\"/srv/www\\\")\\nassert directory.is_dir(), \\\"/srv/www must exist as a directory\\\"\\n\\nif os.environ.get(\\\"ASTRO_SCENARIO\\\", \\\"baseline\\\") == \\\"adversarial\\\":\\n    assert (directory / \\\"keep\\\").is_file(), \\\"/srv/www/keep must be preserved\\\"\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":13789,\"cached_input_tokens\":11520,\"cache_write_input_tokens\":0,\"output_tokens\":214,\"reasoning_output_tokens\":139}}\n",
+  "stderr": "",
+  "events": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a0d90c-b3aa-74e3-b38a-7c3035a70d06"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "import os\nfrom pathlib import Path\n\ndirectory = Path(\"/srv/www\")\nassert directory.is_dir(), \"/srv/www must exist as a directory\"\n\nif os.environ.get(\"ASTRO_SCENARIO\", \"baseline\") == \"adversarial\":\n    assert (directory / \"keep\").is_file(), \"/srv/www/keep must be preserved\""
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 13789,
+        "cached_input_tokens": 11520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 214,
+        "reasoning_output_tokens": 139
+      }
+    }
+  ],
+  "tool_use_detected": false,
+  "text": "import os\nfrom pathlib import Path\n\ndirectory = Path(\"/srv/www\")\nassert directory.is_dir(), \"/srv/www must exist as a directory\"\n\nif os.environ.get(\"ASTRO_SCENARIO\", \"baseline\") == \"adversarial\":\n    assert (directory / \"keep\").is_file(), \"/srv/www/keep must be preserved\"",
+  "status": "ok",
+  "extracted": "import os\nfrom pathlib import Path\n\ndirectory = Path(\"/srv/www\")\nassert directory.is_dir(), \"/srv/www must exist as a directory\"\n\nif os.environ.get(\"ASTRO_SCENARIO\", \"baseline\") == \"adversarial\":\n    assert (directory / \"keep\").is_file(), \"/srv/www/keep must be preserved\"",
+  "seconds": 11.041
+}

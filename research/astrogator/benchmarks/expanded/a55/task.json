@@ -1,0 +1,20 @@
+{
+  "id": "a55",
+  "title": "Start existing service",
+  "family": "services",
+  "natural_language": "Ensure the installed cron service is running. It may initially be stopped or already running.",
+  "formal_query": "start cron service",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "enables boot startup without starting",
+  "tags": [
+    "running-vs-enabled"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

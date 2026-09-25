@@ -1,0 +1,13 @@
+test_execution_failure_policy_explicit (test_methodology.MethodologyTests.test_execution_failure_policy_explicit) ... ok
+test_gate_abstention (test_methodology.MethodologyTests.test_gate_abstention) ... ok
+test_invalid_test_abstains (test_methodology.MethodologyTests.test_invalid_test_abstains) ... ok
+test_missing_state_unresolved (test_methodology.MethodologyTests.test_missing_state_unresolved) ... ok
+test_never_borrow_oracle_for_test_prediction (test_methodology.MethodologyTests.test_never_borrow_oracle_for_test_prediction) ... ok
+test_password_structural_integrity_separate (test_methodology.MethodologyTests.test_password_structural_integrity_separate) ... ok
+test_test_rejection_is_not_oracle_failure (test_methodology.MethodologyTests.test_test_rejection_is_not_oracle_failure) ... ok
+test_timeout_not_rejection_even_when_other_fails (test_methodology.MethodologyTests.test_timeout_not_rejection_even_when_other_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

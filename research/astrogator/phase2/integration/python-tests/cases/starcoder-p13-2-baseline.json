@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "958f0d67185007d4324836e36d0a3a9ac0e68a0bb9f9b4eae2856849c7dd2d1f",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 2] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create the file /etc/file.txt with the contents beginning if it does not already exist] ***\n[ERROR]: Task failed: Could not find or access 'template.txt'\nSearched in:\n\t/suite/data/corpus/starcoder/p13/templates/template.txt\n\t/suite/data/corpus/starcoder/p13/template.txt\n\t/suite/data/corpus/starcoder/p13/templates/template.txt\n\t/suite/data/corpus/starcoder/p13/template.txt on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n\nTask failed.\nOrigin: /suite/data/corpus/starcoder/p13/response2.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create the file /etc/file.txt with the contents beginning if it does not\n      ^ column 5\n\n<<< caused by >>>\n\nCould not find or access 'template.txt'\nSearched in:\n\t/suite/data/corpus/starcoder/p13/templates/template.txt\n\t/suite/data/corpus/starcoder/p13/template.txt\n\t/suite/data/corpus/starcoder/p13/templates/template.txt\n\t/suite/data/corpus/starcoder/p13/template.txt on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Could not find or access 'template.txt'\\nSearched in:\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt\\n\\t/suite/data/corpus/starcoder/p13/templates/template.txt\\n\\t/suite/data/corpus/starcoder/p13/template.txt on the Ansible Controller.\\nIf you are using a module and expect the file to exist on the remote, see the remote_src option\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.133,
+  "sample_id": "starcoder/p13/2"
+}

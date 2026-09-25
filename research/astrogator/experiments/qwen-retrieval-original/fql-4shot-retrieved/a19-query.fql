@@ -1,0 +1,1 @@
+if os is RedHat then install apache server; if home page for apache server not exists then create home page; install user "webdev"

@@ -1,0 +1,11 @@
+{
+  "cache_key": "e77920a26f8c443b043216912ec865fc9171e5dd4a5a1c701e37dcefb76009fe",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "41f61aabbfd7b33dff471f392b9157de5cb7598d72fd43f99e3ba26b088b7bd7",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\n(F) Type error, found list but expected path\n",
+  "stderr": "",
+  "seconds": 0.0494,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,15 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.find:
+      paths: /work/cache
+      patterns: '*.tmp'
+      file_type: file
+      hidden: false
+      recurse: false
+    register: found
+  - ansible.builtin.file:
+      path: '{{ item.path }}'
+      state: absent
+    loop: '{{ found.files }}'

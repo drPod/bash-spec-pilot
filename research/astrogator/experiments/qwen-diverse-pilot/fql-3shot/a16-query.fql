@@ -1,0 +1,1 @@
+install with name="zsh" then set shell="dev" then ensure file "PATH/etc/zshenv" exists

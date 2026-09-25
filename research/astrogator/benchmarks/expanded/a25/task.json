@@ -1,0 +1,21 @@
+{
+  "id": "a25",
+  "title": "Initialize without overwriting",
+  "family": "configuration",
+  "natural_language": "If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.",
+  "formal_query": "if file \"/work/app.conf\" not exists then create file at \"/work/app.conf\" with content=\"port=8080\n\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "overwrites existing configuration",
+  "tags": [
+    "conditional",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

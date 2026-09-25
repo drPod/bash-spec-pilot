@@ -1,0 +1,73 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "candidate_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "gpt6-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a02-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a02-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "absent",
+            "scenario": "adversarial",
+            "path": "/home/mydata/web"
+          },
+          "passed": false
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen3, Problem p05, Response 10] ***********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete the directory] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "seconds": 4.314,
+  "sample_id": "qwen3.5/p05/0"
+}

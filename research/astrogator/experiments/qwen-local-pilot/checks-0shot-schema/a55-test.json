@@ -1,0 +1,354 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Ensure the installed cron service is running. It may initially be stopped or already running.\nInitial states: baseline: installed cron is stopped. adversarial: cron is running."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "checks": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 12,
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "directory"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "absent"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "mode"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "content"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "contains"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "not_contains"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "path",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "member"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "group": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "user",
+                    "group"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "package"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "name",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "running"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "name",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "password_locked"
+                    },
+                    "scenario": {
+                      "enum": [
+                        "both",
+                        "baseline",
+                        "adversarial"
+                      ]
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "scenario",
+                    "user"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "checks"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "seconds": 10.019,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"checks\": [\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"cron is stopped\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"adversarial\",\n      \"name\": \"cron is running\",\n      \"value\": false\n    }\n  ]\n}"
+        }
+      }
+    ],
+    "created": 1790291091,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 198,
+      "total_tokens": 280,
+      "prompt_tokens_details": {
+        "cached_tokens": 160
+      }
+    },
+    "id": "chatcmpl-GwF8rCO5Fsp8fv4B7iTgP1VuTBUYM6QK",
+    "timings": {
+      "cache_n": 160,
+      "prompt_n": 38,
+      "prompt_ms": 716.657,
+      "prompt_per_token_ms": 18.859394736842106,
+      "prompt_per_second": 53.02397102100446,
+      "predicted_n": 82,
+      "predicted_ms": 9112.33,
+      "predicted_per_token_ms": 112.4979012345679,
+      "predicted_per_second": 8.889054720362411
+    }
+  },
+  "text": "{\n  \"checks\": [\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"baseline\",\n      \"name\": \"cron is stopped\",\n      \"value\": true\n    },\n    {\n      \"kind\": \"running\",\n      \"scenario\": \"adversarial\",\n      \"name\": \"cron is running\",\n      \"value\": false\n    }\n  ]\n}",
+  "finish_reason": "stop",
+  "task_id": "a55",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "constrained": false,
+  "diverse_demos": false,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "8cf6d67f29f785a655e37528ade5374751f625b0f7ef1fdad3f2a1a7d74dac6c"
+}

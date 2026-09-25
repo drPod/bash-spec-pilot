@@ -1,0 +1,11 @@
+{
+  "cache_key": "0819695815bb203eedd693d8855167369398c90332528f58284dc9110662ae10",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+  "code_sha256": "7a301e97b49fd0a2ef71d1249194394a5c62858b44f125792e272e71aa174370",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module community.general.passwd\n",
+  "stderr": "",
+  "seconds": 0.081,
+  "status": "ansible_lowering_error"
+}

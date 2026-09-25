@@ -1,0 +1,65 @@
+[
+  {
+    "task_id": "a22",
+    "mode": "0700",
+    "verifier_status": "verification_rejected",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    }
+  },
+  {
+    "task_id": "a22",
+    "mode": "u=rwx,g=,o=",
+    "verifier_status": "verification_rejected",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    }
+  },
+  {
+    "task_id": "a22",
+    "mode": "u=rwX",
+    "verifier_status": "accepted_with_possible_residuals",
+    "execution": {
+      "baseline": "oracle_rejected",
+      "adversarial": "oracle_rejected"
+    }
+  },
+  {
+    "task_id": "a22",
+    "mode": "u=rwX,g=,o=",
+    "verifier_status": "verification_rejected",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    }
+  },
+  {
+    "task_id": "a67",
+    "mode": "0700",
+    "verifier_status": "verification_rejected",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    }
+  },
+  {
+    "task_id": "a67",
+    "mode": "u=rwx,g=,o=",
+    "verifier_status": "verification_rejected",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    }
+  },
+  {
+    "task_id": "a67",
+    "mode": "u=rwx",
+    "verifier_status": "accepted_with_possible_residuals",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "oracle_rejected"
+    }
+  }
+]

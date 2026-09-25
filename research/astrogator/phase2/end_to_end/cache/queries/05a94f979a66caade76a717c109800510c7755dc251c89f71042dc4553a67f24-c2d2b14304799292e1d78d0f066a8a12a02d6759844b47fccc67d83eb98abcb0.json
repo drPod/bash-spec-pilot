@@ -1,0 +1,22 @@
+{
+  "query_sha256": "c2d2b14304799292e1d78d0f066a8a12a02d6759844b47fccc67d83eb98abcb0",
+  "query": "create python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t4693801edd22f080a2df72667eff0759\nsemantic\terror\tUnhandled environment type for create: python virtual\n",
+    "stderr": "",
+    "seconds": 0.005,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "4693801edd22f080a2df72667eff0759"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled environment type for create: python virtual"
+      }
+    }
+  }
+}

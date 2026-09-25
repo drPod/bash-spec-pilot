@@ -1,0 +1,11 @@
+{
+  "cache_key": "21b58c4df6a4d2419c6c68da14c0e7aa243ccee86e342cb4c338e0ceea72e4f4",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "742a5dd80069b30c6f5264e95f4b78875054b3fe77e0ff15edf3c5c0ac13f9e8",
+  "code_sha256": "8c7eb1a1c8ea8179f6ed865c1e6d30617c203ea18ee1eeef092f5fbd1e1be9a4",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220022 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n",
+  "stderr": "",
+  "seconds": 0.0615,
+  "status": "accepted_with_possible_residuals"
+}

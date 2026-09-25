@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "kind": "directory",
+      "scenario": "baseline",
+      "path": "/srv/www"
+    },
+    {
+      "kind": "absent",
+      "scenario": "baseline",
+      "path": "/srv/www"
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/srv/www",
+      "value": "/bin/bash"
+    },
+    {
+      "kind": "content",
+      "scenario": "baseline",
+      "path": "/srv/www",
+      "value": "This is a test directory."
+    },
+    {
+      "kind": "contains",
+      "scenario": "baseline",
+      "path": "/srv/www",
+      "value": "test directory"
+    },
+    {
+      "kind": "not_contains",
+      "scenario": "baseline",
+      "path": "/srv/www",
+      "value": "other content"
+    },
+    {
+      "kind": "member",
+      "scenario": "baseline",
+      "user": "www-data",
+      "group": "www-data"
+    },
+    {
+      "kind": "package",
+      "scenario": "baseline",
+      "name": "httpd",
+      "version": "2.4.49-1.el8"
+    },
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "httpd",
+      "value": true
+    },
+    {
+      "kind": "password_locked",
+      "scenario": "baseline",
+      "user": "www-data"
+    }
+  ]
+}

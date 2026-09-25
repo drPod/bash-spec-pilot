@@ -1,0 +1,60 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, both). Kinds and required string fields: directory:path; absent:path; content:path,value (exact complete text); password_locked:user. Generate checks for both scenarios. No other fields. Example: {\"checks\":[{\"kind\":\"directory\",\"path\":\"/tmp/example\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist\nInitial states: baseline: file absent; adversarial: file contains exactly existing content."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 4.231,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"file\",\n      \"path\": \"/etc/file.txt\",\n      \"content\": \"beginning\"\n    }\n  ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290769,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 134,
+      "total_tokens": 176,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "id": "chatcmpl-nsnzdIhU81evmaRehSuSzQQyQZJ0vziL",
+    "timings": {
+      "cache_n": 91,
+      "prompt_n": 43,
+      "prompt_ms": 1169.417,
+      "prompt_per_token_ms": 27.19574418604651,
+      "prompt_per_second": 36.77045912621418,
+      "predicted_n": 42,
+      "predicted_ms": 2898.693,
+      "predicted_per_token_ms": 70.69982926829269,
+      "predicted_per_second": 14.1443057267534
+    }
+  },
+  "text": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"file\",\n      \"path\": \"/etc/file.txt\",\n      \"content\": \"beginning\"\n    }\n  ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a06"
+}

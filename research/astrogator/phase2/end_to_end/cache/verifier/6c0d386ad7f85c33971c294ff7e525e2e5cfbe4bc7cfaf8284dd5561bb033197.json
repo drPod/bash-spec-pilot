@@ -1,0 +1,11 @@
+{
+  "cache_key": "6c0d386ad7f85c33971c294ff7e525e2e5cfbe4bc7cfaf8284dd5561bb033197",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+  "code_sha256": "2868a53c6ad53f469c8651213191907f0d154c7d3019b862db8c5a8b60ecc66b",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module assert\n",
+  "stderr": "",
+  "seconds": 0.0877,
+  "status": "ansible_lowering_error"
+}

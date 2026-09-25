@@ -1,0 +1,26 @@
+{
+  "query_sha256": "ddfc90227eb0110909e35c471309a7ddf2ae438be60f5529493bd317f187d879",
+  "query": "if os is Debian then if reboot required then reboot",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t61bc305cd55371c35d657c143437b9b5\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0041,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "61bc305cd55371c35d657c143437b9b5"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "unavailable:functional_value"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "f7cae05f976bcba0c8692979cf9d7d22580fd1157e02150897e96143fa58e151",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "ca74437507050e7ba80f160f318e6e9a1913c1e351dfa1fd7501e73d8b72dc76",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument starts for module service\n",
+  "stderr": "",
+  "seconds": 0.0922,
+  "status": "ansible_lowering_error"
+}

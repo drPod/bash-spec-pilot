@@ -1,0 +1,14 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "candidate_sha256": "a30fb4722893208b83a7451f2f83f85ea5071862913b1fecb0d1619d5a966f5e",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p05, Response 1] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete a directory recursively] ******************************************\n[ERROR]: Task failed: Module failed: recurse option requires state to be 'directory'\nOrigin: /suite/data/corpus/starcoder/p05/response1.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Delete a directory recursively\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"gid\": 0, \"group\": \"root\", \"mode\": \"0755\", \"msg\": \"recurse option requires state to be 'directory'\", \"owner\": \"root\", \"path\": \"/home/mydata/web/\", \"size\": 4096, \"state\": \"directory\", \"uid\": 0}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.097,
+  "sample_id": "starcoder/p05/1"
+}

@@ -1,0 +1,22 @@
+{
+  "query_sha256": "acd1c5a5f5a916c64419d4082695788d000e414ff077a435d00e0de2a916f124",
+  "query": "set environment variable LC_ALL to C with scope=system-wide, permanent=true",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t980950f994109fc98bcb554fa1fc8df0\nsemantic\terror\tUnhandled arguments for set: permanent = true, scope = system-wide\n",
+    "stderr": "",
+    "seconds": 0.0036,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "980950f994109fc98bcb554fa1fc8df0"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled arguments for set: permanent = true, scope = system-wide"
+      }
+    }
+  }
+}

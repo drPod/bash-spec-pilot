@@ -1,0 +1,11 @@
+{
+  "cache_key": "94572ac295c459163bcab1f7d84d722c9b1e831e002c1830c5813f18f9a3c116",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "52bc076787eeb8e920cda0bb323378e1bd67ac539a5399b300d68968ad7cc542",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module debconf.state\n",
+  "stderr": "",
+  "seconds": 0.0965,
+  "status": "ansible_lowering_error"
+}

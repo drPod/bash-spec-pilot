@@ -1,0 +1,65 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 3.225,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "clone from remote \"/tmp\" to remote \"/backup\" with path=\".\" as \"*.war\"; with name=\"war\"; with content=\".\"; with owner=\"root\"; with group=\"root\"; with other=\"root\";"
+        }
+      }
+    ],
+    "created": 1790290865,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 284,
+      "total_tokens": 328,
+      "prompt_tokens_details": {
+        "cached_tokens": 268
+      }
+    },
+    "id": "chatcmpl-bYpsdBhWJD6VBIvEQQv4v0s42IcXoJO1",
+    "timings": {
+      "cache_n": 268,
+      "prompt_n": 16,
+      "prompt_ms": 302.856,
+      "prompt_per_token_ms": 18.9285,
+      "prompt_per_second": 52.83038803920015,
+      "predicted_n": 44,
+      "predicted_ms": 2826.334,
+      "predicted_per_token_ms": 65.7286976744186,
+      "predicted_per_second": 15.21405467294382
+    }
+  },
+  "text": "clone from remote \"/tmp\" to remote \"/backup\" with path=\".\" as \"*.war\"; with name=\"war\"; with content=\".\"; with owner=\"root\"; with group=\"root\"; with other=\"root\";",
+  "finish_reason": "stop",
+  "task_id": "a08",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 0,
+  "demonstration_ids": [],
+  "constrained": false,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "2b095c5ccd316d5643ecb3fd3763f7298c1972df27b5b70284668e6d22ac38e3"
+}

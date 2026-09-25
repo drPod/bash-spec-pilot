@@ -1,0 +1,14 @@
+PASS quoted octal
+PASS complete symbolic
+PASS reordered complete classes
+PASS special bits
+PASS directory conditional X
+PASS unknown kind X declined
+PASS partial chmod declined
+PASS relative chmod declined
+PASS permission copying declined
+PASS duplicate classes declined
+PASS invalid octal declined
+PASS float spelling declined
+PASS dynamic mode declined
+PASS no permission integration by default

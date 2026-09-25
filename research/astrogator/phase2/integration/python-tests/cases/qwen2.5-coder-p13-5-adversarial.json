@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "a096074c179ea2b6626c0588c216d1191c25663557695e36e609de73297ea76e",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p13, Response 5] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file /etc/file.txt if it does not exist] **************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/qwen2.5-coder/p13/response5.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create file /etc/file.txt if it does not exist\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.913,
+  "sample_id": "qwen2.5-coder/p13/5"
+}

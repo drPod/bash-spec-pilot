@@ -1,0 +1,11 @@
+{
+  "cache_key": "1de17719bf3c86a8a6e4e49ce1532b9b5142703b7da529a51a4aa642c0bad9c7",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+  "code_sha256": "a382e77b3148b64808b7f46aa18d68f2905867d721621001ec354b1eeefd24fa",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220015) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220024) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220033) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n",
+  "stderr": "",
+  "seconds": 0.045,
+  "status": "accepted_with_possible_residuals"
+}

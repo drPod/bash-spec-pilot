@@ -1,0 +1,11 @@
+Sep 25 13:59:08 vps-1e56a9e4 systemd[1032]: Started astrogator-phase2-debian.service - /bin/sh -c "docker run --rm --init --network=none --memory=256m --cpus=0.50 --pids-limit=96 -v /home/ubuntu/Coding/bash-spec-pilot/research/astrogator:/suite:ro astrogator-lab:20260924-v2 python3 /suite/phase2/evaluation/debian_heuristics.py > research/astrogator/phase2/evaluation/debian-heuristics.jsonl".
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]: Traceback (most recent call last):
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:   File "/suite/phase2/evaluation/debian_heuristics.py", line 48, in <module>
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:     if __name__=='__main__':main()
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:                             ~~~~^^
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:   File "/suite/phase2/evaluation/debian_heuristics.py", line 31, in main
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:     assert kept, (name,source)
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]:            ^^^^
+Sep 25 13:59:10 vps-1e56a9e4 sh[138554]: AssertionError: ('files.txt', '')
+Sep 25 13:59:10 vps-1e56a9e4 systemd[1032]: astrogator-phase2-debian.service: Main process exited, code=exited, status=1/FAILURE
+Sep 25 13:59:10 vps-1e56a9e4 systemd[1032]: astrogator-phase2-debian.service: Failed with result 'exit-code'.

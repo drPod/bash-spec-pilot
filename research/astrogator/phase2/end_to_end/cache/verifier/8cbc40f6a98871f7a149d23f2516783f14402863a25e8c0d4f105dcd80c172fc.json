@@ -1,0 +1,11 @@
+{
+  "cache_key": "8cbc40f6a98871f7a149d23f2516783f14402863a25e8c0d4f105dcd80c172fc",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "ab66f6e5ca7dc20cf8aa5a0465f3d7140783699e71047e23ba8d3b0315eb634b",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module community.general.virtualenv\n",
+  "stderr": "",
+  "seconds": 0.0852,
+  "status": "ansible_lowering_error"
+}

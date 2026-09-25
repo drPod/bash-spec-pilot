@@ -1,0 +1,47 @@
+{
+  "policy": "Exactly one retry for transport/startup failure with no answer. Original errors retained. No retry of predictions, uncertain answers, syntax errors or tool use.",
+  "attempts": [
+    {
+      "model": "gpt6",
+      "task": "fql-a06-r2",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "afc30d22bc66ca46136e333c585dbedc8ed6f9460067b67f9e510ecd9545ce1e"
+    },
+    {
+      "model": "gpt6",
+      "task": "fql-a12-r2",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "7537da6396174ed572c70deaad91abcad88344121e34b82f566dee2e347c443c"
+    },
+    {
+      "model": "gpt6",
+      "task": "fql-a14-r2",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "95ed2916db625c73808a44bebc0a971a4523d086e23d04f7666655a19e317501"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-oss-p10-0",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "6926542afa218b406fa97fb00a740dfd8852239364e22bc46effe72c6813e243"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-gpt-oss-p13-1",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "a7f2521029cc2ebfc44f48d1d411ce6247f40be1745689393c4477525d8482d5"
+    },
+    {
+      "model": "gpt6",
+      "task": "judge-llama-p10-1",
+      "previous_status": "invalid_or_transport_error",
+      "previous_attempt_sha256": "542e439af5e58e2486e41c67ad68b415dd6916331afeb8ee09e810884f9224ff"
+    },
+    {
+      "model": "opus55",
+      "task": "fql-a03-r2",
+      "previous_status": "transport_error",
+      "previous_attempt_sha256": "16f1a38e78bb0d9d528961747f99c27d2db43e380f82987c6c2059b689372efe"
+    }
+  ]
+}

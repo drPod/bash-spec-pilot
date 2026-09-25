@@ -1,0 +1,19 @@
+{
+  "common_programs": 416,
+  "excluded": {
+    "dsl": [
+      "qwen3-coder/p05/6",
+      "qwen3-coder/p05/7"
+    ],
+    "python": [
+      "qwen2.5-coder/p05/3",
+      "qwen2.5-coder/p05/4",
+      "qwen2.5-coder/p05/7",
+      "qwen2.5-coder/p05/8"
+    ]
+  },
+  "arms": [
+    "dsl",
+    "python"
+  ]
+}

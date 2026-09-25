@@ -1,0 +1,257 @@
+{
+  "reason": "Terminate only orphaned descendants of completed/timed-out CLI calls in this research unit. They are reparented to user systemd, not children of the active inference runner. Live inference processes excluded.",
+  "unit": "astrogator-phase2-finish-inference.service",
+  "runner_pid": 144557,
+  "processes": [
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 238303
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 258725
+    },
+    {
+      "ppid": 258725,
+      "comm": "MainThread",
+      "pid": 258726
+    },
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 333906
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 376501
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 376502
+    },
+    {
+      "ppid": 376502,
+      "comm": "MainThread",
+      "pid": 376503
+    },
+    {
+      "ppid": 376501,
+      "comm": "MainThread",
+      "pid": 376505
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 381748
+    },
+    {
+      "ppid": 381748,
+      "comm": "MainThread",
+      "pid": 381749
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 410656
+    },
+    {
+      "ppid": 410656,
+      "comm": "MainThread",
+      "pid": 410657
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 447579
+    },
+    {
+      "ppid": 447579,
+      "comm": "MainThread",
+      "pid": 447580
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 471722
+    },
+    {
+      "ppid": 471722,
+      "comm": "MainThread",
+      "pid": 471724
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 474840
+    },
+    {
+      "ppid": 474840,
+      "comm": "MainThread",
+      "pid": 474841
+    },
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 501903
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 521211
+    },
+    {
+      "ppid": 521211,
+      "comm": "MainThread",
+      "pid": 521212
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 526325
+    },
+    {
+      "ppid": 526325,
+      "comm": "MainThread",
+      "pid": 526326
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 530827
+    },
+    {
+      "ppid": 530827,
+      "comm": "MainThread",
+      "pid": 530828
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 533807
+    },
+    {
+      "ppid": 533807,
+      "comm": "MainThread",
+      "pid": 533808
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 538813
+    },
+    {
+      "ppid": 538813,
+      "comm": "MainThread",
+      "pid": 538814
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 542404
+    },
+    {
+      "ppid": 542404,
+      "comm": "MainThread",
+      "pid": 542405
+    },
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 566336
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 567608
+    },
+    {
+      "ppid": 567608,
+      "comm": "MainThread",
+      "pid": 567609
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 567610
+    },
+    {
+      "ppid": 567610,
+      "comm": "MainThread",
+      "pid": 567611
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 568274
+    },
+    {
+      "ppid": 568274,
+      "comm": "MainThread",
+      "pid": 568275
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 569654
+    },
+    {
+      "ppid": 569654,
+      "comm": "MainThread",
+      "pid": 569659
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 583357
+    },
+    {
+      "ppid": 583357,
+      "comm": "MainThread",
+      "pid": 583358
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 583359
+    },
+    {
+      "ppid": 583359,
+      "comm": "MainThread",
+      "pid": 583360
+    },
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 583379
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 587375
+    },
+    {
+      "ppid": 587375,
+      "comm": "MainThread",
+      "pid": 587376
+    },
+    {
+      "ppid": 1032,
+      "comm": "codex",
+      "pid": 595690
+    },
+    {
+      "ppid": 1032,
+      "comm": "sh",
+      "pid": 599523
+    },
+    {
+      "ppid": 599523,
+      "comm": "MainThread",
+      "pid": 599524
+    }
+  ]
+}

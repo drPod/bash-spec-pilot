@@ -1,0 +1,65 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Add the line `module load gcc' to the end of foo's bashrc"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 2.591,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "action write bashrc in module load gcc; with key=owner=root; with key=group=wheel; with key=content=\"module load gcc\""
+        }
+      }
+    ],
+    "created": 1790290870,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 32,
+      "prompt_tokens": 282,
+      "total_tokens": 314,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-ugMZTifcsgSbhMIOVg8Xr4yYcI2zi2VB",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 21,
+      "prompt_ms": 469.655,
+      "prompt_per_token_ms": 22.36452380952381,
+      "prompt_per_second": 44.713672802376216,
+      "predicted_n": 32,
+      "predicted_ms": 2033.224,
+      "predicted_per_token_ms": 65.58787096774194,
+      "predicted_per_second": 15.246721463055719
+    }
+  },
+  "text": "action write bashrc in module load gcc; with key=owner=root; with key=group=wheel; with key=content=\"module load gcc\"",
+  "finish_reason": "stop",
+  "task_id": "a11",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 0,
+  "demonstration_ids": [],
+  "constrained": false,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "3a4a3cff30d40ea522039e281338cd5375164fb6259c3095c81b5db5b6649465"
+}

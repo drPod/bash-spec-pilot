@@ -1,0 +1,1 @@
+if os is RedHat based then install apache server; create file with name=home_page; create user with name=webdev; set user with name=webdev to group=apache

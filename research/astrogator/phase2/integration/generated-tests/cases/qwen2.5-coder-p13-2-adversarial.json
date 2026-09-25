@@ -1,0 +1,83 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "b9051f89937323fe412a596b6fbdd4c323c096869dbbb4de3f965e8bd67fe0bf",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "existing content"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "not_contains",
+            "scenario": "adversarial",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen, Problem p13, Response 2] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure /etc/file.txt exists] *********************************************\nchanged: [localhost]\n\nTASK [Set contents of /etc/file.txt] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e67",
+    "old_oracle": false,
+    "single_final_newline_tolerant": false
+  },
+  "seconds": 6.294,
+  "sample_id": "qwen2.5-coder/p13/2"
+}

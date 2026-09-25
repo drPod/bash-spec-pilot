@@ -1,0 +1,11 @@
+{
+  "cache_key": "63c87ad7818a33e8667f787f71cbfe5d937de1993155722e2a52aa77ac077abd",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "0cbef9d1621428f35c9752a4b065cf71df219a75ad5b4c26ed6e13b3915698c9",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin liner\n",
+  "stderr": "",
+  "seconds": 0.0895,
+  "status": "ansible_lowering_error"
+}

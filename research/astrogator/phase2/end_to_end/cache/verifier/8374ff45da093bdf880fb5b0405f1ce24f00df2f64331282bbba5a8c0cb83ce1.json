@@ -1,0 +1,11 @@
+{
+  "cache_key": "8374ff45da093bdf880fb5b0405f1ce24f00df2f64331282bbba5a8c0cb83ce1",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "2ac076f28fe46b46811f4b7e76c9e489a4bf1958086379bead53e103b04ea4c5",
+  "code_sha256": "9522b5dcfe1b2677705d707f46250e3cafb2972789a45b6c551a02f343d17729",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.synchronize\n",
+  "stderr": "",
+  "seconds": 0.0902,
+  "status": "ansible_lowering_error"
+}

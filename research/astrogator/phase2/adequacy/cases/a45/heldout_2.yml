@@ -1,0 +1,11 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: true
+  - ansible.builtin.file:
+      path: /work/unrelated
+      state: directory

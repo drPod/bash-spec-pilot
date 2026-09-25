@@ -1,0 +1,15 @@
+accept,guide,model,reject,repeat,status_changes_vs_supplied,transition_accept->accept,transition_accept->reject,transition_accept->unavailable,transition_reject->accept,transition_reject->reject,transition_reject->unavailable,transition_unavailable->unavailable,unavailable
+900,compact-all,supplied_query_control,628,control,0,,,,,,,,710
+584,compact-all,gpt6,428,0,1091,541,97,262,43,331,254,710,1226
+584,compact-all,gpt6,428,1,1091,541,97,262,43,331,254,710,1226
+661,compact-all,gpt6,351,2,1014,618,20,262,43,331,254,710,1226
+618,compact-all,opus55,315,0,1068,618,7,275,,308,320,710,1305
+618,compact-all,opus55,315,1,1068,618,7,275,,308,320,710,1305
+618,compact-all,opus55,315,2,1068,618,7,275,,308,320,710,1305
+900,handbook-all,supplied_query_control,628,control,0,,,,,,,,710
+901,handbook-all,gpt6,627,0,3,899,1,,2,626,,710,710
+901,handbook-all,gpt6,627,1,3,899,1,,2,626,,710,710
+901,handbook-all,gpt6,627,2,3,899,1,,2,626,,710,710
+902,handbook-all,opus55,569,0,110,900,,,2,569,57,710,767
+902,handbook-all,opus55,569,1,110,900,,,2,569,57,710,767
+902,handbook-all,opus55,569,2,110,900,,,2,569,57,710,767

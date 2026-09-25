@@ -1,0 +1,76 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "3c7d794e64ad849bbeaef80d3402f45f0d14b5b7442e4800698dafad9a13a59a",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_contents (__main__.TestFileCreation.test_contents) ... ok\ntest_file_exists_and_is_regular (__main__.TestFileCreation.test_file_exists_and_is_regular) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt, Problem p13, Response 10] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create /etc/file.txt with contents \"beginning\"] **************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "6578697374696e6720636f6e74656e74",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/etc/file.txt": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985310,
+      "mtime_ns": 1790348331028267481,
+      "ctime_ns": 1790348331028267481,
+      "sha256": "131fc6fe7a8464937c72db19863b153ad1ac1b534889ca7dbfc69cfd08088335"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 5.168,
+  "sample_id": "gpt-4o/p13/0"
+}

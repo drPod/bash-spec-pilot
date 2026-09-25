@@ -1,0 +1,1 @@
+copy file from remote/controller "/scratch/file.txt" to remote/controller "/home/user/data.txt"

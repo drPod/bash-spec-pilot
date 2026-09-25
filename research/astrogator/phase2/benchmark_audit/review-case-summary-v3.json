@@ -1,0 +1,31 @@
+{
+  "cases": 20,
+  "successful_ansible_executions": 32,
+  "case_level_outcomes_under_declared_contract": {
+    "v2": {
+      "valid_accept": 12,
+      "contract_violation_reject": 5,
+      "contract_violation_accept": 3
+    },
+    "v3": {
+      "valid_accept": 12,
+      "contract_violation_reject": 8
+    }
+  },
+  "excluding_source_addition_interpretive_case": {
+    "v2": {
+      "valid_accept": 12,
+      "contract_violation_reject": 5,
+      "contract_violation_accept": 2
+    },
+    "v3": {
+      "valid_accept": 12,
+      "contract_violation_reject": 7
+    }
+  },
+  "interpretive_case_ids": [
+    "a70-original-source_extra"
+  ],
+  "all_v3_expected_outcomes_match": true,
+  "scope": "Purposive review-response cases; direct-directory and unchanged-source contracts are explicit interpretations, not independent human gold."
+}

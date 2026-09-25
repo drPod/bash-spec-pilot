@@ -1,0 +1,1 @@
+if os is Debian then install zsh; set zsh as user with name=dev's default shell; if zsh configuration file not exists then create zsh configuration file.

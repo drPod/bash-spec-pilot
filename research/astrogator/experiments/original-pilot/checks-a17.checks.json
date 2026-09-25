@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "password_locked",
+      "user": "service"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "password_locked",
+      "user": "service"
+    }
+  ]
+}

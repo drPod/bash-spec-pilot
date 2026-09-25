@@ -1,0 +1,1 @@
+create file at "/etc/file.txt" with contents="beginning" if file "path/to/file.txt" not exists

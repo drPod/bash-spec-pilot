@@ -1,0 +1,11 @@
+{
+  "cache_key": "bf362e101de899a6a85b576fc3921451c99e4f5e6ff698bfffdabf12d13e39b3",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831",
+  "code_sha256": "033001a39cc8479493b5b76a3300456978a671a1774bfc74b6468edf6276ed32",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module community.general.pveven_env\n",
+  "stderr": "",
+  "seconds": 0.0573,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,15 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      src: /work/source/
+      dest: /work/dest/
+      remote_src: true
+  - name: Second review challenge
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import pathlib,shutil,os; shutil.copy2('/work/dest/keep','/work/source/keep');
+        shutil.rmtree('/work/dest'); os.symlink('/work/source','/work/dest')

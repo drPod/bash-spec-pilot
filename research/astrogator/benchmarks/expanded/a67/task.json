@@ -1,0 +1,21 @@
+{
+  "id": "a67",
+  "title": "Private executable mode",
+  "family": "filesystem",
+  "natural_language": "Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.",
+  "formal_query": "set file permissions for \"/work/run.sh\" to read=owner, write=owner, execute=owner",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "omits execute permission",
+  "tags": [
+    "execute-permission",
+    "negative-scope"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "8364e41287a44c1527ff06b8ab881725620307068342e6ef4139ba9e5d0a07e2",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "eae2f3fef66e03ee828636e7281cbe08d28745cca804b35086ffa924fec3f438",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument connect_timeout for module ansible.builtin.reboot\n",
+  "stderr": "",
+  "seconds": 0.0825,
+  "status": "ansible_lowering_error"
+}

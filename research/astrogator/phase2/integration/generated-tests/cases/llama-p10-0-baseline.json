@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "76f8b738de17ca47c6260009153cc76c5f24b71ce370bac0c1e915cb48f6fc78",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p10, Response 10] ***********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Set service user password] ***********************************************\nchanged: [localhost]\n\nTASK [Delete service user password] ********************************************\n[ERROR]: Task failed: Module failed: value of update_password must be one of: always, on_create, got: True\nOrigin: /suite/data/corpus/llama/p10/response0.yml:10:5\n\n 8       name: service\n 9       password: ''\n10   - name: Delete service user password\n       ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"value of update_password must be one of: always, on_create, got: True\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 5.508,
+  "sample_id": "llama/p10/0"
+}

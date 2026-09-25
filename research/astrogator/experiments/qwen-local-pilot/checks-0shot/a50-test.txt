@@ -1,0 +1,40 @@
+{
+    "checks": [
+        {
+            "kind": "package",
+            "path": "/fixtures/astro-demo_2.0_all.deb",
+            "value": "2.0",
+            "scenario": "baseline"
+        },
+        {
+            "kind": "package",
+            "path": "/fixtures/astro-demo_2.0_all.deb",
+            "value": "2.0",
+            "scenario": "adversarial"
+        },
+        {
+            "kind": "package",
+            "path": "/fixtures/astro-demo_2.0_all.deb",
+            "value": "2.0",
+            "scenario": "both"
+        },
+        {
+            "kind": "running",
+            "path": "astro-demo",
+            "value": "2.0",
+            "scenario": "baseline"
+        },
+        {
+            "kind": "running",
+            "path": "astro-demo",
+            "value": "2.0",
+            "scenario": "adversarial"
+        },
+        {
+            "kind": "running",
+            "path": "astro-demo",
+            "value": "2.0",
+            "scenario": "both"
+        }
+    ]
+}

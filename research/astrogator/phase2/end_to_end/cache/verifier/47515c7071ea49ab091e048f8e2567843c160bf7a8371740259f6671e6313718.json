@@ -1,0 +1,11 @@
+{
+  "cache_key": "47515c7071ea49ab091e048f8e2567843c160bf7a8371740259f6671e6313718",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d40f97a064a177ffd367db12db0f6051928fa40df7e19523120dca04581bf08",
+  "code_sha256": "acd565f6e5eebdaea28364ed4cf9756d2cfe647e890ae9bc143d1dc814c93701",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument type for module ansible.builtin.find\n",
+  "stderr": "",
+  "seconds": 0.1117,
+  "status": "ansible_lowering_error"
+}

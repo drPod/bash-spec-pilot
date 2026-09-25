@@ -1,0 +1,60 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, both). Kinds and required string fields: directory:path; absent:path; content:path,value (exact complete text); password_locked:user. Generate checks for both scenarios. No other fields. Example: {\"checks\":[{\"kind\":\"directory\",\"path\":\"/tmp/example\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Create directory /srv/www\nInitial states: baseline: /srv/www absent; adversarial: directory exists with a file keep."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 7.799,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"directory\",\n      \"path\": \"/srv/www\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"path\": \"/srv/www\"\n    }\n  ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290755,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 53,
+      "prompt_tokens": 122,
+      "total_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      }
+    },
+    "id": "chatcmpl-LO1FKw6xKykAoPT5oPkGBpjvYHaubtEU",
+    "timings": {
+      "cache_n": 3,
+      "prompt_n": 119,
+      "prompt_ms": 2796.679,
+      "prompt_per_token_ms": 23.501504201680675,
+      "prompt_per_second": 42.550467894241706,
+      "predicted_n": 53,
+      "predicted_ms": 4824.808,
+      "predicted_per_token_ms": 92.78476923076923,
+      "predicted_per_second": 10.77763094407073
+    }
+  },
+  "text": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"directory\",\n      \"path\": \"/srv/www\"\n    },\n    {\n      \"kind\": \"absent\",\n      \"path\": \"/srv/www\"\n    }\n  ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a01"
+}

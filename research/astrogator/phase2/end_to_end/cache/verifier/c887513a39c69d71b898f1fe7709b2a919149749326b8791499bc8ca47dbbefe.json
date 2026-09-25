@@ -1,0 +1,11 @@
+{
+  "cache_key": "c887513a39c69d71b898f1fe7709b2a919149749326b8791499bc8ca47dbbefe",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "0ec9572c94c727d82be972a5733a399c68e50cbf249f366eb8f9f4d236771b0d",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument flatten for module ansible.builtin.copy\n",
+  "stderr": "",
+  "seconds": 0.0826,
+  "status": "ansible_lowering_error"
+}

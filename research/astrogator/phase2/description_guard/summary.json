@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "clean_patch_application": true,
+  "patch_matches_delivered_source": true,
+  "original_checkout_unchanged": true,
+  "ocaml_regressions_passed": 9,
+  "logical_queries_replayed": 273,
+  "unique_binary_query_calls": 152,
+  "changed_outputs": 3,
+  "unchanged_outputs": 270,
+  "all21_supplied_unchanged": true,
+  "all126_handbook_unchanged": true,
+  "changed_queries": [
+    {
+      "source": "compact-all",
+      "task_id": "a03",
+      "model": "gpt6",
+      "repeat": 0,
+      "query": "delete contents of directory at /home/mydata/web"
+    },
+    {
+      "source": "compact-all",
+      "task_id": "a03",
+      "model": "gpt6",
+      "repeat": 1,
+      "query": "delete contents of directory at /home/mydata/web"
+    },
+    {
+      "source": "compact-all",
+      "task_id": "a03",
+      "model": "gpt6",
+      "repeat": 2,
+      "query": "delete contents of directory at /home/mydata/web"
+    }
+  ],
+  "status_interpretation": "Semantic query rejection makes the pipeline unavailable. It is not a detected candidate-program error.",
+  "projected_compact_gpt_a03_cost_per_repeat": {
+    "previously_accepted_to_unavailable": 43,
+    "previously_rejected_to_unavailable": 36,
+    "already_unavailable": 31
+  },
+  "scope": "Narrow guard for unused description prefix in DeleteFile/DeleteDir explicit-at branches only; no query repair or general descriptor audit."
+}

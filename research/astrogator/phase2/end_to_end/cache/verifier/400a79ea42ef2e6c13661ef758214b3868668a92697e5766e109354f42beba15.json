@@ -1,0 +1,11 @@
+{
+  "cache_key": "400a79ea42ef2e6c13661ef758214b3868668a92697e5766e109354f42beba15",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "42cf92b11784c6953ad8c476d31ddd5002a217f0337e7ee482d8da8533502dad",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.authorized_key\n",
+  "stderr": "",
+  "seconds": 0.0863,
+  "status": "ansible_lowering_error"
+}

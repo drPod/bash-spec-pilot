@@ -1,0 +1,18 @@
+{
+  "tasks": 8,
+  "container_cases": 32,
+  "successful_ansible_executions": 48,
+  "reference_cases": 16,
+  "all_reference_cases_pass_supplemental_checks_twice": true,
+  "challenge_cases": 16,
+  "challenge_cases_rejected_by_supplemental_check": 16,
+  "original_fixture_challenges_accepted_by_old_oracle": 8,
+  "additional_fixture_challenges_accepted_by_old_oracle": 7,
+  "reference_cases_rejected_by_fixture_specific_old_oracle": [
+    {
+      "task": "a70",
+      "scenario": "heldout"
+    }
+  ],
+  "methodological_scope": "Purposively selected oracle-adequacy counterexamples. No random-sample prevalence, independent human gold, authentication proof, or Astrogator soundness claim."
+}

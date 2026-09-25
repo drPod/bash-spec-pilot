@@ -1,0 +1,26 @@
+{
+  "query_sha256": "70cce71f17324d156504adbb413349c35f0e7b80ce152361342558fa0f5e02db",
+  "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t929f98e88d156479b9dead677e82b6cb\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0253,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "929f98e88d156479b9dead677e82b6cb"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "unavailable:functional_value"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

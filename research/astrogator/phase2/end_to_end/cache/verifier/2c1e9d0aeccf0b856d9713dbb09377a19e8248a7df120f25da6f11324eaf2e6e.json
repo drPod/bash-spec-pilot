@@ -1,0 +1,11 @@
+{
+  "cache_key": "2c1e9d0aeccf0b856d9713dbb09377a19e8248a7df120f25da6f11324eaf2e6e",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d3739352bfa2623a54c0869c44d9b7ce3be3f573c4239bebffdb9165826df038",
+  "code_sha256": "e6c360be5a32a5c3e1413ca1d230a840354bb96d3bf57b55e6d5e87b05c386e4",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module sysctl\n",
+  "stderr": "",
+  "seconds": 0.0842,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,26 @@
+{
+  "query_sha256": "b1e2b26c4b5762be126ea3635b50ccb4144921e9684b8724bec4d095aa53f73c",
+  "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t427f7bf45136f4d96a47cd08ae113170\nsemantic\tok\t1c2a37e3adb7c02f53a3e51ee9570ec5\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0022,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "427f7bf45136f4d96a47cd08ae113170"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "1c2a37e3adb7c02f53a3e51ee9570ec5"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

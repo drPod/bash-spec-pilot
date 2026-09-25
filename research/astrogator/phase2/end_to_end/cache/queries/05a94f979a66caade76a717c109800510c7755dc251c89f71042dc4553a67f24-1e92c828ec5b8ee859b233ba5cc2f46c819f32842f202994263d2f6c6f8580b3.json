@@ -1,0 +1,26 @@
+{
+  "query_sha256": "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3",
+  "query": "disable password for user=service",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t8c16052874fd6e98c9650d60e440d503\nsemantic\tok\t883b2a494d5dca1da6e374a63f043377\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0029,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "8c16052874fd6e98c9650d60e440d503"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "883b2a494d5dca1da6e374a63f043377"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

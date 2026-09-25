@@ -1,0 +1,63 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for an Ansible task on Debian. Output Python only. The test runs after the playbook, with standard library only, as root. Exit 0 iff checked requirements hold; use assertions. Do not modify system state, execute the playbook, install packages, or assume success. Check observable state; do not read playbook source. You do not receive a reference solution. Environment variable ASTRO_SCENARIO is baseline or adversarial."
+      },
+      {
+        "role": "user",
+        "content": "Task: In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.\nInitial states: baseline: file contains # keep newline mode=safe newline. adversarial: same plus port=9090 newline.\nWrite a test valid in both initial states."
+      }
+    ],
+    "max_tokens": 650,
+    "stream": false
+  },
+  "seconds": 57.965,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport os\nimport sys\n\ndef check_requirements(astro_scenario=None):\n    # Check initial state: baseline\n    baseline_file = \"/work/app.conf\"\n    baseline_content = \"\"\n    \n    with open(baseline_file, \"r\", newline=None) as file:\n        baseline_content = file.read().splitlines()\n    \n    expected_baseline_content = [\n        \"port=8080\",\n        \"# keep newline mode=safe newline\",\n    ]\n    \n    for i, line in enumerate(expected_baseline_content):\n        assert line in baseline_content, f\"Port 8080 not found in baseline file.\"\n        baseline_content.pop(i)\n    \n    # Check initial state: adversarial\n    adversarial_file = \"/work/app.conf\"\n    adversarial_content = \"\"\n    \n    with open(adversarial_file, \"r\", newline=None) as file:\n        adversarial_content = file.read().splitlines()\n    \n    expected_adversarial_content = [\n        \"port=9090\",\n        \"# keep newline mode=safe newline\",\n    ]\n    \n    for i, line in enumerate(expected_adversarial_content):\n        assert line in adversarial_content, f\"Port 9090 not found in adversarial file.\"\n        adversarial_content.pop(i)\n    \n    # No additional checks needed for the given scenario\n    \n    # Exit 0 if all checks pass\n    sys.exit(0)\n\n# Run the test with the given scenario\ncheck_requirements(astro_scenario=0)\n```"
+        }
+      }
+    ],
+    "created": 1790290214,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 307,
+      "prompt_tokens": 180,
+      "total_tokens": 487,
+      "prompt_tokens_details": {
+        "cached_tokens": 105
+      }
+    },
+    "id": "chatcmpl-MsbXaB3mAMYxaS8WIAiCrKMpDLsCSRFO",
+    "timings": {
+      "cache_n": 105,
+      "prompt_n": 75,
+      "prompt_ms": 1389.973,
+      "prompt_per_token_ms": 18.532973333333334,
+      "prompt_per_second": 53.957882635130325,
+      "predicted_n": 307,
+      "predicted_ms": 56419.913,
+      "predicted_per_token_ms": 184.37880065359477,
+      "predicted_per_second": 5.423617012667141
+    }
+  },
+  "text": "```python\nimport os\nimport sys\n\ndef check_requirements(astro_scenario=None):\n    # Check initial state: baseline\n    baseline_file = \"/work/app.conf\"\n    baseline_content = \"\"\n    \n    with open(baseline_file, \"r\", newline=None) as file:\n        baseline_content = file.read().splitlines()\n    \n    expected_baseline_content = [\n        \"port=8080\",\n        \"# keep newline mode=safe newline\",\n    ]\n    \n    for i, line in enumerate(expected_baseline_content):\n        assert line in baseline_content, f\"Port 8080 not found in baseline file.\"\n        baseline_content.pop(i)\n    \n    # Check initial state: adversarial\n    adversarial_file = \"/work/app.conf\"\n    adversarial_content = \"\"\n    \n    with open(adversarial_file, \"r\", newline=None) as file:\n        adversarial_content = file.read().splitlines()\n    \n    expected_adversarial_content = [\n        \"port=9090\",\n        \"# keep newline mode=safe newline\",\n    ]\n    \n    for i, line in enumerate(expected_adversarial_content):\n        assert line in adversarial_content, f\"Port 9090 not found in adversarial file.\"\n        adversarial_content.pop(i)\n    \n    # No additional checks needed for the given scenario\n    \n    # Exit 0 if all checks pass\n    sys.exit(0)\n\n# Run the test with the given scenario\ncheck_requirements(astro_scenario=0)\n```",
+  "finish_reason": "stop",
+  "task_id": "a35",
+  "variant": "test",
+  "mode": "tests",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "6ee05d3a0bff7f106ed4766f73969f90f8941a90dbde9dc9f61e36fe41f88d4f"
+}

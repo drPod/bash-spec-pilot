@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "f14a333a54a6456755a0769b553338baf19d0ea018f4edb04e3ab95c78e4ab3e",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p13, Response 1] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file /etc/file.txt with contents \"beginning\"] *********************\n[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined\n\nTask failed.\nOrigin: /suite/data/corpus/llama/p13/response1.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create file /etc/file.txt with contents \"beginning\"\n      ^ column 5\n\n<<< caused by >>>\n\nError while evaluating conditional: 'ansible' is undefined\nOrigin: /suite/data/corpus/llama/p13/response1.yml:15:11\n\n13     vars:\n14       content: \"beginning\"\n15     when: not ansible.builtin.file.stat(path='/etc/file.txt').exists\n             ^ column 11\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.401,
+  "sample_id": "llama/p13/1"
+}

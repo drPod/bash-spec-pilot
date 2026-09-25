@@ -1,0 +1,137 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "fe8b04b99f258116a7a2bce65277a276f7e83dee0a4a8d596be19117859f2c4b",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a17-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "baseline",
+            "user": "service"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "gpt6-checks-a17-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "baseline",
+            "user": "service"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a17-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "baseline",
+            "user": "service"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a17-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "password_locked",
+            "scenario": "baseline",
+            "user": "service"
+          },
+          "passed": false
+        }
+      ]
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model deepseek, Problem p10, Response 2] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for 'service' user] *************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": false
+  },
+  "seconds": 4.91,
+  "sample_id": "deepseek/p10/2"
+}

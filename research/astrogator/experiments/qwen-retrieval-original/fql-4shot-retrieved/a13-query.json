@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /backup on the controller into /tmp on the remote"
+      },
+      {
+        "role": "assistant",
+        "content": "copy files with glob=\"*.war\" from controller /backup to remote /tmp"
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+      },
+      {
+        "role": "assistant",
+        "content": "copy files with glob=\"*.war\" from remote /tmp to controller /backup"
+      },
+      {
+        "role": "user",
+        "content": "Permanently set the environment variable LC_ALL to ``C'' system-wide"
+      },
+      {
+        "role": "assistant",
+        "content": "set environment variable LC_ALL to \"C\""
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 6.455,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "set permissions on files and directories at /srv/path so that all users can list and read all files but only the owner can write"
+        }
+      }
+    ],
+    "created": 1790293264,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 435,
+      "total_tokens": 462,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-iBhoOxMAjmUneSH2lWDC00ZkwwlPbOb0",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 174,
+      "prompt_ms": 3342.935,
+      "prompt_per_token_ms": 19.212270114942527,
+      "prompt_per_second": 52.050069774015945,
+      "predicted_n": 27,
+      "predicted_ms": 2952.027,
+      "predicted_per_token_ms": 113.5395,
+      "predicted_per_second": 8.807507519409544
+    }
+  },
+  "text": "set permissions on files and directories at /srv/path so that all users can list and read all files but only the owner can write",
+  "finish_reason": "stop",
+  "task_id": "a13",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a07",
+    "a08",
+    "a10",
+    "a01"
+  ],
+  "retrieval_scores": [
+    0.18757211838770166,
+    0.17553752558590932,
+    0.12799035413151885,
+    0.1012151747551623
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "8dca15d99eabc9a4b8d82101cd9dbcd43d62d7e642d361db4d330c949d2f7c68",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

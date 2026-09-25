@@ -1,0 +1,7 @@
+{
+  "assertions": 678,
+  "returncode": 0,
+  "stdout": "compatibility checks passed\n",
+  "stderr": "",
+  "scope": "bounded independent comparison of includes, find_first and replace_all including empty patterns and offsets"
+}

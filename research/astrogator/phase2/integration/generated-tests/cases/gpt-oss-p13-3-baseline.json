@@ -1,0 +1,82 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "9b0861b24a9d2b36b976b3774f739b4cf9906bcf78c0738988ac75860b4eb96c",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "contains",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model gpt-oss, Problem p13, Response 3] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create /etc/file.txt with content if it does not exist] ******************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e67",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "seconds": 5.386,
+  "sample_id": "gpt-oss/p13/3"
+}

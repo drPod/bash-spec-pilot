@@ -1,0 +1,11 @@
+{
+  "cache_key": "5794e097be8e8d82017646f2efe8c8a4c52d65f84c92e58db7e10092b5f2df55",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "77c58a9ccaec66e60595584c3d3c81ecd6cedf293ee0c99786636d8cf2d62835",
+  "code_sha256": "526f4c3fe437258c5f1ac3e554104cc4521c758e2a4891115e03b5f90ab00b73",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument line for module ansible.builtin.blockinfile\n",
+  "stderr": "",
+  "seconds": 0.0986,
+  "status": "ansible_lowering_error"
+}

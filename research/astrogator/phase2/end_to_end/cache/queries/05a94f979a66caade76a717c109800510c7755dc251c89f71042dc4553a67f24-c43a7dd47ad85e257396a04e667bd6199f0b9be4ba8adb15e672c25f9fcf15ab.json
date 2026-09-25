@@ -1,0 +1,26 @@
+{
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t3db7b0c1c36e7cb8079f47620678bb4c\nsemantic\tok\t7303357fd88c0708608e83f46216310a\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0244,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "3db7b0c1c36e7cb8079f47620678bb4c"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "7303357fd88c0708608e83f46216310a"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "upstream_commit": "7c62afa51986d87033af5112cdccd3b104b1c120",
+  "path": "lib/fql/codegen.ml",
+  "before_sha256": "4c3ceb1bbd367e3e538fb2b843e08bec51b848ab482d567403601464ca1d9f02",
+  "after_sha256": "890273f4d13f1f2ba2cc6afc0cb0d62283bfd9e48c14ab0f006863dad4b1b8c7",
+  "scope": "Emit all permission classes, including empty ones, when any permission option is explicit. Do not canonicalize mode representations or change verifier algorithms."
+}

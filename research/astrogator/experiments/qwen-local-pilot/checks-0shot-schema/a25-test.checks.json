@@ -1,0 +1,28 @@
+{
+    "checks": [
+        {
+            "kind": "mode",
+            "scenario": "baseline",
+            "path": "/work/app.conf",
+            "value": "6400"
+        },
+        {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/work/app.conf",
+            "value": "port=8080\n"
+        },
+        {
+            "kind": "mode",
+            "scenario": "adversarial",
+            "path": "/work/app.conf",
+            "value": "6400"
+        },
+        {
+            "kind": "content",
+            "scenario": "adversarial",
+            "path": "/work/app.conf",
+            "value": "port=8080\n"
+        }
+    ]
+}

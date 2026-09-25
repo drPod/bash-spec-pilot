@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "db58faa9eda1c4f07e8c35a835a279d347b29e2b4535e3245ab0c9517a457790",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model gpt, Problem p13, Response 7] **************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file /etc/file.txt with contents \"beginning\" if it does not exist] ***\nchanged: [localhost]\n\nTASK [Add content to /etc/file.txt if file was just created] *******************\n[ERROR]: Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'\n\nTask failed.\nOrigin: /suite/data/corpus/gpt-4o/p13/response7.yml:10:5\n\n 8       path: /etc/file.txt\n 9       state: touch\n10   - name: Add content to /etc/file.txt if file was just created\n       ^ column 5\n\n<<< caused by >>>\n\nError while evaluating conditional: object of type 'dict' has no attribute 'files'\nOrigin: /suite/data/corpus/gpt-4o/p13/response7.yml:15:11\n\n13       block: |\n14         beginning\n15     when: ansible_facts['files']['/etc/file.txt']['exists'] == False\n             ^ column 11\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: object of type 'dict' has no attribute 'files'\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.965,
+  "sample_id": "gpt-4o/p13/7"
+}

@@ -1,0 +1,1015 @@
+[
+  {
+    "id": "a22",
+    "title": "Private application directory",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.",
+    "formal_query": "create directory at /work/private with read=owner, write=owner, list directory=owner",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "world-readable private directory",
+    "tags": [
+      "permissions",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a23",
+    "title": "Shared setgid directory",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/shared has mode 2770, including setgid, without removing existing files.",
+    "formal_query": "create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "omitted setgid",
+    "tags": [
+      "special-permissions"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a24",
+    "title": "Sticky shared spool",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/spool is a directory with mode 1777, including the sticky bit.",
+    "formal_query": "create directory at /work/spool with read=all, write=all, list directory=all, sticky=true",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "omitted sticky bit",
+    "tags": [
+      "special-permissions"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a25",
+    "title": "Initialize without overwriting",
+    "family": "configuration",
+    "natural_language": "If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.",
+    "formal_query": "if file \"/work/app.conf\" not exists then create file at \"/work/app.conf\" with content=\"port=8080\n\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "overwrites existing configuration",
+    "tags": [
+      "conditional",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a26",
+    "title": "Replace obsolete banner",
+    "family": "configuration",
+    "natural_language": "Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.",
+    "formal_query": "create file at /work/banner with content=\"Authorized users only\n\", read=all, write=owner",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "preserves obsolete content",
+    "tags": [
+      "replacement"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a27",
+    "title": "Copy with destination dependency",
+    "family": "filesystem",
+    "natural_language": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",
+    "formal_query": "create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "missing destination prerequisite",
+    "tags": [
+      "dependency",
+      "binary-content"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a28",
+    "title": "Move and remove source",
+    "family": "filesystem",
+    "natural_language": "Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",
+    "formal_query": "move file from remote /work/source to remote /work/moved",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "copy without deleting source",
+    "tags": [
+      "move",
+      "idempotence"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a29",
+    "title": "Unlink without deleting target",
+    "family": "filesystem",
+    "natural_language": "Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",
+    "formal_query": "delete file at /work/link",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "deletes link target",
+    "tags": [
+      "symlink",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a30",
+    "title": "Remove only obsolete tree",
+    "family": "filesystem",
+    "natural_language": "Remove /work/obsolete and all its contents, preserving its sibling /work/current.",
+    "formal_query": "delete directory at /work/obsolete",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "deletes parent and sibling",
+    "tags": [
+      "scope",
+      "recursive"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a31",
+    "title": "Prune temporary files selectively",
+    "family": "filesystem",
+    "natural_language": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.",
+    "formal_query": "delete files in /work/cache with glob=\"*.tmp\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "misses hidden matches",
+    "tags": [
+      "glob",
+      "negative-scope",
+      "hidden"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a32",
+    "title": "Readable traversable tree",
+    "family": "filesystem",
+    "natural_language": "For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.",
+    "formal_query": "set file permissions in /work/tree to read=all, write=owner, list directory=all",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "makes data files executable",
+    "tags": [
+      "permissions",
+      "file-vs-directory"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a33",
+    "title": "Switch release symlink",
+    "family": "filesystem",
+    "natural_language": "Point /work/current to /work/releases/v2, replacing an existing symlink to v1, and preserve both release directories.",
+    "formal_query": "create symbolic link at /work/current to /work/releases/v2",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "points at wrong release",
+    "tags": [
+      "symlink"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a34",
+    "title": "Create hard link",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/alias is a hard link to /work/source, replacing a stale ordinary file at /work/alias if present.",
+    "formal_query": "create hard link at /work/alias to /work/source",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "copies bytes instead of sharing inode",
+    "tags": [
+      "hardlink"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a35",
+    "title": "Replace existing directive",
+    "family": "configuration",
+    "natural_language": "In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.",
+    "formal_query": "write \"port=8080\" to file at \"/work/app.conf\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "appends without replacing old directive",
+    "tags": [
+      "regex",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a36",
+    "title": "Remove all legacy directives",
+    "family": "configuration",
+    "natural_language": "Remove every line beginning legacy= from /work/app.conf while preserving unrelated lines, including commented legacy examples.",
+    "formal_query": "delete lines from file at \"/work/app.conf\" with pattern=\"^legacy=\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "also removes commented example",
+    "tags": [
+      "regex",
+      "negative-scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a37",
+    "title": "Update managed block",
+    "family": "configuration",
+    "natural_language": "Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.",
+    "formal_query": "write \"alpha=1\nbeta=2\" to file at \"/work/app.conf\" with block=ASTRO",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "leaves old managed block",
+    "tags": [
+      "block-update"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a38",
+    "title": "Insert before terminal rule",
+    "family": "configuration",
+    "natural_language": "Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.",
+    "formal_query": "write \"allow local\" to file at /work/rules at position=beginning",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "inserts after terminal deny",
+    "tags": [
+      "ordering"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a39",
+    "title": "Targeted protocol migration",
+    "family": "configuration",
+    "natural_language": "Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.",
+    "formal_query": "replace text in file at \"/work/app.conf\" with pattern=\"^endpoint=http://\", replacement=\"endpoint=https://\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "rewrites unrelated URLs",
+    "tags": [
+      "regex",
+      "negative-scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a40",
+    "title": "Create group before account",
+    "family": "identity",
+    "natural_language": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.",
+    "formal_query": "create group with name=deploy; create user with name=app in primary group=deploy",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "uses missing prerequisite group",
+    "tags": [
+      "dependency"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a41",
+    "title": "Append group membership",
+    "family": "identity",
+    "natural_language": "Add the existing app user to deploy while retaining its existing supplemental group memberships.",
+    "formal_query": "set supplemental groups for user=app to deploy with append=true",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "replaces existing memberships",
+    "tags": [
+      "preservation",
+      "supplemental-group"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a42",
+    "title": "Change primary group",
+    "family": "identity",
+    "natural_language": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",
+    "formal_query": "create user with name=app in primary group=deploy",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "changes supplemental instead of primary group",
+    "tags": [
+      "primary-vs-supplemental"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a43",
+    "title": "Change login shell",
+    "family": "identity",
+    "natural_language": "Set the existing app user login shell to /bin/bash without changing its UID or home contents.",
+    "formal_query": "set default shell for user=app to bash",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "sets wrong shell",
+    "tags": [
+      "account-attributes"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a44",
+    "title": "Delete account retain data",
+    "family": "identity",
+    "natural_language": "Remove the retired user account, retaining /home/retired and all its contents.",
+    "formal_query": "delete user with name=retired",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "removes retained home",
+    "tags": [
+      "deletion",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a45",
+    "title": "Delete account and home",
+    "family": "identity",
+    "natural_language": "Remove the retired user and its home directory /home/retired while preserving /home/active.",
+    "formal_query": "delete user with name=retired; delete directory at /home/retired",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "leaves retired home",
+    "tags": [
+      "deletion",
+      "scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a46",
+    "title": "Lock existing password",
+    "family": "identity",
+    "natural_language": "Lock password authentication for the existing app user without replacing its stored password hash; retain the account.",
+    "formal_query": "disable password for user=app",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "destroys stored hash",
+    "tags": [
+      "preservation",
+      "password-lock"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a47",
+    "title": "Secure existing home",
+    "family": "identity",
+    "natural_language": "Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.",
+    "formal_query": "create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "leaves root ownership",
+    "tags": [
+      "ownership",
+      "permissions"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a48",
+    "title": "Install offline package",
+    "family": "packages",
+    "natural_language": "On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.",
+    "formal_query": "if os is Debian then install astro-demo with version=\"1.0\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "claims installation without installing",
+    "tags": [
+      "offline",
+      "package-state"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a49",
+    "title": "Remove installed package",
+    "family": "packages",
+    "natural_language": "Remove astro-demo from this Debian host if installed; leave astro-keep installed.",
+    "formal_query": "if os is Debian then uninstall astro-demo",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "leaves installed package",
+    "tags": [
+      "package-state",
+      "negative-scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a50",
+    "title": "Upgrade to exact package version",
+    "family": "packages",
+    "natural_language": "Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.",
+    "formal_query": "if os is Debian then install astro-demo with version=\"2.0\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "accepts stale installed version",
+    "tags": [
+      "version"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a51",
+    "title": "Hold installed package",
+    "family": "packages",
+    "natural_language": "Mark the installed astro-demo Debian package as held, preserving version 1.0.",
+    "formal_query": "set package selection for astro-demo to hold",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "installed does not imply held",
+    "tags": [
+      "package-policy"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a52",
+    "title": "Checkout release branch",
+    "family": "version-control",
+    "natural_language": "Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.",
+    "formal_query": "clone git repository from /fixtures/repo with branch=release into /work/checkout",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "wrong branch",
+    "tags": [
+      "version",
+      "existing-checkout"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a53",
+    "title": "Preserve existing checkout",
+    "family": "version-control",
+    "natural_language": "Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.",
+    "formal_query": "if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "updates checkout that should be preserved",
+    "tags": [
+      "conditional",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a54",
+    "title": "Pin deployment tag",
+    "family": "version-control",
+    "natural_language": "Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",
+    "formal_query": "clone git repository from /fixtures/repo with tag=v1 into /work/checkout",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "tracks branch instead of pinning tag",
+    "tags": [
+      "version"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a55",
+    "title": "Start existing service",
+    "family": "services",
+    "natural_language": "Ensure the installed cron service is running. It may initially be stopped or already running.",
+    "formal_query": "start cron service",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "enables boot startup without starting",
+    "tags": [
+      "running-vs-enabled"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a56",
+    "title": "Stop existing service",
+    "family": "services",
+    "natural_language": "Ensure cron is stopped, including when it is initially running.",
+    "formal_query": "stop cron service",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "disables boot startup without stopping",
+    "tags": [
+      "running-vs-enabled"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a57",
+    "title": "Enable boot startup only",
+    "family": "services",
+    "natural_language": "Enable cron at boot without starting it now. It is initially stopped, and may already be enabled.",
+    "formal_query": "enable cron service",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "unexpectedly starts service",
+    "tags": [
+      "negative-action",
+      "boot-policy"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a58",
+    "title": "Update scheduled job",
+    "family": "scheduling",
+    "natural_language": "Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.",
+    "formal_query": "create cron job with name=\"astro cleanup\", minute=\"15\", hour=\"2\", command=\"/usr/bin/true\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "swaps schedule fields",
+    "tags": [
+      "schedule",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a59",
+    "title": "Extract remote artifact",
+    "family": "archives",
+    "natural_language": "Extract the remote /fixtures/bundle.tar into /work/unpacked, creating that directory if absent and preserving unrelated existing files.",
+    "formal_query": "create directory at /work/unpacked; extract archive from remote \"/fixtures/bundle.tar\" to /work/unpacked",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "creates directory without extracting",
+    "tags": [
+      "dependency",
+      "archive"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a60",
+    "title": "Skip initialized extraction",
+    "family": "archives",
+    "natural_language": "Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.",
+    "formal_query": "if file \"/work/unpacked/app/data\" not exists then extract archive from remote \"/fixtures/bundle.tar\" to /work/unpacked",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "overwrites customized extraction",
+    "tags": [
+      "conditional",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a61",
+    "title": "Ensure shared group exists",
+    "family": "identity",
+    "natural_language": "Ensure the analytics group exists, preserving its GID if it already exists.",
+    "formal_query": "create group with name=analytics",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "changes existing group identity",
+    "tags": [
+      "identity-preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a62",
+    "title": "Remove unused group",
+    "family": "identity",
+    "natural_language": "Remove the unused obsolete group if it exists, preserving the active group and its GID.",
+    "formal_query": "delete group with name=obsolete",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "removes wrong group",
+    "tags": [
+      "negative-scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a63",
+    "title": "Provision multiple memberships",
+    "family": "identity",
+    "natural_language": "Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.",
+    "formal_query": "create user with name=app in primary group=primary, supplemental groups=deploy audit",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "omits one required membership",
+    "tags": [
+      "multiple-obligations"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a64",
+    "title": "Change directory owner only",
+    "family": "filesystem",
+    "natural_language": "Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.",
+    "formal_query": "create directory at /work/data with owner=app, group=app",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "recursively changes child ownership",
+    "tags": [
+      "negative-scope",
+      "ownership"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a65",
+    "title": "Append profile setting",
+    "family": "configuration",
+    "natural_language": "Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.",
+    "formal_query": "write \"export ASTRO=1\" to /work/profile at position=end",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "prepends instead of appending",
+    "tags": [
+      "ordering",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a66",
+    "title": "Prepend managed header",
+    "family": "configuration",
+    "natural_language": "Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.",
+    "formal_query": "write \"# managed\" to /work/header at position=start",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "appends header",
+    "tags": [
+      "ordering",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a67",
+    "title": "Private executable mode",
+    "family": "filesystem",
+    "natural_language": "Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.",
+    "formal_query": "set file permissions for \"/work/run.sh\" to read=owner, write=owner, execute=owner",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "omits execute permission",
+    "tags": [
+      "execute-permission",
+      "negative-scope"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a68",
+    "title": "Gate directory creation on marker",
+    "family": "filesystem",
+    "natural_language": "Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.",
+    "formal_query": "if file /work/enabled exists then create directory at /work/cache",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "acts when condition is false",
+    "tags": [
+      "conditional",
+      "negative-action"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a69",
+    "title": "Explicit two-branch status",
+    "family": "configuration",
+    "natural_language": "Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.",
+    "formal_query": "if file /work/maintenance exists then create file at /work/status with content=\"offline\" otherwise create file at /work/status with content=\"online\"",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "ignores true branch",
+    "tags": [
+      "otherwise",
+      "conditional"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  },
+  {
+    "id": "a70",
+    "title": "Copy directory contents not wrapper",
+    "family": "filesystem",
+    "natural_language": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",
+    "formal_query": "copy directory from remote /work/source to remote /work/dest",
+    "fql_status": "candidate_not_reviewed",
+    "fault": "copies enclosing directory instead of contents",
+    "tags": [
+      "directory-layout",
+      "hidden",
+      "preservation"
+    ],
+    "scenarios": [
+      "baseline",
+      "adversarial"
+    ],
+    "environment": "Debian 13 disposable container; root; offline fixtures",
+    "provenance": "Authored for this extension; not mined from independent workloads",
+    "review_status": "author_draft",
+    "idempotence": "state checked after two successful executions; changed-count not scored"
+  }
+]

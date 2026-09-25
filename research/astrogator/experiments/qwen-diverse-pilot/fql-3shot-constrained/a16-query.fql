@@ -1,0 +1,1 @@
+install zsh; set default shell to "dev" with command-line; if file "/etc/zshrc" not exists then create file at "/etc/zshrc" with contents; enable zsh

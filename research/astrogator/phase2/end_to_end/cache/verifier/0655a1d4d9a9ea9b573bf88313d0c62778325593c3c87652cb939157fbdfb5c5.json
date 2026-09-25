@@ -1,0 +1,11 @@
+{
+  "cache_key": "0655a1d4d9a9ea9b573bf88313d0c62778325593c3c87652cb939157fbdfb5c5",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "1538195012b3829ef7066582e311f7469d398dbdaa954be1e9e7ee8a229e907c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nTask contains both block and module file\n",
+  "stderr": "",
+  "seconds": 0.0951,
+  "status": "ansible_lowering_error"
+}

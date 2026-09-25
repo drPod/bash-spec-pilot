@@ -1,0 +1,11 @@
+{
+  "cache_key": "bd03e250337ee81155919487eb8929829926a7d574eb8d653d26bf30b9af347c",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "b51139c6d4d985dce4ab33bfb1f86a0dea98ba7549ff57fdba592ab1ea4046ee",
+  "code_sha256": "2b73706ab184ea5401ce9ba545ff9e446924b59b1f28139c7fde0e08e5a89126",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument notify for module lineinfile\n",
+  "stderr": "",
+  "seconds": 0.076,
+  "status": "ansible_lowering_error"
+}

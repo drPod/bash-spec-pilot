@@ -1,0 +1,72 @@
+[
+  {
+    "task_id": "a23",
+    "program_name": "u=rwX,g=rwXs",
+    "path": "phase2/permission_semantics/review-cases/a23/case0.yml",
+    "execution": {
+      "baseline": "oracle_rejected",
+      "adversarial": "oracle_rejected"
+    },
+    "verifier": {
+      "original": "accepted_with_possible_residuals",
+      "ordinary_permission_patch": "verification_rejected",
+      "normalizer": "ansible_lowering_error"
+    }
+  },
+  {
+    "task_id": "a23",
+    "program_name": "u=rwX,g=rwXs,o=",
+    "path": "phase2/permission_semantics/review-cases/a23/case1.yml",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    },
+    "verifier": {
+      "original": "verification_rejected",
+      "ordinary_permission_patch": "accepted_with_possible_residuals",
+      "normalizer": "accepted_with_possible_residuals"
+    }
+  },
+  {
+    "task_id": "a47",
+    "program_name": "u=rwX",
+    "path": "phase2/permission_semantics/review-cases/a47/case0.yml",
+    "execution": {
+      "baseline": "oracle_rejected",
+      "adversarial": "oracle_rejected"
+    },
+    "verifier": {
+      "original": "accepted_with_possible_residuals",
+      "ordinary_permission_patch": "verification_rejected",
+      "normalizer": "ansible_lowering_error"
+    }
+  },
+  {
+    "task_id": "a47",
+    "program_name": "u=rwX,g=,o=",
+    "path": "phase2/permission_semantics/review-cases/a47/case1.yml",
+    "execution": {
+      "baseline": "passed",
+      "adversarial": "passed"
+    },
+    "verifier": {
+      "original": "verification_rejected",
+      "ordinary_permission_patch": "accepted_with_possible_residuals",
+      "normalizer": "accepted_with_possible_residuals"
+    }
+  },
+  {
+    "task_id": "a32",
+    "program_name": "add_execute_then_conditional_X",
+    "path": "phase2/permission_semantics/review-cases/a32/history.yml",
+    "execution": {
+      "baseline": "oracle_rejected",
+      "adversarial": "oracle_rejected"
+    },
+    "verifier": {
+      "original": "accepted_with_possible_residuals",
+      "ordinary_permission_patch": "accepted_with_possible_residuals",
+      "normalizer": "ansible_lowering_error"
+    }
+  }
+]

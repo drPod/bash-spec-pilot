@@ -1,0 +1,14 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/spool
+      state: directory
+      mode: '1777'
+  - name: Independent review challenge
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import shutil,os; shutil.rmtree('/work/spool'); os.symlink('/tmp','/work/spool')

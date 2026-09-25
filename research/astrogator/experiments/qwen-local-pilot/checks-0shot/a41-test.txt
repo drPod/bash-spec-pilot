@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "member",
+      "user": "app",
+      "group": "audit"
+    },
+    {
+      "kind": "package",
+      "name": "app",
+      "version": "current"
+    }
+  ]
+}

@@ -1,0 +1,676 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Astrogator research review</title><style>
+body{font:16px/1.6 system-ui,sans-serif;background:#f4f5f7;color:#162536;margin:0}main{max-width:1080px;margin:0 auto;padding:48px 24px}h1{font-size:40px;line-height:1.15;margin:10px 0}h2{margin-top:40px}p{max-width:850px}.eyebrow{color:#235e65;font-weight:700;letter-spacing:.1em;font-size:13px}.metrics{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0}.metric{background:white;border:1px solid #dce2e8;padding:20px;flex:1;min-width:180px}.metric b{display:block;font-size:34px}.muted{color:#5c6c79}.notice{border-left:4px solid #bf8b32;background:#fffaed;padding:14px 20px}details{margin:10px 0;background:white;border:1px solid #dce2e8;padding:16px}summary{cursor:pointer}summary b{color:#235e65;margin-right:12px}summary span{float:right;font-size:12px;color:#5c6c79}pre{background:#f0f3f6;padding:16px;white-space:pre-wrap;font-size:13px;overflow-wrap:anywhere}select,input{padding:10px;border:1px solid #aebdc8;border-radius:4px;margin-right:10px;font:inherit}a{color:#176c79}footer{margin:30px 0;color:#5c6c79}details[hidden]{display:none}@media(max-width:650px){summary span{float:none;display:block}h1{font-size:30px}}</style><main>
+<div class="eyebrow">ASTROGATOR · RESUBMISSION WORKING ARTIFACT</div><h1>Broader tasks. Measured translation.<br>Inspectable comparisons.</h1>
+<p>All three workstreams share source identities, explicit initial states, and independently executed checks. This review page is self-contained; every task below includes its reference and oracle.</p>
+<div class="metrics"><div class="metric"><b>70</b>task records: 21 supplied + 49 new</div><div class="metric"><b>49</b>new references validated in two states</div><div class="metric"><b>2,238</b>supplied processed programs checked</div></div>
+<p class="notice">Runtime validation is not formal-language coverage. “FQL lowered” means the candidate passed upstream parsing, semantic analysis, and module-language code generation; it does not establish full intent fidelity. Model results use a small local quantized model and are exploratory.</p>
+<p><a href="RESULTS.md">Results and comparison tables</a> · <a href="summary.json">Machine-readable measurements</a> · <a href="../experiments/protocol.md">Protocol and limitations</a></p>
+<h2>Inspect the benchmark additions</h2><p class="muted">Filter by family or capability. Open a task to review its intended behavior, candidate query, reference, and state checks.</p>
+<input id="search" placeholder="Search task or behavior" aria-label="Search tasks"><select id="family" aria-label="Filter family"><option value="">All families</option><option>archives</option><option>configuration</option><option>filesystem</option><option>identity</option><option>packages</option><option>scheduling</option><option>services</option><option>version-control</option></select><select id="support" aria-label="Filter FQL status"><option value="">All FQL statuses</option><option value="true">FQL lowered</option><option value="false">FQL gap</option></select><p id="count"></p><section id="tasks"><details data-family="filesystem" data-supported="true"><summary><b>a22</b> Private application directory<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.</p><p class="muted">Family: filesystem · Selected fault: world-readable private directory</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/private with read=owner, write=owner, list directory=owner</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	5f37044e5de4f3ee538554af1d933874
+semantic	ok	60606594bd5fc720113a99958a76d1b3
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/private
+      state: directory
+      mode: &#x27;0700&#x27;
+</pre><h4>Independent state checks</h4><pre>assert P(&#x27;/work/private&#x27;).is_dir(); assert mode(&#x27;/work/private&#x27;) == 0o700
+if adversarial: assert read(&#x27;/work/private/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a23</b> Shared setgid directory<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /work/shared has mode 2770, including setgid, without removing existing files.</p><p class="muted">Family: filesystem · Selected fault: omitted setgid</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	8e28d7b8995b65284a6205f72ea39892
+semantic	ok	3ebb5a5396e731d48bd6193796c9f94c
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/shared
+      state: directory
+      mode: &#x27;2770&#x27;
+</pre><h4>Independent state checks</h4><pre>assert mode(&#x27;/work/shared&#x27;) == 0o2770
+if adversarial: assert read(&#x27;/work/shared/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a24</b> Sticky shared spool<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /work/spool is a directory with mode 1777, including the sticky bit.</p><p class="muted">Family: filesystem · Selected fault: omitted sticky bit</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/spool with read=all, write=all, list directory=all, sticky=true</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	e4f919bddb10b3e2d8b59ffd4424d226
+semantic	ok	ab662a94ec9e84cc58eee2789828fe39
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/spool
+      state: directory
+      mode: &#x27;1777&#x27;
+</pre><h4>Independent state checks</h4><pre>assert mode(&#x27;/work/spool&#x27;) == 0o1777
+</pre></details>
+<details data-family="configuration" data-supported="true"><summary><b>a25</b> Initialize without overwriting<span>runtime ✓ · FQL lowered</span></summary><p>If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.</p><p class="muted">Family: configuration · Selected fault: overwrites existing configuration</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if file &quot;/work/app.conf&quot; not exists then create file at &quot;/work/app.conf&quot; with content=&quot;port=8080
+&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	31effe6ad14f32537493deb92feb4a1d
+semantic	ok	9454e9e92ab6f330b6788a65c0c0bb31
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/app.conf
+      content: &#x27;port=8080
+
+        &#x27;
+      force: false
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/app.conf&#x27;) == (&#x27;port=9090\n# keep\n&#x27; if adversarial else &#x27;port=8080\n&#x27;)
+</pre></details>
+<details data-family="configuration" data-supported="true"><summary><b>a26</b> Replace obsolete banner<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.</p><p class="muted">Family: configuration · Selected fault: preserves obsolete content</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create file at /work/banner with content=&quot;Authorized users only
+&quot;, read=all, write=owner</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	bd94c31849d622d12c44607c762402ca
+semantic	ok	de58c968bf2484088bd74cd7dbebbb46
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/banner
+      content: &#x27;Authorized users only
+
+        &#x27;
+      mode: &#x27;0644&#x27;
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/banner&#x27;) == &#x27;Authorized users only\n&#x27;; assert mode(&#x27;/work/banner&#x27;) == 0o644
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a27</b> Copy with destination dependency<span>runtime ✓ · FQL lowered</span></summary><p>Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.</p><p class="muted">Family: filesystem · Selected fault: missing destination prerequisite</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	64605df586fd47d31b0e224b236b8fd7
+semantic	ok	e4564b69c14f36f3a03bca44f08efe47
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/dest
+      state: directory
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/dest/data
+      remote_src: true
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/source&#x27;) == &#x27;payload\x00tail&#x27;; assert read(&#x27;/work/dest/data&#x27;) == &#x27;payload\x00tail&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a28</b> Move and remove source<span>runtime ✓ · FQL lowered</span></summary><p>Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.</p><p class="muted">Family: filesystem · Selected fault: copy without deleting source</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>move file from remote /work/source to remote /work/moved</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	6ba43453ffb7a3402e318fe15f034da2
+semantic	ok	00e87e04ff22f471bfceba556c20ca6e
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/source
+    register: src
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/moved
+      remote_src: true
+    when: src.stat.exists
+  - ansible.builtin.file:
+      path: /work/source
+      state: absent
+</pre><h4>Independent state checks</h4><pre>assert not P(&#x27;/work/source&#x27;).exists(); assert read(&#x27;/work/moved&#x27;) == &#x27;move me&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a29</b> Unlink without deleting target<span>runtime ✓ · FQL lowered</span></summary><p>Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.</p><p class="muted">Family: filesystem · Selected fault: deletes link target</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete file at /work/link</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	5dc11fff61e1b72a5bc342098807871b
+semantic	ok	2c6ef912b85a5ed49d665c3ffcb95c67
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/link
+      state: absent
+</pre><h4>Independent state checks</h4><pre>assert not os.path.lexists(&#x27;/work/link&#x27;); assert read(&#x27;/work/target&#x27;) == &#x27;valuable&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a30</b> Remove only obsolete tree<span>runtime ✓ · FQL lowered</span></summary><p>Remove /work/obsolete and all its contents, preserving its sibling /work/current.</p><p class="muted">Family: filesystem · Selected fault: deletes parent and sibling</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete directory at /work/obsolete</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	ed109129d18a24b33dfe93210abdb59e
+semantic	ok	1328fcdf7f5fe43ed0b564b43d20c9c6
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/obsolete
+      state: absent
+</pre><h4>Independent state checks</h4><pre>assert not P(&#x27;/work/obsolete&#x27;).exists(); assert read(&#x27;/work/current/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a31</b> Prune temporary files selectively<span>runtime ✓ · FQL lowered</span></summary><p>Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.</p><p class="muted">Family: filesystem · Selected fault: misses hidden matches</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete files in /work/cache with glob=&quot;*.tmp&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	60ba1effae9178e67cd3dfcb4c1a75fe
+semantic	ok	aeffa810fcae6d0da40a490c47803ab3
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.find:
+      paths: /work/cache
+      patterns: &#x27;*.tmp&#x27;
+      file_type: file
+      hidden: true
+      recurse: false
+    register: found
+  - ansible.builtin.file:
+      path: &#x27;{{ item.path }}&#x27;
+      state: absent
+    loop: &#x27;{{ found.files }}&#x27;
+</pre><h4>Independent state checks</h4><pre>assert not P(&#x27;/work/cache/a.tmp&#x27;).exists(); assert read(&#x27;/work/cache/keep.txt&#x27;) == &#x27;keep&#x27;; assert read(&#x27;/work/cache/sub/nested.tmp&#x27;) == &#x27;keep&#x27;
+if adversarial: assert not P(&#x27;/work/cache/.hidden.tmp&#x27;).exists(); assert P(&#x27;/work/cache/dir.tmp&#x27;).is_dir()
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a32</b> Readable traversable tree<span>runtime ✓ · FQL lowered</span></summary><p>For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.</p><p class="muted">Family: filesystem · Selected fault: makes data files executable</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>set file permissions in /work/tree to read=all, write=owner, list directory=all</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	5a353faaf3db8f97a697f5c00c62b7ae
+semantic	ok	c593f14b69161cf551243eb6854be764
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/tree
+      recurse: true
+      mode: u=rwX,g=rX,o=rX
+</pre><h4>Independent state checks</h4><pre>assert mode(&#x27;/work/tree/sub&#x27;) == 0o755; assert mode(&#x27;/work/tree/sub/data&#x27;) == 0o644
+if adversarial: assert mode(&#x27;/work/tree/.hidden&#x27;) == 0o644
+</pre></details>
+<details data-family="filesystem" data-supported="false"><summary><b>a33</b> Switch release symlink<span>runtime ✓ · FQL gap</span></summary><p>Point /work/current to /work/releases/v2, replacing an existing symlink to v1, and preserve both release directories.</p><p class="muted">Family: filesystem · Selected fault: points at wrong release</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create symbolic link at /work/current to /work/releases/v2</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	7712d45c7425296377705668987524ac
+semantic	error	Unhandled creation of: symbolic link
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/releases/v2
+      dest: /work/current
+      state: link
+      force: true
+</pre><h4>Independent state checks</h4><pre>assert os.readlink(&#x27;/work/current&#x27;) == &#x27;/work/releases/v2&#x27;; assert read(&#x27;/work/releases/v1/data&#x27;) == &#x27;v1&#x27;; assert read(&#x27;/work/current/data&#x27;) == &#x27;v2&#x27;
+</pre></details>
+<details data-family="filesystem" data-supported="false"><summary><b>a34</b> Create hard link<span>runtime ✓ · FQL gap</span></summary><p>Ensure /work/alias is a hard link to /work/source, replacing a stale ordinary file at /work/alias if present.</p><p class="muted">Family: filesystem · Selected fault: copies bytes instead of sharing inode</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create hard link at /work/alias to /work/source</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	86421c643d1717317da689b7b5dfc9c5
+semantic	error	Unhandled creation of: hard link
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/source
+      dest: /work/alias
+      state: hard
+      force: true
+</pre><h4>Independent state checks</h4><pre>assert os.stat(&#x27;/work/source&#x27;).st_ino == os.stat(&#x27;/work/alias&#x27;).st_ino; assert not P(&#x27;/work/alias&#x27;).is_symlink()
+</pre></details>
+<details data-family="configuration" data-supported="false"><summary><b>a35</b> Replace existing directive<span>runtime ✓ · FQL gap</span></summary><p>In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.</p><p class="muted">Family: configuration · Selected fault: appends without replacing old directive</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>write &quot;port=8080&quot; to file at &quot;/work/app.conf&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	8bdcbfbc563a0a1f6223c96d58f8f624
+semantic	error	Unknown file: 
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/app.conf
+      regexp: ^port=
+      line: port=8080
+</pre><h4>Independent state checks</h4><pre>lines=read(&#x27;/work/app.conf&#x27;).splitlines(); assert [x for x in lines if x.startswith(&#x27;port=&#x27;)] == [&#x27;port=8080&#x27;]; assert &#x27;# keep&#x27; in lines and &#x27;mode=safe&#x27; in lines
+</pre></details>
+<details data-family="configuration" data-supported="false"><summary><b>a36</b> Remove all legacy directives<span>runtime ✓ · FQL gap</span></summary><p>Remove every line beginning legacy= from /work/app.conf while preserving unrelated lines, including commented legacy examples.</p><p class="muted">Family: configuration · Selected fault: also removes commented example</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete lines from file at &quot;/work/app.conf&quot; with pattern=&quot;^legacy=&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	b14b0f89912c9c59181c4488a7cee435
+semantic	error	Unhandled deletion of: lines
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/app.conf
+      regexp: ^legacy=
+      state: absent
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/app.conf&#x27;) == &#x27;mode=safe\n# legacy=example\n&#x27;
+</pre></details>
+<details data-family="configuration" data-supported="false"><summary><b>a37</b> Update managed block<span>runtime ✓ · FQL gap</span></summary><p>Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.</p><p class="muted">Family: configuration · Selected fault: leaves old managed block</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>write &quot;alpha=1
+beta=2&quot; to file at &quot;/work/app.conf&quot; with block=ASTRO</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	1764ea84965f70d2f3ffd78a58462448
+semantic	error	Unknown file: 
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.blockinfile:
+      path: /work/app.conf
+      marker: &#x27;# {mark} ASTRO&#x27;
+      block: &#x27;alpha=1
+
+        beta=2&#x27;
+</pre><h4>Independent state checks</h4><pre>s=read(&#x27;/work/app.conf&#x27;); assert &#x27;outside=keep\n&#x27; in s; assert s.count(&#x27;# BEGIN ASTRO&#x27;) == 1; assert &#x27;# BEGIN ASTRO\nalpha=1\nbeta=2\n# END ASTRO&#x27; in s; assert &#x27;alpha=old&#x27; not in s
+</pre></details>
+<details data-family="configuration" data-supported="false"><summary><b>a38</b> Insert before terminal rule<span>runtime ✓ · FQL gap</span></summary><p>Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.</p><p class="muted">Family: configuration · Selected fault: inserts after terminal deny</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>write &quot;allow local&quot; to file at /work/rules at position=beginning</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	cf3235c064ce4ad58012093a14b927fa
+semantic	error	Unknown file: 
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/rules
+      line: allow local
+      insertbefore: ^deny all$
+</pre><h4>Independent state checks</h4><pre>s=read(&#x27;/work/rules&#x27;).splitlines(); assert s.count(&#x27;allow local&#x27;) == 1; assert s.index(&#x27;allow local&#x27;) &lt; s.index(&#x27;deny all&#x27;); assert &#x27;allow admin&#x27; in s
+</pre></details>
+<details data-family="configuration" data-supported="false"><summary><b>a39</b> Targeted protocol migration<span>runtime ✓ · FQL gap</span></summary><p>Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.</p><p class="muted">Family: configuration · Selected fault: rewrites unrelated URLs</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>replace text in file at &quot;/work/app.conf&quot; with pattern=&quot;^endpoint=http://&quot;, replacement=&quot;endpoint=https://&quot;</pre><h4>Actual parser / analyzer output</h4><pre>exception	error	Stdlib.Parsing.Parse_error
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.replace:
+      path: /work/app.conf
+      regexp: (?m)^endpoint=http://
+      replace: endpoint=https://
+</pre><h4>Independent state checks</h4><pre>s=read(&#x27;/work/app.conf&#x27;); assert &#x27;endpoint=https://one\n&#x27; in s; assert &#x27;# endpoint=http://example\n&#x27; in s; assert &#x27;other=http://keep\n&#x27; in s
+if adversarial: assert &#x27;endpoint=https://two\n&#x27; in s
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a40</b> Create group before account<span>runtime ✓ · FQL lowered</span></summary><p>Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.</p><p class="muted">Family: identity · Selected fault: uses missing prerequisite group</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create group with name=deploy; create user with name=app in primary group=deploy</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	f84e5164a191724c17354bacef7f3f6e
+semantic	ok	c529637cd3799f584403b4e0273acd1b
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: deploy
+      state: present
+  - ansible.builtin.user:
+      name: app
+      group: deploy
+      create_home: true
+</pre><h4>Independent state checks</h4><pre>u=pwd.getpwnam(&#x27;app&#x27;); assert u.pw_gid == grp.getgrnam(&#x27;deploy&#x27;).gr_gid; assert P(u.pw_dir).is_dir()
+</pre></details>
+<details data-family="identity" data-supported="false"><summary><b>a41</b> Append group membership<span>runtime ✓ · FQL gap</span></summary><p>Add the existing app user to deploy while retaining its existing supplemental group memberships.</p><p class="muted">Family: identity · Selected fault: replaces existing memberships</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>set supplemental groups for user=app to deploy with append=true</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	81a2bb9602bef1f149aa97c201c6e2b1
+semantic	error	Unhandled set of: supplemental groups
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      groups:
+      - deploy
+      append: true
+</pre><h4>Independent state checks</h4><pre>assert &#x27;app&#x27; in grp.getgrnam(&#x27;deploy&#x27;).gr_mem
+if adversarial: assert &#x27;app&#x27; in grp.getgrnam(&#x27;audit&#x27;).gr_mem
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a42</b> Change primary group<span>runtime ✓ · FQL lowered</span></summary><p>Set the existing app user primary group to deploy, preserving its existing home directory and its contents.</p><p class="muted">Family: identity · Selected fault: changes supplemental instead of primary group</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create user with name=app in primary group=deploy</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	5c9df90dda3073d864ec8aeaa3dae9e9
+semantic	ok	2d619cda2bb57ce91bb0318d7bebcb9c
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      group: deploy
+</pre><h4>Independent state checks</h4><pre>assert pwd.getpwnam(&#x27;app&#x27;).pw_gid == grp.getgrnam(&#x27;deploy&#x27;).gr_gid; assert read(&#x27;/home/app/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a43</b> Change login shell<span>runtime ✓ · FQL lowered</span></summary><p>Set the existing app user login shell to /bin/bash without changing its UID or home contents.</p><p class="muted">Family: identity · Selected fault: sets wrong shell</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>set default shell for user=app to bash</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	9ce4c0b545d9df8b6fea4b8a20b3190c
+semantic	ok	unavailable:functional_value
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      shell: /bin/bash
+</pre><h4>Independent state checks</h4><pre>u=pwd.getpwnam(&#x27;app&#x27;); assert u.pw_shell == &#x27;/bin/bash&#x27;; assert u.pw_uid == 1501; assert read(&#x27;/home/app/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a44</b> Delete account retain data<span>runtime ✓ · FQL lowered</span></summary><p>Remove the retired user account, retaining /home/retired and all its contents.</p><p class="muted">Family: identity · Selected fault: removes retained home</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete user with name=retired</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	c9a7d65350d1b537d392449114840253
+semantic	ok	31e5940731ef06ea4e2b5d791c9adaff
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: false
+</pre><h4>Independent state checks</h4><pre>assert not user_exists(&#x27;retired&#x27;); assert read(&#x27;/home/retired/keep&#x27;) == &#x27;valuable&#x27;
+if adversarial: assert read(&#x27;/home/retired/.hidden&#x27;) == &#x27;secret&#x27;
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a45</b> Delete account and home<span>runtime ✓ · FQL lowered</span></summary><p>Remove the retired user and its home directory /home/retired while preserving /home/active.</p><p class="muted">Family: identity · Selected fault: leaves retired home</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete user with name=retired; delete directory at /home/retired</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	b518dd088995bb7d2a437876987a818d
+semantic	ok	e4330e1e3e2cbb2bc50ca53dbb31959f
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: true
+</pre><h4>Independent state checks</h4><pre>assert not user_exists(&#x27;retired&#x27;); assert not P(&#x27;/home/retired&#x27;).exists(); assert read(&#x27;/home/active/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a46</b> Lock existing password<span>runtime ✓ · FQL lowered</span></summary><p>Lock password authentication for the existing app user without replacing its stored password hash; retain the account.</p><p class="muted">Family: identity · Selected fault: destroys stored hash</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>disable password for user=app</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	1a77699555b356888657e059394e68bb
+semantic	ok	c262be2ddf36101c1bbd14f41c766bc0
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      password_lock: true
+</pre><h4>Independent state checks</h4><pre>assert user_exists(&#x27;app&#x27;); shadow=next(x.split(&#x27;:&#x27;)[1] for x in read(&#x27;/etc/shadow&#x27;).splitlines() if x.startswith(&#x27;app:&#x27;)); assert shadow.startswith(&#x27;!&#x27;); assert shadow.lstrip(&#x27;!&#x27;) == &#x27;$6$salt$hash&#x27;
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a47</b> Secure existing home<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.</p><p class="muted">Family: identity · Selected fault: leaves root ownership</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	3eb9f38f546b23a03dc0db2d9dacc4fa
+semantic	ok	39bd56d7164083ad073d3ede6f1c81b1
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /home/app
+      state: directory
+      owner: app
+      group: app
+      mode: &#x27;0700&#x27;
+</pre><h4>Independent state checks</h4><pre>s=os.stat(&#x27;/home/app&#x27;); assert s.st_uid == pwd.getpwnam(&#x27;app&#x27;).pw_uid; assert s.st_gid == grp.getgrnam(&#x27;app&#x27;).gr_gid; assert mode(&#x27;/home/app&#x27;) == 0o700; assert read(&#x27;/home/app/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="packages" data-supported="false"><summary><b>a48</b> Install offline package<span>runtime ✓ · FQL gap</span></summary><p>On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.</p><p class="muted">Family: packages · Selected fault: claims installation without installing</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if os is Debian then install astro-demo with version=&quot;1.0&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	70bb9cf8674463ddc05b409b31678e47
+semantic	error	Unknown package: astro-demo
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      deb: /fixtures/astro-demo_1.0_all.deb
+</pre><h4>Independent state checks</h4><pre>assert package_version(&#x27;astro-demo&#x27;) == &#x27;1.0&#x27;; assert read(&#x27;/usr/share/astro-demo/version&#x27;) == &#x27;1.0&#x27;
+</pre></details>
+<details data-family="packages" data-supported="false"><summary><b>a49</b> Remove installed package<span>runtime ✓ · FQL gap</span></summary><p>Remove astro-demo from this Debian host if installed; leave astro-keep installed.</p><p class="muted">Family: packages · Selected fault: leaves installed package</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if os is Debian then uninstall astro-demo</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	84135104b9196232fd9021ecd5e42812
+semantic	error	Unknown package: astro-demo
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      name: astro-demo
+      state: absent
+      purge: true
+</pre><h4>Independent state checks</h4><pre>assert package_version(&#x27;astro-demo&#x27;) is None; assert package_version(&#x27;astro-keep&#x27;) == &#x27;1.0&#x27;
+</pre></details>
+<details data-family="packages" data-supported="false"><summary><b>a50</b> Upgrade to exact package version<span>runtime ✓ · FQL gap</span></summary><p>Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.</p><p class="muted">Family: packages · Selected fault: accepts stale installed version</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if os is Debian then install astro-demo with version=&quot;2.0&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	d4d6d7161b39c446be4a21c746a6f152
+semantic	error	Unknown package: astro-demo
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      deb: /fixtures/astro-demo_2.0_all.deb
+</pre><h4>Independent state checks</h4><pre>assert package_version(&#x27;astro-demo&#x27;) == &#x27;2.0&#x27;; assert read(&#x27;/usr/share/astro-demo/version&#x27;) == &#x27;2.0&#x27;
+</pre></details>
+<details data-family="packages" data-supported="false"><summary><b>a51</b> Hold installed package<span>runtime ✓ · FQL gap</span></summary><p>Mark the installed astro-demo Debian package as held, preserving version 1.0.</p><p class="muted">Family: packages · Selected fault: installed does not imply held</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>set package selection for astro-demo to hold</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	f3197563e619ee4e2ac37e14a9c80977
+semantic	error	Unhandled set of: package selection
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.dpkg_selections:
+      name: astro-demo
+      selection: hold
+</pre><h4>Independent state checks</h4><pre>assert &#x27;astro-demo&#x27; in output(&#x27;apt-mark&#x27;,&#x27;showhold&#x27;).splitlines(); assert package_version(&#x27;astro-demo&#x27;) == &#x27;1.0&#x27;
+</pre></details>
+<details data-family="version-control" data-supported="true"><summary><b>a52</b> Checkout release branch<span>runtime ✓ · FQL lowered</span></summary><p>Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.</p><p class="muted">Family: version-control · Selected fault: wrong branch</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>clone git repository from /fixtures/repo with branch=release into /work/checkout</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	4b622fca43a76395e2a4bf59d17c475d
+semantic	ok	96e1dc256bed633f0df046c46efc1249
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: release
+      update: true
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/checkout/version&#x27;) == &#x27;release&#x27;; assert output(&#x27;git&#x27;,&#x27;-C&#x27;,&#x27;/work/checkout&#x27;,&#x27;rev-parse&#x27;,&#x27;HEAD&#x27;).strip() == output(&#x27;git&#x27;,&#x27;-C&#x27;,&#x27;/fixtures/repo&#x27;,&#x27;rev-parse&#x27;,&#x27;release&#x27;).strip()
+</pre></details>
+<details data-family="version-control" data-supported="true"><summary><b>a53</b> Preserve existing checkout<span>runtime ✓ · FQL lowered</span></summary><p>Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.</p><p class="muted">Family: version-control · Selected fault: updates checkout that should be preserved</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	42d1d6869cdc08a6f0b30fe4ed5e00ea
+semantic	ok	938334a49bbbab3812d56b562638385a
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: main
+      update: false
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/checkout/version&#x27;) == &#x27;main&#x27;
+</pre></details>
+<details data-family="version-control" data-supported="true"><summary><b>a54</b> Pin deployment tag<span>runtime ✓ · FQL lowered</span></summary><p>Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.</p><p class="muted">Family: version-control · Selected fault: tracks branch instead of pinning tag</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>clone git repository from /fixtures/repo with tag=v1 into /work/checkout</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	0e310a76f778582135179431f158d575
+semantic	ok	5340990e97b2fb43bfa2ae7275c92c48
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: v1
+      update: true
+</pre><h4>Independent state checks</h4><pre>assert output(&#x27;git&#x27;,&#x27;-C&#x27;,&#x27;/work/checkout&#x27;,&#x27;rev-parse&#x27;,&#x27;HEAD&#x27;).strip() == output(&#x27;git&#x27;,&#x27;-C&#x27;,&#x27;/fixtures/repo&#x27;,&#x27;rev-parse&#x27;,&#x27;v1&#x27;).strip(); assert read(&#x27;/work/checkout/version&#x27;) == &#x27;tag-v1&#x27;
+</pre></details>
+<details data-family="services" data-supported="false"><summary><b>a55</b> Start existing service<span>runtime ✓ · FQL gap</span></summary><p>Ensure the installed cron service is running. It may initially be stopped or already running.</p><p class="muted">Family: services · Selected fault: enables boot startup without starting</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>start cron service</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	a0e28b179e51eec11b70ca4b8217e50d
+semantic	error	Unknown service: cron
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      state: started
+</pre><h4>Independent state checks</h4><pre>assert subprocess.run([&#x27;pgrep&#x27;,&#x27;-x&#x27;,&#x27;cron&#x27;],capture_output=True).returncode == 0
+</pre></details>
+<details data-family="services" data-supported="false"><summary><b>a56</b> Stop existing service<span>runtime ✓ · FQL gap</span></summary><p>Ensure cron is stopped, including when it is initially running.</p><p class="muted">Family: services · Selected fault: disables boot startup without stopping</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>stop cron service</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	b90881c64e3750ec3658ae195388f31f
+semantic	error	Unknown service: cron
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      state: stopped
+</pre><h4>Independent state checks</h4><pre>assert subprocess.run([&#x27;pgrep&#x27;,&#x27;-x&#x27;,&#x27;cron&#x27;],capture_output=True).returncode != 0
+</pre></details>
+<details data-family="services" data-supported="false"><summary><b>a57</b> Enable boot startup only<span>runtime ✓ · FQL gap</span></summary><p>Enable cron at boot without starting it now. It is initially stopped, and may already be enabled.</p><p class="muted">Family: services · Selected fault: unexpectedly starts service</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>enable cron service</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	88f0567cd58aa61fb4ce5c2edbdbb0f4
+semantic	error	Unhandled enabling of: cron service
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      enabled: true
+</pre><h4>Independent state checks</h4><pre>assert list(P(&#x27;/etc/rc2.d&#x27;).glob(&#x27;S*cron&#x27;)); assert subprocess.run([&#x27;pgrep&#x27;,&#x27;-x&#x27;,&#x27;cron&#x27;],capture_output=True).returncode != 0
+</pre></details>
+<details data-family="scheduling" data-supported="false"><summary><b>a58</b> Update scheduled job<span>runtime ✓ · FQL gap</span></summary><p>Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.</p><p class="muted">Family: scheduling · Selected fault: swaps schedule fields</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create cron job with name=&quot;astro cleanup&quot;, minute=&quot;15&quot;, hour=&quot;2&quot;, command=&quot;/usr/bin/true&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	9366a461493285595cbc10e24a948fc3
+semantic	error	Unhandled creation of: cron job
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.cron:
+      name: astro cleanup
+      minute: &#x27;15&#x27;
+      hour: &#x27;2&#x27;
+      user: root
+      job: /usr/bin/true
+</pre><h4>Independent state checks</h4><pre>s=output(&#x27;crontab&#x27;,&#x27;-l&#x27;); assert s.count(&#x27;#Ansible: astro cleanup&#x27;) == 1; assert &#x27;15 2 * * * /usr/bin/true&#x27; in s; assert &#x27;0 0 * * * /bin/echo keep&#x27; in s; assert &#x27;/bin/false&#x27; not in s
+</pre></details>
+<details data-family="archives" data-supported="false"><summary><b>a59</b> Extract remote artifact<span>runtime ✓ · FQL gap</span></summary><p>Extract the remote /fixtures/bundle.tar into /work/unpacked, creating that directory if absent and preserving unrelated existing files.</p><p class="muted">Family: archives · Selected fault: creates directory without extracting</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/unpacked; extract archive from remote &quot;/fixtures/bundle.tar&quot; to /work/unpacked</pre><h4>Actual parser / analyzer output</h4><pre>exception	error	Stdlib.Parsing.Parse_error
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/unpacked
+      state: directory
+  - ansible.builtin.unarchive:
+      src: /fixtures/bundle.tar
+      dest: /work/unpacked
+      remote_src: true
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/unpacked/app/data&#x27;) == &#x27;artifact&#x27;
+if adversarial: assert read(&#x27;/work/unpacked/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="archives" data-supported="false"><summary><b>a60</b> Skip initialized extraction<span>runtime ✓ · FQL gap</span></summary><p>Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.</p><p class="muted">Family: archives · Selected fault: overwrites customized extraction</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if file &quot;/work/unpacked/app/data&quot; not exists then extract archive from remote &quot;/fixtures/bundle.tar&quot; to /work/unpacked</pre><h4>Actual parser / analyzer output</h4><pre>exception	error	Stdlib.Parsing.Parse_error
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/unpacked
+      state: directory
+  - ansible.builtin.unarchive:
+      src: /fixtures/bundle.tar
+      dest: /work/unpacked
+      remote_src: true
+      creates: /work/unpacked/app/data
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/unpacked/app/data&#x27;) == (&#x27;customized&#x27; if adversarial else &#x27;artifact&#x27;)
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a61</b> Ensure shared group exists<span>runtime ✓ · FQL lowered</span></summary><p>Ensure the analytics group exists, preserving its GID if it already exists.</p><p class="muted">Family: identity · Selected fault: changes existing group identity</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create group with name=analytics</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	0c373d76e2848f95dcd87cee9f229ea2
+semantic	ok	accfe74a6f732a14b70ab9a35d7fbbd3
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: analytics
+      state: present
+</pre><h4>Independent state checks</h4><pre>g=grp.getgrnam(&#x27;analytics&#x27;)
+if adversarial: assert g.gr_gid == 1601
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a62</b> Remove unused group<span>runtime ✓ · FQL lowered</span></summary><p>Remove the unused obsolete group if it exists, preserving the active group and its GID.</p><p class="muted">Family: identity · Selected fault: removes wrong group</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>delete group with name=obsolete</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	73160d1cd6f421435b2cccb4cd8996a0
+semantic	ok	83b31f6ee8cb0fc7beb2417b020aa185
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: obsolete
+      state: absent
+</pre><h4>Independent state checks</h4><pre>assert &#x27;obsolete&#x27; not in [g.gr_name for g in grp.getgrall()]; assert grp.getgrnam(&#x27;active&#x27;).gr_gid == 1601
+</pre></details>
+<details data-family="identity" data-supported="true"><summary><b>a63</b> Provision multiple memberships<span>runtime ✓ · FQL lowered</span></summary><p>Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.</p><p class="muted">Family: identity · Selected fault: omits one required membership</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create user with name=app in primary group=primary, supplemental groups=deploy audit</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	f8765fac4b4bafc5481e3508997c69b5
+semantic	ok	21e2e1cd3f7e5007c13d7933206f04c7
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      group: primary
+      groups:
+      - deploy
+      - audit
+      append: true
+</pre><h4>Independent state checks</h4><pre>assert pwd.getpwnam(&#x27;app&#x27;).pw_gid == grp.getgrnam(&#x27;primary&#x27;).gr_gid; assert &#x27;app&#x27; in grp.getgrnam(&#x27;deploy&#x27;).gr_mem; assert &#x27;app&#x27; in grp.getgrnam(&#x27;audit&#x27;).gr_mem
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a64</b> Change directory owner only<span>runtime ✓ · FQL lowered</span></summary><p>Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.</p><p class="muted">Family: filesystem · Selected fault: recursively changes child ownership</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>create directory at /work/data with owner=app, group=app</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	6407fd152c247fee9c05342a723edb4c
+semantic	ok	268331e5d09c3afbba602a865b8ed45d
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/data
+      state: directory
+      owner: app
+      group: app
+      recurse: false
+</pre><h4>Independent state checks</h4><pre>s=os.stat(&#x27;/work/data&#x27;); assert s.st_uid == pwd.getpwnam(&#x27;app&#x27;).pw_uid; assert s.st_gid == grp.getgrnam(&#x27;app&#x27;).gr_gid; assert os.stat(&#x27;/work/data/keep&#x27;).st_uid == 0; assert read(&#x27;/work/data/keep&#x27;) == &#x27;keep&#x27;
+</pre></details>
+<details data-family="configuration" data-supported="true"><summary><b>a65</b> Append profile setting<span>runtime ✓ · FQL lowered</span></summary><p>Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.</p><p class="muted">Family: configuration · Selected fault: prepends instead of appending</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>write &quot;export ASTRO=1&quot; to /work/profile at position=end</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	5765d1a37887ee833562e56272974361
+semantic	ok	14f313907c4c6c9630b690d9edec2ab4
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/profile
+      line: export ASTRO=1
+      insertafter: EOF
+</pre><h4>Independent state checks</h4><pre>s=read(&#x27;/work/profile&#x27;).splitlines(); assert s[-1] == &#x27;export ASTRO=1&#x27;; assert s.count(&#x27;export ASTRO=1&#x27;) == 1; assert &#x27;# keep&#x27; in s and &#x27;export KEEP=1&#x27; in s
+</pre></details>
+<details data-family="configuration" data-supported="true"><summary><b>a66</b> Prepend managed header<span>runtime ✓ · FQL lowered</span></summary><p>Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.</p><p class="muted">Family: configuration · Selected fault: appends header</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>write &quot;# managed&quot; to /work/header at position=start</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	0e3ca0538f8e50d16165b6420d46da93
+semantic	ok	206d82349db48297d9b09745915407c2
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/header
+      line: &#x27;# managed&#x27;
+      insertbefore: BOF
+</pre><h4>Independent state checks</h4><pre>s=read(&#x27;/work/header&#x27;).splitlines(); assert s[0] == &#x27;# managed&#x27;; assert s.count(&#x27;# managed&#x27;) == 1; assert s[1:] == [&#x27;body one&#x27;,&#x27;body two&#x27;]
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a67</b> Private executable mode<span>runtime ✓ · FQL lowered</span></summary><p>Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.</p><p class="muted">Family: filesystem · Selected fault: omits execute permission</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>set file permissions for &quot;/work/run.sh&quot; to read=owner, write=owner, execute=owner</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	6a54c2f505823d6825da4104c56c99f7
+semantic	ok	1a2b32338e758fe91d4cd67b920d0959
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/run.sh
+      mode: &#x27;0700&#x27;
+</pre><h4>Independent state checks</h4><pre>assert mode(&#x27;/work/run.sh&#x27;) == 0o700; assert read(&#x27;/work/run.sh&#x27;) == &#x27;#!/bin/sh\nexit 0\n&#x27;; assert mode(&#x27;/work/data&#x27;) == 0o644
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a68</b> Gate directory creation on marker<span>runtime ✓ · FQL lowered</span></summary><p>Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.</p><p class="muted">Family: filesystem · Selected fault: acts when condition is false</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if file /work/enabled exists then create directory at /work/cache</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	2b261124f67c62999ddea8e4681bcfa0
+semantic	ok	4a5fce858852f37460dc246f315a68d8
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/enabled
+    register: enabled
+  - ansible.builtin.file:
+      path: /work/cache
+      state: directory
+    when: enabled.stat.exists
+</pre><h4>Independent state checks</h4><pre>assert P(&#x27;/work/cache&#x27;).is_dir() == adversarial
+</pre></details>
+<details data-family="configuration" data-supported="true"><summary><b>a69</b> Explicit two-branch status<span>runtime ✓ · FQL lowered</span></summary><p>Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.</p><p class="muted">Family: configuration · Selected fault: ignores true branch</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>if file /work/maintenance exists then create file at /work/status with content=&quot;offline&quot; otherwise create file at /work/status with content=&quot;online&quot;</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	fcc05f178a3a5bb526afe996107a53c3
+semantic	ok	3371607da7d3a2cc57e44f371e46e4ce
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/maintenance
+    register: maintenance
+  - ansible.builtin.copy:
+      dest: /work/status
+      content: &#x27;{{ &#x27;&#x27;offline&#x27;&#x27; if maintenance.stat.exists else &#x27;&#x27;online&#x27;&#x27; }}&#x27;
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/status&#x27;) == (&#x27;offline&#x27; if adversarial else &#x27;online&#x27;)
+</pre></details>
+<details data-family="filesystem" data-supported="true"><summary><b>a70</b> Copy directory contents not wrapper<span>runtime ✓ · FQL lowered</span></summary><p>Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.</p><p class="muted">Family: filesystem · Selected fault: copies enclosing directory instead of contents</p><h4>Candidate FQL — not a reviewed gold specification</h4><pre>copy directory from remote /work/source to remote /work/dest</pre><h4>Actual parser / analyzer output</h4><pre>parse	ok	7cfa9453607dba1e53edf8cb2eb39464
+semantic	ok	07fe3a21afd4b3ba92afc44c1052a054
+codegen	ok	lowered to module language
+</pre><h4>Reference playbook</h4><pre>- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      src: /work/source/
+      dest: /work/dest/
+      remote_src: true
+</pre><h4>Independent state checks</h4><pre>assert read(&#x27;/work/dest/.hidden&#x27;) == &#x27;hidden&#x27;; assert read(&#x27;/work/dest/nested/data&#x27;) == &#x27;data&#x27;; assert read(&#x27;/work/source/nested/data&#x27;) == &#x27;data&#x27;; assert not P(&#x27;/work/dest/source&#x27;).exists()
+if adversarial: assert read(&#x27;/work/dest/keep&#x27;) == &#x27;keep&#x27;
+</pre></details></section>
+<footer>Prepared locally on 2026-09-24. Source and measured outputs are retained; no results have been sent or published.</footer></main><script>
+const all=[...document.querySelectorAll('details')];function filter(){const q=document.querySelector('#search').value.toLowerCase(),f=document.querySelector('#family').value,s=document.querySelector('#support').value;let n=0;for(const d of all){d.hidden=!(d.textContent.toLowerCase().includes(q)&&(!f||d.dataset.family===f)&&(!s||d.dataset.supported===s));if(!d.hidden)n++}document.querySelector('#count').textContent=n+' tasks shown'}for(const id of ['search','family','support'])document.getElementById(id).addEventListener('input',filter);filter();</script></html>

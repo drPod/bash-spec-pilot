@@ -1,0 +1,19 @@
+{
+  "matplotlib_version": "3.10.7",
+  "input_sha256": {
+    "frontier-full-comparison.json": "c78d034ab484a864a24806a49aa29fda19126812153ec2ca8279765585fb4041",
+    "additional-baselines.json": "eddd50b84805352d4a812ee9bb58c2c910dd3fbebe63311249f8487a97eda720",
+    "revised-summary.json": "7c664b149c4039298125d7b197cbf04b7be4db2e9b950f5b91ca4b7297ddedd5"
+  },
+  "script_sha256": "dd8b3c6ff9142e61aa7fddb8bf7872d5d65016553c3b2d65dea4fde54703c070",
+  "files": {
+    "paired-outcomes-strict_integrity.pdf": "cf97d5bfaaeeda41a4df2f57a37691fd8bbd92dd14c46a645987df96621d4c7f",
+    "paired-outcomes-original.png": "5e1b624cb3566ef9ae764afc94a298320b004c2b1d6bff1a6915a473cdf32687",
+    "paired-outcomes.csv": "1faae2fddfa5d4a75097142013a71ff34a76be26de3e3e8563688f5a4f4f4f18",
+    "CAPTIONS.md": "5900544428dff41fb22a1311d2da684f8f74aaa6fec7ca2a4ea4611ebd261568",
+    "paired-outcomes-strict_integrity.png": "4b919b0a7b6d36acf1be91103fb37b871ad5f9b4aca8368a24bbf3b0aa69aedb",
+    "coverage-risk-sensitivity.png": "041aee7682e0801bdb971d11845ff344cf6572fc38691e173612c9a78561dd60",
+    "paired-outcomes-original.pdf": "cdf3057fd05474f6f678d912e27bce6aa9eb28a0218c2bcf0372bb2be809ebbe",
+    "coverage-risk-sensitivity.pdf": "b0bc7dda9418c763f429421ac6fd95dec0ffa5e402f7a54681736b3a088c2af8"
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "a01": {
+    "status": "invalid",
+    "error": "invalid literal for int() with base 8: '/bin/bash'"
+  },
+  "a02": {
+    "status": "reference_control_failed",
+    "controls": [
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "baseline",
+              "path": "/home/mydata/web"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "baseline",
+              "path": "/home/mydata/web/*"
+            },
+            "passed": false
+          }
+        ]
+      },
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "adversarial",
+              "path": "/home/mydata/web"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "adversarial",
+              "path": "/home/mydata/web/*"
+            },
+            "passed": false
+          }
+        ]
+      }
+    ]
+  },
+  "a06": {
+    "status": "reference_control_failed",
+    "controls": [
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "both",
+              "path": "/etc/file.txt"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "absent",
+              "scenario": "baseline",
+              "path": "/etc/file.txt"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "mode",
+              "scenario": "baseline",
+              "path": "/etc/file.txt",
+              "value": "644"
+            },
+            "passed": true
+          },
+          {
+            "check": {
+              "kind": "content",
+              "scenario": "baseline",
+              "path": "/etc/file.txt",
+              "value": "beginning"
+            },
+            "passed": true
+          },
+          {
+            "check": {
+              "kind": "contains",
+              "scenario": "baseline",
+              "path": "/etc/file.txt",
+              "value": "beginning"
+            },
+            "passed": true
+          },
+          {
+            "check": {
+              "kind": "member",
+              "scenario": "baseline",
+              "user": "root",
+              "group": "root"
+            },
+            "passed": true
+          },
+          {
+            "check": {
+              "kind": "package",
+              "scenario": "baseline",
+              "name": "bash",
+              "version": "4.4.19(1)-release"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "running",
+              "scenario": "baseline",
+              "name": "bash",
+              "value": true
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "password_locked",
+              "scenario": "baseline",
+              "user": "root"
+            },
+            "passed": true
+          }
+        ]
+      },
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "directory",
+              "scenario": "both",
+              "path": "/etc/file.txt"
+            },
+            "passed": false
+          },
+          {
+            "check": {
+              "kind": "not_contains",
+              "scenario": "adversarial",
+              "path": "/etc/file.txt",
+              "value": "beginning"
+            },
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  "a17": {
+    "status": "reference_control_failed",
+    "controls": [
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "member",
+              "scenario": "both",
+              "user": "service",
+              "group": "*"
+            },
+            "passed": false,
+            "error": "KeyError(\"getgrnam(): name not found: '*'\")"
+          },
+          {
+            "check": {
+              "kind": "password_locked",
+              "scenario": "both",
+              "user": "service"
+            },
+            "passed": true
+          }
+        ]
+      },
+      {
+        "status": "evaluated",
+        "passed": false,
+        "outcomes": [
+          {
+            "check": {
+              "kind": "member",
+              "scenario": "both",
+              "user": "service",
+              "group": "*"
+            },
+            "passed": false,
+            "error": "KeyError(\"getgrnam(): name not found: '*'\")"
+          },
+          {
+            "check": {
+              "kind": "password_locked",
+              "scenario": "both",
+              "user": "service"
+            },
+            "passed": true
+          }
+        ]
+      }
+    ]
+  }
+}

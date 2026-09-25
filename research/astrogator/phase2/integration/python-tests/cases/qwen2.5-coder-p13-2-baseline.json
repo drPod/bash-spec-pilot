@@ -1,0 +1,76 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "b9051f89937323fe412a596b6fbdd4c323c096869dbbb4de3f965e8bd67fe0bf",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a06-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_contents (__main__.TestFileCreation.test_contents) ... ok\ntest_file_exists_and_is_regular (__main__.TestFileCreation.test_file_exists_and_is_regular) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen, Problem p13, Response 2] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure /etc/file.txt exists] *********************************************\nchanged: [localhost]\n\nTASK [Set contents of /etc/file.txt] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e67",
+    "old_oracle": true,
+    "single_final_newline_tolerant": true
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/etc/file.txt": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985631,
+      "mtime_ns": 1790349375593937635,
+      "ctime_ns": 1790349375593181848,
+      "sha256": "4095391c7e3e04ff12c9ad2e6c49bd63dfe77e885acaadd3b58a1d8895383044"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 6.359,
+  "sample_id": "qwen2.5-coder/p13/2"
+}

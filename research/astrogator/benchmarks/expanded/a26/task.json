@@ -1,0 +1,20 @@
+{
+  "id": "a26",
+  "title": "Replace obsolete banner",
+  "family": "configuration",
+  "natural_language": "Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.",
+  "formal_query": "create file at /work/banner with content=\"Authorized users only\n\", read=all, write=owner",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "preserves obsolete content",
+  "tags": [
+    "replacement"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

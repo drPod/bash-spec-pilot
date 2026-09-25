@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "directory",
+      "scenario": "baseline",
+      "path": "/srv/www"
+    },
+    {
+      "kind": "directory",
+      "scenario": "adversarial",
+      "path": "/srv/www"
+    }
+  ]
+}

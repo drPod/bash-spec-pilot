@@ -1,0 +1,11 @@
+{
+  "cache_key": "6dda7bd460f9d781dcf3c9a8a84095a846327840c390a299840e4d45a9ae5f1d",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "a8792abd05867840cc90d2450b2eead82bc1cc743652bd65333552fa7d6196fb",
+  "code_sha256": "06d09ab96433166cffd333eda45ba89b82022db42de03d3305693f85e0c0547d",
+  "returncode": 0,
+  "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_package(\"git\") [ 1, 0 : pos ] , env(()) : < hostname = [ 1, 0: \u220025 ] >, fs(('/ansible', file_system::remote(()))) [ 1, 0 : pos ] : < fs_type = [ 1, 0: file_type::directory(nil::<path>()) ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_package(\"git\") [ 1, 0 : pos ] , env(()) : < hostname = [ 1, 0: \u220025 ] >, fs(('/ansible', file_system::remote(()))) [ 1, 0 : pos ] : < fs_type = [ 1, 0: file_type::directory(nil::<path>()) ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 > >\u001b[39m \u001b[33m{ 2 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< e_package(\"git\") [ 1, 0 : pos ] , env(()) : < hostname = [ 1, 0: \u220025 ] >, fs(('/ansible', file_system::remote(()))) [ 1, 0 : pos ] : < fs_type = [ 1, 0: file_type::directory(nil::<path>()) ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 1, 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n",
+  "stderr": "",
+  "seconds": 0.0911,
+  "status": "accepted_with_possible_residuals"
+}

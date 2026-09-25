@@ -1,0 +1,827 @@
+{
+  "arms": {
+    "compact/gpt-6-astra": {
+      "complete": true,
+      "observed": 63,
+      "expected": 63,
+      "generation_statuses": {
+        "ok": 63
+      },
+      "counts": {
+        "parsed": 60,
+        "lowered": 36,
+        "effect_match": 27
+      },
+      "per_repeat": {
+        "0": {
+          "parsed": 20,
+          "lowered": 12,
+          "effect_match": 9
+        },
+        "1": {
+          "parsed": 20,
+          "lowered": 12,
+          "effect_match": 9
+        },
+        "2": {
+          "parsed": 20,
+          "lowered": 12,
+          "effect_match": 9
+        }
+      }
+    },
+    "compact/claude-opus-5-5": {
+      "complete": true,
+      "observed": 63,
+      "expected": 63,
+      "generation_statuses": {
+        "ok": 63
+      },
+      "counts": {
+        "parsed": 60,
+        "lowered": 33,
+        "effect_match": 27
+      },
+      "per_repeat": {
+        "0": {
+          "parsed": 20,
+          "lowered": 11,
+          "effect_match": 9
+        },
+        "1": {
+          "parsed": 20,
+          "lowered": 11,
+          "effect_match": 9
+        },
+        "2": {
+          "parsed": 20,
+          "lowered": 11,
+          "effect_match": 9
+        }
+      }
+    },
+    "handbook/gpt-6-astra": {
+      "complete": true,
+      "observed": 63,
+      "expected": 63,
+      "generation_statuses": {
+        "ok": 63
+      },
+      "counts": {
+        "parsed": 63,
+        "lowered": 63,
+        "effect_match": 53
+      },
+      "per_repeat": {
+        "0": {
+          "parsed": 21,
+          "lowered": 21,
+          "effect_match": 17
+        },
+        "1": {
+          "parsed": 21,
+          "lowered": 21,
+          "effect_match": 18
+        },
+        "2": {
+          "parsed": 21,
+          "lowered": 21,
+          "effect_match": 18
+        }
+      }
+    },
+    "handbook/claude-opus-5-5": {
+      "complete": true,
+      "observed": 63,
+      "expected": 63,
+      "generation_statuses": {
+        "ok": 63
+      },
+      "counts": {
+        "parsed": 63,
+        "lowered": 60,
+        "effect_match": 57
+      },
+      "per_repeat": {
+        "0": {
+          "parsed": 21,
+          "lowered": 20,
+          "effect_match": 19
+        },
+        "1": {
+          "parsed": 21,
+          "lowered": 20,
+          "effect_match": 19
+        },
+        "2": {
+          "parsed": 21,
+          "lowered": 20,
+          "effect_match": 19
+        }
+      }
+    }
+  },
+  "by_task": {
+    "compact/gpt-6-astra": {
+      "a01": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a02": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a03": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a04": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a05": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a06": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a07": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a08": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a09": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a10": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a11": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a12": {
+        "parsed": 0,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a13": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a14": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a15": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a16": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a17": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a18": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a19": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a20": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a21": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      }
+    },
+    "compact/claude-opus-5-5": {
+      "a01": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a02": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a03": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a04": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a05": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a06": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a07": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a08": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a09": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a10": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a11": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a12": {
+        "parsed": 0,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a13": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a14": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a15": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a16": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a17": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a18": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a19": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a20": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a21": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      }
+    },
+    "handbook/gpt-6-astra": {
+      "a01": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a02": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a03": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a04": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a05": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a06": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a07": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a08": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a09": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a10": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a11": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a12": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a13": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a14": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a15": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a16": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a17": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a18": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a19": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 2
+      },
+      "a20": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      },
+      "a21": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      }
+    },
+    "handbook/claude-opus-5-5": {
+      "a01": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a02": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a03": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a04": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a05": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a06": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a07": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a08": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a09": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a10": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a11": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a12": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a13": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a14": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a15": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a16": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a17": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a18": {
+        "parsed": 3,
+        "lowered": 0,
+        "effect_match": 0
+      },
+      "a19": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a20": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 3
+      },
+      "a21": {
+        "parsed": 3,
+        "lowered": 3,
+        "effect_match": 0
+      }
+    }
+  },
+  "paired": {
+    "gpt-6-astra": {
+      "by_task": {
+        "a01": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a02": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a03": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 3
+        },
+        "a04": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a05": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a06": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a07": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a08": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a09": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 3
+        },
+        "a10": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a11": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a12": {
+          "parsed": 3,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a13": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a14": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a15": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 3
+        },
+        "a16": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a17": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a18": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 0
+        },
+        "a19": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 2
+        },
+        "a20": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 0
+        },
+        "a21": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 0
+        }
+      },
+      "direction_counts": {
+        "parsed": {
+          "improved_tasks": 1,
+          "tied_tasks": 20,
+          "worsened_tasks": 0,
+          "net_generations": 3
+        },
+        "lowered": {
+          "improved_tasks": 9,
+          "tied_tasks": 12,
+          "worsened_tasks": 0,
+          "net_generations": 27
+        },
+        "effect_match": {
+          "improved_tasks": 9,
+          "tied_tasks": 12,
+          "worsened_tasks": 0,
+          "net_generations": 26
+        }
+      }
+    },
+    "claude-opus-5-5": {
+      "by_task": {
+        "a01": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a02": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a03": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a04": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a05": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a06": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a07": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a08": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a09": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 3
+        },
+        "a10": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a11": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a12": {
+          "parsed": 3,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a13": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a14": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a15": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 3
+        },
+        "a16": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a17": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a18": {
+          "parsed": 0,
+          "lowered": 0,
+          "effect_match": 0
+        },
+        "a19": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a20": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 3
+        },
+        "a21": {
+          "parsed": 0,
+          "lowered": 3,
+          "effect_match": 0
+        }
+      },
+      "direction_counts": {
+        "parsed": {
+          "improved_tasks": 1,
+          "tied_tasks": 20,
+          "worsened_tasks": 0,
+          "net_generations": 3
+        },
+        "lowered": {
+          "improved_tasks": 9,
+          "tied_tasks": 12,
+          "worsened_tasks": 0,
+          "net_generations": 27
+        },
+        "effect_match": {
+          "improved_tasks": 10,
+          "tied_tasks": 11,
+          "worsened_tasks": 0,
+          "net_generations": 30
+        }
+      }
+    }
+  },
+  "input_sha256": {
+    "phase2/integration/frontier-diagnostics.jsonl": "8e799a25599ca5cc6fee972fa6298d1782fd117a90290222f4cf5492c474e442",
+    "phase2/translation_method/diagnostics.jsonl": "5129aa9adae3a73c2e052a6bb5caef4b62aa585fc63fc4bea44417a44f4f6c9c"
+  },
+  "unit": "21 tasks, three fresh generations per task/model/arm; 63 outputs are not63independentproblems.",
+  "limitations": [
+    "Normalized semantic-effect matching is a reference-agreement proxy, not proof of intent fidelity.",
+    "Same four demonstrations and targets; handbook changes both information content and prompt length.",
+    "Existing source KB is task-related domain engineering; no unseen-domain claim.",
+    "Fresh calls lack matched random seeds; paired cells share tasks, not generation randomness.",
+    "No gold target FQL or parser feedback supplied to either generation arm.",
+    "Code generation validated with original pinned source; code patches are evaluated separately."
+  ]
+}

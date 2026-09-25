@@ -1,0 +1,21 @@
+{
+  "id": "a27",
+  "title": "Copy with destination dependency",
+  "family": "filesystem",
+  "natural_language": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",
+  "formal_query": "create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "missing destination prerequisite",
+  "tags": [
+    "dependency",
+    "binary-content"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

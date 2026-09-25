@@ -1,0 +1,120 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at \"/user/home/venv\" with mode at 0755; create file at \"/user/home/venv/pipenv.lock\" with mode at 0644; write file at \"/user/home/venv/pipenv.lock\" with content=\"pipenv --three --python 3.10 install numpy\"; enable directory at \"/user/home/venv\""
+      },
+      {
+        "role": "user",
+        "content": "Your FQL query failed machine validation:\nparse\tok\t331a311fa513939bd16470e954541c90\nsemantic\terror\tUnhandled arguments for create directory: with = mode\n\nReturn one corrected FQL query only. Preserve all actions and conditions in the original request; do not drop requirements just to make the query valid."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 14.022,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "create directory at /user/home/venv with mode at 0755; create file at /user/home/venv/pipenv_lock with mode at 0644; write file at /user/home/venv/pipenv_lock with content=\"pipenv --three --python 3.10 install numpy\"; enable directory at /user/home/venv"
+        }
+      }
+    ],
+    "created": 1790292502,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 80,
+      "prompt_tokens": 578,
+      "total_tokens": 658,
+      "prompt_tokens_details": {
+        "cached_tokens": 374
+      }
+    },
+    "id": "chatcmpl-xTWmuXIjEJDFa89dqmkAkvfXPpUMDkyA",
+    "timings": {
+      "cache_n": 374,
+      "prompt_n": 204,
+      "prompt_ms": 3983.815,
+      "prompt_per_token_ms": 19.528504901960783,
+      "prompt_per_second": 51.20719712135227,
+      "predicted_n": 80,
+      "predicted_ms": 9817.241,
+      "predicted_per_token_ms": 124.26887341772152,
+      "predicted_per_second": 8.047067399078825
+    }
+  },
+  "text": "create directory at /user/home/venv with mode at 0755; create file at /user/home/venv/pipenv_lock with mode at 0644; write file at /user/home/venv/pipenv_lock with content=\"pipenv --three --python 3.10 install numpy\"; enable directory at /user/home/venv",
+  "finish_reason": "stop",
+  "task_id": "a14",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a01",
+    "a04",
+    "a06"
+  ],
+  "constrained": true,
+  "diverse_demos": true,
+  "repair_attempted": true,
+  "request_reused": false,
+  "source_record": "experiments/qwen-grammar-v2/fql-3shot-constrained/a14-query.json",
+  "feedback": {
+    "returncode": 11,
+    "stdout": "parse\tok\t331a311fa513939bd16470e954541c90\nsemantic\terror\tUnhandled arguments for create directory: with = mode\n",
+    "stderr": "",
+    "seconds": 0.006,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "331a311fa513939bd16470e954541c90"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled arguments for create directory: with = mode"
+      }
+    }
+  },
+  "condition": "one diagnostic retry if parsing/semantic analysis/codegen failed; no reference query supplied"
+}

@@ -1,0 +1,26 @@
+{
+  "query_sha256": "e1e66a52bcd9572132313416c0cd3bf952189d8fcfcc3bb4ad9258361fa6fe61",
+  "query": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tdec1fd687ba1cccf6aaad4dec506abf3\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0131,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "dec1fd687ba1cccf6aaad4dec506abf3"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "unavailable:functional_value"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

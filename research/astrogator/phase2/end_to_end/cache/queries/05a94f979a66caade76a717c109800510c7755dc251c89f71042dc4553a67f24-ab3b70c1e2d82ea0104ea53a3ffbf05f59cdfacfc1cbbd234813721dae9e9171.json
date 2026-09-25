@@ -1,0 +1,22 @@
+{
+  "query_sha256": "ab3b70c1e2d82ea0104ea53a3ffbf05f59cdfacfc1cbbd234813721dae9e9171",
+  "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\tec3f36bd49be8c0d5c019c6d70761341\nsemantic\terror\tMust specify 'user' for zsh configuration file\n",
+    "stderr": "",
+    "seconds": 0.0025,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "ec3f36bd49be8c0d5c019c6d70761341"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Must specify 'user' for zsh configuration file"
+      }
+    }
+  }
+}

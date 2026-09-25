@@ -1,0 +1,514 @@
+{
+  "frozen": {
+    "selection": "First lexicographic compact/GPT6/r0 a03 supplied-reject\u2192generated-accept program. Selected after observing disagreement; diagnostic only.",
+    "natural_language": "Delete the contents of the /home/mydata/web directory",
+    "obligations": [
+      "Directory itself continues to exist as a directory.",
+      "All descendants of the directory are removed."
+    ],
+    "interpretation": "Delete the contents is interpreted as preserving their containing directory, consistent with supplied delete_files/in_path AST. This diagnostic explicitly states that interpretation; it is not a universal oracle for all variants of this task.",
+    "candidate": {
+      "bytes": 209,
+      "path": "data/corpus/deepseek/p15/response0.yml",
+      "sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+      "yaml_root": "list",
+      "yaml_status": "parsed"
+    },
+    "sample_id": "deepseek/p15/0",
+    "query_record": {
+      "id": "fql-a03-r0",
+      "task_id": "a03",
+      "repeat": 0,
+      "model_alias": "gpt6",
+      "model": "gpt-6-astra",
+      "generation_status": "ok",
+      "query": "delete contents of directory at /home/mydata/web",
+      "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+      "source_record": "phase2/integration/frontier/gpt6/fql-a03-r0.json",
+      "source_sha256": "42526a62432e5c96fcc81f65196561161220b423bd4da61524a2ba3feeb22e0d",
+      "snapshot": "phase2/end_to_end/inputs/compact-all/gpt6/fql-a03-r0.json",
+      "prompt_sha256": "1ac5e969138c71ba23be04fd5900884ad27bc25164ed3bc1de1c49819f0566d8"
+    },
+    "cell": {
+      "arm": "compact-all",
+      "model_alias": "gpt6",
+      "model": "gpt-6-astra",
+      "repeat": 0,
+      "task_id": "a03",
+      "sample_id": "deepseek/p15/0",
+      "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+      "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+      "generation_status": "ok",
+      "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+      "query_status": "query_lowered",
+      "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6.json",
+      "status": "accepted_with_possible_residuals",
+      "verifier_status": "accepted_with_possible_residuals",
+      "verifier_result_path": "phase2/end_to_end/cache/verifier/8d76c82be0aaed494223b85a69cd3c2e597d86f46bd972a26b369a38c0e0ab6f.json",
+      "supplied_query_status": "verification_rejected",
+      "supplied_query_result_path": "phase2/end_to_end/cache/verifier/041bb6e050ab8c92bfa9d936aa5aa48cbe91ad3f0aba6cb72afba4733741e1a3.json"
+    },
+    "fixtures": [
+      {
+        "id": "empty_root",
+        "files": {}
+      },
+      {
+        "id": "mixed_contents",
+        "files": {
+          "visible.txt": "keep nothing\n",
+          ".hidden": "hidden content\n",
+          "nested/deep.txt": "nested content\n"
+        }
+      }
+    ],
+    "driver_sha256": "bf690e2dbc0ae796984a86df5349666cd53e0d751e9acefa1982df0d538c3f3f",
+    "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+    "runtime_limits": {
+      "network": "none",
+      "memory": "384m",
+      "cpus": 0.5,
+      "pids": 96
+    }
+  },
+  "runtime": {
+    "frozen_sha256": "e2ddf034031f75d71cf4d254bb086f0155432f850a2eacbc217cefc057a9e435",
+    "ansible_version": "ansible-playbook [core 2.19.11]\n  config file = None\n  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']\n  ansible python module location = /usr/lib/python3/dist-packages/ansible\n  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections\n  executable location = /usr/bin/ansible-playbook\n  python version = 3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0] (/usr/bin/python3)\n  jinja version = 3.1.6\n  pyyaml version = 6.0.2 (with libyaml v0.2.5)\n",
+    "results": [
+      {
+        "fixture": "empty_root",
+        "before": {
+          "root_exists": true,
+          "root_is_directory": true,
+          "root_mode": "0o751",
+          "descendants": []
+        },
+        "after": {
+          "root_exists": false,
+          "root_is_directory": false,
+          "root_mode": null,
+          "descendants": []
+        },
+        "command": [
+          "ansible-playbook",
+          "-i",
+          "localhost,",
+          "-c",
+          "local",
+          "-e",
+          "ansible_python_interpreter=/usr/bin/python3",
+          "/suite/data/corpus/deepseek/p15/response0.yml"
+        ],
+        "returncode": 0,
+        "stdout": "\nPLAY [Model deepseek, Problem p15, Response 10] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete web directory contents] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+        "stderr": "",
+        "seconds": 4.847999095916748,
+        "checks": {
+          "root_preserved_as_directory": false,
+          "contents_removed": false
+        }
+      },
+      {
+        "fixture": "mixed_contents",
+        "before": {
+          "root_exists": true,
+          "root_is_directory": true,
+          "root_mode": "0o751",
+          "descendants": [
+            ".hidden",
+            "nested",
+            "nested/deep.txt",
+            "visible.txt"
+          ]
+        },
+        "after": {
+          "root_exists": false,
+          "root_is_directory": false,
+          "root_mode": null,
+          "descendants": []
+        },
+        "command": [
+          "ansible-playbook",
+          "-i",
+          "localhost,",
+          "-c",
+          "local",
+          "-e",
+          "ansible_python_interpreter=/usr/bin/python3",
+          "/suite/data/corpus/deepseek/p15/response0.yml"
+        ],
+        "returncode": 0,
+        "stdout": "\nPLAY [Model deepseek, Problem p15, Response 10] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete web directory contents] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+        "stderr": "",
+        "seconds": 4.620168447494507,
+        "checks": {
+          "root_preserved_as_directory": false,
+          "contents_removed": false
+        }
+      }
+    ],
+    "scope": "Post-hoc selected mechanism counterexample; not a newly labeled110-program task or an unbiased error rate."
+  },
+  "runtime_image_context": {
+    "uid": 0,
+    "os_release": {
+      "NAME": "Debian GNU/Linux",
+      "ID": "debian",
+      "PRETTY_NAME": "Debian GNU/Linux 13 (trixie)",
+      "VERSION_ID": "13",
+      "VERSION": "13 (trixie)",
+      "VERSION_CODENAME": "trixie",
+      "DEBIAN_VERSION_FULL": "13.7",
+      "HOME_URL": "https://www.debian.org/",
+      "SUPPORT_URL": "https://www.debian.org/support",
+      "BUG_REPORT_URL": "https://bugs.debian.org/"
+    }
+  },
+  "compact_effects": {
+    "query": "delete contents of directory at /home/mydata/web",
+    "status": "ok",
+    "effects": [
+      {
+        "kind": "delete_directory",
+        "path": {
+          "kind": "remote",
+          "destination": {
+            "kind": "absolute",
+            "value": "/home/mydata/web"
+          }
+        }
+      }
+    ]
+  },
+  "compact_verifier": {
+    "cache_key": "8d76c82be0aaed494223b85a69cd3c2e597d86f46bd972a26b369a38c0e0ab6f",
+    "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+    "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+    "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+    "returncode": 0,
+    "stdout": "\nVERIFIED\n\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"RedHat\", os_family = \"RedHat\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220015) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Debian\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220024) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n\u001b[39m\u001b[36m< #local(()), env(()): <last_reboot = -1, os_distribution = \"Ubuntu\", os_family = \"Debian\", time_counter = 0 >, fs(('/home/mydata/web', file_system::remote(()))): <fs_type = file_type::directory(\u220033) > >\u001b[39m \u001b[33m{ 1 branch }\u001b[39m \u001b[31massuming\u001b[39m \u001b[38;2;255;165;0m< env(()) : < hostname = [ 0: \u220043 ] > >\u001b[39m \u001b[31mand\u001b[39m \u001b[38;2;255;165;0mcan_become((\"#local_user\", \"root\")) = [ 0 : true ]\u001b[39m \u001b[31mperforming\u001b[39m \u001b[32m<>\n",
+    "stderr": "",
+    "seconds": 0.1091,
+    "status": "accepted_with_possible_residuals"
+  },
+  "supplied_verifier": {
+    "cache_key": "041bb6e050ab8c92bfa9d936aa5aa48cbe91ad3f0aba6cb72afba4733741e1a3",
+    "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+    "query_sha256": "a835dc1aa81ab37d3f2a60f7bc5d8cda035f7bd62041ee015a4c74294a41e308",
+    "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+    "returncode": 5,
+    "stdout": "\nFAILED TO VERIFY\n",
+    "stderr": "",
+    "seconds": 0.0471,
+    "status": "verification_rejected"
+  },
+  "handbook": [
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 0,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 1,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "gpt6",
+        "model": "gpt-6-astra",
+        "repeat": 2,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "opus55",
+        "model": "claude-opus-5-5",
+        "repeat": 0,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "opus55",
+        "model": "claude-opus-5-5",
+        "repeat": 1,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    },
+    {
+      "cell": {
+        "arm": "handbook-all",
+        "model_alias": "opus55",
+        "model": "claude-opus-5-5",
+        "repeat": 2,
+        "task_id": "a03",
+        "sample_id": "deepseek/p15/0",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "generation_status": "ok",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "query_status": "query_lowered",
+        "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196.json",
+        "status": "verification_rejected",
+        "verifier_status": "verification_rejected",
+        "verifier_result_path": "phase2/end_to_end/cache/verifier/06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216.json"
+      },
+      "query": "delete files in \"/home/mydata/web\"",
+      "effects": {
+        "query": "delete files in \"/home/mydata/web\"",
+        "status": "ok",
+        "effects": [
+          {
+            "kind": "delete_files",
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/home/mydata/web"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "verifier": {
+        "cache_key": "06a300a8c9b23a6cd2359854da3cb23332c3299cc10e5849ce6b4c4aa9fdf216",
+        "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+        "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+        "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+        "returncode": 5,
+        "stdout": "\nFAILED TO VERIFY\n",
+        "stderr": "",
+        "seconds": 0.0724,
+        "status": "verification_rejected"
+      }
+    }
+  ],
+  "source_mechanism": {
+    "path": "/tmp/astrogator-upstream/lib/fql/semant.ml",
+    "sha256": "31b3ccb8ffde6cd0e389e84c432d732fe388e44e2f0d5df07dd1decb038425b5",
+    "lines": "478-500",
+    "description": "Delete takes last description token; explicit at path bypasses remaining description words before directory."
+  },
+  "residual_assessment": "All3 original verifier branches require initial root directory of arbitrary contents, arbitrary hostname, and ability to become root. Both fixtures create that directory; pinned container is Debian running uid0, and Ansible become succeeds. The Debian branch applies. This is an explicit operational correspondence argument, not a proof of the whole model/runtime abstraction."
+}

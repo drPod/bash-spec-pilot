@@ -1,0 +1,20 @@
+{
+  "id": "a42",
+  "title": "Change primary group",
+  "family": "identity",
+  "natural_language": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",
+  "formal_query": "create user with name=app in primary group=deploy",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "changes supplemental instead of primary group",
+  "tags": [
+    "primary-vs-supplemental"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

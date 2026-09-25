@@ -1,0 +1,11 @@
+{
+  "cache_key": "efc7419c02655900f4267e9b3cfd79415b8aea0f41f59cf21e6832fafd51793a",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "70cce71f17324d156504adbb413349c35f0e7b80ce152361342558fa0f5e02db",
+  "code_sha256": "971878db47d60428fad65d41717bd381100022f201779a2a6c43a2e19fcbcc94",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument update_shell for module user\n",
+  "stderr": "",
+  "seconds": 0.1111,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,152 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "f36c98e1597347ba6847c32d8a2e4b9cbfb27675caf708c88b0f866ec9bc245a",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a17-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a17-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model deepseek, Problem p10, Response 5] *********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for 'service' user] *************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985528,
+      "mtime_ns": 1790348127298699092,
+      "ctime_ns": 1790348127300699146,
+      "sha256": "2e92c0043db988c75994c19778fc972407928de65d3d691ab773bbd845c7fdf8"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 985486,
+      "mtime_ns": 1790348127303699227,
+      "ctime_ns": 1790348127305699281,
+      "sha256": "9fa96afe394be38c92b954b1ec3c7c46dd976a8b2901d4fdfabaf2b25308bffd"
+    },
+    "/home/service": {
+      "mode": 16832,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985477,
+      "mtime_ns": 1790348122977582865,
+      "ctime_ns": 1790348122977582865
+    },
+    "/home/service/.bash_logout": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985480,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348122977582865,
+      "sha256": "26882b79471c25f945c970f8233d8ce29d54e9d5eedcd2884f88affa84a18f56"
+    },
+    "/home/service/.bashrc": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985484,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348122977582865,
+      "sha256": "afae8986f549c6403410e029f9cce7983311512d04b1f02af02e4ce0af0dd2bf"
+    },
+    "/home/service/.profile": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985482,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790348122977582865,
+      "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.885,
+  "sample_id": "deepseek/p10/5"
+}

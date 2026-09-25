@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/work/app.conf",
+      "value": "0600"
+    },
+    {
+      "kind": "content",
+      "scenario": "baseline",
+      "path": "/work/app.conf",
+      "value": "port=8080"
+    },
+    {
+      "kind": "contains",
+      "scenario": "baseline",
+      "path": "/work/app.conf",
+      "value": "port=8080"
+    },
+    {
+      "kind": "member",
+      "scenario": "baseline",
+      "user": "root",
+      "group": "wheel"
+    },
+    {
+      "kind": "package",
+      "scenario": "baseline",
+      "name": "apache2",
+      "version": "2.4.41"
+    },
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "apache2",
+      "value": false
+    },
+    {
+      "kind": "content",
+      "scenario": "adversarial",
+      "path": "/work/app.conf",
+      "value": "port=9090"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /home/app
+      state: directory
+      owner: app
+      group: app
+      mode: '0755'

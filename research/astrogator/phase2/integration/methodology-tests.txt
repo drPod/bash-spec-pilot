@@ -1,0 +1,29 @@
+test_case (unittest.loader._FailedTest.test_case) ... ERROR
+test_execution_failure_policy_explicit (test_methodology.MethodologyTests.test_execution_failure_policy_explicit) ... ok
+test_gate_abstention (test_methodology.MethodologyTests.test_gate_abstention) ... ok
+test_invalid_test_abstains (test_methodology.MethodologyTests.test_invalid_test_abstains) ... ok
+test_missing_state_unresolved (test_methodology.MethodologyTests.test_missing_state_unresolved) ... ok
+test_never_borrow_oracle_for_test_prediction (test_methodology.MethodologyTests.test_never_borrow_oracle_for_test_prediction) ... ok
+test_password_structural_integrity_separate (test_methodology.MethodologyTests.test_password_structural_integrity_separate) ... ok
+test_test_rejection_is_not_oracle_failure (test_methodology.MethodologyTests.test_test_rejection_is_not_oracle_failure) ... ok
+test_timeout_not_rejection_even_when_other_fails (test_methodology.MethodologyTests.test_timeout_not_rejection_even_when_other_fails) ... ok
+
+======================================================================
+ERROR: test_case (unittest.loader._FailedTest.test_case)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_case
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/integration/test_case.py", line 15, in <module>
+    import container_case as c
+ModuleNotFoundError: No module named 'container_case'
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+FAILED (errors=1)

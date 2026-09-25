@@ -1,0 +1,65 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Delete the contents of the /home/mydata/web directory"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 1.114,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "delete with content=\"/home/mydata/web/*\""
+        }
+      }
+    ],
+    "created": 1790290855,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 11,
+      "prompt_tokens": 277,
+      "total_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 263
+      }
+    },
+    "id": "chatcmpl-9wPie6ZfPLLTc9MCigvrOAacubhHwoJM",
+    "timings": {
+      "cache_n": 263,
+      "prompt_n": 14,
+      "prompt_ms": 356.633,
+      "prompt_per_token_ms": 25.473785714285714,
+      "prompt_per_second": 39.25604192545278,
+      "predicted_n": 11,
+      "predicted_ms": 663.326,
+      "predicted_per_token_ms": 66.3326,
+      "predicted_per_second": 15.07554354872265
+    }
+  },
+  "text": "delete with content=\"/home/mydata/web/*\"",
+  "finish_reason": "stop",
+  "task_id": "a03",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 0,
+  "demonstration_ids": [],
+  "constrained": false,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "e6530c9c1ef74b0ba85ca6affe320cd786d52e63c627675bf09178656b7a6e9c"
+}

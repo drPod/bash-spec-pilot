@@ -1,0 +1,18 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.cron:
+      name: astro cleanup
+      minute: '15'
+      hour: '2'
+      user: root
+      job: /usr/bin/true
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import subprocess; s=subprocess.check_output(['crontab','-l'],text=True);
+        subprocess.run(['crontab','-'],input=s.replace('15 2 * * * /usr/bin/true','#15
+        2 * * * /usr/bin/true'),text=True,check=True)

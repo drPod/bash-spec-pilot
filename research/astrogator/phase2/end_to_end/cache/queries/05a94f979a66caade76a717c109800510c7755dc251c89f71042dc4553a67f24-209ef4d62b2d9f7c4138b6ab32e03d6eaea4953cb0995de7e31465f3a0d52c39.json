@@ -1,0 +1,26 @@
+{
+  "query_sha256": "209ef4d62b2d9f7c4138b6ab32e03d6eaea4953cb0995de7e31465f3a0d52c39",
+  "query": "write \"module load gcc\" to bashrc file for user = foo at position=end",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t0f59de511a4d6f8b87a14f45e93bd36c\nsemantic\tok\t47737920cd6adaf7aad154cd489e70c4\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0037,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "0f59de511a4d6f8b87a14f45e93bd36c"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "47737920cd6adaf7aad154cd489e70c4"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

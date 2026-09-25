@@ -1,0 +1,1 @@
+enable passwordless sudo for group with name="wheel"; create user at "/ansible"

@@ -1,0 +1,7 @@
+{
+  "upstream_commit": "7c62afa51986d87033af5112cdccd3b104b1c120",
+  "path": "lib/fql/codegen.ml",
+  "before_sha256": "4c3ceb1bbd367e3e538fb2b843e08bec51b848ab482d567403601464ca1d9f02",
+  "after_sha256": "d0d455e8850b6089f78add7f0bdde1e4b5d97b87ef647f207c804f0bc0331c30",
+  "scope": "Proposed total-permission reading when an ordinary read/write/execute/list field is explicit; preserve upstream special-bit-only behavior. No general permission semantics claim."
+}

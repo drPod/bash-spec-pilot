@@ -1,0 +1,11 @@
+{
+  "cache_key": "3078d2d6bcde1358955ebbbaa7a08e2140ff56d525ac38896671c177b38f0516",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "364bbfbaa7f526ceed7d8b0442a5421b6393e8164cd22aa69794afcda058ae8c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable venv_creation\n",
+  "stderr": "",
+  "seconds": 0.0774,
+  "status": "ansible_lowering_error"
+}

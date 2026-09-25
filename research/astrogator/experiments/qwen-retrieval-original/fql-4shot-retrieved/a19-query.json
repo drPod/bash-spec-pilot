@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+      },
+      {
+        "role": "assistant",
+        "content": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\""
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      },
+      {
+        "role": "assistant",
+        "content": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv"
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat based systems, install numpy"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian based or os is RedHat based then install numpy"
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\""
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 8.234,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "if os is RedHat then install apache server; if home page for apache server not exists then create home page; install user \"webdev\""
+        }
+      }
+    ],
+    "created": 1790293315,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 30,
+      "prompt_tokens": 538,
+      "total_tokens": 568,
+      "prompt_tokens_details": {
+        "cached_tokens": 332
+      }
+    },
+    "id": "chatcmpl-TbJuBoU5tLqw4w2hHIyPjl1VGs2NC0JB",
+    "timings": {
+      "cache_n": 332,
+      "prompt_n": 206,
+      "prompt_ms": 4036.724,
+      "prompt_per_token_ms": 19.595747572815533,
+      "prompt_per_second": 51.03147998228266,
+      "predicted_n": 30,
+      "predicted_ms": 4034.976,
+      "predicted_per_token_ms": 139.13710344827587,
+      "predicted_per_second": 7.187155512201311
+    }
+  },
+  "text": "if os is RedHat then install apache server; if home page for apache server not exists then create home page; install user \"webdev\"",
+  "finish_reason": "stop",
+  "task_id": "a19",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a16",
+    "a14",
+    "a15",
+    "a21"
+  ],
+  "retrieval_scores": [
+    0.27341118948114157,
+    0.21997122577008305,
+    0.16290582138978116,
+    0.14373842342684237
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "d5f0bbdabfb3368e45a46182472ab61a0581fdd0c5fe8fe14265c2051de90241",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

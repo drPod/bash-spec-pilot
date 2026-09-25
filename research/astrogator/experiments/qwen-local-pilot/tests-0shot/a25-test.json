@@ -1,0 +1,63 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for an Ansible task on Debian. Output Python only. The test runs after the playbook, with standard library only, as root. Exit 0 iff checked requirements hold; use assertions. Do not modify system state, execute the playbook, install packages, or assume success. Check observable state; do not read playbook source. You do not receive a reference solution. Environment variable ASTRO_SCENARIO is baseline or adversarial."
+      },
+      {
+        "role": "user",
+        "content": "Task: If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.\nInitial states: baseline: /work/app.conf absent. adversarial: file bytes are port=9090 newline # keep newline.\nWrite a test valid in both initial states."
+      }
+    ],
+    "max_tokens": 650,
+    "stream": false
+  },
+  "seconds": 50.28,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport ansible.executor.playbook_executor as pb_executor\nfrom ansible.playbook.play import Play\nfrom ansible import utils\nfrom ansible import constants as C\nfrom ansible import utils as av\nfrom ansible import callbacks\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.path import which\nfrom ansible.parsing.dataloader import DataLoader\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_queue_manager import TaskQueueManager\nfrom ansible.playbook.play import Playbook\nfrom ansible.parsing.yaml.loaders import YAMLLoader\nfrom ansible.plugins.callback import Callback\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.group import Group\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.path import which\nfrom ansible.parsing.yaml.loaders import YAMLLoader\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host"
+        }
+      }
+    ],
+    "created": 1790290156,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 650,
+      "prompt_tokens": 176,
+      "total_tokens": 826,
+      "prompt_tokens_details": {
+        "cached_tokens": 105
+      }
+    },
+    "id": "chatcmpl-3arYQgF92bWn0annGvgcnd56QZagvzAk",
+    "timings": {
+      "cache_n": 105,
+      "prompt_n": 71,
+      "prompt_ms": 1284.376,
+      "prompt_per_token_ms": 18.089802816901408,
+      "prompt_per_second": 55.27976231259382,
+      "predicted_n": 650,
+      "predicted_ms": 48879.119,
+      "predicted_per_token_ms": 75.31451309707242,
+      "predicted_per_second": 13.277653388147195
+    }
+  },
+  "text": "```python\nimport ansible.executor.playbook_executor as pb_executor\nfrom ansible.playbook.play import Play\nfrom ansible import utils\nfrom ansible import constants as C\nfrom ansible import utils as av\nfrom ansible import callbacks\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.path import which\nfrom ansible.parsing.dataloader import DataLoader\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_queue_manager import TaskQueueManager\nfrom ansible.playbook.play import Playbook\nfrom ansible.parsing.yaml.loaders import YAMLLoader\nfrom ansible.plugins.callback import Callback\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.group import Group\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.path import which\nfrom ansible.parsing.yaml.loaders import YAMLLoader\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host import Host\nfrom ansible.plugins.loader import get_loader\nfrom ansible.utils.display import Display\nfrom ansible.utils.display import Display\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.manager import InventoryManager\nfrom ansible.executor.task_result import TaskResult\nfrom ansible.executor.play_result import PlayResult\nfrom ansible.inventory.host",
+  "finish_reason": "length",
+  "task_id": "a25",
+  "variant": "test",
+  "mode": "tests",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "ddff7856fb5620f61d03b2825fe1ab96cc6e9d0a749f828d7c67460be487f3fb"
+}

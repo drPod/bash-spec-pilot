@@ -1,0 +1,77 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "6c3f31a7bdb5cd895fb37203ad760457b1ff0296dc9934f5cd44393569860d10",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r0.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r1.py\", line 11, in <module>\n    assert path.read_bytes() == expected, \"Unexpected file contents\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected file contents\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_contents (__main__.TestFileCreation.test_contents) ... ok\ntest_file_exists_and_is_regular (__main__.TestFileCreation.test_file_exists_and_is_regular) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 6] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [file] ********************************************************************\nchanged: [localhost]\n\nTASK [lineinfile] **************************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e670a",
+    "old_oracle": false,
+    "single_final_newline_tolerant": true
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/etc/file.txt": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985737,
+      "mtime_ns": 1790349833193606138,
+      "ctime_ns": 1790349833192483738,
+      "sha256": "4178979d45990d732a7f77cdceb25b7ff7bfe1a066bb53cab7056610979fd795"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 5.405,
+  "sample_id": "starcoder/p13/6"
+}

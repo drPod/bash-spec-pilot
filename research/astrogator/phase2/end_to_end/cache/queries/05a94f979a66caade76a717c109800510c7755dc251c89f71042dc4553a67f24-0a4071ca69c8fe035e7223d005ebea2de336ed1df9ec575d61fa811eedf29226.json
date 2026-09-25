@@ -1,0 +1,26 @@
+{
+  "query_sha256": "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226",
+  "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\td2e20c8f384a40a3f93be5193903ff27\nsemantic\tok\td2454768af1158a645e52fea09c23ae3\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0154,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "d2e20c8f384a40a3f93be5193903ff27"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "d2454768af1158a645e52fea09c23ae3"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

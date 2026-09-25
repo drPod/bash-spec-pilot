@@ -1,0 +1,11 @@
+{
+  "cache_key": "7532b282c5ccf347cf22937be5a5214b97a4e273a1a33a742d640a8cbfbe3488",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226",
+  "code_sha256": "b26308dabc1ce5d2761f80fb388f359d74d6ac2252f4d257736fe576c9a2d382",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module include_role\n",
+  "stderr": "",
+  "seconds": 0.0969,
+  "status": "ansible_lowering_error"
+}

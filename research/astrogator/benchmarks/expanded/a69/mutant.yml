@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/maintenance
+    register: maintenance
+  - ansible.builtin.copy:
+      dest: /work/status
+      content: online

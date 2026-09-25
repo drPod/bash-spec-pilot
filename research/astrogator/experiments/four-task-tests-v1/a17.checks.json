@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "kind": "member",
+      "scenario": "both",
+      "user": "service",
+      "group": "*"
+    },
+    {
+      "kind": "password_locked",
+      "scenario": "both",
+      "user": "service"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "query_sha256": "71fa80fc2ea9003c480ef1c4665fd7823f94951d7c784deee7491da23588e9a0",
+  "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tc6285166a2ba9138eeea2493fcaa6622\nsemantic\tok\t202f441a67530de7c9caa117be666ea6\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0265,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "c6285166a2ba9138eeea2493fcaa6622"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "202f441a67530de7c9caa117be666ea6"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

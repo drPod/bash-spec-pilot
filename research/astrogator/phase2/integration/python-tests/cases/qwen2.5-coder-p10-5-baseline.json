@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "9d6133b643b96f5b274dabecd5034ed50c4559c26d58869307a27fc781c406a8",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p10, Response 5] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for the 'service' user] *********************************\n[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.\n\nTask failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response5.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Disable password for the 'service' user\n      ^ column 5\n\n<<< caused by >>>\n\nFinalization of task args for 'ansible.builtin.user' failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response5.yml:8:5\n\n6   - name: Disable password for the 'service' user\n7     become: yes\n8     user:\n      ^ column 5\n\n<<< caused by >>>\n\nError while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response5.yml:10:17\n\n 8     user:\n 9       name: service\n10       password: \"{{ lookup('ansible.builtin.none') }}\"\n                   ^ column 17\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': The lookup plugin 'ansible.builtin.none' was not found.\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.742,
+  "sample_id": "qwen2.5-coder/p10/5"
+}

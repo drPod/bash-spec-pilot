@@ -1,0 +1,21 @@
+{
+  "id": "a28",
+  "title": "Move and remove source",
+  "family": "filesystem",
+  "natural_language": "Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",
+  "formal_query": "move file from remote /work/source to remote /work/moved",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "copy without deleting source",
+  "tags": [
+    "move",
+    "idempotence"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

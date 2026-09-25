@@ -1,0 +1,9 @@
+PASS unspecified permissions preserve mode
+PASS owner only explicitly clears group and other
+PASS directory search retains conditional X
+PASS group only explicitly clears owner and other
+PASS explicit empty permissions clear all classes
+PASS special-bit-only false preserves upstream behavior
+PASS special-bit-only true preserves upstream behavior
+PASS all classes remain represented
+PASS special permissions retain their class

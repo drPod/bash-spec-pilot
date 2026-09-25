@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "607c082de0c97cf2f12dbe0ecc6350e964db44fdbbeca0b7b9c313a9d56923a3",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 4] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [create a file] ***********************************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\nOrigin: /suite/data/corpus/starcoder/p13/response4.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: create a file\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (ansible.builtin.file) module: content. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.469,
+  "sample_id": "starcoder/p13/4"
+}

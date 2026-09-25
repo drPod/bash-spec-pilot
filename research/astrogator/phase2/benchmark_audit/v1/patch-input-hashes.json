@@ -1,0 +1,66 @@
+{
+  "research/astrogator/benchmarks/expanded/a24/setup.py": {
+    "original": "a6db1777115c32783a9df4307d7909f5c7f68ec8a753641d1b8fd937d6845683",
+    "patched": "a6db1777115c32783a9df4307d7909f5c7f68ec8a753641d1b8fd937d6845683"
+  },
+  "research/astrogator/benchmarks/expanded/a24/check.py": {
+    "original": "82899ec42375909e32c885cbecaf4a1f05cba2313b0c53c099ea6c54a9da7adf",
+    "patched": "719118f5c92a7cfdd33a7efb0bd2c9d8499aad800760938b85216cb9cef24a53"
+  },
+  "research/astrogator/benchmarks/expanded/a32/setup.py": {
+    "original": "77886243678a5454c924180ba52fea4dcf0a2ffa55d4a43a0eb0b73cde55f800",
+    "patched": "c037729fcd72d1aab62a60b2fa0c089773462d8a62c1d849d504ac0de71f701e"
+  },
+  "research/astrogator/benchmarks/expanded/a32/check.py": {
+    "original": "7fdbabf0935a889b6e0d5d436662e2c072c1e0626c814213ec2c559ac99eadd3",
+    "patched": "60ddc6c4e4efe3789dc758bacf761720d172afebae980269fc71fb9eab6c9825"
+  },
+  "research/astrogator/benchmarks/expanded/a34/setup.py": {
+    "original": "76977289fadcd4e7fbd50a723c9a5f71b7af3e774dc9e14d620f17e690791eba",
+    "patched": "fe6e57471e238642de1b987468aaf7f6162506ce97bdc1dd3ee57f0a0f5d4700"
+  },
+  "research/astrogator/benchmarks/expanded/a34/check.py": {
+    "original": "08ecdc9e4b5b35929606250ccd020b68365e9da74494645686414d340297cf9e",
+    "patched": "d0f3a8688fc283ef7fe651e6841afca30f17911886a890bc189025d0c96e2fde"
+  },
+  "research/astrogator/benchmarks/expanded/a53/setup.py": {
+    "original": "86b7ed49342bafe8f386c28b0f7d2901005415ae5436214291192d91c7c4dc57",
+    "patched": "00e5a1b206e84ccbf09d201b7e275b682783690ed4736d4286d7cf5ec59c70ee"
+  },
+  "research/astrogator/benchmarks/expanded/a53/check.py": {
+    "original": "212dd994f40826c14bf9817a9025be5f53683521ef4c8114fef3c1e20da51795",
+    "patched": "231dada31983bbbedc4990fe5e417f4ae25be37b7d07d1126ce166c496cf0d6a"
+  },
+  "research/astrogator/benchmarks/expanded/a58/setup.py": {
+    "original": "82e2268b5422cbb6e4d0913835df9e84384b6b89b6de3050085bb1c67777f7ef",
+    "patched": "82e2268b5422cbb6e4d0913835df9e84384b6b89b6de3050085bb1c67777f7ef"
+  },
+  "research/astrogator/benchmarks/expanded/a58/check.py": {
+    "original": "a5adb5da54d48bfe47777505a1ee64eed7578e7f616952be6ee0b288b4c00258",
+    "patched": "3450423b6d3ba6941ffcc984705650d89c5a785ba30163756280956766f530cc"
+  },
+  "research/astrogator/benchmarks/expanded/a64/setup.py": {
+    "original": "48d9fe632b4698d46a285573cc376fc0b3845eb52e08d8eb40fa9b922ecd6a16",
+    "patched": "df3091755eb65e397d15ad88f1039952d732179149c62db6f17360f33a374ad2"
+  },
+  "research/astrogator/benchmarks/expanded/a64/check.py": {
+    "original": "59fc0355d51359c4bf088420f35eb8e090f5d024f572c2e31309bbee86d09f02",
+    "patched": "905d7f913e9000526e35c4f211381416c7395293b2204ba051950240d6e4c156"
+  },
+  "research/astrogator/benchmarks/expanded/a68/setup.py": {
+    "original": "8d2c10f24bb0a56bf3239203c012ce9b6b5ad9f6e8abbcd6651b7e4f573f75d8",
+    "patched": "8d2c10f24bb0a56bf3239203c012ce9b6b5ad9f6e8abbcd6651b7e4f573f75d8"
+  },
+  "research/astrogator/benchmarks/expanded/a68/check.py": {
+    "original": "2f74f76897a7b2145363cc3f0c7cff3b9a19bb0f25d539cc66536830ce2ffb84",
+    "patched": "bf90d24157d736f4dacd72dbe4b9c1b6962f91e7b02e1c6464f5ca3f344c195f"
+  },
+  "research/astrogator/benchmarks/expanded/a70/setup.py": {
+    "original": "ec4d462fe870da85c9f61dfd92cf8b566db584bd510c22b887e4d8e4983777c0",
+    "patched": "7df24e86455070a2addbba89b3c398873be4520b80b2306509cb552cf79b49a8"
+  },
+  "research/astrogator/benchmarks/expanded/a70/check.py": {
+    "original": "7dec3db23a6f95e09172fb2e8aa038ca05ebfd25383db215afb61686d8bee84c",
+    "patched": "9f9f13479b4bd9c4a971eb04002ce06ab7230238e4e6eb67614ec3fd8c0f20c0"
+  }
+}

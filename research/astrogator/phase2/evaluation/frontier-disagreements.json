@@ -1,0 +1,414 @@
+{
+  "selection": "Every terminal accept/reject prediction disagreeing with at least one declared local-label variant; not a random sample.",
+  "model_variant_counts": {
+    "gpt6": {
+      "original": 3,
+      "strict_integrity": 4,
+      "newline_sensitivity": 10
+    },
+    "opus55": {
+      "original": 11,
+      "strict_integrity": 10,
+      "newline_sensitivity": 2
+    }
+  },
+  "records": [
+    {
+      "sample_id": "gpt-5-mini/p13/1",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created with \"beginning\\n\", including a trailing newline, rather than exactly \"beginning\". Existing content is preserved.",
+      "prediction_file": "phase2/integration/frontier/gpt6/judge-gpt-5-mini-p13-1.json",
+      "code_sha256": "1d2a8dd18ae73b383a0189a5cf3d75a481a2d8e0cfc329cbdbf25ba6a58f8c08"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/1",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: copy creates /etc/file.txt containing 'beginning' (plus a conventional trailing newline). Adversarial: with force: no, the copy module exits unchanged when the destination already exists, so the existing content is preserved. The owner, group and mode settings are applied only when the file is created, and the request does not forbid them.",
+      "prediction_file": "phase2/integration/frontier/opus55/judge-gpt-5-mini-p13-1.json",
+      "code_sha256": "1d2a8dd18ae73b383a0189a5cf3d75a481a2d8e0cfc329cbdbf25ba6a58f8c08"
+    },
+    {
+      "sample_id": "gpt-oss/p13/0",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When the file is absent, the playbook writes \"beginning\\n\", including a trailing newline, rather than the requested \"beginning\". Existing content is preserved.",
+      "prediction_file": "phase2/integration/frontier/gpt6/judge-gpt-oss-p13-0.json",
+      "code_sha256": "83b6f542e9c33f5f5465b56e0e71d1bebfc1bb1ee30187ea5307107a65a1900f"
+    },
+    {
+      "sample_id": "gpt-oss/p13/0",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: with the file absent, copy creates /etc/file.txt containing 'beginning' (plus a conventional trailing newline). Adversarial: force: no makes copy skip an existing destination, so the existing content is left unchanged. The owner, group and mode settings only apply on creation and weren't restricted by the request.",
+      "prediction_file": "phase2/integration/frontier/opus55/judge-gpt-oss-p13-0.json",
+      "code_sha256": "83b6f542e9c33f5f5465b56e0e71d1bebfc1bb1ee30187ea5307107a65a1900f"
+    },
+    {
+      "sample_id": "gpt-oss/p13/1",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When the file is absent, the playbook writes \"beginning\\n\", including a trailing newline, rather than the requested \"beginning\". Existing content is preserved by force: no.",
+      "prediction_file": "phase2/integration/frontier/gpt6/judge-gpt-oss-p13-1.json",
+      "code_sha256": "3de05b373cc719006ff3b7daf8d9defd3eb3c698591d48ea6675eb41d445e7a8"
+    },
+    {
+      "sample_id": "gpt-oss/p13/1",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: with the file absent, copy creates /etc/file.txt containing 'beginning' (plus the conventional trailing newline). Adversarial: force: no makes copy exit without changes when the destination exists, so the existing content is preserved. Both match the request to create the file only if it is missing.",
+      "prediction_file": "phase2/integration/frontier/opus55/judge-gpt-oss-p13-1.json",
+      "code_sha256": "3de05b373cc719006ff3b7daf8d9defd3eb3c698591d48ea6675eb41d445e7a8"
+    },
+    {
+      "sample_id": "starcoder/p13/0",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created containing beginning followed by a newline. The creates guard skips the command when the file exists, preserving existing content.",
+      "prediction_file": "phase2/integration/frontier/gpt6/judge-starcoder-p13-0.json",
+      "code_sha256": "5acb4424b296645ee80c14f78bfc00f03158abdd4c122fe68faccab0be331f5e"
+    },
+    {
+      "sample_id": "starcoder/p13/0",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "In the baseline state /etc/file.txt is absent, so the shell command runs and creates it containing 'beginning' (plus the trailing newline echo adds). In the adversarial state the file exists, so creates=/etc/file.txt skips the command and the existing content stays unchanged. Both match the request.",
+      "prediction_file": "phase2/integration/frontier/opus55/judge-starcoder-p13-0.json",
+      "code_sha256": "5acb4424b296645ee80c14f78bfc00f03158abdd4c122fe68faccab0be331f5e"
+    },
+    {
+      "sample_id": "gpt-4o/p10/4",
+      "task_id": "a17",
+      "model": "opus55",
+      "decision": "reject",
+      "label_variants": {
+        "original": "passed_local_checks",
+        "strict_integrity": "passed_local_checks",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity",
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "Debian's passwd(1) defines disabling an account's password as `passwd -d`: it deletes the password, leaving the shadow password field empty. This playbook instead writes '*' to the password field in both states. In the baseline, the unlocked hash becomes '*'. In the adversarial state, the locked hash also becomes '*'. Either way the field is not empty, so the account ends up with an unusable password rather than no password.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-gpt-4o-p10-4.json",
+      "code_sha256": "bd713d9686bbd6de47c5df31fe3f7413e3109c8ee214845e311e087d8f85438f"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/3",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created with \"beginning\\n\", including a trailing newline, rather than the requested \"beginning\". Existing content is preserved.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-gpt-5-mini-p13-3.json",
+      "code_sha256": "d2a1117b6ee2b679f5a7c1e95292fc2e10ac56bc06ae6c6c2dd6d2c314c5c75d"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/3",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: copy creates /etc/file.txt with 'beginning' plus a conventional trailing newline. Adversarial: force: no leaves the existing file and its content untouched. Both match 'create if it does not already exist'. The newline would only matter under a byte-exact check.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-gpt-5-mini-p13-3.json",
+      "code_sha256": "d2a1117b6ee2b679f5a7c1e95292fc2e10ac56bc06ae6c6c2dd6d2c314c5c75d"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/8",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When the file is absent, the playbook writes \"beginning\\n\", adding a newline beyond the requested contents \"beginning\". It correctly preserves an existing file.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-gpt-5-mini-p13-8.json",
+      "code_sha256": "5990846ef13e52207d27d01d66b5b1add1a832e6fa992dc82e48979f88b581a3"
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/8",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: stat finds no file, so copy creates /etc/file.txt containing 'beginning' (the trailing newline is standard for a text file). Adversarial: the file exists, so the copy task is skipped and the existing content is preserved, as the 'if it does not already exist' condition requires.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-gpt-5-mini-p13-8.json",
+      "code_sha256": "5990846ef13e52207d27d01d66b5b1add1a832e6fa992dc82e48979f88b581a3"
+    },
+    {
+      "sample_id": "gpt-oss/p13/2",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created with \"beginning\\n\", including a trailing newline rather than the requested \"beginning\". Existing content is correctly preserved by force: no.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-gpt-oss-p13-2.json",
+      "code_sha256": "fcb879ae1d30f05857067ea7eb7adcd03dc5bb2690404cb0767a99846db21921"
+    },
+    {
+      "sample_id": "gpt-oss/p13/2",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "Baseline: with the file absent, copy creates /etc/file.txt containing 'beginning' plus a conventional trailing newline. Adversarial: force: no leaves the existing file and its content untouched, which matches 'if it does not already exist'. The owner, group and mode settings are harmless extras. The only possible issue is the trailing newline, which would matter only under a strict byte-exact check.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-gpt-oss-p13-2.json",
+      "code_sha256": "fcb879ae1d30f05857067ea7eb7adcd03dc5bb2690404cb0767a99846db21921"
+    },
+    {
+      "sample_id": "gpt-oss/p13/9",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "reject",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created with \"beginning\\n\", including an extra newline, rather than the requested \"beginning\". Existing content is preserved.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-gpt-oss-p13-9.json",
+      "code_sha256": "20728d3c350d616cc7447df803d94b45f177344a7bd43b46f463e1e24238fb00"
+    },
+    {
+      "sample_id": "gpt-oss/p13/9",
+      "task_id": "a06",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "passed_local_checks"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity"
+      ],
+      "quoted_model_reason": "In the baseline state (file absent), copy with force: no creates /etc/file.txt containing \"beginning\" followed by a conventional trailing newline. In the adversarial state (file already exists), force: no stops Ansible from overwriting it, so the existing content is left unchanged. The owner, group and mode settings do not conflict with the request.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-gpt-oss-p13-9.json",
+      "code_sha256": "20728d3c350d616cc7447df803d94b45f177344a7bd43b46f463e1e24238fb00"
+    },
+    {
+      "sample_id": "granite/p10/4",
+      "task_id": "a17",
+      "model": "gpt6",
+      "decision": "accept",
+      "label_variants": {
+        "original": "passed_local_checks",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "failed_local_checks_or_execution"
+      },
+      "disagreement_variants": [
+        "strict_integrity",
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "In both initial states, the matching service shadow entry is replaced with one whose password field is '!!', disabling password authentication.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-granite-p10-4.json",
+      "code_sha256": "2ce6d0512e8645c6bb0f09e940250158a48f4812b9e51186aa6cae04e65f636a"
+    },
+    {
+      "sample_id": "granite/p10/4",
+      "task_id": "a17",
+      "model": "opus55",
+      "decision": "reject",
+      "label_variants": {
+        "original": "passed_local_checks",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "failed_local_checks_or_execution"
+      },
+      "disagreement_variants": [
+        "original"
+      ],
+      "quoted_model_reason": "In both states, the task replaces the service user's /etc/shadow line with a hardcoded, malformed entry. The password field does become '!!', but the line has 11 colon-separated fields instead of the required 9, and a $6$ hash string sits in the numeric min-age field. glibc/shadow parsers such as getspnam and pwck reject or skip invalid entries, so the account's shadow record is corrupted. The line also overwrites the user's existing aging settings with arbitrary values. The account ends up broken rather than just having its password disabled.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-granite-p10-4.json",
+      "code_sha256": "2ce6d0512e8645c6bb0f09e940250158a48f4812b9e51186aa6cae04e65f636a"
+    },
+    {
+      "sample_id": "granite/p10/5",
+      "task_id": "a17",
+      "model": "gpt6",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "failed_local_checks_or_execution"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity",
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "In both initial states, the service password is replaced with an incomplete SHA-512 crypt value that cannot match a password, disabling password authentication.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-granite-p10-5.json",
+      "code_sha256": "39c0dc2e26c0d05492b87b75f35893ae4406bcb456bb89efb0aa1dd1a019df7d"
+    },
+    {
+      "sample_id": "qwen3-coder/p10/5",
+      "task_id": "a17",
+      "model": "opus55",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "failed_local_checks_or_execution"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity",
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "The user module with password: \"\" runs `usermod -p '' service`, which empties the shadow password field. That matches the `passwd -d` meaning of 'disable a password' (make the account passwordless). In the baseline state, the unlocked hash is replaced with an empty field. In the adversarial state, the locked '!' hash also differs from '' after Ansible strips the '!', so the field is emptied too. One run gives the same result in both states.",
+      "prediction_file": "phase2/integration/frontier-full-judge/opus55/judge-qwen3-coder-p10-5.json",
+      "code_sha256": "0611de77969278cabe7e39f05f9849a33adf6cadc72ae182cdf5a990b7631dbd"
+    },
+    {
+      "sample_id": "starcoder/p13/8",
+      "task_id": "a06",
+      "model": "gpt6",
+      "decision": "accept",
+      "label_variants": {
+        "original": "failed_local_checks_or_execution",
+        "strict_integrity": "failed_local_checks_or_execution",
+        "newline_sensitivity": "failed_local_checks_or_execution"
+      },
+      "disagreement_variants": [
+        "original",
+        "strict_integrity",
+        "newline_sensitivity"
+      ],
+      "quoted_model_reason": "When absent, /etc/file.txt is created with exactly beginning; when present, force: no preserves existing content. The assertion fails because result.content is undefined, but does not undo the requested file behavior.",
+      "prediction_file": "phase2/integration/frontier-full-judge/gpt6/judge-starcoder-p13-8.json",
+      "code_sha256": "2868a53c6ad53f469c8651213191907f0d154c7d3019b862db8c5a8b60ecc66b"
+    }
+  ],
+  "limitations": [
+    "Disagreement with a narrow oracle is not automatically a model error.",
+    "Quoted reasons are model outputs, not independent annotations.",
+    "Uncertain/invalid predictions are excluded from this disagreement file but retained in coverage tables."
+  ]
+}

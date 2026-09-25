@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "3fc605584482eb57938389d2a9b75c77dfec41ba2d94bc71214ee8c0bd65d892",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p10, Response 6] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Set user 'service' password to expire] ***********************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response6.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Set user 'service' password to expire\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Unsupported parameters for (user) module: login_shell. Supported parameters include: append, authorization, comment, create_home, expires, force, generate_ssh_key, group, groups, hidden, home, local, login_class, move_home, name, non_unique, password, password_expire_account_disable, password_expire_max, password_expire_min, password_expire_warn, password_lock, profile, remove, role, seuser, shell, skeleton, ssh_key_bits, ssh_key_comment, ssh_key_file, ssh_key_passphrase, ssh_key_type, state, system, uid, uid_max, uid_min, umask, update_password (createhome, user).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.51,
+  "sample_id": "qwen2.5-coder/p10/6"
+}

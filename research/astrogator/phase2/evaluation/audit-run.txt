@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-09-25T15:26:53.693229+00:00",
+  "status": "passed",
+  "revised_unique_cases": 410,
+  "revised_infrastructure_retries": 2,
+  "reference_controls": 4,
+  "native_syntax_candidates": 422,
+  "debian_metadata_candidates": 422,
+  "frontier_predictions": {
+    "gpt6": 422,
+    "opus55": 422
+  },
+  "structural_groups": 233,
+  "figure_artifacts": 8,
+  "additional_checks": {
+    "common-dsl-checks.json": {
+      "programs": 420,
+      "sha256": "702df853d651bbc553db116da67383cddde8458c30eb3bb5b5a781c0f300a5ff"
+    },
+    "common-all-checks.json": {
+      "programs": 416,
+      "sha256": "40247bbe4ee52185ae48d0877d2488ee8effefdcd44742f3dfaf7995abb95b79"
+    },
+    "figures-dsl-checks": {
+      "files": 4,
+      "manifest_sha256": "2e43dd3252d8fd5235cddadfc7fc54cef7cc407617d9032381c3be4f10748ac2"
+    },
+    "figures-all-checks": {
+      "files": 4,
+      "manifest_sha256": "63342b66ad691112151fd0e0384d61d52df296343ad03f5014b0b6af711a119e"
+    },
+    "figures-pipeline": {
+      "files": 4,
+      "manifest_sha256": "1077a0308d9ec39827b2895492ca96e08f25efe323abd9f11c395e4a1997318d"
+    },
+    "figures-paper": {
+      "files": 4,
+      "manifest_sha256": "dbc9e00629872e7a11df5f24d21cb610621757078e4a13e6214fb676feb83bd8"
+    },
+    "context-sensitivity": {
+      "programs": 86,
+      "sha256": "22df7b0838bf57565b385c762e7a9184216b028058b4a20c56b0e5bd88696d20"
+    },
+    "python-source-review": {
+      "sources": 16,
+      "inventory_sha256": "fd49f4c4b27d86e04228a47843b0d3422a54ea4fcf26b06278b7290cfc572451",
+      "manual_review_sha256": "d8105e288270dc0cbf43ea93ff979dc80e63e4245bc49a23265c90752b50bc0a"
+    }
+  },
+  "scope": "Completion and provenance, not proof of gold-label correctness or unseen-task accuracy.",
+  "source_sha256": {
+    "revised-summary.json": "7c664b149c4039298125d7b197cbf04b7be4db2e9b950f5b91ca4b7297ddedd5",
+    "additional-baselines.json": "eddd50b84805352d4a812ee9bb58c2c910dd3fbebe63311249f8487a97eda720",
+    "frontier-full-comparison.json": "c78d034ab484a864a24806a49aa29fda19126812153ec2ca8279765585fb4041",
+    "manifest.json": "f7333a93e50135d751ed84e10a92ac0e0273c4cb605f886f45328220ae31cfe4"
+  }
+}

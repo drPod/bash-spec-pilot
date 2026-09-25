@@ -1,0 +1,20 @@
+{
+  "id": "a37",
+  "title": "Update managed block",
+  "family": "configuration",
+  "natural_language": "Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.",
+  "formal_query": "write \"alpha=1\nbeta=2\" to file at \"/work/app.conf\" with block=ASTRO",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "leaves old managed block",
+  "tags": [
+    "block-update"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

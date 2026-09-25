@@ -1,0 +1,22 @@
+{
+  "query_sha256": "49c05a9057853f79cd99a7cc839358a3083377e73dc9bedee22a64f14dd05058",
+  "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\taf0fe217d86c966f6971db63bc709684\nsemantic\terror\tUnknown file: postfix default configuration\n",
+    "stderr": "",
+    "seconds": 0.004,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "af0fe217d86c966f6971db63bc709684"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unknown file: postfix default configuration"
+      }
+    }
+  }
+}

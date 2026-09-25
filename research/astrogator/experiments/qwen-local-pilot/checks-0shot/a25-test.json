@@ -1,0 +1,66 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.\nInitial states: baseline: /work/app.conf absent. adversarial: file bytes are port=9090 newline # keep newline."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 10.536,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"0600\"\n    },\n    {\n      \"kind\": \"content\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"port=8080\\n\"\n    }\n  ],\n  \"checks_adversarial\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"0600\"\n    },\n    {\n      \"kind\": \"content\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"port=9090\\n\"\n    }\n  ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290387,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 150,
+      "prompt_tokens": 221,
+      "total_tokens": 371,
+      "prompt_tokens_details": {
+        "cached_tokens": 159
+      }
+    },
+    "id": "chatcmpl-vwXCgFVbBccdwH63ofQ51tpXPQtY53XS",
+    "timings": {
+      "cache_n": 159,
+      "prompt_n": 62,
+      "prompt_ms": 1168.022,
+      "prompt_per_token_ms": 18.83906451612903,
+      "prompt_per_second": 53.08119196385,
+      "predicted_n": 150,
+      "predicted_ms": 9263.967,
+      "predicted_per_token_ms": 62.17427516778524,
+      "predicted_per_second": 16.08382240567135
+    }
+  },
+  "text": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"0600\"\n    },\n    {\n      \"kind\": \"content\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"port=8080\\n\"\n    }\n  ],\n  \"checks_adversarial\": [\n    {\n      \"kind\": \"mode\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"0600\"\n    },\n    {\n      \"kind\": \"content\",\n      \"path\": \"/work/app.conf\",\n      \"value\": \"port=9090\\n\"\n    }\n  ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a25",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "42ab64f812005158115e66005f9f1573f4f261b4ec7b8a5939d89dbc62567b1a"
+}

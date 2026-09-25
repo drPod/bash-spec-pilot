@@ -1,0 +1,47 @@
+{
+  "purpose": "Diagnostic panel added after inspecting initial reference incompatibility.\nNot a held-out test of the screening procedure. No upstream algorithm modified.\n",
+  "cases": [
+    {
+      "task_id": "a22",
+      "mode": "0700",
+      "path": "phase2/adequacy/mode-cases/a22/mode0.yml",
+      "sha256": "26625f991111682d51ad3ccb7aa74bfc6c837b8b647c5ef19142761018c0d98a"
+    },
+    {
+      "task_id": "a22",
+      "mode": "u=rwx,g=,o=",
+      "path": "phase2/adequacy/mode-cases/a22/mode1.yml",
+      "sha256": "6597458b33acd673d9b22304d651201435b08f42c7d9a2434a147771a689a47d"
+    },
+    {
+      "task_id": "a22",
+      "mode": "u=rwX",
+      "path": "phase2/adequacy/mode-cases/a22/mode2.yml",
+      "sha256": "579e7a8ad590082e1542f0e38fb34047aaec96c770b7105d3974c50e836b46c3"
+    },
+    {
+      "task_id": "a22",
+      "mode": "u=rwX,g=,o=",
+      "path": "phase2/adequacy/mode-cases/a22/mode3.yml",
+      "sha256": "a63699d61c64cee39b0a1e3cea54bafe5e9f949436796c6a0d83f83bf5caf3eb"
+    },
+    {
+      "task_id": "a67",
+      "mode": "0700",
+      "path": "phase2/adequacy/mode-cases/a67/mode0.yml",
+      "sha256": "8d671285e116973a621f35aaaf3b76934ddfe435532b138785c1e6fc98ea0491"
+    },
+    {
+      "task_id": "a67",
+      "mode": "u=rwx,g=,o=",
+      "path": "phase2/adequacy/mode-cases/a67/mode1.yml",
+      "sha256": "8750897c917ff6ec428e72877084c47b3c3142364f852da3b44d133a6b95c92c"
+    },
+    {
+      "task_id": "a67",
+      "mode": "u=rwx",
+      "path": "phase2/adequacy/mode-cases/a67/mode2.yml",
+      "sha256": "ab66e6086407e9c908b76944b37539e430ee8d32a3786c2a1a41fe949b0cdc64"
+    }
+  ]
+}

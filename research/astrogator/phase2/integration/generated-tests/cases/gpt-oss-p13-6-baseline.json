@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "491ed2cea92fb419bcded2033e03f9e3b2d8a04ce4db5083f31630c12af6b591",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model gpt-oss, Problem p13, Response 6] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Ensure the file /etc/file.txt exists with the content 'beginning'] *******\n[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined\n\nTask failed.\nOrigin: /suite/data/corpus/gpt-oss/p13/response6.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Ensure the file /etc/file.txt exists with the content 'beginning'\n      ^ column 5\n\n<<< caused by >>>\n\nError while evaluating conditional: 'ansible' is undefined\nOrigin: /suite/data/corpus/gpt-oss/p13/response6.yml:13:11\n\n11       group: root\n12       mode: '0644'\n13     when: not ansible.builtin.stat(path='/etc/file.txt').stat.exists\n             ^ column 11\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.232,
+  "sample_id": "gpt-oss/p13/6"
+}

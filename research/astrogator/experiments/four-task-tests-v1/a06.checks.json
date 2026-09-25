@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "kind": "directory",
+      "scenario": "both",
+      "path": "/etc/file.txt"
+    },
+    {
+      "kind": "absent",
+      "scenario": "baseline",
+      "path": "/etc/file.txt"
+    },
+    {
+      "kind": "mode",
+      "scenario": "baseline",
+      "path": "/etc/file.txt",
+      "value": "644"
+    },
+    {
+      "kind": "content",
+      "scenario": "baseline",
+      "path": "/etc/file.txt",
+      "value": "beginning"
+    },
+    {
+      "kind": "contains",
+      "scenario": "baseline",
+      "path": "/etc/file.txt",
+      "value": "beginning"
+    },
+    {
+      "kind": "not_contains",
+      "scenario": "adversarial",
+      "path": "/etc/file.txt",
+      "value": "beginning"
+    },
+    {
+      "kind": "member",
+      "scenario": "baseline",
+      "user": "root",
+      "group": "root"
+    },
+    {
+      "kind": "package",
+      "scenario": "baseline",
+      "name": "bash",
+      "version": "4.4.19(1)-release"
+    },
+    {
+      "kind": "running",
+      "scenario": "baseline",
+      "name": "bash",
+      "value": true
+    },
+    {
+      "kind": "password_locked",
+      "scenario": "baseline",
+      "user": "root"
+    }
+  ]
+}

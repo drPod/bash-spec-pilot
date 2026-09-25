@@ -1,0 +1,13 @@
+{
+  "revision": "v2",
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "files": {
+    "build_patches_v2.py": "f2c8b058c1161eacea3f38dbd2d8d024ffc97bb15edd4f43bf585bb2145343fb",
+    "validate_patches.py": "c7dfbd3c1ab3dba159bd4c92f1b87925108908ed45446139d525655b8e32a2b5",
+    "container_review_cases.py": "373a6dca6d107464d2ae258c471fc9ecb6273f8995f4e215d788d4cba53bd239",
+    "run_review_cases.py": "351897a7c58dcff7a3ea6b4153d5961c756f4646ad4d5029c7d2744049e57435",
+    "review-case-design.json": "7ae48b2caa9eb79805844570cd7d8f775ce5dd6daadda55e477c08f010a7026f",
+    "oracle-adequacy.patch": "9753ba53f9bef4abe09642cbd2e455ffb17fc5ef7dc72fc7affcf885c0e48c18"
+  },
+  "regression_input_hashes_match_current_patch": true
+}

@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "330da2501e8d89b7566b659daf4eda31a2ec7319e97ebc144d419ffc32e445ce",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model starcoder, Problem p13, Response 1] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create a file] ***********************************************************\n[ERROR]: Task failed: Module failed: Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).\nOrigin: /suite/data/corpus/starcoder/p13/response1.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create a file\n      ^ column 5\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"checksum\": \"336edf81860bdfc5e56a603ab1759d4ec3c587d2\", \"msg\": \"Unsupported parameters for (ansible.legacy.copy) module: state. Supported parameters include: _original_basename, attributes, backup, checksum, content, dest, directory_mode, follow, force, group, local_follow, mode, owner, remote_src, selevel, serole, setype, seuser, src, unsafe_writes, validate (attr).\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 4.99,
+  "sample_id": "starcoder/p13/1"
+}

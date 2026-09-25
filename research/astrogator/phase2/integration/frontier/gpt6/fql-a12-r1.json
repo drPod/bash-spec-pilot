@@ -1,0 +1,116 @@
+{
+  "task": {
+    "id": "fql-a12-r1",
+    "mode": "fql",
+    "task_id": "a12",
+    "repeat": 1,
+    "demonstration_ids": [
+      "a27",
+      "a15",
+      "a10",
+      "a53"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source."
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data"
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat based systems, install numpy"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian based or os is RedHat based then install numpy"
+      },
+      {
+        "role": "user",
+        "content": "Permanently set the environment variable LC_ALL to ``C'' system-wide"
+      },
+      {
+        "role": "assistant",
+        "content": "set environment variable LC_ALL to \"C\""
+      },
+      {
+        "role": "user",
+        "content": "Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced."
+      },
+      {
+        "role": "assistant",
+        "content": "if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout"
+      },
+      {
+        "role": "user",
+        "content": "For Debian, restart the system if it is needed"
+      }
+    ]
+  },
+  "model": "gpt-6-astra",
+  "model_alias": "gpt6",
+  "argv": [
+    "/home/ubuntu/.npm-global/bin/codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--model",
+    "gpt-6-astra",
+    "--sandbox",
+    "read-only",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "-c",
+    "features.shell_tool=false",
+    "-c",
+    "features.multi_agent=false",
+    "--json",
+    "-"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nTranslate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements.\n\nUSER:\nCopy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.\n\nASSISTANT:\ncreate directory at /work/dest; copy file from remote /work/source to remote /work/dest/data\n\nUSER:\nFor Debian and RedHat based systems, install numpy\n\nASSISTANT:\nif os is Debian based or os is RedHat based then install numpy\n\nUSER:\nPermanently set the environment variable LC_ALL to ``C'' system-wide\n\nASSISTANT:\nset environment variable LC_ALL to \"C\"\n\nUSER:\nClone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.\n\nASSISTANT:\nif directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout\n\nUSER:\nFor Debian, restart the system if it is needed",
+  "prompt_sha256": "0ca3c76f7aba76b7fc40523644d51b23e0926a02feccd5682ce4eb8f288c9801",
+  "created_at": "2026-09-25T13:53:24.031038+00:00",
+  "frozen_input_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "returncode": 0,
+  "stdout": "{\"type\":\"thread.started\",\"thread_id\":\"01a0d8d7-a86a-7fd1-8a8b-dc30f56f359c\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"agent_message\",\"text\":\"if os is Debian then reboot system if needed\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":14116,\"cached_input_tokens\":11520,\"cache_write_input_tokens\":0,\"output_tokens\":98,\"reasoning_output_tokens\":83}}\n",
+  "stderr": "",
+  "events": [
+    {
+      "type": "thread.started",
+      "thread_id": "01a0d8d7-a86a-7fd1-8a8b-dc30f56f359c"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "agent_message",
+        "text": "if os is Debian then reboot system if needed"
+      }
+    },
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 14116,
+        "cached_input_tokens": 11520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 98,
+        "reasoning_output_tokens": 83
+      }
+    }
+  ],
+  "tool_use_detected": false,
+  "text": "if os is Debian then reboot system if needed",
+  "status": "ok",
+  "extracted": "if os is Debian then reboot system if needed",
+  "seconds": 13.308
+}

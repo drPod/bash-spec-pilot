@@ -1,0 +1,3974 @@
+{
+  "raw_attempts": 440,
+  "processed_samples": 422,
+  "observed_cases": 844,
+  "expected_cases": 844,
+  "samples": [
+    {
+      "sample_id": "deepseek/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/8",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "deepseek/p10/9",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "deepseek/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/2",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/8",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/0",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/1",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/2",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/3",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/4",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/5",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/6",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/8",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-4o/p13/9",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/2",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/4",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/7",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/8",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/0",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/4",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-5-mini/p13/9",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/0",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/6",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/7",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/8",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/3",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/5",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/8",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "gpt-oss/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p10/0",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p10/1",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p10/3",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p10/5",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p10/8",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "granite/p10/9",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/4",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "granite/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "granite/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "llama/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/4",
+      "task_id": "a02",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "llama/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p05/9",
+      "task_id": "a02",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "llama/p10/0",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/1",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/2",
+      "task_id": "a17",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "llama/p10/3",
+      "task_id": "a17",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "llama/p10/4",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/5",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/6",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/7",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/8",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p10/9",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "llama/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/5",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "llama/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "llama/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/2",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/8",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "ministral/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/0",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/1",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/3",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/4",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/5",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/6",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/7",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/8",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p10/9",
+      "task_id": "a17",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen2.5-coder/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/1",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/7",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/0",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/1",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/3",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/4",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/5",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/6",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/7",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/8",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p10/9",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/0",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3-coder/p13/9",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/0",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/1",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/2",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/3",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/4",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/5",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/6",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/7",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/8",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p05/9",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/1",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/2",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/3",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/6",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/8",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/0",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/1",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/2",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/3",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/4",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/5",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/6",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/7",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/8",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "qwen3.5/p13/9",
+      "task_id": "a06",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/0",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/1",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/2",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/3",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/4",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/5",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/6",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/7",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/8",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p01/9",
+      "task_id": "a01",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/0",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/1",
+      "task_id": "a02",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/2",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/3",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/4",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/5",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/6",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/7",
+      "task_id": "a02",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/8",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p05/9",
+      "task_id": "a02",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/0",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/1",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/2",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/3",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/4",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/5",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/6",
+      "task_id": "a17",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/7",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/8",
+      "task_id": "a17",
+      "local_label": "missing_processed",
+      "scenario_statuses": {
+        "baseline": null,
+        "adversarial": null
+      }
+    },
+    {
+      "sample_id": "starcoder/p10/9",
+      "task_id": "a17",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/0",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/1",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/2",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/3",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/4",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/5",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/6",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/7",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/8",
+      "task_id": "a06",
+      "local_label": "failed_local_checks_or_execution",
+      "scenario_statuses": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      }
+    },
+    {
+      "sample_id": "starcoder/p13/9",
+      "task_id": "a06",
+      "local_label": "passed_local_checks",
+      "scenario_statuses": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      }
+    }
+  ],
+  "counts": {
+    "passed_local_checks": 283,
+    "failed_local_checks_or_execution": 139,
+    "missing_processed": 18
+  },
+  "complete": true
+}

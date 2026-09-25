@@ -1,0 +1,4 @@
+{
+  "verdict": "accept",
+  "reason": "The playbook meets the requirements. It creates the file /work/app.conf if it does not exist, with the specified content and format (port=8080 followed by a newline). If the file already exists, it preserves its existing bytes, which satisfies the condition 'If /work/app.conf is absent, create it with exactly port=8080 followed by a newline'. The playbook is designed to be executed offline without needing online fixtures."
+}

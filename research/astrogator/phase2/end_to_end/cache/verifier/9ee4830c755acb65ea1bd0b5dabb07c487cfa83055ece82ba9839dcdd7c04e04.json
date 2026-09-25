@@ -1,0 +1,11 @@
+{
+  "cache_key": "9ee4830c755acb65ea1bd0b5dabb07c487cfa83055ece82ba9839dcdd7c04e04",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "f84bda2adbcc6534704984f2db45b66177e0098dd0073f7c062fd9bd0061594d",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUndefined variable ansible_bios\n",
+  "stderr": "",
+  "seconds": 0.0985,
+  "status": "ansible_lowering_error"
+}

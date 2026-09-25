@@ -1,0 +1,1 @@
+install with name=zsh; set shell=dev; create directory at /home/dev/.zshrc; ensure exists with content="Path to zsh configuration file"

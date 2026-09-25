@@ -1,0 +1,182 @@
+{
+  "task": {
+    "id": "fql-a18-r1",
+    "mode": "fql",
+    "task_id": "a18",
+    "repeat": 1,
+    "demonstration_ids": [
+      "a16",
+      "a15",
+      "a19",
+      "a04"
+    ],
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Install zsh, set it as the user `dev''s default shell, and ensure its configuration file exists"
+      },
+      {
+        "role": "assistant",
+        "content": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\""
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat based systems, install numpy"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian based or os is RedHat based then install numpy"
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file"
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nTranslate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements.\n\nUSER:\nInstall zsh, set it as the user `dev''s default shell, and ensure its configuration file exists\n\nASSISTANT:\ninstall zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"\n\nUSER:\nFor Debian and RedHat based systems, install numpy\n\nASSISTANT:\nif os is Debian based or os is RedHat based then install numpy\n\nUSER:\nFor RedHat, install apache server, ensure the home page exists, and create a `webdev' user\n\nASSISTANT:\nif os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file\n\nUSER:\nCopy the file /scratch/file.txt to /home/user/data.txt\n\nASSISTANT:\ncopy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"\n\nUSER:\nFor RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat",
+  "prompt_sha256": "c380ed6dc2097d81ba60f593eb6f4bb510ae31b8891188f1b0b6e86145eec1e0",
+  "created_at": "2026-09-25T14:04:12.295223+00:00",
+  "frozen_input_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":7372,\"stop_reason\":\"end_turn\",\"session_id\":\"b37ba090-109a-4ae6-b19c-2a6fc50d2348\",\"total_cost_usd\":0.012092599999999998,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":6523,\"output_tokens\":539,\"output_tokens_details\":{\"thinking_tokens\":420},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":539,\"cache_read_input_tokens\":6523,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":539,\"cacheReadInputTokens\":6523,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.012092599999999998,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":420,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \\\"http://example.com/cfg.ubuntu\\\". if os is RedHat then download postfix configuration file from \\\"http://example.com/cfg.redhat\\\"\",\"ttft_ms\":6639,\"type\":\"result\",\"duration_ms\":7799,\"uuid\":\"9c9a6686-52f0-4a55-b074-a8155a16f316\",\"ttft_stream_ms\":2417,\"time_to_request_ms\":399,\"first_content_frame_ms\":2418,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 7372,
+    "stop_reason": "end_turn",
+    "session_id": "b37ba090-109a-4ae6-b19c-2a6fc50d2348",
+    "total_cost_usd": 0.012092599999999998,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6523,
+      "output_tokens": 539,
+      "output_tokens_details": {
+        "thinking_tokens": 420
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 539,
+          "cache_read_input_tokens": 6523,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 539,
+        "cacheReadInputTokens": 6523,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.012092599999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 420,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+    "ttft_ms": 6639,
+    "type": "result",
+    "duration_ms": 7799,
+    "uuid": "9c9a6686-52f0-4a55-b074-a8155a16f316",
+    "ttft_stream_ms": 2417,
+    "time_to_request_ms": 399,
+    "first_content_frame_ms": 2418,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+  "status": "ok",
+  "extracted": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+  "seconds": 10.893
+}

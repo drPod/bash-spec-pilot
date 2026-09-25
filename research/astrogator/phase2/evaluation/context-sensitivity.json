@@ -1,0 +1,377 @@
+{
+  "processed_programs": 86,
+  "selection": "Same frozen indices 0/1 identity subset; no outcome-based selection.",
+  "input_sha256": {
+    "frontier-comparison.json": "000d3c5ce4ec90f30adc647a4955b039b7634272a2007074347042e160c6ef78",
+    "environment-judge-comparison.json": "0206025ccfb69ecc626e78c20983b0686894094060975afbb3dcae681eb649a7"
+  },
+  "metrics": {
+    "original": {
+      "gpt6_original": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 1,
+        "rejected_pass": 0,
+        "rejected_fail": 28,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6744186046511628,
+        "accepted_failure_risk": 0.017241379310344827,
+        "decided_error_rate": 0.011627906976744186,
+        "failure_detection_recall": 0.9655172413793104,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.32558139534883723,
+        "failures_blocked_if_abstentions_block": 0.9655172413793104,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "gpt6_context": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 3,
+        "rejected_pass": 0,
+        "rejected_fail": 26,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6976744186046512,
+        "accepted_failure_risk": 0.05,
+        "decided_error_rate": 0.03488372093023256,
+        "failure_detection_recall": 0.896551724137931,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.3023255813953488,
+        "failures_blocked_if_abstentions_block": 0.896551724137931,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "opus55_original": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7093023255813954,
+        "accepted_failure_risk": 0.06557377049180328,
+        "decided_error_rate": 0.046511627906976744,
+        "failure_detection_recall": 0.8620689655172413,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.29069767441860467,
+        "failures_blocked_if_abstentions_block": 0.8620689655172413,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "opus55_context": {
+        "n": 86,
+        "accepted_pass": 55,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 24,
+        "unavailable_pass": 2,
+        "unavailable_fail": 1,
+        "coverage": 0.9651162790697675,
+        "acceptance_rate": 0.686046511627907,
+        "accepted_failure_risk": 0.06779661016949153,
+        "decided_error_rate": 0.04819277108433735,
+        "failure_detection_recall": 0.8275862068965517,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.034482758620689655,
+        "deployment_block_rate_if_abstentions_block": 0.313953488372093,
+        "failures_blocked_if_abstentions_block": 0.8620689655172413,
+        "pass_programs_blocked_if_abstentions_block": 0.03508771929824561
+      }
+    },
+    "strict_integrity": {
+      "gpt6_original": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 1,
+        "rejected_pass": 0,
+        "rejected_fail": 28,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6744186046511628,
+        "accepted_failure_risk": 0.017241379310344827,
+        "decided_error_rate": 0.011627906976744186,
+        "failure_detection_recall": 0.9655172413793104,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.32558139534883723,
+        "failures_blocked_if_abstentions_block": 0.9655172413793104,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "gpt6_context": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 3,
+        "rejected_pass": 0,
+        "rejected_fail": 26,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6976744186046512,
+        "accepted_failure_risk": 0.05,
+        "decided_error_rate": 0.03488372093023256,
+        "failure_detection_recall": 0.896551724137931,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.3023255813953488,
+        "failures_blocked_if_abstentions_block": 0.896551724137931,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "opus55_original": {
+        "n": 86,
+        "accepted_pass": 57,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7093023255813954,
+        "accepted_failure_risk": 0.06557377049180328,
+        "decided_error_rate": 0.046511627906976744,
+        "failure_detection_recall": 0.8620689655172413,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.29069767441860467,
+        "failures_blocked_if_abstentions_block": 0.8620689655172413,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "opus55_context": {
+        "n": 86,
+        "accepted_pass": 55,
+        "accepted_fail": 4,
+        "rejected_pass": 0,
+        "rejected_fail": 24,
+        "unavailable_pass": 2,
+        "unavailable_fail": 1,
+        "coverage": 0.9651162790697675,
+        "acceptance_rate": 0.686046511627907,
+        "accepted_failure_risk": 0.06779661016949153,
+        "decided_error_rate": 0.04819277108433735,
+        "failure_detection_recall": 0.8275862068965517,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.034482758620689655,
+        "deployment_block_rate_if_abstentions_block": 0.313953488372093,
+        "failures_blocked_if_abstentions_block": 0.8620689655172413,
+        "pass_programs_blocked_if_abstentions_block": 0.03508771929824561
+      }
+    },
+    "newline_sensitivity": {
+      "gpt6_original": {
+        "n": 86,
+        "accepted_pass": 58,
+        "accepted_fail": 0,
+        "rejected_pass": 3,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6744186046511628,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.03488372093023256,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.04918032786885246,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.32558139534883723,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.04918032786885246
+      },
+      "gpt6_context": {
+        "n": 86,
+        "accepted_pass": 60,
+        "accepted_fail": 0,
+        "rejected_pass": 1,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.6976744186046512,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.011627906976744186,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.01639344262295082,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.3023255813953488,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.01639344262295082
+      },
+      "opus55_original": {
+        "n": 86,
+        "accepted_pass": 61,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 25,
+        "unavailable_pass": 0,
+        "unavailable_fail": 0,
+        "coverage": 1.0,
+        "acceptance_rate": 0.7093023255813954,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 1.0,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.0,
+        "deployment_block_rate_if_abstentions_block": 0.29069767441860467,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.0
+      },
+      "opus55_context": {
+        "n": 86,
+        "accepted_pass": 59,
+        "accepted_fail": 0,
+        "rejected_pass": 0,
+        "rejected_fail": 24,
+        "unavailable_pass": 2,
+        "unavailable_fail": 1,
+        "coverage": 0.9651162790697675,
+        "acceptance_rate": 0.686046511627907,
+        "accepted_failure_risk": 0.0,
+        "decided_error_rate": 0.0,
+        "failure_detection_recall": 0.96,
+        "passing_program_rejection_rate": 0.0,
+        "failure_abstention_rate": 0.04,
+        "deployment_block_rate_if_abstentions_block": 0.313953488372093,
+        "failures_blocked_if_abstentions_block": 1.0,
+        "pass_programs_blocked_if_abstentions_block": 0.03278688524590164
+      }
+    }
+  },
+  "paired": {
+    "original": {
+      "gpt6": {
+        "first": "gpt6_original",
+        "second": "gpt6_context",
+        "common_decisions": 86,
+        "excluded_due_to_abstention": 0,
+        "both_agree_with_local_label": 83,
+        "only_first_agrees": 2,
+        "neither_agrees_with_local_label": 1
+      },
+      "opus55": {
+        "first": "opus55_original",
+        "second": "opus55_context",
+        "common_decisions": 83,
+        "excluded_due_to_abstention": 3,
+        "both_agree_with_local_label": 79,
+        "neither_agrees_with_local_label": 4
+      }
+    },
+    "strict_integrity": {
+      "gpt6": {
+        "first": "gpt6_original",
+        "second": "gpt6_context",
+        "common_decisions": 86,
+        "excluded_due_to_abstention": 0,
+        "both_agree_with_local_label": 83,
+        "only_first_agrees": 2,
+        "neither_agrees_with_local_label": 1
+      },
+      "opus55": {
+        "first": "opus55_original",
+        "second": "opus55_context",
+        "common_decisions": 83,
+        "excluded_due_to_abstention": 3,
+        "both_agree_with_local_label": 79,
+        "neither_agrees_with_local_label": 4
+      }
+    },
+    "newline_sensitivity": {
+      "gpt6": {
+        "first": "gpt6_original",
+        "second": "gpt6_context",
+        "common_decisions": 86,
+        "excluded_due_to_abstention": 0,
+        "both_agree_with_local_label": 83,
+        "only_second_agrees": 2,
+        "neither_agrees_with_local_label": 1
+      },
+      "opus55": {
+        "first": "opus55_original",
+        "second": "opus55_context",
+        "common_decisions": 83,
+        "excluded_due_to_abstention": 3,
+        "both_agree_with_local_label": 83
+      }
+    }
+  },
+  "decision_transitions": {
+    "gpt6": {
+      "accept -> accept": 58,
+      "reject -> reject": 26,
+      "reject -> accept": 2
+    },
+    "opus55": {
+      "accept -> accept": 59,
+      "reject -> reject": 24,
+      "accept -> uncertain": 2,
+      "reject -> uncertain": 1
+    }
+  },
+  "changed_samples": {
+    "gpt6": [
+      {
+        "sample_id": "gpt-5-mini/p13/1",
+        "task_id": "a06",
+        "local_label": "failed_local_checks_or_execution",
+        "code_sha256": "1d2a8dd18ae73b383a0189a5cf3d75a481a2d8e0cfc329cbdbf25ba6a58f8c08",
+        "gpt6_original": "reject",
+        "gpt6_context": "accept",
+        "opus55_original": "accept",
+        "opus55_context": "accept"
+      },
+      {
+        "sample_id": "gpt-oss/p13/0",
+        "task_id": "a06",
+        "local_label": "failed_local_checks_or_execution",
+        "code_sha256": "83b6f542e9c33f5f5465b56e0e71d1bebfc1bb1ee30187ea5307107a65a1900f",
+        "gpt6_original": "reject",
+        "gpt6_context": "accept",
+        "opus55_original": "accept",
+        "opus55_context": "accept"
+      }
+    ],
+    "opus55": [
+      {
+        "sample_id": "gpt-4o/p01/0",
+        "task_id": "a01",
+        "local_label": "passed_local_checks",
+        "code_sha256": "927832387440ddb9e3ec1f6565ceffef79057bef8e30fe879e768f452dc0eb4b",
+        "gpt6_original": "accept",
+        "gpt6_context": "accept",
+        "opus55_original": "accept",
+        "opus55_context": "uncertain"
+      },
+      {
+        "sample_id": "qwen2.5-coder/p01/0",
+        "task_id": "a01",
+        "local_label": "passed_local_checks",
+        "code_sha256": "bab7e9c4eb20260658bd0e7a457d5095801939f559a77d378ee51574d3114e9d",
+        "gpt6_original": "accept",
+        "gpt6_context": "accept",
+        "opus55_original": "accept",
+        "opus55_context": "uncertain"
+      },
+      {
+        "sample_id": "qwen3-coder/p10/0",
+        "task_id": "a17",
+        "local_label": "failed_local_checks_or_execution",
+        "code_sha256": "6b16857878c3c218a8dfe7ff16b67077cd669b4a2b93fb758b581199e73c490e",
+        "gpt6_original": "reject",
+        "gpt6_context": "reject",
+        "opus55_original": "reject",
+        "opus55_context": "uncertain"
+      }
+    ]
+  },
+  "limitations": [
+    "One independent call per condition and program; changes may reflect both context and sampling variability.",
+    "This is a context sensitivity analysis, not a causal estimate of prompt context benefit.",
+    "The same 86 programs are a subset of the primary 422 cohort, not independent evidence.",
+    "Explicit infrastructure context still does not reveal oracle implementation or resolve every natural-language ambiguity."
+  ]
+}

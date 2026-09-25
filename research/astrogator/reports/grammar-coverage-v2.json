@@ -1,0 +1,155 @@
+{
+  "grammar": "experiments/fql-subset-v2.gbnf",
+  "grammar_sha256": "3bec0f621e3e4d862f355d67ac85cfd95df9e5c830a83f2293f9d3b0f4c7fd0f",
+  "recognized": 21,
+  "total": 21,
+  "results": [
+    {
+      "task_id": "a01",
+      "original_query": "create directory at /srv/www",
+      "canonical_query": "create directory at \"/srv/www\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a02",
+      "original_query": "delete directory at /home/mydata/web",
+      "canonical_query": "delete directory at \"/home/mydata/web\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a03",
+      "original_query": "delete files in /home/mydata/web",
+      "canonical_query": "delete files in \"/home/mydata/web\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a04",
+      "original_query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "canonical_query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a05",
+      "original_query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "canonical_query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a06",
+      "original_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "canonical_query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a07",
+      "original_query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+      "canonical_query": "copy files with glob=\"*.war\" from controller \"/backup\" to remote \"/tmp\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a08",
+      "original_query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+      "canonical_query": "copy files with glob=\"*.war\" from remote \"/tmp\" to controller \"/backup\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a09",
+      "original_query": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https",
+      "canonical_query": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into \"/ansible\" via https",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a10",
+      "original_query": "set environment variable LC_ALL to \"C\"",
+      "canonical_query": "set environment variable LC_ALL to \"C\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a11",
+      "original_query": "write \"module load gcc\" to bashrc file for user = foo at position=end",
+      "canonical_query": "write \"module load gcc\" to bashrc file for user=foo at position=end",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a12",
+      "original_query": "if os is Debian and reboot required then reboot",
+      "canonical_query": "if os is Debian and reboot required then reboot",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a13",
+      "original_query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+      "canonical_query": "set file permissions in \"/srv/path\" to read=all, write=owner, list directory=all",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a14",
+      "original_query": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv",
+      "canonical_query": "create virtual environment with python=\"3.10\" in \"/user/home/venv\"; install numpy in virtual environment at \"/user/home/venv\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a15",
+      "original_query": "if os is Debian based or os is RedHat based then install numpy",
+      "canonical_query": "if os is Debian based or os is RedHat based then install numpy",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a16",
+      "original_query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+      "canonical_query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a17",
+      "original_query": "disable password for user=service",
+      "canonical_query": "disable password for user=service",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a18",
+      "original_query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "canonical_query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a19",
+      "original_query": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file",
+      "canonical_query": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a20",
+      "original_query": "enable passwordless sudo for group=wheel; create user with name=ansible in supplemental groups=wheel",
+      "canonical_query": "enable passwordless sudo for group=wheel; create user with name=ansible in supplemental groups=wheel",
+      "grammar_accepts": true,
+      "error": null
+    },
+    {
+      "task_id": "a21",
+      "original_query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\"",
+      "canonical_query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\"",
+      "grammar_accepts": true,
+      "error": null
+    }
+  ]
+}

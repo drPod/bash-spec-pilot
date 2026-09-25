@@ -1,0 +1,146 @@
+{
+  "checked_at": "2026-09-25T15:27:11.828246+00:00",
+  "issues": [],
+  "warnings": [
+    "GPT model identity is requested gpt-6-astra in recorded CLI argv; CLI events do not independently attest server-resolved model version.",
+    "In-progress files can be pending. Pending is not a failed prediction. Run this audit after all writers finish for the final snapshot.",
+    "Static Python read-only screening is not a proof of noninterference; manually review actual generated programs before treating post-test oracle state as untouched.",
+    "Initial retry pass allows one empty-answer transport retry; later serial recovery is a separately documented amendment and may add another attempt."
+  ],
+  "inference": {
+    "frontier": {
+      "gpt6": {
+        "expected": 157,
+        "recorded": 157,
+        "pending": 0,
+        "statuses": {
+          "ok": 157
+        },
+        "reported_provider_models": {}
+      },
+      "opus55": {
+        "expected": 157,
+        "recorded": 157,
+        "pending": 0,
+        "statuses": {
+          "ok": 157
+        },
+        "reported_provider_models": {
+          "claude-opus-5-5": 157
+        }
+      }
+    },
+    "frontier-full-judge": {
+      "gpt6": {
+        "expected": 336,
+        "recorded": 336,
+        "pending": 0,
+        "statuses": {
+          "ok": 336
+        },
+        "reported_provider_models": {}
+      },
+      "opus55": {
+        "expected": 336,
+        "recorded": 336,
+        "pending": 0,
+        "statuses": {
+          "ok": 336
+        },
+        "reported_provider_models": {
+          "claude-opus-5-5": 336
+        }
+      }
+    },
+    "frontier-python": {
+      "gpt6": {
+        "expected": 8,
+        "recorded": 8,
+        "pending": 0,
+        "statuses": {
+          "ok": 8
+        },
+        "reported_provider_models": {}
+      },
+      "opus55": {
+        "expected": 8,
+        "recorded": 8,
+        "pending": 0,
+        "statuses": {
+          "ok": 8
+        },
+        "reported_provider_models": {
+          "claude-opus-5-5": 8
+        }
+      }
+    },
+    "environment-judge": {
+      "gpt6": {
+        "expected": 86,
+        "recorded": 86,
+        "pending": 0,
+        "statuses": {
+          "ok": 86
+        },
+        "reported_provider_models": {}
+      },
+      "opus55": {
+        "expected": 86,
+        "recorded": 86,
+        "pending": 0,
+        "statuses": {
+          "ok": 86
+        },
+        "reported_provider_models": {
+          "claude-opus-5-5": 86
+        }
+      }
+    },
+    "../translation_method/runs": {
+      "gpt6": {
+        "expected": 63,
+        "recorded": 63,
+        "pending": 0,
+        "statuses": {
+          "ok": 63
+        },
+        "reported_provider_models": {}
+      },
+      "opus55": {
+        "expected": 63,
+        "recorded": 63,
+        "pending": 0,
+        "statuses": {
+          "ok": 63
+        },
+        "reported_provider_models": {
+          "claude-opus-5-5": 63
+        }
+      }
+    }
+  },
+  "execution": {
+    "generated-tests": {
+      "cases": 844,
+      "statuses": {
+        "execution_error": 149,
+        "observed": 692,
+        "harness_error": 3
+      },
+      "individual_test_statuses": {
+        "evaluated": 2768
+      }
+    },
+    "python-tests": {
+      "cases": 844,
+      "statuses": {
+        "execution_error": 149,
+        "observed": 689,
+        "execution_timeout": 6
+      },
+      "individual_test_statuses": {
+        "evaluated": 2319
+      }
+    }
+  }
+}

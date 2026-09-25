@@ -1,0 +1,9 @@
+{
+  "checks": [
+    {
+      "kind": "file",
+      "path": "/etc/file.txt",
+      "content": "beginning"
+    }
+  ]
+}

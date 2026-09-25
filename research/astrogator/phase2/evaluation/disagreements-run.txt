@@ -1,0 +1,12 @@
+{
+  "gpt6": {
+    "original": 3,
+    "strict_integrity": 4,
+    "newline_sensitivity": 10
+  },
+  "opus55": {
+    "original": 11,
+    "strict_integrity": 10,
+    "newline_sensitivity": 2
+  }
+}

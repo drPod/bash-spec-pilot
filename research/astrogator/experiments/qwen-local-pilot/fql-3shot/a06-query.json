@@ -1,0 +1,91 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote/controller \"PATH\" to remote/controller \"PATH\".\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Delete the directory /home/mydata/web"
+      },
+      {
+        "role": "assistant",
+        "content": "delete directory at /home/mydata/web"
+      },
+      {
+        "role": "user",
+        "content": "Delete the contents of the /home/mydata/web directory"
+      },
+      {
+        "role": "assistant",
+        "content": "delete files in /home/mydata/web"
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 1.898,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "create file at /etc/file.txt with content=\"beginning\" if file \"/etc/file.txt\" not exists"
+        }
+      }
+    ],
+    "created": 1790290016,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 23,
+      "prompt_tokens": 348,
+      "total_tokens": 371,
+      "prompt_tokens_details": {
+        "cached_tokens": 323
+      }
+    },
+    "id": "chatcmpl-keQlM2nOft2HPpu0k7jnd9vFZAWC63Af",
+    "timings": {
+      "cache_n": 323,
+      "prompt_n": 25,
+      "prompt_ms": 522.782,
+      "prompt_per_token_ms": 20.91128,
+      "prompt_per_second": 47.821080297332344,
+      "predicted_n": 23,
+      "predicted_ms": 1277.913,
+      "predicted_per_token_ms": 58.086954545454546,
+      "predicted_per_second": 17.215569447998416
+    }
+  },
+  "text": "create file at /etc/file.txt with content=\"beginning\" if file \"/etc/file.txt\" not exists",
+  "finish_reason": "stop",
+  "task_id": "a06",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a01",
+    "a02",
+    "a03"
+  ],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "08b8422be6b472dda6030c2a506dbb3859cd9513af0cdb01203dca9e46a97779"
+}

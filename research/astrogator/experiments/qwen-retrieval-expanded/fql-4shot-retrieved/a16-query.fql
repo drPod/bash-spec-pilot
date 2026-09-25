@@ -1,0 +1,1 @@
+install zsh; set default shell for user=dev to zsh; if user configuration file "ZSHRC" not exists then create user configuration file "ZSHRC"

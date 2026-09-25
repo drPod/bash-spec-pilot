@@ -1,0 +1,20 @@
+{
+  "id": "a24",
+  "title": "Sticky shared spool",
+  "family": "filesystem",
+  "natural_language": "Ensure /work/spool is a directory with mode 1777, including the sticky bit.",
+  "formal_query": "create directory at /work/spool with read=all, write=all, list directory=all, sticky=true",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "omitted sticky bit",
+  "tags": [
+    "special-permissions"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

@@ -1,0 +1,26 @@
+{
+  "query_sha256": "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e",
+  "query": "delete directory at /home/mydata/web",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t2e4259097f5125540c5fd930879fff44\nsemantic\tok\taa8492484cb152fd22af335eb15fc92c\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0024,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "2e4259097f5125540c5fd930879fff44"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "aa8492484cb152fd22af335eb15fc92c"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

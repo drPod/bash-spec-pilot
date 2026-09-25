@@ -1,0 +1,26 @@
+{
+  "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+  "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tbad0ee86c26c480344499742b19279ce\nsemantic\tok\t3e86f0da7ad88f791cc8339cac5a1e36\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0043,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "bad0ee86c26c480344499742b19279ce"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "3e86f0da7ad88f791cc8339cac5a1e36"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

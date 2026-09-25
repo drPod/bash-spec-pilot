@@ -1,0 +1,93 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "For RedHat and Ubuntu, install the lastest version of postfix, backup its default configuration file, and download the configuration file from http://example.com/cfg.ubuntu for Ubuntu and http://example.com/cfg.redhat for RedHat"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 10.297,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "for os in RedHat Ubuntu; do\n  install package postfix from remote \"http://example.com/cfg\" if file \"/etc/postfix/main.cf\" not exists; \n  backup file \"/etc/postfix/main.cf\" with name=\"main.cf.bak\"; \n  download file from remote \"http://example.com/cfg\" with name=\"main.cf\";\n  end;\nend;"
+        }
+      }
+    ],
+    "created": 1790290969,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 80,
+      "prompt_tokens": 427,
+      "total_tokens": 507,
+      "prompt_tokens_details": {
+        "cached_tokens": 374
+      }
+    },
+    "id": "chatcmpl-1SL4UIPucl090nCGjXaHkzrFzmYPS6mu",
+    "timings": {
+      "cache_n": 374,
+      "prompt_n": 53,
+      "prompt_ms": 1372.239,
+      "prompt_per_token_ms": 25.891301886792455,
+      "prompt_per_second": 38.62300954862819,
+      "predicted_n": 80,
+      "predicted_ms": 8733.75,
+      "predicted_per_token_ms": 110.55379746835443,
+      "predicted_per_second": 9.04536997280664
+    }
+  },
+  "text": "for os in RedHat Ubuntu; do\n  install package postfix from remote \"http://example.com/cfg\" if file \"/etc/postfix/main.cf\" not exists; \n  backup file \"/etc/postfix/main.cf\" with name=\"main.cf.bak\"; \n  download file from remote \"http://example.com/cfg\" with name=\"main.cf\";\n  end;\nend;",
+  "finish_reason": "stop",
+  "task_id": "a18",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a01",
+    "a04",
+    "a06"
+  ],
+  "constrained": false,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "be26d55b4bf3c1aa490c203987260b34a5ff72b6bd4bc722b8d5eee4d3b11dba"
+}

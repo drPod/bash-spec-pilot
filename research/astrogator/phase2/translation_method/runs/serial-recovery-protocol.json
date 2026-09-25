@@ -1,0 +1,7 @@
+{
+  "reason": "Host cgroup task-limit saturation; serial recovery after parallel generation.",
+  "eligibility": "No answer and explicit BlockingIOError/pthread/threadpool/Bun client-startup resource failure.",
+  "maximum_additional_attempts": 1,
+  "selection_uses_prediction_verdict": false,
+  "source_sha256": "b5b1fa36893b1e9ad77a44a797a6c29e95496b5ec16cff1d408f4d83f65443d1"
+}

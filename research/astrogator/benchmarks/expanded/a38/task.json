@@ -1,0 +1,20 @@
+{
+  "id": "a38",
+  "title": "Insert before terminal rule",
+  "family": "configuration",
+  "natural_language": "Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.",
+  "formal_query": "write \"allow local\" to file at /work/rules at position=beginning",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "inserts after terminal deny",
+  "tags": [
+    "ordering"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

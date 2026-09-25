@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "04a225c074489137b8e822be0b196233b5a9f13a8c9682a1a40ddd5d47f4bc27",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p10, Response 7] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Set password to empty for 'service' user] ********************************\n[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.\n\nTask failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response7.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Set password to empty for 'service' user\n      ^ column 5\n\n<<< caused by >>>\n\nFinalization of task args for 'ansible.builtin.user' failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response7.yml:7:5\n\n5   tasks:\n6   - name: Set password to empty for 'service' user\n7     user:\n      ^ column 5\n\n<<< caused by >>>\n\nError while resolving value for 'password'.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response7.yml:9:17\n\n7     user:\n8       name: service\n9       password: !vault |\n                  ^ column 17\n\n<<< caused by >>>\n\nError rendering template.\nOrigin: <unknown>\n\n<< context unavailable: A vault exception marker was tripped. >>\n\n<<< caused by >>>\n\nAttempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response7.yml:9:17\n\n7     user:\n8       name: service\n9       password: !vault |\n                  ^ column 17\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'password': Error rendering template: Attempt to use undecryptable variable: Attempting to decrypt but no vault secrets found.\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.492,
+  "sample_id": "qwen2.5-coder/p10/7"
+}

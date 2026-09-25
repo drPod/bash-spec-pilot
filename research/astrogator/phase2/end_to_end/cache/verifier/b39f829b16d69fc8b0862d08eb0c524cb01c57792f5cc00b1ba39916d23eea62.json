@@ -1,0 +1,11 @@
+{
+  "cache_key": "b39f829b16d69fc8b0862d08eb0c524cb01c57792f5cc00b1ba39916d23eea62",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "30ec93168da880b0daa324d614e5959ec6ee7986db4bfb3746b3f4f325b8aa8a",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.ini_file\n",
+  "stderr": "",
+  "seconds": 0.0745,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,8 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "status": "harness_error",
+  "error": "RuntimeError('runtime/cgo: pthread_create failed: Resource temporarily unavailable\\n')",
+  "sample_id": "qwen3-coder/p05/6",
+  "infrastructure_retry_of_sha256": "f9e9e20265ffca84eb556971cbbd9a0f7819de4ca48e569d6fe2d014fd785f1a"
+}

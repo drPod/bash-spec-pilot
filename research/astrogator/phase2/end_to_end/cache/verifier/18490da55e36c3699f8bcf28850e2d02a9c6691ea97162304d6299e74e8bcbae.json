@@ -1,0 +1,11 @@
+{
+  "cache_key": "18490da55e36c3699f8bcf28850e2d02a9c6691ea97162304d6299e74e8bcbae",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "9d7e613dd8fb86755ed87dd8d2a1ba0173ae334dda86a0dbb2df7e2d9aa90e8d",
+  "code_sha256": "7d885a2c00999d5c6fb8065c653e8d9d14260092845e259e733603c5fad25d67",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\njinja parsing error\n",
+  "stderr": "",
+  "seconds": 0.046,
+  "status": "ansible_lowering_error"
+}

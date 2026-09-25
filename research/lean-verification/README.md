@@ -193,6 +193,8 @@ and `02_prior_art_landscape.md` carries the full ~30-entry bibliography of the f
 
 ## Reading map
 
+- `04_forall_reference.md` — Forall reference saved on 2026-09-25 for the earlier spec/proof workflow; not evaluated or adopted.
+
 - `00_positioning_and_experiment.md` — full positioning and experiment design.
 - `01_verina_deepdive.md` — the anchor paper.
 - `02_prior_art_landscape.md` — the verified-codegen field, with full references.

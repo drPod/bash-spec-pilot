@@ -1,0 +1,44 @@
+{
+  "regression_count": 9,
+  "paired_records": 158,
+  "unchanged_status_count": 158,
+  "changed_statuses": [],
+  "mode_panel": [
+    {
+      "task_id": "a22",
+      "program_name": "0700",
+      "status": "verification_rejected"
+    },
+    {
+      "task_id": "a22",
+      "program_name": "u=rwx,g=,o=",
+      "status": "verification_rejected"
+    },
+    {
+      "task_id": "a22",
+      "program_name": "u=rwX",
+      "status": "verification_rejected"
+    },
+    {
+      "task_id": "a22",
+      "program_name": "u=rwX,g=,o=",
+      "status": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a67",
+      "program_name": "0700",
+      "status": "verification_rejected"
+    },
+    {
+      "task_id": "a67",
+      "program_name": "u=rwx,g=,o=",
+      "status": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a67",
+      "program_name": "u=rwx",
+      "status": "verification_rejected"
+    }
+  ],
+  "interpretation": "158 unchanged statuses are not informative compatibility evidence; affected tasks use numeric modes before and after."
+}

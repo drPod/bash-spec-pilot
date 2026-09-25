@@ -1,0 +1,11 @@
+{
+  "cache_key": "7f33326ef345a209d41b9b28c1d4377b4ad7c92e80c554fe0f704fc8d5ad5d65",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce",
+  "code_sha256": "789ae547d7441356a6ebdd87f81d5b1f5d7ec2c5a3bd509e61bea10c2eb2731c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.setup\n",
+  "stderr": "",
+  "seconds": 0.0826,
+  "status": "ansible_lowering_error"
+}

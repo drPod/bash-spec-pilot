@@ -1,0 +1,38 @@
+# Advancing the paper’s central argument
+
+**Proposed contribution:** evaluate how much confidence Astrogator supplies when its formal query is generated from natural language, rather than supplied in advance. The decisive result is the behavior of the complete chain on common programs—not a larger count of parser successes or a patch to an isolated edge case.
+
+## What this extends
+
+The local paper PDF identifies itself as [**arXiv:2507.13290v2, November 20, 2025**](https://arxiv.org/abs/2507.13290v2) (SHA256 `00ccfabad90793af4bf0956dc6d42287235e43a6bd1fb3172b1da724f85fcf80`). Its §3, p. 5, explicitly recognizes imperfect formalization and requires user approval; §4, p. 6, proposes an LLM formalizer but leaves query generation unevaluated. The same section accepts specification satisfaction in the evaluation without user approval of residual choices. The abstract highlights the Knowledge Base as a central innovation. Thus the new work can evaluate an existing architectural component and connect the KB to practical formalization—not claim discovery of an overlooked specification-error problem.
+
+The [public v1](https://arxiv.org/html/2507.13290v1#S3) used an oracle formulation; **that should not be attributed to v2**. The local v2 is still not established as Aaron’s latest submission. Its §6.1, p. 15, uses multiple VM operating systems, whereas our new comparative execution cohort is Debian-only. Do not describe it as a reproduction of the original evaluation or assume access to private reviews.
+
+## Replacement evaluation questions
+
+| Research question | Concrete experiment and outcome | What it makes testable |
+|---|---|---|
+| **RQ1. Can practical LLMs construct usable, faithful FQL?** | Two stronger models, 21 original tasks, three calls per task, comparing the compact guide with a source-grounded semantic handbook while retaining identical demonstrations and targets. Report parse, lowering, normalized-effect agreement, per-obligation errors, and every invalid/transport outcome. | Evaluates the proposed but previously unevaluated formalizer. Compiler success and effect equality remain separate from human-confirmed fidelity. |
+| **RQ2. Does generated FQL preserve the protection observed with reference FQL?** | Run every generated query across all 21 tasks and their 2,238 supplied programs, retaining the 422-program behavioral subset separately. Pair query-induced decision changes with the existing execution labels and repeat identity. Show additional accepted failures, additional rejected passes, and lost coverage. The completed [21-task paired study](end_to_end/ALL-RESULTS.md) covers the full corpus; the [four-task study](end_to_end/RESULTS.md) separately retains behavioral labels. | Tests the central chain: whether translation failures materially change which programs verification accepts. Reference FQL is a controlled comparison, not unquestionable gold. |
+| **RQ3. What does verification add over strong-model judgments and generated tests?** | Compare reference-FQL verification, generated-FQL verification, direct judges, generated declarative checks, generated Python tests, and syntax checking on the common executable cohort. Preserve unavailable outcomes, reference-gate costs, execution errors, and the same label interpretation. | Tests practical comparative value without assuming a weak model represents LLM alternatives. Report coverage and accepted-failure risk together; no cost-superiority claim is supported by unmatched inference budgets. |
+| **RQ4. Where does the method’s coverage stop?** | Present the 70-task candidate catalog by behavioral family and formalization status, with reference/state checks and mutation challenges. Separate 52 processable queries from 18 explicitly unsupported additions; distinguish original tasks from authored challenges. | Broadens the evidence about the supported problem space. It does not turn the four-task comparative study into a 70-task accuracy evaluation. |
+
+## The paper-level argument the evidence could support
+
+The revised evaluation should test a conditional statement: **an explicit, inspectable formal query can provide useful protection against generated-code errors, provided its fidelity, environmental assumptions, and remaining obligations are tracked rather than hidden.** Whether the current system achieves useful protection is an experimental question, not the premise.
+
+Three components would make that argument concrete:
+
+1. **A working formalization method and controlled intervention.** The semantic handbook exposes the pinned FQL semantic interface and existing KB uniformly to the translator, connecting the experiment to the paper’s central KB design. Its 48 signature smoke checks pass actual processing. It raises processing success from 36/63 to 63/63 for GPT and from 33/63 to 60/63 for Opus. This cannot isolate signatures, KB entries, or the longer prompt. See [translation results](integration/TRANSLATION.md).
+2. **An end-to-end failure decomposition.** Distinguish malformed query, unsupported query, wrong intent, unsupported program, verification rejection, provisional verification acceptance, and disagreement with execution. Follow disagreements back to the responsible stage instead of pooling them as “LLM error” or “verifier error.” The supplied program corpus is fixed; this is an end-to-end checking study, not a newly evaluated interactive code-generation loop.
+3. **Decision-level evidence against credible alternatives.** Stronger judges and both generated-test formats make the competing explanations measurable. A negative result is useful: if direct judgment is competitive, or generated FQL loses the verifier’s advantage, the paper should state the conditions and show the trade-off instead of hiding them in an appendix.
+
+## Put these results in the main evaluation
+
+Use one pipeline diagram with measured denominators at every stage; one task-coverage table; one matched translation table; and one common-cohort decision table. Include paired transitions from reference to generated FQL and a small number of traced failures that explain the aggregate results. Put implementation patches and extensive case listings in supporting material.
+
+Keep provisional verifier acceptance distinct from end-user approval. The current residual-output audit records assumptions and effects; it does **not** establish that a user would approve them or that they have been discharged. An interactive user study and human-reviewed intent labels remain separate work. Likewise, structural-account and newline interpretations should appear as sensitivity analyses, since they were refined after inspecting failures.
+
+**Evidence now available:** handbook GPT preserves 1,525/1,528 supplied-query decisions in every repetition; Opus preserves 1,469, loses 57 decisions, and flips two. These are decision-agreement results, not correctness rates. The [a03 runtime chain](end_to_end/A03-MECHANISM.md) demonstrates how a valid but wrong compact-guide query conditionally accepts directory deletion when only contents deletion was requested. Strong judges are competitive on the four-task behavioral cohort, so the revision should emphasize measured formalization and complementary evidence rather than blanket verifier superiority. Neither result establishes a new general prompting method or solved natural-language correctness.
+
+_Status: paper organization remains a proposal. Translation and both end-to-end studies are complete; the generated-Python cohort also has terminal records, with four programs unresolved after execution timeouts. The supplied programs, repeated queries, and overlapping four-task subset are not independent datasets._

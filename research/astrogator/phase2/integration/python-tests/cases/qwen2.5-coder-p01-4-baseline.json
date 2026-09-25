@@ -1,0 +1,77 @@
+{
+  "task_id": "a01",
+  "scenario": "baseline",
+  "candidate_sha256": "72f49b6b8d385a73206d839ab9cfc8e599259d020bf3efc17c8fb1da78b2885d",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a01-r0": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_existing_content_preserved (__main__.TestCreateSrvWww.test_existing_content_preserved) ... skipped 'only applies to adversarial scenario'\ntest_parent_is_directory (__main__.TestCreateSrvWww.test_parent_is_directory) ... ok\ntest_target_is_directory (__main__.TestCreateSrvWww.test_target_is_directory) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK (skipped=1)\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a01-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_existing_file_preserved (__main__.TestSrvWwwDirectory.test_existing_file_preserved) ... skipped 'adversarial-only check'\ntest_parent_is_directory (__main__.TestSrvWwwDirectory.test_parent_is_directory) ... ok\ntest_target_accessible (__main__.TestSrvWwwDirectory.test_target_accessible) ... ok\ntest_target_exists (__main__.TestSrvWwwDirectory.test_target_exists) ... ok\ntest_target_is_real_directory (__main__.TestSrvWwwDirectory.test_target_is_real_directory) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK (skipped=1)\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen, Problem p01, Response 4] *************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create directory /srv/www] ***********************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": true,
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/srv/www": {
+      "mode": 16877,
+      "uid": 33,
+      "gid": 33,
+      "inode": 985634,
+      "mtime_ns": 1790349137627265887,
+      "ctime_ns": 1790349137628265916
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.695,
+  "sample_id": "qwen2.5-coder/p01/4"
+}

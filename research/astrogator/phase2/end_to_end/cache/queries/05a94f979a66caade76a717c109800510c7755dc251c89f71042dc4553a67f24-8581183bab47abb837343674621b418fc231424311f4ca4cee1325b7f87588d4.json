@@ -1,0 +1,26 @@
+{
+  "query_sha256": "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4",
+  "query": "if os is RedHat or os is Ubuntu then install postfix; copy postfix configuration file to ?path; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to \"/etc/postfix/main.cf\" otherwise download file from \"http://example.com/cfg.redhat\" to \"/etc/postfix/main.cf\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tfd194f5eb671675767ee1c52e6754aa2\nsemantic\tok\t41505cedf85b40aecb546cfdd7be5e4e\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0031,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "fd194f5eb671675767ee1c52e6754aa2"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "41505cedf85b40aecb546cfdd7be5e4e"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

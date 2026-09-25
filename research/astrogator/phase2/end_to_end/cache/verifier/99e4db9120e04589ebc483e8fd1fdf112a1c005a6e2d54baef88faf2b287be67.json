@@ -1,0 +1,11 @@
+{
+  "cache_key": "99e4db9120e04589ebc483e8fd1fdf112a1c005a6e2d54baef88faf2b287be67",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226",
+  "code_sha256": "a9974763989c3683b510e467e2f6ed6e54e3554a20f568b6baf09b84b0c5f279",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nMultiple modules specified: include_role and vars\n",
+  "stderr": "",
+  "seconds": 0.1001,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "a68",
+  "title": "Gate directory creation on marker",
+  "family": "filesystem",
+  "natural_language": "Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.",
+  "formal_query": "if file /work/enabled exists then create directory at /work/cache",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "acts when condition is false",
+  "tags": [
+    "conditional",
+    "negative-action"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

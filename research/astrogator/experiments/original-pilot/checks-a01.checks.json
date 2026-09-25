@@ -1,0 +1,12 @@
+{
+  "checks": [
+    {
+      "kind": "directory",
+      "path": "/srv/www"
+    },
+    {
+      "kind": "absent",
+      "path": "/srv/www"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "898b845f6c41aac9c765eed1b4b8216d997e477d9c8e001495b61472740ef87b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "ddfc90227eb0110909e35c471309a7ddf2ae438be60f5529493bd317f187d879",
+  "code_sha256": "f709d27911c834d0abe2d2b6f540cb78671cb9a2ce585ce287171ece7d055de3",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module wait_for_connection\n",
+  "stderr": "",
+  "seconds": 0.0857,
+  "status": "ansible_lowering_error"
+}

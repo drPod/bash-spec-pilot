@@ -1,0 +1,8 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: true

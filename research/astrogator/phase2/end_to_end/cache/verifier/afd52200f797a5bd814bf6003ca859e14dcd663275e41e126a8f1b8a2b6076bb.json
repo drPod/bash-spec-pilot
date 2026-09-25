@@ -1,0 +1,11 @@
+{
+  "cache_key": "afd52200f797a5bd814bf6003ca859e14dcd663275e41e126a8f1b8a2b6076bb",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f",
+  "code_sha256": "e635179d660e8f72cf6a7234346b0225dee7c1a52849c87e0bbf84e970e9a0ad",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument content for module file\n",
+  "stderr": "",
+  "seconds": 0.0874,
+  "status": "ansible_lowering_error"
+}

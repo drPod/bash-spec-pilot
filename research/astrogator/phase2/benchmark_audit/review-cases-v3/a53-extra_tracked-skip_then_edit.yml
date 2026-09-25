@@ -1,0 +1,16 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: main
+      update: false
+  - name: Second review challenge
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import subprocess,pathlib; subprocess.run(['git','-C','/work/checkout','update-index','--skip-worktree','other'],check=True);
+        pathlib.Path('/work/checkout/other').write_text('undetected change')

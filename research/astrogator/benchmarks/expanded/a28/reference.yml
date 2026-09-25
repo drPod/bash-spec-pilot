@@ -1,0 +1,15 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/source
+    register: src
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/moved
+      remote_src: true
+    when: src.stat.exists
+  - ansible.builtin.file:
+      path: /work/source
+      state: absent

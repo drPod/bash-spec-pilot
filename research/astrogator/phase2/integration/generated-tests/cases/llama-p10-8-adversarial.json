@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "7c69e12432573fbbbf254e24b1d10398d80cf2be64cd35d240d7287a28273883",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model llama, Problem p10, Response 8] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Update service user password] ********************************************\n[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.\n\nTask failed.\nOrigin: /suite/data/corpus/llama/p10/response8.yml:9:5\n\n7     service_user_password: \"password\"\n8   tasks:\n9   - name: Update service user password\n      ^ column 5\n\n<<< caused by >>>\n\nFinalization of task args for 'ansible.builtin.user' failed.\nOrigin: /suite/data/corpus/llama/p10/response8.yml:10:5\n\n 8   tasks:\n 9   - name: Update service user password\n10     user:\n       ^ column 5\n\n<<< caused by >>>\n\nError while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.\nOrigin: /suite/data/corpus/llama/p10/response8.yml:13:16\n\n11       name: \"{{ service_username }}\"\n12       password: \"{{ service_user_password }}\"\n13       expires: \"{{ ansible_date_time.today() | timestamp('timestamp') + 24 * 60 *\n                  ^ column 16\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'expires': Syntax error in template: No filter named 'timestamp'.\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.488,
+  "sample_id": "llama/p10/8"
+}

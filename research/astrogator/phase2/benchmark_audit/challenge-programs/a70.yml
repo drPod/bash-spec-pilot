@@ -1,0 +1,14 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      src: /work/source/
+      dest: /work/dest/
+      remote_src: true
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - from pathlib import Path; Path('/work/source/.hidden').unlink()

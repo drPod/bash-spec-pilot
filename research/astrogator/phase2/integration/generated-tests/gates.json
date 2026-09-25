@@ -1,0 +1,98 @@
+{
+  "gpt6-checks-a01-r0": {
+    "task_id": "a01",
+    "source_sha256": "6b9c67b021f033e11438de2bbd02712697df2f3848a1205df1140c725faac76d",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a01-r1": {
+    "task_id": "a01",
+    "source_sha256": "e9e322509ff7a9535859c3f0f3cba0125c44015d7fad14a8bdfd65fb5ae9438f",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a02-r0": {
+    "task_id": "a02",
+    "source_sha256": "a4914d5efe8c69a7681c8de882c08df02ae52db4c2de7a5d7ac6eecfc05ebc1e",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a02-r1": {
+    "task_id": "a02",
+    "source_sha256": "2dbf8d1994b83dbd1f3e88bb5e675b79cda533b37a4d2d25069095ce5b12f040",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a06-r0": {
+    "task_id": "a06",
+    "source_sha256": "bff2204defa65afb96b876548ceb8fcac80ce099eaaf3ddd8d4a40f9f1f66755",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a06-r1": {
+    "task_id": "a06",
+    "source_sha256": "b52cf07208c46ec557142285658cd191df08d57f066d5510092400b84e0e1a55",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a17-r0": {
+    "task_id": "a17",
+    "source_sha256": "d572732f186a844be920575c1b82d1f7da1d2feb308e6951388bb01616a7183c",
+    "status": "valid",
+    "eligible": true
+  },
+  "gpt6-checks-a17-r1": {
+    "task_id": "a17",
+    "source_sha256": "dc04cbb6bc65d8c7094806577cd59505799eeea36bc5029fa6a417d35fe11bb2",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a01-r0": {
+    "task_id": "a01",
+    "source_sha256": "3d71217688f0dd984d00cc82500345cb31707daf13f0a88ed8a6c7f8f59aaa4e",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a01-r1": {
+    "task_id": "a01",
+    "source_sha256": "19d3d0fb0ae1805082a84f6e4f38f6cf6259d5ece02b397855904c0f12ef2121",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a02-r0": {
+    "task_id": "a02",
+    "source_sha256": "e0eb1086fd7769534f08825caa12205f80e704ff3026b481bb7b928be3982edb",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a02-r1": {
+    "task_id": "a02",
+    "source_sha256": "e57932a23b68a29d46dc3c8a04a149aaed7e54d7c33976ef4cb4fe8b7b7eac06",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a06-r0": {
+    "task_id": "a06",
+    "source_sha256": "05ac390684e0a51058129df4465864e1b13b0cab8ec380231c0cb6fb2d0a5753",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a06-r1": {
+    "task_id": "a06",
+    "source_sha256": "ee36c590ed49e09375fa914ce4bfc0102698c9277c92c0c9f4667ebb294d9db0",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a17-r0": {
+    "task_id": "a17",
+    "source_sha256": "493df0a502c6cda6db669707cf16ad59444a84e2d8bf8d1ab2f1f06941325f95",
+    "status": "valid",
+    "eligible": true
+  },
+  "opus55-checks-a17-r1": {
+    "task_id": "a17",
+    "source_sha256": "62372c69781919a2bfcc038710521a79d3dd32e011bd9d65fa7eb792b36f3493",
+    "status": "valid",
+    "eligible": true
+  }
+}

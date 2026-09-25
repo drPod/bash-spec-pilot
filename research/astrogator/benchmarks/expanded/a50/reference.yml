@@ -1,0 +1,6 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      deb: /fixtures/astro-demo_2.0_all.deb

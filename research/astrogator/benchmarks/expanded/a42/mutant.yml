@@ -1,0 +1,9 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      groups:
+      - deploy
+      append: true

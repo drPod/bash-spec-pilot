@@ -1,0 +1,59 @@
+{
+  "complete": {
+    "native_syntax": true,
+    "debian_metadata_heuristics": true
+  },
+  "observed": {
+    "native_syntax": 422,
+    "debian_metadata_heuristics": 422
+  },
+  "source_statuses": {
+    "native_syntax": {
+      "syntax_pass": 416,
+      "syntax_reject": 6
+    },
+    "debian_metadata_heuristics": {
+      "accepted_with_possible_residuals": 282,
+      "verification_rejected": 57,
+      "ansible_lowering_error": 74,
+      "heuristic_rejected": 9
+    }
+  },
+  "changed_by_debian_metadata": [
+    {
+      "sample_id": "deepseek/p01/7",
+      "task_id": "a01",
+      "original_label": "passed_local_checks",
+      "all_os_metadata": "reject",
+      "debian_metadata": "accept"
+    },
+    {
+      "sample_id": "granite/p01/8",
+      "task_id": "a01",
+      "original_label": "passed_local_checks",
+      "all_os_metadata": "reject",
+      "debian_metadata": "accept"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/0",
+      "task_id": "a01",
+      "original_label": "passed_local_checks",
+      "all_os_metadata": "reject",
+      "debian_metadata": "accept"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/4",
+      "task_id": "a01",
+      "original_label": "passed_local_checks",
+      "all_os_metadata": "reject",
+      "debian_metadata": "accept"
+    },
+    {
+      "sample_id": "qwen2.5-coder/p01/6",
+      "task_id": "a01",
+      "original_label": "passed_local_checks",
+      "all_os_metadata": "reject",
+      "debian_metadata": "accept"
+    }
+  ]
+}

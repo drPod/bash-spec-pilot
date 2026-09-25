@@ -1,0 +1,1159 @@
+{
+  "purpose": "Language-reference smoke checks, not benchmark query validation",
+  "cases": [
+    {
+      "id": "source-example-00",
+      "query": "create file at \"/probe/item\" with content=\"alpha\", owner=\"nobody\", read=all, write=owner.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t9612d3d765d945959c6a8a381a69cbe5\nsemantic\tok\t629245525fa12c1b988aeb5eb4a51d54\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0289,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "9612d3d765d945959c6a8a381a69cbe5"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "629245525fa12c1b988aeb5eb4a51d54"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-01",
+      "query": "create directory at \"/probe/tree\" with owner=\"nobody\", list directory=owner group.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t988144e1bf93ded89c1790c24b38bf91\nsemantic\tok\ta233a89fef069690f780d4ebf60b0056\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0034,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "988144e1bf93ded89c1790c24b38bf91"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "a233a89fef069690f780d4ebf60b0056"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-02",
+      "query": "delete file at \"/probe/item\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t12b1be0454abd9a6f7b749aea32e4c6b\nsemantic\tok\tf839a570f0b411c3af90531091b6d8e8\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0027,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "12b1be0454abd9a6f7b749aea32e4c6b"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "f839a570f0b411c3af90531091b6d8e8"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-03",
+      "query": "delete directory at \"/probe/tree\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tb31175a4cac9eccac132ac7c50368cd7\nsemantic\tok\t85ad8f6568433b6ec8d33894f1bab1d0\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0108,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "b31175a4cac9eccac132ac7c50368cd7"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "85ad8f6568433b6ec8d33894f1bab1d0"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-04",
+      "query": "delete files in \"/probe/tree\" with glob=\"*.tmp\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t0bdc85bb4b5fb76c8141e97f5ebd62b2\nsemantic\tok\tf4fbd48960f9178bc8b8c178713d9ee6\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0144,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "0bdc85bb4b5fb76c8141e97f5ebd62b2"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "f4fbd48960f9178bc8b8c178713d9ee6"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-05",
+      "query": "copy file from controller \"/probe/source\" to remote \"/probe/dest\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t7f3caa501aaeafd62443f36e1078dbad\nsemantic\tok\t26c443bc57fc064e2139f9db3116b13a\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0085,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "7f3caa501aaeafd62443f36e1078dbad"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "26c443bc57fc064e2139f9db3116b13a"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-06",
+      "query": "copy directory from \"/probe/source\" to \"/probe/dest\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t5838ce3a85a8e7d4b0c2bde96a1b000d\nsemantic\tok\t01bdbd2e13491ea2514a9c52210c79ab\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0165,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "5838ce3a85a8e7d4b0c2bde96a1b000d"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "01bdbd2e13491ea2514a9c52210c79ab"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-07",
+      "query": "copy files from \"/probe/source\" to \"/probe/dest\" with glob=\"*.cfg\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tcc859803d63b9bccc71d4ce9e5e44ebc\nsemantic\tok\tf5a416f25b5f933127088e803ec58c9d\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0067,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "cc859803d63b9bccc71d4ce9e5e44ebc"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "f5a416f25b5f933127088e803ec58c9d"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-08",
+      "query": "move file from \"/probe/source\" to \"/probe/dest\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t5dc3b13027e561d75c78d761f8c7594a\nsemantic\tok\t7f342a279497c7667ddb258f91e09fad\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0036,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "5dc3b13027e561d75c78d761f8c7594a"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "7f342a279497c7667ddb258f91e09fad"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-09",
+      "query": "move directory from \"/probe/source\" to \"/probe/dest\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tb21620d7fc4180b50627601c31f4b281\nsemantic\tok\tc212c0b881bdf0c7431ca53a49025c42\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0107,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "b21620d7fc4180b50627601c31f4b281"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "c212c0b881bdf0c7431ca53a49025c42"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-10",
+      "query": "move files from \"/probe/source\" to \"/probe/dest\" with glob=\"*.cfg\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t451af48e602d637d6e4d964f7e6c5cfe\nsemantic\tok\t78092eb71ca83947d8d4227b79ecbabb\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.008,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "451af48e602d637d6e4d964f7e6c5cfe"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "78092eb71ca83947d8d4227b79ecbabb"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-11",
+      "query": "download file from \"https://probe.invalid/item\" to \"/probe/item\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tbea561ae4d373aeb5d15e68dac379669\nsemantic\tok\td3d2ecabe7d6fbdec32ea82638945ea5\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0044,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "bea561ae4d373aeb5d15e68dac379669"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "d3d2ecabe7d6fbdec32ea82638945ea5"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-12",
+      "query": "write \"alpha\" to \"/probe/item\" with position=overwrite.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t41c5510fd4e6d240aec1d2d4e2c8446a\nsemantic\tok\t6fb5659e220ca125342141207bea464f\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0028,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "41c5510fd4e6d240aec1d2d4e2c8446a"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "6fb5659e220ca125342141207bea464f"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-13",
+      "query": "set file permissions for \"/probe/item\" with read=all, write=owner.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t36f2d7ed3d954d45ef95fafa4bc16337\nsemantic\tok\tff4f50a8d33c7630be9211e52855bbcf\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0105,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "36f2d7ed3d954d45ef95fafa4bc16337"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "ff4f50a8d33c7630be9211e52855bbcf"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-14",
+      "query": "set file permissions in \"/probe/tree\" with execute=owner group.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tc675837e4f1235f7a2a59990c2f97dca\nsemantic\tok\tb446b27422018f8b5ce8517bb01e8e21\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0019,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "c675837e4f1235f7a2a59990c2f97dca"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "b446b27422018f8b5ce8517bb01e8e21"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-15",
+      "query": "create user with name=\"probeuser\", primary group=\"staff\", supplemental groups=\"audio\" \"video\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tf90b36c5ad9b0510fb4fff3bb6fdb24b\nsemantic\tok\tf5bfc7e8d805fb36a589af3bdc219703\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0085,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "f90b36c5ad9b0510fb4fff3bb6fdb24b"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "f5bfc7e8d805fb36a589af3bdc219703"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-16",
+      "query": "delete user with name=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tb63a48c6346d762b40af7687df5878b7\nsemantic\tok\tc58357041e650d7337bb7d5affcb6f8f\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0088,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "b63a48c6346d762b40af7687df5878b7"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "c58357041e650d7337bb7d5affcb6f8f"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-17",
+      "query": "create group with name=\"probegroup\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tf452bc15b1a3d362d5586ece00944dfd\nsemantic\tok\t7b3139a8222f49f91e94dd397abec2c6\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0033,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "f452bc15b1a3d362d5586ece00944dfd"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "7b3139a8222f49f91e94dd397abec2c6"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-18",
+      "query": "delete group with name=\"probegroup\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t26b2ef4b07eeb8b0d66f78869e74b7fb\nsemantic\tok\tae274d3672602d396140ad7211a3cb2f\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0037,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "26b2ef4b07eeb8b0d66f78869e74b7fb"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "ae274d3672602d396140ad7211a3cb2f"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-19",
+      "query": "disable password for user=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t976337b01a77258d32a5e56a5bd67ad9\nsemantic\tok\t025bcc37ebcd9eeb0d04eac816e7c336\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0019,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "976337b01a77258d32a5e56a5bd67ad9"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "025bcc37ebcd9eeb0d04eac816e7c336"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-20",
+      "query": "enable sudo for user=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t477595c483249cc07b2410ada1a8f4cd\nsemantic\tok\tc396a320c4c6a7e0327832eb19e05d34\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0058,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "477595c483249cc07b2410ada1a8f4cd"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "c396a320c4c6a7e0327832eb19e05d34"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-21",
+      "query": "disable sudo for group=\"probegroup\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tdd6612244ac769fff7ac56a14d9dff18\nsemantic\tok\t7ed2caf09b8f8ae349a048afd62c0628\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0031,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "dd6612244ac769fff7ac56a14d9dff18"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "7ed2caf09b8f8ae349a048afd62c0628"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-22",
+      "query": "enable passwordless sudo for group=\"probegroup\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\td009c5fab43586935b4dfa5c973ee5a7\nsemantic\tok\tb6702447185ac75e8ee70e69b544d607\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0052,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "d009c5fab43586935b4dfa5c973ee5a7"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "b6702447185ac75e8ee70e69b544d607"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-23",
+      "query": "disable passwordless sudo for user=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t3a235156e067f5ffd53bb1bcfec99e19\nsemantic\tok\t781eab097b269ebbe17e964672ad6cab\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0039,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "3a235156e067f5ffd53bb1bcfec99e19"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "781eab097b269ebbe17e964672ad6cab"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-24",
+      "query": "set default shell for user=\"probeuser\" to bash.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t116b53c82182f1d59926b0d188de9f7d\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0017,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "116b53c82182f1d59926b0d188de9f7d"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "unavailable:functional_value"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-25",
+      "query": "create ssh key for user=\"probeuser\" with name=\"probe_key\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t348140a80e6c84d572c3386f520bdb57\nsemantic\tok\taf2b94831824619f9f6ab7f06bb7e5fb\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0016,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "348140a80e6c84d572c3386f520bdb57"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "af2b94831824619f9f6ab7f06bb7e5fb"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-26",
+      "query": "create ssh key for user=\"probeuser\" at \"/probe/key\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t23728e666d62c56b1ee4cd7f8a6ad4dc\nsemantic\tok\tc5745a33c8cdc923b2b9c12261476264\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0036,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "23728e666d62c56b1ee4cd7f8a6ad4dc"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "c5745a33c8cdc923b2b9c12261476264"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-27",
+      "query": "install bash with version=\"5\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tae173de57ae5fdd21e9e8c96faa9e76d\nsemantic\tok\tdf5b4d86d0ca93c6b199642057fa42e8\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0043,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "ae173de57ae5fdd21e9e8c96faa9e76d"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "df5b4d86d0ca93c6b199642057fa42e8"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-28",
+      "query": "uninstall zsh.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tadd4311998628acd0669f27531034314\nsemantic\tok\tdf9833d0f8be998e379062e7dacbb689\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0057,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "add4311998628acd0669f27531034314"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "df9833d0f8be998e379062e7dacbb689"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-29",
+      "query": "start ssh server service.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t2f9f68ed42ef5abbb2062a1b46583a65\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0057,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "2f9f68ed42ef5abbb2062a1b46583a65"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "unavailable:functional_value"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-30",
+      "query": "stop postfix service.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t87e38c36c9fe65f561c1a98686608a75\nsemantic\tok\tae3c33b25d4f875803b3f9225141bd04\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0097,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "87e38c36c9fe65f561c1a98686608a75"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "ae3c33b25d4f875803b3f9225141bd04"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-31",
+      "query": "clone git repository from \"https://probe.invalid/repo\" into \"/probe/tree\" with branch=\"stable\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t0a669877c407034551ef04c6099336ac\nsemantic\tok\t66a0e2bda86edf8cfabd3609d285fe4f\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0056,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "0a669877c407034551ef04c6099336ac"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "66a0e2bda86edf8cfabd3609d285fe4f"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-32",
+      "query": "clone github repository with name=\"probeorg/proberepo\" into \"/probe/tree\" via ssh with tag=\"v3\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\teff24445eb9ad391e4e1e638f01af9bf\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0022,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "eff24445eb9ad391e4e1e638f01af9bf"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "unavailable:functional_value"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-33",
+      "query": "create virtual environment in \"/probe/venv\" with python=\"3\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t2dff1574b0f6c2a35c5eda06c08f87d4\nsemantic\tok\tde6824c4aaedf97aca3d1944506b0cfa\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.01,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "2dff1574b0f6c2a35c5eda06c08f87d4"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "de6824c4aaedf97aca3d1944506b0cfa"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-34",
+      "query": "set environment variable PROBE to \"alpha\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\ta29a3474db30d8ea32ee5263686e0d1e\nsemantic\tok\tcda6d447d52ff828b3daee2f8712db99\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0078,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "a29a3474db30d8ea32ee5263686e0d1e"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "cda6d447d52ff828b3daee2f8712db99"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-35",
+      "query": "reboot.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t7663d9545caf9ca71a760f3ef705da95\nsemantic\tok\t8b04d4f8ba02c8330f8cedfcc803e38e\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0067,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "7663d9545caf9ca71a760f3ef705da95"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "8b04d4f8ba02c8330f8cedfcc803e38e"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-36",
+      "query": "if os is Ubuntu then install apache server; start apache server service.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t472c9db97e11ba6af12c958c84820a63\nsemantic\tok\ta5af5e7f69337459299b517b997eec21\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0027,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "472c9db97e11ba6af12c958c84820a63"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "a5af5e7f69337459299b517b997eec21"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-37",
+      "query": "if os is Debian based then if reboot required then reboot.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t972f339cbd93eae3f7c964391d8e9e53\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0031,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "972f339cbd93eae3f7c964391d8e9e53"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "unavailable:functional_value"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-38",
+      "query": "if file \"/probe/item\" not exists then create file at \"/probe/item\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tea2a25b4a2dd4c368b05f96eb57f022b\nsemantic\tok\te938c3dad4c2026560f85954122afc93\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0023,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "ea2a25b4a2dd4c368b05f96eb57f022b"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "e938c3dad4c2026560f85954122afc93"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-39",
+      "query": "if directory at \"/probe/tree\" exists then delete directory at \"/probe/tree\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t1bb6184966045b67de514be44aac64e8\nsemantic\tok\t41f86059caf6bce5f3b9e99e6d071774\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0016,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "1bb6184966045b67de514be44aac64e8"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "41f86059caf6bce5f3b9e99e6d071774"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-40",
+      "query": "if bash installed then uninstall bash.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tf3f10bc4b27c798fbc5db3bbbd5feb59\nsemantic\tok\t0af1cafb9a89ad59f32b3ee7f7f4e612\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0023,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "f3f10bc4b27c798fbc5db3bbbd5feb59"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "0af1cafb9a89ad59f32b3ee7f7f4e612"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-41",
+      "query": "if ssh server running then stop ssh server service.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tfecd0d250dc5e4a9147c5a5abf010059\nsemantic\tok\tunavailable:functional_value\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0018,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "fecd0d250dc5e4a9147c5a5abf010059"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "unavailable:functional_value"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-42",
+      "query": "install numpy in virtual environment at \"/probe/venv\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t2c37e0397bb76abe1a30fe5d18b53042\nsemantic\tok\t10499c5405bdf7b4007812eb11637d4a\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0022,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "2c37e0397bb76abe1a30fe5d18b53042"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "10499c5405bdf7b4007812eb11637d4a"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-43",
+      "query": "create bash configuration file for user=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t4f6f459985b5afaf4a55c3ed0152ebda\nsemantic\tok\tb340bb835d61f3f7642b5818213c4b52\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0021,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "4f6f459985b5afaf4a55c3ed0152ebda"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "b340bb835d61f3f7642b5818213c4b52"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-44",
+      "query": "write \"alpha\" to zsh configuration file for user=\"probeuser\" with position=end.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t41b56d95ebf43be00ff2960b512a3874\nsemantic\tok\tdf4e4abbe201608209a5ebf14c99cca4\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0065,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "41b56d95ebf43be00ff2960b512a3874"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "df4e4abbe201608209a5ebf14c99cca4"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-45",
+      "query": "copy postfix configuration file to \"/probe/backup\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t18253ed2f9d93fcd8019894e8b486257\nsemantic\tok\t2120d9b48e040a592f3ab502a268fc92\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.008,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "18253ed2f9d93fcd8019894e8b486257"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "2120d9b48e040a592f3ab502a268fc92"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-46",
+      "query": "create zsh configuration directory for user=\"probeuser\".",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\tc381bb786968db30a84f588c420c09bc\nsemantic\tok\t2a61f50b14004bd49c9772468fa486cb\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0055,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "c381bb786968db30a84f588c420c09bc"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "2a61f50b14004bd49c9772468fa486cb"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    },
+    {
+      "id": "source-example-47",
+      "query": "if os is RedHat then install ssh client otherwise if os is Debian based then install ssh client.",
+      "result": {
+        "returncode": 0,
+        "stdout": "parse\tok\t0cc113365b4c1d8193d3b8804a19161f\nsemantic\tok\te8f33e5e53a4daecc266865432343319\ncodegen\tok\tlowered to module language\n",
+        "stderr": "",
+        "seconds": 0.0058,
+        "stages": {
+          "parse": {
+            "status": "ok",
+            "detail": "0cc113365b4c1d8193d3b8804a19161f"
+          },
+          "semantic": {
+            "status": "ok",
+            "detail": "e8f33e5e53a4daecc266865432343319"
+          },
+          "codegen": {
+            "status": "ok",
+            "detail": "lowered to module language"
+          }
+        }
+      }
+    }
+  ],
+  "passed": 48,
+  "total": 48
+}

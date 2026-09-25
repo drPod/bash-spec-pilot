@@ -1,0 +1,25 @@
+{
+  "base": "Apply adequacy/permission-classes.patch to upstream 7c62afa51986d87033af5112cdccd3b104b1c120 first. This patch is incremental.",
+  "changes": [
+    {
+      "path": "lib/fql/codegen.ml",
+      "before_sha256": "d0d455e8850b6089f78add7f0bdde1e4b5d97b87ef647f207c804f0bc0331c30",
+      "after_sha256": "8020d14d98a247ee0a7ac63cc4a0ebe643e06c5fc49a2e3d8c4ffaecfa5d6602"
+    },
+    {
+      "path": "lib/ansible/semant.ml",
+      "before_sha256": "8cc26cbc6b55d1ee8f1fec07689e7a93a92aab419cbea62dc524824820dbf20f",
+      "after_sha256": "2558db4f036b729208ac264cb36adeaced7d071257bff1e657e5156ca713e4fc"
+    },
+    {
+      "path": "bin/verify.ml",
+      "before_sha256": "bc4c4479c07b2a60f48a6aca6dfa83116afc95e1d033c51baff805bc7aaf532c",
+      "after_sha256": "1a637bd69a2f4e1c0c7dbd58978c18b74b9acc9ebf33116cb320659bc2b5f618"
+    },
+    {
+      "path": "lib/modules/permission_mode.ml",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_sha256": "a9d59e7348d43bb89bfd52f35daa50368082a367e5927ffee3e030e4748e77dc"
+    }
+  ]
+}

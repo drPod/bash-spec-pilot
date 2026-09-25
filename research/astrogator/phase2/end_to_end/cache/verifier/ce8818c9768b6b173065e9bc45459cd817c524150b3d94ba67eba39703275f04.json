@@ -1,0 +1,11 @@
+{
+  "cache_key": "ce8818c9768b6b173065e9bc45459cd817c524150b3d94ba67eba39703275f04",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d68f33bad46db6c95bc51226afc3362a219ec8e4f905005bd547d9e10efcd81",
+  "code_sha256": "6dd1a1fbd26c3ad88bceb0fc39804d1a8b06839d5b1b2a9c3ed16ee2696a2fcc",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nIncompatible types, missing field src\n",
+  "stderr": "",
+  "seconds": 0.0761,
+  "status": "ansible_lowering_error"
+}

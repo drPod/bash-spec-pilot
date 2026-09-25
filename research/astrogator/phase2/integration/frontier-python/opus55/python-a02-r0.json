@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "python-a02-r0",
+    "mode": "python",
+    "task_id": "a02",
+    "repeat": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+      },
+      {
+        "role": "user",
+        "content": "Request: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files."
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nWrite a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request.\n\nUSER:\nRequest: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files.",
+  "prompt_sha256": "d296fc96fc21bc9e92c1bee9ce0f90306d56d01df1a1afbf070be92606f0f634",
+  "created_at": "2026-09-25T14:51:39.877640+00:00",
+  "frozen_input_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":9812,\"stop_reason\":\"end_turn\",\"session_id\":\"b51655cf-42ad-46e9-95ce-e9f51d125a0c\",\"total_cost_usd\":0.0177664,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":6092,\"output_tokens\":827,\"output_tokens_details\":{\"thinking_tokens\":169},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":827,\"cache_read_input_tokens\":6092,\"cache_creation_input_tokens\":0,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":827,\"cacheReadInputTokens\":6092,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0177664,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":169,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"```python\\n#!/usr/bin/env python3\\nimport os\\nimport stat\\nimport sys\\nimport unittest\\nfrom pathlib import Path\\n\\nTARGET = Path(\\\"/home/mydata/web\\\")\\nSCENARIO = os.environ.get(\\\"ASTRO_SCENARIO\\\", \\\"baseline\\\").strip().lower()\\n\\n\\nclass TestWebDirectoryDeleted(unittest.TestCase):\\n    def test_target_does_not_exist(self):\\n        # lexists also catches dangling symlinks left at the path\\n        self.assertFalse(\\n            os.path.lexists(str(TARGET)),\\n            f\\\"{TARGET} still exists (scenario={SCENARIO})\\\",\\n        )\\n\\n    def test_target_not_any_filesystem_object(self):\\n        try:\\n            st = os.lstat(str(TARGET))\\n        except FileNotFoundError:\\n            return\\n        except NotADirectoryError:\\n            # A parent component is not a directory, so the target cannot exist\\n            return\\n        kind = \\\"directory\\\" if stat.S_ISDIR(st.st_mode) else (\\n            \\\"symlink\\\" if stat.S_ISLNK(st.st_mode) else \\\"other file type\\\"\\n        )\\n        self.fail(f\\\"{TARGET} is still present as a {kind} (scenario={SCENARIO})\\\")\\n\\n    def test_no_contents_remain(self):\\n        # Nested and hidden files must not survive anywhere under the target\\n        if not os.path.isdir(str(TARGET)):\\n            return\\n        remaining = []\\n        for root, dirs, files in os.walk(str(TARGET)):\\n            for name in dirs + files:\\n                remaining.append(os.path.join(root, name))\\n        self.fail(\\n            f\\\"{TARGET} still exists with {len(remaining)} entries remaining: \\\"\\n            f\\\"{remaining[:10]} (scenario={SCENARIO})\\\"\\n        )\\n\\n\\nif __name__ == \\\"__main__\\\":\\n    result = unittest.main(exit=False, verbosity=2).result\\n    sys.exit(0 if result.wasSuccessful() else 1)\\n```\",\"ttft_ms\":5429,\"type\":\"result\",\"duration_ms\":11129,\"uuid\":\"9d535235-4809-46a1-9d0f-9a7a9d1715de\",\"ttft_stream_ms\":3493,\"time_to_request_ms\":1483,\"first_content_frame_ms\":3494,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 9812,
+    "stop_reason": "end_turn",
+    "session_id": "b51655cf-42ad-46e9-95ce-e9f51d125a0c",
+    "total_cost_usd": 0.0177664,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6092,
+      "output_tokens": 827,
+      "output_tokens_details": {
+        "thinking_tokens": 169
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 827,
+          "cache_read_input_tokens": 6092,
+          "cache_creation_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 827,
+        "cacheReadInputTokens": 6092,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0177664,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 169,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "```python\n#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\nfrom pathlib import Path\n\nTARGET = Path(\"/home/mydata/web\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestWebDirectoryDeleted(unittest.TestCase):\n    def test_target_does_not_exist(self):\n        # lexists also catches dangling symlinks left at the path\n        self.assertFalse(\n            os.path.lexists(str(TARGET)),\n            f\"{TARGET} still exists (scenario={SCENARIO})\",\n        )\n\n    def test_target_not_any_filesystem_object(self):\n        try:\n            st = os.lstat(str(TARGET))\n        except FileNotFoundError:\n            return\n        except NotADirectoryError:\n            # A parent component is not a directory, so the target cannot exist\n            return\n        kind = \"directory\" if stat.S_ISDIR(st.st_mode) else (\n            \"symlink\" if stat.S_ISLNK(st.st_mode) else \"other file type\"\n        )\n        self.fail(f\"{TARGET} is still present as a {kind} (scenario={SCENARIO})\")\n\n    def test_no_contents_remain(self):\n        # Nested and hidden files must not survive anywhere under the target\n        if not os.path.isdir(str(TARGET)):\n            return\n        remaining = []\n        for root, dirs, files in os.walk(str(TARGET)):\n            for name in dirs + files:\n                remaining.append(os.path.join(root, name))\n        self.fail(\n            f\"{TARGET} still exists with {len(remaining)} entries remaining: \"\n            f\"{remaining[:10]} (scenario={SCENARIO})\"\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+    "ttft_ms": 5429,
+    "type": "result",
+    "duration_ms": 11129,
+    "uuid": "9d535235-4809-46a1-9d0f-9a7a9d1715de",
+    "ttft_stream_ms": 3493,
+    "time_to_request_ms": 1483,
+    "first_content_frame_ms": 3494,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "```python\n#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\nfrom pathlib import Path\n\nTARGET = Path(\"/home/mydata/web\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestWebDirectoryDeleted(unittest.TestCase):\n    def test_target_does_not_exist(self):\n        # lexists also catches dangling symlinks left at the path\n        self.assertFalse(\n            os.path.lexists(str(TARGET)),\n            f\"{TARGET} still exists (scenario={SCENARIO})\",\n        )\n\n    def test_target_not_any_filesystem_object(self):\n        try:\n            st = os.lstat(str(TARGET))\n        except FileNotFoundError:\n            return\n        except NotADirectoryError:\n            # A parent component is not a directory, so the target cannot exist\n            return\n        kind = \"directory\" if stat.S_ISDIR(st.st_mode) else (\n            \"symlink\" if stat.S_ISLNK(st.st_mode) else \"other file type\"\n        )\n        self.fail(f\"{TARGET} is still present as a {kind} (scenario={SCENARIO})\")\n\n    def test_no_contents_remain(self):\n        # Nested and hidden files must not survive anywhere under the target\n        if not os.path.isdir(str(TARGET)):\n            return\n        remaining = []\n        for root, dirs, files in os.walk(str(TARGET)):\n            for name in dirs + files:\n                remaining.append(os.path.join(root, name))\n        self.fail(\n            f\"{TARGET} still exists with {len(remaining)} entries remaining: \"\n            f\"{remaining[:10]} (scenario={SCENARIO})\"\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+  "status": "ok",
+  "extracted": "#!/usr/bin/env python3\nimport os\nimport stat\nimport sys\nimport unittest\nfrom pathlib import Path\n\nTARGET = Path(\"/home/mydata/web\")\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\").strip().lower()\n\n\nclass TestWebDirectoryDeleted(unittest.TestCase):\n    def test_target_does_not_exist(self):\n        # lexists also catches dangling symlinks left at the path\n        self.assertFalse(\n            os.path.lexists(str(TARGET)),\n            f\"{TARGET} still exists (scenario={SCENARIO})\",\n        )\n\n    def test_target_not_any_filesystem_object(self):\n        try:\n            st = os.lstat(str(TARGET))\n        except FileNotFoundError:\n            return\n        except NotADirectoryError:\n            # A parent component is not a directory, so the target cannot exist\n            return\n        kind = \"directory\" if stat.S_ISDIR(st.st_mode) else (\n            \"symlink\" if stat.S_ISLNK(st.st_mode) else \"other file type\"\n        )\n        self.fail(f\"{TARGET} is still present as a {kind} (scenario={SCENARIO})\")\n\n    def test_no_contents_remain(self):\n        # Nested and hidden files must not survive anywhere under the target\n        if not os.path.isdir(str(TARGET)):\n            return\n        remaining = []\n        for root, dirs, files in os.walk(str(TARGET)):\n            for name in dirs + files:\n                remaining.append(os.path.join(root, name))\n        self.fail(\n            f\"{TARGET} still exists with {len(remaining)} entries remaining: \"\n            f\"{remaining[:10]} (scenario={SCENARIO})\"\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)",
+  "seconds": 14.644
+}

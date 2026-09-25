@@ -1,0 +1,11 @@
+{
+  "cache_key": "ac02589f939247584400130421b7c332f0cc94304957ae6b0ffd217f500bd38e",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "f1668e2978e41a44106c77c7a8e08f830c909cfdf089afbb5e68ff8e8d3d912a",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.venv\n",
+  "stderr": "",
+  "seconds": 0.1181,
+  "status": "ansible_lowering_error"
+}

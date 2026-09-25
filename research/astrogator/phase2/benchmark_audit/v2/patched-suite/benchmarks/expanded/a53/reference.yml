@@ -1,0 +1,9 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: main
+      update: false

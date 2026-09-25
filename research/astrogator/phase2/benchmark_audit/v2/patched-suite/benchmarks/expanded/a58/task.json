@@ -1,0 +1,21 @@
+{
+  "id": "a58",
+  "title": "Update scheduled job",
+  "family": "scheduling",
+  "natural_language": "Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.",
+  "formal_query": "create cron job with name=\"astro cleanup\", minute=\"15\", hour=\"2\", command=\"/usr/bin/true\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "swaps schedule fields",
+  "tags": [
+    "schedule",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

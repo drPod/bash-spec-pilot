@@ -1,0 +1,22 @@
+{
+  "query_sha256": "aced636c45d7067f1892929a0b11852cd37ad493c51e068f019b71e917754ee0",
+  "query": "if os is Debian or os is RedHat then install ssh client and server; start ssh client and server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\tcc9734418934fd1301f4c744560d9df1\nsemantic\terror\tUnknown package: ssh client and server\n",
+    "stderr": "",
+    "seconds": 0.0032,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "cc9734418934fd1301f4c744560d9df1"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unknown package: ssh client and server"
+      }
+    }
+  }
+}

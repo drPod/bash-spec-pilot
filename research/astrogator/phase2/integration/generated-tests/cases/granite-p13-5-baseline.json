@@ -1,0 +1,83 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "a8a7f61253a758d1a94aa4c25c7dc421949e52b1481515b8f35f51fcc00c2564",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "gpt6-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "content",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": false
+        }
+      ]
+    },
+    "opus55-checks-a06-r1": {
+      "status": "evaluated",
+      "passed": true,
+      "outcomes": [
+        {
+          "check": {
+            "kind": "contains",
+            "scenario": "baseline",
+            "path": "/etc/file.txt",
+            "value": "beginning"
+          },
+          "passed": true
+        }
+      ]
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model granite, Problem p13, Response 5] **********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create file with contents if it does not exist] **************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "file_exists": true,
+    "content_hex": "626567696e6e696e670a",
+    "old_oracle": false,
+    "single_final_newline_tolerant": true
+  },
+  "seconds": 4.596,
+  "sample_id": "granite/p13/5"
+}

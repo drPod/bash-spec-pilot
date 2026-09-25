@@ -1,0 +1,11 @@
+{
+  "cache_key": "5adeed5fc6f52f3e242ed725352135896b927a1ea1f3ac7e0cf50c2e797a5cc2",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "8e758831700d7b5d6acc5f7634020f6b5cd46c34a3e25ddc714cce662c211e2c",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module community.general.python\n",
+  "stderr": "",
+  "seconds": 0.08,
+  "status": "ansible_lowering_error"
+}

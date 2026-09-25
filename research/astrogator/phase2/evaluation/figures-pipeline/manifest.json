@@ -1,0 +1,11 @@
+{
+  "source": "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/end_to_end/all-summary.json",
+  "input_sha256": "4deaaead1ec60c38d4b31f6865f45d9aac3f0464615a915ab9eefc2dcaad2344",
+  "script_sha256": "f54eb270e801d1093d376d50f4000e24805716d7c371db579846af35d94ddd55",
+  "files": {
+    "CAPTION.md": "ca0886f1644e59cfaaa9223a0420bd3e863c41916d392f044b072b2212f097cc",
+    "pipeline-stages.pdf": "958ef7259c13c7cfe982efd5c020b551494c5c1c0cd2b67c70ec5ecfcf062621",
+    "pipeline-stages.png": "5e0d5efa8e49fd27ef94332ab98be69265fdf11964dc70565ee1532491036605",
+    "pipeline-stages.csv": "79fdbe8011b1439ef40fc648425e69998b2a751722d0b49e7bd98b6cb3e1ac53"
+  }
+}

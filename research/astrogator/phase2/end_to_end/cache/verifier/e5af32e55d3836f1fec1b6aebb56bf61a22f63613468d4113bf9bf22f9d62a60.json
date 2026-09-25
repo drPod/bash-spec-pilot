@@ -1,0 +1,11 @@
+{
+  "cache_key": "e5af32e55d3836f1fec1b6aebb56bf61a22f63613468d4113bf9bf22f9d62a60",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "8d40f97a064a177ffd367db12db0f6051928fa40df7e19523120dca04581bf08",
+  "code_sha256": "720032459064cc43e8edf43ca53bc633f7478c05745048ba8e1efc87ebaba1aa",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.posix.acl\n",
+  "stderr": "",
+  "seconds": 0.0456,
+  "status": "ansible_lowering_error"
+}

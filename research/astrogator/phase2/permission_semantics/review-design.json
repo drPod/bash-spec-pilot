@@ -1,0 +1,27 @@
+[
+  {
+    "task_id": "a23",
+    "program_name": "u=rwX,g=rwXs",
+    "path": "phase2/permission_semantics/review-cases/a23/case0.yml"
+  },
+  {
+    "task_id": "a23",
+    "program_name": "u=rwX,g=rwXs,o=",
+    "path": "phase2/permission_semantics/review-cases/a23/case1.yml"
+  },
+  {
+    "task_id": "a47",
+    "program_name": "u=rwX",
+    "path": "phase2/permission_semantics/review-cases/a47/case0.yml"
+  },
+  {
+    "task_id": "a47",
+    "program_name": "u=rwX,g=,o=",
+    "path": "phase2/permission_semantics/review-cases/a47/case1.yml"
+  },
+  {
+    "task_id": "a32",
+    "program_name": "add_execute_then_conditional_X",
+    "path": "phase2/permission_semantics/review-cases/a32/history.yml"
+  }
+]

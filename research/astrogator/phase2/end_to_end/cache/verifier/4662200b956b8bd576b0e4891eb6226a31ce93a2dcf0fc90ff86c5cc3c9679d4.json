@@ -1,0 +1,11 @@
+{
+  "cache_key": "4662200b956b8bd576b0e4891eb6226a31ce93a2dcf0fc90ff86c5cc3c9679d4",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "33627435acb3dc040eb6532e582df1d90476fc5a5cc34654e05fa0dae904b549",
+  "code_sha256": "52ee93f253decce53720c9b4001199e40082b7f0018638f10da6df7ac6da7e67",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.authorized_key\n",
+  "stderr": "",
+  "seconds": 0.0928,
+  "status": "ansible_lowering_error"
+}

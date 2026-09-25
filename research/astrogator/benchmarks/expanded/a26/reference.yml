@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/banner
+      content: 'Authorized users only
+
+        '
+      mode: '0644'

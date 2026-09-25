@@ -1,0 +1,12 @@
+{
+  "source_sha256": {
+    "scripts/corpus_tests.py": "6aa5d1d9213611516baafa1a34f43ec2c3836dbf96b66b1885fac5092c21d738",
+    "scripts/generated_checks.py": "af3550a94d3dadc0f80825b64bcb4cd7a795df6b2f3ac27dd27cb9a44d494b9a",
+    "experiments/four-task-tests-v1/a01.checks.json": "9d187e62d348258a3b3c2956024eadb69de0b6a49859241960536ee604e49529",
+    "experiments/four-task-tests-v1/a02.checks.json": "b2d05495af45e61a386b8c9bf77e4bc1a3e3c3c44af39abdcd9c456f2cf5e57f",
+    "experiments/four-task-tests-v1/a06.checks.json": "7bb5bbad48e70027e26db6856e2f550e18a5194c1dd0f6ffb07bf1fd259c411c",
+    "experiments/four-task-tests-v1/a17.checks.json": "88158e87d62922ebd713550bc79e0521fa4d5f909f89f14e3ebace09effeb425"
+  },
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "selection_sha256": "d180c0a72cc7898bcf50ad818617d5284a055c86ca3dab32abef83310cac1e62"
+}

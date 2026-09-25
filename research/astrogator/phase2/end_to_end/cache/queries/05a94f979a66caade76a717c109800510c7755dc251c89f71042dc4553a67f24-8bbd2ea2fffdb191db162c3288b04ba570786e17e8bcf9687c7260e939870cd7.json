@@ -1,0 +1,22 @@
+{
+  "query_sha256": "8bbd2ea2fffdb191db162c3288b04ba570786e17e8bcf9687c7260e939870cd7",
+  "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t109e04f6d828bb67ab7a54d4cfdb30ef\nsemantic\terror\tUnhandled arguments for write: user = foo\n",
+    "stderr": "",
+    "seconds": 0.0045,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "109e04f6d828bb67ab7a54d4cfdb30ef"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "Unhandled arguments for write: user = foo"
+      }
+    }
+  }
+}

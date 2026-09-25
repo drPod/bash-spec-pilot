@@ -1,0 +1,1 @@
+copy from remote "tmp" to remote "backup"; use controller instead of remote only when explicitly requested

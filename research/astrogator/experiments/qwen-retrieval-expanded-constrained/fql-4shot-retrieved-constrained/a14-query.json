@@ -1,0 +1,114 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat based systems, install numpy"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian based or os is RedHat based then install numpy"
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file"
+      },
+      {
+        "role": "user",
+        "content": "Move the file at /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Remove the retired user and its home directory /home/retired while preserving /home/active."
+      },
+      {
+        "role": "assistant",
+        "content": "delete user with name=retired; delete directory at /home/retired"
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 7.859,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "if os is Debian based or os is RedHat based then create virtual environment with name=venv; install numpy in virtual environment"
+        }
+      }
+    ],
+    "created": 1790293679,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 474,
+      "total_tokens": 501,
+      "prompt_tokens_details": {
+        "cached_tokens": 262
+      }
+    },
+    "id": "chatcmpl-gORa6gSN0s9UZ59gPzq1bW9Q0G5kk6Pu",
+    "timings": {
+      "cache_n": 262,
+      "prompt_n": 212,
+      "prompt_ms": 4262.374,
+      "prompt_per_token_ms": 20.105537735849055,
+      "prompt_per_second": 49.73754062876698,
+      "predicted_n": 27,
+      "predicted_ms": 3443.84,
+      "predicted_per_token_ms": 132.45538461538462,
+      "predicted_per_second": 7.549711949451775
+    }
+  },
+  "text": "if os is Debian based or os is RedHat based then create virtual environment with name=venv; install numpy in virtual environment",
+  "finish_reason": "stop",
+  "task_id": "a14",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a15",
+    "a19",
+    "a05",
+    "a45"
+  ],
+  "retrieval_scores": [
+    0.2416972284271033,
+    0.22417554221781874,
+    0.16309371001289633,
+    0.14579906478868926
+  ],
+  "demo_pool_size": 51,
+  "pool": "expanded",
+  "prompt_sha256": "3824d24a10b5e0eb807d9aeb9da8b17feac172f901234b9eb1b4d4fe261acd21",
+  "constrained": true,
+  "source_record": "experiments/qwen-retrieval-expanded/fql-4shot-retrieved/a14-query.json",
+  "source_record_sha256": "0fef6fa08a0d6e9e3af7dfedf613f9f284f1958928ce0a1d23dc702bb393f923",
+  "grammar_sha256": "3bec0f621e3e4d862f355d67ac85cfd95df9e5c830a83f2293f9d3b0f4c7fd0f",
+  "condition": "Same expanded-retrieval messages and token budget, plus v2 decoding grammar; single fresh sample, no matched random seed"
+}

@@ -1,0 +1,8 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/header
+      line: '# managed'
+      insertbefore: BOF

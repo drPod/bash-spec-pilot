@@ -1,0 +1,11 @@
+{
+  "cache_key": "7be76d0ca8a390d4f9b5453888722ce13815ee78175abc246efc94754ff8ed9e",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "code_sha256": "17ebf81eeb9357c60370023763df91dfcfd363efb7e5b8f5d398dd223c2cd14d",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module environment\n",
+  "stderr": "",
+  "seconds": 0.0545,
+  "status": "ansible_lowering_error"
+}

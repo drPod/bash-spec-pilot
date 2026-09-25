@@ -1,0 +1,22 @@
+{
+  "query_sha256": "ec13890c405c93c56bdf2c9f7dce249ca27be43c01fc661c0822a06326ad98fd",
+  "query": "if os is RedHat then install apache server; if home page not exists then create home page. if os is RedHat then create user with name=webdev",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_semantic_error",
+  "diagnostics": {
+    "returncode": 11,
+    "stdout": "parse\tok\t1eb2a41ecf0c5891006028cb15cec183\nsemantic\terror\tcannot check existance of: home page\n",
+    "stderr": "",
+    "seconds": 0.0058,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "1eb2a41ecf0c5891006028cb15cec183"
+      },
+      "semantic": {
+        "status": "error",
+        "detail": "cannot check existance of: home page"
+      }
+    }
+  }
+}

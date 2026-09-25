@@ -1,0 +1,1 @@
+replace text in file at "/work/app.conf" with pattern="^endpoint=http://", replacement="endpoint=https://"

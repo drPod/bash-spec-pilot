@@ -1,0 +1,10 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/app.conf
+      content: 'port=8080
+
+        '
+      force: false

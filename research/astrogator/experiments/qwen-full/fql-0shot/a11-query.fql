@@ -1,0 +1,1 @@
+action write bashrc in module load gcc; with key=owner=root; with key=group=wheel; with key=content="module load gcc"

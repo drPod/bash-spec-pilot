@@ -1,0 +1,22 @@
+{
+  "id": "a31",
+  "title": "Prune temporary files selectively",
+  "family": "filesystem",
+  "natural_language": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.",
+  "formal_query": "delete files in /work/cache with glob=\"*.tmp\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "misses hidden matches",
+  "tags": [
+    "glob",
+    "negative-scope",
+    "hidden"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

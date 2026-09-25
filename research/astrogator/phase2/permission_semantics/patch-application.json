@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "base_commit": "7c62afa51986d87033af5112cdccd3b104b1c120",
+  "patch_order": [
+    "../adequacy/permission-classes.patch",
+    "permission-normalization.patch"
+  ],
+  "result_equals_delivered_source": true,
+  "patch_sha256": "12a45113cc5250569540295a6c8020b748cb639f1b3dc0270f576aefaf0973cc"
+}

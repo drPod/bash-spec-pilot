@@ -1,0 +1,11 @@
+{
+  "cache_key": "19c95cdc0516ed51c4b19f30dc10970e1e08960fc2d96415ed35dcab33c491b9",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea",
+  "code_sha256": "05293c7a680ac88e225c9b0ce787504f9a89518fc7f78a349d3a37f07984577a",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument upgrade for module yum\n",
+  "stderr": "",
+  "seconds": 0.0509,
+  "status": "ansible_lowering_error"
+}

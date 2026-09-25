@@ -1,0 +1,11 @@
+{
+  "cache_key": "486075ce78b11ad5d8815dc60d9bb72dca3ae1e38140e6386f3492ab5437bc3e",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "6f8e5c4f69f7d3ecbd81115177c15728e7f1109c997eda634858fa80ddeb3556",
+  "code_sha256": "ea916744e8cb236cff868b03db158970e9386ae7b6ac051eb94040249a412073",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument with_fileglob for module ansible.builtin.copy\n",
+  "stderr": "",
+  "seconds": 0.0966,
+  "status": "ansible_lowering_error"
+}

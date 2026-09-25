@@ -1,0 +1,11 @@
+{
+  "cache_key": "56044ccfe6ae89149a1f22783f3577e4d91b24e94607b472ef4ddc15e6c05905",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "71fa80fc2ea9003c480ef1c4665fd7823f94951d7c784deee7491da23588e9a0",
+  "code_sha256": "21183f877285ce55058958a1f08bdc40b242c423c70fb7740e8948e00e2be210",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.pkg_manager\n",
+  "stderr": "",
+  "seconds": 0.0824,
+  "status": "ansible_lowering_error"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "f4a1335b5ed25d94ac55b6f887e38007088fdfaf98a5bb867482661877a9cc6b",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab",
+  "code_sha256": "ef91636624a11d97223ecc7f20d67934e20cf2fea6b6e4ae2b646fae2a9758f4",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.windows.win_copy\n",
+  "stderr": "",
+  "seconds": 0.0382,
+  "status": "ansible_lowering_error"
+}

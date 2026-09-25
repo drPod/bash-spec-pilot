@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "checks-a02-r1",
+    "mode": "checks",
+    "task_id": "a02",
+    "repeat": 1,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only checks to run AFTER one Ansible playbook execution.\nCheck the requested final state separately for baseline and adversarial initial states.\nDo not assert that the initial state remains unless preservation is requested.\nInclude at least one check for each scenario. Only assert stated requirements.\nReturn a JSON object matching the following schema, with no commentary:\n{\"type\": \"object\", \"properties\": {\"checks\": {\"type\": \"array\", \"minItems\": 1, \"maxItems\": 12, \"items\": {\"anyOf\": [{\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"directory\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"absent\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"mode\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"content\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"contains\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"not_contains\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"member\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"user\": {\"type\": \"string\"}, \"group\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"user\", \"group\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"package\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"name\": {\"type\": \"string\"}, \"version\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"name\", \"version\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"running\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"name\": {\"type\": \"string\"}, \"value\": {\"type\": \"boolean\"}}, \"required\": [\"kind\", \"scenario\", \"name\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"password_locked\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"user\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"user\"], \"additionalProperties\": false}]}}}, \"required\": [\"checks\"], \"additionalProperties\": false}"
+      },
+      {
+        "role": "user",
+        "content": "Request: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files."
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nGenerate read-only checks to run AFTER one Ansible playbook execution.\nCheck the requested final state separately for baseline and adversarial initial states.\nDo not assert that the initial state remains unless preservation is requested.\nInclude at least one check for each scenario. Only assert stated requirements.\nReturn a JSON object matching the following schema, with no commentary:\n{\"type\": \"object\", \"properties\": {\"checks\": {\"type\": \"array\", \"minItems\": 1, \"maxItems\": 12, \"items\": {\"anyOf\": [{\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"directory\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"absent\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"mode\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"content\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"contains\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"not_contains\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"path\": {\"type\": \"string\"}, \"value\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"path\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"member\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"user\": {\"type\": \"string\"}, \"group\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"user\", \"group\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"package\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"name\": {\"type\": \"string\"}, \"version\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"name\", \"version\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"running\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"name\": {\"type\": \"string\"}, \"value\": {\"type\": \"boolean\"}}, \"required\": [\"kind\", \"scenario\", \"name\", \"value\"], \"additionalProperties\": false}, {\"type\": \"object\", \"properties\": {\"kind\": {\"const\": \"password_locked\"}, \"scenario\": {\"enum\": [\"both\", \"baseline\", \"adversarial\"]}, \"user\": {\"type\": \"string\"}}, \"required\": [\"kind\", \"scenario\", \"user\"], \"additionalProperties\": false}]}}}, \"required\": [\"checks\"], \"additionalProperties\": false}\n\nUSER:\nRequest: Delete the directory /home/mydata/web\nInitial states: baseline: target directory absent; adversarial: target contains nested and hidden files.",
+  "prompt_sha256": "65fb450bc9958bd698f14b27257f7041b00c0f41fa46734f475695d742e027d6",
+  "created_at": "2026-09-25T13:54:13.131704+00:00",
+  "frozen_input_sha256": "dd2f1202b67ffa12aac959e9b0c5db306f46fb584923481793c57c8030ed4995",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":3844,\"stop_reason\":\"end_turn\",\"session_id\":\"9dd492d3-bb43-4e92-b629-10e83fb9cc96\",\"total_cost_usd\":0.0407084,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":4856,\"cache_read_input_tokens\":1962,\"output_tokens\":73,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4856,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":73,\"cache_read_input_tokens\":1962,\"cache_creation_input_tokens\":4856,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":4856},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":73,\"cacheReadInputTokens\":1962,\"cacheCreationInputTokens\":4856,\"webSearchRequests\":0,\"costUSD\":0.0407084,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":0,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"{\\\"checks\\\":[{\\\"kind\\\":\\\"absent\\\",\\\"scenario\\\":\\\"baseline\\\",\\\"path\\\":\\\"/home/mydata/web\\\"},{\\\"kind\\\":\\\"absent\\\",\\\"scenario\\\":\\\"adversarial\\\",\\\"path\\\":\\\"/home/mydata/web\\\"}]}\",\"ttft_ms\":4401,\"type\":\"result\",\"duration_ms\":5098,\"uuid\":\"48ccc94a-feb8-4639-a775-0254219ef8e8\",\"ttft_stream_ms\":4044,\"time_to_request_ms\":1226,\"first_content_frame_ms\":4045,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 3844,
+    "stop_reason": "end_turn",
+    "session_id": "9dd492d3-bb43-4e92-b629-10e83fb9cc96",
+    "total_cost_usd": 0.0407084,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4856,
+      "cache_read_input_tokens": 1962,
+      "output_tokens": 73,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4856,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 73,
+          "cache_read_input_tokens": 1962,
+          "cache_creation_input_tokens": 4856,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 4856
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 73,
+        "cacheReadInputTokens": 1962,
+        "cacheCreationInputTokens": 4856,
+        "webSearchRequests": 0,
+        "costUSD": 0.0407084,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "{\"checks\":[{\"kind\":\"absent\",\"scenario\":\"baseline\",\"path\":\"/home/mydata/web\"},{\"kind\":\"absent\",\"scenario\":\"adversarial\",\"path\":\"/home/mydata/web\"}]}",
+    "ttft_ms": 4401,
+    "type": "result",
+    "duration_ms": 5098,
+    "uuid": "48ccc94a-feb8-4639-a775-0254219ef8e8",
+    "ttft_stream_ms": 4044,
+    "time_to_request_ms": 1226,
+    "first_content_frame_ms": 4045,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "{\"checks\":[{\"kind\":\"absent\",\"scenario\":\"baseline\",\"path\":\"/home/mydata/web\"},{\"kind\":\"absent\",\"scenario\":\"adversarial\",\"path\":\"/home/mydata/web\"}]}",
+  "status": "ok",
+  "extracted": "{\"checks\":[{\"kind\":\"absent\",\"scenario\":\"baseline\",\"path\":\"/home/mydata/web\"},{\"kind\":\"absent\",\"scenario\":\"adversarial\",\"path\":\"/home/mydata/web\"}]}",
+  "seconds": 12.121
+}

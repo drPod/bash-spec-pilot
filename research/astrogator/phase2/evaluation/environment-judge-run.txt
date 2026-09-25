@@ -1,0 +1,18 @@
+{
+  "complete": {
+    "gpt6": true,
+    "opus55": true
+  },
+  "expected": 86,
+  "statuses": {
+    "gpt6": {
+      "accept": 60,
+      "reject": 26
+    },
+    "opus55": {
+      "accept": 59,
+      "reject": 24,
+      "uncertain": 3
+    }
+  }
+}

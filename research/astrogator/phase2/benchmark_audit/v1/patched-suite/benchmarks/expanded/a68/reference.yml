@@ -1,0 +1,11 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/enabled
+    register: enabled
+  - ansible.builtin.file:
+      path: /work/cache
+      state: directory
+    when: enabled.stat.exists

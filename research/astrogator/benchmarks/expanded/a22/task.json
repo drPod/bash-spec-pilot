@@ -1,0 +1,21 @@
+{
+  "id": "a22",
+  "title": "Private application directory",
+  "family": "filesystem",
+  "natural_language": "Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.",
+  "formal_query": "create directory at /work/private with read=owner, write=owner, list directory=owner",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "world-readable private directory",
+  "tags": [
+    "permissions",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

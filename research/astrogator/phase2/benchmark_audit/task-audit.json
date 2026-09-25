@@ -1,0 +1,394 @@
+[
+  {
+    "task": "a22",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Single preserved sentinel does not cover arbitrary nested contents or metadata.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a23",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/shared has mode 2770, including setgid, without removing existing files.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Oracle checks special mode and one sentinel; no explicit object-type check.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a24",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/spool is a directory with mode 1777, including the sticky bit.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: mode-only oracle omits required directory type.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a25",
+    "family": "configuration",
+    "natural_language": "If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Fixed existing UTF-8 payload; bytes requirement merits binary and empty-file states.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a26",
+    "family": "configuration",
+    "natural_language": "Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Exact text and mode checked; no binary stale-content fixture.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a27",
+    "family": "filesystem",
+    "natural_language": "Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "NUL payload is useful, but UTF-8 text oracle does not generalize to arbitrary bytes.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a28",
+    "family": "filesystem",
+    "natural_language": "Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Source exists only in initial state; second execution exercises absence. Fixed payload.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a29",
+    "family": "filesystem",
+    "natural_language": "Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Existing and missing symlink states; dangling links and directory targets untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a30",
+    "family": "filesystem",
+    "natural_language": "Remove /work/obsolete and all its contents, preserving its sibling /work/current.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Nested hidden deletion tested; preservation restricted to single sibling sentinel.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a31",
+    "family": "filesystem",
+    "natural_language": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Useful type/depth/hidden distinctions; symlinks and non-UTF8 filenames untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a32",
+    "family": "filesystem",
+    "natural_language": "For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: root directory permissions omitted; initially executable files untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a33",
+    "family": "filesystem",
+    "natural_language": "Point /work/current to /work/releases/v2, replacing an existing symlink to v1, and preserve both release directories.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Symlink target and release sentinel checked; other release files untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a34",
+    "family": "filesystem",
+    "natural_language": "Ensure /work/alias is a hard link to /work/source, replacing a stale ordinary file at /work/alias if present.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: inode equality alone accepts corrupting shared source bytes. Preservation interpretation should receive author review.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a35",
+    "family": "configuration",
+    "natural_language": "In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Single old directive is explicit precondition, so duplicate-directive challenge would be invalid. Unrelated lines only checked by membership.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a36",
+    "family": "configuration",
+    "natural_language": "Remove every line beginning legacy= from /work/app.conf while preserving unrelated lines, including commented legacy examples.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Exact fixture output; add blank lines, CRLF policy, and Unicode unrelated keys.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a37",
+    "family": "configuration",
+    "natural_language": "Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Substring checks omit arbitrary outside bytes and exact block structure.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a38",
+    "family": "configuration",
+    "natural_language": "Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Already-correct placement is explicit precondition; misplaced initial rule is not a valid counterexample.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a39",
+    "family": "configuration",
+    "natural_language": "Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Substring checks omit exact whole-file transformation and may accept extra directives.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a40",
+    "family": "identity",
+    "natural_language": "Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Group and home exist, but home content/ownership not requested; do not invent requirements.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a41",
+    "family": "identity",
+    "natural_language": "Add the existing app user to deploy while retaining its existing supplemental group memberships.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "One prior supplementary group; multiple memberships offer valid stronger state coverage.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a42",
+    "family": "identity",
+    "natural_language": "Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Fixed home and sentinel only; custom home path is a useful additional state.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a43",
+    "family": "identity",
+    "natural_language": "Set the existing app user login shell to /bin/bash without changing its UID or home contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "UID and sentinel checked, but fixed UID/home reduce generality.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a44",
+    "family": "identity",
+    "natural_language": "Remove the retired user account, retaining /home/retired and all its contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Two home sentinels; arbitrary directory tree preservation remains untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a45",
+    "family": "identity",
+    "natural_language": "Remove the retired user and its home directory /home/retired while preserving /home/active.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Directory absence and sibling sentinel; account mail spool behavior outside wording.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a46",
+    "family": "identity",
+    "natural_language": "Lock password authentication for the existing app user without replacing its stored password hash; retain the account.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Placeholder hash is not a usable crypt hash; locking-marker test does not establish authentication behavior.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a47",
+    "family": "identity",
+    "natural_language": "Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Ownership/mode/sentinel tested; custom unrelated home contents absent.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a48",
+    "family": "packages",
+    "natural_language": "On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Offline synthetic package avoids network confound but is not representative real dependency resolution.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a49",
+    "family": "packages",
+    "natural_language": "Remove astro-demo from this Debian host if installed; leave astro-keep installed.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Two synthetic packages; reverse dependencies and residual configs not covered.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a50",
+    "family": "packages",
+    "natural_language": "Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Two synthetic versions; downgrade behavior is outside explicitly tested upgrade scenario.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a51",
+    "family": "packages",
+    "natural_language": "Mark the installed astro-demo Debian package as held, preserving version 1.0.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Version and hold marker checked; no dependency interactions.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a52",
+    "family": "version-control",
+    "natural_language": "Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Commit identity checked; dirty worktree behavior has unspecified preconditions.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a53",
+    "family": "version-control",
+    "natural_language": "Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: payload equality does not establish commit preservation.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a54",
+    "family": "version-control",
+    "natural_language": "Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Commit identity and payload both checked; clean checkout fixtures only.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a55",
+    "family": "services",
+    "natural_language": "Ensure the installed cron service is running. It may initially be stopped or already running.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Process-name existence is weaker than functioning daemon; fake-name process can satisfy oracle.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a56",
+    "family": "services",
+    "natural_language": "Ensure cron is stopped, including when it is initially running.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Process-name absence does not identify service lifecycle broadly; Linux container scope explicit.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a57",
+    "family": "services",
+    "natural_language": "Enable cron at boot without starting it now. It is initially stopped, and may already be enabled.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Only rc2 boot links checked; no actual reboot or other runlevels.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a58",
+    "family": "scheduling",
+    "natural_language": "Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: substring accepts commented-out required cron command.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a59",
+    "family": "archives",
+    "natural_language": "Extract the remote /fixtures/bundle.tar into /work/unpacked, creating that directory if absent and preserving unrelated existing files.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "One archive member and sentinel; nested permissions/symlinks not covered.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a60",
+    "family": "archives",
+    "natural_language": "Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "One marker/member; customized unrelated archive members untested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a61",
+    "family": "identity",
+    "natural_language": "Ensure the analytics group exists, preserving its GID if it already exists.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Fixed existing GID; candidate query preservation must be separately reviewed.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a62",
+    "family": "identity",
+    "natural_language": "Remove the unused obsolete group if it exists, preserving the active group and its GID.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Active GID preserved; unused-group precondition explicit.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a63",
+    "family": "identity",
+    "natural_language": "Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Primary and both supplementary groups checked; unrelated membership preservation not required.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a64",
+    "family": "filesystem",
+    "natural_language": "Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: child GID preservation omitted although ownership requested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a65",
+    "family": "configuration",
+    "natural_language": "Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Already-last precondition explicit; misplaced existing setting outside contract.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a66",
+    "family": "configuration",
+    "natural_language": "Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Already-first precondition explicit; misplaced existing header outside contract.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a67",
+    "family": "filesystem",
+    "natural_language": "Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Target bytes/mode and neighboring mode checked; neighboring bytes not explicitly requested.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a68",
+    "family": "filesystem",
+    "natural_language": "Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: is_dir()==False admits existing regular file when absence required.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a69",
+    "family": "configuration",
+    "natural_language": "Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Exact text and both branches tested; marker contents irrelevant per task.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  },
+  {
+    "task": "a70",
+    "family": "filesystem",
+    "natural_language": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",
+    "fql_status": "candidate_not_reviewed",
+    "audit_note": "Confirmed-target: source hidden-file preservation omitted; fixed expected destination bytes reject valid varied payloads.",
+    "reviewer": "AI-assisted source audit; not independent human gold"
+  }
+]

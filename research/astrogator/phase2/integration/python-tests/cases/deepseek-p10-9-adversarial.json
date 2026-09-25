@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "adversarial",
+  "candidate_sha256": "d5156ae0893492d572258b8f5bdf60f5eb091d6535811d5ca9dee7676361d0a1",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "!$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": true,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": true,
+    "strict_oracle": true,
+    "fixture_password_still_matches": false
+  },
+  "execution": {
+    "returncode": 4,
+    "stdout": "",
+    "stderr": "[WARNING]: Error loading plugin 'ansible.posix.user': No module named 'ansible_collections.ansible.posix'\n[ERROR]: couldn't resolve module/action 'ansible.posix.user'. This often indicates a misspelling, missing collection, or incorrect module path.\nOrigin: /suite/data/corpus/deepseek/p10/response9.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Disable password for service user\n      ^ column 5\n\n"
+  },
+  "seconds": 1.318,
+  "sample_id": "deepseek/p10/9"
+}

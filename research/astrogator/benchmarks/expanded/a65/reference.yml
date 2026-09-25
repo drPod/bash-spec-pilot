@@ -1,0 +1,8 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/profile
+      line: export ASTRO=1
+      insertafter: EOF

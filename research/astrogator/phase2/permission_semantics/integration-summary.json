@@ -1,0 +1,101 @@
+{
+  "paired_records": 165,
+  "default_disabled_status_differences": 0,
+  "enabled_changes": [
+    {
+      "task_id": "a22",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a23",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a24",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a26",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a26",
+      "query_name": "candidate",
+      "program_name": "discovery_mutant",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a32",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "accepted_with_possible_residuals",
+      "after": "ansible_lowering_error"
+    },
+    {
+      "task_id": "a47",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a67",
+      "query_name": "candidate",
+      "program_name": "reference",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a22",
+      "query_name": "mode_panel",
+      "program_name": "0700",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a22",
+      "query_name": "mode_panel",
+      "program_name": "u=rwx,g=,o=",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a22",
+      "query_name": "mode_panel",
+      "program_name": "u=rwX",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error"
+    },
+    {
+      "task_id": "a67",
+      "query_name": "mode_panel",
+      "program_name": "0700",
+      "before": "verification_rejected",
+      "after": "accepted_with_possible_residuals"
+    },
+    {
+      "task_id": "a67",
+      "query_name": "mode_panel",
+      "program_name": "u=rwx",
+      "before": "verification_rejected",
+      "after": "ansible_lowering_error"
+    }
+  ],
+  "normalizer_regressions": 14,
+  "base_regressions": 9,
+  "guard_control_cases": 28,
+  "guard_verifier_calls": 43
+}

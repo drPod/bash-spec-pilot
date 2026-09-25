@@ -1,0 +1,11 @@
+{
+  "cache_key": "0bf71654b9439acd4dec2e562db1ba87f1078386ed85b858cfdb56db5f054923",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "5c5e1a805e70dd16d3dfe1e5c8c949cef06fb4c4445f865fa5d1acd8c71c991f",
+  "code_sha256": "006e79182c99850ff6f1b89e276047a3804cce7bbcbd01957448766501831913",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nArgument name appears multiple times\n",
+  "stderr": "",
+  "seconds": 0.0907,
+  "status": "ansible_lowering_error"
+}

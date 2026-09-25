@@ -1,0 +1,26 @@
+{
+  "query_sha256": "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196",
+  "query": "delete files in \"/home/mydata/web\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\ta83e1a04dda8ee569c5d2977f698f279\nsemantic\tok\td627d27e0ae492acf859a18cdeafcb35\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0128,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "a83e1a04dda8ee569c5d2977f698f279"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "d627d27e0ae492acf859a18cdeafcb35"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

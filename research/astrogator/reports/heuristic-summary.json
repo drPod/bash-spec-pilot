@@ -1,0 +1,38 @@
+{
+  "complete": true,
+  "n": 2310,
+  "counts": {
+    "accepted_with_possible_residuals": 726,
+    "heuristic_rejected": 183,
+    "verification_rejected": 619,
+    "ansible_lowering_error": 710,
+    "missing_processed": 72
+  },
+  "transitions": [
+    {
+      "base": "accepted_with_possible_residuals",
+      "configured": "accepted_with_possible_residuals",
+      "n": 726
+    },
+    {
+      "base": "accepted_with_possible_residuals",
+      "configured": "heuristic_rejected",
+      "n": 183
+    },
+    {
+      "base": "ansible_lowering_error",
+      "configured": "ansible_lowering_error",
+      "n": 710
+    },
+    {
+      "base": "missing_processed",
+      "configured": "missing_processed",
+      "n": 72
+    },
+    {
+      "base": "verification_rejected",
+      "configured": "verification_rejected",
+      "n": 619
+    }
+  ]
+}

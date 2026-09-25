@@ -1,0 +1,1487 @@
+{
+  "verifier_records": 158,
+  "execution_records": 40,
+  "candidate_screen_counts": {
+    "reference_rejected": 8,
+    "fault_not_distinguished": 7,
+    "screen_passed": 14,
+    "reference_unavailable": 2,
+    "query_unavailable": 18
+  },
+  "omission_screen_counts": {
+    "fault_not_distinguished": 8,
+    "reference_rejected": 1,
+    "screen_passed": 1
+  },
+  "challenge_count": 20,
+  "duplicate_controls": 6,
+  "distinct_challenge_count": 14,
+  "distinct_challenge_labels": {
+    "fails_local_checks": 13,
+    "passes_local_checks": 1
+  },
+  "screen": [
+    {
+      "task_id": "a22",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a22",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a23",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a23",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a24",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a24",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a25",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a26",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a26",
+      "query_name": "omission_control",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a27",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a27",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a28",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a29",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a30",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a31",
+      "query_name": "candidate",
+      "reference_status": "ansible_lowering_error",
+      "discovery_status": "ansible_lowering_error",
+      "gate": "reference_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a32",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a33",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a34",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a35",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a36",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a37",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a38",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a39",
+      "query_name": "candidate",
+      "reference_status": "uncaught_exception",
+      "discovery_status": "uncaught_exception",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a40",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a41",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a42",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a43",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a44",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a45",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a45",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a46",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a47",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a47",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a48",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a49",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a50",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a51",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "execution_error"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a52",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a53",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a54",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a55",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a56",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a57",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a58",
+      "query_name": "candidate",
+      "reference_status": "query_lowering_error",
+      "discovery_status": "query_lowering_error",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a59",
+      "query_name": "candidate",
+      "reference_status": "uncaught_exception",
+      "discovery_status": "uncaught_exception",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a60",
+      "query_name": "candidate",
+      "reference_status": "uncaught_exception",
+      "discovery_status": "uncaught_exception",
+      "gate": "query_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a61",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a62",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a63",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a63",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a64",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a64",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a65",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "execution_error",
+          "adversarial": "execution_error"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a66",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "verification_rejected",
+      "gate": "screen_passed",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a67",
+      "query_name": "candidate",
+      "reference_status": "verification_rejected",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_rejected",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a67",
+      "query_name": "omission_control",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a68",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "passed"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a69",
+      "query_name": "candidate",
+      "reference_status": "ansible_lowering_error",
+      "discovery_status": "verification_rejected",
+      "gate": "reference_unavailable",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "passed",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    },
+    {
+      "task_id": "a70",
+      "query_name": "candidate",
+      "reference_status": "accepted_with_possible_residuals",
+      "discovery_status": "accepted_with_possible_residuals",
+      "gate": "fault_not_distinguished",
+      "discovery_runtime": {
+        "references": {
+          "baseline": "passed",
+          "adversarial": "passed"
+        },
+        "mutants": {
+          "baseline": "oracle_rejected",
+          "adversarial": "oracle_rejected"
+        },
+        "reference_validated": true,
+        "mutant_killed": true,
+        "mutant_inconclusive": false
+      }
+    }
+  ],
+  "challenges": [
+    {
+      "task_id": "a22",
+      "program_name": "heldout_1",
+      "duplicate_of": "discovery_mutant",
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a22",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a23",
+      "program_name": "heldout_1",
+      "duplicate_of": "discovery_mutant",
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a23",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a24",
+      "program_name": "heldout_1",
+      "duplicate_of": "discovery_mutant",
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a24",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a26",
+      "program_name": "heldout_1",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "verification_rejected"
+      }
+    },
+    {
+      "task_id": "a26",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "verification_rejected"
+      }
+    },
+    {
+      "task_id": "a27",
+      "program_name": "heldout_1",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a27",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a45",
+      "program_name": "heldout_1",
+      "duplicate_of": "reference",
+      "label": "passes_local_checks",
+      "execution_states": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "query_outcomes": {
+        "candidate": "accepted_with_possible_residuals",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a45",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "passes_local_checks",
+      "execution_states": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "query_outcomes": {
+        "candidate": "accepted_with_possible_residuals",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a47",
+      "program_name": "heldout_1",
+      "duplicate_of": "discovery_mutant",
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a47",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a63",
+      "program_name": "heldout_1",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a63",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a64",
+      "program_name": "heldout_1",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a64",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a67",
+      "program_name": "heldout_1",
+      "duplicate_of": "discovery_mutant",
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    },
+    {
+      "task_id": "a67",
+      "program_name": "heldout_2",
+      "duplicate_of": null,
+      "label": "fails_local_checks",
+      "execution_states": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "query_outcomes": {
+        "candidate": "verification_rejected",
+        "omission_control": "accepted_with_possible_residuals"
+      }
+    }
+  ]
+}

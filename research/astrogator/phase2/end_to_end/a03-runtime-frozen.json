@@ -1,0 +1,72 @@
+{
+  "selection": "First lexicographic compact/GPT6/r0 a03 supplied-reject\u2192generated-accept program. Selected after observing disagreement; diagnostic only.",
+  "natural_language": "Delete the contents of the /home/mydata/web directory",
+  "obligations": [
+    "Directory itself continues to exist as a directory.",
+    "All descendants of the directory are removed."
+  ],
+  "interpretation": "Delete the contents is interpreted as preserving their containing directory, consistent with supplied delete_files/in_path AST. This diagnostic explicitly states that interpretation; it is not a universal oracle for all variants of this task.",
+  "candidate": {
+    "bytes": 209,
+    "path": "data/corpus/deepseek/p15/response0.yml",
+    "sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+    "yaml_root": "list",
+    "yaml_status": "parsed"
+  },
+  "sample_id": "deepseek/p15/0",
+  "query_record": {
+    "id": "fql-a03-r0",
+    "task_id": "a03",
+    "repeat": 0,
+    "model_alias": "gpt6",
+    "model": "gpt-6-astra",
+    "generation_status": "ok",
+    "query": "delete contents of directory at /home/mydata/web",
+    "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+    "source_record": "phase2/integration/frontier/gpt6/fql-a03-r0.json",
+    "source_sha256": "42526a62432e5c96fcc81f65196561161220b423bd4da61524a2ba3feeb22e0d",
+    "snapshot": "phase2/end_to_end/inputs/compact-all/gpt6/fql-a03-r0.json",
+    "prompt_sha256": "1ac5e969138c71ba23be04fd5900884ad27bc25164ed3bc1de1c49819f0566d8"
+  },
+  "cell": {
+    "arm": "compact-all",
+    "model_alias": "gpt6",
+    "model": "gpt-6-astra",
+    "repeat": 0,
+    "task_id": "a03",
+    "sample_id": "deepseek/p15/0",
+    "query_sha256": "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6",
+    "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+    "generation_status": "ok",
+    "code_sha256": "2d83de88639eeec6faa3e27c235f6b5329955ef08f7b715f2efb80329cd9f187",
+    "query_status": "query_lowered",
+    "query_diagnostics_path": "phase2/end_to_end/cache/queries/05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24-4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6.json",
+    "status": "accepted_with_possible_residuals",
+    "verifier_status": "accepted_with_possible_residuals",
+    "verifier_result_path": "phase2/end_to_end/cache/verifier/8d76c82be0aaed494223b85a69cd3c2e597d86f46bd972a26b369a38c0e0ab6f.json",
+    "supplied_query_status": "verification_rejected",
+    "supplied_query_result_path": "phase2/end_to_end/cache/verifier/041bb6e050ab8c92bfa9d936aa5aa48cbe91ad3f0aba6cb72afba4733741e1a3.json"
+  },
+  "fixtures": [
+    {
+      "id": "empty_root",
+      "files": {}
+    },
+    {
+      "id": "mixed_contents",
+      "files": {
+        "visible.txt": "keep nothing\n",
+        ".hidden": "hidden content\n",
+        "nested/deep.txt": "nested content\n"
+      }
+    }
+  ],
+  "driver_sha256": "bf690e2dbc0ae796984a86df5349666cd53e0d751e9acefa1982df0d538c3f3f",
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "runtime_limits": {
+    "network": "none",
+    "memory": "384m",
+    "cpus": 0.5,
+    "pids": 96
+  }
+}

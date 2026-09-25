@@ -1,0 +1,135 @@
+{
+  "generation_mode": "python",
+  "image_id": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b",
+  "specifications": {
+    "gpt6-python-a01-r0": {
+      "task_id": "a01",
+      "source_sha256": "4c72e044cf590abc775a9127ee7b7dba0ee93be78eeb31d84e49a429b1095b27",
+      "status": "valid"
+    },
+    "gpt6-python-a01-r1": {
+      "task_id": "a01",
+      "source_sha256": "46fadb8df28da822132dbf4485149a8b640ce34484a1c2959c1b52291ae3f169",
+      "status": "valid"
+    },
+    "gpt6-python-a02-r0": {
+      "task_id": "a02",
+      "source_sha256": "3a9ba74da4f5508dac755112b2d700cbc2ca7900674170b15ae6ac18fdcbaced",
+      "status": "valid"
+    },
+    "gpt6-python-a02-r1": {
+      "task_id": "a02",
+      "source_sha256": "63c675c04b9376391033154742af3a83f93a7f6e80e1aace17005ffb0e71b3ae",
+      "status": "valid"
+    },
+    "gpt6-python-a06-r0": {
+      "task_id": "a06",
+      "source_sha256": "ff9b331b15be3da0b214e899201c4fad5daba16f53c7671680f9c1d1f4fe59cc",
+      "status": "valid"
+    },
+    "gpt6-python-a06-r1": {
+      "task_id": "a06",
+      "source_sha256": "fd7c82588beecb0e69e2471173b47d57ace0de35dbadf660dd24025eab8aa19a",
+      "status": "valid"
+    },
+    "gpt6-python-a17-r0": {
+      "task_id": "a17",
+      "source_sha256": "9a2b9810dfa94446770e9acfdce92127b73865f67087c180cb22b5860f4c33fc",
+      "status": "valid"
+    },
+    "gpt6-python-a17-r1": {
+      "task_id": "a17",
+      "source_sha256": "68f11f805ea0f00ed153dd79eabc494343f66621f4b675e4aeeeca8bb2cc41e8",
+      "status": "valid"
+    },
+    "opus55-python-a01-r0": {
+      "task_id": "a01",
+      "source_sha256": "8f73b9541438076a1e2585f9fe1dae44069cb661f88c344b0aff8ed47b96fd80",
+      "status": "valid"
+    },
+    "opus55-python-a01-r1": {
+      "task_id": "a01",
+      "source_sha256": "2bed0794d983be65398a18f3eadf78b77fed465294993099efa2134b8b03826a",
+      "status": "valid"
+    },
+    "opus55-python-a02-r0": {
+      "task_id": "a02",
+      "source_sha256": "aecfcceefeef8299a175664d43b2dbb7985bb7cea3e58d4ff7e41b0b3121514c",
+      "status": "valid"
+    },
+    "opus55-python-a02-r1": {
+      "task_id": "a02",
+      "source_sha256": "e6380572e2833ac41f5c2f0c1be2548cdd492327457de146ac2f8d5e8545c00a",
+      "status": "valid"
+    },
+    "opus55-python-a06-r0": {
+      "task_id": "a06",
+      "source_sha256": "be3aad99cafac57e76b4bac22f5af7b87fd1d3ed0be3e14ee1880ff69b124492",
+      "status": "valid"
+    },
+    "opus55-python-a06-r1": {
+      "task_id": "a06",
+      "source_sha256": "72429365493ebab4d2e909a817f1ac5201d5a992d1e937b0d77ac081df10551b",
+      "status": "valid"
+    },
+    "opus55-python-a17-r0": {
+      "task_id": "a17",
+      "source_sha256": "b2e9639b3697c624c561125921fa6b49982c41453d55c47f2869f5fa9f6b3a1f",
+      "status": "valid"
+    },
+    "opus55-python-a17-r1": {
+      "task_id": "a17",
+      "source_sha256": "e1e620efcfe8db565679dcc55d69b6afb9d86c7ab32b7388c6e77a2d7ba4b8fa",
+      "status": "valid"
+    }
+  },
+  "selection_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "source_sha256": {
+    "phase2/integration/run_python_tests.py": "fd01ffe60cacbd4774ca93043c323feb3b9273f607179c8abe2b097836d3082e",
+    "phase2/integration/python_test_case.py": "b23c30596306a84999166374b3cb186d7ac72aeb648e2a0fd5b7f323ef1b700a",
+    "scripts/generated_checks.py": "af3550a94d3dadc0f80825b64bcb4cd7a795df6b2f3ac27dd27cb9a44d494b9a",
+    "scripts/container_case.py": "bfabf384a9da0ea414b8d86046a7b5d9f7eca5f0fd6a9472948352eb22905910",
+    "data/manifest.jsonl": "6e4cdc03d8d09be63f276974e73181b00dafa983de4c3ed14136b11b13752410",
+    "phase2/evaluation/revised_case.py": "47aa840cac38e0bb61290cdff39ca392bba4865883dc9df2f92142a8d90c71c6",
+    "benchmarks/original-pilot/a01/check.py": "593fe0cb336b8c472585bda9df12aef232c05fbbfaca38350e921d8115f9f66a",
+    "benchmarks/original-pilot/a01/setup.py": "8ee70f33a655b8c05bc12b90cc7dcff12935b0b7cfcc9f668a3e388a8d59a9cb",
+    "benchmarks/original-pilot/a02/check.py": "deab7142cf06a65b75794a304c4188e5a39c1a312d2a640e2c023600ab97d4f3",
+    "benchmarks/original-pilot/a02/setup.py": "34a25e81fc50d30458946129c0a4463273b1ee8b17657289b7432e7585b5c643",
+    "benchmarks/original-pilot/a06/check.py": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df",
+    "benchmarks/original-pilot/a06/setup.py": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+    "benchmarks/original-pilot/a17/check.py": "296133234f1d325c6c7e0974a05435f941881b4ce7e0c749487bd5802c40ac6f",
+    "benchmarks/original-pilot/a17/setup.py": "1e0c2f813304496cfde3612f433fc1e12935a81eeffd09486c186b9e05dd4b8c",
+    "benchmarks/original-pilot/a01/reference.yml": "decde8d52806384674d45c6de9bb98e9c58322806d1327eb2f1de3aee8be6ba8",
+    "benchmarks/original-pilot/a02/reference.yml": "65cfe5ad8a1f35f49d67be7abf23785f4d6b7ae45c5c263723097c7b0bb4a4e8",
+    "benchmarks/original-pilot/a06/reference.yml": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb",
+    "benchmarks/original-pilot/a17/reference.yml": "010c193ff0d228d1dcd82a2d3f3831dac1294d4ab36f18a5394ba0af2673a312"
+  },
+  "check_sha256": {
+    "gpt6-python-a01-r0.py": "1e27248ea679ff1e8618ff3e640f2bf00d1569c3909b1abaa8f5ab6393668c84",
+    "gpt6-python-a01-r1.py": "f174c2fd11ca8723d429f489cc6828142e8764f7e11cbaf5b6db54a5eca06e2a",
+    "gpt6-python-a02-r0.py": "9bfb4443425d51659dfd254aa26c015eea076e17306fbef6c5991e3bd45ac2f3",
+    "gpt6-python-a02-r1.py": "9bfb4443425d51659dfd254aa26c015eea076e17306fbef6c5991e3bd45ac2f3",
+    "gpt6-python-a06-r0.py": "a7f913001a77f3a7a0d9f0d6a0f6869b8a536ae4004366adbdc3068e31e9bb72",
+    "gpt6-python-a06-r1.py": "591a4fb628450646d6a8707f0e92b27c1f905effbbd3cad80b45405935a3dc18",
+    "gpt6-python-a17-r0.py": "14d0df3820f2b3bb947006bf03965e9b005958945c8cebfba466183849b55557",
+    "gpt6-python-a17-r1.py": "b0f0fdbf551143d92609251404824267812542014a45418b3292ad5c4f7c2c7f",
+    "opus55-python-a01-r0.py": "daf35be51d3ecac79e458a838bf69ef967e6e07e28c00dfe6bd7e9e2aef885c2",
+    "opus55-python-a01-r1.py": "833062aefd928665a9f23b9a9d58982f4387e3ec00043dd210d56ebc6e24134f",
+    "opus55-python-a02-r0.py": "37418a84617949d7417125dc003e3ada1b347a40cb35a4e7c249b62844575527",
+    "opus55-python-a02-r1.py": "03a0348288eb52ea0418daaa620be362423fd4b48c93e62f7ca72dbcb89b35c6",
+    "opus55-python-a06-r0.py": "601d0234efbb25e4d607772ffdb0596dfb50095e94cb6f2cd95bcbd53992c296",
+    "opus55-python-a06-r1.py": "c2ffc373c334b6c961202381c2f670b8bf7362c5c3aa1337f938ff9416c3e871",
+    "opus55-python-a17-r0.py": "2f77977b04eff4b85b8230c2880d7c1c58ae66f35ece6e6a04a010f273f97a74",
+    "opus55-python-a17-r1.py": "36efea02a3cd98c5eba09339ea7443065e9d01da2ebc7f7ea75912111adc501a"
+  },
+  "limits": {
+    "playbook_seconds": 45,
+    "each_python_test_seconds": 10,
+    "maximum_tests_per_case": 4,
+    "host_wall_seconds": 110
+  },
+  "noninterference": "Independent labels captured before Python tests; relevant object trees and passwd/shadow snapshots compared after every test; mutation invalidates test and subsequent tests abstain. Static screen is not a complete read-only security proof.",
+  "selection": "full422",
+  "password_fixture": "real crypt hash; original and structural-integrity checks separately",
+  "failure_policy": "execution_error counts as program rejection; timeout/infrastructure invalid or missing generated tests abstain; no oracle used to manufacture test verdicts"
+}

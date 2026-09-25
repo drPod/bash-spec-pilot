@@ -1,0 +1,11 @@
+{
+  "cache_key": "2450b2f7f8fe9dd1d5827f351e8065fe6a0cd25ab50c55c32c9e370e6d32b04a",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "1fc526af0e6f7061f05c95effb9205e39d799ba099c574a5b42c953243548694",
+  "code_sha256": "f24bb2bc0d197346405e6cc876809e2707bbb000e996999c35f08dbed20718ca",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nValue does not have field stat\n",
+  "stderr": "",
+  "seconds": 0.0923,
+  "status": "ansible_lowering_error"
+}

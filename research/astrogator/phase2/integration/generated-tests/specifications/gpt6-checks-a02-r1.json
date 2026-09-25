@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "kind": "absent",
+      "scenario": "baseline",
+      "path": "/home/mydata/web"
+    },
+    {
+      "kind": "absent",
+      "scenario": "adversarial",
+      "path": "/home/mydata/web"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+if os is Debian based then reboot; enable "service_name"; disable "service_name"; stop "service_name"; start "service_name"; uninstall "service_name"; delete "service_name"; uninstall "service_name"; delete "service_name"; reboot

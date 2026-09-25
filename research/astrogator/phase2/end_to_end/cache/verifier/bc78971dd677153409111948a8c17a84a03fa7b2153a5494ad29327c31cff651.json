@@ -1,0 +1,11 @@
+{
+  "cache_key": "bc78971dd677153409111948a8c17a84a03fa7b2153a5494ad29327c31cff651",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "ddfc90227eb0110909e35c471309a7ddf2ae438be60f5529493bd317f187d879",
+  "code_sha256": "6f9973894663d3fd263727a0fbe23b4a23a7ab003fb4a732542cf8f4fe256c27",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nUnknown Ansible fact reboot_required\n",
+  "stderr": "",
+  "seconds": 0.0934,
+  "status": "ansible_lowering_error"
+}

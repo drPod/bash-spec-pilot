@@ -1,0 +1,26 @@
+{
+  "query_sha256": "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561",
+  "query": "set environment variable LC_ALL to \"C\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\tfd4fc10963c34578fc639b967afe7975\nsemantic\tok\tf56675a6484106def42eebc5ab74197a\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0021,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "fd4fc10963c34578fc639b967afe7975"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "f56675a6484106def42eebc5ab74197a"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

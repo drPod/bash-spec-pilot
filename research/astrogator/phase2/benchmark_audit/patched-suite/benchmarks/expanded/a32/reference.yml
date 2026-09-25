@@ -1,0 +1,8 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/tree
+      recurse: true
+      mode: u=rwX,g=rX,o=rX

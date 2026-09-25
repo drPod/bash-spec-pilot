@@ -1,0 +1,18 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/enabled
+    register: enabled
+  - ansible.builtin.file:
+      path: /work/cache
+      state: directory
+    when: enabled.stat.exists
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - import pathlib,shutil; p=pathlib.Path('/work/cache'); shutil.rmtree(p) if
+        p.is_dir() else None; p.write_text('unexpected')

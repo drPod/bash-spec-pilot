@@ -1,0 +1,11 @@
+{
+  "cache_key": "64a96823553b3137b80498f0f74e7a1a6d233ebfd40d3368be9f34fe5547f196",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+  "code_sha256": "04a225c074489137b8e822be0b196233b5a9f13a8c9682a1a40ddd5d47f4bc27",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\n(D) Type error, found bool but expected password_update\n",
+  "stderr": "",
+  "seconds": 0.0914,
+  "status": "ansible_lowering_error"
+}

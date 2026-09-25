@@ -1,0 +1,1 @@
+if os is Ubuntu then enable sudo for group="wheel"; create user with name=ansible in group="wheel"

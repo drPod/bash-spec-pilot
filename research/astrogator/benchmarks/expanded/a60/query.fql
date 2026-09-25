@@ -1,0 +1,1 @@
+if file "/work/unpacked/app/data" not exists then extract archive from remote "/fixtures/bundle.tar" to /work/unpacked

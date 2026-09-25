@@ -1,0 +1,15 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/source
+      dest: /work/alias
+      state: hard
+      force: true
+  - name: 'Oracle adequacy challenge: violate one omitted obligation'
+    ansible.builtin.command:
+      argv:
+      - python3
+      - -c
+      - from pathlib import Path; Path('/work/source').write_bytes(b'corrupted')

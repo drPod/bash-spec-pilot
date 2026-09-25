@@ -1,0 +1,11 @@
+{
+  "cache_key": "0c50970fd619adaf629b7bf7cee3e1a5aef00f4299200e0ba5c7f7a32abee067",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5",
+  "code_sha256": "a91d3cbd51a294d002279991a5793d757e7f4538addcaa5c31fca46fe448a789",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module ansible.builtin.python_virtualenv\n",
+  "stderr": "",
+  "seconds": 0.0428,
+  "status": "ansible_lowering_error"
+}

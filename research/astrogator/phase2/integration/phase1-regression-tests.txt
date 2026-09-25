@@ -1,0 +1,25 @@
+test_infrastructure_error_dominates_semantic_failure (test_execution_labels.Labels.test_infrastructure_error_dominates_semantic_failure) ... ok
+test_missing_scenario_is_pending (test_execution_labels.Labels.test_missing_scenario_is_pending) ... ok
+test_one_bad_scenario_fails_local_label (test_execution_labels.Labels.test_one_bad_scenario_fails_local_label) ... ok
+test_timeout_not_incorrect (test_execution_labels.Labels.test_timeout_not_incorrect) ... ok
+test_abstention_is_not_rejection_and_pending_not_truth (test_paired_comparison.Comparison.test_abstention_is_not_rejection_and_pending_not_truth) ... ok
+test_empty_denominators_are_not_zero_accuracy (test_paired_comparison.Comparison.test_empty_denominators_are_not_zero_accuracy) ... ok
+test_faulty_reference_gate_abstains_without_candidate_execution (test_paired_comparison.Comparison.test_faulty_reference_gate_abstains_without_candidate_execution) ... ok
+test_generated_tests_do_not_borrow_independent_oracle_label (test_paired_comparison.Comparison.test_generated_tests_do_not_borrow_independent_oracle_label) ... ok
+test_demonstrations_follow_each_arms_declared_exclusions (test_research.CorpusIntegrity.test_demonstrations_follow_each_arms_declared_exclusions) ... ok
+test_do_not_treat_unknown_tags_as_syntax_errors (test_research.CorpusIntegrity.test_do_not_treat_unknown_tags_as_syntax_errors) ... ok
+test_join_cardinality (test_research.CorpusIntegrity.test_join_cardinality) ... ok
+test_old_new_numbering_and_sample_zero (test_research.CorpusIntegrity.test_old_new_numbering_and_sample_zero) ... ok
+test_empty_or_vacuous_generated_checks_rejected (test_research.HonestMeasurement.test_empty_or_vacuous_generated_checks_rejected) ... ok
+test_harness_failures_do_not_kill_mutants (test_research.HonestMeasurement.test_harness_failures_do_not_kill_mutants) ... ok
+test_one_scenario_is_not_validation (test_research.HonestMeasurement.test_one_scenario_is_not_validation) ... ok
+test_output_extraction_does_not_repair_truncation (test_research.HonestMeasurement.test_output_extraction_does_not_repair_truncation) ... ok
+test_two_scenario_checks_allowed (test_research.HonestMeasurement.test_two_scenario_checks_allowed) ... ok
+test_unknown_check_fields_rejected (test_research.HonestMeasurement.test_unknown_check_fields_rejected) ... ok
+test_target_excluded_and_similar_request_ranks_first (test_retrieval.Retrieval.test_target_excluded_and_similar_request_ranks_first) ... ok
+test_ties_are_stable_by_id (test_retrieval.Retrieval.test_ties_are_stable_by_id) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.195s
+
+OK

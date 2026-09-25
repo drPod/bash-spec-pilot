@@ -1,0 +1,66 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks for an Ansible task. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, or both). Allowed kinds and required fields:\ndirectory: path; absent: path; mode: path,value (octal string);\ncontent: path,value (exact complete text); contains: path,value (substring);\nnot_contains: path,value; member: user,group; package: name,version;\nrunning: name,value (boolean).\nAll fields except running.value are strings. Use exact requested values. Generate checks for both initial states. Do not require unspecified behavior. Example: {\"checks\":[{\"kind\":\"mode\",\"path\":\"/tmp/example\",\"value\":\"0600\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.\nInitial states: baseline: astro-demo 2.0 installed. adversarial: astro-demo 1.0 installed. Offline version 2.0 package is available."
+      }
+    ],
+    "max_tokens": 420,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 20.489,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n    \"checks\": [\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"baseline\"\n        },\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"adversarial\"\n        },\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"both\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"baseline\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"adversarial\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"both\"\n        }\n    ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290423,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 252,
+      "prompt_tokens": 230,
+      "total_tokens": 482,
+      "prompt_tokens_details": {
+        "cached_tokens": 159
+      }
+    },
+    "id": "chatcmpl-98FqW5Ko6QwXR9dX236lXXIttS3D2TlE",
+    "timings": {
+      "cache_n": 159,
+      "prompt_n": 71,
+      "prompt_ms": 1735.892,
+      "prompt_per_token_ms": 24.44918309859155,
+      "prompt_per_second": 40.90116205386049,
+      "predicted_n": 252,
+      "predicted_ms": 18642.712,
+      "predicted_per_token_ms": 74.2737529880478,
+      "predicted_per_second": 13.463706353453297
+    }
+  },
+  "text": "```json\n{\n    \"checks\": [\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"baseline\"\n        },\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"adversarial\"\n        },\n        {\n            \"kind\": \"package\",\n            \"path\": \"/fixtures/astro-demo_2.0_all.deb\",\n            \"value\": \"2.0\",\n            \"scenario\": \"both\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"baseline\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"adversarial\"\n        },\n        {\n            \"kind\": \"running\",\n            \"path\": \"astro-demo\",\n            \"value\": \"2.0\",\n            \"scenario\": \"both\"\n        }\n    ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a50",
+  "variant": "test",
+  "mode": "checks",
+  "shots": 0,
+  "demonstration_ids": [],
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "e91723a4110bf4136fc721cc7c720a2a5298404e7a666cf39d0a04002c3778e6"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "53546bf2d8756b9e9e867c805b915cd15ead20ec78116e9f607fdfc5882464ac",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226",
+  "code_sha256": "bec8f9629080d5aec35de955652273cbbd428eba5cefd6699b1a9fa894f4ae18",
+  "returncode": 5,
+  "stdout": "\nFAILED TO VERIFY\n",
+  "stderr": "",
+  "seconds": 0.0967,
+  "status": "verification_rejected"
+}

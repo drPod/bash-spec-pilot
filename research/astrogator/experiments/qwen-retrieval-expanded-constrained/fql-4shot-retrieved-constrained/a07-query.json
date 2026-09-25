@@ -1,0 +1,114 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /tmp on the remote machine into /backup on the controller"
+      },
+      {
+        "role": "assistant",
+        "content": "copy files with glob=\"*.war\" from remote /tmp to controller /backup"
+      },
+      {
+        "role": "user",
+        "content": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist."
+      },
+      {
+        "role": "assistant",
+        "content": "copy directory from remote /work/source to remote /work/dest"
+      },
+      {
+        "role": "user",
+        "content": "Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches."
+      },
+      {
+        "role": "assistant",
+        "content": "delete files in /work/cache with glob=\"*.tmp\""
+      },
+      {
+        "role": "user",
+        "content": "Set permissions for the files and directories under /srv/path so that all users can list and read all files but only the owner can write"
+      },
+      {
+        "role": "assistant",
+        "content": "set file permissions in /srv/path to read=all, write=owner, list directory=all"
+      },
+      {
+        "role": "user",
+        "content": "Copy all .war files from /backup on the controller into /tmp on the remote"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 6.771,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "copy files with glob=\"*.war\" from controller \"/backup\" to remote \"/tmp\""
+        }
+      }
+    ],
+    "created": 1790293624,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 19,
+      "prompt_tokens": 488,
+      "total_tokens": 507,
+      "prompt_tokens_details": {
+        "cached_tokens": 262
+      }
+    },
+    "id": "chatcmpl-jUH3h4XrrucyL36u6hbPCrjR5KoPZjfK",
+    "timings": {
+      "cache_n": 262,
+      "prompt_n": 226,
+      "prompt_ms": 4243.404,
+      "prompt_per_token_ms": 18.776123893805313,
+      "prompt_per_second": 53.2591287560647,
+      "predicted_n": 19,
+      "predicted_ms": 2334.333,
+      "predicted_per_token_ms": 129.68516666666667,
+      "predicted_per_second": 7.710982109236342
+    }
+  },
+  "text": "copy files with glob=\"*.war\" from controller \"/backup\" to remote \"/tmp\"",
+  "finish_reason": "stop",
+  "task_id": "a07",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a08",
+    "a70",
+    "a31",
+    "a13"
+  ],
+  "retrieval_scores": [
+    0.9359354669316695,
+    0.2807786302011807,
+    0.1710365891059737,
+    0.1526376771945608
+  ],
+  "demo_pool_size": 51,
+  "pool": "expanded",
+  "prompt_sha256": "b3a2ed29f4b320dde6e1bdd9b6a8c5375e4329988c570ce97292f267557add1b",
+  "constrained": true,
+  "source_record": "experiments/qwen-retrieval-expanded/fql-4shot-retrieved/a07-query.json",
+  "source_record_sha256": "aee990c68008e868333aab9c506b7ac91bc721f41435ae56aeb54a81d7de5970",
+  "grammar_sha256": "3bec0f621e3e4d862f355d67ac85cfd95df9e5c830a83f2293f9d3b0f4c7fd0f",
+  "condition": "Same expanded-retrieval messages and token budget, plus v2 decoding grammar; single fresh sample, no matched random seed"
+}

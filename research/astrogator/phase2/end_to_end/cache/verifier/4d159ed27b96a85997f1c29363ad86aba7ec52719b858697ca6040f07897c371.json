@@ -1,0 +1,11 @@
+{
+  "cache_key": "4d159ed27b96a85997f1c29363ad86aba7ec52719b858697ca6040f07897c371",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "9d7e613dd8fb86755ed87dd8d2a1ba0173ae334dda86a0dbb2df7e2d9aa90e8d",
+  "code_sha256": "fc23e225577251b3a2ca21690fb158d230884068a4bd87a1f6cea4200c061853",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nCould not find module community.crypto.openssh_keypair\n",
+  "stderr": "",
+  "seconds": 0.0905,
+  "status": "ansible_lowering_error"
+}

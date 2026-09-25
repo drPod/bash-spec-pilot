@@ -1,0 +1,78 @@
+{
+  "frozen_sha256": "e2ddf034031f75d71cf4d254bb086f0155432f850a2eacbc217cefc057a9e435",
+  "ansible_version": "ansible-playbook [core 2.19.11]\n  config file = None\n  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']\n  ansible python module location = /usr/lib/python3/dist-packages/ansible\n  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections\n  executable location = /usr/bin/ansible-playbook\n  python version = 3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0] (/usr/bin/python3)\n  jinja version = 3.1.6\n  pyyaml version = 6.0.2 (with libyaml v0.2.5)\n",
+  "results": [
+    {
+      "fixture": "empty_root",
+      "before": {
+        "root_exists": true,
+        "root_is_directory": true,
+        "root_mode": "0o751",
+        "descendants": []
+      },
+      "after": {
+        "root_exists": false,
+        "root_is_directory": false,
+        "root_mode": null,
+        "descendants": []
+      },
+      "command": [
+        "ansible-playbook",
+        "-i",
+        "localhost,",
+        "-c",
+        "local",
+        "-e",
+        "ansible_python_interpreter=/usr/bin/python3",
+        "/suite/data/corpus/deepseek/p15/response0.yml"
+      ],
+      "returncode": 0,
+      "stdout": "\nPLAY [Model deepseek, Problem p15, Response 10] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete web directory contents] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+      "stderr": "",
+      "seconds": 4.847999095916748,
+      "checks": {
+        "root_preserved_as_directory": false,
+        "contents_removed": false
+      }
+    },
+    {
+      "fixture": "mixed_contents",
+      "before": {
+        "root_exists": true,
+        "root_is_directory": true,
+        "root_mode": "0o751",
+        "descendants": [
+          ".hidden",
+          "nested",
+          "nested/deep.txt",
+          "visible.txt"
+        ]
+      },
+      "after": {
+        "root_exists": false,
+        "root_is_directory": false,
+        "root_mode": null,
+        "descendants": []
+      },
+      "command": [
+        "ansible-playbook",
+        "-i",
+        "localhost,",
+        "-c",
+        "local",
+        "-e",
+        "ansible_python_interpreter=/usr/bin/python3",
+        "/suite/data/corpus/deepseek/p15/response0.yml"
+      ],
+      "returncode": 0,
+      "stdout": "\nPLAY [Model deepseek, Problem p15, Response 10] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete web directory contents] *******************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+      "stderr": "",
+      "seconds": 4.620168447494507,
+      "checks": {
+        "root_preserved_as_directory": false,
+        "contents_removed": false
+      }
+    }
+  ],
+  "scope": "Post-hoc selected mechanism counterexample; not a newly labeled110-program task or an unbiased error rate."
+}

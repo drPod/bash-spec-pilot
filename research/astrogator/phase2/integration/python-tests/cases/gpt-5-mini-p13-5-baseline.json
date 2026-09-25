@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "candidate_sha256": "14a32c010dee7a9cbdb3ed7fb7a28e226765d972e85f87dfc6b9d9dd673fa25c",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model gpt-5-mini, Problem p13, Response 5] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create the file with specific content if not present] ********************\n[ERROR]: Task failed: Error while evaluating conditional: 'ansible' is undefined\n\nTask failed.\nOrigin: /suite/data/corpus/gpt-5-mini/p13/response5.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create the file with specific content if not present\n      ^ column 5\n\n<<< caused by >>>\n\nError while evaluating conditional: 'ansible' is undefined\nOrigin: /suite/data/corpus/gpt-5-mini/p13/response5.yml:13:11\n\n11       group: root\n12       mode: '0644'\n13     when: not ansible.builtin.stat(path='/etc/file.txt').stat.exists\n             ^ column 11\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Error while evaluating conditional: 'ansible' is undefined\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.912,
+  "sample_id": "gpt-5-mini/p13/5"
+}

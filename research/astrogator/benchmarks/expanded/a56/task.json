@@ -1,0 +1,20 @@
+{
+  "id": "a56",
+  "title": "Stop existing service",
+  "family": "services",
+  "natural_language": "Ensure cron is stopped, including when it is initially running.",
+  "formal_query": "stop cron service",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "disables boot startup without stopping",
+  "tags": [
+    "running-vs-enabled"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

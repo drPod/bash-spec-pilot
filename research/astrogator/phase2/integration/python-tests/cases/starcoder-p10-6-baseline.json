@@ -1,0 +1,148 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "ae16fbc3653911d66f5464b375fe0f026df96f7bfb9ce4b396a1ad4947f09a4c",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a17-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a17-r0.py\", line 13, in <module>\n    assert entries[0][1].startswith((\"!\", \"*\")), (\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Password authentication for service is not disabled\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a17-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a17-r1.py\", line 13, in <module>\n    assert entries[0][1].startswith((\"!\", \"*\")), (\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: Password authentication for service is not disabled\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model starcoder, Problem p10, Response 6] ********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Modify /etc/shadow with no password for service user] ********************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "observations": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "",
+        "123456",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": false,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": false
+  },
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985766,
+      "mtime_ns": 1790349798109066433,
+      "ctime_ns": 1790349798112066467,
+      "sha256": "2e92c0043db988c75994c19778fc972407928de65d3d691ab773bbd845c7fdf8"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 985726,
+      "mtime_ns": 1790349802092148065,
+      "ctime_ns": 1790349802091112014,
+      "sha256": "43136638e2e259a108657e803ea47e67e22359f622715808c8dabddf2ea29cc8"
+    },
+    "/home/service": {
+      "mode": 16832,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985749,
+      "mtime_ns": 1790349798097066296,
+      "ctime_ns": 1790349798097066296
+    },
+    "/home/service/.bash_logout": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985751,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349798097066296,
+      "sha256": "26882b79471c25f945c970f8233d8ce29d54e9d5eedcd2884f88affa84a18f56"
+    },
+    "/home/service/.bashrc": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985755,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349798097066296,
+      "sha256": "afae8986f549c6403410e029f9cce7983311512d04b1f02af02e4ce0af0dd2bf"
+    },
+    "/home/service/.profile": {
+      "mode": 33188,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 985753,
+      "mtime_ns": 1783875501000000000,
+      "ctime_ns": 1790349798097066296,
+      "sha256": "28b4a453b68dde64f814e94bab14ee651f4f162e15dd9920490aa1d49f05d2a4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.51,
+  "sample_id": "starcoder/p10/6"
+}

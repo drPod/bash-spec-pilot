@@ -1,0 +1,20 @@
+{
+  "id": "a43",
+  "title": "Change login shell",
+  "family": "identity",
+  "natural_language": "Set the existing app user login shell to /bin/bash without changing its UID or home contents.",
+  "formal_query": "set default shell for user=app to bash",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "sets wrong shell",
+  "tags": [
+    "account-attributes"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

@@ -1,0 +1,11 @@
+{
+  "input_sha256": "40247bbe4ee52185ae48d0877d2488ee8effefdcd44742f3dfaf7995abb95b79",
+  "source": "/home/ubuntu/Coding/bash-spec-pilot/research/astrogator/phase2/evaluation/common-all-checks.json",
+  "script_sha256": "8be3f58c8bd168cd0be5aa90b97787bbb1ff16af45ebd13ab2d1142831c5baa7",
+  "files": {
+    "matched-checks.csv": "0c3923d820bc4223ad7d5bb2b3a3a79a890063b2ad4e5d48347767ef4b0847ea",
+    "matched-checks.png": "e87a1f278fd321627790a149881e6620042e4a11068409d55253cf3fa254c97b",
+    "matched-checks.pdf": "85e330506333f0e2ca0c1cc66b057631613781ee58cc5cb86fe23b89a75b8759",
+    "CAPTION.md": "1aa870cce887fa5f1bd073da3ca60586ea35912a1463759b7b27b7e4e87c16da"
+  }
+}

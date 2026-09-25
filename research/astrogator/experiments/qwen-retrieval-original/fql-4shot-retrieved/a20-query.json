@@ -1,0 +1,112 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+      },
+      {
+        "role": "assistant",
+        "content": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https"
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      },
+      {
+        "role": "assistant",
+        "content": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv"
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file"
+      },
+      {
+        "role": "user",
+        "content": "Create directory /srv/www"
+      },
+      {
+        "role": "assistant",
+        "content": "create directory at /srv/www"
+      },
+      {
+        "role": "user",
+        "content": "Enable passwordless sudo for a `wheel' group and create an `ansible' user in that group"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 8.041,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "if os is Ubuntu then enable sudo for group=\"wheel\"; create user with name=ansible in group=\"wheel\""
+        }
+      }
+    ],
+    "created": 1790293323,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 492,
+      "total_tokens": 516,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-6TaI4rOz0qdKejYfcEdMSpEpoLSCaF1p",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 231,
+      "prompt_ms": 4495.262,
+      "prompt_per_token_ms": 19.460008658008658,
+      "prompt_per_second": 51.38743859646001,
+      "predicted_n": 24,
+      "predicted_ms": 3307.026,
+      "predicted_per_token_ms": 143.78373913043478,
+      "predicted_per_second": 6.954889377948647
+    }
+  },
+  "text": "if os is Ubuntu then enable sudo for group=\"wheel\"; create user with name=ansible in group=\"wheel\"",
+  "finish_reason": "stop",
+  "task_id": "a20",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "constrained": false,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a09",
+    "a14",
+    "a19",
+    "a01"
+  ],
+  "retrieval_scores": [
+    0.19331268490755868,
+    0.09189836223553133,
+    0.08771675003091065,
+    0.08080094709609158
+  ],
+  "demo_pool_size": 20,
+  "condition": "Lexical TF-IDF retrieval; target task excluded; same-family examples allowed; no grammar constraint",
+  "pool": "original",
+  "source_sha256": "7e61dcbb81242cbc6dcc19194f32de5970c520a2bf45b6647ff64c20a0914624",
+  "prompt_sha256": "8b9f362427e35e225eec0b3c3c50dd6115d5c40498c6b7cb40d53b1acb490e3d",
+  "limitation": "Expanded candidates pass lowering but lack independent intent review; exploratory non-holdout ablation"
+}

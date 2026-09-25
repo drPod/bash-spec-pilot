@@ -1,0 +1,22 @@
+{
+  "id": "a70",
+  "title": "Copy directory contents not wrapper",
+  "family": "filesystem",
+  "natural_language": "Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",
+  "formal_query": "copy directory from remote /work/source to remote /work/dest",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "copies enclosing directory instead of contents",
+  "tags": [
+    "directory-layout",
+    "hidden",
+    "preservation"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

@@ -1,0 +1,93 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "Copy the file /scratch/file.txt to /home/user/data.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\""
+      },
+      {
+        "role": "user",
+        "content": "Create the file /etc/file.txt with the contents ``beginning'' if it does not already exist"
+      },
+      {
+        "role": "assistant",
+        "content": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\""
+      },
+      {
+        "role": "user",
+        "content": "Clone the release1.8.4 branch from the ansible/ansible github repo to /ansible using https"
+      },
+      {
+        "role": "assistant",
+        "content": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https"
+      },
+      {
+        "role": "user",
+        "content": "Delete the directory /home/mydata/web"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false
+  },
+  "seconds": 1.123,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "delete directory at \"/home/mydata/web\""
+        }
+      }
+    ],
+    "created": 1790290906,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 10,
+      "prompt_tokens": 421,
+      "total_tokens": 431,
+      "prompt_tokens_details": {
+        "cached_tokens": 408
+      }
+    },
+    "id": "chatcmpl-nT8SvSxsBMJNP0GPSEn1zRuMkXIK7zLd",
+    "timings": {
+      "cache_n": 408,
+      "prompt_n": 13,
+      "prompt_ms": 422.831,
+      "prompt_per_token_ms": 32.52546153846154,
+      "prompt_per_second": 30.74514404099983,
+      "predicted_n": 10,
+      "predicted_ms": 589.455,
+      "predicted_per_token_ms": 65.495,
+      "predicted_per_second": 15.268341094740055
+    }
+  },
+  "text": "delete directory at \"/home/mydata/web\"",
+  "finish_reason": "stop",
+  "task_id": "a02",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 3,
+  "demonstration_ids": [
+    "a04",
+    "a06",
+    "a09"
+  ],
+  "constrained": false,
+  "diverse_demos": true,
+  "condition": "single sample; local quantized small-model feasibility pilot",
+  "prompt_sha256": "4d957cf095ae827cbd603ddb713c6a3d9d3a035c00620d418b62b020add32a76"
+}

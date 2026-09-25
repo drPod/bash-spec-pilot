@@ -1,0 +1,1 @@
+action install,apache-server,with name=webdev;action ensure,home-page,exists;action set,apache-site,root=webdev;action set,httpd,listen=80

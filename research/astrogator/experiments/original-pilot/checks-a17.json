@@ -1,0 +1,60 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Generate read-only post-execution checks. Return only JSON {\"checks\":[...]}. Each check has kind and optional scenario (baseline, adversarial, both). Kinds and required string fields: directory:path; absent:path; content:path,value (exact complete text); password_locked:user. Generate checks for both scenarios. No other fields. Example: {\"checks\":[{\"kind\":\"directory\",\"path\":\"/tmp/example\"}]}"
+      },
+      {
+        "role": "user",
+        "content": "Task: Disable the password for the `service' user\nInitial states: Both: service user exists. baseline: unlocked password hash; adversarial: locked password hash."
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "seconds": 5.559,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"password_locked\",\n      \"user\": \"service\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"kind\": \"password_locked\",\n      \"user\": \"service\"\n    }\n  ]\n}\n```"
+        }
+      }
+    ],
+    "created": 1790290775,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 59,
+      "prompt_tokens": 128,
+      "total_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "id": "chatcmpl-5ZgKWk2PSAKBkecfwo5CgFGWd2mal1BW",
+    "timings": {
+      "cache_n": 91,
+      "prompt_n": 37,
+      "prompt_ms": 768.481,
+      "prompt_per_token_ms": 20.769756756756756,
+      "prompt_per_second": 48.14692881151258,
+      "predicted_n": 59,
+      "predicted_ms": 4681.863,
+      "predicted_per_token_ms": 80.72177586206897,
+      "predicted_per_second": 12.388230924313675
+    }
+  },
+  "text": "```json\n{\n  \"checks\": [\n    {\n      \"kind\": \"password_locked\",\n      \"user\": \"service\"\n    }\n  ],\n  \"checks\": [\n    {\n      \"kind\": \"password_locked\",\n      \"user\": \"service\"\n    }\n  ]\n}\n```",
+  "finish_reason": "stop",
+  "task_id": "a17"
+}

@@ -1,0 +1,11 @@
+{
+  "cache_key": "bd48d1225fe33e4c56ad0bab2fbce3ca71e23175641c9d5f0368820d6db62546",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831",
+  "code_sha256": "9f0b796b3afa54846499b43efb651ccea60000de7a5c240f418b751b7e6619b0",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument install_from for module ansible.builtin.package\n",
+  "stderr": "",
+  "seconds": 0.1073,
+  "status": "ansible_lowering_error"
+}

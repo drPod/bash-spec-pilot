@@ -1,0 +1,21 @@
+{
+  "id": "a69",
+  "title": "Explicit two-branch status",
+  "family": "configuration",
+  "natural_language": "Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.",
+  "formal_query": "if file /work/maintenance exists then create file at /work/status with content=\"offline\" otherwise create file at /work/status with content=\"online\"",
+  "fql_status": "candidate_not_reviewed",
+  "fault": "ignores true branch",
+  "tags": [
+    "otherwise",
+    "conditional"
+  ],
+  "scenarios": [
+    "baseline",
+    "adversarial"
+  ],
+  "environment": "Debian 13 disposable container; root; offline fixtures",
+  "provenance": "Authored for this extension; not mined from independent workloads",
+  "review_status": "author_draft",
+  "idempotence": "state checked after two successful executions; changed-count not scored"
+}

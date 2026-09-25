@@ -1,0 +1,2630 @@
+{
+  "binary_sha256": "09183ac272ec6f390f2a067952dbbd8d0fb4be9e6ecabc63e944d01dfe7b17f9",
+  "driver_sha256": "083ac3bb03d6b63127ae33bd1e445725dfa9fdaae2cfd432da7c6566ad522892",
+  "queries": {
+    "b6929e935fff5fff6b92f494bae2b21e95428735090f9bd35f38001202c349b7": {
+      "query": "create directory at /srv/www",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "create_directory",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/srv/www"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "bfeeabf11e86f378c2e00082d1af044661612610abf503478308f3a88e50678e": {
+      "query": "delete directory at /home/mydata/web",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "delete_directory",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/home/mydata/web"
+            }
+          }
+        }
+      ]
+    },
+    "a835dc1aa81ab37d3f2a60f7bc5d8cda035f7bd62041ee015a4c74294a41e308": {
+      "query": "delete files in /home/mydata/web",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "delete_files",
+          "paths": {
+            "kind": "in_path",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/mydata/web"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "09b66dcdc1a45d7a1a87a338ad269a1ba0962e335251d60dfaaf9521e4bed44b": {
+      "query": "copy file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_file",
+          "source": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/scratch/file.txt"
+            }
+          },
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/user/data.txt"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "e01fed966489a539b84771efd00bd020542995f0fe720cc1c04597cab0385955": {
+      "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "move_file",
+          "source": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/scratch/file.txt"
+            }
+          },
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/user/data.txt"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "88b5c60d1684030b988414b9e1767be8def0e2b151e95e283e046ce5fd49b15f": {
+      "query": "if file \"/etc/file.txt\" not exists then create file at \"/etc/file.txt\" with content=\"beginning\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "file_exists",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/etc/file.txt"
+              }
+            }
+          },
+          "then": [],
+          "else": [
+            {
+              "kind": "create_file",
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/etc/file.txt"
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              },
+              "content": "beginning"
+            }
+          ]
+        }
+      ]
+    },
+    "6f8e5c4f69f7d3ecbd81115177c15728e7f1109c997eda634858fa80ddeb3556": {
+      "query": "copy files with glob=\"*.war\" from controller /backup to remote /tmp",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_files",
+          "source": {
+            "kind": "glob",
+            "base": {
+              "kind": "controller",
+              "destination": {
+                "kind": "absolute",
+                "value": "/backup"
+              }
+            },
+            "glob": "*.war"
+          },
+          "destination": {
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/tmp"
+                }
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "2ac076f28fe46b46811f4b7e76c9e489a4bf1958086379bead53e103b04ea4c5": {
+      "query": "copy files with glob=\"*.war\" from remote /tmp to controller /backup",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_files",
+          "source": {
+            "kind": "glob",
+            "base": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/tmp"
+              }
+            },
+            "glob": "*.war"
+          },
+          "destination": {
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "controller",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/backup"
+                }
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "e1e66a52bcd9572132313416c0cd3bf952189d8fcfcc3bb4ad9258361fa6fe61": {
+      "query": "clone github repository with name=ansible/ansible, branch=\"release1.8.4\" into /ansible via https",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "existential",
+            "type": "string",
+            "binder": "__kb_bound_0",
+            "predicate": {
+              "kind": "or",
+              "left": {
+                "kind": "eq",
+                "left": {
+                  "kind": "id",
+                  "name": "__kb_bound_0"
+                },
+                "right": {
+                  "kind": "string",
+                  "value": "https://github.com/ansible/ansible.git"
+                }
+              },
+              "right": {
+                "kind": "or",
+                "left": {
+                  "kind": "eq",
+                  "left": {
+                    "kind": "id",
+                    "name": "__kb_bound_0"
+                  },
+                  "right": {
+                    "kind": "string",
+                    "value": "https://github.com/ansible/ansible"
+                  }
+                },
+                "right": {
+                  "kind": "bool",
+                  "value": false
+                }
+              }
+            }
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "88d265ed2cd0698cb23aae1a4086b57b01c54d6f1ac89139688533c82dfee561": {
+      "query": "set environment variable LC_ALL to \"C\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "set_environment",
+          "name": "LC_ALL",
+          "value": "C"
+        }
+      ]
+    },
+    "209ef4d62b2d9f7c4138b6ab32e03d6eaea4953cb0995de7e31465f3a0d52c39": {
+      "query": "write \"module load gcc\" to bashrc file for user = foo at position=end",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "write_file",
+          "value": "module load gcc",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "in_home",
+                "user": "foo",
+                "value": ".bashrc"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          },
+          "position": "bottom"
+        }
+      ]
+    },
+    "6ae669269e4f759414e48278c7e0971779448177bb5ee161422e29e863ff4dce": {
+      "query": "if os is Debian and reboot required then reboot",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Debian"
+          },
+          "then": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "file_exists",
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": {
+                      "kind": "existential",
+                      "type": "path",
+                      "binder": "__kb_bound_0",
+                      "predicate": {
+                        "kind": "or",
+                        "left": {
+                          "kind": "eq",
+                          "left": {
+                            "kind": "id",
+                            "name": "__kb_bound_0"
+                          },
+                          "right": {
+                            "kind": "path",
+                            "value": "/run/reboot-required"
+                          }
+                        },
+                        "right": {
+                          "kind": "or",
+                          "left": {
+                            "kind": "eq",
+                            "left": {
+                              "kind": "id",
+                              "name": "__kb_bound_0"
+                            },
+                            "right": {
+                              "kind": "path",
+                              "value": "/var/run/reboot-required"
+                            }
+                          },
+                          "right": {
+                            "kind": "bool",
+                            "value": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "then": [
+                {
+                  "kind": "reboot"
+                }
+              ],
+              "else": []
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "1fc526af0e6f7061f05c95effb9205e39d799ba099c574a5b42c953243548694": {
+      "query": "set file permissions in /srv/path to read=all, write=owner, list directory=all",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "set_files_permissions",
+          "paths": {
+            "kind": "in_path",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/srv/path"
+              }
+            }
+          },
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "write": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      ]
+    },
+    "e467d30efe4ea3071a267a1c812e2996c0183f59d91095299f3fb7b9082846a5": {
+      "query": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "create_virtualenv",
+          "version": "3.10",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/user/home/venv"
+            }
+          }
+        },
+        {
+          "kind": "install",
+          "packages": [
+            {
+              "name": "numpy",
+              "manager": {
+                "kind": "pip",
+                "environment": "/user/home/venv"
+              }
+            }
+          ],
+          "version": null
+        }
+      ]
+    },
+    "742a5dd80069b30c6f5264e95f4b78875054b3fe77e0ff15edf3c5c0ac13f9e8": {
+      "query": "if os is Debian based or os is RedHat based then install numpy",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "DebianFamily"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "python3-numpy",
+                  "manager": "apt"
+                }
+              ],
+              "version": null
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "RedHatFamily"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "numpy",
+                      "manager": {
+                        "kind": "pip",
+                        "environment": null
+                      }
+                    },
+                    {
+                      "name": "numpy",
+                      "manager": "dnf"
+                    },
+                    {
+                      "name": "python3-numpy",
+                      "manager": "dnf"
+                    }
+                  ],
+                  "version": null
+                }
+              ],
+              "else": []
+            }
+          ]
+        }
+      ]
+    },
+    "70cce71f17324d156504adbb413349c35f0e7b80ce152361342558fa0f5e02db": {
+      "query": "install zsh; set default shell for user=\"dev\" to zsh; if zsh configuration file for user=\"dev\" not exists then create zsh configuration file for user=\"dev\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "install",
+          "packages": [
+            {
+              "name": "zsh",
+              "manager": "system"
+            }
+          ],
+          "version": null
+        },
+        {
+          "kind": "set_shell",
+          "user": "dev",
+          "shell": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": {
+                "kind": "existential",
+                "type": "path",
+                "binder": "__kb_bound_0",
+                "predicate": {
+                  "kind": "or",
+                  "left": {
+                    "kind": "eq",
+                    "left": {
+                      "kind": "id",
+                      "name": "__kb_bound_0"
+                    },
+                    "right": {
+                      "kind": "path",
+                      "value": "/usr/bin/zsh"
+                    }
+                  },
+                  "right": {
+                    "kind": "or",
+                    "left": {
+                      "kind": "eq",
+                      "left": {
+                        "kind": "id",
+                        "name": "__kb_bound_0"
+                      },
+                      "right": {
+                        "kind": "path",
+                        "value": "/bin/zsh"
+                      }
+                    },
+                    "right": {
+                      "kind": "bool",
+                      "value": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "file_exists",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "in_home",
+                "user": "dev",
+                "value": ".zshrc"
+              }
+            }
+          },
+          "then": [],
+          "else": [
+            {
+              "kind": "create_file",
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "in_home",
+                    "user": "dev",
+                    "value": ".zshrc"
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              },
+              "content": null
+            }
+          ]
+        }
+      ]
+    },
+    "1e92c828ec5b8ee859b233ba5cc2f46c819f32842f202994263d2f6c6f8580b3": {
+      "query": "disable password for user=service",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "disable_password",
+          "user": "service"
+        }
+      ]
+    },
+    "0a4071ca69c8fe035e7223d005ebea2de336ed1df9ec575d61fa811eedf29226": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix configuration file to ?backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is \"RedHat\" then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "postfix",
+                  "manager": "system"
+                }
+              ],
+              "version": "latest"
+            },
+            {
+              "kind": "copy_file",
+              "source": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/postfix/main.cf"
+                }
+              },
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": {
+                      "unknown": 0
+                    }
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              }
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "Ubuntu"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "postfix",
+                      "manager": "system"
+                    }
+                  ],
+                  "version": "latest"
+                },
+                {
+                  "kind": "copy_file",
+                  "source": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/postfix/main.cf"
+                    }
+                  },
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": {
+                          "unknown": 0
+                        }
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                }
+              ],
+              "else": []
+            }
+          ]
+        },
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Ubuntu"
+          },
+          "then": [
+            {
+              "kind": "download",
+              "source": "http://example.com/cfg.ubuntu",
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/etc/postfix/main.cf"
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              }
+            }
+          ],
+          "else": []
+        },
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "download",
+              "source": "http://example.com/cfg.redhat",
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/etc/postfix/main.cf"
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              }
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "33627435acb3dc040eb6532e582df1d90476fc5a5cc34654e05fa0dae904b549": {
+      "query": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "httpd",
+                  "manager": "dnf"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "create_user",
+              "name": "webdev",
+              "primary_group": null,
+              "supplemental_groups": null
+            },
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "file_exists",
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/var/www/html/index.html"
+                  }
+                }
+              },
+              "then": [],
+              "else": [
+                {
+                  "kind": "create_file",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/var/www/html/index.html"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "f3d9ef764504bdf6122018716d7c1866f10b3b502c5ee13123525441301bb1ab": {
+      "query": "enable passwordless sudo for group=wheel; create user with name=ansible in supplemental groups=wheel",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "enable_sudo",
+          "account": {
+            "kind": "group",
+            "name": "wheel"
+          },
+          "passwordless": true
+        },
+        {
+          "kind": "create_user",
+          "name": "ansible",
+          "primary_group": null,
+          "supplemental_groups": [
+            "wheel"
+          ]
+        }
+      ]
+    },
+    "9d7e613dd8fb86755ed87dd8d2a1ba0173ae334dda86a0dbb2df7e2d9aa90e8d": {
+      "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\", name=\"fizbaz_rsa\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Debian"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "openssh-client",
+                  "manager": "apt"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "openssh-server",
+                  "manager": "system"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "start_service",
+              "name": {
+                "kind": "existential",
+                "type": "string",
+                "binder": "__kb_bound_0",
+                "predicate": {
+                  "kind": "or",
+                  "left": {
+                    "kind": "eq",
+                    "left": {
+                      "kind": "id",
+                      "name": "__kb_bound_0"
+                    },
+                    "right": {
+                      "kind": "string",
+                      "value": "ssh"
+                    }
+                  },
+                  "right": {
+                    "kind": "or",
+                    "left": {
+                      "kind": "eq",
+                      "left": {
+                        "kind": "id",
+                        "name": "__kb_bound_0"
+                      },
+                      "right": {
+                        "kind": "string",
+                        "value": "sshd"
+                      }
+                    },
+                    "right": {
+                      "kind": "bool",
+                      "value": false
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "kind": "create_ssh_key",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "in_home",
+                  "user": "fizbaz",
+                  "value": ".ssh/fizbaz_rsa"
+                }
+              }
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "RedHat"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "openssh-clients",
+                      "manager": "dnf"
+                    }
+                  ],
+                  "version": null
+                },
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "openssh-server",
+                      "manager": "system"
+                    }
+                  ],
+                  "version": null
+                },
+                {
+                  "kind": "start_service",
+                  "name": {
+                    "kind": "existential",
+                    "type": "string",
+                    "binder": "__kb_bound_0",
+                    "predicate": {
+                      "kind": "or",
+                      "left": {
+                        "kind": "eq",
+                        "left": {
+                          "kind": "id",
+                          "name": "__kb_bound_0"
+                        },
+                        "right": {
+                          "kind": "string",
+                          "value": "ssh"
+                        }
+                      },
+                      "right": {
+                        "kind": "or",
+                        "left": {
+                          "kind": "eq",
+                          "left": {
+                            "kind": "id",
+                            "name": "__kb_bound_0"
+                          },
+                          "right": {
+                            "kind": "string",
+                            "value": "sshd"
+                          }
+                        },
+                        "right": {
+                          "kind": "bool",
+                          "value": false
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "kind": "create_ssh_key",
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "in_home",
+                      "user": "fizbaz",
+                      "value": ".ssh/fizbaz_rsa"
+                    }
+                  }
+                }
+              ],
+              "else": []
+            }
+          ]
+        }
+      ]
+    },
+    "4c0fb3d1460ee7b3dee8e39835cca2cb5f4cfdb83a32e6cdcbaf3ed9703f29b6": {
+      "query": "delete contents of directory at /home/mydata/web",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "delete_directory",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/home/mydata/web"
+            }
+          }
+        }
+      ]
+    },
+    "84c00baeb689557be52adb12af296921a83030ea4b92f71935c8790249e8faf1": {
+      "query": "copy file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_file",
+          "source": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/scratch/file.txt"
+            }
+          },
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/user/data.txt"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "b1e2b26c4b5762be126ea3635b50ccb4144921e9684b8724bec4d095aa53f73c": {
+      "query": "move file from remote \"/scratch/file.txt\" to remote \"/home/user/data.txt\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "move_file",
+          "source": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/scratch/file.txt"
+            }
+          },
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/user/data.txt"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "a17c49346b2fac659d02e4a650a8c0a5ab868ada137a85673a2fd495b423e8cc": {
+      "query": "clone git repository from \"https://github.com/ansible/ansible\" with branch=\"release1.8.4\" into /ansible",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "string",
+            "value": "https://github.com/ansible/ansible"
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "095a56208b74d52fa4abbc6e0f6517f9282645b34555cee5663bf9db85d704df": {
+      "query": "clone git repository from \"https://github.com/ansible/ansible.git\" with branch=\"release1.8.4\" into /ansible",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "string",
+            "value": "https://github.com/ansible/ansible.git"
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "764620d7c8330fd151b1f522b72bd6345f59f05172f6cc81294026733e506afa": {
+      "query": "set permanent system-wide environment variable LC_ALL to C",
+      "status": "semantic_error",
+      "error": "Unhandled set of: permanent system-wide environment variable LC_ALL"
+    },
+    "0e777416e3e58771167d29b858f676d276efaf98fe2f0c28b7a7cf58bb875819": {
+      "query": "set system-wide environment variable LC_ALL to C with permanent=true",
+      "status": "semantic_error",
+      "error": "Unhandled set of: system-wide environment variable LC_ALL"
+    },
+    "acd1c5a5f5a916c64419d4082695788d000e414ff077a435d00e0de2a916f124": {
+      "query": "set environment variable LC_ALL to C with scope=system-wide, permanent=true",
+      "status": "semantic_error",
+      "error": "Unhandled arguments for set: permanent = true, scope = system-wide"
+    },
+    "8bbd2ea2fffdb191db162c3288b04ba570786e17e8bcf9687c7260e939870cd7": {
+      "query": "write \"module load gcc\" to bashrc for user=\"foo\" at position=end",
+      "status": "semantic_error",
+      "error": "Unhandled arguments for write: user = foo"
+    },
+    "d301893bd451738af99291efaee8ec1f93027d15ce161c9a8313396cd0628425": {
+      "query": "if os is Debian then reboot system if needed",
+      "status": "diagnostic_error",
+      "error": "Stdlib.Parsing.Parse_error"
+    },
+    "5606663051f657be20c118b627a36192de5fa19c67753dbde8579470061ecf0e": {
+      "query": "create Python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+      "status": "semantic_error",
+      "error": "Unhandled environment type for create: Python virtual"
+    },
+    "5c5e1a805e70dd16d3dfe1e5c8c949cef06fb4c4445f865fa5d1acd8c71c991f": {
+      "query": "if os is Debian or os is RedHat then install numpy",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Debian"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "python3-numpy",
+                  "manager": "apt"
+                }
+              ],
+              "version": null
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "RedHat"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "numpy",
+                      "manager": {
+                        "kind": "pip",
+                        "environment": null
+                      }
+                    },
+                    {
+                      "name": "numpy",
+                      "manager": "dnf"
+                    },
+                    {
+                      "name": "python3-numpy",
+                      "manager": "dnf"
+                    }
+                  ],
+                  "version": null
+                }
+              ],
+              "else": []
+            }
+          ]
+        }
+      ]
+    },
+    "ab3b70c1e2d82ea0104ea53a3ffbf05f59cdfacfc1cbbd234813721dae9e9171": {
+      "query": "install zsh; set default shell for user=dev to zsh; if zsh configuration file not exists then create zsh configuration file",
+      "status": "semantic_error",
+      "error": "Must specify 'user' for zsh configuration file"
+    },
+    "d7f42d719f0de2fbd0cd9293c25facc9f83c52632e8881d6803a4026aba5e512": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; create backup of postfix default configuration file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "semantic_error",
+      "error": "Unknown file: backup of postfix default configuration"
+    },
+    "25f4f0d0d92fb0fff37673ebe6f9c2723d1d4bf5a78e54f7c96c909c5ba257be": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "semantic_error",
+      "error": "Unknown file: postfix default configuration"
+    },
+    "876fba69592d7725dd8556ac2984b24c61d050df93144abf9af3231618b4d2dc": {
+      "query": "if os is RedHat then install apache server; create home page; create user with name=webdev",
+      "status": "semantic_error",
+      "error": "Unhandled creation of: home page"
+    },
+    "5a24a364d0aa7be3024209104b4d0c7d5aa3bc8760f5a46b15c1153056fb7348": {
+      "query": "if os is RedHat then install apache server; if apache server home page not exists then create apache server home page. if os is RedHat then create user with name=webdev",
+      "status": "semantic_error",
+      "error": "cannot check existance of: apache server home page"
+    },
+    "ec13890c405c93c56bdf2c9f7dce249ca27be43c01fc661c0822a06326ad98fd": {
+      "query": "if os is RedHat then install apache server; if home page not exists then create home page. if os is RedHat then create user with name=webdev",
+      "status": "semantic_error",
+      "error": "cannot check existance of: home page"
+    },
+    "1e54c8b6da17af4f66fef29a9bae4d1d8dda9a2ddafe7c6f0861774016a3a0b8": {
+      "query": "enable passwordless sudo for wheel group; create user with name=ansible in group=wheel",
+      "status": "semantic_error",
+      "error": "Expected exactly one of 'user' and 'group' arguments for enable sudo"
+    },
+    "185c9cdfd0002c3e2e911d339b2f4927e668953d32b241ae9e8ca15c4a31fc83": {
+      "query": "enable passwordless sudo for group wheel; create user with name=ansible in group=wheel",
+      "status": "semantic_error",
+      "error": "Expected exactly one of 'user' and 'group' arguments for enable sudo"
+    },
+    "06d8eeec398ca988c3a1e600e5f757569ecc7b7293826c7e92500295bdcfb998": {
+      "query": "enable passwordless sudo for group with name=wheel; create user with name=ansible in group=wheel",
+      "status": "semantic_error",
+      "error": "Expected exactly one of 'user' and 'group' arguments for enable sudo"
+    },
+    "c06f748724380320725aa954ec9f3e44e699cedbb901624e3431d2f14ab1c48b": {
+      "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+      "status": "semantic_error",
+      "error": "Unhandled start of: ssh client"
+    },
+    "aced636c45d7067f1892929a0b11852cd37ad493c51e068f019b71e917754ee0": {
+      "query": "if os is Debian or os is RedHat then install ssh client and server; start ssh client and server; create ssh key for fizbaz at \"/.ssh/fizbaz_rsa\"",
+      "status": "semantic_error",
+      "error": "Unknown package: ssh client and server"
+    },
+    "7cc80ff537e7e114938ece3abc0a477f83f83c1b9a98229a3a01f97927be658c": {
+      "query": "delete directory contents at /home/mydata/web",
+      "status": "semantic_error",
+      "error": "Unhandled deletion of: directory contents"
+    },
+    "7b6b0a4b543b2a52866dd7075f14437e1fb23bc54f86eda39444060969ff0455": {
+      "query": "if os is Debian then reboot system if required",
+      "status": "diagnostic_error",
+      "error": "Stdlib.Parsing.Parse_error"
+    },
+    "8186c8d194cacd2683fb4fc3d31afef42fe8419b08f9e02c8087e285b11f4573": {
+      "query": "create virtual environment at \"/user/home/venv\" with python=\"3.10\"; install numpy in \"/user/home/venv\"",
+      "status": "semantic_error",
+      "error": "Argument 'in' is required to create virtual environment"
+    },
+    "c2d2b14304799292e1d78d0f066a8a12a02d6759844b47fccc67d83eb98abcb0": {
+      "query": "create python virtual environment at /user/home/venv with version=\"3.10\"; install numpy in /user/home/venv",
+      "status": "semantic_error",
+      "error": "Unhandled environment type for create: python virtual"
+    },
+    "cdbabaecda1871a0b05f8e17617d924db478b7f6913e888f0c046d447393b3e9": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration file backup. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "semantic_error",
+      "error": "Unknown file: postfix default configuration"
+    },
+    "49c05a9057853f79cd99a7cc839358a3083377e73dc9bedee22a64f14dd05058": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; copy postfix default configuration file to postfix default configuration backup file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "semantic_error",
+      "error": "Unknown file: postfix default configuration"
+    },
+    "e39996ba8ef4f7cdc74c3f067d03a9d9d8120f3f8c77be41c1f17bff6ac7c1b6": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=latest; create backup for postfix default configuration file. if os is Ubuntu then download postfix configuration file from \"http://example.com/cfg.ubuntu\". if os is RedHat then download postfix configuration file from \"http://example.com/cfg.redhat\"",
+      "status": "semantic_error",
+      "error": "Unhandled creation of: backup"
+    },
+    "693f4ec4a01f236d158d247a8c25414da4b6e5e1d6084aed3028cc695e9c215d": {
+      "query": "if os is RedHat then install apache server; create home page for apache server; create user with name=webdev",
+      "status": "semantic_error",
+      "error": "Unhandled creation of: home page"
+    },
+    "1ac296b2a8e2bc3fcf1df4ed6dbaec09b3b227db79d5aab9d3140803ea292c25": {
+      "query": "if os is RedHat then install apache server; create apache server home page; create user with name=webdev",
+      "status": "semantic_error",
+      "error": "Unhandled creation of: apache server home page"
+    },
+    "d27c2a483ff45f1451cdb9a13336eea653960b625f51457a126d5f8267743369": {
+      "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh client; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+      "status": "semantic_error",
+      "error": "Unhandled start of: ssh client"
+    },
+    "fe364283267e3b8b092824547948414165f92d84235091fa2f13313404ea6369": {
+      "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server; create ssh key at \"/.ssh/fizbaz_rsa\" with user=fizbaz",
+      "status": "semantic_error",
+      "error": "Unhandled start of: ssh server"
+    },
+    "fad00aedf2acadc6410c1dc06b48e663b82887922bdbd400d898a2cc419f322e": {
+      "query": "create directory at \"/srv/www\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "create_directory",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/srv/www"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "e96e8def2f5ef59d14188e54a7a379f9870423c831755030a0497cef7644bc4c": {
+      "query": "delete directory at \"/home/mydata/web\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "delete_directory",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/home/mydata/web"
+            }
+          }
+        }
+      ]
+    },
+    "8e6ef9a25094c43944462a21246c75b8bbac2631f81969c0273ad7545680b196": {
+      "query": "delete files in \"/home/mydata/web\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "delete_files",
+          "paths": {
+            "kind": "in_path",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/home/mydata/web"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "8d68f33bad46db6c95bc51226afc3362a219ec8e4f905005bd547d9e10efcd81": {
+      "query": "copy files from controller \"/backup\" to remote \"/tmp\" with glob=\"*.war\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_files",
+          "source": {
+            "kind": "glob",
+            "base": {
+              "kind": "controller",
+              "destination": {
+                "kind": "absolute",
+                "value": "/backup"
+              }
+            },
+            "glob": "*.war"
+          },
+          "destination": {
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/tmp"
+                }
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "c43a7dd47ad85e257396a04e667bd6199f0b9be4ba8adb15e672c25f9fcf15ab": {
+      "query": "copy files from remote \"/tmp\" to controller \"/backup\" with glob=\"*.war\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "copy_files",
+          "source": {
+            "kind": "glob",
+            "base": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/tmp"
+              }
+            },
+            "glob": "*.war"
+          },
+          "destination": {
+            "paths": {
+              "kind": "in_path",
+              "path": {
+                "kind": "controller",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/backup"
+                }
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "a8792abd05867840cc90d2450b2eead82bc1cc743652bd65333552fa7d6196fb": {
+      "query": "clone github repository with name=\"ansible/ansible\", branch=\"release1.8.4\" into \"/ansible\" via https",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "existential",
+            "type": "string",
+            "binder": "__kb_bound_0",
+            "predicate": {
+              "kind": "or",
+              "left": {
+                "kind": "eq",
+                "left": {
+                  "kind": "id",
+                  "name": "__kb_bound_0"
+                },
+                "right": {
+                  "kind": "string",
+                  "value": "https://github.com/ansible/ansible.git"
+                }
+              },
+              "right": {
+                "kind": "or",
+                "left": {
+                  "kind": "eq",
+                  "left": {
+                    "kind": "id",
+                    "name": "__kb_bound_0"
+                  },
+                  "right": {
+                    "kind": "string",
+                    "value": "https://github.com/ansible/ansible"
+                  }
+                },
+                "right": {
+                  "kind": "bool",
+                  "value": false
+                }
+              }
+            }
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "bbc938646bbe66af3ece6cd1699bde6584b126c09de78d7ca65f71dcc92d8ced": {
+      "query": "clone github repository with name=\"ansible/ansible\" into \"/ansible\" via https with branch=\"release1.8.4\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "existential",
+            "type": "string",
+            "binder": "__kb_bound_0",
+            "predicate": {
+              "kind": "or",
+              "left": {
+                "kind": "eq",
+                "left": {
+                  "kind": "id",
+                  "name": "__kb_bound_0"
+                },
+                "right": {
+                  "kind": "string",
+                  "value": "https://github.com/ansible/ansible.git"
+                }
+              },
+              "right": {
+                "kind": "or",
+                "left": {
+                  "kind": "eq",
+                  "left": {
+                    "kind": "id",
+                    "name": "__kb_bound_0"
+                  },
+                  "right": {
+                    "kind": "string",
+                    "value": "https://github.com/ansible/ansible"
+                  }
+                },
+                "right": {
+                  "kind": "bool",
+                  "value": false
+                }
+              }
+            }
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "77c58a9ccaec66e60595584c3d3c81ecd6cedf293ee0c99786636d8cf2d62835": {
+      "query": "write \"module load gcc\" to bash configuration file for user=\"foo\" with position=end",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "write_file",
+          "value": "module load gcc",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "in_home",
+                "user": "foo",
+                "value": ".bashrc"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          },
+          "position": "bottom"
+        }
+      ]
+    },
+    "ddfc90227eb0110909e35c471309a7ddf2ae438be60f5529493bd317f187d879": {
+      "query": "if os is Debian then if reboot required then reboot",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Debian"
+          },
+          "then": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "file_exists",
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": {
+                      "kind": "existential",
+                      "type": "path",
+                      "binder": "__kb_bound_0",
+                      "predicate": {
+                        "kind": "or",
+                        "left": {
+                          "kind": "eq",
+                          "left": {
+                            "kind": "id",
+                            "name": "__kb_bound_0"
+                          },
+                          "right": {
+                            "kind": "path",
+                            "value": "/run/reboot-required"
+                          }
+                        },
+                        "right": {
+                          "kind": "or",
+                          "left": {
+                            "kind": "eq",
+                            "left": {
+                              "kind": "id",
+                              "name": "__kb_bound_0"
+                            },
+                            "right": {
+                              "kind": "path",
+                              "value": "/var/run/reboot-required"
+                            }
+                          },
+                          "right": {
+                            "kind": "bool",
+                            "value": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "then": [
+                {
+                  "kind": "reboot"
+                }
+              ],
+              "else": []
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "8d40f97a064a177ffd367db12db0f6051928fa40df7e19523120dca04581bf08": {
+      "query": "set file permissions in \"/srv/path\" with read=all, write=owner, list directory=all",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "set_files_permissions",
+          "paths": {
+            "kind": "in_path",
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/srv/path"
+              }
+            }
+          },
+          "permissions": {
+            "read": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "write": {
+              "owner": true,
+              "group": false,
+              "other": false
+            },
+            "execute": null,
+            "list_directory": {
+              "owner": true,
+              "group": true,
+              "other": true
+            },
+            "setuid": null,
+            "setgid": null,
+            "sticky": null
+          }
+        }
+      ]
+    },
+    "4124930616f72154ebd25b13af6c89c260190329c81381dd3dac0d2f8c35a831": {
+      "query": "create virtual environment in \"/user/home/venv\" with python=\"3.10\"; install numpy in virtual environment at \"/user/home/venv\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "create_virtualenv",
+          "version": "3.10",
+          "path": {
+            "kind": "remote",
+            "destination": {
+              "kind": "absolute",
+              "value": "/user/home/venv"
+            }
+          }
+        },
+        {
+          "kind": "install",
+          "packages": [
+            {
+              "name": "numpy",
+              "manager": {
+                "kind": "pip",
+                "environment": "/user/home/venv"
+              }
+            }
+          ],
+          "version": null
+        }
+      ]
+    },
+    "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8": {
+      "query": "disable password for user=\"service\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "disable_password",
+          "user": "service"
+        }
+      ]
+    },
+    "8581183bab47abb837343674621b418fc231424311f4ca4cee1325b7f87588d4": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix; copy postfix configuration file to ?path; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to \"/etc/postfix/main.cf\" otherwise download file from \"http://example.com/cfg.redhat\" to \"/etc/postfix/main.cf\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "postfix",
+                  "manager": "system"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "copy_file",
+              "source": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/etc/postfix/main.cf"
+                }
+              },
+              "destination": {
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": {
+                      "unknown": 0
+                    }
+                  }
+                },
+                "owner": null,
+                "group": null,
+                "permissions": {
+                  "read": null,
+                  "write": null,
+                  "execute": null,
+                  "list_directory": null,
+                  "setuid": null,
+                  "setgid": null,
+                  "sticky": null
+                }
+              }
+            },
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "Ubuntu"
+              },
+              "then": [
+                {
+                  "kind": "download",
+                  "source": "http://example.com/cfg.ubuntu",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/etc/postfix/main.cf"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                }
+              ],
+              "else": [
+                {
+                  "kind": "download",
+                  "source": "http://example.com/cfg.redhat",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/etc/postfix/main.cf"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "Ubuntu"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "postfix",
+                      "manager": "system"
+                    }
+                  ],
+                  "version": null
+                },
+                {
+                  "kind": "copy_file",
+                  "source": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/etc/postfix/main.cf"
+                    }
+                  },
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": {
+                          "unknown": 0
+                        }
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  }
+                },
+                {
+                  "kind": "conditional",
+                  "condition": {
+                    "kind": "os",
+                    "value": "Ubuntu"
+                  },
+                  "then": [
+                    {
+                      "kind": "download",
+                      "source": "http://example.com/cfg.ubuntu",
+                      "destination": {
+                        "path": {
+                          "kind": "remote",
+                          "destination": {
+                            "kind": "absolute",
+                            "value": "/etc/postfix/main.cf"
+                          }
+                        },
+                        "owner": null,
+                        "group": null,
+                        "permissions": {
+                          "read": null,
+                          "write": null,
+                          "execute": null,
+                          "list_directory": null,
+                          "setuid": null,
+                          "setgid": null,
+                          "sticky": null
+                        }
+                      }
+                    }
+                  ],
+                  "else": [
+                    {
+                      "kind": "download",
+                      "source": "http://example.com/cfg.redhat",
+                      "destination": {
+                        "path": {
+                          "kind": "remote",
+                          "destination": {
+                            "kind": "absolute",
+                            "value": "/etc/postfix/main.cf"
+                          }
+                        },
+                        "owner": null,
+                        "group": null,
+                        "permissions": {
+                          "read": null,
+                          "write": null,
+                          "execute": null,
+                          "list_directory": null,
+                          "setuid": null,
+                          "setgid": null,
+                          "sticky": null
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "else": []
+            }
+          ]
+        }
+      ]
+    },
+    "1334d5b1d633fdf613b994b619234e0878430206e0f5231e21ff4f83129b9322": {
+      "query": "if os is RedHat then install apache server; if apache server html home page file not exists then create apache server html home page file. if os is RedHat then create user with name=\"webdev\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "httpd",
+                  "manager": "dnf"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "file_exists",
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/var/www/html/index.html"
+                  }
+                }
+              },
+              "then": [],
+              "else": [
+                {
+                  "kind": "create_file",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/var/www/html/index.html"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            }
+          ],
+          "else": []
+        },
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "create_user",
+              "name": "webdev",
+              "primary_group": null,
+              "supplemental_groups": null
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "71fa80fc2ea9003c480ef1c4665fd7823f94951d7c784deee7491da23588e9a0": {
+      "query": "if os is RedHat then install apache server; create user with name=\"webdev\"; if apache server html home page file not exists then create apache server html home page file",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "RedHat"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "httpd",
+                  "manager": "dnf"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "create_user",
+              "name": "webdev",
+              "primary_group": null,
+              "supplemental_groups": null
+            },
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "file_exists",
+                "path": {
+                  "kind": "remote",
+                  "destination": {
+                    "kind": "absolute",
+                    "value": "/var/www/html/index.html"
+                  }
+                }
+              },
+              "then": [],
+              "else": [
+                {
+                  "kind": "create_file",
+                  "destination": {
+                    "path": {
+                      "kind": "remote",
+                      "destination": {
+                        "kind": "absolute",
+                        "value": "/var/www/html/index.html"
+                      }
+                    },
+                    "owner": null,
+                    "group": null,
+                    "permissions": {
+                      "read": null,
+                      "write": null,
+                      "execute": null,
+                      "list_directory": null,
+                      "setuid": null,
+                      "setgid": null,
+                      "sticky": null
+                    }
+                  },
+                  "content": null
+                }
+              ]
+            }
+          ],
+          "else": []
+        }
+      ]
+    },
+    "d3739352bfa2623a54c0869c44d9b7ce3be3f573c4239bebffdb9165826df038": {
+      "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", primary group=\"wheel\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "enable_sudo",
+          "account": {
+            "kind": "group",
+            "name": "wheel"
+          },
+          "passwordless": true
+        },
+        {
+          "kind": "create_user",
+          "name": "ansible",
+          "primary_group": "wheel",
+          "supplemental_groups": null
+        }
+      ]
+    },
+    "d57098b6f17298e31a80df40c29c1a1b8b03d4fb3d4ec010e77736df907917ea": {
+      "query": "if os is Debian or os is RedHat then install ssh client; install ssh server; start ssh server service; create ssh key for user=\"fizbaz\" at \"/.ssh/fizbaz_rsa\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "conditional",
+          "condition": {
+            "kind": "os",
+            "value": "Debian"
+          },
+          "then": [
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "openssh-client",
+                  "manager": "apt"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "install",
+              "packages": [
+                {
+                  "name": "openssh-server",
+                  "manager": "system"
+                }
+              ],
+              "version": null
+            },
+            {
+              "kind": "start_service",
+              "name": {
+                "kind": "existential",
+                "type": "string",
+                "binder": "__kb_bound_0",
+                "predicate": {
+                  "kind": "or",
+                  "left": {
+                    "kind": "eq",
+                    "left": {
+                      "kind": "id",
+                      "name": "__kb_bound_0"
+                    },
+                    "right": {
+                      "kind": "string",
+                      "value": "ssh"
+                    }
+                  },
+                  "right": {
+                    "kind": "or",
+                    "left": {
+                      "kind": "eq",
+                      "left": {
+                        "kind": "id",
+                        "name": "__kb_bound_0"
+                      },
+                      "right": {
+                        "kind": "string",
+                        "value": "sshd"
+                      }
+                    },
+                    "right": {
+                      "kind": "bool",
+                      "value": false
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "kind": "create_ssh_key",
+              "path": {
+                "kind": "remote",
+                "destination": {
+                  "kind": "absolute",
+                  "value": "/.ssh/fizbaz_rsa"
+                }
+              }
+            }
+          ],
+          "else": [
+            {
+              "kind": "conditional",
+              "condition": {
+                "kind": "os",
+                "value": "RedHat"
+              },
+              "then": [
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "openssh-clients",
+                      "manager": "dnf"
+                    }
+                  ],
+                  "version": null
+                },
+                {
+                  "kind": "install",
+                  "packages": [
+                    {
+                      "name": "openssh-server",
+                      "manager": "system"
+                    }
+                  ],
+                  "version": null
+                },
+                {
+                  "kind": "start_service",
+                  "name": {
+                    "kind": "existential",
+                    "type": "string",
+                    "binder": "__kb_bound_0",
+                    "predicate": {
+                      "kind": "or",
+                      "left": {
+                        "kind": "eq",
+                        "left": {
+                          "kind": "id",
+                          "name": "__kb_bound_0"
+                        },
+                        "right": {
+                          "kind": "string",
+                          "value": "ssh"
+                        }
+                      },
+                      "right": {
+                        "kind": "or",
+                        "left": {
+                          "kind": "eq",
+                          "left": {
+                            "kind": "id",
+                            "name": "__kb_bound_0"
+                          },
+                          "right": {
+                            "kind": "string",
+                            "value": "sshd"
+                          }
+                        },
+                        "right": {
+                          "kind": "bool",
+                          "value": false
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "kind": "create_ssh_key",
+                  "path": {
+                    "kind": "remote",
+                    "destination": {
+                      "kind": "absolute",
+                      "value": "/.ssh/fizbaz_rsa"
+                    }
+                  }
+                }
+              ],
+              "else": []
+            }
+          ]
+        }
+      ]
+    },
+    "302a995fbbd4206b9469ba53ab9369ba83e7f10087539c8a55d873936088f6eb": {
+      "query": "clone github repository with name=\"ansible/ansible\" via https with branch=\"release1.8.4\" into \"/ansible\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "clone",
+          "repository": {
+            "kind": "existential",
+            "type": "string",
+            "binder": "__kb_bound_0",
+            "predicate": {
+              "kind": "or",
+              "left": {
+                "kind": "eq",
+                "left": {
+                  "kind": "id",
+                  "name": "__kb_bound_0"
+                },
+                "right": {
+                  "kind": "string",
+                  "value": "https://github.com/ansible/ansible.git"
+                }
+              },
+              "right": {
+                "kind": "or",
+                "left": {
+                  "kind": "eq",
+                  "left": {
+                    "kind": "id",
+                    "name": "__kb_bound_0"
+                  },
+                  "right": {
+                    "kind": "string",
+                    "value": "https://github.com/ansible/ansible"
+                  }
+                },
+                "right": {
+                  "kind": "bool",
+                  "value": false
+                }
+              }
+            }
+          },
+          "version": "release1.8.4",
+          "destination": {
+            "path": {
+              "kind": "remote",
+              "destination": {
+                "kind": "absolute",
+                "value": "/ansible"
+              }
+            },
+            "owner": null,
+            "group": null,
+            "permissions": {
+              "read": null,
+              "write": null,
+              "execute": null,
+              "list_directory": null,
+              "setuid": null,
+              "setgid": null,
+              "sticky": null
+            }
+          }
+        }
+      ]
+    },
+    "c82339ccc0c07ffd8774f772510113f5bf9376ffe75950147f3ba25520c48977": {
+      "query": "if os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file. if os is RedHat then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+      "status": "semantic_error",
+      "error": "unhandled path specifier 'postfix configuration file'"
+    },
+    "69b26d218ca7a34f2e6fdde1b9d5f5e027931496e60458434571e1507d4c0dc8": {
+      "query": "if os is RedHat or os is Ubuntu then install postfix with version=\"latest\"; copy postfix configuration file to ?backup; if os is Ubuntu then download file from \"http://example.com/cfg.ubuntu\" to postfix configuration file otherwise download file from \"http://example.com/cfg.redhat\" to postfix configuration file",
+      "status": "semantic_error",
+      "error": "unhandled path specifier 'postfix configuration file'"
+    },
+    "b51139c6d4d985dce4ab33bfb1f86a0dea98ba7549ff57fdba592ab1ea4046ee": {
+      "query": "enable passwordless sudo for group=\"wheel\"; create user with name=\"ansible\", supplemental groups=\"wheel\"",
+      "status": "ok",
+      "effects": [
+        {
+          "kind": "enable_sudo",
+          "account": {
+            "kind": "group",
+            "name": "wheel"
+          },
+          "passwordless": true
+        },
+        {
+          "kind": "create_user",
+          "name": "ansible",
+          "primary_group": null,
+          "supplemental_groups": [
+            "wheel"
+          ]
+        }
+      ]
+    }
+  }
+}

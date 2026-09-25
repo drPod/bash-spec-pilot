@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-24",
+  "host_python": "3.12.3",
+  "upstream_commit": "7c62afa51986d87033af5112cdccd3b104b1c120",
+  "images": {
+    "astrogator-lab:20260924": "sha256:c6eadf284319d4df7fe268859e86a6b00d728748f3d31b2d56791133c1800f32",
+    "astrogator-lab:20260924-v2": "sha256:c77c1995b4393777d983a9717c79577f4f9bc213e47be2109b14d796f0fa145b"
+  },
+  "model": {
+    "models": [
+      {
+        "name": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+        "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+        "aliases": [
+          "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1790291341,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": true,
+          "n_vocab": 151936,
+          "n_ctx": 4096,
+          "n_ctx_train": 32768,
+          "n_embd": 1536,
+          "n_params": 1543714304,
+          "size": 980097536,
+          "ftype": "Q4_K - Medium"
+        }
+      }
+    ]
+  },
+  "server_version": "version: 0.4.0-dev (build 10830, commit 465e49b9c)\nbuilt with GNU 14.2.0 for Linux x86_64",
+  "source_sha256": {
+    "benchmarks.csv": "39ac16b76c7cd6d672dbd984ea6d70d62d20f97f206f5e2d99caecf13c91257c",
+    "upstream-7c62afa.tar.gz": "e31fa009ef814fd01abfd3e3cde6b6d74ef0e442d5c48be2cf6d45353fdd5663",
+    "astrogator_data.tgz": "071b7a6af1b991f0d330d7562269d44aa14a5ee9e07842484534c728f4d4ba79"
+  },
+  "notes": [
+    "v1 lacks python3-apt; package cases rerun with v2",
+    "V2 includes corrected diagnostic probe; verifier algorithm unchanged",
+    "Ansible core 2.19.11; Debian 13; OCaml 5.3.0",
+    "Local inference server shared with another app; timing is not exclusive hardware benchmarking"
+  ],
+  "model_weights_sha256": "1adf0b11065d8ad2e8123ea110d1ec956dab4ab038eab665614adba04b6c3370",
+  "model_fingerprint_checked_at": "2026-09-24T23:59:58Z"
+}

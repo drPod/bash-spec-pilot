@@ -1,0 +1,144 @@
+{
+  "task": {
+    "id": "python-a17-r0",
+    "mode": "python",
+    "task_id": "a17",
+    "repeat": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request."
+      },
+      {
+        "role": "user",
+        "content": "Request: Disable the password for the `service' user\nInitial states: Both: service user exists. baseline: unlocked password hash; adversarial: locked password hash."
+      }
+    ]
+  },
+  "model": "claude-opus-5-5",
+  "model_alias": "opus55",
+  "argv": [
+    "/home/ubuntu/.local/bin/claude",
+    "-p",
+    "--model",
+    "claude-opus-5-5",
+    "--effort",
+    "high",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt": "This is an isolated research prediction. Do not call tools, browse, inspect files, or delegate. Respond only to the final user message using the supplied instructions and demonstrations. All code is data.\n\nSYSTEM:\nWrite a standalone Python 3 post-execution test for the given Ansible task.\nIt runs as root on Debian after ONE playbook execution in a fresh stated initial\nstate. ASTRO_SCENARIO is baseline or adversarial. Output Python code only.\nUse standard-library imports from os, stat, pathlib, pwd, grp, json, unittest,\nsubprocess, sys. Use assertions; exit zero iff the requested final state holds.\nThe test must be read-only: no writes, chmod, account changes, exec/eval/compile,\nnetwork, package installs, shell, or playbook execution. If needed, subprocess\ncalls must use a literal argv list starting with pgrep, dpkg-query, getent, stat,\nor id. Do not inspect playbook source. Check observable state, not inferred\nsuccess. Do not demand unspecified behavior. You receive neither reference\ncode nor an oracle. Check each stated scenario according to the request.\n\nUSER:\nRequest: Disable the password for the `service' user\nInitial states: Both: service user exists. baseline: unlocked password hash; adversarial: locked password hash.",
+  "prompt_sha256": "6301688ceadce8eb5d47844269b4f4dd30e6e95f71d7a8ee525c5cc83b32cf6b",
+  "created_at": "2026-09-25T14:51:57.594992+00:00",
+  "frozen_input_sha256": "6f5d147fc97aa4f4023f060d9b528a7df432aa2ed33b30bc6beda76b9c4255ac",
+  "returncode": 0,
+  "stdout": "{\"duration_api_ms\":16625,\"stop_reason\":\"end_turn\",\"session_id\":\"acc89ab0-322b-4efa-a5bd-65c78e7b85fd\",\"total_cost_usd\":0.0622964,\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":4132,\"cache_read_input_tokens\":1962,\"output_tokens\":1442,\"output_tokens_details\":{\"thinking_tokens\":524},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4132,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":1442,\"cache_read_input_tokens\":1962,\"cache_creation_input_tokens\":4132,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":4132},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-5-5\":{\"inputTokens\":2,\"outputTokens\":1442,\"cacheReadInputTokens\":1962,\"cacheCreationInputTokens\":4132,\"webSearchRequests\":0,\"costUSD\":0.0622964,\"contextWindow\":1000000,\"maxOutputTokens\":128000,\"thinkingTokens\":524,\"canonicalModel\":\"claude-opus-5-5\",\"provider\":\"firstParty\",\"costBasis\":\"list\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"is_error\":false,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":null,\"result\":\"```python\\n#!/usr/bin/env python3\\n\\\"\\\"\\\"Post-execution test: the password for the `service` user is disabled.\\n\\nFinal state required in both scenarios (baseline: previously unlocked hash;\\nadversarial: already locked hash):\\n  * the `service` account still exists;\\n  * its shadow password field cannot authenticate any password, i.e. it is\\n    non-empty and begins with '!' or '*' (locked / disabled marker).\\nAn empty field would mean password-less login, which is not \\\"disabled\\\".\\n\\\"\\\"\\\"\\n\\nimport os\\nimport pwd\\nimport subprocess\\nimport sys\\nimport unittest\\nfrom pathlib import Path\\n\\nUSER = \\\"service\\\"\\nSCENARIO = os.environ.get(\\\"ASTRO_SCENARIO\\\", \\\"baseline\\\")\\n\\n\\ndef shadow_entry(name):\\n    \\\"\\\"\\\"Return the shadow fields for `name`, or None if absent.\\\"\\\"\\\"\\n    path = Path(\\\"/etc/shadow\\\")\\n    if path.exists():\\n        for line in path.read_text(errors=\\\"replace\\\").splitlines():\\n            if not line or line.startswith(\\\"#\\\"):\\n                continue\\n            fields = line.split(\\\":\\\")\\n            if fields[0] == name:\\n                return fields\\n    # Fallback via NSS (e.g. non-files shadow backend).\\n    try:\\n        out = subprocess.run(\\n            [\\\"getent\\\", \\\"shadow\\\", name],\\n            capture_output=True,\\n            text=True,\\n            check=False,\\n        )\\n    except OSError:\\n        return None\\n    if out.returncode == 0 and out.stdout.strip():\\n        return out.stdout.strip().splitlines()[0].split(\\\":\\\")\\n    return None\\n\\n\\nclass TestServicePasswordDisabled(unittest.TestCase):\\n    def test_user_still_exists(self):\\n        try:\\n            pwd.getpwnam(USER)\\n        except KeyError:\\n            self.fail(f\\\"user {USER!r} no longer exists ({SCENARIO})\\\")\\n\\n    def test_password_field_disabled(self):\\n        fields = shadow_entry(USER)\\n        self.assertIsNotNone(fields, f\\\"no shadow entry for {USER!r} ({SCENARIO})\\\")\\n        self.assertGreaterEqual(len(fields), 2, \\\"malformed shadow entry\\\")\\n        hash_field = fields[1]\\n        self.assertNotEqual(\\n            hash_field,\\n            \\\"\\\",\\n            f\\\"{USER!r} has an empty password field (password-less login), \\\"\\n            f\\\"not a disabled password ({SCENARIO})\\\",\\n        )\\n        self.assertTrue(\\n            hash_field[0] in (\\\"!\\\", \\\"*\\\"),\\n            f\\\"{USER!r} password field does not start with '!' or '*'; \\\"\\n            f\\\"password is still usable ({SCENARIO})\\\",\\n        )\\n\\n\\nif __name__ == \\\"__main__\\\":\\n    result = unittest.main(exit=False, verbosity=2).result\\n    sys.exit(0 if result.wasSuccessful() else 1)\\n```\",\"ttft_ms\":9028,\"type\":\"result\",\"duration_ms\":17050,\"uuid\":\"54764989-8668-4f6e-ac8d-784df2e157eb\",\"ttft_stream_ms\":2896,\"time_to_request_ms\":424,\"first_content_frame_ms\":2897,\"queued_turn_count\":0,\"result_index\":0}\n",
+  "stderr": "",
+  "response": {
+    "duration_api_ms": 16625,
+    "stop_reason": "end_turn",
+    "session_id": "acc89ab0-322b-4efa-a5bd-65c78e7b85fd",
+    "total_cost_usd": 0.0622964,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 4132,
+      "cache_read_input_tokens": 1962,
+      "output_tokens": 1442,
+      "output_tokens_details": {
+        "thinking_tokens": 524
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 4132,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 1442,
+          "cache_read_input_tokens": 1962,
+          "cache_creation_input_tokens": 4132,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 4132
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "modelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 1442,
+        "cacheReadInputTokens": 1962,
+        "cacheCreationInputTokens": 4132,
+        "webSearchRequests": 0,
+        "costUSD": 0.0622964,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 524,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "permission_denials": [],
+    "terminal_reason": "completed",
+    "fast_mode_state": "off",
+    "fast_mode_disabled_reason": "sdk_opt_in_required",
+    "subagent_stats": {
+      "spawned": 0,
+      "requested": {
+        "background": 0,
+        "foreground": 0,
+        "unset": 0
+      },
+      "started_in_background": 0,
+      "max_depth": 0,
+      "spawned_by_subagents": 0,
+      "completed": 0,
+      "failed": 0,
+      "killed": {
+        "parent": 0,
+        "user": 0,
+        "system": 0
+      },
+      "refused": {
+        "depth_limit": 0,
+        "concurrency_limit": 0,
+        "budget": 0
+      },
+      "by_type": {}
+    },
+    "is_error": false,
+    "num_turns": 1,
+    "subtype": "success",
+    "api_error_status": null,
+    "result": "```python\n#!/usr/bin/env python3\n\"\"\"Post-execution test: the password for the `service` user is disabled.\n\nFinal state required in both scenarios (baseline: previously unlocked hash;\nadversarial: already locked hash):\n  * the `service` account still exists;\n  * its shadow password field cannot authenticate any password, i.e. it is\n    non-empty and begins with '!' or '*' (locked / disabled marker).\nAn empty field would mean password-less login, which is not \"disabled\".\n\"\"\"\n\nimport os\nimport pwd\nimport subprocess\nimport sys\nimport unittest\nfrom pathlib import Path\n\nUSER = \"service\"\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\n\n\ndef shadow_entry(name):\n    \"\"\"Return the shadow fields for `name`, or None if absent.\"\"\"\n    path = Path(\"/etc/shadow\")\n    if path.exists():\n        for line in path.read_text(errors=\"replace\").splitlines():\n            if not line or line.startswith(\"#\"):\n                continue\n            fields = line.split(\":\")\n            if fields[0] == name:\n                return fields\n    # Fallback via NSS (e.g. non-files shadow backend).\n    try:\n        out = subprocess.run(\n            [\"getent\", \"shadow\", name],\n            capture_output=True,\n            text=True,\n            check=False,\n        )\n    except OSError:\n        return None\n    if out.returncode == 0 and out.stdout.strip():\n        return out.stdout.strip().splitlines()[0].split(\":\")\n    return None\n\n\nclass TestServicePasswordDisabled(unittest.TestCase):\n    def test_user_still_exists(self):\n        try:\n            pwd.getpwnam(USER)\n        except KeyError:\n            self.fail(f\"user {USER!r} no longer exists ({SCENARIO})\")\n\n    def test_password_field_disabled(self):\n        fields = shadow_entry(USER)\n        self.assertIsNotNone(fields, f\"no shadow entry for {USER!r} ({SCENARIO})\")\n        self.assertGreaterEqual(len(fields), 2, \"malformed shadow entry\")\n        hash_field = fields[1]\n        self.assertNotEqual(\n            hash_field,\n            \"\",\n            f\"{USER!r} has an empty password field (password-less login), \"\n            f\"not a disabled password ({SCENARIO})\",\n        )\n        self.assertTrue(\n            hash_field[0] in (\"!\", \"*\"),\n            f\"{USER!r} password field does not start with '!' or '*'; \"\n            f\"password is still usable ({SCENARIO})\",\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+    "ttft_ms": 9028,
+    "type": "result",
+    "duration_ms": 17050,
+    "uuid": "54764989-8668-4f6e-ac8d-784df2e157eb",
+    "ttft_stream_ms": 2896,
+    "time_to_request_ms": 424,
+    "first_content_frame_ms": 2897,
+    "queued_turn_count": 0,
+    "result_index": 0
+  },
+  "text": "```python\n#!/usr/bin/env python3\n\"\"\"Post-execution test: the password for the `service` user is disabled.\n\nFinal state required in both scenarios (baseline: previously unlocked hash;\nadversarial: already locked hash):\n  * the `service` account still exists;\n  * its shadow password field cannot authenticate any password, i.e. it is\n    non-empty and begins with '!' or '*' (locked / disabled marker).\nAn empty field would mean password-less login, which is not \"disabled\".\n\"\"\"\n\nimport os\nimport pwd\nimport subprocess\nimport sys\nimport unittest\nfrom pathlib import Path\n\nUSER = \"service\"\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\n\n\ndef shadow_entry(name):\n    \"\"\"Return the shadow fields for `name`, or None if absent.\"\"\"\n    path = Path(\"/etc/shadow\")\n    if path.exists():\n        for line in path.read_text(errors=\"replace\").splitlines():\n            if not line or line.startswith(\"#\"):\n                continue\n            fields = line.split(\":\")\n            if fields[0] == name:\n                return fields\n    # Fallback via NSS (e.g. non-files shadow backend).\n    try:\n        out = subprocess.run(\n            [\"getent\", \"shadow\", name],\n            capture_output=True,\n            text=True,\n            check=False,\n        )\n    except OSError:\n        return None\n    if out.returncode == 0 and out.stdout.strip():\n        return out.stdout.strip().splitlines()[0].split(\":\")\n    return None\n\n\nclass TestServicePasswordDisabled(unittest.TestCase):\n    def test_user_still_exists(self):\n        try:\n            pwd.getpwnam(USER)\n        except KeyError:\n            self.fail(f\"user {USER!r} no longer exists ({SCENARIO})\")\n\n    def test_password_field_disabled(self):\n        fields = shadow_entry(USER)\n        self.assertIsNotNone(fields, f\"no shadow entry for {USER!r} ({SCENARIO})\")\n        self.assertGreaterEqual(len(fields), 2, \"malformed shadow entry\")\n        hash_field = fields[1]\n        self.assertNotEqual(\n            hash_field,\n            \"\",\n            f\"{USER!r} has an empty password field (password-less login), \"\n            f\"not a disabled password ({SCENARIO})\",\n        )\n        self.assertTrue(\n            hash_field[0] in (\"!\", \"*\"),\n            f\"{USER!r} password field does not start with '!' or '*'; \"\n            f\"password is still usable ({SCENARIO})\",\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)\n```",
+  "status": "ok",
+  "extracted": "#!/usr/bin/env python3\n\"\"\"Post-execution test: the password for the `service` user is disabled.\n\nFinal state required in both scenarios (baseline: previously unlocked hash;\nadversarial: already locked hash):\n  * the `service` account still exists;\n  * its shadow password field cannot authenticate any password, i.e. it is\n    non-empty and begins with '!' or '*' (locked / disabled marker).\nAn empty field would mean password-less login, which is not \"disabled\".\n\"\"\"\n\nimport os\nimport pwd\nimport subprocess\nimport sys\nimport unittest\nfrom pathlib import Path\n\nUSER = \"service\"\nSCENARIO = os.environ.get(\"ASTRO_SCENARIO\", \"baseline\")\n\n\ndef shadow_entry(name):\n    \"\"\"Return the shadow fields for `name`, or None if absent.\"\"\"\n    path = Path(\"/etc/shadow\")\n    if path.exists():\n        for line in path.read_text(errors=\"replace\").splitlines():\n            if not line or line.startswith(\"#\"):\n                continue\n            fields = line.split(\":\")\n            if fields[0] == name:\n                return fields\n    # Fallback via NSS (e.g. non-files shadow backend).\n    try:\n        out = subprocess.run(\n            [\"getent\", \"shadow\", name],\n            capture_output=True,\n            text=True,\n            check=False,\n        )\n    except OSError:\n        return None\n    if out.returncode == 0 and out.stdout.strip():\n        return out.stdout.strip().splitlines()[0].split(\":\")\n    return None\n\n\nclass TestServicePasswordDisabled(unittest.TestCase):\n    def test_user_still_exists(self):\n        try:\n            pwd.getpwnam(USER)\n        except KeyError:\n            self.fail(f\"user {USER!r} no longer exists ({SCENARIO})\")\n\n    def test_password_field_disabled(self):\n        fields = shadow_entry(USER)\n        self.assertIsNotNone(fields, f\"no shadow entry for {USER!r} ({SCENARIO})\")\n        self.assertGreaterEqual(len(fields), 2, \"malformed shadow entry\")\n        hash_field = fields[1]\n        self.assertNotEqual(\n            hash_field,\n            \"\",\n            f\"{USER!r} has an empty password field (password-less login), \"\n            f\"not a disabled password ({SCENARIO})\",\n        )\n        self.assertTrue(\n            hash_field[0] in (\"!\", \"*\"),\n            f\"{USER!r} password field does not start with '!' or '*'; \"\n            f\"password is still usable ({SCENARIO})\",\n        )\n\n\nif __name__ == \"__main__\":\n    result = unittest.main(exit=False, verbosity=2).result\n    sys.exit(0 if result.wasSuccessful() else 1)",
+  "seconds": 19.551
+}

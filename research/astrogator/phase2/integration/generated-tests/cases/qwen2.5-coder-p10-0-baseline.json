@@ -1,0 +1,46 @@
+{
+  "task_id": "a17",
+  "scenario": "baseline",
+  "candidate_sha256": "d8c0596d791f0d886b5f673c332bf87998ab2c1499231d085f13294abd7d600c",
+  "status": "execution_error",
+  "generated_tests": {},
+  "before": {
+    "user_exists": true,
+    "service_shadow_entries": [
+      [
+        "service",
+        "$6$astrolab$GfDheI3dJMI7bPFBGNmrcPJ4//UlyTCt7GxxluOHGKjhBWB1/8O/IyrtzbN1sk41YqlCMgqZobe7QoOiYcRd70",
+        "20721",
+        "0",
+        "99999",
+        "7",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "service_passwd_entries": [
+      [
+        "service",
+        "x",
+        "1000",
+        "1000",
+        "",
+        "/home/service",
+        "/bin/sh"
+      ]
+    ],
+    "password_locked_marker": false,
+    "shadow_and_passwd_integrity": true,
+    "old_oracle": false,
+    "strict_oracle": false,
+    "fixture_password_still_matches": true
+  },
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen, Problem p10, Response 10] ************************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Disable password for 'service' user] *************************************\n[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'\n\nTask failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response0.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Disable password for 'service' user\n      ^ column 5\n\n<<< caused by >>>\n\nFinalization of task args for 'ansible.builtin.user' failed.\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response0.yml:7:5\n\n5   tasks:\n6   - name: Disable password for 'service' user\n7     user:\n      ^ column 5\n\n<<< caused by >>>\n\nError while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'\nOrigin: /suite/data/corpus/qwen2.5-coder/p10/response0.yml:12:23\n\n10         for service user', encrypt='sha256_crypt') }}\"\n11       generate_ssh_key: no\n12       login_password: \"{{ lookup('password', 'root_user_password', prompt='Enter root\n                         ^ column 23\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Finalization of task args for 'ansible.builtin.user' failed: Error while resolving value for 'login_password': The lookup plugin 'password' failed: [Errno 30] Read-only file system: b'/suite/data/corpus/qwen2.5-coder/p10/cc43eab3bb3625a8a594ee5f09e968d60e8d1953.ansible_lockfile'\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.308,
+  "sample_id": "qwen2.5-coder/p10/0"
+}

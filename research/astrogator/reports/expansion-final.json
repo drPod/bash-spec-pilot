@@ -1,0 +1,644 @@
+{
+  "tasks": {
+    "a22": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a23": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a24": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a25": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a26": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a27": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "execution_error",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a28": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a29": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a30": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a31": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a32": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a33": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a34": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a35": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a36": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a37": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a38": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a39": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a40": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "execution_error",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a41": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a42": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a43": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a44": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a45": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a46": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a47": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a48": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a49": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a50": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a51": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a52": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a53": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a54": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a55": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a56": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a57": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a58": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a59": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a60": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a61": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a62": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a63": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a64": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a65": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "execution_error",
+        "adversarial": "execution_error"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a66": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a67": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a68": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "passed"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a69": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "passed",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    },
+    "a70": {
+      "references": {
+        "baseline": "passed",
+        "adversarial": "passed"
+      },
+      "mutants": {
+        "baseline": "oracle_rejected",
+        "adversarial": "oracle_rejected"
+      },
+      "reference_validated": true,
+      "mutant_killed": true,
+      "mutant_inconclusive": false
+    }
+  },
+  "reference_validated": 49,
+  "mutants_killed": 49,
+  "case_count": 196
+}

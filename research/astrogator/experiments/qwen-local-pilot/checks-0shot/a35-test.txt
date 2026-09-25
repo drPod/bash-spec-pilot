@@ -1,0 +1,19 @@
+{
+  "checks": [
+    {
+      "kind": "content",
+      "path": "/work/app.conf",
+      "value": "port=8080\n"
+    },
+    {
+      "kind": "mode",
+      "path": "/work/app.conf",
+      "value": "0644"
+    },
+    {
+      "kind": "content",
+      "path": "/work/app.conf",
+      "value": "port=9090\n"
+    }
+  ]
+}

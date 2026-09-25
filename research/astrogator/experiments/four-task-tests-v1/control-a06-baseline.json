@@ -1,0 +1,107 @@
+{
+  "task_id": "a06",
+  "scenario": "baseline",
+  "variant": "candidate",
+  "status": "passed",
+  "executions": [
+    {
+      "iteration": 1,
+      "returncode": 0,
+      "stdout": "\nPLAY [Create /etc/file.txt if it does not exist] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create the file if it does not exist] ************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+      "stderr": ""
+    }
+  ],
+  "iterations_requested": 1,
+  "input_sha256": {
+    "candidate": "d2d9ec0fb45a1c501cdcb12d102da9f0c7a2672a14d64e9fc336ca3806e811bb",
+    "setup": "c58c6b6ca62648165a227efcbbb9cf9c5a27aec57d3ceb078c038f41ad2b38a7",
+    "oracle": "087db7fb60b33544a022e9c2aa4e89f315545ef975d73252a68e0e136f36b7df"
+  },
+  "generated_test": {
+    "status": "evaluated",
+    "passed": false,
+    "outcomes": [
+      {
+        "check": {
+          "kind": "directory",
+          "scenario": "both",
+          "path": "/etc/file.txt"
+        },
+        "passed": false
+      },
+      {
+        "check": {
+          "kind": "absent",
+          "scenario": "baseline",
+          "path": "/etc/file.txt"
+        },
+        "passed": false
+      },
+      {
+        "check": {
+          "kind": "mode",
+          "scenario": "baseline",
+          "path": "/etc/file.txt",
+          "value": "644"
+        },
+        "passed": true
+      },
+      {
+        "check": {
+          "kind": "content",
+          "scenario": "baseline",
+          "path": "/etc/file.txt",
+          "value": "beginning"
+        },
+        "passed": true
+      },
+      {
+        "check": {
+          "kind": "contains",
+          "scenario": "baseline",
+          "path": "/etc/file.txt",
+          "value": "beginning"
+        },
+        "passed": true
+      },
+      {
+        "check": {
+          "kind": "member",
+          "scenario": "baseline",
+          "user": "root",
+          "group": "root"
+        },
+        "passed": true
+      },
+      {
+        "check": {
+          "kind": "package",
+          "scenario": "baseline",
+          "name": "bash",
+          "version": "4.4.19(1)-release"
+        },
+        "passed": false
+      },
+      {
+        "check": {
+          "kind": "running",
+          "scenario": "baseline",
+          "name": "bash",
+          "value": true
+        },
+        "passed": false
+      },
+      {
+        "check": {
+          "kind": "password_locked",
+          "scenario": "baseline",
+          "user": "root"
+        },
+        "passed": true
+      }
+    ]
+  },
+  "seconds": 3.839,
+  "sample_id": "reference/a06",
+  "test_sha256": "7bb5bbad48e70027e26db6856e2f550e18a5194c1dd0f6ffb07bf1fd259c411c"
+}

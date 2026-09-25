@@ -1,0 +1,95 @@
+{
+  "task_id": "a02",
+  "scenario": "adversarial",
+  "candidate_sha256": "cbe93d68de438b496ba4accd49edca7e2367625f36b2c591041f9d8dd5c6558f",
+  "status": "observed",
+  "generated_tests": {
+    "gpt6-python-a02-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a02-r0.py\", line 3, in <module>\n    assert not os.path.lexists(\"/home/mydata/web\"), \"/home/mydata/web still exists\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: /home/mydata/web still exists\n",
+      "measured_state_unchanged": true
+    },
+    "gpt6-python-a02-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a02-r1.py\", line 3, in <module>\n    assert not os.path.lexists(\"/home/mydata/web\"), \"/home/mydata/web still exists\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: /home/mydata/web still exists\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a02-r0": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "test_no_contents_remain (__main__.TestWebDirectoryDeleted.test_no_contents_remain) ... FAIL\ntest_target_does_not_exist (__main__.TestWebDirectoryDeleted.test_target_does_not_exist) ... FAIL\ntest_target_not_any_filesystem_object (__main__.TestWebDirectoryDeleted.test_target_not_any_filesystem_object) ... FAIL\n\n======================================================================\nFAIL: test_no_contents_remain (__main__.TestWebDirectoryDeleted.test_no_contents_remain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r0.py\", line 41, in test_no_contents_remain\n    self.fail(\n    ~~~~~~~~~^\n        f\"{TARGET} still exists with {len(remaining)} entries remaining: \"\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        f\"{remaining[:10]} (scenario={SCENARIO})\"\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: /home/mydata/web still exists with 2 entries remaining: ['/home/mydata/web/nested', '/home/mydata/web/nested/.hidden'] (scenario=adversarial)\n\n======================================================================\nFAIL: test_target_does_not_exist (__main__.TestWebDirectoryDeleted.test_target_does_not_exist)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r0.py\", line 15, in test_target_does_not_exist\n    self.assertFalse(\n    ~~~~~~~~~~~~~~~~^\n        os.path.lexists(str(TARGET)),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        f\"{TARGET} still exists (scenario={SCENARIO})\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: True is not false : /home/mydata/web still exists (scenario=adversarial)\n\n======================================================================\nFAIL: test_target_not_any_filesystem_object (__main__.TestWebDirectoryDeleted.test_target_not_any_filesystem_object)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r0.py\", line 31, in test_target_not_any_filesystem_object\n    self.fail(f\"{TARGET} is still present as a {kind} (scenario={SCENARIO})\")\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: /home/mydata/web is still present as a directory (scenario=adversarial)\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nFAILED (failures=3)\n",
+      "measured_state_unchanged": true
+    },
+    "opus55-python-a02-r1": {
+      "status": "evaluated",
+      "passed": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "test_no_leftover_children_listed_in_parent (__main__.TestDirectoryDeleted.test_no_leftover_children_listed_in_parent) ... FAIL\ntest_parent_preserved_in_adversarial (__main__.TestDirectoryDeleted.test_parent_preserved_in_adversarial) ... ok\ntest_target_absent (__main__.TestDirectoryDeleted.test_target_absent) ... FAIL\ntest_target_not_replaced_by_any_entry (__main__.TestDirectoryDeleted.test_target_not_replaced_by_any_entry) ... FAIL\n\n======================================================================\nFAIL: test_no_leftover_children_listed_in_parent (__main__.TestDirectoryDeleted.test_no_leftover_children_listed_in_parent)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r1.py\", line 31, in test_no_leftover_children_listed_in_parent\n    self.assertNotIn(\n    ~~~~~~~~~~~~~~~~^\n        \"web\", entries, f\"'web' entry still present in {PARENT}: {entries}\"\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: 'web' unexpectedly found in ['web'] : 'web' entry still present in /home/mydata: ['web']\n\n======================================================================\nFAIL: test_target_absent (__main__.TestDirectoryDeleted.test_target_absent)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r1.py\", line 15, in test_target_absent\n    self.assertFalse(\n    ~~~~~~~~~~~~~~~~^\n        os.path.lexists(TARGET),\n        ^^^^^^^^^^^^^^^^^^^^^^^^\n        f\"{TARGET} still exists (or was replaced by another filesystem object)\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: True is not false : /home/mydata/web still exists (or was replaced by another filesystem object)\n\n======================================================================\nFAIL: test_target_not_replaced_by_any_entry (__main__.TestDirectoryDeleted.test_target_not_replaced_by_any_entry)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/suite/phase2/integration/python-tests/specifications/opus55-python-a02-r1.py\", line 25, in test_target_not_replaced_by_any_entry\n    self.fail(f\"{TARGET} exists with mode {stat.filemode(st.st_mode)}\")\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: /home/mydata/web exists with mode drwxr-xr-x\n\n----------------------------------------------------------------------\nRan 4 tests in 0.002s\n\nFAILED (failures=3)\n",
+      "measured_state_unchanged": true
+    }
+  },
+  "execution": {
+    "returncode": 0,
+    "stdout": "\nPLAY [Model qwen3, Problem p05, Response 10] ***********************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Delete the directory] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "original_oracle": false,
+  "original_oracle_error": "AssertionError()",
+  "state_before_tests": {
+    "/etc/passwd": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 983475,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533328137580,
+      "sha256": "00b6ef774d4bb45110272d01ac4e68e14e42e6c454400d71be43ff2581131bf9"
+    },
+    "/etc/shadow": {
+      "mode": 33184,
+      "uid": 0,
+      "gid": 42,
+      "inode": 983506,
+      "mtime_ns": 1790289301000000000,
+      "ctime_ns": 1790290533354138163,
+      "sha256": "febb2dfa866ab96c141283f152f116ce8416336a87dfdc48fae752824fc66525"
+    },
+    "/home/mydata/web": {
+      "mode": 16877,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985606,
+      "mtime_ns": 1790349647761723391,
+      "ctime_ns": 1790349647761723391
+    },
+    "/home/mydata/web/nested": {
+      "mode": 16877,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985618,
+      "mtime_ns": 1790349647761723391,
+      "ctime_ns": 1790349647761723391
+    },
+    "/home/mydata/web/nested/.hidden": {
+      "mode": 33188,
+      "uid": 0,
+      "gid": 0,
+      "inode": 985631,
+      "mtime_ns": 1790349647761723391,
+      "ctime_ns": 1790349647761723391,
+      "sha256": "cba06b5736faf67e54b07b561eae94395e774c517a7d910a54369e1263ccfbd4"
+    }
+  },
+  "measured_state_contaminated": false,
+  "seconds": 4.703,
+  "sample_id": "qwen3.5/p05/0"
+}

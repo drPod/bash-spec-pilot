@@ -1,0 +1,83 @@
+--- a/lib/fql/codegen.ml
++++ b/lib/fql/codegen.ml
+@@ -130,7 +130,7 @@
+       in let setuid = Option.fold setuid ~none:""
+                                 ~some:(fun p -> if p then "s" else "")
+       in let perm = read ^ write ^ exec ^ file_list ^ setuid
+-      in if perm = "" then None else Some ("u=" ^ perm)
++      in "u=" ^ perm
+     in let group =
+       let read = Option.fold read ~none:""
+                                 ~some:(fun (p : Ast.perm) ->
+@@ -147,7 +147,7 @@
+       in let setgid = Option.fold setgid ~none:""
+                                 ~some:(fun p -> if p then "s" else "")
+       in let perm = read ^ write ^ exec ^ file_list ^ setgid
+-      in if perm = "" then None else Some ("g=" ^ perm)
++      in "g=" ^ perm
+     in let other =
+       let read = Option.fold read ~none:""
+                                 ~some:(fun (p : Ast.perm) ->
+@@ -164,9 +164,11 @@
+       in let sticky = Option.fold sticky ~none:""
+                                 ~some:(fun p -> if p then "t" else "")
+       in let perm = read ^ write ^ exec ^ file_list ^ sticky
+-      in if perm = "" then None else Some ("o=" ^ perm)
++      in "o=" ^ perm
+     in let all =
+-      Option.to_list owner @ Option.to_list group @ Option.to_list other
++      if List.exists Option.is_some [read; write; exec; file_list]
++      then [owner; group; other]
++      else List.filter (fun part -> String.length part > 2) [owner; group; other]
+     in let str = String.concat "," all
+     in if str = "" then None else Some str
+   in match mode with
+--- a/test/dune
++++ b/test/dune
+@@ -1,2 +1,8 @@
+ (test
+- (name test_state_based))
++ (name test_state_based)
++ (modules test_state_based))
++
++(test
++ (name permission_regression)
++ (modules permission_regression)
++ (libraries fql modules))
+--- /dev/null
++++ b/test/permission_regression.ml
+@@ -0,0 +1,34 @@
++(* Regression checks exercise actual FQL code generation, not a Python replica. *)
++let p o g t : Fql.Ast.perm = { owner=o; group=g; other=t }
++let empty : Fql.Ast.file_perms = {
++  read=None; write=None; exec=None; file_list=None;
++  setuid=None; setgid=None; sticky=None }
++let mode perms =
++  match Fql.Codegen.codegen_file_perms (Modules.Ast.Id "f") perms with
++  | [] -> None
++  | [Modules.Ast.Assign (_, Modules.Ast.StringLit s)] -> Some s
++  | _ -> failwith "Unexpected permission code generation"
++let cases = [
++  "unspecified permissions preserve mode", empty, None;
++  "owner only explicitly clears group and other",
++    {empty with read=Some(p true false false);write=Some(p true false false);exec=Some(p true false false)}, Some "u=rwx,g=,o=";
++  "directory search retains conditional X",
++    {empty with read=Some(p true false false);write=Some(p true false false);file_list=Some(p true false false)}, Some "u=rwX,g=,o=";
++  "group only explicitly clears owner and other",
++    {empty with read=Some(p false true false)}, Some "u=,g=r,o=";
++  "explicit empty permissions clear all classes",
++    {empty with read=Some(p false false false)}, Some "u=,g=,o=";
++  "special-bit-only false preserves upstream behavior",
++    {empty with sticky=Some false}, None;
++  "special-bit-only true preserves upstream behavior",
++    {empty with setgid=Some true}, Some "g=s";
++  "all classes remain represented",
++    {empty with read=Some(p true true true);write=Some(p true true true);exec=Some(p true true true)}, Some "u=rwx,g=rwx,o=rwx";
++  "special permissions retain their class",
++    {empty with setuid=Some true;setgid=Some true;sticky=Some true}, Some "u=s,g=s,o=t";
++]
++let () = List.iter (fun (name, input, expected) ->
++  let actual=mode input in
++  if actual <> expected then failwith name;
++  Printf.printf "PASS %s\n" name
++) cases

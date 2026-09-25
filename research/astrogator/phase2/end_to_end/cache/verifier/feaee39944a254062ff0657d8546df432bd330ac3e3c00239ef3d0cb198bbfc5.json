@@ -1,0 +1,11 @@
+{
+  "cache_key": "feaee39944a254062ff0657d8546df432bd330ac3e3c00239ef3d0cb198bbfc5",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "77c58a9ccaec66e60595584c3d3c81ecd6cedf293ee0c99786636d8cf2d62835",
+  "code_sha256": "d425b4fcde9ce25d9dde811bbea9ca0de66e6ea4f7faf142fa5dd321eb333b55",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument append for module ansible.builtin.copy\n",
+  "stderr": "",
+  "seconds": 0.0787,
+  "status": "ansible_lowering_error"
+}

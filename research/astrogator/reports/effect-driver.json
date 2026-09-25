@@ -1,0 +1,13 @@
+{
+  "source_sha256": "40aab3abcbc530b87b44860c023321a3fcf69b04a1cc04b0e015834120ed23fa",
+  "binary_sha256": "09183ac272ec6f390f2a067952dbbd8d0fb4be9e6ecabc63e944d01dfe7b17f9",
+  "normalizations": [
+    "flatten sequential composition and remove End",
+    "sort supplemental group sets",
+    "rename unknown query variables by deterministic traversal",
+    "materialize trusted KB existential predicates at stable binder names"
+  ],
+  "not_claimed": "complete denotational equivalence or completeness of FQL with respect to natural-language intent",
+  "controls": 11,
+  "supplied_queries_serialized": 21
+}

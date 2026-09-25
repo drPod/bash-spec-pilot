@@ -1,0 +1,56 @@
+[
+  {
+    "object": "directory",
+    "initial_mode": "0777",
+    "requested_mode": "0700",
+    "actual_mode": "0700",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  {
+    "object": "directory",
+    "initial_mode": "0777",
+    "requested_mode": "u=rwX",
+    "actual_mode": "0777",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  {
+    "object": "directory",
+    "initial_mode": "0777",
+    "requested_mode": "u=rwX,g=,o=",
+    "actual_mode": "0700",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  {
+    "object": "file",
+    "initial_mode": "0777",
+    "requested_mode": "0700",
+    "actual_mode": "0700",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  {
+    "object": "file",
+    "initial_mode": "0777",
+    "requested_mode": "u=rwx",
+    "actual_mode": "0777",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nok: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  {
+    "object": "file",
+    "initial_mode": "0777",
+    "requested_mode": "u=rwx,g=,o=",
+    "actual_mode": "0700",
+    "returncode": 0,
+    "stdout": "\nPLAY [all] *********************************************************************\n\nTASK [ansible.builtin.file] ****************************************************\nchanged: [localhost]\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  }
+]

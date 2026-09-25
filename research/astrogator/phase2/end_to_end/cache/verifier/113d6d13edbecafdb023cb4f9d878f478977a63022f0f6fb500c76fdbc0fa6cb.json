@@ -1,0 +1,11 @@
+{
+  "cache_key": "113d6d13edbecafdb023cb4f9d878f478977a63022f0f6fb500c76fdbc0fa6cb",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "a17c49346b2fac659d02e4a650a8c0a5ab868ada137a85673a2fd495b423e8cc",
+  "code_sha256": "b47c777f106c2848584a55de6fe6777c70eb9722b816bc4bc29fa24d1da568f0",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument branch for module ansible.builtin.git\n",
+  "stderr": "",
+  "seconds": 0.0513,
+  "status": "ansible_lowering_error"
+}

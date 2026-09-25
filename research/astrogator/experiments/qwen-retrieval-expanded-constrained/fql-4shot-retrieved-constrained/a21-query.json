@@ -1,0 +1,114 @@
+{
+  "request": {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Translate the request to Astrogator FQL, not Ansible, SQL, or pseudocode.\nReturn only the query. Preserve intent, paths, contents, conditions and OS names.\nSyntax: action description [separator value] [with key=value, key=value].\nActions: create, delete, copy, move, install, uninstall, set, write, clone,\ndownload, enable, disable, start, stop, reboot. Separators: at, for, from,\nin, into, to, via, with. Use semicolons between actions; periods between\nsentences. Conditions: if os is Debian then ACTION; if file \"PATH\" not exists\nthen ACTION. A conditional scopes the remaining semicolon-separated actions\nin its sentence. Use a period to end its scope. Quote values containing dots.\nFile transfers use from remote \"PATH\" to remote \"PATH\"; use controller instead of remote only when explicitly requested. Bare file paths mean remote.\nFile content uses with content=\"TEXT\". User creation uses with name=NAME.\nPermission subjects: owner, group, other, all. Keep high-level descriptions\nsuch as apache server, numpy, zsh configuration file rather than guessing their\nOS-specific packages or paths. Do not invent additional requirements."
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat based systems, install numpy"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian based or os is RedHat based then install numpy"
+      },
+      {
+        "role": "user",
+        "content": "For RedHat, install apache server, ensure the home page exists, and create a `webdev' user"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is RedHat then install apache server; create user with name=webdev; if apache server html home page file not exists then create apache server html home page file"
+      },
+      {
+        "role": "user",
+        "content": "Create a Python 3.10 virtual environment at /user/home/venv and install numpy in it"
+      },
+      {
+        "role": "assistant",
+        "content": "create virtual environment with python=\"3.10\" in /user/home/venv; install numpy in virtual environment at /user/home/venv"
+      },
+      {
+        "role": "user",
+        "content": "For Debian, restart the system if it is needed"
+      },
+      {
+        "role": "assistant",
+        "content": "if os is Debian and reboot required then reboot"
+      },
+      {
+        "role": "user",
+        "content": "For Debian and RedHat, install and start an ssh client and server and generated an ssh key for `fizbaz' at /.ssh/fizbaz_rsa"
+      }
+    ],
+    "max_tokens": 320,
+    "stream": false,
+    "grammar": "# Generation subset with coverage checked against all 21 supplied references.\n# Coverage is not equivalence to the upstream language; revalidate every output.\nroot ::= sentence (\". \" sentence)* \".\"?\nsentence ::= atom (\"; \" sentence)? | \"if \" condition \" then \" sentence (\" otherwise \" sentence)?\ncondition ::= predicate ((\" and \" | \" or \") predicate)*\npredicate ::= \"os is \" os | condition-spec (\" exists\" | \" not exists\") | \"reboot required\"\ncondition-spec ::= \"file \" quoted | category argument*\nos ::= \"Debian\" | \"Ubuntu\" | \"RedHat\" | \"Debian based\" | \"RedHat based\" | quoted\natom ::= \"reboot\" | verb \" \" category argument*\nverb ::= \"create\" | \"delete\" | \"copy\" | \"move\" | \"install\" | \"uninstall\" | \"set\" | \"write\" | \"clone\" | \"download\" | \"enable\" | \"disable\" | \"start\" | \"stop\"\ncategory ::= \"directory\" | \"file\" | \"files\" | \"user\" | \"group\" | \"file permissions\" | \"default shell\" | \"environment variable\" baretail? | \"password\" | \"passwordless sudo\" | \"ssh key\" | \"github repository\" | \"git repository\" | \"virtual environment\" | \"numpy\" | \"zsh\" | \"apache server\" | \"apache server service\" | \"apache server html home page file\" | \"ssh client\" | \"ssh server\" | \"ssh server service\" | \"postfix\" | \"postfix configuration file\" | \"zsh configuration file\" | \"bashrc file\" | quoted\nargument ::= \" \" separator \" \" (bindings | value)\nseparator ::= \"at\" | \"for\" | \"from\" | \"in\" | \"into\" | \"to\" | \"via\" | \"with\"\nbindings ::= key \"=\" value (\", \" key \"=\" value)*\nkey ::= \"name\" | \"user\" | \"group\" | \"owner\" | \"content\" | \"glob\" | \"python\" | \"branch\" | \"tag\" | \"version\" | \"position\" | \"read\" | \"write\" | \"execute\" | \"list directory\" | \"primary group\" | \"supplemental groups\"\nvalue ::= category | \"remote \" quoted | \"controller \" quoted | bare | \"owner group\" | \"owner group other\"\nbare ::= [a-zA-Z0-9_/?-]+\nbaretail ::= \" \" bare\nquoted ::= \"\\\"\" [^\"\\r\\n]* \"\\\"\"\n"
+  },
+  "seconds": 9.222,
+  "transport_returncode": 0,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "if os is Debian based or os is RedHat based then install ssh client; install ssh server; create user with name=fizbaz; if ssh key for user=fizbaz not exists then create ssh key at /."
+        }
+      }
+    ],
+    "created": 1790293727,
+    "model": "/models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "system_fingerprint": "b10830-465e49b9c",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 491,
+      "total_tokens": 536,
+      "prompt_tokens_details": {
+        "cached_tokens": 261
+      }
+    },
+    "id": "chatcmpl-C1JZyvmGDIXQfKwtn2DWfLZKnKiMbjtC",
+    "timings": {
+      "cache_n": 261,
+      "prompt_n": 230,
+      "prompt_ms": 3874.09,
+      "prompt_per_token_ms": 16.843869565217393,
+      "prompt_per_second": 59.36878079755504,
+      "predicted_n": 45,
+      "predicted_ms": 5174.706,
+      "predicted_per_token_ms": 117.60695454545454,
+      "predicted_per_second": 8.502898522157587
+    }
+  },
+  "text": "if os is Debian based or os is RedHat based then install ssh client; install ssh server; create user with name=fizbaz; if ssh key for user=fizbaz not exists then create ssh key at /.",
+  "finish_reason": "stop",
+  "task_id": "a21",
+  "variant": "query",
+  "mode": "fql",
+  "shots": 4,
+  "diverse_demos": false,
+  "demonstration_ids": [
+    "a15",
+    "a19",
+    "a14",
+    "a12"
+  ],
+  "retrieval_scores": [
+    0.17659513276764965,
+    0.16085914565817203,
+    0.08952388400853764,
+    0.07876695238064474
+  ],
+  "demo_pool_size": 51,
+  "pool": "expanded",
+  "prompt_sha256": "06fa1ccb5331468b1cf3b3f89db97c13dcab4f7f8079c48ef539693af0f1a639",
+  "constrained": true,
+  "source_record": "experiments/qwen-retrieval-expanded/fql-4shot-retrieved/a21-query.json",
+  "source_record_sha256": "2276dc1a5e765f174ce7c6b55d0527d209a08c147dc0184898d514754940715d",
+  "grammar_sha256": "3bec0f621e3e4d862f355d67ac85cfd95df9e5c830a83f2293f9d3b0f4c7fd0f",
+  "condition": "Same expanded-retrieval messages and token budget, plus v2 decoding grammar; single fresh sample, no matched random seed"
+}

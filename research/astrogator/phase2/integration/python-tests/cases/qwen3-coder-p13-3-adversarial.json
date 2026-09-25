@@ -1,0 +1,14 @@
+{
+  "task_id": "a06",
+  "scenario": "adversarial",
+  "candidate_sha256": "e34562929117e3668778f4a817fe5eadcc980a2160e280cc56576de9d0566110",
+  "status": "execution_error",
+  "generated_tests": {},
+  "execution": {
+    "returncode": 2,
+    "stdout": "\nPLAY [Model qwen-coder, Problem p13, Response 3] *******************************\n\nTASK [Gathering Facts] *********************************************************\nok: [localhost]\n\nTASK [Create /etc/file.txt with \"beginning\" if it doesn't exist] ***************\n[ERROR]: Task failed: Syntax error in expression: No filter named 'first.filesystem'.\n\nTask failed.\nOrigin: /suite/data/corpus/qwen3-coder/p13/response3.yml:6:5\n\n4   become: true\n5   tasks:\n6   - name: Create /etc/file.txt with \"beginning\" if it doesn't exist\n      ^ column 5\n\n<<< caused by >>>\n\nSyntax error in expression: No filter named 'first.filesystem'.\nOrigin: /suite/data/corpus/qwen3-coder/p13/response3.yml:11:11\n\n 9       dest: /etc/file.txt\n10       mode: '0644'\n11     when: not ansible_facts.filesystem|selectattr('mount', 'equalto', '/etc')|first\n             ^ column 11\n\nfatal: [localhost]: FAILED! => {\"changed\": false, \"msg\": \"Task failed: Syntax error in expression: No filter named 'first.filesystem'.\"}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   \n\n",
+    "stderr": ""
+  },
+  "seconds": 3.323,
+  "sample_id": "qwen3-coder/p13/3"
+}

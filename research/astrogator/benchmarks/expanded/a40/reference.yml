@@ -1,0 +1,11 @@
+- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: deploy
+      state: present
+  - ansible.builtin.user:
+      name: app
+      group: deploy
+      create_home: true

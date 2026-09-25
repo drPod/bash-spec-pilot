@@ -1,0 +1,11 @@
+{
+  "cache_key": "08cab45b98bd775d792b0a7261c72c02c95e2d388432eb5e0d7716678000f421",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "query_sha256": "96e99db14cf6e1d70e580fc7a6c56873e522f0d49856cc3ee7914a47f16acae8",
+  "code_sha256": "3fc605584482eb57938389d2a9b75c77dfec41ba2d94bc71214ee8c0bd65d892",
+  "returncode": 4,
+  "stdout": "\nERROR: While lowering Ansible, encountered\nNo argument login_shell for module user\n",
+  "stderr": "",
+  "seconds": 0.0414,
+  "status": "ansible_lowering_error"
+}

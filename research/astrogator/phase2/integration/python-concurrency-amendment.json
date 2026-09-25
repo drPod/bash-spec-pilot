@@ -1,0 +1,22 @@
+{
+  "reason": "Increase runtime workers from2 to3 to finish full cohort before15:40 deadline; frozen sources/inputs/per-container limits unchanged. Stop only in-flight research Python-test containers; completed case records preserved. In-flight states have no committed outcome and will be resumed.",
+  "time_utc": "2026-09-25T14:56:02.626668+00:00",
+  "completed_cases_before": 66,
+  "interrupted_containers": [
+    {
+      "id": "b1ae580b15af",
+      "name": "/astro-frontier-test-813562d3f7c9",
+      "argv": [
+        "python3",
+        "/suite/phase2/integration/python_test_case.py",
+        "a06",
+        "baseline",
+        "/suite/data/corpus/deepseek/p13/response3.yml",
+        "{\"gpt6-python-a06-r0\": \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r0.py\", \"gpt6-python-a06-r1\": \"/suite/phase2/integration/python-tests/specifications/gpt6-python-a06-r1.py\", \"opus55-python-a06-r1\": \"/suite/phase2/integration/python-tests/specifications/opus55-python-a06-r1.py\"}"
+      ]
+    }
+  ],
+  "new_workers": 3,
+  "per_container_memory": "320m",
+  "per_container_cpu": 0.5
+}

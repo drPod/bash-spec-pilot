@@ -1,0 +1,26 @@
+{
+  "query_sha256": "e01fed966489a539b84771efd00bd020542995f0fe720cc1c04597cab0385955",
+  "query": "move file from \"/scratch/file.txt\" to \"/home/user/data.txt\"",
+  "environment_sha256": "05a94f979a66caade76a717c109800510c7755dc251c89f71042dc4553a67f24",
+  "status": "query_lowered",
+  "diagnostics": {
+    "returncode": 0,
+    "stdout": "parse\tok\t427e45c5bf0b1da72ff7d013e3f71b67\nsemantic\tok\t1c2a37e3adb7c02f53a3e51ee9570ec5\ncodegen\tok\tlowered to module language\n",
+    "stderr": "",
+    "seconds": 0.0055,
+    "stages": {
+      "parse": {
+        "status": "ok",
+        "detail": "427e45c5bf0b1da72ff7d013e3f71b67"
+      },
+      "semantic": {
+        "status": "ok",
+        "detail": "1c2a37e3adb7c02f53a3e51ee9570ec5"
+      },
+      "codegen": {
+        "status": "ok",
+        "detail": "lowered to module language"
+      }
+    }
+  }
+}

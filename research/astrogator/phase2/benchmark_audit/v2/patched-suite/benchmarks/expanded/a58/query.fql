@@ -1,0 +1,1 @@
+create cron job with name="astro cleanup", minute="15", hour="2", command="/usr/bin/true"
