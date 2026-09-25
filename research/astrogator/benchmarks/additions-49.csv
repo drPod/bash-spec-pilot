@@ -1,0 +1,482 @@
+#,P,Natural Language,Formal Query,Reference Solution
+22,,"Ensure /work/private is a directory accessible only by its owner (mode 0700), preserving any existing contents.","create directory at /work/private with read=owner, write=owner, list directory=owner","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/private
+      state: directory
+      mode: '0700'
+"
+23,,"Ensure /work/shared has mode 2770, including setgid, without removing existing files.","create directory at /work/shared with read=owner group, write=owner group, list directory=owner group, setgid=true","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/shared
+      state: directory
+      mode: '2770'
+"
+24,,"Ensure /work/spool is a directory with mode 1777, including the sticky bit.","create directory at /work/spool with read=all, write=all, list directory=all, sticky=true","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/spool
+      state: directory
+      mode: '1777'
+"
+25,,"If /work/app.conf is absent, create it with exactly port=8080 followed by a newline. Otherwise preserve its existing bytes.","if file ""/work/app.conf"" not exists then create file at ""/work/app.conf"" with content=""port=8080
+""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/app.conf
+      content: 'port=8080
+
+        '
+      force: false
+"
+26,,"Ensure /work/banner contains exactly Authorized users only followed by a newline, replacing stale content, with mode 0644.","create file at /work/banner with content=""Authorized users only
+"", read=all, write=owner","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      dest: /work/banner
+      content: 'Authorized users only
+
+        '
+      mode: '0644'
+"
+27,,"Copy the remote file /work/source to /work/dest/data, creating the destination directory if needed and keeping the source.",create directory at /work/dest; copy file from remote /work/source to remote /work/dest/data,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/dest
+      state: directory
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/dest/data
+      remote_src: true
+"
+28,,"Move /work/source to /work/moved, replacing any existing destination and removing the source. The source initially exists; subsequent runs must retain the moved data.",move file from remote /work/source to remote /work/moved,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/source
+    register: src
+  - ansible.builtin.copy:
+      src: /work/source
+      dest: /work/moved
+      remote_src: true
+    when: src.stat.exists
+  - ansible.builtin.file:
+      path: /work/source
+      state: absent
+"
+29,,"Remove /work/link, which may be a symbolic link, while preserving /work/target and its contents.",delete file at /work/link,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/link
+      state: absent
+"
+30,,"Remove /work/obsolete and all its contents, preserving its sibling /work/current.",delete directory at /work/obsolete,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/obsolete
+      state: absent
+"
+31,,"Delete only top-level regular files matching *.tmp in /work/cache, including hidden matches. Preserve directories, nested files, and nonmatches.","delete files in /work/cache with glob=""*.tmp""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.find:
+      paths: /work/cache
+      patterns: '*.tmp'
+      file_type: file
+      hidden: true
+      recurse: false
+    register: found
+  - ansible.builtin.file:
+      path: '{{ item.path }}'
+      state: absent
+    loop: '{{ found.files }}'
+"
+32,,"For /work/tree and its contents, grant owner read/write and everyone read; grant directory traversal without making initially nonexecutable regular files executable.","set file permissions in /work/tree to read=all, write=owner, list directory=all","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/tree
+      recurse: true
+      mode: u=rwX,g=rX,o=rX
+"
+33,,"Point /work/current to /work/releases/v2, replacing an existing symlink to v1, and preserve both release directories.",create symbolic link at /work/current to /work/releases/v2,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/releases/v2
+      dest: /work/current
+      state: link
+      force: true
+"
+34,,"Ensure /work/alias is a hard link to /work/source, replacing a stale ordinary file at /work/alias if present.",create hard link at /work/alias to /work/source,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      src: /work/source
+      dest: /work/alias
+      state: hard
+      force: true
+"
+35,,"In the existing /work/app.conf, ensure exactly one port=8080 line, replacing its single old port directive if present, and preserve unrelated lines.","write ""port=8080"" to file at ""/work/app.conf""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/app.conf
+      regexp: ^port=
+      line: port=8080
+"
+36,,"Remove every line beginning legacy= from /work/app.conf while preserving unrelated lines, including commented legacy examples.","delete lines from file at ""/work/app.conf"" with pattern=""^legacy=""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/app.conf
+      regexp: ^legacy=
+      state: absent
+"
+37,,Ensure /work/app.conf has an ASTRO-managed block containing alpha=1 and beta=2 on separate lines; replace an old such block and preserve content outside it.,"write ""alpha=1
+beta=2"" to file at ""/work/app.conf"" with block=ASTRO","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.blockinfile:
+      path: /work/app.conf
+      marker: '# {mark} ASTRO'
+      block: 'alpha=1
+
+        beta=2'
+"
+38,,Ensure allow local appears before the deny all line in /work/rules. Preserve other rules. The allow rule is initially absent or already correctly placed.,"write ""allow local"" to file at /work/rules at position=beginning","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/rules
+      line: allow local
+      insertbefore: ^deny all$
+"
+39,,Change http:// to https:// only at the start of endpoint= values in /work/app.conf. Preserve comments and other keys.,"replace text in file at ""/work/app.conf"" with pattern=""^endpoint=http://"", replacement=""endpoint=https://""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.replace:
+      path: /work/app.conf
+      regexp: (?m)^endpoint=http://
+      replace: endpoint=https://
+"
+40,,Ensure the deploy group exists and the app user exists with deploy as its primary group and a home directory.,create group with name=deploy; create user with name=app in primary group=deploy,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: deploy
+      state: present
+  - ansible.builtin.user:
+      name: app
+      group: deploy
+      create_home: true
+"
+41,,Add the existing app user to deploy while retaining its existing supplemental group memberships.,set supplemental groups for user=app to deploy with append=true,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      groups:
+      - deploy
+      append: true
+"
+42,,"Set the existing app user primary group to deploy, preserving its existing home directory and its contents.",create user with name=app in primary group=deploy,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      group: deploy
+"
+43,,Set the existing app user login shell to /bin/bash without changing its UID or home contents.,set default shell for user=app to bash,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      shell: /bin/bash
+"
+44,,"Remove the retired user account, retaining /home/retired and all its contents.",delete user with name=retired,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: false
+"
+45,,Remove the retired user and its home directory /home/retired while preserving /home/active.,delete user with name=retired; delete directory at /home/retired,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: retired
+      state: absent
+      remove: true
+"
+46,,Lock password authentication for the existing app user without replacing its stored password hash; retain the account.,disable password for user=app,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      password_lock: true
+"
+47,,"Ensure /home/app is owned by app:app and has mode 0700, without deleting its contents.","create directory at /home/app with owner=app, group=app, read=owner, write=owner, list directory=owner","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /home/app
+      state: directory
+      owner: app
+      group: app
+      mode: '0700'
+"
+48,,"On this Debian host, install astro-demo version 1.0 from /fixtures/astro-demo_1.0_all.deb. The package may already be installed.","if os is Debian then install astro-demo with version=""1.0""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      deb: /fixtures/astro-demo_1.0_all.deb
+"
+49,,Remove astro-demo from this Debian host if installed; leave astro-keep installed.,if os is Debian then uninstall astro-demo,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      name: astro-demo
+      state: absent
+      purge: true
+"
+50,,"Ensure astro-demo version 2.0 is installed from /fixtures/astro-demo_2.0_all.deb, upgrading version 1.0 if necessary.","if os is Debian then install astro-demo with version=""2.0""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.apt:
+      deb: /fixtures/astro-demo_2.0_all.deb
+"
+51,,"Mark the installed astro-demo Debian package as held, preserving version 1.0.",set package selection for astro-demo to hold,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.dpkg_selections:
+      name: astro-demo
+      selection: hold
+"
+52,,Clone /fixtures/repo into /work/checkout and check out its release branch; update an existing checkout from main if present.,clone git repository from /fixtures/repo with branch=release into /work/checkout,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: release
+      update: true
+"
+53,,"Clone main from /fixtures/repo to /work/checkout if absent. If a checkout already exists, preserve its current commit even if main has advanced.",if directory /work/checkout not exists then clone git repository from /fixtures/repo with branch=main into /work/checkout,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: main
+      update: false
+"
+54,,"Ensure /work/checkout is checked out at tag v1 from /fixtures/repo, even when an existing checkout follows main.",clone git repository from /fixtures/repo with tag=v1 into /work/checkout,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.git:
+      repo: /fixtures/repo
+      dest: /work/checkout
+      version: v1
+      update: true
+"
+55,,Ensure the installed cron service is running. It may initially be stopped or already running.,start cron service,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      state: started
+"
+56,,"Ensure cron is stopped, including when it is initially running.",stop cron service,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      state: stopped
+"
+57,,"Enable cron at boot without starting it now. It is initially stopped, and may already be enabled.",enable cron service,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.service:
+      name: cron
+      enabled: true
+"
+58,,Ensure root has one Ansible-named astro cleanup cron job running /usr/bin/true daily at 02:15; preserve unrelated jobs and update a stale astro cleanup entry.,"create cron job with name=""astro cleanup"", minute=""15"", hour=""2"", command=""/usr/bin/true""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.cron:
+      name: astro cleanup
+      minute: '15'
+      hour: '2'
+      user: root
+      job: /usr/bin/true
+"
+59,,"Extract the remote /fixtures/bundle.tar into /work/unpacked, creating that directory if absent and preserving unrelated existing files.","create directory at /work/unpacked; extract archive from remote ""/fixtures/bundle.tar"" to /work/unpacked","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/unpacked
+      state: directory
+  - ansible.builtin.unarchive:
+      src: /fixtures/bundle.tar
+      dest: /work/unpacked
+      remote_src: true
+"
+60,,Extract /fixtures/bundle.tar into /work/unpacked only when /work/unpacked/app/data is absent. Preserve customized data when that file exists.,"if file ""/work/unpacked/app/data"" not exists then extract archive from remote ""/fixtures/bundle.tar"" to /work/unpacked","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/unpacked
+      state: directory
+  - ansible.builtin.unarchive:
+      src: /fixtures/bundle.tar
+      dest: /work/unpacked
+      remote_src: true
+      creates: /work/unpacked/app/data
+"
+61,,"Ensure the analytics group exists, preserving its GID if it already exists.",create group with name=analytics,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: analytics
+      state: present
+"
+62,,"Remove the unused obsolete group if it exists, preserving the active group and its GID.",delete group with name=obsolete,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.group:
+      name: obsolete
+      state: absent
+"
+63,,Ensure app exists with primary group primary and membership in both deploy and audit. All three groups already exist.,"create user with name=app in primary group=primary, supplemental groups=deploy audit","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.user:
+      name: app
+      group: primary
+      groups:
+      - deploy
+      - audit
+      append: true
+"
+64,,"Make /work/data owned by app:app, preserving the ownership and bytes of files inside it. The directory and app account already exist.","create directory at /work/data with owner=app, group=app","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/data
+      state: directory
+      owner: app
+      group: app
+      recurse: false
+"
+65,,"Ensure export ASTRO=1 is the last line of /work/profile, preserving existing lines. The setting is initially absent or already last.","write ""export ASTRO=1"" to /work/profile at position=end","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/profile
+      line: export ASTRO=1
+      insertafter: EOF
+"
+66,,"Ensure # managed is the first line of /work/header, retaining all original body lines. The header is initially absent or already first.","write ""# managed"" to /work/header at position=start","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.lineinfile:
+      path: /work/header
+      line: '# managed'
+      insertbefore: BOF
+"
+67,,"Give the existing /work/run.sh mode 0700, retaining its bytes and leaving /work/data mode 0644.","set file permissions for ""/work/run.sh"" to read=owner, write=owner, execute=owner","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.file:
+      path: /work/run.sh
+      mode: '0700'
+"
+68,,Create /work/cache only if the marker file /work/enabled exists. The cache is initially absent and must remain absent without the marker.,if file /work/enabled exists then create directory at /work/cache,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/enabled
+    register: enabled
+  - ansible.builtin.file:
+      path: /work/cache
+      state: directory
+    when: enabled.stat.exists
+"
+69,,Write offline to /work/status when /work/maintenance exists; otherwise write online. Do not append a newline.,"if file /work/maintenance exists then create file at /work/status with content=""offline"" otherwise create file at /work/status with content=""online""","- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.stat:
+      path: /work/maintenance
+    register: maintenance
+  - ansible.builtin.copy:
+      dest: /work/status
+      content: '{{ ''offline'' if maintenance.stat.exists else ''online'' }}'
+"
+70,,"Copy the contents of remote /work/source into /work/dest, preserving hidden files, nested structure, the source, and unrelated destination files. Both directories exist.",copy directory from remote /work/source to remote /work/dest,"- name: Benchmark candidate
+  hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.copy:
+      src: /work/source/
+      dest: /work/dest/
+      remote_src: true
+"
