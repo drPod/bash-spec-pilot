@@ -10,7 +10,7 @@ Verifier mode: pinned upstream default permission semantics. Check repetitions a
 | astrogator | 276 | 9 | 0 | 57 | 74 |
 | astrogator_configured_heuristics | 271 | 0 | 5 | 66 | 74 |
 | debian_metadata_heuristics | 276 | 0 | 0 | 66 | 74 |
-| judge | 263 | 130 | 13 | 10 | 0 |
+| Qwen 2.5 1.5B judge | 263 | 130 | 13 | 10 | 0 |
 | gpt6 | 276 | 4 | 0 | 136 | 0 |
 | opus55 | 275 | 9 | 1 | 131 | 0 |
 | dsl_gpt6-r0 | 276 | 1 | 0 | 139 | 0 |

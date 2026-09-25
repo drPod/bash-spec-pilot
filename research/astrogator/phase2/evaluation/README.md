@@ -20,3 +20,7 @@ Start with [the cross-experiment findings](../EVALUATION-FINDINGS.md). The centr
 The [protocol](PROTOCOL.md) defines denominators, label interpretations, abstention treatment, frozen runners, infrastructure recovery, and limitations. Every figure includes source hashes and captions. No new inference occurs in the analysis scripts. Candidate-running scripts require bounded disposable Docker environments as documented; do not execute candidate playbooks on the host. The original reports and labels remain unchanged.
 
 The final Python/DSL/all-method comparison uses **416 jointly resolved programs**, with six excluded program identities explicitly listed in [COMMON-ALL-CHECKS.md](COMMON-ALL-CHECKS.md). Its [PDF](figures-all-checks/matched-checks.pdf) and [CSV](figures-all-checks/matched-checks.csv) retain all four Python and four DSL repetitions. Opus Python gate abstentions reflect conservative frozen-runner compatibility restrictions and are not counted as detected errors. Candidate timeouts remain unresolved and are not repaired with historical labels.
+
+## Table label clarification
+
+The displayed **Qwen 2.5 1.5B judge** is the historical direct-judgment baseline stored under `judge` in machine-readable results. `gpt6` and `opus55` are also direct LLM judges. Their inference setups differ; this is not a model-only controlled comparison. This presentation-only rename does not alter predictions or counts. The previously packaged ZIP and its audits preserve the original labels.

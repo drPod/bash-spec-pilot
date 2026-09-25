@@ -125,13 +125,13 @@ def main():
            '| Label variant | Method | Accept pass | Accept fail | Reject pass | Reject fail | Unavailable |','|---|---|---:|---:|---:|---:|---:|']
     for variant,ms in result['metrics'].items():
         for m,s in ms.items():
-            lines.append(f"| {variant} | {m} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
+            lines.append(f"| {variant} | {('Qwen 2.5 1.5B judge' if m == 'judge' else m)} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
     if 'hybrid_metrics' in result:
         lines+=['','## Retrospective hybrid policies','',
                 'Fallback consults the existing judge prediction only on verifier abstentions. Conjunction accepts only when both accept, rejects when either rejects, and otherwise abstains. These are deterministic reanalyses, not extra model calls or matched-cost comparisons.','',
                 '| Original labels: policy | Accept pass | Accept fail | Reject pass | Reject fail | Unavailable |','|---|---:|---:|---:|---:|---:|']
         for m,s in result['hybrid_metrics']['original'].items():
-            lines.append(f"| {m} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
+            lines.append(f"| {('Qwen 2.5 1.5B judge' if m == 'judge' else m)} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
     lines+=['','This subset does not establish performance over all tasks or production workloads. a01 contains no local failures. See per-task tables and unavailable outcomes before comparing methods.']
     (HERE/(prefix.upper()+'.md')).write_text('\n'.join(lines)+'\n')
     print(json.dumps({'complete':complete,'expected':len(tasks),'statuses':result['prediction_statuses']},indent=2))

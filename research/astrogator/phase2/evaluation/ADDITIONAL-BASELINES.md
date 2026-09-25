@@ -8,17 +8,17 @@ Ansible syntax-check uses the same processed programs and lab image, with four r
 |---|---|---:|---:|---:|---:|---:|
 | original | astrogator | 282 | 9 | 1 | 56 | 74 |
 | original | astrogator_configured_heuristics | 277 | 0 | 6 | 65 | 74 |
-| original | judge | 270 | 129 | 13 | 10 | 0 |
+| original | Qwen 2.5 1.5B judge | 270 | 129 | 13 | 10 | 0 |
 | original | native_syntax | 283 | 133 | 0 | 6 | 0 |
 | original | debian_metadata_heuristics | 282 | 0 | 1 | 65 | 74 |
 | strict_integrity | astrogator | 282 | 9 | 0 | 57 | 74 |
 | strict_integrity | astrogator_configured_heuristics | 277 | 0 | 5 | 66 | 74 |
-| strict_integrity | judge | 269 | 130 | 13 | 10 | 0 |
+| strict_integrity | Qwen 2.5 1.5B judge | 269 | 130 | 13 | 10 | 0 |
 | strict_integrity | native_syntax | 282 | 134 | 0 | 6 | 0 |
 | strict_integrity | debian_metadata_heuristics | 282 | 0 | 0 | 66 | 74 |
 | newline_sensitivity | astrogator | 282 | 9 | 7 | 50 | 74 |
 | newline_sensitivity | astrogator_configured_heuristics | 277 | 0 | 12 | 59 | 74 |
-| newline_sensitivity | judge | 277 | 122 | 13 | 10 | 0 |
+| newline_sensitivity | Qwen 2.5 1.5B judge | 277 | 122 | 13 | 10 | 0 |
 | newline_sensitivity | native_syntax | 290 | 126 | 0 | 6 | 0 |
 | newline_sensitivity | debian_metadata_heuristics | 282 | 0 | 7 | 59 | 74 |
 

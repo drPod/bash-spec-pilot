@@ -8,25 +8,25 @@ Saved task prompts omit outcome labels, target solutions, and oracle code; fresh
 |---|---|---:|---:|---:|---:|---:|
 | original | astrogator | 282 | 9 | 1 | 56 | 74 |
 | original | astrogator_configured_heuristics | 277 | 0 | 6 | 65 | 74 |
-| original | judge | 270 | 129 | 13 | 10 | 0 |
+| original | Qwen 2.5 1.5B judge | 270 | 129 | 13 | 10 | 0 |
 | original | gpt6 | 283 | 3 | 0 | 136 | 0 |
 | original | opus55 | 281 | 9 | 2 | 130 | 0 |
 | original | always_accept | 283 | 139 | 0 | 0 | 0 |
 | new_fixture_old_oracle | astrogator | 282 | 9 | 1 | 56 | 74 |
 | new_fixture_old_oracle | astrogator_configured_heuristics | 277 | 0 | 6 | 65 | 74 |
-| new_fixture_old_oracle | judge | 270 | 129 | 13 | 10 | 0 |
+| new_fixture_old_oracle | Qwen 2.5 1.5B judge | 270 | 129 | 13 | 10 | 0 |
 | new_fixture_old_oracle | gpt6 | 283 | 3 | 0 | 136 | 0 |
 | new_fixture_old_oracle | opus55 | 281 | 9 | 2 | 130 | 0 |
 | new_fixture_old_oracle | always_accept | 283 | 139 | 0 | 0 | 0 |
 | strict_integrity | astrogator | 282 | 9 | 0 | 57 | 74 |
 | strict_integrity | astrogator_configured_heuristics | 277 | 0 | 5 | 66 | 74 |
-| strict_integrity | judge | 269 | 130 | 13 | 10 | 0 |
+| strict_integrity | Qwen 2.5 1.5B judge | 269 | 130 | 13 | 10 | 0 |
 | strict_integrity | gpt6 | 282 | 4 | 0 | 136 | 0 |
 | strict_integrity | opus55 | 281 | 9 | 1 | 131 | 0 |
 | strict_integrity | always_accept | 282 | 140 | 0 | 0 | 0 |
 | newline_sensitivity | astrogator | 282 | 9 | 7 | 50 | 74 |
 | newline_sensitivity | astrogator_configured_heuristics | 277 | 0 | 12 | 59 | 74 |
-| newline_sensitivity | judge | 277 | 122 | 13 | 10 | 0 |
+| newline_sensitivity | Qwen 2.5 1.5B judge | 277 | 122 | 13 | 10 | 0 |
 | newline_sensitivity | gpt6 | 283 | 3 | 7 | 129 | 0 |
 | newline_sensitivity | opus55 | 289 | 1 | 1 | 131 | 0 |
 | newline_sensitivity | always_accept | 290 | 132 | 0 | 0 | 0 |

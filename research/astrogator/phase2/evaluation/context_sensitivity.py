@@ -42,7 +42,7 @@ def main():
            'The same 86 identity-selected programs are judged with and without explicit execution-environment context. This subset is nested within the 422-program primary cohort. Each condition has one fresh call, so changes cannot be attributed solely to context rather than sampling variation.','',
            '| Original local labels: method/condition | Accept pass | Accept fail | Reject pass | Reject fail | Unavailable |',
            '|---|---:|---:|---:|---:|---:|']
-    for m,s in result['metrics']['original'].items():lines.append(f"| {m} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
+    for m,s in result['metrics']['original'].items():lines.append(f"| {('Qwen 2.5 1.5B judge' if m == 'judge' else m)} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
     lines+=['','Paired discordances, every changed identity, and revised-oracle label sensitivities are in context-sensitivity.json.']
     (HERE/'CONTEXT-SENSITIVITY.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps({'programs':86,'transitions':result['decision_transitions']},indent=2))

@@ -160,7 +160,7 @@ def main():
              '| Method | Decisions / 422 | Failed among accepted | Failures rejected / 139 | Failing programs unavailable | Passing programs rejected / 283 |',
              '|---|---:|---:|---:|---:|---:|']
     for m,s in result['methods'].items():
-        lines.append(f"| {m} | {s['n']-s['unavailable_pass']-s['unavailable_fail']} | {s['accepted_fail']} / {s['accepted_pass']+s['accepted_fail']} | {s['rejected_fail']} | {s['unavailable_fail']} | {s['rejected_pass']} |")
+        lines.append(f"| {('Qwen 2.5 1.5B judge' if m == 'judge' else m)} | {s['n']-s['unavailable_pass']-s['unavailable_fail']} | {s['accepted_fail']} / {s['accepted_pass']+s['accepted_fail']} | {s['rejected_fail']} | {s['unavailable_fail']} | {s['rejected_pass']} |")
     lines += ['', '## What changes the interpretation','',
               'The 74 verifier-unavailable programs all fail the local checks. Counting only decided programs hides this concentration: base verification rejects 56/139 failures, and configured heuristics reject 65/139. Blocking unavailable programs is a valid deployment policy, but is not evidence that the verifier proved them incorrect.', '',
               'The fallback policies use the already-recorded judge only when the verifier abstains; they are deterministic retrospective compositions. They expose whether extra decision coverage introduces accepted failures. No new inference calls or tuned thresholds are involved.', '',

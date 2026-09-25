@@ -58,7 +58,7 @@ def main():
            'Ansible syntax-check uses the same processed programs and lab image, with four reference controls. Passing means only that this conventional check accepted the playbook. Verifier mode is pinned upstream default permission semantics. The second arm changes only heuristic metadata scope from all supplied distributions to Debian rows; it does not remove OS branches from verification.','',
            '| Label variant | Method | Accept pass | Accept fail | Reject pass | Reject fail | Unavailable |','|---|---|---:|---:|---:|---:|---:|']
     for variant,ms in result['metrics'].items():
-        for m,s in ms.items():lines.append(f"| {variant} | {m} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
+        for m,s in ms.items():lines.append(f"| {variant} | {('Qwen 2.5 1.5B judge' if m == 'judge' else m)} | {s['accepted_pass']} | {s['accepted_fail']} | {s['rejected_pass']} | {s['rejected_fail']} | {s['unavailable_pass']+s['unavailable_fail']} |")
     if complete['debian_metadata_heuristics']:
         lines+=['',f"Metadata-only changes: {len(result['changed_by_debian_metadata'])}. Identities and directions are in additional-baselines.json."]
     (HERE/'ADDITIONAL-BASELINES.md').write_text('\n'.join(lines)+'\n')

@@ -6,7 +6,7 @@ This is a reanalysis of the frozen 422-program, four-task development study, not
 |---|---:|---:|---:|---:|---:|
 | astrogator | 348 | 9 / 291 | 56 | 74 | 1 |
 | astrogator_configured_heuristics | 348 | 0 / 277 | 65 | 74 | 6 |
-| judge | 422 | 129 / 399 | 10 | 0 | 13 |
+| Qwen 2.5 1.5B judge | 422 | 129 / 399 | 10 | 0 | 13 |
 | generated_checks_gated | 0 | 0 / 0 | 0 | 139 | 0 |
 | always_accept | 422 | 139 / 422 | 0 | 0 | 0 |
 | base_then_judge_on_abstention | 422 | 77 / 359 | 62 | 0 | 1 |
